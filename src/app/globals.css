@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap');
+
+:root {
+  --primary-color: #E94E77;
+  --cream-color: #FFF8DC;
+  --brown-color: #8B4513;
+}
+
+body {
+  background-color: var(--cream-color);
+  font-family: system-ui, sans-serif;
+}
+
+.osaka-text {
+  font-family: 'Klee One', cursive;
+  font-weight: 400;
+  color: var(--primary-color);
+}
