@@ -60,17 +60,49 @@ const Menu = () => {
           <Link href="/" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">ホーム</Link>
           
           <div className="pt-4">
-            <p className="text-white/70 text-sm px-2 mb-2">--- 日本の法律 ---</p>
-            <Link href="/law/constitution" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">日本国憲法</Link>
-            <Link href="/law/minpou" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">民法</Link>
-            <Link href="/law/shouhou" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">商法</Link>
-            <Link href="/law/keihou" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">刑法</Link>
+            <p className="text-white/70 text-sm px-2 mb-2">--- ろっぽう ---</p>
+            <Link href="/law/jp/constitution" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">日本国憲法</Link>
+            <Link href="/law/jp/minpou" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">民法</Link>
+            <Link href="/law/jp/shouhou" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">商法</Link>
+            <Link href="/law/jp/keihou" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">刑法</Link>
+            <Link href="/law/jp/minji_soshou_hou" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">民事訴訟法</Link>
+            <Link href="/law/jp/keiji_soshou_hou" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">刑事訴訟法</Link>
           </div>
 
           <div className="pt-4">
-            <p className="text-white/70 text-sm px-2 mb-2">--- 比較 ---</p>
-            <Link href="#" onClick={() => setIsOpen(false)} className="block p-2 rounded text-white/50 cursor-not-allowed">大日本帝国憲法 (準備中)</Link>
-            <Link href="#" onClick={() => setIsOpen(false)} className="block p-2 rounded text-white/50 cursor-not-allowed">ドイツ基本法 (準備中)</Link>
+            <p className="text-white/70 text-sm px-2 mb-2">--- むかしの法律 ---</p>
+            <Link href="/law/jp_old/jushichijo_kenpo" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">十七条の憲法</Link>
+            <Link href="/law/jp_old/taiho_ritsuryo" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">大宝律令</Link>
+            <Link href="/law/jp_old/goseibai_shikimoku" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">御成敗式目</Link>
+            <Link href="/law/jp_old/buke_shohatto" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">武家諸法度</Link>
+            <Link href="/law/jp_old/kinchu_kuge_shohatto" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">禁中並公家諸法度</Link>
+            <Link href="/law/jp_old/meiji_kenpo" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">大日本帝国憲法</Link>
+          </div>
+
+          <div className="pt-4">
+            <p className="text-white/70 text-sm px-2 mb-2">--- がいこくの法律 ---</p>
+            <Link href="/law/foreign/german_basic_law" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">ドイツ基本法</Link>
+            <Link href="/law/foreign/us_constitution" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">アメリカ合衆国憲法</Link>
+            <Link href="/law/foreign/prc_constitution" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">中華人民共和国憲法</Link>
+          </div>
+
+          <div className="pt-4">
+            <p className="text-white/70 text-sm px-2 mb-2">--- がいこくのむかしの法律 ---</p>
+            <Link href="/law/foreign_old/hammurabi_code" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">ハンムラビ法典</Link>
+            <Link href="/law/foreign_old/magna_carta" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">マグナ・カルタ</Link>
+            <Link href="/law/foreign_old/napoleonic_code" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">ナポレオン法典</Link>
+          </div>
+
+          <div className="pt-4">
+            <p className="text-white/70 text-sm px-2 mb-2">--- 国際条約 ---</p>
+            <Link href="/law/treaty/antarctic_treaty" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">南極条約</Link>
+            <Link href="/law/treaty/ramsar_convention" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">ラムサール条約</Link>
+            <Link href="/law/treaty/un_charter" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">国際連合憲章</Link>
+            <Link href="/law/treaty/npt" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">核拡散防止条約</Link>
+            <Link href="/law/treaty/outer_space_treaty" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">宇宙条約</Link>
+            <Link href="/law/treaty/universal_postal_convention" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">万国郵便条約</Link>
+            <Link href="/law/treaty/olympic_charter" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">オリンピック憲章</Link>
+            <Link href="/law/treaty/extradition_treaty" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">犯罪人引渡し条約</Link>
           </div>
         </nav>
       </div>
