@@ -37,7 +37,11 @@ export async function GET(
         
         // タイトルが空文字の場合は条文番号を使用
         const title = data.title || `第${articleId}条`
-        return { article: articleId, title: title }
+        return { 
+          article: articleId, 
+          title: title,
+          titleOsaka: data.titleOsaka || title
+        }
       })
     )
 
