@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import lawsMetadata from '@/data/laws-metadata.json';
-import { ShareButton } from './components/ShareButton';
+import { ShareButton } from '@/app/components/ShareButton';
 
 export default function Home() {
   const lawCategories = lawsMetadata.categories.map(category => ({

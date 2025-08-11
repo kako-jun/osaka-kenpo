@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { LAW_CATEGORIES } from '@/lib/types'
 import type { LawInfo } from '@/lib/types'
+import { KasugaLoading } from '@/app/components/KasugaLoading'
 
 const LawCategoryPage = () => {
   const params = useParams<{ law_category: string }>()
@@ -49,9 +50,7 @@ const LawCategoryPage = () => {
   }, [law_category])
 
   if (loading) {
-    return (
-      <div className="text-center text-primary text-xl">読み込み中...</div>
-    )
+    return <KasugaLoading />
   }
 
   if (error) {
