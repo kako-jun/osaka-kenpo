@@ -4,6 +4,19 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import lawsMetadata from '@/data/laws-metadata.json';
 
+// カテゴリ別絵文字アイコンコンポーネント
+const CategoryIcon = ({ categoryId }: { categoryId: string }) => {
+  const emojiMap: { [key: string]: string } = {
+    'roppou': '⚖️',
+    'mukashi': '📜',
+    'gaikoku': '🌍',
+    'gaikoku_mukashi': '🏛️',
+    'treaty': '🤝'
+  };
+
+  return <span className="text-lg">{emojiMap[categoryId] || '📄'}</span>;
+};
+
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -92,7 +105,7 @@ const Menu = () => {
           {lawsMetadata.categories.map((category) => (
             <div key={category.id} className="space-y-1">
               <div className="flex items-center gap-2 px-3 py-2 bg-white/20 rounded-lg mb-2">
-                <span className="text-lg">{category.icon}</span>
+                <CategoryIcon categoryId={category.id} />
                 <span className="font-bold text-sm">{category.title}</span>
               </div>
               {category.laws
