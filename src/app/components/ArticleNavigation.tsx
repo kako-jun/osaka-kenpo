@@ -18,7 +18,7 @@ export const ArticleNavigation = ({
   lawName 
 }: ArticleNavigationProps) => {
   const router = useRouter()
-  const [articleCount, setArticleCount] = useState<number>(1) // デフォルト値を1に変更
+  const [articleCount, setArticleCount] = useState<number>(1)
   const [showArticlePopup, setShowArticlePopup] = useState<boolean>(false)
 
   // APIから条文数を動的に取得
