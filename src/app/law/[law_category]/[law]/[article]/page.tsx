@@ -12,6 +12,7 @@ import { LikeButton } from '@/app/components/LikeButton'
 import { ArticleNavigation } from '@/app/components/ArticleNavigation'
 import { AnimatedContent } from '@/app/components/AnimatedContent'
 import { KasugaLoading } from '@/app/components/KasugaLoading'
+import { highlightKeywords } from '@/lib/text-highlight'
 import type { ArticleData } from '@/lib/types'
 
 export default function ArticlePage() {
@@ -251,7 +252,7 @@ export default function ArticlePage() {
                 <div className="text-lg leading-relaxed">
                   <div className="text-gray-800" style={{ color: 'var(--primary-color)' }}>
                     {articleData.osaka.split('\n').map((line, index) => (
-                      <p key={index} className="mb-3">{line}</p>
+                      <p key={index} className="mb-3">{highlightKeywords(line)}</p>
                     ))}
                   </div>
                 </div>
@@ -274,8 +275,12 @@ export default function ArticlePage() {
             title="クリックまたはスペースキーで表示を切り替え"
           >
             {/* 解説アイコン */}
-            <div className="absolute -top-4 left-6 bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center">
-              <span className="text-sm font-bold">💡</span>
+            <div className="absolute -top-4 left-6 bg-red-500 rounded-full w-8 h-8 flex items-center justify-center">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 21C9 21.5523 9.44772 22 10 22H14C14.5523 22 15 21.5523 15 21V20H9V21Z" fill="#9CA3AF"/>
+                <path d="M12 2C8.13401 2 5 5.13401 5 9C5 11.3869 6.33193 13.4617 8.27344 14.5547C8.27344 14.5547 9 15.5 9 17H15C15 15.5 15.7266 14.5547 15.7266 14.5547C17.6681 13.4617 19 11.3869 19 9C19 5.13401 15.866 2 12 2Z" fill="#FCD34D"/>
+                <path d="M9 18H15V19H9V18Z" fill="#9CA3AF"/>
+              </svg>
             </div>
             
             <div className="p-4">
@@ -298,7 +303,7 @@ export default function ArticlePage() {
                   <div className="leading-relaxed">
                     <div className="text-gray-700" style={{ color: 'var(--primary-color)' }}>
                       {(articleData.commentaryOsaka || articleData.commentary).split('\n').map((line, index) => (
-                        <p key={index} className="mb-3">{line}</p>
+                        <p key={index} className="mb-3">{highlightKeywords(line)}</p>
                       ))}
                     </div>
                   </div>
