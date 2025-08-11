@@ -1,8 +1,7 @@
-'use client';
+'use client'
 
-import { createContext, useState, useContext, ReactNode } from 'react';
-
-type ViewMode = 'osaka' | 'original';
+import { createContext, useState, useContext, ReactNode } from 'react'
+import type { ViewMode } from '../../lib/types'
 
 interface ViewModeContextType {
   viewMode: ViewMode;
