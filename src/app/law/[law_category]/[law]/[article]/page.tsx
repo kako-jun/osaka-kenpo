@@ -3,9 +3,9 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import { useViewMode } from '../../../../context/ViewModeContext'
-import { getLawName } from '../../../../../lib/law-mappings'
-import { generateBreadcrumbs } from '../../../../../lib/utils'
-import type { ArticleData } from '../../../../../lib/types'
+import { getLawName } from '@/lib/law-mappings'
+import { generateBreadcrumbs } from '@/lib/utils'
+import type { ArticleData } from '@/lib/types'
 
 export default function ArticlePage() {
   const params = useParams<{ law_category: string; law: string; article: string }>()
