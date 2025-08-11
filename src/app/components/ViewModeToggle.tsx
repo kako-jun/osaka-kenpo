@@ -20,7 +20,7 @@ const ViewModeToggle = () => {
 
         {/* Text Labels */}
         <div className="relative z-10 w-1/2 text-center text-xs font-bold" onClick={() => setViewMode('osaka')}>
-          <span className={isOsaka ? 'text-white' : 'text-gray-600'}>大阪弁</span>
+          <span className={isOsaka ? 'text-white' : 'text-gray-600'}>おおさか</span>
         </div>
         <div className="relative z-10 w-1/2 text-center text-xs font-bold" onClick={() => setViewMode('original')}>
           <span className={!isOsaka ? 'text-white' : 'text-gray-600'}>原文</span>
