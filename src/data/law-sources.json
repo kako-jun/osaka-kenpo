@@ -1,0 +1,45 @@
+{
+  "sources": {
+    "jushichijo_kenpo": {
+      "name": "十七条憲法",
+      "source": "日本書紀",
+      "description": "『日本書紀』推古天皇十二年（604年）の条に記載",
+      "links": [
+        {
+          "text": "国立国会図書館デジタルコレクション - 日本書紀",
+          "url": "https://dl.ndl.go.jp/info:ndljp/pid/2541983"
+        },
+        {
+          "text": "e-Gov法令検索（参考）",
+          "url": "https://elaws.e-gov.go.jp/"
+        }
+      ]
+    },
+    "constitution": {
+      "name": "日本国憲法",
+      "source": "官報",
+      "description": "昭和21年（1946年）11月3日公布、昭和22年（1947年）5月3日施行",
+      "links": [
+        {
+          "text": "e-Gov法令検索 - 日本国憲法",
+          "url": "https://elaws.e-gov.go.jp/document?lawid=321CONSTITUTION"
+        },
+        {
+          "text": "国立国会図書館 - 日本国憲法の誕生",
+          "url": "https://www.ndl.go.jp/constitution/"
+        }
+      ]
+    },
+    "meiji_kenpo": {
+      "name": "大日本帝国憲法",
+      "source": "官報",
+      "description": "明治22年（1889年）2月11日発布、明治23年（1890年）11月29日施行",
+      "links": [
+        {
+          "text": "国立国会図書館デジタルコレクション - 大日本帝国憲法",
+          "url": "https://dl.ndl.go.jp/info:ndljp/pid/787417"
+        }
+      ]
+    }
+  }
+}

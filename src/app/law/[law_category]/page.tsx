@@ -72,7 +72,7 @@ const LawCategoryPage = () => {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-6 text-center">{categoryTitle}</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center text-[#E94E77]">{categoryTitle}</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {laws.map(law => (
           <Link key={law.slug} href={`/law/${law_category}/${law.slug}`} passHref className="block">

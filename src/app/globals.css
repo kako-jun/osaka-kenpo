@@ -28,3 +28,14 @@ body {
   font-weight: 400;
   color: var(--primary-color);
 }
+
+/* ルビ表示の改善 */
+ruby {
+  ruby-align: center;
+}
+
+ruby rt {
+  font-size: 0.6em;
+  color: #666;
+  font-weight: normal;
+}

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import lawsMetadata from '@/data/laws-metadata.json';
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,9 +22,13 @@ const Menu = () => {
   return (
     <div>
       {/* Hamburger Button */}
-      <button onClick={() => setIsOpen(!isOpen)} className="absolute top-4 left-4 z-30">
+      <button 
+        onClick={() => setIsOpen(!isOpen)} 
+        className="absolute top-4 left-4 z-30 p-2 rounded-lg hover:bg-white/20 transition-colors"
+        aria-label="メニューを開く"
+      >
         <svg
-          className="w-8 h-8 text-white"
+          className="w-6 h-6 text-white"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -31,7 +36,7 @@ const Menu = () => {
           viewBox="0 0 24 24"
           stroke="currentColor"
         >
-          <path d="M4 6h16M4 12h16m-7 6h7"></path>
+          <path d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
 
@@ -45,65 +50,59 @@ const Menu = () => {
 
       {/* Menu Panel */}
       <div
-        className={`fixed top-0 left-0 w-64 h-full bg-[#E94E77] text-white z-30 transform transition-transform ${
+        className={`fixed top-0 left-0 w-72 h-full bg-gradient-to-b from-[#E94E77] to-[#d63d66] text-white z-30 transform transition-transform overflow-hidden ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         {/* Close Button Inside Menu */}
-        <button onClick={() => setIsOpen(false)} className="absolute top-4 right-4">
-            <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        {/* メニュー上部の横長クリックエリア */}
+        <div 
+          className="absolute top-0 left-0 w-full h-16 z-40 cursor-pointer"
+          onClick={() => setIsOpen(false)}
+          aria-label="メニューを閉じる"
+        ></div>
+        
+        <button 
+          onClick={() => setIsOpen(false)} 
+          className="absolute top-4 right-4 p-2 rounded-lg hover:bg-white/20 transition-colors z-40"
+          aria-label="メニューを閉じる"
+        >
+            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
         </button>
         
-        <nav className="mt-16 text-lg space-y-2 p-4 text-left">
-          <Link href="/" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">ホーム</Link>
+        <nav className="mt-16 text-lg space-y-4 p-4 text-left h-full overflow-y-auto pb-20">
+          <Link href="/" onClick={() => setIsOpen(false)} className="block p-3 rounded-lg hover:bg-white/10 transition-colors font-bold">
+            🏠 ホーム
+          </Link>
           
-          <div className="pt-4">
-            <p className="text-white/70 text-sm px-2 mb-2">--- ろっぽう ---</p>
-            <Link href="/law/jp/constitution" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">日本国憲法</Link>
-            <Link href="/law/jp/minpou" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">民法</Link>
-            <Link href="/law/jp/shouhou" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">商法</Link>
-            <Link href="/law/jp/keihou" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">刑法</Link>
-            <Link href="/law/jp/minji_soshou_hou" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">民事訴訟法</Link>
-            <Link href="/law/jp/keiji_soshou_hou" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">刑事訴訟法</Link>
-          </div>
-
-          <div className="pt-4">
-            <p className="text-white/70 text-sm px-2 mb-2">--- むかしの法律 ---</p>
-            <Link href="/law/jp_old/jushichijo_kenpo" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">十七条の憲法</Link>
-            <Link href="/law/jp_old/taiho_ritsuryo" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">大宝律令</Link>
-            <Link href="/law/jp_old/goseibai_shikimoku" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">御成敗式目</Link>
-            <Link href="/law/jp_old/buke_shohatto" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">武家諸法度</Link>
-            <Link href="/law/jp_old/kinchu_kuge_shohatto" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">禁中並公家諸法度</Link>
-            <Link href="/law/jp_old/meiji_kenpo" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">大日本帝国憲法</Link>
-          </div>
-
-          <div className="pt-4">
-            <p className="text-white/70 text-sm px-2 mb-2">--- がいこくの法律 ---</p>
-            <Link href="/law/foreign/german_basic_law" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">ドイツ基本法</Link>
-            <Link href="/law/foreign/us_constitution" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">アメリカ合衆国憲法</Link>
-            <Link href="/law/foreign/prc_constitution" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">中華人民共和国憲法</Link>
-          </div>
-
-          <div className="pt-4">
-            <p className="text-white/70 text-sm px-2 mb-2">--- がいこくのむかしの法律 ---</p>
-            <Link href="/law/foreign_old/hammurabi_code" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">ハンムラビ法典</Link>
-            <Link href="/law/foreign_old/magna_carta" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">マグナ・カルタ</Link>
-            <Link href="/law/foreign_old/napoleonic_code" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">ナポレオン法典</Link>
-          </div>
-
-          <div className="pt-4">
-            <p className="text-white/70 text-sm px-2 mb-2">--- 国際条約 ---</p>
-            <Link href="/law/treaty/antarctic_treaty" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">南極条約</Link>
-            <Link href="/law/treaty/ramsar_convention" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">ラムサール条約</Link>
-            <Link href="/law/treaty/un_charter" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">国際連合憲章</Link>
-            <Link href="/law/treaty/npt" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">核拡散防止条約</Link>
-            <Link href="/law/treaty/outer_space_treaty" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">宇宙条約</Link>
-            <Link href="/law/treaty/universal_postal_convention" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">万国郵便条約</Link>
-            <Link href="/law/treaty/olympic_charter" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">オリンピック憲章</Link>
-            <Link href="/law/treaty/extradition_treaty" onClick={() => setIsOpen(false)} className="block p-2 rounded hover:bg-white/20">犯罪人引渡し条約</Link>
-          </div>
+          {lawsMetadata.categories.map((category) => (
+            <div key={category.id} className="space-y-1">
+              <div className="flex items-center gap-2 px-3 py-2 bg-white/10 rounded-lg mb-2">
+                <span className="text-lg">{category.icon}</span>
+                <span className="font-bold text-sm">{category.title}</span>
+              </div>
+              {category.laws
+                .sort((a, b) => a.year - b.year)
+                .map((law) => (
+                  <Link 
+                    key={law.path}
+                    href={law.path} 
+                    onClick={() => setIsOpen(false)} 
+                    className="block pl-6 pr-3 py-2 rounded-lg hover:bg-white/10 transition-colors text-sm"
+                  >
+                    {law.year && law.year > 0 && (
+                      <span className="text-xs text-white/60">{law.year}年</span>
+                    )}
+                    {law.year && law.year < 0 && (
+                      <span className="text-xs text-white/60">{law.year}年</span>
+                    )}
+                    {' '}{law.name}
+                  </Link>
+                ))}
+            </div>
+          ))}
         </nav>
       </div>
     </div>

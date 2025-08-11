@@ -13,6 +13,22 @@
    npm run dev
    ```
 
+## 既存条文の見直し手順
+
+**優先実施**: 既存条文のガイドライン準拠チェックを最初に行ってください。
+
+### 見直し対象の確認
+1. 原文が信頼できる原典から取得されているか（`.claude/source-guidelines.md`参照）
+2. 大阪弁翻訳が春日歩先生の口調になっているか（`.claude/kasuga-ayumu-style.md`参照）
+3. 解説が教育的で親しみやすい内容になっているか
+
+### 見直し手順
+1. 既存JSONファイルを開く
+2. 各フィールドをガイドラインと照合
+3. 必要に応じて原典調査からやり直し
+4. 大阪弁翻訳・解説を大阪先生風に修正
+5. 品質チェック後にファイル更新
+
 ## 新しい条文追加手順
 
 ### Step 1: データファイルの作成
@@ -25,6 +41,9 @@
 ```bash
 # 例：十七条憲法の第2条を追加する場合
 touch src/data/laws/jp_old/jushichijo_kenpo/2.json
+
+# 既存条文の見直し・修正の場合
+# ファイルは既に存在するため、内容を直接編集
 ```
 
 #### 1.3 JSONデータの記述
@@ -42,9 +61,14 @@ touch src/data/laws/jp_old/jushichijo_kenpo/2.json
 **記述時の注意点**：
 - `article`: 条文番号（数値）
 - `title`: 条文のタイトル
-- `original`: 改行は `\\n` でエスケープ
-- `osaka`: 春日歩風の親しみやすい大阪弁
+- `original`: 改行は `\\n` でエスケープ。`.claude/source-guidelines.md` に従って信頼できる原典から取得
+- `osaka`: `.claude/kasuga-ayumu-style.md` に従った大阪先生風翻訳
 - `commentary`: 歴史的背景や意義を大阪弁で解説
+
+**ガイドライン遵守チェック**：
+1. 原文が `.claude/source-guidelines.md` の原典取得基準を満たしているか
+2. 大阪弁翻訳が `.claude/kasuga-ayumu-style.md` の春日歩先生の口調になっているか
+3. 解説が教育的で親しみやすい内容になっているか
 
 ### Step 2: UI対応確認
 
