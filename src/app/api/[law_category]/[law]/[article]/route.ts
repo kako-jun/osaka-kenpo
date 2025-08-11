@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server'
 import path from 'path'
 import fs from 'fs/promises'
-import { createErrorResponse, createSuccessResponse, safeJsonParse, validateArticleData } from '../../../../../lib/utils'
-import type { ArticleData } from '../../../../../lib/types'
+import { createErrorResponse, createSuccessResponse, safeJsonParse, validateArticleData } from '@/lib/utils'
+import type { ArticleData } from '@/lib/types'
 
 export async function GET(
   request: Request,

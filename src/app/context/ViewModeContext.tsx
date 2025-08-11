@@ -1,7 +1,7 @@
 'use client'
 
 import { createContext, useState, useContext, ReactNode } from 'react'
-import type { ViewMode } from '../../lib/types'
+import type { ViewMode } from '@/lib/types'
 
 interface ViewModeContextType {
   viewMode: ViewMode;

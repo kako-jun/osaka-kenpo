@@ -1,80 +1,57 @@
 'use client'
 
-import Link from 'next/link';
-import { useParams } from 'next/navigation';
-import { useState, useEffect } from 'react';
-
-interface ArticleSummary {
-  article: string;
-  title: string;
-}
+import Link from 'next/link'
+import { useParams } from 'next/navigation'
+import { useState, useEffect } from 'react'
+import { getLawName } from '@/lib/law-mappings'
+import type { ArticleListItem } from '@/lib/types'
 
 const LawArticlesPage = () => {
   const params = useParams<{ law_category: string; law: string }>();
-  const { law_category, law } = params;
-  const [articles, setArticles] = useState<ArticleSummary[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const { law_category, law } = params
+  const [articles, setArticles] = useState<ArticleListItem[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
-  const lawNameMapping: { [key: string]: string } = {
-    constitution: '日本国憲法',
-    minpou: '民法',
-    keihou: '刑法',
-    shouhou: '商法',
-    minji_soshou_hou: '民事訴訟法',
-    keiji_soshou_hou: '刑事訴訟法',
-    taiho_ritsuryo: '大宝律令',
-    goseibai_shikimoku: '御成敗式目',
-    buke_shohatto: '武家諸法度',
-    kinchu_kuge_shohatto: '禁中並公家諸法度',
-    jushichijo_kenpo: '十七条の憲法',
-    meiji_kenpo: '大日本帝国憲法',
-    hammurabi_code: 'ハンムラビ法典',
-    magna_carta: 'マグナ・カルタ',
-    german_basic_law: 'ドイツ基本法',
-    napoleonic_code: 'ナポレオン法典',
-    us_constitution: 'アメリカ合衆国憲法',
-    prc_constitution: '中華人民共和国憲法',
-    antarctic_treaty: '南極条約',
-    ramsar_convention: 'ラムサール条約',
-    un_charter: '国際連合憲章',
-    npt: '核拡散防止条約',
-    outer_space_treaty: '宇宙条約',
-    universal_postal_convention: '万国郵便条約',
-    olympic_charter: 'オリンピック憲章',
-    extradition_treaty: '犯罪人引渡し条約',
-  };
-
-  const lawName = lawNameMapping[law] || '不明な法律';
+  const lawName = getLawName(law)
 
   useEffect(() => {
     const fetchArticles = async () => {
-      setLoading(true);
-      setError(null);
+      setLoading(true)
+      setError(null)
       try {
-        const response = await fetch(`/api/${law_category}/${law}`);
+        const response = await fetch(`/api/${law_category}/${law}`)
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          throw new Error(`HTTP error! status: ${response.status}`)
         }
-        const data: ArticleSummary[] = await response.json();
-        setArticles(data);
+        const result = await response.json()
+        
+        // 新しいAPIレスポンス形式 { data: ArticleListItem[] } に対応
+        if (result.data && Array.isArray(result.data)) {
+          setArticles(result.data)
+        } else if (Array.isArray(result)) {
+          // 旧形式との互換性
+          setArticles(result)
+        } else {
+          throw new Error('Invalid response format')
+        }
       } catch (e: any) {
-        setError(e.message);
-        console.error("Failed to fetch articles:", e);
+        setError(e.message)
+        console.error('Failed to fetch articles:', e)
       } finally {
-        setLoading(false);
+        setLoading(false)
       }
-    };
+    }
 
     if (law_category && law) {
-      fetchArticles();
+      fetchArticles()
     }
-  }, [law_category, law]);
+  }, [law_category, law])
 
   if (loading) {
     return (
       <div className="text-center text-primary text-xl">読み込み中...</div>
-    );
+    )
   }
 
   if (error) {
@@ -82,7 +59,7 @@ const LawArticlesPage = () => {
       <div className="text-center text-red-500 text-xl">
         エラーが発生しました: {error}
       </div>
-    );
+    )
   }
 
   if (articles.length === 0) {
@@ -90,7 +67,7 @@ const LawArticlesPage = () => {
       <div className="text-center text-gray-600 text-xl">
         条文が見つかりませんでした。
       </div>
-    );
+    )
   }
 
   return (
@@ -107,7 +84,7 @@ const LawArticlesPage = () => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default LawArticlesPage;
+export default LawArticlesPage

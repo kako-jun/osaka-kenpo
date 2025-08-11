@@ -15,6 +15,14 @@ body {
   font-family: system-ui, sans-serif;
 }
 
+.bg-cream {
+  background-color: var(--cream-color);
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+
 .osaka-text {
   font-family: 'Klee One', cursive;
   font-weight: 400;

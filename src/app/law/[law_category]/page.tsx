@@ -1,58 +1,57 @@
 'use client'
 
-import Link from 'next/link';
-import { useParams } from 'next/navigation';
-import { useState, useEffect } from 'react';
-
-interface LawSummary {
-  slug: string;
-  name: string;
-}
+import Link from 'next/link'
+import { useParams } from 'next/navigation'
+import { useState, useEffect } from 'react'
+import { LAW_CATEGORIES } from '@/lib/types'
+import type { LawInfo } from '@/lib/types'
 
 const LawCategoryPage = () => {
-  const params = useParams<{ law_category: string }>();
-  const { law_category } = params;
-  const [laws, setLaws] = useState<LawSummary[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const params = useParams<{ law_category: string }>()
+  const { law_category } = params
+  const [laws, setLaws] = useState<LawInfo[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
-  const categoryNameMapping: { [key: string]: string } = {
-    jp: '日本の法律',
-    jp_old: 'むかしの法律',
-    foreign: 'がいこくの法律',
-    foreign_old: 'がいこくのむかしの法律',
-  };
-
-  const categoryTitle = categoryNameMapping[law_category] || '法律カテゴリ';
+  const categoryTitle = LAW_CATEGORIES[law_category as keyof typeof LAW_CATEGORIES] || '法律カテゴリ'
 
   useEffect(() => {
     const fetchLaws = async () => {
-      setLoading(true);
-      setError(null);
+      setLoading(true)
+      setError(null)
       try {
-        const response = await fetch(`/api/${law_category}`);
+        const response = await fetch(`/api/${law_category}`)
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          throw new Error(`HTTP error! status: ${response.status}`)
         }
-        const data: LawSummary[] = await response.json();
-        setLaws(data);
+        const result = await response.json()
+        
+        // 新しいAPIレスポンス形式に対応
+        if (result.data && Array.isArray(result.data)) {
+          setLaws(result.data)
+        } else if (Array.isArray(result)) {
+          // 旧形式との互換性
+          setLaws(result)
+        } else {
+          throw new Error('Invalid response format')
+        }
       } catch (e: any) {
-        setError(e.message);
-        console.error("Failed to fetch laws:", e);
+        setError(e.message)
+        console.error('Failed to fetch laws:', e)
       } finally {
-        setLoading(false);
+        setLoading(false)
       }
-    };
+    }
 
     if (law_category) {
-      fetchLaws();
+      fetchLaws()
     }
-  }, [law_category]);
+  }, [law_category])
 
   if (loading) {
     return (
       <div className="text-center text-primary text-xl">読み込み中...</div>
-    );
+    )
   }
 
   if (error) {
@@ -60,7 +59,7 @@ const LawCategoryPage = () => {
       <div className="text-center text-red-500 text-xl">
         エラーが発生しました: {error}
       </div>
-    );
+    )
   }
 
   if (laws.length === 0) {
@@ -68,7 +67,7 @@ const LawCategoryPage = () => {
       <div className="text-center text-gray-600 text-xl">
         法律が見つかりませんでした。
       </div>
-    );
+    )
   }
 
   return (
@@ -86,7 +85,7 @@ const LawCategoryPage = () => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default LawCategoryPage;
+export default LawCategoryPage
