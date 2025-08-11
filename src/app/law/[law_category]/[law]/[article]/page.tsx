@@ -204,7 +204,11 @@ export default function ArticlePage() {
               showOsaka={showOsaka}
               originalContent={
                 <div className="text-lg leading-relaxed">
-                  <div className="text-gray-800" dangerouslySetInnerHTML={{ __html: articleData.original }} />
+                  <div className="text-gray-800">
+                    {articleData.original.split('\n').map((line, index) => (
+                      <p key={index} className="mb-3">{line}</p>
+                    ))}
+                  </div>
                 </div>
               }
               osakaContent={

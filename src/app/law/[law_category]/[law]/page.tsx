@@ -9,6 +9,7 @@ import { ShareButton } from '../../../components/ShareButton'
 import { AnimatedContent } from '../../../components/AnimatedContent'
 import type { ArticleListItem, ArticleData } from '@/lib/types'
 import lawSources from '@/data/law-sources.json'
+import constitutionChapters from '@/data/constitution-chapters.json'
 
 const LawArticlesPage = () => {
   const params = useParams<{ law_category: string; law: string }>();
@@ -135,6 +136,22 @@ const LawArticlesPage = () => {
   }
 
   const lawSource = lawSources.sources[law as keyof typeof lawSources.sources]
+  
+  // 日本国憲法の場合は章でグループ化
+  const isConstitution = law === 'constitution'
+  let groupedArticles: { [chapterNumber: number]: { chapter: any, articles: ArticleListItem[] } } = {}
+  
+  if (isConstitution) {
+    // 章ごとにグループ化
+    constitutionChapters.chapters.forEach(chapter => {
+      groupedArticles[chapter.chapter] = {
+        chapter,
+        articles: articles.filter(article => 
+          chapter.articles.includes(Number(article.article))
+        )
+      }
+    })
+  }
 
   return (
     <div className="min-h-screen bg-cream">
@@ -149,7 +166,7 @@ const LawArticlesPage = () => {
         
         {/* 出典情報 */}
         {lawSource && (
-          <div className="max-w-4xl mx-auto mb-8 bg-white rounded-lg shadow-[0_0_15px_rgba(0,0,0,0.05)] p-6">
+          <div className="max-w-4xl mx-auto mb-8 bg-blue-50 rounded-lg shadow-[0_0_15px_rgba(0,0,0,0.05)] p-6 border border-blue-100">
             <h2 className="text-lg font-bold text-gray-800 mb-3">📚 出典・参考資料</h2>
             <div className="space-y-2 text-sm text-gray-600">
               <p><strong>出典：</strong>{lawSource.source}</p>
@@ -178,42 +195,116 @@ const LawArticlesPage = () => {
         )}
         
         <div className="max-w-4xl mx-auto">
-        {articles.map(article => {
-          const articleDetail = articlesData.find(detail => detail?.article === Number(article.article))
-          const originalTitle = articleDetail?.title || article.title
-          const osakaTitle = articleDetail?.titleOsaka || originalTitle
-          
-          return (
-            <Link key={article.article} href={`/law/${law_category}/${law}/${article.article}`}>
-              <div 
-                className="block p-6 bg-white rounded-lg shadow-[0_0_15px_rgba(0,0,0,0.05)] hover:shadow-[0_0_20px_rgba(0,0,0,0.1)] transition-shadow cursor-pointer border-l-4 border-[#E94E77] mb-4 select-none"
-                onDoubleClick={(e) => {
-                  e.preventDefault()
-                  e.stopPropagation()
-                  toggleViewMode()
-                }}
-                title="ダブルクリックまたはスペースキーで表示を切り替え"
-              >
-                <div className="flex flex-col sm:flex-row sm:items-center">
-                  <span className="font-bold text-[#E94E77] text-lg mb-2 sm:mb-0 sm:mr-4">{`第${article.article}条`}</span>
-                  <AnimatedContent
-                    showOsaka={showOsaka}
-                    originalContent={
-                      <div className="text-gray-800 text-base leading-relaxed">
-                        <span dangerouslySetInnerHTML={{ __html: originalTitle }} />
-                      </div>
-                    }
-                    osakaContent={
-                      <div className="text-gray-800 text-base leading-relaxed">
-                        <span>{osakaTitle}</span>
-                      </div>
-                    }
-                  />
-                </div>
+        {isConstitution ? (
+          // 日本国憲法の場合：章ごとに表示
+          Object.values(groupedArticles)
+            .filter(group => group.articles.length > 0)
+            .map(({ chapter, articles: chapterArticles }) => (
+            <div key={chapter.chapter} className="mb-8">
+              {/* 章のヘッダー */}
+              <div className="mb-4">
+                <AnimatedContent
+                  showOsaka={showOsaka}
+                  originalContent={
+                    <h2 className="text-xl font-bold text-[#E94E77] border-b-2 border-[#E94E77] pb-2">
+                      第{chapter.chapter}章　{chapter.title}
+                    </h2>
+                  }
+                  osakaContent={
+                    <h2 className="text-xl font-bold text-[#E94E77] border-b-2 border-[#E94E77] pb-2">
+                      第{chapter.chapter}章　{chapter.titleOsaka}
+                    </h2>
+                  }
+                />
+                <AnimatedContent
+                  showOsaka={showOsaka}
+                  originalContent={
+                    <p className="text-sm text-gray-600 mt-2">{chapter.description}</p>
+                  }
+                  osakaContent={
+                    <p className="text-sm text-gray-600 mt-2">{chapter.descriptionOsaka || chapter.description}</p>
+                  }
+                />
               </div>
-            </Link>
-          )
-        })}
+              
+              {/* 章内の条文一覧 */}
+              {chapterArticles.map(article => {
+                const articleDetail = articlesData.find(detail => detail?.article === Number(article.article))
+                const originalTitle = articleDetail?.title || article.title
+                const osakaTitle = articleDetail?.titleOsaka || originalTitle
+                
+                return (
+                  <Link key={article.article} href={`/law/${law_category}/${law}/${article.article}`}>
+                    <div 
+                      className="block p-6 bg-white rounded-lg shadow-[0_0_15px_rgba(0,0,0,0.05)] hover:shadow-[0_0_20px_rgba(0,0,0,0.1)] transition-shadow cursor-pointer border-l-4 border-[#E94E77] mb-4 select-none"
+                      onDoubleClick={(e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
+                        toggleViewMode()
+                      }}
+                      title="ダブルクリックまたはスペースキーで表示を切り替え"
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-center">
+                        <span className="font-bold text-[#E94E77] text-lg mb-2 sm:mb-0 sm:mr-4">{`第${article.article}条`}</span>
+                        <AnimatedContent
+                          showOsaka={showOsaka}
+                          originalContent={
+                            <div className="text-gray-800 text-base leading-relaxed">
+                              <span dangerouslySetInnerHTML={{ __html: originalTitle }} />
+                            </div>
+                          }
+                          osakaContent={
+                            <div className="text-gray-800 text-base leading-relaxed">
+                              <span>{osakaTitle}</span>
+                            </div>
+                          }
+                        />
+                      </div>
+                    </div>
+                  </Link>
+                )
+              })}
+            </div>
+          ))
+        ) : (
+          // その他の法律の場合：従来通りの表示
+          articles.map(article => {
+            const articleDetail = articlesData.find(detail => detail?.article === Number(article.article))
+            const originalTitle = articleDetail?.title || article.title
+            const osakaTitle = articleDetail?.titleOsaka || originalTitle
+            
+            return (
+              <Link key={article.article} href={`/law/${law_category}/${law}/${article.article}`}>
+                <div 
+                  className="block p-6 bg-white rounded-lg shadow-[0_0_15px_rgba(0,0,0,0.05)] hover:shadow-[0_0_20px_rgba(0,0,0,0.1)] transition-shadow cursor-pointer border-l-4 border-[#E94E77] mb-4 select-none"
+                  onDoubleClick={(e) => {
+                    e.preventDefault()
+                    e.stopPropagation()
+                    toggleViewMode()
+                  }}
+                  title="ダブルクリックまたはスペースキーで表示を切り替え"
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-center">
+                    <span className="font-bold text-[#E94E77] text-lg mb-2 sm:mb-0 sm:mr-4">{`第${article.article}条`}</span>
+                    <AnimatedContent
+                      showOsaka={showOsaka}
+                      originalContent={
+                        <div className="text-gray-800 text-base leading-relaxed">
+                          <span dangerouslySetInnerHTML={{ __html: originalTitle }} />
+                        </div>
+                      }
+                      osakaContent={
+                        <div className="text-gray-800 text-base leading-relaxed">
+                          <span>{osakaTitle}</span>
+                        </div>
+                      }
+                    />
+                  </div>
+                </div>
+              </Link>
+            )
+          })
+        )}
 
         {/* 操作説明 */}
         <div className="mt-8 text-center">

@@ -18,16 +18,40 @@ export const ArticleNavigation = ({
   lawName 
 }: ArticleNavigationProps) => {
   const router = useRouter()
-  const [articleCount, setArticleCount] = useState<number>(17) // 十七条憲法のデフォルト
+  const [articleCount, setArticleCount] = useState<number>(1) // デフォルト値を1に変更
   const [showArticlePopup, setShowArticlePopup] = useState<boolean>(false)
 
-  // 法律ごとの条文数を取得（必要に応じて拡張）
+  // APIから条文数を動的に取得
   useEffect(() => {
-    if (law === 'jushichijo_kenpo') {
-      setArticleCount(17)
+    const fetchArticleCount = async () => {
+      try {
+        const response = await fetch(`/api/${lawCategory}/${law}`)
+        if (response.ok) {
+          const result = await response.json()
+          const articles = result.data || result
+          if (Array.isArray(articles) && articles.length > 0) {
+            // 条文番号の最大値を取得
+            const maxArticle = Math.max(...articles.map(article => Number(article.article)))
+            setArticleCount(maxArticle)
+          }
+        }
+      } catch (error) {
+        console.error('Failed to fetch article count:', error)
+        // フォールバック: 法律ごとのデフォルト値
+        if (law === 'jushichijo_kenpo') {
+          setArticleCount(17)
+        } else if (law === 'constitution') {
+          setArticleCount(103) // 日本国憲法は103条まで
+        } else {
+          setArticleCount(1)
+        }
+      }
     }
-    // 他の法律の条文数も追加可能
-  }, [law])
+
+    if (lawCategory && law) {
+      fetchArticleCount()
+    }
+  }, [lawCategory, law])
 
   const prevArticle = currentArticle > 1 ? currentArticle - 1 : null
   const nextArticle = currentArticle < articleCount ? currentArticle + 1 : null
