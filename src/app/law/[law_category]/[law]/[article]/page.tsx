@@ -8,6 +8,7 @@ import { getLawName } from '@/lib/law-mappings'
 import { generateBreadcrumbs } from '@/lib/utils'
 import { SpeakerButton } from '@/components/SpeakerButton'
 import { ShareButton } from '@/app/components/ShareButton'
+import { LikeButton } from '@/app/components/LikeButton'
 import { ArticleNavigation } from '@/app/components/ArticleNavigation'
 import { AnimatedContent } from '@/app/components/AnimatedContent'
 import type { ArticleData } from '@/lib/types'
@@ -143,7 +144,16 @@ export default function ArticlePage() {
 
   return (
     <main className="min-h-screen bg-cream relative">
-      {/* 右上にシェアボタン */}
+      {/* 左上にええやんボタン */}
+      <div className="fixed top-20 left-4 z-10">
+        <LikeButton 
+          articleId={params.article}
+          lawCategory={params.law_category}
+          law={params.law}
+        />
+      </div>
+
+      {/* 右上に広めたるボタン */}
       <div className="fixed top-20 right-4 z-10">
         <ShareButton 
           title={`${lawName} 第${articleData.article}条 ${showOsaka ? (articleData.titleOsaka || articleData.title) : articleData.title}`}
