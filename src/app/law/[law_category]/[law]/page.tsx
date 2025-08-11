@@ -232,17 +232,17 @@ const LawArticlesPage = () => {
                     >
                       <div className="flex flex-col sm:flex-row sm:items-center">
                         <span className="font-bold text-[#E94E77] text-lg mb-2 sm:mb-0 sm:mr-4">{`第${article.article}条`}</span>
-{(originalTitle || osakaTitle) && (
+                        {(originalTitle && originalTitle.trim() !== '') && (
                           <AnimatedContent
                             showOsaka={showOsaka}
                             originalContent={
                               <div className="text-gray-800 text-base leading-relaxed">
-                                {originalTitle && <span dangerouslySetInnerHTML={{ __html: originalTitle }} />}
+                                <span dangerouslySetInnerHTML={{ __html: originalTitle }} />
                               </div>
                             }
                             osakaContent={
                               <div className="text-gray-800 text-base leading-relaxed">
-                                {osakaTitle && <span>{osakaTitle}</span>}
+                                <span>{osakaTitle || originalTitle}</span>
                               </div>
                             }
                           />
@@ -291,17 +291,17 @@ const LawArticlesPage = () => {
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center">
                     <span className="font-bold text-[#E94E77] text-lg mb-2 sm:mb-0 sm:mr-4">{`第${article.article}条`}</span>
-{(originalTitle || osakaTitle) && (
+                    {(originalTitle && originalTitle.trim() !== '') && (
                       <AnimatedContent
                         showOsaka={showOsaka}
                         originalContent={
                           <div className="text-gray-800 text-base leading-relaxed">
-                            {originalTitle && <span dangerouslySetInnerHTML={{ __html: originalTitle }} />}
+                            <span dangerouslySetInnerHTML={{ __html: originalTitle }} />
                           </div>
                         }
                         osakaContent={
                           <div className="text-gray-800 text-base leading-relaxed">
-                            {osakaTitle && <span>{osakaTitle}</span>}
+                            <span>{osakaTitle || originalTitle}</span>
                           </div>
                         }
                       />

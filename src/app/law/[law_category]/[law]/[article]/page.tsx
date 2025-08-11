@@ -285,7 +285,9 @@ export default function ArticlePage() {
             
             <div className="p-4">
               <h3 className="text-lg font-bold text-red-600 mb-3 flex items-center">
-                <span className="mr-2">💬</span>
+                <svg className="mr-2" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 12h.01M12 12h.01M16 12h.01M3 12c0 4.418 4.03 8 9 8a9.863 9.863 0 004.255-.949L21 20l-1.395-3.72C20.488 15.042 21 13.574 21 12c0-4.418-4.03-8-9-8s-9 3.582-9 8z" stroke="#DC2626" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                </svg>
                 ワンポイント解説
               </h3>
               <AnimatedContent
