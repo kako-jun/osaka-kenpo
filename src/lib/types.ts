@@ -21,6 +21,7 @@ export interface LawInfo {
 export interface ArticleListItem {
   article: string
   title: string
+  titleOsaka?: string
 }
 
 export interface LawCategory {

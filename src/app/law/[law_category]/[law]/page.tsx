@@ -8,7 +8,7 @@ import { useViewMode } from '@/app/context/ViewModeContext'
 import { ShareButton } from '@/app/components/ShareButton'
 import { AnimatedContent } from '@/app/components/AnimatedContent'
 import { KasugaLoading } from '@/app/components/KasugaLoading'
-import type { ArticleListItem, ArticleData } from '@/lib/types'
+import type { ArticleListItem } from '@/lib/types'
 import lawSources from '@/data/law-sources.json'
 import constitutionChapters from '@/data/constitution-chapters.json'
 import famousArticles from '@/data/famous-articles.json'
@@ -18,7 +18,6 @@ const LawArticlesPage = () => {
   const { law_category, law } = params
   const { viewMode, setViewMode } = useViewMode()
   const [articles, setArticles] = useState<ArticleListItem[]>([])
-  const [articlesData, setArticlesData] = useState<ArticleData[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -68,23 +67,6 @@ const LawArticlesPage = () => {
         }
         
         setArticles(articleList)
-        
-        // 各条文の詳細データを取得
-        const detailPromises = articleList.map(async (article) => {
-          try {
-            const detailResponse = await fetch(`/api/${law_category}/${law}/${article.article}`)
-            if (detailResponse.ok) {
-              const detailResult = await detailResponse.json()
-              return detailResult.data || detailResult
-            }
-          } catch (e) {
-            console.error(`Failed to fetch article ${article.article}:`, e)
-          }
-          return null
-        })
-        
-        const articlesDetails = await Promise.all(detailPromises)
-        setArticlesData(articlesDetails.filter(Boolean))
         
       } catch (e: any) {
         setError(e.message)
@@ -231,9 +213,8 @@ const LawArticlesPage = () => {
               
               {/* 章内の条文一覧 */}
               {chapterArticles.map(article => {
-                const articleDetail = articlesData.find(detail => detail?.article === Number(article.article))
-                const originalTitle = articleDetail?.title !== undefined ? articleDetail.title : article.title
-                const osakaTitle = articleDetail?.titleOsaka !== undefined ? articleDetail.titleOsaka : originalTitle
+                const originalTitle = article.title
+                const osakaTitle = article.titleOsaka || originalTitle
                 
                 // 有名な条文のバッジ情報を取得
                 const famousArticleData = famousArticles[law]?.[article.article.toString()]
@@ -291,9 +272,8 @@ const LawArticlesPage = () => {
         ) : (
           // その他の法律の場合：従来通りの表示
           articles.map(article => {
-            const articleDetail = articlesData.find(detail => detail?.article === Number(article.article))
-            const originalTitle = articleDetail?.title !== undefined ? articleDetail.title : article.title
-            const osakaTitle = articleDetail?.titleOsaka !== undefined ? articleDetail.titleOsaka : originalTitle
+            const originalTitle = article.title
+            const osakaTitle = article.titleOsaka || originalTitle
             
             // 有名な条文のバッジ情報を取得
             const famousArticleData = famousArticles[law]?.[article.article.toString()]
