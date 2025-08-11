@@ -8,15 +8,36 @@ import { generateBreadcrumbs } from '@/lib/utils'
 import { SpeakerButton } from '@/components/SpeakerButton'
 import { ShareButton } from '@/app/components/ShareButton'
 import { ArticleNavigation } from '@/app/components/ArticleNavigation'
+import { AnimatedContent } from '@/app/components/AnimatedContent'
 import type { ArticleData } from '@/lib/types'
 
 export default function ArticlePage() {
   const params = useParams<{ law_category: string; law: string; article: string }>()
-  const { viewMode } = useViewMode(); // Global state
+  const { viewMode, setViewMode } = useViewMode(); // Global state
   const [articleData, setArticleData] = useState<ArticleData | null>(null)
   const [loading, setLoading] = useState(true)
 
   const lawName = getLawName(params.law)
+
+  // 表示モード切り替え関数
+  const toggleViewMode = () => {
+    setViewMode(viewMode === 'osaka' ? 'original' : 'osaka')
+  }
+
+  // キーボードショートカット（スペースキー）
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      // フォーカス中の要素が入力欄等でない場合のみ
+      if (event.code === 'Space' && 
+          !['INPUT', 'TEXTAREA', 'SELECT'].includes((event.target as HTMLElement)?.tagName)) {
+        event.preventDefault()
+        toggleViewMode()
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [viewMode, setViewMode])
 
   useEffect(() => {
     const loadArticle = async () => {
@@ -78,14 +99,21 @@ export default function ArticlePage() {
       <div className="container mx-auto px-4 py-8">
         <header className="text-center mb-4 relative">
           <div className="text-lg text-gray-600 mb-2">{lawName}</div>
-          <h1 className="text-3xl font-bold mb-6">
-            <span className="text-[#E94E77]">第{articleData.article}条 </span>
-            {showOsaka ? (
-              <span className="text-gray-800">{articleData.titleOsaka || articleData.title}</span>
-            ) : (
-              <span className="text-gray-800" dangerouslySetInnerHTML={{ __html: articleData.title }} />
-            )}
-          </h1>
+          <AnimatedContent
+            showOsaka={showOsaka}
+            originalContent={
+              <h1 className="text-3xl font-bold mb-6">
+                <span className="text-[#E94E77]">第{articleData.article}条 </span>
+                <span className="text-gray-800" dangerouslySetInnerHTML={{ __html: articleData.title }} />
+              </h1>
+            }
+            osakaContent={
+              <h1 className="text-3xl font-bold mb-6">
+                <span className="text-[#E94E77]">第{articleData.article}条 </span>
+                <span className="text-gray-800">{articleData.titleOsaka || articleData.title}</span>
+              </h1>
+            }
+          />
           
           {/* 右上にシェアボタン */}
           <div className="absolute top-0 right-0">
@@ -107,22 +135,29 @@ export default function ArticlePage() {
           </div>
 
           {/* 条文表示 */}
-          <div className="bg-white rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.08)] p-8 mb-8 relative">
-            <div className={`text-lg leading-relaxed ${
-              showOsaka ? 'osaka-text text-primary' : 'text-gray-800'
-            }`}>
-              {showOsaka ? (
-                articleData.osaka.split('\n').map((line, index) => (
-                  <p key={index} className="mb-3">{line}</p>
-                ))
-              ) : (
-                // 原文表示：ルビ対応
-                <div 
-                  dangerouslySetInnerHTML={{ __html: articleData.original }} 
-                  className="mb-3"
-                />
-              )}
-            </div>
+          <div 
+            className="bg-white rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.08)] p-8 mb-8 relative cursor-pointer select-none"
+            onDoubleClick={toggleViewMode}
+            title="ダブルクリックまたはスペースキーで表示を切り替え"
+          >
+            <AnimatedContent
+              showOsaka={showOsaka}
+              originalContent={
+                <div className="text-lg leading-relaxed text-gray-800">
+                  <div 
+                    dangerouslySetInnerHTML={{ __html: articleData.original }} 
+                    className="mb-3"
+                  />
+                </div>
+              }
+              osakaContent={
+                <div className="text-lg leading-relaxed osaka-text text-primary">
+                  {articleData.osaka.split('\n').map((line, index) => (
+                    <p key={index} className="mb-3">{line}</p>
+                  ))}
+                </div>
+              }
+            />
             
             {/* 条文用スピーカーボタン */}
             <div className="absolute bottom-4 right-4">
@@ -134,7 +169,11 @@ export default function ArticlePage() {
           </div>
 
           {/* 解説 */}
-          <div className="bg-white rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.08)] p-6 border-2 border-red-400 relative">
+          <div 
+            className="bg-white rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.08)] p-6 border-2 border-red-400 relative cursor-pointer select-none"
+            onDoubleClick={toggleViewMode}
+            title="ダブルクリックまたはスペースキーで表示を切り替え"
+          >
             {/* 解説アイコン */}
             <div className="absolute -top-4 left-6 bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center">
               <span className="text-sm font-bold">💡</span>
@@ -145,21 +184,23 @@ export default function ArticlePage() {
                 <span className="mr-2">💬</span>
                 ワンポイント解説
               </h3>
-              <div className={`text-gray-700 leading-relaxed ${
-                showOsaka ? 'osaka-text' : ''
-              }`}>
-              {showOsaka ? (
-                // 大阪弁モード：commentaryOsaka (大阪弁) または commentary のフォールバック
-                (articleData.commentaryOsaka || articleData.commentary).split('\n').map((line, index) => (
-                  <p key={index} className="mb-3">{line}</p>
-                ))
-              ) : (
-                // 原文モード：commentary (標準語)
-                articleData.commentary.split('\n').map((line, index) => (
-                  <p key={index} className="mb-3">{line}</p>
-                ))
-              )}
-              </div>
+              <AnimatedContent
+                showOsaka={showOsaka}
+                originalContent={
+                  <div className="text-gray-700 leading-relaxed">
+                    {articleData.commentary.split('\n').map((line, index) => (
+                      <p key={index} className="mb-3">{line}</p>
+                    ))}
+                  </div>
+                }
+                osakaContent={
+                  <div className="text-gray-700 leading-relaxed osaka-text">
+                    {(articleData.commentaryOsaka || articleData.commentary).split('\n').map((line, index) => (
+                      <p key={index} className="mb-3">{line}</p>
+                    ))}
+                  </div>
+                }
+              />
             </div>
             
             {/* 解説用スピーカーボタン */}
@@ -168,6 +209,15 @@ export default function ArticlePage() {
                 text={showOsaka ? (articleData.commentaryOsaka || articleData.commentary) : articleData.commentary}
                 voice={showOsaka ? 'female' : 'male'}
               />
+            </div>
+          </div>
+
+          {/* 操作説明 */}
+          <div className="mt-8 text-center">
+            <p className="text-sm text-gray-500 mb-2">簡単切り替え操作</p>
+            <div className="flex flex-wrap justify-center gap-4 text-xs text-gray-400">
+              <span>📱 ダブルタップ</span>
+              <span>⌨️ スペース</span>
             </div>
           </div>
         </div>
