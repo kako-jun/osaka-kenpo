@@ -17,16 +17,45 @@ export const ShareButton = ({ title, url }: ShareButtonProps) => {
   const shareText = `${cleanTitle} - おおさかけんぽう`
 
   const handleCopyLink = async () => {
-    if (typeof navigator !== 'undefined' && navigator.clipboard) {
-      try {
+    try {
+      if (typeof navigator !== 'undefined' && navigator.clipboard && navigator.clipboard.writeText) {
         await navigator.clipboard.writeText(currentUrl)
         setCopied(true)
-        setTimeout(() => setCopied(false), 2000)
-      } catch (err) {
-        console.error('コピーに失敗しました:', err)
+        setTimeout(() => {
+          setCopied(false)
+          setIsOpen(false)
+        }, 1500)
+      } else {
+        // フォールバック: 古いブラウザや制限のある環境用
+        const textArea = document.createElement('textarea')
+        textArea.value = currentUrl
+        textArea.style.position = 'fixed'
+        textArea.style.left = '-999999px'
+        textArea.style.top = '-999999px'
+        document.body.appendChild(textArea)
+        textArea.select()
+        textArea.setSelectionRange(0, 99999)
+        const successful = document.execCommand('copy')
+        document.body.removeChild(textArea)
+        
+        if (successful) {
+          setCopied(true)
+          setTimeout(() => {
+            setCopied(false)
+            setIsOpen(false)
+          }, 1500)
+        } else {
+          console.error('コピーに失敗しました')
+          setIsOpen(false)
+        }
       }
+    } catch (err) {
+      console.error('コピーに失敗しました:', err)
+      // エラーでも少し待ってから閉じる
+      setTimeout(() => {
+        setIsOpen(false)
+      }, 500)
     }
-    setIsOpen(false)
   }
 
   const handleShareX = () => {
@@ -57,7 +86,7 @@ export const ShareButton = ({ title, url }: ShareButtonProps) => {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full shadow-lg transition-colors"
+        className="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full shadow-lg transition-colors flex items-center justify-center"
         title="シェア"
       >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -81,15 +110,15 @@ export const ShareButton = ({ title, url }: ShareButtonProps) => {
               <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
               </svg>
-              X (Twitter)
+              X
             </button>
 
             <button
               onClick={handleShareNote}
               className="flex items-center w-full px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded transition-colors"
             >
-              <svg className="w-4 h-4 mr-2 text-green-600" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm5.568 8.16c-.169 1.58-.896 4.728-1.688 6.64-.528 1.28-1.04 1.6-1.712 1.6-.656 0-1.112-.48-1.232-1.12-.088-.48-.12-1.112-.12-1.792V8.8c0-.64-.272-1.04-.816-1.04s-.96.4-.96 1.04v4.608c0 .88.08 1.6.248 2.24.32 1.2 1.2 1.872 2.32 1.872 1.36 0 2.288-.8 2.928-2.24.608-1.36 1.104-3.36 1.272-4.72.08-.656-.216-1.2-.88-1.2-.32 0-.52.16-.56.48z"/>
+              <svg className="w-4 h-4 mr-2 text-green-600" fill="currentColor" viewBox="0 0 512 512">
+                <path d="M256 32C132.288 32 32 132.288 32 256s100.288 224 224 224 224-100.288 224-224S379.712 32 256 32zm97.28 327.104c-11.264 16.576-26.624 28.736-46.976 36.224-20.48 7.552-43.392 11.392-68.608 11.392-17.984 0-35.264-2.624-51.712-7.808-16.448-5.248-30.848-12.8-43.136-22.592-12.352-9.856-21.952-21.952-28.8-36.224-6.848-14.272-10.304-30.336-10.304-48.128 0-21.312 4.352-39.936 13.056-55.872 8.704-15.936 20.992-28.736 36.864-38.4 15.872-9.664 34.304-14.528 55.296-14.528 18.624 0 34.944 3.712 48.896 11.136 13.952 7.424 24.896 17.984 32.832 31.616 7.936 13.632 11.904 29.312 11.904 47.04 0 14.528-2.624 27.52-7.808 39.04-5.184 11.52-12.288 21.632-21.312 30.336-9.024 8.704-19.264 15.424-30.656 20.096-11.392 4.672-23.424 7.04-36.096 7.04-7.552 0-14.208-1.024-19.968-3.072-5.76-2.048-10.304-5.056-13.632-9.024l-1.92 9.024h-11.392V179.2h12.8v62.464c3.072-4.352 7.168-7.744 12.288-10.24 5.12-2.496 11.136-3.776 18.048-3.776 9.024 0 17.152 1.856 24.384 5.504 7.232 3.648 13.376 8.768 18.432 15.36 5.056 6.592 8.96 14.464 11.712 23.616 2.752 9.152 4.128 19.2 4.128 30.144 0 11.264-1.536 21.632-4.608 31.104-3.072 9.472-7.424 17.664-13.056 24.576z"/>
               </svg>
               note
             </button>
@@ -98,8 +127,8 @@ export const ShareButton = ({ title, url }: ShareButtonProps) => {
               onClick={handleShareHatena}
               className="flex items-center w-full px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded transition-colors"
             >
-              <svg className="w-4 h-4 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm-2.678 18.338c-.809 0-1.525-.35-1.525-1.166 0-.825.716-1.166 1.525-1.166.816 0 1.525.341 1.525 1.166 0 .816-.709 1.166-1.525 1.166zm7.678-.966c0 .375-.3.675-.675.675h-3.3c-.375 0-.675-.3-.675-.675v-1.2c0-.375.3-.675.675-.675h.525v-3.075c0-.675-.55-1.125-1.125-1.125h-.9c-.375 0-.675-.3-.675-.675v-1.2c0-.375.3-.675.675-.675h1.275c1.425 0 2.625 1.2 2.625 2.625v3.45h.525c.375 0 .675.3.675.675v1.2z"/>
+              <svg className="w-4 h-4 mr-2 text-blue-500" fill="currentColor" viewBox="0 0 1000 1000">
+                <path d="M500 0C223.6 0 0 223.6 0 500s223.6 500 500 500 500-223.6 500-500S776.4 0 500 0zm-54.7 764.4c-33.7 0-63.5-14.6-63.5-48.5 0-34.3 29.8-48.5 63.5-48.5 34 0 63.5 14.2 63.5 48.5 0 34-29.5 48.5-63.5 48.5zm319.2-40.2c0 15.6-12.5 28.1-28.1 28.1H597.5c-15.6 0-28.1-12.5-28.1-28.1v-50c0-15.6 12.5-28.1 28.1-28.1h21.9v-128c0-28.1-22.9-46.8-46.8-46.8h-37.5c-15.6 0-28.1-12.5-28.1-28.1v-50c0-15.6 12.5-28.1 28.1-28.1h53.1c59.4 0 109.4 50 109.4 109.4v143.7h21.9c15.6 0 28.1 12.5 28.1 28.1v50z"/>
               </svg>
               はてブ
             </button>

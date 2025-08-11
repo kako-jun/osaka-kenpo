@@ -16,8 +16,18 @@ export default function Home() {
           title="おおさかけんぽう - 法律を大阪弁で知ろう"
         />
       </div>
-      <h1 className="text-2xl font-bold mb-6 text-center text-[#E94E77] mt-8">知りたい法律を選んでや</h1>
-      <div className="space-y-8">
+      {/* ロゴエリア（将来の画像用スケルトン） */}
+      <div className="flex justify-center mb-8 mt-8">
+        <div className="w-64 h-32 bg-gray-200 rounded-lg flex items-center justify-center border-2 border-dashed border-gray-300">
+          <div className="text-center text-gray-400">
+            <div className="text-sm mb-1">ロゴ予定地</div>
+            <div className="text-xs">264×128px</div>
+          </div>
+        </div>
+      </div>
+      
+      <h1 className="text-2xl font-bold mb-6 text-center text-[#E94E77]">知りたい法律を選んでや</h1>
+      <div className="space-y-8 mb-16">
         {lawCategories.map((category) => (
           <div key={category.title}>
             <h2 className="text-2xl font-bold mb-4 border-b-2 border-[#E94E77] pb-2">{category.title}</h2>
@@ -31,7 +41,7 @@ export default function Home() {
                         : 'bg-gray-400 cursor-not-allowed'
                     }`}
                   >
-                    <p>{law.name}</p>
+                    <p className="mb-1">{law.name}</p>
                     {law.year && <p className="text-sm font-normal text-[#FFB6C1]">{law.year}年</p>}
                     {law.status === 'preparing' && <span className="text-sm block mt-1 font-normal">（準備中）</span>}
                   </div>
