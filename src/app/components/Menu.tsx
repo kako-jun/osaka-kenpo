@@ -72,7 +72,7 @@ const Menu = () => {
             </svg>
         </button>
         
-        <nav className="mt-16 text-lg space-y-4 p-4 text-left h-full overflow-y-auto pb-20">
+        <nav className="mt-16 text-lg space-y-4 px-4 pt-0 text-left h-full overflow-y-auto pb-32">
           <div className="space-y-1 mb-4">
             <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2 p-3 rounded-lg hover:bg-white/10 transition-colors font-bold">
               <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
