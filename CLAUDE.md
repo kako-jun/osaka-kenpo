@@ -20,6 +20,8 @@
 - **[law-addition-guide.md](.claude/law-addition-guide.md)** - 新しい法律追加の完全手順書
 - **[animation-troubleshooting.md](.claude/animation-troubleshooting.md)** - アニメーション関連トラブルシューティング
 - **[ui-consistency-checklist.md](.claude/ui-consistency-checklist.md)** - UI一貫性チェックリスト
+- **[kasuga-ayumu-style.md](.claude/kasuga-ayumu-style.md)** - 春日歩（大阪先生）風翻訳スタイルガイド
+- **[osaka-dialect-translation-guide.md](.claude/osaka-dialect-translation-guide.md)** - 大阪弁翻訳品質向上ガイド
 
 ### 📚 ユーザー・貢献者向けドキュメント
 - **[README.md](README.md)** - プロジェクト概要とユーザーガイド
