@@ -33,19 +33,20 @@ export default function Home() {
             <h2 className="text-2xl font-bold mb-4 border-b-2 border-[#E94E77] pb-2">{category.title}</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {category.laws.sort((a, b) => a.year - b.year).map((law) => (
-                <Link key={law.name} href={law.path} passHref className="block">
-                  <div
-                    className={`h-full flex flex-col justify-center p-6 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.1)] text-center text-white font-bold text-xl ${
-                      law.status === 'available'
-                        ? 'bg-[#E94E77] hover:bg-opacity-80 cursor-pointer'
-                        : 'bg-gray-400 cursor-not-allowed'
-                    }`}
-                  >
+                law.status === 'available' ? (
+                  <Link key={law.name} href={law.path} passHref className="block">
+                    <div className="h-full flex flex-col justify-center p-6 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.1)] text-center text-white font-bold text-xl bg-[#E94E77] hover:bg-opacity-80 cursor-pointer">
+                      <p className="mb-1">{law.name}</p>
+                      {law.year && <p className="text-sm font-normal text-[#FFB6C1]">{law.year}年</p>}
+                    </div>
+                  </Link>
+                ) : (
+                  <div key={law.name} className="h-full flex flex-col justify-center p-6 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.1)] text-center text-white font-bold text-xl bg-gray-400 cursor-not-allowed relative">
                     <p className="mb-1">{law.name}</p>
-                    {law.year && <p className="text-sm font-normal text-[#FFB6C1]">{law.year}年</p>}
-                    {law.status === 'preparing' && <span className="text-sm block mt-1 font-normal">（準備中）</span>}
+                    {law.year && <p className="text-sm font-normal text-gray-300">{law.year}年</p>}
+                    <span className="absolute bottom-2 right-2 text-xs font-normal bg-gray-500 px-2 py-1 rounded">準備中やで</span>
                   </div>
-                </Link>
+                )
               ))}
             </div>
           </div>
