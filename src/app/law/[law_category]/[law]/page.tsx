@@ -230,8 +230,8 @@ const LawArticlesPage = () => {
               {/* 章内の条文一覧 */}
               {chapterArticles.map(article => {
                 const articleDetail = articlesData.find(detail => detail?.article === Number(article.article))
-                const originalTitle = articleDetail?.title || article.title
-                const osakaTitle = articleDetail?.titleOsaka || originalTitle
+                const originalTitle = articleDetail?.title !== undefined ? articleDetail.title : article.title
+                const osakaTitle = articleDetail?.titleOsaka !== undefined ? articleDetail.titleOsaka : originalTitle
                 
                 return (
                   <Link key={article.article} href={`/law/${law_category}/${law}/${article.article}`}>
@@ -246,19 +246,21 @@ const LawArticlesPage = () => {
                     >
                       <div className="flex flex-col sm:flex-row sm:items-center">
                         <span className="font-bold text-[#E94E77] text-lg mb-2 sm:mb-0 sm:mr-4">{`第${article.article}条`}</span>
-                        <AnimatedContent
-                          showOsaka={showOsaka}
-                          originalContent={
-                            <div className="text-gray-800 text-base leading-relaxed">
-                              <span dangerouslySetInnerHTML={{ __html: originalTitle }} />
-                            </div>
-                          }
-                          osakaContent={
-                            <div className="text-gray-800 text-base leading-relaxed">
-                              <span>{osakaTitle}</span>
-                            </div>
-                          }
-                        />
+{(originalTitle || osakaTitle) && (
+                          <AnimatedContent
+                            showOsaka={showOsaka}
+                            originalContent={
+                              <div className="text-gray-800 text-base leading-relaxed">
+                                {originalTitle && <span dangerouslySetInnerHTML={{ __html: originalTitle }} />}
+                              </div>
+                            }
+                            osakaContent={
+                              <div className="text-gray-800 text-base leading-relaxed">
+                                {osakaTitle && <span>{osakaTitle}</span>}
+                              </div>
+                            }
+                          />
+                        )}
                       </div>
                     </div>
                   </Link>
@@ -270,8 +272,8 @@ const LawArticlesPage = () => {
           // その他の法律の場合：従来通りの表示
           articles.map(article => {
             const articleDetail = articlesData.find(detail => detail?.article === Number(article.article))
-            const originalTitle = articleDetail?.title || article.title
-            const osakaTitle = articleDetail?.titleOsaka || originalTitle
+            const originalTitle = articleDetail?.title !== undefined ? articleDetail.title : article.title
+            const osakaTitle = articleDetail?.titleOsaka !== undefined ? articleDetail.titleOsaka : originalTitle
             
             return (
               <Link key={article.article} href={`/law/${law_category}/${law}/${article.article}`}>
@@ -286,19 +288,21 @@ const LawArticlesPage = () => {
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center">
                     <span className="font-bold text-[#E94E77] text-lg mb-2 sm:mb-0 sm:mr-4">{`第${article.article}条`}</span>
-                    <AnimatedContent
-                      showOsaka={showOsaka}
-                      originalContent={
-                        <div className="text-gray-800 text-base leading-relaxed">
-                          <span dangerouslySetInnerHTML={{ __html: originalTitle }} />
-                        </div>
-                      }
-                      osakaContent={
-                        <div className="text-gray-800 text-base leading-relaxed">
-                          <span>{osakaTitle}</span>
-                        </div>
-                      }
-                    />
+{(originalTitle || osakaTitle) && (
+                      <AnimatedContent
+                        showOsaka={showOsaka}
+                        originalContent={
+                          <div className="text-gray-800 text-base leading-relaxed">
+                            {originalTitle && <span dangerouslySetInnerHTML={{ __html: originalTitle }} />}
+                          </div>
+                        }
+                        osakaContent={
+                          <div className="text-gray-800 text-base leading-relaxed">
+                            {osakaTitle && <span>{osakaTitle}</span>}
+                          </div>
+                        }
+                      />
+                    )}
                   </div>
                 </div>
               </Link>
