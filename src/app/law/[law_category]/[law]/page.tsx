@@ -4,12 +4,14 @@ import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { getLawName } from '@/lib/law-mappings'
-import { useViewMode } from '../../../context/ViewModeContext'
-import { ShareButton } from '../../../components/ShareButton'
-import { AnimatedContent } from '../../../components/AnimatedContent'
+import { useViewMode } from '@/app/context/ViewModeContext'
+import { ShareButton } from '@/app/components/ShareButton'
+import { AnimatedContent } from '@/app/components/AnimatedContent'
+import { KasugaLoading } from '@/app/components/KasugaLoading'
 import type { ArticleListItem, ArticleData } from '@/lib/types'
 import lawSources from '@/data/law-sources.json'
 import constitutionChapters from '@/data/constitution-chapters.json'
+import famousArticles from '@/data/famous-articles.json'
 
 const LawArticlesPage = () => {
   const params = useParams<{ law_category: string; law: string }>();
@@ -99,8 +101,8 @@ const LawArticlesPage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-cream flex items-center justify-center">
-        <div className="text-center text-primary text-xl">読み込み中...</div>
+      <div className="min-h-screen bg-cream">
+        <KasugaLoading />
       </div>
     )
   }
@@ -233,16 +235,19 @@ const LawArticlesPage = () => {
                 const originalTitle = articleDetail?.title !== undefined ? articleDetail.title : article.title
                 const osakaTitle = articleDetail?.titleOsaka !== undefined ? articleDetail.titleOsaka : originalTitle
                 
+                // 有名な条文のバッジ情報を取得
+                const famousArticleData = famousArticles[law]?.[article.article.toString()]
+                
                 return (
                   <Link key={article.article} href={`/law/${law_category}/${law}/${article.article}`}>
                     <div 
-                      className="block p-6 bg-white rounded-lg shadow-[0_0_15px_rgba(0,0,0,0.05)] hover:shadow-[0_0_20px_rgba(0,0,0,0.1)] transition-shadow cursor-pointer border-l-4 border-[#E94E77] mb-4 select-none"
+                      className="block p-6 bg-white rounded-lg shadow-[0_0_15px_rgba(0,0,0,0.05)] hover:shadow-[0_0_20px_rgba(0,0,0,0.1)] transition-shadow cursor-pointer border-l-4 border-[#E94E77] mb-4 select-none relative"
                       onDoubleClick={(e) => {
                         e.preventDefault()
                         e.stopPropagation()
                         toggleViewMode()
                       }}
-                      title="ダブルクリックまたはスペースキーで表示を切り替え"
+                      title="クリックまたはスペースキーで表示を切り替え"
                     >
                       <div className="flex flex-col sm:flex-row sm:items-center">
                         <span className="font-bold text-[#E94E77] text-lg mb-2 sm:mb-0 sm:mr-4">{`第${article.article}条`}</span>
@@ -262,6 +267,21 @@ const LawArticlesPage = () => {
                           />
                         )}
                       </div>
+                      
+                      {/* 有名な条文のバッジを右上に表示 */}
+                      {famousArticleData && (
+                        <div className="absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-bold text-white shadow-md bg-slate-500">
+                          {famousArticleData.badge}
+                        </div>
+                      )}
+                      
+                      {/* 右下にええやん数を表示 */}
+                      <div className="absolute bottom-3 right-3 flex items-center space-x-1 text-xs text-gray-500">
+                        <span className="font-bold text-[#E94E77]">
+                          {Math.floor(Math.random() * 50)}
+                        </span>
+                        <span>ええやん</span>
+                      </div>
                     </div>
                   </Link>
                 )
@@ -275,16 +295,19 @@ const LawArticlesPage = () => {
             const originalTitle = articleDetail?.title !== undefined ? articleDetail.title : article.title
             const osakaTitle = articleDetail?.titleOsaka !== undefined ? articleDetail.titleOsaka : originalTitle
             
+            // 有名な条文のバッジ情報を取得
+            const famousArticleData = famousArticles[law]?.[article.article.toString()]
+            
             return (
               <Link key={article.article} href={`/law/${law_category}/${law}/${article.article}`}>
                 <div 
-                  className="block p-6 bg-white rounded-lg shadow-[0_0_15px_rgba(0,0,0,0.05)] hover:shadow-[0_0_20px_rgba(0,0,0,0.1)] transition-shadow cursor-pointer border-l-4 border-[#E94E77] mb-4 select-none"
+                  className="block p-6 bg-white rounded-lg shadow-[0_0_15px_rgba(0,0,0,0.05)] hover:shadow-[0_0_20px_rgba(0,0,0,0.1)] transition-shadow cursor-pointer border-l-4 border-[#E94E77] mb-4 select-none relative"
                   onDoubleClick={(e) => {
                     e.preventDefault()
                     e.stopPropagation()
                     toggleViewMode()
                   }}
-                  title="ダブルクリックまたはスペースキーで表示を切り替え"
+                  title="クリックまたはスペースキーで表示を切り替え"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center">
                     <span className="font-bold text-[#E94E77] text-lg mb-2 sm:mb-0 sm:mr-4">{`第${article.article}条`}</span>
@@ -303,6 +326,21 @@ const LawArticlesPage = () => {
                         }
                       />
                     )}
+                  </div>
+                  
+                  {/* 有名な条文のバッジを右上に表示 */}
+                  {famousArticleData && (
+                    <div className="absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-bold text-white shadow-md bg-slate-500">
+                      {famousArticleData.badge}
+                    </div>
+                  )}
+                  
+                  {/* 右下にええやん数を表示 */}
+                  <div className="absolute bottom-3 right-3 flex items-center space-x-1 text-xs text-gray-500">
+                    <span className="font-bold text-[#E94E77]">
+                      {Math.floor(Math.random() * 50)}
+                    </span>
+                    <span>ええやん</span>
                   </div>
                 </div>
               </Link>

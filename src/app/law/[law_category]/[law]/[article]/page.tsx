@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { useViewMode } from '../../../../context/ViewModeContext'
+import { useViewMode } from '@/app/context/ViewModeContext'
 import { getLawName } from '@/lib/law-mappings'
 import { generateBreadcrumbs } from '@/lib/utils'
 import { SpeakerButton } from '@/components/SpeakerButton'
@@ -11,6 +11,7 @@ import { ShareButton } from '@/app/components/ShareButton'
 import { LikeButton } from '@/app/components/LikeButton'
 import { ArticleNavigation } from '@/app/components/ArticleNavigation'
 import { AnimatedContent } from '@/app/components/AnimatedContent'
+import { KasugaLoading } from '@/app/components/KasugaLoading'
 import type { ArticleData } from '@/lib/types'
 
 export default function ArticlePage() {
@@ -117,8 +118,8 @@ export default function ArticlePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-cream flex items-center justify-center">
-        <div className="text-primary text-xl">読み込み中...</div>
+      <div className="min-h-screen bg-cream">
+        <KasugaLoading />
       </div>
     )
   }
