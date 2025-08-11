@@ -217,9 +217,9 @@ const LawArticlesPage = () => {
 
         {/* 操作説明 */}
         <div className="mt-8 text-center">
-          <p className="text-sm text-gray-500 mb-2">簡単切り替え操作</p>
+          <p className="text-sm text-gray-500 mb-2">簡単操作</p>
           <div className="flex flex-wrap justify-center gap-4 text-xs text-gray-400">
-            <span>⌨️ スペース</span>
+            <span>⌨️ スペースキー：言語の切り替え</span>
           </div>
         </div>
         </div>

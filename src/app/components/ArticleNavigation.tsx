@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 interface ArticleNavigationProps {
   lawCategory: string
@@ -16,7 +17,9 @@ export const ArticleNavigation = ({
   currentArticle, 
   lawName 
 }: ArticleNavigationProps) => {
+  const router = useRouter()
   const [articleCount, setArticleCount] = useState<number>(17) // 十七条憲法のデフォルト
+  const [showArticlePopup, setShowArticlePopup] = useState<boolean>(false)
 
   // 法律ごとの条文数を取得（必要に応じて拡張）
   useEffect(() => {
@@ -28,6 +31,11 @@ export const ArticleNavigation = ({
 
   const prevArticle = currentArticle > 1 ? currentArticle - 1 : null
   const nextArticle = currentArticle < articleCount ? currentArticle + 1 : null
+
+  const handleArticleSelect = (articleNum: number) => {
+    setShowArticlePopup(false)
+    router.push(`/law/${lawCategory}/${law}/${articleNum}`)
+  }
 
   return (
     <div className="flex justify-between items-center p-4 bg-gray-50 rounded-lg border border-gray-200">
@@ -56,9 +64,58 @@ export const ArticleNavigation = ({
           </Link>
         )}
 
-        <span className="text-gray-500 font-medium">
-          第{currentArticle} / {articleCount}条
-        </span>
+        <div className="relative">
+          <button
+            onClick={() => setShowArticlePopup(true)}
+            className="text-gray-500 font-medium hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-md transition-colors cursor-pointer"
+          >
+            第{currentArticle} / {articleCount}条
+          </button>
+
+          {/* ポップアップ */}
+          {showArticlePopup && (
+            <>
+              {/* オーバーレイ */}
+              <div 
+                className="fixed inset-0 bg-black bg-opacity-50 z-40"
+                onClick={() => setShowArticlePopup(false)}
+              />
+              
+              {/* ポップアップ本体 */}
+              <div className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-white rounded-lg shadow-2xl border border-gray-200 z-50 w-96 max-h-96 overflow-y-auto">
+                <div className="p-4">
+                  <div className="flex justify-between items-center mb-4">
+                    <h3 className="text-lg font-bold text-gray-800">条文を選択</h3>
+                    <button
+                      onClick={() => setShowArticlePopup(false)}
+                      className="text-gray-400 hover:text-gray-600 text-xl leading-none"
+                    >
+                      ×
+                    </button>
+                  </div>
+                  
+                  <div className="grid grid-cols-4 gap-2">
+                    {Array.from({ length: articleCount }, (_, i) => i + 1).map((articleNum) => (
+                      <button
+                        key={articleNum}
+                        onClick={() => handleArticleSelect(articleNum)}
+                        className={`
+                          py-3 px-4 rounded-md text-sm font-medium transition-colors whitespace-nowrap
+                          ${articleNum === currentArticle 
+                            ? 'bg-[#E94E77] text-white' 
+                            : 'bg-gray-100 text-gray-700 hover:bg-red-100 hover:text-red-700'
+                          }
+                        `}
+                      >
+                        第{articleNum}条
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+        </div>
 
         {nextArticle && (
           <Link
