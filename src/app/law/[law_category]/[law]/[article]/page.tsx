@@ -40,7 +40,7 @@ export default function ArticlePage() {
   const prevArticle = currentArticleNum > 1 ? currentArticleNum - 1 : null
   const nextArticle = currentArticleNum < maxArticles ? currentArticleNum + 1 : null
 
-  // キーボードショートカット
+  // キーボードショートカットとスワイプジェスチャー
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       // フォーカス中の要素が入力欄等でない場合のみ
@@ -60,11 +60,97 @@ export default function ArticlePage() {
       }
     }
 
+    // スワイプジェスチャー
+    let touchStartX = 0
+    let touchEndX = 0
+    let isTracking = false
+    
+    const handleTouchStart = (event: TouchEvent) => {
+      touchStartX = event.changedTouches[0].screenX
+      isTracking = true
+      
+      // ページ全体のコンテンツを取得（fixedボタン以外）
+      const pageContent = document.getElementById('page-content') as HTMLElement | null
+      if (pageContent) {
+        pageContent.style.transition = 'none'
+      }
+    }
+    
+    const handleTouchMove = (event: TouchEvent) => {
+      if (!isTracking) return
+      
+      const touchCurrentX = event.changedTouches[0].screenX
+      const currentDistance = touchCurrentX - touchStartX
+      
+      // スワイプ演出：ページコンテンツを縮小
+      const progress = Math.min(Math.abs(currentDistance) / 100, 1) // 0-1の範囲
+      const scale = 1 - (progress * 0.05) // 最大5%縮小
+      
+      const pageContent = document.getElementById('page-content') as HTMLElement | null
+      if (pageContent) {
+        pageContent.style.transform = `scale(${scale})`
+        pageContent.style.opacity = String(1 - progress * 0.3) // 最大30%透明化
+      }
+    }
+    
+    const handleTouchEnd = (event: TouchEvent) => {
+      if (!isTracking) return
+      
+      touchEndX = event.changedTouches[0].screenX
+      isTracking = false
+      
+      const swipeThreshold = 100
+      const swipeDistance = touchEndX - touchStartX
+      
+      // 必ず元に戻す処理を先に実行
+      const pageContent = document.getElementById('page-content') as HTMLElement | null
+      if (pageContent) {
+        pageContent.style.transition = 'transform 0.3s ease-out, opacity 0.3s ease-out';
+        pageContent.style.transform = 'scale(1)';
+        pageContent.style.opacity = '1'
+        
+        setTimeout(() => {
+          pageContent.style.transition = '';
+          pageContent.style.transform = '';
+          pageContent.style.opacity = ''
+        }, 300)
+      }
+      
+      // スワイプが閾値を超えた場合は遷移
+      if (Math.abs(swipeDistance) > swipeThreshold) {
+        if (swipeDistance > 0 && prevArticle) {
+          // 右スワイプ（左から右へ）→ 前の条文
+          navigateToArticle(prevArticle)
+        } else if (swipeDistance < 0 && nextArticle) {
+          // 左スワイプ（右から左へ）→ 次の条文
+          navigateToArticle(nextArticle)
+        }
+      }
+    }
+    
+
     document.addEventListener('keydown', handleKeyDown)
-    return () => document.removeEventListener('keydown', handleKeyDown)
+    document.addEventListener('touchstart', handleTouchStart, { passive: true })
+    document.addEventListener('touchmove', handleTouchMove, { passive: true })
+    document.addEventListener('touchend', handleTouchEnd, { passive: true })
+    
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+      document.removeEventListener('touchstart', handleTouchStart)
+      document.removeEventListener('touchmove', handleTouchMove)
+      document.removeEventListener('touchend', handleTouchEnd)
+    }
   }, [viewMode, setViewMode, prevArticle, nextArticle, navigateToArticle])
 
   useEffect(() => {
+    // ページ遷移時にスタイルをリセット
+    const pageContent = document.getElementById('page-content') as HTMLElement | null
+    if (pageContent) {
+      pageContent.style.transform = '';
+      pageContent.style.opacity = '';
+      pageContent.style.transition = ''
+    }
+    
     const loadArticle = async () => {
       try {
         const response = await fetch(`/api/${params.law_category}/${params.law}/${params.article}`)
@@ -166,17 +252,16 @@ export default function ArticlePage() {
       {prevArticle && (
         <button
           onClick={() => navigateToArticle(prevArticle)}
-          className="fixed left-0 top-32 bottom-32 w-8 z-[1] text-gray-300 hover:text-[#E94E77] transition-all flex items-center justify-center group pointer-events-none"
+          className="fixed left-0 top-32 bottom-32 w-8 z-[1] text-gray-300 hover:text-[#E94E77] transition-all flex items-center justify-center group"
           title={`第${prevArticle}条へ`}
           style={{
             background: 'transparent'
           }}
         >
           <div 
-            className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-200 to-transparent opacity-0 group-hover:opacity-80 transition-opacity pointer-events-auto"
-            onClick={() => navigateToArticle(prevArticle)}
+            className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-200 to-transparent opacity-0 group-hover:opacity-80 transition-opacity"
           ></div>
-          <svg width="24" height="60" viewBox="0 0 24 60" fill="currentColor" className="relative z-10 pointer-events-auto" onClick={() => navigateToArticle(prevArticle)}>
+          <svg width="24" height="60" viewBox="0 0 24 60" fill="currentColor" className="relative z-10">
             <path d="M20 10 L8 30 L20 50" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
@@ -186,21 +271,23 @@ export default function ArticlePage() {
       {nextArticle && (
         <button
           onClick={() => navigateToArticle(nextArticle)}
-          className="fixed right-0 top-32 bottom-32 w-8 z-[1] text-gray-300 hover:text-[#E94E77] transition-all flex items-center justify-center group pointer-events-none"
+          className="fixed right-0 top-32 bottom-32 w-8 z-[1] text-gray-300 hover:text-[#E94E77] transition-all flex items-center justify-center group"
           title={`第${nextArticle}条へ`}
           style={{
             background: 'transparent'
           }}
         >
           <div 
-            className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-200 to-transparent opacity-0 group-hover:opacity-80 transition-opacity pointer-events-auto"
-            onClick={() => navigateToArticle(nextArticle)}
+            className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-200 to-transparent opacity-0 group-hover:opacity-80 transition-opacity"
           ></div>
-          <svg width="24" height="60" viewBox="0 0 24 60" fill="currentColor" className="relative z-10 pointer-events-auto" onClick={() => navigateToArticle(nextArticle)}>
+          <svg width="24" height="60" viewBox="0 0 24 60" fill="currentColor" className="relative z-10">
             <path d="M4 10 L16 30 L4 50" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
       )}
+      
+      {/* ページコンテンツ全体をラップ */}
+      <div id="page-content">
       <div className="container mx-auto px-4 py-8">
         <header className="text-center mb-4">
           <Link 
@@ -240,7 +327,13 @@ export default function ArticlePage() {
           {/* 条文表示 */}
           <div 
             className="bg-white rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.08)] p-8 mb-8 relative cursor-pointer select-none"
-            onClick={toggleViewMode}
+            onClick={(e) => {
+              // スピーカーボタンがクリックされた場合は言語切り替えしない
+              if ((e.target as HTMLElement).closest('button')) {
+                return;
+              }
+              toggleViewMode();
+            }}
             title="クリックまたはスペースキーで表示を切り替え"
           >
             <AnimatedContent
@@ -277,7 +370,13 @@ export default function ArticlePage() {
           {/* 解説 */}
           <div 
             className="bg-white rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.08)] p-6 border-2 border-red-400 relative cursor-pointer select-none"
-            onClick={toggleViewMode}
+            onClick={(e) => {
+              // スピーカーボタンがクリックされた場合は言語切り替えしない
+              if ((e.target as HTMLElement).closest('button')) {
+                return;
+              }
+              toggleViewMode();
+            }}
             title="クリックまたはスペースキーで表示を切り替え"
           >
             {/* 解説アイコン */}
@@ -333,10 +432,11 @@ export default function ArticlePage() {
             <p className="text-sm text-gray-500 mb-2">簡単操作</p>
             <div className="flex flex-col items-center gap-1 text-xs text-gray-400">
               <span>🖱️ クリック、⌨️ スペースキー：言語の切り替え</span>
-              <span>⌨️ ← → キー：前後の条文へ</span>
+              <span>📱 スワイプ、⌨️ ← → キー：前後の条文へ</span>
             </div>
           </div>
         </div>
+      </div>
       </div>
     </main>
   )
