@@ -6,13 +6,14 @@ import { useState, useEffect } from 'react'
 import { getLawName } from '@/lib/law-mappings'
 import { useViewMode } from '../../../context/ViewModeContext'
 import { ShareButton } from '../../../components/ShareButton'
+import { AnimatedContent } from '../../../components/AnimatedContent'
 import type { ArticleListItem, ArticleData } from '@/lib/types'
 import lawSources from '@/data/law-sources.json'
 
 const LawArticlesPage = () => {
   const params = useParams<{ law_category: string; law: string }>();
   const { law_category, law } = params
-  const { viewMode } = useViewMode()
+  const { viewMode, setViewMode } = useViewMode()
   const [articles, setArticles] = useState<ArticleListItem[]>([])
   const [articlesData, setArticlesData] = useState<ArticleData[]>([])
   const [loading, setLoading] = useState(true)
@@ -20,6 +21,26 @@ const LawArticlesPage = () => {
 
   const lawName = getLawName(law)
   const showOsaka = viewMode === 'osaka'
+
+  // 表示モード切り替え関数
+  const toggleViewMode = () => {
+    setViewMode(viewMode === 'osaka' ? 'original' : 'osaka')
+  }
+
+  // キーボードショートカット（スペースキー）
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      // フォーカス中の要素が入力欄等でない場合のみ
+      if (event.code === 'Space' && 
+          !['INPUT', 'TEXTAREA', 'SELECT'].includes((event.target as HTMLElement)?.tagName)) {
+        event.preventDefault()
+        toggleViewMode()
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [viewMode, setViewMode])
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -166,21 +187,42 @@ const LawArticlesPage = () => {
           
           return (
             <Link key={article.article} href={`/law/${law_category}/${law}/${article.article}`}>
-              <div className="block p-6 bg-white rounded-lg shadow-[0_0_15px_rgba(0,0,0,0.05)] hover:shadow-[0_0_20px_rgba(0,0,0,0.1)] transition-shadow cursor-pointer border-l-4 border-[#E94E77] mb-4">
+              <div 
+                className="block p-6 bg-white rounded-lg shadow-[0_0_15px_rgba(0,0,0,0.05)] hover:shadow-[0_0_20px_rgba(0,0,0,0.1)] transition-shadow cursor-pointer border-l-4 border-[#E94E77] mb-4 select-none"
+                onDoubleClick={(e) => {
+                  e.preventDefault()
+                  e.stopPropagation()
+                  toggleViewMode()
+                }}
+                title="ダブルクリックまたはスペースキーで表示を切り替え"
+              >
                 <div className="flex flex-col sm:flex-row sm:items-center">
                   <span className="font-bold text-[#E94E77] text-lg mb-2 sm:mb-0 sm:mr-4">{`第${article.article}条`}</span>
-                  <div className="text-gray-800 text-base leading-relaxed">
-                    {showOsaka ? (
-                      <span>{displayTitle}</span>
-                    ) : (
-                      <span dangerouslySetInnerHTML={{ __html: displayTitle }} />
-                    )}
-                  </div>
+                  <AnimatedContent
+                    key={`article-${article.article}-${viewMode}`}
+                    content={
+                      <div className="text-gray-800 text-base leading-relaxed">
+                        {showOsaka ? (
+                          <span>{displayTitle}</span>
+                        ) : (
+                          <span dangerouslySetInnerHTML={{ __html: displayTitle }} />
+                        )}
+                      </div>
+                    }
+                  />
                 </div>
               </div>
             </Link>
           )
         })}
+
+        {/* 操作説明 */}
+        <div className="mt-8 text-center">
+          <p className="text-sm text-gray-500 mb-2">簡単切り替え操作</p>
+          <div className="flex flex-wrap justify-center gap-4 text-xs text-gray-400">
+            <span>⌨️ スペース</span>
+          </div>
+        </div>
         </div>
       </div>
     </div>
