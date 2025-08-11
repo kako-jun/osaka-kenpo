@@ -51,7 +51,7 @@
       "title": "国際じょうやく",
       "icon": "🤝",
       "laws": [
-        { "name": "南極条約", "path": "/law/treaty/antarctic_treaty", "status": "preparing", "year": 1959 },
+        { "name": "南極条約", "path": "/law/treaty/antarctic_treaty", "status": "available", "year": 1959 },
         { "name": "ラムサール条約", "path": "/law/treaty/ramsar_convention", "status": "preparing", "year": 1971 },
         { "name": "国際連合憲章", "path": "/law/treaty/un_charter", "status": "preparing", "year": 1945 },
         { "name": "核拡散防止条約", "path": "/law/treaty/npt", "status": "preparing", "year": 1968 },
