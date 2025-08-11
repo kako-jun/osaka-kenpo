@@ -14,7 +14,7 @@ const Footer = () => {
             <span>&copy; kako-jun</span>
           </div>
           <a href="/about" className="text-cream hover:text-white hover:underline text-sm">
-            このサイトについて
+            このサイトのこと
           </a>
         </div>
       </div>
