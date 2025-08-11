@@ -10,6 +10,7 @@ interface ShareButtonProps {
 export const ShareButton = ({ title, url }: ShareButtonProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const [copied, setCopied] = useState(false)
+  const [shareCount, setShareCount] = useState(0)
   const currentUrl = url || (typeof window !== 'undefined' ? window.location.href : '')
 
   // HTMLタグを除去してプレーンテキストにする
@@ -61,24 +62,28 @@ export const ShareButton = ({ title, url }: ShareButtonProps) => {
   const handleShareX = () => {
     const xUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(currentUrl)}`
     window.open(xUrl, '_blank', 'width=600,height=400')
+    setShareCount(prev => prev + 1)
     setIsOpen(false)
   }
 
   const handleShareNote = () => {
     const noteUrl = `https://note.com/intent/post?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(shareText)}`
     window.open(noteUrl, '_blank', 'width=600,height=400')
+    setShareCount(prev => prev + 1)
     setIsOpen(false)
   }
 
   const handleShareHatena = () => {
     const hatenaUrl = `https://b.hatena.ne.jp/entry/panel/?url=${encodeURIComponent(currentUrl)}&title=${encodeURIComponent(shareText)}`
     window.open(hatenaUrl, '_blank', 'width=600,height=400')
+    setShareCount(prev => prev + 1)
     setIsOpen(false)
   }
 
   const handleShareLine = () => {
     const lineUrl = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(shareText)}`
     window.open(lineUrl, '_blank', 'width=600,height=400')
+    setShareCount(prev => prev + 1)
     setIsOpen(false)
   }
 
@@ -86,12 +91,15 @@ export const ShareButton = ({ title, url }: ShareButtonProps) => {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-full shadow-lg transition-colors flex items-center justify-center"
-        title="シェア"
+        className="bg-[#E94E77] hover:bg-[#d63d6b] text-white px-3 py-2 rounded-full shadow-lg transition-colors flex items-center space-x-2 border-2 border-[#E94E77]"
+        title="広めたる"
       >
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
         </svg>
+        <span className="font-medium text-sm">
+          広めたる
+        </span>
       </button>
 
       {isOpen && (
@@ -101,7 +109,7 @@ export const ShareButton = ({ title, url }: ShareButtonProps) => {
             onClick={() => setIsOpen(false)}
           />
           <div className="absolute right-0 top-12 bg-white rounded-lg shadow-xl border z-50 p-2 min-w-[200px]">
-            <div className="text-sm text-gray-600 mb-2 px-2">シェア</div>
+            <div className="text-sm text-gray-600 mb-2 px-2">広めたる</div>
             
             <button
               onClick={handleShareX}
