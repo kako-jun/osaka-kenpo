@@ -166,14 +166,17 @@ export default function ArticlePage() {
       {prevArticle && (
         <button
           onClick={() => navigateToArticle(prevArticle)}
-          className="fixed left-0 top-32 bottom-20 w-16 z-10 text-gray-300 hover:text-[#E94E77] transition-all flex items-center justify-center group"
+          className="fixed left-0 top-32 bottom-32 w-8 z-[1] text-gray-300 hover:text-[#E94E77] transition-all flex items-center justify-center group pointer-events-none"
           title={`第${prevArticle}条へ`}
           style={{
             background: 'transparent'
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-200 to-transparent opacity-0 group-hover:opacity-80 transition-opacity"></div>
-          <svg width="24" height="60" viewBox="0 0 24 60" fill="currentColor" className="relative z-10">
+          <div 
+            className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-200 to-transparent opacity-0 group-hover:opacity-80 transition-opacity pointer-events-auto"
+            onClick={() => navigateToArticle(prevArticle)}
+          ></div>
+          <svg width="24" height="60" viewBox="0 0 24 60" fill="currentColor" className="relative z-10 pointer-events-auto" onClick={() => navigateToArticle(prevArticle)}>
             <path d="M20 10 L8 30 L20 50" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
@@ -183,14 +186,17 @@ export default function ArticlePage() {
       {nextArticle && (
         <button
           onClick={() => navigateToArticle(nextArticle)}
-          className="fixed right-0 top-32 bottom-20 w-16 z-10 text-gray-300 hover:text-[#E94E77] transition-all flex items-center justify-center group"
+          className="fixed right-0 top-32 bottom-32 w-8 z-[1] text-gray-300 hover:text-[#E94E77] transition-all flex items-center justify-center group pointer-events-none"
           title={`第${nextArticle}条へ`}
           style={{
             background: 'transparent'
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-200 to-transparent opacity-0 group-hover:opacity-80 transition-opacity"></div>
-          <svg width="24" height="60" viewBox="0 0 24 60" fill="currentColor" className="relative z-10">
+          <div 
+            className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-200 to-transparent opacity-0 group-hover:opacity-80 transition-opacity pointer-events-auto"
+            onClick={() => navigateToArticle(nextArticle)}
+          ></div>
+          <svg width="24" height="60" viewBox="0 0 24 60" fill="currentColor" className="relative z-10 pointer-events-auto" onClick={() => navigateToArticle(nextArticle)}>
             <path d="M4 10 L16 30 L4 50" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>

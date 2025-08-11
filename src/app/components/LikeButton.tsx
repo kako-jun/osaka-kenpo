@@ -13,7 +13,10 @@ export const LikeButton = ({ articleId, lawCategory, law }: LikeButtonProps) => 
   const [likeCount, setLikeCount] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
 
-  const handleLike = async () => {
+  const handleLike = async (e: React.MouseEvent) => {
+    // モバイルでのhover状態をリセット
+    e.currentTarget.blur()
+    
     // アニメーション効果
     setIsAnimating(true)
     setTimeout(() => setIsAnimating(false), 300)
@@ -41,15 +44,14 @@ export const LikeButton = ({ articleId, lawCategory, law }: LikeButtonProps) => 
   return (
     <button
       onClick={handleLike}
-      className={`
-        flex items-center space-x-2 px-3 py-2 rounded-full transition-all duration-300 shadow-lg border-2 border-[#E94E77]
-        ${liked 
-          ? 'bg-[#E94E77] text-white' 
-          : 'bg-white text-[#E94E77] hover:bg-[#E94E77] hover:text-white'
-        }
-        ${isAnimating ? 'scale-110' : 'scale-100'}
-        hover:shadow-md active:scale-95
-      `}
+      style={{
+        backgroundColor: liked ? '#E94E77' : 'white',
+        color: liked ? 'white' : '#E94E77',
+        borderColor: '#E94E77'
+      }}
+      className={`flex items-center space-x-2 px-3 py-2 rounded-full transition-all duration-300 shadow-lg border-2 hover:shadow-md active:scale-95 ${
+        isAnimating ? 'scale-110' : 'scale-100'
+      }`}
       title={liked ? 'ええやん取り消し' : 'ええやん！'}
     >
       <span className="font-medium text-sm">
