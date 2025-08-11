@@ -28,6 +28,16 @@ export const useSpeech = () => {
     // 残りのHTMLタグを削除
     cleanText = cleanText.replace(/<[^>]*>/g, '')
 
+    // 助詞の発音修正（は→わ、へ→え）
+    cleanText = cleanText
+      // 助詞「は」を「わ」に変換（文の途中や後で助詞として使われる場合）
+      .replace(/([あ-んァ-ヶー一-龯])は([あ-んァ-ヶー一-龯、。！？\s]|$)/g, '$1わ$2')
+      // 助詞「へ」を「え」に変換
+      .replace(/([あ-んァ-ヶー一-龯])へ([あ-んァ-ヶー一-龯、。！？\s]|$)/g, '$1え$2')
+      // 文頭の「これは」「それは」なども対応
+      .replace(/^([これそれあれどれ])は([あ-んァ-ヶー一-龯])/g, '$1わ$2')
+      .replace(/(^|\s)([これそれあれどれ])は([あ-んァ-ヶー一-龯])/g, '$1$2わ$3')
+
     const utterance = new SpeechSynthesisUtterance(cleanText)
 
     // 音声リストが読み込まれていない場合の対処

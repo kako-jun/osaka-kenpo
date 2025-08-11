@@ -73,13 +73,25 @@ const Menu = () => {
         </button>
         
         <nav className="mt-16 text-lg space-y-4 p-4 text-left h-full overflow-y-auto pb-20">
-          <Link href="/" onClick={() => setIsOpen(false)} className="block p-3 rounded-lg hover:bg-white/10 transition-colors font-bold">
-            🏠 ホーム
-          </Link>
+          <div className="space-y-1 mb-4">
+            <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2 p-3 rounded-lg hover:bg-white/10 transition-colors font-bold">
+              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+              ホーム
+            </Link>
+            
+            <Link href="/about" onClick={() => setIsOpen(false)} className="flex items-center gap-2 p-3 rounded-lg hover:bg-white/10 transition-colors font-bold">
+              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              このサイトについて
+            </Link>
+          </div>
           
           {lawsMetadata.categories.map((category) => (
             <div key={category.id} className="space-y-1">
-              <div className="flex items-center gap-2 px-3 py-2 bg-white/10 rounded-lg mb-2">
+              <div className="flex items-center gap-2 px-3 py-2 bg-white/20 rounded-lg mb-2">
                 <span className="text-lg">{category.icon}</span>
                 <span className="font-bold text-sm">{category.title}</span>
               </div>
@@ -92,13 +104,15 @@ const Menu = () => {
                     onClick={() => setIsOpen(false)} 
                     className="block pl-6 pr-3 py-2 rounded-lg hover:bg-white/10 transition-colors text-sm"
                   >
-                    {law.year && law.year > 0 && (
-                      <span className="text-xs text-white/60">{law.year}年</span>
-                    )}
-                    {law.year && law.year < 0 && (
-                      <span className="text-xs text-white/60">{law.year}年</span>
-                    )}
-                    {' '}{law.name}
+                    <div className="flex items-center">
+                      {law.year && law.year > 0 && (
+                        <span className="text-xs text-white/60 mr-3">{law.year}年</span>
+                      )}
+                      {law.year && law.year < 0 && (
+                        <span className="text-xs text-white/60 mr-3">{law.year}年</span>
+                      )}
+                      <span>{law.name}</span>
+                    </div>
                   </Link>
                 ))}
             </div>
