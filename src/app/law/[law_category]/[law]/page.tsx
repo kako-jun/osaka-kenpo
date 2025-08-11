@@ -138,15 +138,14 @@ const LawArticlesPage = () => {
 
   return (
     <div className="min-h-screen bg-cream">
-      <div className="container mx-auto px-4 py-8 relative">
-        <h1 className="text-3xl font-bold mb-6 text-center text-[#E94E77]">{lawName}</h1>
-        
-        {/* 右上にシェアボタン */}
-        <div className="absolute top-8 right-4">
-          <ShareButton 
-            title={`${lawName} - おおさかけんぽう`}
-          />
-        </div>
+      {/* 右上にシェアボタン */}
+      <div className="fixed top-20 right-4 z-10">
+        <ShareButton 
+          title={lawName}
+        />
+      </div>
+      <div className="container mx-auto px-4 py-8">
+        <h1 className="text-2xl font-bold mb-6 text-center text-[#E94E77]">{lawName}</h1>
         
         {/* 出典情報 */}
         {lawSource && (
@@ -181,9 +180,8 @@ const LawArticlesPage = () => {
         <div className="max-w-4xl mx-auto">
         {articles.map(article => {
           const articleDetail = articlesData.find(detail => detail?.article === Number(article.article))
-          const displayTitle = showOsaka && articleDetail?.titleOsaka 
-            ? articleDetail.titleOsaka 
-            : (articleDetail?.title || article.title)
+          const originalTitle = articleDetail?.title || article.title
+          const osakaTitle = articleDetail?.titleOsaka || originalTitle
           
           return (
             <Link key={article.article} href={`/law/${law_category}/${law}/${article.article}`}>
@@ -199,14 +197,15 @@ const LawArticlesPage = () => {
                 <div className="flex flex-col sm:flex-row sm:items-center">
                   <span className="font-bold text-[#E94E77] text-lg mb-2 sm:mb-0 sm:mr-4">{`第${article.article}条`}</span>
                   <AnimatedContent
-                    key={`article-${article.article}-${viewMode}`}
-                    content={
+                    showOsaka={showOsaka}
+                    originalContent={
                       <div className="text-gray-800 text-base leading-relaxed">
-                        {showOsaka ? (
-                          <span>{displayTitle}</span>
-                        ) : (
-                          <span dangerouslySetInnerHTML={{ __html: displayTitle }} />
-                        )}
+                        <span dangerouslySetInnerHTML={{ __html: originalTitle }} />
+                      </div>
+                    }
+                    osakaContent={
+                      <div className="text-gray-800 text-base leading-relaxed">
+                        <span>{osakaTitle}</span>
                       </div>
                     }
                   />

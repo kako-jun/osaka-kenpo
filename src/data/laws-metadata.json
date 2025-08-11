@@ -48,7 +48,7 @@
     },
     {
       "id": "treaty",
-      "title": "国際条約",
+      "title": "国際じょうやく",
       "icon": "🤝",
       "laws": [
         { "name": "南極条約", "path": "/law/treaty/antarctic_treaty", "status": "available", "year": 1959 },

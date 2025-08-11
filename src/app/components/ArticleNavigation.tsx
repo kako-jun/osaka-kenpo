@@ -34,12 +34,12 @@ export const ArticleNavigation = ({
       {/* 戻る */}
       <Link
         href={`/law/${lawCategory}/${law}`}
-        className="flex items-center text-blue-600 hover:text-blue-800 transition-colors"
+        className="flex items-center px-3 py-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors"
       >
         <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
         </svg>
-条文一覧へ戻る
+条文一覧へ
       </Link>
 
       {/* 前後のナビゲーション */}
@@ -47,7 +47,7 @@ export const ArticleNavigation = ({
         {prevArticle && (
           <Link
             href={`/law/${lawCategory}/${law}/${prevArticle}`}
-            className="flex items-center px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-md text-gray-700 transition-colors"
+            className="flex items-center px-4 py-3 bg-gray-100 hover:bg-gray-200 rounded-md text-gray-700 transition-colors"
           >
             <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -63,7 +63,7 @@ export const ArticleNavigation = ({
         {nextArticle && (
           <Link
             href={`/law/${lawCategory}/${law}/${nextArticle}`}
-            className="flex items-center px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-md text-gray-700 transition-colors"
+            className="flex items-center px-4 py-3 bg-gray-100 hover:bg-gray-200 rounded-md text-gray-700 transition-colors"
           >
             第{nextArticle}条
             <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">

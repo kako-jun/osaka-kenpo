@@ -10,14 +10,13 @@ export default function Home() {
 
   return (
     <div className="relative">
-      <h1 className="text-3xl font-bold mb-6 text-center text-[#E94E77] mt-8">知りたい法律を選んでや</h1>
-      
       {/* 右上にシェアボタン */}
-      <div className="absolute top-0 right-0">
+      <div className="fixed top-20 right-4 z-10">
         <ShareButton 
           title="おおさかけんぽう - 法律を大阪弁で知ろう"
         />
       </div>
+      <h1 className="text-2xl font-bold mb-6 text-center text-[#E94E77] mt-8">知りたい法律を選んでや</h1>
       <div className="space-y-8">
         {lawCategories.map((category) => (
           <div key={category.title}>

@@ -17,7 +17,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <ViewModeProvider>
         <body className="flex flex-col min-h-screen">
           <Header />
-          <main className="flex-grow container mx-auto px-4 pt-2 pb-4">{children}</main>
+          <main className="flex-1 container mx-auto px-4 pt-2 pb-4">{children}</main>
           <Footer />
           <BackToTopButton />
         </body>

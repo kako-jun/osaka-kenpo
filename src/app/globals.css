@@ -27,6 +27,10 @@ body {
   font-family: 'Klee One', cursive;
   font-weight: 400;
   color: var(--primary-color);
+  line-height: inherit;
+  vertical-align: baseline;
+  margin: 0;
+  padding: 0;
 }
 
 /* ルビ表示の改善 */

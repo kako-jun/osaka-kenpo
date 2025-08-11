@@ -17,12 +17,9 @@
 ## 📂 ドキュメント構成
 
 ### 🛠️ 開発・設計ドキュメント（.claude/）
-- **[architecture.md](.claude/architecture.md)** - システムアーキテクチャ設計書
-- **[data-specification.md](.claude/data-specification.md)** - JSONデータ構造仕様
-- **[kasuga-ayumu-style.md](.claude/kasuga-ayumu-style.md)** - 大阪先生風翻訳ガイドライン
-- **[source-guidelines.md](.claude/source-guidelines.md)** - 原典資料取得・著作権遵守ガイド
-- **[workflow.md](.claude/workflow.md)** - 条文追加作業手順書
-- **[tasks.md](.claude/tasks.md)** - タスク管理・進捗状況
+- **[law-addition-guide.md](.claude/law-addition-guide.md)** - 新しい法律追加の完全手順書
+- **[animation-troubleshooting.md](.claude/animation-troubleshooting.md)** - アニメーション関連トラブルシューティング
+- **[ui-consistency-checklist.md](.claude/ui-consistency-checklist.md)** - UI一貫性チェックリスト
 
 ### 📚 ユーザー・貢献者向けドキュメント
 - **[README.md](README.md)** - プロジェクト概要とユーザーガイド

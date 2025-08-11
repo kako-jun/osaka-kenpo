@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
+import Link from 'next/link'
 import { useViewMode } from '../../../../context/ViewModeContext'
 import { getLawName } from '@/lib/law-mappings'
 import { generateBreadcrumbs } from '@/lib/utils'
@@ -96,36 +97,40 @@ export default function ArticlePage() {
 
   return (
     <main className="min-h-screen bg-cream">
+      {/* 右上にシェアボタン */}
+      <div className="fixed top-20 right-4 z-10">
+        <ShareButton 
+          title={`${lawName} 第${articleData.article}条 ${showOsaka ? (articleData.titleOsaka || articleData.title) : articleData.title}`}
+        />
+      </div>
       <div className="container mx-auto px-4 py-8">
-        <header className="text-center mb-4 relative">
-          <div className="text-lg text-gray-600 mb-2">{lawName}</div>
+        <header className="text-center mb-4">
+          <Link 
+            href={`/law/${params.law_category}/${params.law}`}
+            className="inline-block text-lg text-gray-600 mb-2 hover:text-[#E94E77] transition-colors"
+          >
+            {lawName}
+          </Link>
           <AnimatedContent
             showOsaka={showOsaka}
             originalContent={
-              <h1 className="text-3xl font-bold mb-6">
+              <h1 className="text-2xl font-bold mb-6">
                 <span className="text-[#E94E77]">第{articleData.article}条 </span>
                 <span className="text-gray-800" dangerouslySetInnerHTML={{ __html: articleData.title }} />
               </h1>
             }
             osakaContent={
-              <h1 className="text-3xl font-bold mb-6">
+              <h1 className="text-2xl font-bold mb-6">
                 <span className="text-[#E94E77]">第{articleData.article}条 </span>
                 <span className="text-gray-800">{articleData.titleOsaka || articleData.title}</span>
               </h1>
             }
           />
-          
-          {/* 右上にシェアボタン */}
-          <div className="absolute top-0 right-0">
-            <ShareButton 
-              title={`${lawName} 第${articleData.article}条 ${showOsaka ? (articleData.titleOsaka || articleData.title) : articleData.title}`}
-            />
-          </div>
         </header>
 
         <div className="max-w-4xl mx-auto">
           {/* ナビゲーション */}
-          <div className="mb-8">
+          <div className="mb-8 select-none">
             <ArticleNavigation 
               lawCategory={params.law_category}
               law={params.law}
@@ -143,18 +148,13 @@ export default function ArticlePage() {
             <AnimatedContent
               showOsaka={showOsaka}
               originalContent={
-                <div className="text-lg leading-relaxed text-gray-800">
-                  <div 
-                    dangerouslySetInnerHTML={{ __html: articleData.original }} 
-                    className="mb-3"
-                  />
+                <div className="text-lg leading-relaxed">
+                  <div className="text-gray-800" dangerouslySetInnerHTML={{ __html: articleData.original }} />
                 </div>
               }
               osakaContent={
-                <div className="text-lg leading-relaxed osaka-text text-primary">
-                  {articleData.osaka.split('\n').map((line, index) => (
-                    <p key={index} className="mb-3">{line}</p>
-                  ))}
+                <div className="text-lg leading-relaxed">
+                  <div className="text-gray-800" style={{ color: 'var(--primary-color)' }}>{articleData.osaka}</div>
                 </div>
               }
             />
@@ -187,17 +187,13 @@ export default function ArticlePage() {
               <AnimatedContent
                 showOsaka={showOsaka}
                 originalContent={
-                  <div className="text-gray-700 leading-relaxed">
-                    {articleData.commentary.split('\n').map((line, index) => (
-                      <p key={index} className="mb-3">{line}</p>
-                    ))}
+                  <div className="leading-relaxed">
+                    <div className="text-gray-700">{articleData.commentary}</div>
                   </div>
                 }
                 osakaContent={
-                  <div className="text-gray-700 leading-relaxed osaka-text">
-                    {(articleData.commentaryOsaka || articleData.commentary).split('\n').map((line, index) => (
-                      <p key={index} className="mb-3">{line}</p>
-                    ))}
+                  <div className="leading-relaxed">
+                    <div className="text-gray-700" style={{ color: 'var(--primary-color)' }}>{articleData.commentaryOsaka || articleData.commentary}</div>
                   </div>
                 }
               />
