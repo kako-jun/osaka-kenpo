@@ -5,7 +5,7 @@
       "title": "ろっぽう",
       "icon": "⚖️",
       "laws": [
-        { "name": "日本国憲法", "path": "/law/jp/constitution", "status": "preparing", "year": 1946 },
+        { "name": "日本国憲法", "path": "/law/jp/constitution", "status": "available", "year": 1946 },
         { "name": "民法", "path": "/law/jp/minpou", "status": "preparing", "year": 1896 },
         { "name": "商法", "path": "/law/jp/shouhou", "status": "preparing", "year": 1890 },
         { "name": "刑法", "path": "/law/jp/keihou", "status": "preparing", "year": 1907 },

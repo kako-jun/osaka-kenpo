@@ -30,12 +30,14 @@ export async function GET(
         const fileContent = await fs.readFile(filePath, 'utf8')
         const data = safeJsonParse(fileContent) as any
         
-        if (!data || !data.title) {
+        if (!data) {
           console.warn(`Invalid article data in ${filePath}`)
-          return { article: articleId, title: '不明なタイトル' }
+          return { article: articleId, title: `第${articleId}条` }
         }
         
-        return { article: articleId, title: data.title }
+        // タイトルが空文字の場合は条文番号を使用
+        const title = data.title || `第${articleId}条`
+        return { article: articleId, title: title }
       })
     )
 
