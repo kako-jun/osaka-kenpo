@@ -37,14 +37,8 @@ export const ArticleNavigation = ({
         }
       } catch (error) {
         console.error('Failed to fetch article count:', error)
-        // フォールバック: 法律ごとのデフォルト値
-        if (law === 'jushichijo_kenpo') {
-          setArticleCount(17)
-        } else if (law === 'constitution') {
-          setArticleCount(50) // 日本国憲法は現在50条まで作成済み
-        } else {
-          setArticleCount(1)
-        }
+        // フォールバック: デフォルト値は1（APIから取得できない場合のみ）
+        setArticleCount(1)
       }
     }
 

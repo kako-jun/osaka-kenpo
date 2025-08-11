@@ -104,14 +104,8 @@ export default function ArticlePage() {
         }
       } catch (error) {
         console.error('Failed to fetch max articles:', error)
-        // フォールバック: 法律ごとのデフォルト値
-        if (params.law === 'jushichijo_kenpo') {
-          setMaxArticles(17)
-        } else if (params.law === 'constitution') {
-          setMaxArticles(50) // 日本国憲法は現在50条まで作成済み
-        } else {
-          setMaxArticles(1)
-        }
+        // フォールバック: デフォルト値は1（APIから取得できない場合のみ）
+        setMaxArticles(1)
       }
     }
 
