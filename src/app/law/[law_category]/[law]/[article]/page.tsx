@@ -31,9 +31,9 @@ export default function ArticlePage() {
     router.push(`/law/${params.law_category}/${params.law}/${articleNum}`)
   }
 
-  // 前後の条文番号を計算（十七条憲法の場合）
+  // 前後の条文番号を計算
   const currentArticleNum = articleData?.article || parseInt(params.article)
-  const maxArticles = 17 // 十七条憲法の総条文数
+  const [maxArticles, setMaxArticles] = useState<number>(1)
   const prevArticle = currentArticleNum > 1 ? currentArticleNum - 1 : null
   const nextArticle = currentArticleNum < maxArticles ? currentArticleNum + 1 : null
 
@@ -88,6 +88,37 @@ export default function ArticlePage() {
       loadArticle()
     }
   }, [params.law_category, params.law, params.article])
+
+  // 動的に条文数を取得
+  useEffect(() => {
+    const fetchMaxArticles = async () => {
+      try {
+        const response = await fetch(`/api/${params.law_category}/${params.law}`)
+        if (response.ok) {
+          const result = await response.json()
+          const articles = result.data || result
+          if (Array.isArray(articles) && articles.length > 0) {
+            const maxArticle = Math.max(...articles.map(article => Number(article.article)))
+            setMaxArticles(maxArticle)
+          }
+        }
+      } catch (error) {
+        console.error('Failed to fetch max articles:', error)
+        // フォールバック: 法律ごとのデフォルト値
+        if (params.law === 'jushichijo_kenpo') {
+          setMaxArticles(17)
+        } else if (params.law === 'constitution') {
+          setMaxArticles(50) // 日本国憲法は現在50条まで作成済み
+        } else {
+          setMaxArticles(1)
+        }
+      }
+    }
+
+    if (params.law_category && params.law) {
+      fetchMaxArticles()
+    }
+  }, [params.law_category, params.law])
 
   if (loading) {
     return (

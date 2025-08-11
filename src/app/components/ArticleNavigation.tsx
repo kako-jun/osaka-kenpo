@@ -41,7 +41,7 @@ export const ArticleNavigation = ({
         if (law === 'jushichijo_kenpo') {
           setArticleCount(17)
         } else if (law === 'constitution') {
-          setArticleCount(103) // 日本国憲法は103条まで
+          setArticleCount(50) // 日本国憲法は現在50条まで作成済み
         } else {
           setArticleCount(1)
         }
