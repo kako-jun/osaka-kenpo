@@ -3,14 +3,9 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import { useViewMode } from '../../../../context/ViewModeContext'
-
-interface ArticleData {
-  article: number
-  title: string
-  original: string
-  osaka: string
-  commentary: string
-}
+import { getLawName } from '../../../../../lib/law-mappings'
+import { generateBreadcrumbs } from '../../../../../lib/utils'
+import type { ArticleData } from '../../../../../lib/types'
 
 export default function ArticlePage() {
   const params = useParams<{ law_category: string; law: string; article: string }>()
@@ -18,43 +13,23 @@ export default function ArticlePage() {
   const [articleData, setArticleData] = useState<ArticleData | null>(null)
   const [loading, setLoading] = useState(true)
 
-  const lawNameMapping: { [key: string]: string } = {
-    constitution: '日本国憲法',
-    minpou: '民法',
-    keihou: '刑法',
-    shouhou: '商法',
-    minji_soshou_hou: '民事訴訟法',
-    keiji_soshou_hou: '刑事訴訟法',
-    taiho_ritsuryo: '大宝律令',
-    goseibai_shikimoku: '御成敗式目',
-    buke_shohatto: '武家諸法度',
-    kinchu_kuge_shohatto: '禁中並公家諸法度',
-    jushichijo_kenpo: '十七条の憲法',
-    meiji_kenpo: '大日本帝国憲法',
-    hammurabi_code: 'ハンムラビ法典',
-    magna_carta: 'マグナ・カルタ',
-    german_basic_law: 'ドイツ基本法',
-    napoleonic_code: 'ナポレオン法典',
-    us_constitution: 'アメリカ合衆国憲法',
-    prc_constitution: '中華人民共和国憲法',
-    antarctic_treaty: '南極条約',
-    ramsar_convention: 'ラムサール条約',
-    un_charter: '国際連合憲章',
-    npt: '核拡散防止条約',
-    outer_space_treaty: '宇宙条約',
-    universal_postal_convention: '万国郵便条約',
-    olympic_charter: 'オリンピック憲章',
-    extradition_treaty: '犯罪人引渡し条約',
-  };
-  const lawName = lawNameMapping[params.law] || '不明な法律';
+  const lawName = getLawName(params.law)
 
   useEffect(() => {
     const loadArticle = async () => {
       try {
         const response = await fetch(`/api/${params.law_category}/${params.law}/${params.article}`)
         if (response.ok) {
-          const data = await response.json()
-          setArticleData(data)
+          const result = await response.json()
+          // API response format: { data: ArticleData, ... }
+          if (result.data) {
+            setArticleData(result.data)
+          } else {
+            // Legacy format fallback
+            setArticleData(result)
+          }
+        } else {
+          console.error('Failed to load article:', response.status)
         }
       } catch (error) {
         console.error('Failed to load article:', error)
