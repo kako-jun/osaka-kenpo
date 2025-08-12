@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import lawsMetadata from '@/data/laws-metadata.json';
-import { getLawMetadata, type LawSource } from '@/lib/law-config';
+import { loadLawsMetadata, loadLawMetadata } from '@/lib/metadata-loader';
 
 // カテゴリ別絵文字アイコンコンポーネント
 const CategoryIcon = ({ categoryId }: { categoryId: string }) => {
@@ -33,35 +32,50 @@ const Menu = () => {
 
   // 法律メタデータを読み込む
   useEffect(() => {
-    const loadLawsMetadata = async () => {
-      const categoriesWithMetadata = await Promise.all(
-        lawsMetadata.categories.map(async (category) => {
-          const lawsWithMetadata = await Promise.all(
-            category.laws.map(async (law) => {
-              const pathParts = law.path.split('/');
-              const lawCategory = pathParts[2];
-              const lawId = pathParts[3];
-              
-              const metadata = await getLawMetadata(lawCategory, lawId);
-              return {
-                ...law,
-                name: metadata?.name || law.id,
-                year: metadata?.year || null
-              };
-            })
-          );
-          
-          return {
-            ...category,
-            laws: lawsWithMetadata
-          };
-        })
-      );
-      
-      setLawsWithMetadata(categoriesWithMetadata);
+    const loadAllMetadata = async () => {
+      try {
+        console.log('メニュー: 法律メタデータを読み込み中...');
+        const lawsMetadataMain = await loadLawsMetadata();
+        
+        if (!lawsMetadataMain) {
+          console.error('メニュー: 法律一覧メタデータの読み込みに失敗');
+          return;
+        }
+
+        console.log('メニュー: 法律一覧メタデータ取得成功');
+
+        const categoriesWithMetadata = await Promise.all(
+          lawsMetadataMain.categories.map(async (category) => {
+            const lawsWithMetadata = await Promise.all(
+              category.laws.map(async (law) => {
+                const pathParts = law.path.split('/');
+                const lawCategory = pathParts[2];
+                const lawId = pathParts[3];
+                
+                const metadata = await loadLawMetadata(lawCategory, lawId);
+                return {
+                  ...law,
+                  name: metadata?.name || law.id,
+                  year: metadata?.year || null
+                };
+              })
+            );
+            
+            return {
+              ...category,
+              laws: lawsWithMetadata
+            };
+          })
+        );
+        
+        console.log('メニュー: 全カテゴリデータ処理完了:', categoriesWithMetadata);
+        setLawsWithMetadata(categoriesWithMetadata);
+      } catch (error) {
+        console.error('メニュー: メタデータ読み込みエラー:', error);
+      }
     };
 
-    loadLawsMetadata();
+    loadAllMetadata();
   }, []);
 
   // メニューが開いている間、背景のスクロールを禁止する
@@ -148,8 +162,8 @@ const Menu = () => {
           
           {lawsWithMetadata.map((category) => (
             <div key={category.id} className="space-y-1">
-              <div className="flex items-center gap-2 px-3 py-2 bg-white/20 rounded-lg mb-2">
-                <CategoryIcon categoryId={category.id} />
+              <div className="flex items-center gap-2 px-3 py-2 bg-black/15 rounded-lg mb-2">
+                <span className="text-lg">{category.icon || '📄'}</span>
                 <span className="font-bold text-sm">{category.title}</span>
               </div>
               {category.laws

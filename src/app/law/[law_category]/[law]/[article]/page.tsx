@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { useViewMode } from '@/app/context/ViewModeContext'
-import { getLawMetadata } from '@/lib/law-config'
+import { loadLawMetadata } from '@/lib/metadata-loader'
 import { generateBreadcrumbs } from '@/lib/utils'
 import { SpeakerButton } from '@/components/SpeakerButton'
 import { ShareButton } from '@/app/components/ShareButton'
@@ -155,7 +155,7 @@ export default function ArticlePage() {
         // 条文データと法律メタデータを並行取得
         const [articleResponse, lawMetadata] = await Promise.all([
           fetch(`/api/${params.law_category}/${params.law}/${params.article}`),
-          getLawMetadata(params.law_category, params.law)
+          loadLawMetadata(params.law_category, params.law)
         ])
         
         if (articleResponse.ok) {

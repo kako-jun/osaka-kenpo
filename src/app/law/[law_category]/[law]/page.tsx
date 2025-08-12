@@ -8,8 +8,10 @@ import { ShareButton } from '@/app/components/ShareButton'
 import { AnimatedContent } from '@/app/components/AnimatedContent'
 import { KasugaLoading } from '@/app/components/KasugaLoading'
 import type { ArticleListItem } from '@/lib/types'
-import { getFamousArticles, type FamousArticlesData } from '@/lib/famous-articles'
-import { getLawMetadata, getChapters, getLawName, type LawSource, type ChaptersData } from '@/lib/law-config'
+import { loadLawMetadata, loadFamousArticles, loadChapters } from '@/lib/metadata-loader'
+import type { LawMetadata } from '@/lib/schemas/law-metadata'
+import type { FamousArticles } from '@/lib/schemas/famous-articles'
+import type { ChaptersData } from '@/lib/schemas/chapters'
 
 const LawArticlesPage = () => {
   const params = useParams<{ law_category: string; law: string }>();
@@ -18,8 +20,8 @@ const LawArticlesPage = () => {
   const [articles, setArticles] = useState<ArticleListItem[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [famousArticles, setFamousArticles] = useState<FamousArticlesData | null>(null)
-  const [lawSource, setLawSource] = useState<LawSource | null>(null)
+  const [famousArticles, setFamousArticles] = useState<FamousArticles | null>(null)
+  const [lawSource, setLawSource] = useState<LawMetadata | null>(null)
   const [chaptersData, setChaptersData] = useState<ChaptersData | null>(null)
   const [lawName, setLawName] = useState<string>('')
 
@@ -53,9 +55,9 @@ const LawArticlesPage = () => {
         // 条文データ、有名条文データ、メタデータ、章構成を並行取得
         const [articlesResponse, famousArticlesData, lawMetadata, chaptersData] = await Promise.all([
           fetch(`/api/${law_category}/${law}`),
-          getFamousArticles(law_category, law),
-          getLawMetadata(law_category, law),
-          getChapters(law_category, law)
+          loadFamousArticles(law_category, law),
+          loadLawMetadata(law_category, law),
+          loadChapters(law_category, law)
         ])
         
         if (!articlesResponse.ok) {
