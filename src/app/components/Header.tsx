@@ -5,7 +5,7 @@ import ViewModeToggle from './ViewModeToggle';
 
 const Header = () => {
   return (
-    <header className="bg-[#E94E77] text-white px-4 py-2 text-center relative">
+    <header className="bg-[#E94E77] text-white px-4 py-2 text-center relative flex items-center">
       <Menu />
       <div className="container mx-auto">
         <Link href="/" className="inline-block text-white no-underline">

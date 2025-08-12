@@ -88,7 +88,7 @@ const Menu = () => {
       {/* Hamburger Button */}
       <button 
         onClick={() => setIsOpen(!isOpen)} 
-        className="absolute top-4 left-4 z-30 p-2 rounded-lg hover:bg-white/20 transition-colors"
+        className="absolute top-1/2 left-4 -translate-y-1/2 z-30 p-2 rounded-lg hover:bg-white/20 transition-colors"
         aria-label="メニューを開く"
       >
         <svg
