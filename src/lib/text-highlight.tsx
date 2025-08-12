@@ -68,27 +68,40 @@ export function highlightKeywords(text: string): React.ReactNode {
   // 全てのキーワードを統合した正規表現を作成
   const keywordPattern = new RegExp(`(${IMPORTANT_KEYWORDS.map(p => p.source).join('|')})`, 'g')
   
-  // テキストを分割
-  const parts = text.split(keywordPattern)
+  const parts: React.ReactNode[] = []
+  let lastIndex = 0
+  let match
   
-  return parts.map((part, index) => {
-    // キーワードにマッチするかチェック
-    if (IMPORTANT_KEYWORDS.some(pattern => pattern.test(part))) {
-      return (
-        <span 
-          key={index}
-          style={{
-            backgroundColor: '#fef3c7',
-            color: '#92400e', 
-            padding: '2px 4px',
-            borderRadius: '4px',
-            fontWeight: '600'
-          }}
-        >
-          {part}
-        </span>
-      )
+  // 正規表現のマッチを順次処理
+  while ((match = keywordPattern.exec(text)) !== null) {
+    // マッチ前のテキストを追加
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index))
     }
-    return part
-  })
+    
+    // ハイライト対象のキーワードを追加
+    parts.push(
+      <span 
+        key={parts.length}
+        style={{
+          backgroundColor: '#fef3c7',
+          color: '#92400e', 
+          padding: '2px 4px',
+          borderRadius: '4px',
+          fontWeight: '600'
+        }}
+      >
+        {match[0]}
+      </span>
+    )
+    
+    lastIndex = keywordPattern.lastIndex
+  }
+  
+  // 最後の部分を追加
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex))
+  }
+  
+  return parts.length > 1 ? parts : text
 }
