@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { ShareButton } from '@/app/components/ShareButton';
 import { KasugaLoading } from '@/app/components/KasugaLoading';
 import { useState, useEffect } from 'react';
-import { loadLawsMetadata, loadLawMetadata } from '@/lib/metadata-loader';
+import { loadLawsMetadata, loadLawMetadata } from '@/lib/metadata_loader';
 
 // カテゴリ別絵文字アイコンコンポーネント
 const CategoryIcon = ({ icon }: { icon: string }) => {

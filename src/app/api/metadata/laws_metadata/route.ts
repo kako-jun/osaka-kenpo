@@ -2,12 +2,12 @@ import { NextRequest, NextResponse } from 'next/server'
 import fs from 'fs'
 import path from 'path'
 import yaml from 'js-yaml'
-import { LawsMetadataSchema } from '@/lib/schemas/laws-metadata'
+import { LawsMetadataSchema } from '@/lib/schemas/laws_metadata'
 
 export async function GET(request: NextRequest) {
   try {
     const dataDir = path.join(process.cwd(), 'src/data')
-    const metadataPath = path.join(dataDir, 'laws-metadata.yaml')
+    const metadataPath = path.join(dataDir, 'laws_metadata.yaml')
     
     if (!fs.existsSync(metadataPath)) {
       return NextResponse.json({ error: 'Metadata not found' }, { status: 404 })

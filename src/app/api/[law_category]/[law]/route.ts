@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import path from 'path'
 import fs from 'fs/promises'
 import { createErrorResponse, createSuccessResponse } from '@/lib/utils'
-import { loadAllArticles } from '@/lib/article-loader'
+import { loadAllArticles } from '@/lib/article_loader'
 import type { ArticleListItem } from '@/lib/types'
 
 export async function GET(

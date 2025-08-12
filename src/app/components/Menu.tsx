@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { loadLawsMetadata, loadLawMetadata } from '@/lib/metadata-loader';
+import { loadLawsMetadata, loadLawMetadata } from '@/lib/metadata_loader';
 
 // カテゴリ別絵文字アイコンコンポーネント
 const CategoryIcon = ({ categoryId }: { categoryId: string }) => {

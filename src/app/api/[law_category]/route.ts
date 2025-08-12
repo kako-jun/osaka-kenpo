@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import path from 'path'
 import fs from 'fs/promises'
-import { getLawName, getLawYear } from '@/lib/law-mappings'
+import { getLawName, getLawYear } from '@/lib/law_mappings'
 import { createErrorResponse, createSuccessResponse } from '@/lib/utils'
 import type { LawInfo } from '@/lib/types'
 

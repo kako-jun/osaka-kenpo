@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { useViewMode } from '@/app/context/ViewModeContext'
-import { loadLawMetadata } from '@/lib/metadata-loader'
+import { loadLawMetadata } from '@/lib/metadata_loader'
 import { generateBreadcrumbs } from '@/lib/utils'
 import { SpeakerButton } from '@/components/SpeakerButton'
 import { ShareButton } from '@/app/components/ShareButton'
@@ -12,7 +12,7 @@ import { LikeButton } from '@/app/components/LikeButton'
 import { ArticleNavigation } from '@/app/components/ArticleNavigation'
 import { AnimatedContent } from '@/app/components/AnimatedContent'
 import { KasugaLoading } from '@/app/components/KasugaLoading'
-import { highlightKeywords } from '@/lib/text-highlight'
+import { highlightKeywords } from '@/lib/text_highlight'
 import type { ArticleData } from '@/lib/types'
 
 export default function ArticlePage() {
@@ -251,7 +251,9 @@ export default function ArticlePage() {
       {/* 右上に広めたるボタン */}
       <div className="fixed top-20 right-4 z-10">
         <ShareButton 
-          title={`${lawName} 第${articleData.article}条 ${showOsaka ? (articleData.titleOsaka || articleData.title) : articleData.title}`}
+          title={`${lawName} ${typeof articleData.article === 'number' ? `第${articleData.article}条` : (
+            articleData.article.startsWith('fusoku_') ? `附則第${articleData.article.replace('fusoku_', '')}条` : `第${articleData.article}条`
+          )} ${showOsaka ? (articleData.titleOsaka || articleData.title) : articleData.title}`}
         />
       </div>
       
@@ -307,13 +309,21 @@ export default function ArticlePage() {
             showOsaka={showOsaka}
             originalContent={
               <h1 className="text-2xl font-bold mb-6">
-                <span className="text-[#E94E77]">第{articleData.article}条 </span>
+                <span className="text-[#E94E77]">
+                  {typeof articleData.article === 'number' ? `第${articleData.article}条` : (
+                    articleData.article.startsWith('fusoku_') ? `附則第${articleData.article.replace('fusoku_', '')}条` : `第${articleData.article}条`
+                  )}{' '}
+                </span>
                 <span className="text-gray-800" dangerouslySetInnerHTML={{ __html: articleData.title }} />
               </h1>
             }
             osakaContent={
               <h1 className="text-2xl font-bold mb-6">
-                <span className="text-[#E94E77]">第{articleData.article}条 </span>
+                <span className="text-[#E94E77]">
+                  {typeof articleData.article === 'number' ? `第${articleData.article}条` : (
+                    articleData.article.startsWith('fusoku_') ? `附則第${articleData.article.replace('fusoku_', '')}条` : `第${articleData.article}条`
+                  )}{' '}
+                </span>
                 <span className="text-gray-800">{articleData.titleOsaka || articleData.title}</span>
               </h1>
             }

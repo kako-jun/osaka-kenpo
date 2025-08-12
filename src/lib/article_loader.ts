@@ -114,7 +114,7 @@ export async function loadAllArticles(
     const articleFiles = files.filter(file => 
       (file.endsWith('.yaml') || file.endsWith('.json')) &&
       !file.includes('metadata') &&
-      !file.includes('famous-articles') &&
+      !file.includes('famous_articles') &&
       !file.includes('chapters')
     )
     
@@ -130,8 +130,21 @@ export async function loadAllArticles(
       }
     }
     
-    // 条文番号でソート
-    return articles.sort((a, b) => a.article - b.article)
+    // 条文番号でソート（数値とそれ以外を適切に処理）
+    return articles.sort((a, b) => {
+      const aNum = typeof a.article === 'number' ? a.article : parseInt(String(a.article)) || Number.MAX_SAFE_INTEGER
+      const bNum = typeof b.article === 'number' ? b.article : parseInt(String(b.article)) || Number.MAX_SAFE_INTEGER
+      
+      if (aNum !== Number.MAX_SAFE_INTEGER && bNum !== Number.MAX_SAFE_INTEGER) {
+        return aNum - bNum
+      }
+      
+      if (aNum !== Number.MAX_SAFE_INTEGER) return -1
+      if (bNum !== Number.MAX_SAFE_INTEGER) return 1
+      
+      // 両方とも非数値の場合は文字列でソート（附則を最後に）
+      return String(a.article).localeCompare(String(b.article))
+    })
     
   } catch (error) {
     console.error(`Failed to load articles from ${lawCategory}/${lawName}:`, error)

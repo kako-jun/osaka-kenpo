@@ -8,9 +8,9 @@ import { ShareButton } from '@/app/components/ShareButton'
 import { AnimatedContent } from '@/app/components/AnimatedContent'
 import { KasugaLoading } from '@/app/components/KasugaLoading'
 import type { ArticleListItem } from '@/lib/types'
-import { loadLawMetadata, loadFamousArticles, loadChapters } from '@/lib/metadata-loader'
-import type { LawMetadata } from '@/lib/schemas/law-metadata'
-import type { FamousArticles } from '@/lib/schemas/famous-articles'
+import { loadLawMetadata, loadFamousArticles, loadChapters } from '@/lib/metadata_loader'
+import type { LawMetadata } from '@/lib/schemas/law_metadata'
+import type { FamousArticles } from '@/lib/schemas/famous_articles'
 import type { ChaptersData } from '@/lib/schemas/chapters'
 
 const LawArticlesPage = () => {
@@ -135,15 +135,18 @@ const LawArticlesPage = () => {
 
   // 章でグループ化する場合の処理
   const hasChapters = chaptersData !== null
-  let groupedArticles: { [chapterNumber: number]: { chapter: any, articles: ArticleListItem[] } } = {}
+  let groupedArticles: { [chapterKey: string]: { chapter: any, articles: ArticleListItem[] } } = {}
   
   if (hasChapters && chaptersData) {
     // 章ごとにグループ化
     chaptersData.chapters.forEach(chapter => {
-      groupedArticles[chapter.chapter] = {
+      const chapterKey = String(chapter.chapter)
+      groupedArticles[chapterKey] = {
         chapter,
         articles: articles.filter(article => 
-          chapter.articles.includes(Number(article.article))
+          chapter.articles.some((chapterArticle: any) => 
+            String(chapterArticle) === String(article.article)
+          )
         )
       }
     })
@@ -203,12 +206,12 @@ const LawArticlesPage = () => {
                   showOsaka={showOsaka}
                   originalContent={
                     <h2 className="text-xl font-bold text-[#E94E77] border-b-2 border-[#E94E77] pb-2">
-                      第{chapter.chapter}章　{chapter.title}
+                      {chapter.title}
                     </h2>
                   }
                   osakaContent={
                     <h2 className="text-xl font-bold text-[#E94E77] border-b-2 border-[#E94E77] pb-2">
-                      第{chapter.chapter}章　{chapter.titleOsaka}
+                      {chapter.titleOsaka}
                     </h2>
                   }
                 />
@@ -243,7 +246,11 @@ const LawArticlesPage = () => {
                       title="クリックまたはスペースキーで表示を切り替え"
                     >
                       <div className="flex flex-col sm:flex-row sm:items-center">
-                        <span className="font-bold text-[#E94E77] text-lg mb-2 sm:mb-0 sm:mr-4">{`第${article.article}条`}</span>
+                        <span className="font-bold text-[#E94E77] text-lg mb-2 sm:mb-0 sm:mr-4">
+                          {typeof article.article === 'number' ? `第${article.article}条` : (
+                            article.article.startsWith('fusoku_') ? `附則第${article.article.replace('fusoku_', '')}条` : `第${article.article}条`
+                          )}
+                        </span>
                         {(originalTitle && originalTitle.trim() !== '') && (
                           <AnimatedContent
                             showOsaka={showOsaka}
@@ -302,7 +309,11 @@ const LawArticlesPage = () => {
                   title="クリックまたはスペースキーで表示を切り替え"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center">
-                    <span className="font-bold text-[#E94E77] text-lg mb-2 sm:mb-0 sm:mr-4">{`第${article.article}条`}</span>
+                    <span className="font-bold text-[#E94E77] text-lg mb-2 sm:mb-0 sm:mr-4">
+                      {typeof article.article === 'number' ? `第${article.article}条` : (
+                        article.article.startsWith('fusoku_') ? `附則第${article.article.replace('fusoku_', '')}条` : `第${article.article}条`
+                      )}
+                    </span>
                     {(originalTitle && originalTitle.trim() !== '') && (
                       <AnimatedContent
                         showOsaka={showOsaka}

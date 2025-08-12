@@ -91,11 +91,11 @@ function getLawCategoryName(category: string): string {
 }
 
 /**
- * 法律名を取得（law-mappings.tsから）
+ * 法律名を取得（law_mappings.tsから）
  */
 function getLawName(slug: string): string {
   // 循環依存を避けるため、ここでは簡易実装
-  // 実際の使用時はlaw-mappings.tsから import する
+  // 実際の使用時はlaw_mappings.tsから import する
   return slug
 }
 
