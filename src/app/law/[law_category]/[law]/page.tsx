@@ -8,7 +8,7 @@ import { ShareButton } from '@/app/components/ShareButton'
 import { AnimatedContent } from '@/app/components/AnimatedContent'
 import { KasugaLoading } from '@/app/components/KasugaLoading'
 import type { ArticleListItem } from '@/lib/types'
-import { loadLawMetadata, loadFamousArticles, loadChapters } from '@/lib/metadata_loader'
+import { loadLawBatchMetadata } from '@/lib/metadata_loader'
 import type { LawMetadata } from '@/lib/schemas/law_metadata'
 import type { FamousArticles } from '@/lib/schemas/famous_articles'
 import type { ChaptersData } from '@/lib/schemas/chapters'
@@ -52,13 +52,13 @@ const LawArticlesPage = () => {
       setLoading(true)
       setError(null)
       try {
-        // 条文データ、有名条文データ、メタデータ、章構成を並行取得
-        const [articlesResponse, famousArticlesData, lawMetadata, chaptersData] = await Promise.all([
+        // 条文データとメタデータ類を並行取得
+        const [articlesResponse, batchMetadata] = await Promise.all([
           fetch(`/api/${law_category}/${law}`),
-          loadFamousArticles(law_category, law),
-          loadLawMetadata(law_category, law),
-          loadChapters(law_category, law)
+          loadLawBatchMetadata(law_category, law)
         ])
+        
+        const { lawMetadata, famousArticles: famousArticlesData, chapters: chaptersData } = batchMetadata
         
         if (!articlesResponse.ok) {
           throw new Error(`HTTP error! status: ${articlesResponse.status}`)

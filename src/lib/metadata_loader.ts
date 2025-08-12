@@ -98,6 +98,56 @@ export async function loadBatchMetadata(): Promise<{
   }
 }
 
+// 個別法律用のバッチメタデータ取得関数
+export async function loadLawBatchMetadata(lawCategory: string, lawName: string): Promise<{
+  lawMetadata: LawMetadata | null,
+  famousArticles: FamousArticles | null,
+  chapters: ChaptersData | null
+}> {
+  try {
+    const baseUrl = getBaseUrl()
+    const response = await fetch(`${baseUrl}/api/metadata/${lawCategory}/${lawName}/batch`)
+    if (!response.ok) {
+      return { lawMetadata: null, famousArticles: null, chapters: null }
+    }
+    
+    const data = await response.json()
+    return {
+      lawMetadata: data.lawMetadata ? LawMetadataSchema.parse(data.lawMetadata) : null,
+      famousArticles: data.famousArticles ? FamousArticlesSchema.parse(data.famousArticles) : null,
+      chapters: data.chapters ? ChaptersSchema.parse(data.chapters) : null
+    }
+  } catch (error) {
+    console.error(`法律バッチメタデータの読み込みに失敗: ${lawCategory}/${lawName}`, error)
+    return { lawMetadata: null, famousArticles: null, chapters: null }
+  }
+}
+
+// 個別条文用のバッチデータ取得関数
+export async function loadArticleBatchData(lawCategory: string, lawName: string, article: string): Promise<{
+  articleData: any | null,
+  lawMetadata: LawMetadata | null,
+  allArticles: any[] | null
+}> {
+  try {
+    const baseUrl = getBaseUrl()
+    const response = await fetch(`${baseUrl}/api/${lawCategory}/${lawName}/${article}/batch`)
+    if (!response.ok) {
+      return { articleData: null, lawMetadata: null, allArticles: null }
+    }
+    
+    const data = await response.json()
+    return {
+      articleData: data.articleData,
+      lawMetadata: data.lawMetadata ? LawMetadataSchema.parse(data.lawMetadata) : null,
+      allArticles: data.allArticles
+    }
+  } catch (error) {
+    console.error(`条文バッチデータの読み込みに失敗: ${lawCategory}/${lawName}/${article}`, error)
+    return { articleData: null, lawMetadata: null, allArticles: null }
+  }
+}
+
 export async function getLawName(lawCategory: string, lawName: string): Promise<string> {
   const metadata = await loadLawMetadata(lawCategory, lawName)
   return metadata?.name || lawName

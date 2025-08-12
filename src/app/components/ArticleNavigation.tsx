@@ -9,6 +9,7 @@ interface ArticleNavigationProps {
   law: string
   currentArticle: number | string
   lawName: string
+  allArticles?: ArticleItem[]
 }
 
 interface ArticleItem {
@@ -21,14 +22,20 @@ export const ArticleNavigation = ({
   lawCategory, 
   law, 
   currentArticle, 
-  lawName 
+  lawName,
+  allArticles: propArticles
 }: ArticleNavigationProps) => {
   const router = useRouter()
   const [articles, setArticles] = useState<ArticleItem[]>([])
   const [showArticlePopup, setShowArticlePopup] = useState<boolean>(false)
 
-  // APIから条文リストを取得
+  // propsで渡された条文リストがあれば使用、なければAPIから取得
   useEffect(() => {
+    if (propArticles && propArticles.length > 0) {
+      setArticles(propArticles)
+      return
+    }
+
     const fetchArticles = async () => {
       try {
         const response = await fetch(`/api/${lawCategory}/${law}`)
@@ -48,7 +55,7 @@ export const ArticleNavigation = ({
     if (lawCategory && law) {
       fetchArticles()
     }
-  }, [lawCategory, law])
+  }, [lawCategory, law, propArticles])
 
   // 現在の条文のインデックスを取得
   const currentIndex = articles.findIndex(article => String(article.article) === String(currentArticle))
