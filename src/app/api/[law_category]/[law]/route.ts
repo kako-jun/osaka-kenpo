@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server'
 import path from 'path'
 import fs from 'fs/promises'
-import { createErrorResponse, createSuccessResponse, sortArticleNumbers, safeJsonParse } from '@/lib/utils'
+import { createErrorResponse, createSuccessResponse } from '@/lib/utils'
+import { loadAllArticles } from '@/lib/article-loader'
 import type { ArticleListItem } from '@/lib/types'
 
 export async function GET(
@@ -17,48 +18,19 @@ export async function GET(
     )
   }
 
-  const articlesDirectory = path.join(process.cwd(), 'src', 'data', 'laws', law_category, law)
-
   try {
-    const files = await fs.readdir(articlesDirectory)
-    const articleFiles = files.filter(file => 
-      file.endsWith('.json') && 
-      file !== 'law-metadata.json' && 
-      file !== 'famous-articles.json' &&
-      file !== 'chapters.json'
-    )
-
-    const articlesData: ArticleListItem[] = await Promise.all(
-      articleFiles.map(async (fileName) => {
-        const articleId = fileName.replace('.json', '')
-        const filePath = path.join(articlesDirectory, fileName)
-        const fileContent = await fs.readFile(filePath, 'utf8')
-        const data = safeJsonParse(fileContent) as any
-        
-        if (!data) {
-          console.warn(`Invalid article data in ${filePath}`)
-          return { article: articleId, title: `第${articleId}条` }
-        }
-        
-        // タイトルはそのまま使用（空文字の場合もそのまま）
-        const title = data.title || ""
-        return { 
-          article: articleId, 
-          title: title,
-          titleOsaka: data.titleOsaka || title
-        }
-      })
-    )
-
-    // 記事番号でソート
-    const sortedArticles = [...articlesData].sort((a, b) => {
-      const numA = parseInt(a.article)
-      const numB = parseInt(b.article)
-      return numA - numB
-    })
+    // 新しいローダーを使用して全条文を取得
+    const articles = await loadAllArticles(law_category, law)
+    
+    // ArticleListItem形式に変換
+    const articlesData: ArticleListItem[] = articles.map(article => ({
+      article: article.article.toString(),
+      title: article.title,
+      titleOsaka: article.titleOsaka || article.title
+    }))
 
     return NextResponse.json(
-      createSuccessResponse(sortedArticles)
+      createSuccessResponse(articlesData)
     )
   } catch (error) {
     console.error(`Error reading articles for ${law_category}/${law}:`, error)

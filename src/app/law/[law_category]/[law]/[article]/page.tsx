@@ -348,8 +348,8 @@ export default function ArticlePage() {
               originalContent={
                 <div className="text-lg leading-relaxed">
                   <div className="text-gray-800">
-                    {articleData.original.split('\n').map((line, index) => (
-                      <p key={index} className="mb-3" dangerouslySetInnerHTML={{ __html: line }} />
+                    {articleData.originalText.map((paragraph, index) => (
+                      <p key={index} className="mb-3" dangerouslySetInnerHTML={{ __html: paragraph }} />
                     ))}
                   </div>
                 </div>
@@ -357,8 +357,8 @@ export default function ArticlePage() {
               osakaContent={
                 <div className="text-lg leading-relaxed">
                   <div className="text-gray-800" style={{ color: 'var(--primary-color)' }}>
-                    {articleData.osaka.split('\n').map((line, index) => (
-                      <p key={index} className="mb-3">{highlightKeywords(line)}</p>
+                    {articleData.osakaText.map((paragraph, index) => (
+                      <p key={index} className="mb-3">{highlightKeywords(paragraph)}</p>
                     ))}
                   </div>
                 </div>
@@ -368,7 +368,7 @@ export default function ArticlePage() {
             {/* 条文用スピーカーボタン */}
             <div className="absolute bottom-4 right-4">
               <SpeakerButton 
-                text={showOsaka ? articleData.osaka : articleData.original}
+                text={showOsaka ? articleData.osakaText.join('\n\n') : articleData.originalText.join('\n\n')}
                 voice={showOsaka ? 'female' : 'male'}
               />
             </div>
@@ -407,8 +407,8 @@ export default function ArticlePage() {
                 originalContent={
                   <div className="leading-relaxed">
                     <div className="text-gray-700">
-                      {articleData.commentary.split('\n').map((line, index) => (
-                        <p key={index} className="mb-3">{line}</p>
+                      {articleData.commentary.map((paragraph, index) => (
+                        <p key={index} className="mb-3">{paragraph}</p>
                       ))}
                     </div>
                   </div>
@@ -416,8 +416,8 @@ export default function ArticlePage() {
                 osakaContent={
                   <div className="leading-relaxed">
                     <div className="text-gray-700" style={{ color: 'var(--primary-color)' }}>
-                      {(articleData.commentaryOsaka || articleData.commentary).split('\n').map((line, index) => (
-                        <p key={index} className="mb-3">{highlightKeywords(line)}</p>
+                      {(articleData.commentaryOsaka || articleData.commentary).map((paragraph, index) => (
+                        <p key={index} className="mb-3">{highlightKeywords(paragraph)}</p>
                       ))}
                     </div>
                   </div>
@@ -428,7 +428,7 @@ export default function ArticlePage() {
             {/* 解説用スピーカーボタン */}
             <div className="absolute bottom-4 right-4">
               <SpeakerButton 
-                text={showOsaka ? (articleData.commentaryOsaka || articleData.commentary) : articleData.commentary}
+                text={showOsaka ? (articleData.commentaryOsaka || articleData.commentary).join('\n\n') : articleData.commentary.join('\n\n')}
                 voice={showOsaka ? 'female' : 'male'}
               />
             </div>

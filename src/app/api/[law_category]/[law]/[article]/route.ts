@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server'
-import path from 'path'
-import fs from 'fs/promises'
-import { createErrorResponse, createSuccessResponse, safeJsonParse, validateArticleData } from '@/lib/utils'
+import { createErrorResponse, createSuccessResponse } from '@/lib/utils'
+import { loadArticle } from '@/lib/article-loader'
 import type { ArticleData } from '@/lib/types'
 
 export async function GET(
@@ -18,35 +17,11 @@ export async function GET(
   }
 
   try {
-    const filePath = path.join(
-      process.cwd(), 
-      'src', 
-      'data', 
-      'laws', 
-      law_category, 
-      law, 
-      `${article}.json`
-    )
-    
-    const fileContent = await fs.readFile(filePath, 'utf8')
-    const data = safeJsonParse<ArticleData>(fileContent)
-    
-    if (!data) {
-      return NextResponse.json(
-        createErrorResponse('Invalid JSON format'),
-        { status: 500 }
-      )
-    }
-    
-    if (!validateArticleData(data)) {
-      return NextResponse.json(
-        createErrorResponse('Invalid article data structure'),
-        { status: 500 }
-      )
-    }
+    // 新しいローダーを使用（YAML優先、JSONフォールバック）
+    const articleData = await loadArticle(law_category, law, article)
     
     return NextResponse.json(
-      createSuccessResponse(data)
+      createSuccessResponse(articleData)
     )
   } catch (error) {
     console.error(`Error reading article ${law_category}/${law}/${article}:`, error)
