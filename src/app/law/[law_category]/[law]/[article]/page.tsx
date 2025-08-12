@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { useViewMode } from '@/app/context/ViewModeContext'
-import { getLawName } from '@/lib/law-mappings'
+import { getLawMetadata } from '@/lib/law-config'
 import { generateBreadcrumbs } from '@/lib/utils'
 import { SpeakerButton } from '@/components/SpeakerButton'
 import { ShareButton } from '@/app/components/ShareButton'
@@ -21,8 +21,7 @@ export default function ArticlePage() {
   const { viewMode, setViewMode } = useViewMode(); // Global state
   const [articleData, setArticleData] = useState<ArticleData | null>(null)
   const [loading, setLoading] = useState(true)
-
-  const lawName = getLawName(params.law)
+  const [lawName, setLawName] = useState<string>('')
 
   // 表示モード切り替え関数
   const toggleViewMode = () => {
@@ -153,9 +152,14 @@ export default function ArticlePage() {
     
     const loadArticle = async () => {
       try {
-        const response = await fetch(`/api/${params.law_category}/${params.law}/${params.article}`)
-        if (response.ok) {
-          const result = await response.json()
+        // 条文データと法律メタデータを並行取得
+        const [articleResponse, lawMetadata] = await Promise.all([
+          fetch(`/api/${params.law_category}/${params.law}/${params.article}`),
+          getLawMetadata(params.law_category, params.law)
+        ])
+        
+        if (articleResponse.ok) {
+          const result = await articleResponse.json()
           // API response format: { data: ArticleData, ... }
           if (result.data) {
             setArticleData(result.data)
@@ -164,8 +168,11 @@ export default function ArticlePage() {
             setArticleData(result)
           }
         } else {
-          console.error('Failed to load article:', response.status)
+          console.error('Failed to load article:', articleResponse.status)
         }
+        
+        // 法律名を設定
+        setLawName(lawMetadata?.name || params.law)
       } catch (error) {
         console.error('Failed to load article:', error)
       } finally {

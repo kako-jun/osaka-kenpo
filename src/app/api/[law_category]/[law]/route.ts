@@ -21,7 +21,12 @@ export async function GET(
 
   try {
     const files = await fs.readdir(articlesDirectory)
-    const articleFiles = files.filter(file => file.endsWith('.json'))
+    const articleFiles = files.filter(file => 
+      file.endsWith('.json') && 
+      file !== 'law-metadata.json' && 
+      file !== 'famous-articles.json' &&
+      file !== 'chapters.json'
+    )
 
     const articlesData: ArticleListItem[] = await Promise.all(
       articleFiles.map(async (fileName) => {

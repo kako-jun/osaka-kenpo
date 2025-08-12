@@ -1,6 +1,10 @@
+'use client'
+
 import Link from 'next/link';
 import lawsMetadata from '@/data/laws-metadata.json';
 import { ShareButton } from '@/app/components/ShareButton';
+import { useState, useEffect } from 'react';
+import { getLawMetadata, type LawSource } from '@/lib/law-config';
 
 // カテゴリ別絵文字アイコンコンポーネント
 const CategoryIcon = ({ categoryId }: { categoryId: string }) => {
@@ -17,11 +21,53 @@ const CategoryIcon = ({ categoryId }: { categoryId: string }) => {
 };
 
 export default function Home() {
-  const lawCategories = lawsMetadata.categories.map(category => ({
-    id: category.id,
-    title: category.title,
-    laws: category.laws
-  }));
+  const [lawCategories, setLawCategories] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadLawMetadata = async () => {
+      const categoriesWithMetadata = await Promise.all(
+        lawsMetadata.categories.map(async (category) => {
+          const lawsWithMetadata = await Promise.all(
+            category.laws.map(async (law) => {
+              const pathParts = law.path.split('/');
+              const lawCategory = pathParts[2];
+              const lawId = pathParts[3];
+              
+              const metadata = await getLawMetadata(lawCategory, lawId);
+              return {
+                ...law,
+                name: metadata?.name || law.id,
+                year: metadata?.year || null
+              };
+            })
+          );
+          
+          return {
+            ...category,
+            laws: lawsWithMetadata
+          };
+        })
+      );
+      
+      setLawCategories(categoriesWithMetadata);
+      setLoading(false);
+    };
+
+    loadLawMetadata();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-cream flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-gray-600 text-xl mb-4">
+            法律データを読み込み中やで...
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="relative">
@@ -50,16 +96,16 @@ export default function Home() {
               {category.title}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {category.laws.sort((a, b) => a.year - b.year).map((law) => (
+              {category.laws.sort((a, b) => (a.year || 0) - (b.year || 0)).map((law) => (
                 law.status === 'available' ? (
-                  <Link key={law.name} href={law.path} passHref className="block">
+                  <Link key={law.id} href={law.path} passHref className="block">
                     <div className="h-full flex flex-col justify-center p-6 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.1)] text-center text-white font-bold text-xl bg-[#E94E77] hover:bg-opacity-80 cursor-pointer">
                       <p className="mb-1">{law.name}</p>
                       {law.year && <p className="text-sm font-normal text-[#FFB6C1]">{law.year}年</p>}
                     </div>
                   </Link>
                 ) : (
-                  <div key={law.name} className="h-full flex flex-col justify-center p-6 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.1)] text-center text-white font-bold text-xl bg-gray-400 cursor-not-allowed relative">
+                  <div key={law.id} className="h-full flex flex-col justify-center p-6 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.1)] text-center text-white font-bold text-xl bg-gray-400 cursor-not-allowed relative">
                     <p className="mb-1">{law.name}</p>
                     {law.year && <p className="text-sm font-normal text-gray-300">{law.year}年</p>}
                     <span className="absolute bottom-2 right-2 text-xs font-normal bg-gray-500 px-2 py-1 rounded">準備中やで</span>

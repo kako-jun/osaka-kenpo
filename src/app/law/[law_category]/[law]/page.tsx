@@ -3,14 +3,13 @@
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { useState, useEffect } from 'react'
-import { getLawName } from '@/lib/law-mappings'
 import { useViewMode } from '@/app/context/ViewModeContext'
 import { ShareButton } from '@/app/components/ShareButton'
 import { AnimatedContent } from '@/app/components/AnimatedContent'
 import { KasugaLoading } from '@/app/components/KasugaLoading'
 import type { ArticleListItem } from '@/lib/types'
 import { getFamousArticles, type FamousArticlesData } from '@/lib/famous-articles'
-import { getLawSource, getChapters, type LawSource, type ChaptersData } from '@/lib/law-config'
+import { getLawMetadata, getChapters, getLawName, type LawSource, type ChaptersData } from '@/lib/law-config'
 
 const LawArticlesPage = () => {
   const params = useParams<{ law_category: string; law: string }>();
@@ -22,8 +21,8 @@ const LawArticlesPage = () => {
   const [famousArticles, setFamousArticles] = useState<FamousArticlesData | null>(null)
   const [lawSource, setLawSource] = useState<LawSource | null>(null)
   const [chaptersData, setChaptersData] = useState<ChaptersData | null>(null)
+  const [lawName, setLawName] = useState<string>('')
 
-  const lawName = getLawName(law)
   const showOsaka = viewMode === 'osaka'
 
   // 表示モード切り替え関数
@@ -51,11 +50,11 @@ const LawArticlesPage = () => {
       setLoading(true)
       setError(null)
       try {
-        // 条文データ、有名条文データ、出典情報、章構成を並行取得
-        const [articlesResponse, famousArticlesData, lawSourceData, chaptersData] = await Promise.all([
+        // 条文データ、有名条文データ、メタデータ、章構成を並行取得
+        const [articlesResponse, famousArticlesData, lawMetadata, chaptersData] = await Promise.all([
           fetch(`/api/${law_category}/${law}`),
           getFamousArticles(law_category, law),
-          getLawSource(law_category, law),
+          getLawMetadata(law_category, law),
           getChapters(law_category, law)
         ])
         
@@ -77,8 +76,9 @@ const LawArticlesPage = () => {
         
         setArticles(articleList)
         setFamousArticles(famousArticlesData)
-        setLawSource(lawSourceData)
+        setLawSource(lawMetadata)
         setChaptersData(chaptersData)
+        setLawName(lawMetadata?.name || law)
         
       } catch (e: any) {
         setError(e.message)

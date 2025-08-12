@@ -4,6 +4,7 @@
 
 export interface LawSource {
   name: string
+  year: number
   source: string
   description: string
   links?: Array<{
@@ -26,18 +27,18 @@ export interface ChaptersData {
 }
 
 /**
- * 指定された法律の出典情報を取得する
+ * 指定された法律のメタデータを取得する
  * @param lawCategory - 法律カテゴリ（例: 'jp', 'foreign_old'）
  * @param lawName - 法律名（例: 'constitution', 'magna_carta'）
- * @returns 出典情報またはnull（ファイルが存在しない場合）
+ * @returns メタデータまたはnull（ファイルが存在しない場合）
  */
-export async function getLawSource(
+export async function getLawMetadata(
   lawCategory: string, 
   lawName: string
 ): Promise<LawSource | null> {
   try {
-    const lawSource = await import(`@/data/laws/${lawCategory}/${lawName}/law-source.json`)
-    return lawSource.default as LawSource
+    const lawMetadata = await import(`@/data/laws/${lawCategory}/${lawName}/law-metadata.json`)
+    return lawMetadata.default as LawSource
   } catch (error) {
     return null
   }
@@ -59,4 +60,32 @@ export async function getChapters(
   } catch (error) {
     return null
   }
+}
+
+/**
+ * 法律名を動的に取得する
+ * @param lawCategory - 法律カテゴリ
+ * @param lawName - 法律名
+ * @returns 法律名またはnull
+ */
+export async function getLawName(
+  lawCategory: string, 
+  lawName: string
+): Promise<string | null> {
+  const lawMetadata = await getLawMetadata(lawCategory, lawName)
+  return lawMetadata?.name || null
+}
+
+/**
+ * 法律年度を動的に取得する
+ * @param lawCategory - 法律カテゴリ
+ * @param lawName - 法律名
+ * @returns 年度またはnull
+ */
+export async function getLawYear(
+  lawCategory: string, 
+  lawName: string
+): Promise<number | null> {
+  const lawMetadata = await getLawMetadata(lawCategory, lawName)
+  return lawMetadata?.year || null
 }

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import lawsMetadata from '@/data/laws-metadata.json';
+import { getLawMetadata, type LawSource } from '@/lib/law-config';
 
 // カテゴリ別絵文字アイコンコンポーネント
 const CategoryIcon = ({ categoryId }: { categoryId: string }) => {
@@ -18,8 +19,50 @@ const CategoryIcon = ({ categoryId }: { categoryId: string }) => {
   return <span className="text-lg">{emojiMap[categoryId] || '📄'}</span>;
 };
 
+type LawWithMetadata = {
+  id: string;
+  path: string;
+  status: string;
+  name?: string;
+  year?: number;
+};
+
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [lawsWithMetadata, setLawsWithMetadata] = useState<any[]>([]);
+
+  // 法律メタデータを読み込む
+  useEffect(() => {
+    const loadLawsMetadata = async () => {
+      const categoriesWithMetadata = await Promise.all(
+        lawsMetadata.categories.map(async (category) => {
+          const lawsWithMetadata = await Promise.all(
+            category.laws.map(async (law) => {
+              const pathParts = law.path.split('/');
+              const lawCategory = pathParts[2];
+              const lawId = pathParts[3];
+              
+              const metadata = await getLawMetadata(lawCategory, lawId);
+              return {
+                ...law,
+                name: metadata?.name || law.id,
+                year: metadata?.year || null
+              };
+            })
+          );
+          
+          return {
+            ...category,
+            laws: lawsWithMetadata
+          };
+        })
+      );
+      
+      setLawsWithMetadata(categoriesWithMetadata);
+    };
+
+    loadLawsMetadata();
+  }, []);
 
   // メニューが開いている間、背景のスクロールを禁止する
   useEffect(() => {
@@ -103,14 +146,14 @@ const Menu = () => {
             </Link>
           </div>
           
-          {lawsMetadata.categories.map((category) => (
+          {lawsWithMetadata.map((category) => (
             <div key={category.id} className="space-y-1">
               <div className="flex items-center gap-2 px-3 py-2 bg-white/20 rounded-lg mb-2">
                 <CategoryIcon categoryId={category.id} />
                 <span className="font-bold text-sm">{category.title}</span>
               </div>
               {category.laws
-                .sort((a, b) => a.year - b.year)
+                .sort((a, b) => (a.year || 0) - (b.year || 0))
                 .map((law) => {
                   const isAvailable = law.status === 'available';
                   
