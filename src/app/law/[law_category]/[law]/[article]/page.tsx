@@ -5,7 +5,6 @@ import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { useViewMode } from '@/app/context/ViewModeContext'
 import { loadLawMetadata } from '@/lib/metadata_loader'
-import { generateBreadcrumbs } from '@/lib/utils'
 import { SpeakerButton } from '@/components/SpeakerButton'
 import { ShareButton } from '@/app/components/ShareButton'
 import { LikeButton } from '@/app/components/LikeButton'
@@ -171,8 +170,8 @@ export default function ArticlePage() {
           console.error('Failed to load article:', articleResponse.status)
         }
         
-        // 法律名を設定
-        setLawName(lawMetadata?.name || params.law)
+        // 法律名を設定（通称があれば通称を使用）
+        setLawName(lawMetadata?.shortName || lawMetadata?.name || params.law)
       } catch (error) {
         console.error('Failed to load article:', error)
       } finally {
@@ -299,6 +298,7 @@ export default function ArticlePage() {
       <div id="page-content">
       <div className="container mx-auto px-4 py-8">
         <header className="text-center mb-4">
+          {/* 法律名の表示（通称使用） */}
           <Link 
             href={`/law/${params.law_category}/${params.law}`}
             className="inline-block text-lg text-gray-600 mb-2 hover:text-[#E94E77] transition-colors"
