@@ -342,7 +342,7 @@ export default function ArticlePage() {
                 <div className="text-lg leading-relaxed">
                   <div className="text-gray-800">
                     {articleData.original.split('\n').map((line, index) => (
-                      <p key={index} className="mb-3">{line}</p>
+                      <p key={index} className="mb-3" dangerouslySetInnerHTML={{ __html: line }} />
                     ))}
                   </div>
                 </div>
