@@ -1,0 +1,170 @@
+chapters:
+  - chapter: 1
+    title: 天皇
+    titleOsaka: 天皇はん
+    articles:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      - 6
+      - 7
+      - 8
+    description: 天皇の地位と役割について定めた章
+    descriptionOsaka: 天皇はんの立場とお仕事について決めた章やで
+  - chapter: 2
+    title: 戦争の放棄
+    titleOsaka: 戦争はもうせえへん
+    articles:
+      - 9
+    description: 戦争の放棄と戦力の不保持について定めた章
+    descriptionOsaka: 戦争はもうせえへんし軍隊も持たへんって決めた章やで
+  - chapter: 3
+    title: 国民の権利及び義務
+    titleOsaka: 国民の権利と義務
+    articles:
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 17
+      - 18
+      - 19
+      - 20
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 26
+      - 27
+      - 28
+      - 29
+      - 30
+      - 31
+      - 32
+      - 33
+      - 34
+      - 35
+      - 36
+      - 37
+      - 38
+      - 39
+      - 40
+    description: 基本的人権と国民の義務について定めた章
+    descriptionOsaka: 国民の基本的な権利と義務について決めた章やで
+  - chapter: 4
+    title: 国会
+    titleOsaka: 国会
+    articles:
+      - 41
+      - 42
+      - 43
+      - 44
+      - 45
+      - 46
+      - 47
+      - 48
+      - 49
+      - 50
+      - 51
+      - 52
+      - 53
+      - 54
+      - 55
+      - 56
+      - 57
+      - 58
+      - 59
+      - 60
+      - 61
+      - 62
+      - 63
+      - 64
+    description: 国会の構成と権限について定めた章
+    descriptionOsaka: 国会の仕組みと権限について決めた章やで
+  - chapter: 5
+    title: 内閣
+    titleOsaka: 内閣
+    articles:
+      - 65
+      - 66
+      - 67
+      - 68
+      - 69
+      - 70
+      - 71
+      - 72
+      - 73
+      - 74
+      - 75
+    description: 内閣の構成と権限について定めた章
+    descriptionOsaka: 内閣の仕組みと権限について決めた章やで
+  - chapter: 6
+    title: 司法
+    titleOsaka: 司法
+    articles:
+      - 76
+      - 77
+      - 78
+      - 79
+      - 80
+      - 81
+      - 82
+    description: 司法権と裁判所について定めた章
+    descriptionOsaka: 裁判所の権限と仕組みについて決めた章やで
+  - chapter: 7
+    title: 財政
+    titleOsaka: お金の話
+    articles:
+      - 83
+      - 84
+      - 85
+      - 86
+      - 87
+      - 88
+      - 89
+      - 90
+      - 91
+    description: 国の財政について定めた章
+    descriptionOsaka: 国のお金の使い方について決めた章やで
+  - chapter: 8
+    title: 地方自治
+    titleOsaka: 地方自治
+    articles:
+      - 92
+      - 93
+      - 94
+      - 95
+    description: 地方公共団体について定めた章
+    descriptionOsaka: 県や市町村について決めた章やで
+  - chapter: 9
+    title: 改正
+    titleOsaka: 憲法を変える話
+    articles:
+      - 96
+    description: 憲法改正の手続きについて定めた章
+    descriptionOsaka: 憲法を変える時のやり方について決めた章やで
+  - chapter: 10
+    title: 最高法規
+    titleOsaka: 一番えらい法律
+    articles:
+      - 97
+      - 98
+      - 99
+    description: 憲法が最高法規であることを定めた章
+    descriptionOsaka: 憲法が一番えらい法律やってことを決めた章やで
+  - chapter: 11
+    title: 補則
+    titleOsaka: その他のこと
+    articles:
+      - 100
+      - 101
+      - 102
+      - 103
+    description: その他の規定について定めた章
+    descriptionOsaka: その他の決まりごとについて書いた章やで

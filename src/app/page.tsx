@@ -1,23 +1,14 @@
 'use client'
 
 import Link from 'next/link';
-import lawsMetadata from '@/data/laws-metadata.json';
 import { ShareButton } from '@/app/components/ShareButton';
+import { KasugaLoading } from '@/app/components/KasugaLoading';
 import { useState, useEffect } from 'react';
-import { getLawMetadata, type LawSource } from '@/lib/law-config';
+import { loadLawsMetadata, loadLawMetadata } from '@/lib/metadata-loader';
 
 // カテゴリ別絵文字アイコンコンポーネント
-const CategoryIcon = ({ categoryId }: { categoryId: string }) => {
-  const emojiMap: { [key: string]: string } = {
-    'shinchaku': '🍚',
-    'roppou': '⚖️',
-    'mukashi': '📜',
-    'gaikoku': '🌍',
-    'gaikoku_mukashi': '🏛️',
-    'treaty': '🤝'
-  };
-
-  return <span className="text-2xl mr-2">{emojiMap[categoryId] || '📄'}</span>;
+const CategoryIcon = ({ icon }: { icon: string }) => {
+  return <span className="text-2xl mr-2">{icon || '📄'}</span>;
 };
 
 export default function Home() {
@@ -25,44 +16,79 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const loadLawMetadata = async () => {
-      const categoriesWithMetadata = await Promise.all(
-        lawsMetadata.categories.map(async (category) => {
-          const lawsWithMetadata = await Promise.all(
-            category.laws.map(async (law) => {
-              const pathParts = law.path.split('/');
-              const lawCategory = pathParts[2];
-              const lawId = pathParts[3];
-              
-              const metadata = await getLawMetadata(lawCategory, lawId);
-              return {
-                ...law,
-                name: metadata?.name || law.id,
-                year: metadata?.year || null
-              };
-            })
-          );
-          
-          return {
-            ...category,
-            laws: lawsWithMetadata
-          };
-        })
-      );
-      
-      setLawCategories(categoriesWithMetadata);
-      setLoading(false);
+    const loadAllMetadata = async () => {
+      try {
+        console.log('法律メタデータを読み込み中...');
+        const lawsMetadataMain = await loadLawsMetadata();
+        
+        if (!lawsMetadataMain) {
+          console.error('法律一覧メタデータの読み込みに失敗しました');
+          setLoading(false);
+          return;
+        }
+        
+        console.log('法律一覧メタデータ:', lawsMetadataMain);
+
+        const categoriesWithMetadata = await Promise.all(
+          lawsMetadataMain.categories.map(async (category) => {
+            console.log(`カテゴリ "${category.title}" の法律を読み込み中...`);
+            
+            const lawsWithMetadata = await Promise.all(
+              category.laws.map(async (law) => {
+                const pathParts = law.path.split('/');
+                const lawCategory = pathParts[2];
+                const lawId = pathParts[3];
+                
+                console.log(`法律メタデータを読み込み中: ${lawCategory}/${lawId}`);
+                const metadata = await loadLawMetadata(lawCategory, lawId);
+                
+                const result = {
+                  ...law,
+                  name: metadata?.name || law.id,
+                  year: metadata?.year || null
+                };
+                
+                console.log(`法律データ: ${lawId} -> ${result.name}`);
+                return result;
+              })
+            );
+            
+            return {
+              ...category,
+              laws: lawsWithMetadata
+            };
+          })
+        );
+        
+        console.log('全カテゴリデータ:', categoriesWithMetadata);
+        setLawCategories(categoriesWithMetadata);
+        setLoading(false);
+      } catch (error) {
+        console.error('メタデータ読み込みエラー:', error);
+        setLoading(false);
+      }
     };
 
-    loadLawMetadata();
+    loadAllMetadata();
   }, []);
 
   if (loading) {
     return (
+      <div className="min-h-screen bg-cream">
+        <KasugaLoading />
+      </div>
+    );
+  }
+
+  if (lawCategories.length === 0) {
+    return (
       <div className="min-h-screen bg-cream flex items-center justify-center">
         <div className="text-center">
-          <div className="text-gray-600 text-xl mb-4">
-            法律データを読み込み中やで...
+          <div className="text-red-500 text-xl mb-4">
+            法律データが読み込めませんでした
+          </div>
+          <div className="text-gray-600 text-sm">
+            ブラウザのコンソールでエラーを確認してください
           </div>
         </div>
       </div>
@@ -92,7 +118,7 @@ export default function Home() {
         {lawCategories.map((category) => (
           <div key={category.title}>
             <h2 className="text-2xl font-bold mb-4 border-b-2 border-[#E94E77] pb-2 flex items-center">
-              <CategoryIcon categoryId={category.id} />
+              <CategoryIcon icon={category.icon} />
               {category.title}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
