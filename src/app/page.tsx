@@ -37,7 +37,8 @@ export default function Home() {
             return {
               ...law,
               name: metadata?.shortName || metadata?.name || law.id,
-              year: metadata?.year || null
+              year: metadata?.year || null,
+              badge: metadata?.badge || null
             };
           });
           
@@ -111,15 +112,25 @@ export default function Home() {
               {category.laws.sort((a, b) => (a.year || 0) - (b.year || 0)).map((law) => (
                 law.status === 'available' ? (
                   <Link key={law.id} href={law.path} passHref className="block">
-                    <div className="h-full flex flex-col justify-center p-6 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.1)] text-center text-white font-bold text-xl bg-[#E94E77] hover:bg-opacity-80 cursor-pointer">
-                      <p className="mb-1">{law.name}</p>
+                    <div className="h-32 flex flex-col justify-center p-6 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.1)] text-center text-white font-bold text-xl bg-[#E94E77] hover:bg-opacity-80 cursor-pointer relative">
+                      <p className="mb-1 mt-3">{law.name}</p>
                       {law.year && <p className="text-sm font-normal text-[#FFB6C1]">{law.year}年</p>}
+                      {law.badge && (
+                        <span className="absolute top-2 left-2 px-2 py-1 rounded-full text-xs font-bold text-white shadow-[0_0_8px_rgba(0,0,0,0.25)] bg-[#ed6b8a]">
+                          {law.badge}
+                        </span>
+                      )}
                     </div>
                   </Link>
                 ) : (
-                  <div key={law.id} className="h-full flex flex-col justify-center p-6 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.1)] text-center text-white font-bold text-xl bg-gray-400 cursor-not-allowed relative">
-                    <p className="mb-1">{law.name}</p>
+                  <div key={law.id} className="h-32 flex flex-col justify-center p-6 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.1)] text-center text-white font-bold text-xl bg-gray-400 cursor-not-allowed relative">
+                    <p className="mb-1 mt-3">{law.name}</p>
                     {law.year && <p className="text-sm font-normal text-gray-300">{law.year}年</p>}
+                    {law.badge && (
+                      <span className="absolute top-2 left-2 px-2 py-1 rounded-full text-xs font-bold text-white shadow-[0_0_8px_rgba(0,0,0,0.25)] bg-[#ed6b8a]">
+                        {law.badge}
+                      </span>
+                    )}
                     <span className="absolute bottom-2 right-2 text-xs font-normal bg-gray-500 px-2 py-1 rounded">準備中やで</span>
                   </div>
                 )

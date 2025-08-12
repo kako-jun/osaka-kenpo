@@ -8,6 +8,7 @@ export const LinkSchema = z.object({
 export const LawMetadataSchema = z.object({
   name: z.string().min(1, '法律名は必須です'),
   shortName: z.string().optional(), // 通称名（オプション）
+  badge: z.string().optional(), // バッジテキスト（オプション）
   year: z.number().int(),
   source: z.string().min(1, '出典は必須です'),
   description: z.string().min(1, '説明は必須です'),
