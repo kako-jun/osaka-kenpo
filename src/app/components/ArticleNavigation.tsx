@@ -123,21 +123,23 @@ export const ArticleNavigation = ({
                 />
                 
                 {/* ポップアップ内容 */}
-                <div className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-white rounded-lg shadow-lg border border-gray-200 z-50 max-h-96 overflow-y-auto" style={{ minWidth: '300px', maxWidth: '400px' }}>
-                  <div className="p-4 border-b border-gray-200">
-                    <h3 className="font-medium text-gray-900">条文を選択</h3>
+                <div className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-white rounded-lg shadow-xl border border-gray-200 z-50 max-h-96 overflow-y-auto" style={{ minWidth: '300px', maxWidth: '400px' }}>
+                  <div className="p-4 border-b border-gray-200" style={{ backgroundColor: '#FFF8DC' }}>
+                    <h3 className="font-medium" style={{ color: '#8B4513' }}>📖 条文を選択しなはれ</h3>
                   </div>
                   <div className="py-2">
                     {articles.map((article) => (
                       <button
                         key={article.article}
                         onClick={() => handleArticleSelect(article.article)}
-                        className={`w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors ${
-                          String(article.article) === String(currentArticle) ? 'bg-blue-50 text-blue-600' : 'text-gray-700'
+                        className={`w-full text-left px-4 py-2 transition-colors hover:bg-gray-100 ${
+                          String(article.article) === String(currentArticle) 
+                            ? 'bg-blue-50 text-blue-600 border-l-4 border-blue-400' 
+                            : 'text-gray-700'
                         }`}
                       >
                         <span className="font-medium">{formatArticleNumber(article.article)}</span>
-                        {article.title && <span className="ml-2 text-sm text-gray-500">{article.title}</span>}
+                        {article.title && <span className="ml-2 text-sm text-gray-600">{article.title}</span>}
                       </button>
                     ))}
                   </div>
