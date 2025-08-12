@@ -32,6 +32,13 @@ const LawArticlesPage = () => {
     setViewMode(viewMode === 'osaka' ? 'original' : 'osaka')
   }
 
+  // ブラウザのタイトルを設定
+  useEffect(() => {
+    if (lawSource?.shortName || lawName) {
+      document.title = `${lawSource?.shortName || lawName} - おおさかけんぽう`;
+    }
+  }, [lawSource, lawName]);
+
   // キーボードショートカット（スペースキー）
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -156,9 +163,7 @@ const LawArticlesPage = () => {
     <div className="min-h-screen bg-cream">
       {/* 右上にシェアボタン */}
       <div className="fixed top-20 right-4 z-10">
-        <ShareButton 
-          title={lawSource?.shortName || lawName}
-        />
+        <ShareButton />
       </div>
       <div className="container mx-auto px-4 py-8">
         {lawSource && lawSource.shortName ? (

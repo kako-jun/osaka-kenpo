@@ -1,11 +1,16 @@
 import { ShareButton } from '../components/ShareButton'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'このサイトのこと - おおさかけんぽう',
+}
 
 export default function About() {
   return (
     <div className="min-h-screen bg-cream">
       {/* 右上にシェアボタン */}
       <div className="fixed top-20 right-4 z-10">
-        <ShareButton title="このサイトのこと - おおさかけんぽう" />
+        <ShareButton />
       </div>
 
       <div className="container mx-auto px-4 py-8">
