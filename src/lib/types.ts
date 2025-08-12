@@ -10,7 +10,8 @@ export interface LawInfo {
 }
 
 export interface ArticleListItem {
-  article: string
+  id: string  // ファイル名（URL用）
+  article: string | number  // 条文番号（表示用）
   title: string
   titleOsaka?: string
 }

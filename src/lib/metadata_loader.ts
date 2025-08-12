@@ -1,7 +1,7 @@
-import { LawMetadata, LawMetadataSchema } from './schemas/law-metadata'
-import { FamousArticles, FamousArticlesSchema } from './schemas/famous-articles'
+import { LawMetadata, LawMetadataSchema } from './schemas/law_metadata'
+import { FamousArticles, FamousArticlesSchema } from './schemas/famous_articles'
 import { ChaptersData, ChaptersSchema } from './schemas/chapters'
-import { LawsMetadata, LawsMetadataSchema } from './schemas/laws-metadata'
+import { LawsMetadata, LawsMetadataSchema } from './schemas/laws_metadata'
 
 // Browser環境でのベースURL取得
 const getBaseUrl = () => {
@@ -14,7 +14,7 @@ const getBaseUrl = () => {
 export async function loadLawMetadata(lawCategory: string, lawName: string): Promise<LawMetadata | null> {
   try {
     const baseUrl = getBaseUrl()
-    const response = await fetch(`${baseUrl}/api/metadata/${lawCategory}/${lawName}/law-metadata`)
+    const response = await fetch(`${baseUrl}/api/metadata/${lawCategory}/${lawName}/law_metadata`)
     if (!response.ok) {
       return null
     }
@@ -30,7 +30,7 @@ export async function loadLawMetadata(lawCategory: string, lawName: string): Pro
 export async function loadFamousArticles(lawCategory: string, lawName: string): Promise<FamousArticles | null> {
   try {
     const baseUrl = getBaseUrl()
-    const response = await fetch(`${baseUrl}/api/metadata/${lawCategory}/${lawName}/famous-articles`)
+    const response = await fetch(`${baseUrl}/api/metadata/${lawCategory}/${lawName}/famous_articles`)
     if (!response.ok) {
       return null
     }
@@ -62,7 +62,7 @@ export async function loadChapters(lawCategory: string, lawName: string): Promis
 export async function loadLawsMetadata(): Promise<LawsMetadata | null> {
   try {
     const baseUrl = getBaseUrl()
-    const response = await fetch(`${baseUrl}/api/metadata/laws-metadata`)
+    const response = await fetch(`${baseUrl}/api/metadata/laws_metadata`)
     if (!response.ok) {
       return null
     }

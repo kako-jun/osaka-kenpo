@@ -7,8 +7,14 @@ import { useRouter } from 'next/navigation'
 interface ArticleNavigationProps {
   lawCategory: string
   law: string
-  currentArticle: number
+  currentArticle: number | string
   lawName: string
+}
+
+interface ArticleItem {
+  article: string | number
+  title: string
+  titleOsaka?: string
 }
 
 export const ArticleNavigation = ({ 
@@ -18,41 +24,49 @@ export const ArticleNavigation = ({
   lawName 
 }: ArticleNavigationProps) => {
   const router = useRouter()
-  const [articleCount, setArticleCount] = useState<number>(1)
+  const [articles, setArticles] = useState<ArticleItem[]>([])
   const [showArticlePopup, setShowArticlePopup] = useState<boolean>(false)
 
-  // APIから条文数を動的に取得
+  // APIから条文リストを取得
   useEffect(() => {
-    const fetchArticleCount = async () => {
+    const fetchArticles = async () => {
       try {
         const response = await fetch(`/api/${lawCategory}/${law}`)
         if (response.ok) {
           const result = await response.json()
-          const articles = result.data || result
-          if (Array.isArray(articles) && articles.length > 0) {
-            // 条文番号の最大値を取得
-            const maxArticle = Math.max(...articles.map(article => Number(article.article)))
-            setArticleCount(maxArticle)
+          const articleList = result.data || result
+          if (Array.isArray(articleList)) {
+            setArticles(articleList)
           }
         }
       } catch (error) {
-        console.error('Failed to fetch article count:', error)
-        // フォールバック: デフォルト値は1（APIから取得できない場合のみ）
-        setArticleCount(1)
+        console.error('Failed to fetch articles:', error)
+        setArticles([])
       }
     }
 
     if (lawCategory && law) {
-      fetchArticleCount()
+      fetchArticles()
     }
   }, [lawCategory, law])
 
-  const prevArticle = currentArticle > 1 ? currentArticle - 1 : null
-  const nextArticle = currentArticle < articleCount ? currentArticle + 1 : null
+  // 現在の条文のインデックスを取得
+  const currentIndex = articles.findIndex(article => String(article.article) === String(currentArticle))
+  const prevArticle = currentIndex > 0 ? articles[currentIndex - 1] : null
+  const nextArticle = currentIndex < articles.length - 1 ? articles[currentIndex + 1] : null
 
-  const handleArticleSelect = (articleNum: number) => {
+  const handleArticleSelect = (articleId: string | number) => {
     setShowArticlePopup(false)
-    router.push(`/law/${lawCategory}/${law}/${articleNum}`)
+    router.push(`/law/${lawCategory}/${law}/${articleId}`)
+  }
+
+  // 条文番号を表示用にフォーマット
+  const formatArticleNumber = (article: string | number) => {
+    if (typeof article === 'number') return `第${article}条`
+    if (String(article).startsWith('fusoku_')) {
+      return `附則第${String(article).replace('fusoku_', '')}条`
+    }
+    return `第${article}条`
   }
 
   return (
@@ -74,13 +88,13 @@ export const ArticleNavigation = ({
         <div className="flex items-center space-x-4">
           {prevArticle && (
             <Link
-              href={`/law/${lawCategory}/${law}/${prevArticle}`}
+              href={`/law/${lawCategory}/${law}/${prevArticle.article}`}
               className="flex items-center px-4 py-3 bg-gray-100 hover:bg-gray-200 rounded-md text-gray-700 transition-colors whitespace-nowrap"
             >
               <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
-              第{prevArticle}条
+              {formatArticleNumber(prevArticle.article)}
             </Link>
           )}
 
@@ -89,7 +103,7 @@ export const ArticleNavigation = ({
               onClick={() => setShowArticlePopup(true)}
               className="text-gray-500 font-medium hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-md transition-colors cursor-pointer"
             >
-              第{currentArticle} / {articleCount}条
+              {formatArticleNumber(currentArticle)} ({currentIndex + 1} / {articles.length})
             </button>
 
             {/* ポップアップ */}
@@ -101,36 +115,24 @@ export const ArticleNavigation = ({
                   onClick={() => setShowArticlePopup(false)}
                 />
                 
-                {/* ポップアップ本体 */}
-                <div className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-white rounded-lg shadow-2xl border border-gray-200 z-50 w-96 max-h-96 overflow-y-auto">
-                  <div className="p-4">
-                    <div className="flex justify-between items-center mb-4">
-                      <h3 className="text-lg font-bold text-gray-800">条文を選択</h3>
+                {/* ポップアップ内容 */}
+                <div className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-white rounded-lg shadow-lg border border-gray-200 z-50 max-h-96 overflow-y-auto" style={{ minWidth: '300px', maxWidth: '400px' }}>
+                  <div className="p-4 border-b border-gray-200">
+                    <h3 className="font-medium text-gray-900">条文を選択</h3>
+                  </div>
+                  <div className="py-2">
+                    {articles.map((article) => (
                       <button
-                        onClick={() => setShowArticlePopup(false)}
-                        className="text-gray-400 hover:text-gray-600 text-xl leading-none"
+                        key={article.article}
+                        onClick={() => handleArticleSelect(article.article)}
+                        className={`w-full text-left px-4 py-2 hover:bg-gray-100 transition-colors ${
+                          String(article.article) === String(currentArticle) ? 'bg-blue-50 text-blue-600' : 'text-gray-700'
+                        }`}
                       >
-                        ×
+                        <span className="font-medium">{formatArticleNumber(article.article)}</span>
+                        {article.title && <span className="ml-2 text-sm text-gray-500">{article.title}</span>}
                       </button>
-                    </div>
-                    
-                    <div className="grid grid-cols-4 gap-2">
-                      {Array.from({ length: articleCount }, (_, i) => i + 1).map((articleNum) => (
-                        <button
-                          key={articleNum}
-                          onClick={() => handleArticleSelect(articleNum)}
-                          className={`
-                            py-3 px-4 rounded-md text-sm font-medium transition-colors whitespace-nowrap
-                            ${articleNum === currentArticle 
-                              ? 'bg-[#E94E77] text-white' 
-                              : 'bg-gray-100 text-gray-700 hover:bg-red-100 hover:text-red-700'
-                            }
-                          `}
-                        >
-                          第{articleNum}条
-                        </button>
-                      ))}
-                    </div>
+                    ))}
                   </div>
                 </div>
               </>
@@ -139,10 +141,10 @@ export const ArticleNavigation = ({
 
           {nextArticle && (
             <Link
-              href={`/law/${lawCategory}/${law}/${nextArticle}`}
+              href={`/law/${lawCategory}/${law}/${nextArticle.article}`}
               className="flex items-center px-4 py-3 bg-gray-100 hover:bg-gray-200 rounded-md text-gray-700 transition-colors whitespace-nowrap"
             >
-              第{nextArticle}条
+              {formatArticleNumber(nextArticle.article)}
               <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
@@ -151,13 +153,13 @@ export const ArticleNavigation = ({
         </div>
       </div>
 
-      {/* スマホ用レイアウト */}
+      {/* モバイル用レイアウト */}
       <div className="sm:hidden">
         {/* 戻る */}
-        <div className="mb-4">
+        <div className="mb-3">
           <Link
             href={`/law/${lawCategory}/${law}`}
-            className="flex items-center px-3 py-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors"
+            className="flex items-center text-blue-600 hover:text-blue-800"
           >
             <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -167,82 +169,42 @@ export const ArticleNavigation = ({
         </div>
 
         {/* 前後のナビゲーション */}
-        <div className="flex justify-center items-center space-x-3">
-          {prevArticle && (
+        <div className="flex justify-between items-center">
+          {prevArticle ? (
             <Link
-              href={`/law/${lawCategory}/${law}/${prevArticle}`}
-              className="flex items-center px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-md text-gray-700 transition-colors whitespace-nowrap text-sm"
+              href={`/law/${lawCategory}/${law}/${prevArticle.article}`}
+              className="flex items-center px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-md text-gray-700 transition-colors text-sm"
             >
-              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
-              第{prevArticle}条
+              前
             </Link>
+          ) : (
+            <div></div>
           )}
 
           <div className="relative">
             <button
               onClick={() => setShowArticlePopup(true)}
-              className="text-gray-500 font-medium hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-md transition-colors cursor-pointer text-sm whitespace-nowrap"
+              className="text-gray-500 font-medium hover:text-blue-600 px-2 py-1 text-sm"
             >
-              第{currentArticle} / {articleCount}条
+              {formatArticleNumber(currentArticle)} ({currentIndex + 1}/{articles.length})
             </button>
-
-            {/* スマホ用ポップアップ */}
-            {showArticlePopup && (
-              <>
-                {/* オーバーレイ */}
-                <div 
-                  className="fixed inset-0 bg-black bg-opacity-50 z-40"
-                  onClick={() => setShowArticlePopup(false)}
-                />
-                
-                {/* ポップアップ本体 */}
-                <div className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-white rounded-lg shadow-2xl border border-gray-200 z-50 w-80 max-h-96 overflow-y-auto">
-                  <div className="p-4">
-                    <div className="flex justify-between items-center mb-4">
-                      <h3 className="text-lg font-bold text-gray-800">条文を選択</h3>
-                      <button
-                        onClick={() => setShowArticlePopup(false)}
-                        className="text-gray-400 hover:text-gray-600 text-xl leading-none"
-                      >
-                        ×
-                      </button>
-                    </div>
-                    
-                    <div className="grid grid-cols-3 gap-2">
-                      {Array.from({ length: articleCount }, (_, i) => i + 1).map((articleNum) => (
-                        <button
-                          key={articleNum}
-                          onClick={() => handleArticleSelect(articleNum)}
-                          className={`
-                            py-3 px-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap
-                            ${articleNum === currentArticle 
-                              ? 'bg-[#E94E77] text-white' 
-                              : 'bg-gray-100 text-gray-700 hover:bg-red-100 hover:text-red-700'
-                            }
-                          `}
-                        >
-                          第{articleNum}条
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </>
-            )}
           </div>
 
-          {nextArticle && (
+          {nextArticle ? (
             <Link
-              href={`/law/${lawCategory}/${law}/${nextArticle}`}
-              className="flex items-center px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-md text-gray-700 transition-colors whitespace-nowrap text-sm"
+              href={`/law/${lawCategory}/${law}/${nextArticle.article}`}
+              className="flex items-center px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-md text-gray-700 transition-colors text-sm"
             >
-              第{nextArticle}条
-              <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              次
+              <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </Link>
+          ) : (
+            <div></div>
           )}
         </div>
       </div>

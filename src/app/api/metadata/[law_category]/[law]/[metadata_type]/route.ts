@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import fs from 'fs'
 import path from 'path'
 import yaml from 'js-yaml'
-import { LawMetadataSchema } from '@/lib/schemas/law-metadata'
-import { FamousArticlesSchema } from '@/lib/schemas/famous-articles'
+import { LawMetadataSchema } from '@/lib/schemas/law_metadata'
+import { FamousArticlesSchema } from '@/lib/schemas/famous_articles'
 import { ChaptersSchema } from '@/lib/schemas/chapters'
 
 type RouteParams = {
@@ -32,10 +32,10 @@ export async function GET(
     // メタデータタイプに応じてバリデーションスキーマを選択
     let validatedData
     switch (metadata_type) {
-      case 'law-metadata':
+      case 'law_metadata':
         validatedData = LawMetadataSchema.parse(data)
         break
-      case 'famous-articles':
+      case 'famous_articles':
         validatedData = FamousArticlesSchema.parse(data)
         break
       case 'chapters':

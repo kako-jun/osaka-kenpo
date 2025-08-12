@@ -11,7 +11,7 @@ import { z } from 'zod'
  */
 export const ArticleSchema = z.object({
   /** 条文番号 */
-  article: z.number().int().positive(),
+  article: z.union([z.number().int().positive(), z.string().min(1)]),
   
   /** 条文タイトル（空文字列も許可） */
   title: z.string(),

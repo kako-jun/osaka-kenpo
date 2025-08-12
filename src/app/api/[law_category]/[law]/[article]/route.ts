@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { createErrorResponse, createSuccessResponse } from '@/lib/utils'
-import { loadArticle } from '@/lib/article-loader'
+import { loadArticle } from '@/lib/article_loader'
 import type { ArticleData } from '@/lib/types'
 
 export async function GET(
