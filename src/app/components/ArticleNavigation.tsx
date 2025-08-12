@@ -139,7 +139,7 @@ export const ArticleNavigation = ({
                         }`}
                       >
                         <span className="font-medium">{formatArticleNumber(article.article)}</span>
-                        {article.title && <span className="ml-2 text-sm text-gray-600">{article.title}</span>}
+                        {article.title && <span className="ml-2 text-sm text-gray-600">{article.title.replace(/<rt[^>]*>.*?<\/rt>/g, '').replace(/<\/?ruby>/g, '')}</span>}
                       </button>
                     ))}
                   </div>
