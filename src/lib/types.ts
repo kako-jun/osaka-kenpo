@@ -1,16 +1,7 @@
 // 共通型定義
 
-export interface ArticleData {
-  article: number
-  title: string
-  titleWithRuby?: string  // ルビ付きタイトル（オプション）
-  titleOsaka?: string  // 大阪弁版タイトル（オプション）
-  original: string
-  originalWithRuby?: string  // ルビ付き原文（オプション）
-  osaka: string
-  commentary: string  // 標準語版解説
-  commentaryOsaka?: string  // 大阪弁版解説（オプション、後方互換性のため）
-}
+// ArticleDataはZodスキーマから自動生成される型を使用
+export type { ArticleData } from './schemas/article'
 
 export interface LawInfo {
   slug: string
