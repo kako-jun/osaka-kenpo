@@ -55,6 +55,21 @@
           "url": "https://www.ats.aq/e/antarctictreaty.html"
         }
       ]
+    },
+    "magna_carta": {
+      "name": "マグナ・カルタ（大憲章）",
+      "source": "1215年原文 / Magna Carta 1215",
+      "description": "1215年6月15日、イングランド王ジョンがランニミードで署名した大憲章。封建制度下での王権制限と個人の権利保護を定めた歴史的文書",
+      "links": [
+        {
+          "text": "The Magna Carta Project - University of East Anglia",
+          "url": "https://magnacarta.cmp.uea.ac.uk/read/magna_carta_1215"
+        },
+        {
+          "text": "The National Archives - Magna Carta 1215",
+          "url": "https://www.nationalarchives.gov.uk/education/resources/magna-carta/"
+        }
+      ]
     }
   }
 }
