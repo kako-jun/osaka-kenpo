@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { useViewMode } from '@/app/context/ViewModeContext'
-import { loadLawMetadata } from '@/lib/metadata_loader'
+import { loadArticleBatchData } from '@/lib/metadata_loader'
 import { SpeakerButton } from '@/components/SpeakerButton'
 import { ShareButton } from '@/app/components/ShareButton'
 import { LikeButton } from '@/app/components/LikeButton'
@@ -21,6 +21,7 @@ export default function ArticlePage() {
   const [articleData, setArticleData] = useState<ArticleData | null>(null)
   const [loading, setLoading] = useState(true)
   const [lawName, setLawName] = useState<string>('')
+  const [allArticles, setAllArticles] = useState<any[]>([])
 
   // 表示モード切り替え関数
   const toggleViewMode = () => {
@@ -151,27 +152,34 @@ export default function ArticlePage() {
     
     const loadArticle = async () => {
       try {
-        // 条文データと法律メタデータを並行取得
-        const [articleResponse, lawMetadata] = await Promise.all([
-          fetch(`/api/${params.law_category}/${params.law}/${params.article}`),
-          loadLawMetadata(params.law_category, params.law)
-        ])
+        // 条文データ、法律メタデータ、全条文リストを一度に取得
+        const { articleData, lawMetadata, allArticles } = await loadArticleBatchData(
+          params.law_category, 
+          params.law, 
+          params.article
+        )
         
-        if (articleResponse.ok) {
-          const result = await articleResponse.json()
-          // API response format: { data: ArticleData, ... }
-          if (result.data) {
-            setArticleData(result.data)
-          } else {
-            // Legacy format fallback
-            setArticleData(result)
-          }
+        if (articleData) {
+          setArticleData(articleData)
         } else {
-          console.error('Failed to load article:', articleResponse.status)
+          console.error('Failed to load article data')
         }
         
         // 法律名を設定（通称があれば通称を使用）
         setLawName(lawMetadata?.shortName || lawMetadata?.name || params.law)
+        
+        // 全条文リストから最大条文数を設定し、stateに保存
+        if (allArticles && allArticles.length > 0) {
+          setAllArticles(allArticles)
+          const maxArticle = Math.max(...allArticles.map(article => {
+            if (typeof article.article === 'number') return article.article
+            if (typeof article.article === 'string' && article.article.startsWith('fusoku_')) {
+              return parseInt(article.article.replace('fusoku_', '')) + 1000 // 附則は大きな数値として扱う
+            }
+            return parseInt(String(article.article))
+          }))
+          setMaxArticles(maxArticle > 1000 ? maxArticle - 1000 : maxArticle) // 附則用の調整を元に戻す
+        }
       } catch (error) {
         console.error('Failed to load article:', error)
       } finally {
@@ -184,30 +192,6 @@ export default function ArticlePage() {
     }
   }, [params.law_category, params.law, params.article])
 
-  // 動的に条文数を取得
-  useEffect(() => {
-    const fetchMaxArticles = async () => {
-      try {
-        const response = await fetch(`/api/${params.law_category}/${params.law}`)
-        if (response.ok) {
-          const result = await response.json()
-          const articles = result.data || result
-          if (Array.isArray(articles) && articles.length > 0) {
-            const maxArticle = Math.max(...articles.map(article => Number(article.article)))
-            setMaxArticles(maxArticle)
-          }
-        }
-      } catch (error) {
-        console.error('Failed to fetch max articles:', error)
-        // フォールバック: デフォルト値は1（APIから取得できない場合のみ）
-        setMaxArticles(1)
-      }
-    }
-
-    if (params.law_category && params.law) {
-      fetchMaxArticles()
-    }
-  }, [params.law_category, params.law])
 
   if (loading) {
     return (
@@ -338,6 +322,7 @@ export default function ArticlePage() {
               law={params.law}
               currentArticle={articleData.article}
               lawName={lawName}
+              allArticles={allArticles}
             />
           </div>
 
