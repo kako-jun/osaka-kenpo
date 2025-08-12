@@ -42,7 +42,7 @@
       "icon": "🏛️",
       "laws": [
         { "name": "ハンムラビ法典", "path": "/law/foreign_old/hammurabi_code", "status": "preparing", "year": -1754 },
-        { "name": "マグナ・カルタ", "path": "/law/foreign_old/magna_carta", "status": "preparing", "year": 1215 },
+        { "name": "マグナ・カルタ", "path": "/law/foreign_old/magna_carta", "status": "available", "year": 1215 },
         { "name": "ナポレオン法典", "path": "/law/foreign_old/napoleonic_code", "status": "preparing", "year": 1804 }
       ]
     },
