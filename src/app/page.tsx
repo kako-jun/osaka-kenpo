@@ -105,8 +105,10 @@ export default function Home() {
       
       {/* カウンタエリア（将来のアクセスカウンタ用スケルトン） */}
       <div className="flex justify-center mb-8">
-        <div className="text-center text-gray-500 text-sm">
-          これまで <span className="font-bold text-[#E94E77]">4200</span> 人も見てくれてありがとな
+        <div className="text-center text-gray-500 text-sm flex items-center justify-center gap-1">
+          <span>これまで</span>
+          <span className="font-bold text-[#E94E77] text-lg -translate-y-px">4200</span>
+          <span>人も見てくれてありがとな</span>
         </div>
       </div>
       

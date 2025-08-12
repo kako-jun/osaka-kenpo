@@ -7,7 +7,7 @@ const ViewModeToggle = () => {
   const isOsaka = viewMode === 'osaka';
 
   return (
-    <div className="absolute top-4 right-4">
+    <div className="absolute top-1/2 right-4 -translate-y-1/2">
       <div 
         className="relative flex items-center w-16 sm:w-36 h-8 bg-gray-200 rounded-full p-1 cursor-pointer"
         onClick={() => setViewMode(isOsaka ? 'original' : 'osaka')}
