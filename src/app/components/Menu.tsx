@@ -34,15 +34,11 @@ const Menu = () => {
   useEffect(() => {
     const loadAllMetadata = async () => {
       try {
-        console.log('メニュー: 法律メタデータを読み込み中...');
         const lawsMetadataMain = await loadLawsMetadata();
         
         if (!lawsMetadataMain) {
-          console.error('メニュー: 法律一覧メタデータの読み込みに失敗');
           return;
         }
-
-        console.log('メニュー: 法律一覧メタデータ取得成功');
 
         const categoriesWithMetadata = await Promise.all(
           lawsMetadataMain.categories.map(async (category) => {
@@ -68,7 +64,6 @@ const Menu = () => {
           })
         );
         
-        console.log('メニュー: 全カテゴリデータ処理完了:', categoriesWithMetadata);
         setLawsWithMetadata(categoriesWithMetadata);
       } catch (error) {
         console.error('メニュー: メタデータ読み込みエラー:', error);
