@@ -29,15 +29,15 @@ export default function ArticlePage() {
   }
 
   // 条文ナビゲーション関数
-  const navigateToArticle = (articleNum: number) => {
-    router.push(`/law/${params.law_category}/${params.law}/${articleNum}`)
+  const navigateToArticle = (articleId: string | number) => {
+    router.push(`/law/${params.law_category}/${params.law}/${articleId}`)
   }
 
-  // 前後の条文番号を計算
-  const currentArticleNum = articleData?.article || parseInt(params.article)
-  const [maxArticles, setMaxArticles] = useState<number>(1)
-  const prevArticle = currentArticleNum > 1 ? currentArticleNum - 1 : null
-  const nextArticle = currentArticleNum < maxArticles ? currentArticleNum + 1 : null
+  // 前後の条文を計算（実際の条文リストに基づく）
+  const currentArticleId = articleData?.article || params.article
+  const currentIndex = allArticles.findIndex(article => String(article.article) === String(currentArticleId))
+  const prevArticle = currentIndex > 0 ? allArticles[currentIndex - 1]?.article : null
+  const nextArticle = currentIndex < allArticles.length - 1 ? allArticles[currentIndex + 1]?.article : null
 
   // キーボードショートカットとスワイプジェスチャー
   useEffect(() => {
@@ -168,17 +168,9 @@ export default function ArticlePage() {
         // 法律名を設定（通称があれば通称を使用）
         setLawName(lawMetadata?.shortName || lawMetadata?.name || params.law)
         
-        // 全条文リストから最大条文数を設定し、stateに保存
+        // 全条文リストを設定
         if (allArticles && allArticles.length > 0) {
           setAllArticles(allArticles)
-          const maxArticle = Math.max(...allArticles.map(article => {
-            if (typeof article.article === 'number') return article.article
-            if (typeof article.article === 'string' && article.article.startsWith('fusoku_')) {
-              return parseInt(article.article.replace('fusoku_', '')) + 1000 // 附則は大きな数値として扱う
-            }
-            return parseInt(String(article.article))
-          }))
-          setMaxArticles(maxArticle > 1000 ? maxArticle - 1000 : maxArticle) // 附則用の調整を元に戻す
         }
       } catch (error) {
         console.error('Failed to load article:', error)

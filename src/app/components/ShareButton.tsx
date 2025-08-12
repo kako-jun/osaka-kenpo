@@ -108,8 +108,11 @@ export const ShareButton = ({ title, url }: ShareButtonProps) => {
             className="fixed inset-0 z-40"
             onClick={() => setIsOpen(false)}
           />
-          <div className="absolute right-0 top-12 bg-white rounded-lg shadow-xl border z-50 p-2 min-w-[200px]">
-            <div className="text-sm text-gray-600 mb-2 px-2">広めたる</div>
+          <div className="absolute right-0 top-12 bg-white rounded-lg shadow-xl border border-gray-200 z-50 min-w-[200px]">
+            <div className="p-4 border-b border-gray-200" style={{ backgroundColor: '#FFF8DC' }}>
+              <div className="font-medium" style={{ color: '#8B4513' }}>広めたる</div>
+            </div>
+            <div className="p-2">
             
             <button
               onClick={handleShareX}
@@ -172,6 +175,7 @@ export const ShareButton = ({ title, url }: ShareButtonProps) => {
               )}
               {copied ? 'コピー済み!' : 'リンクをコピー'}
             </button>
+            </div>
           </div>
         </>
       )}
