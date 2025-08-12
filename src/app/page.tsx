@@ -124,7 +124,7 @@ export default function Home() {
               {category.laws.sort((a, b) => (a.year || 0) - (b.year || 0)).map((law) => (
                 law.status === 'available' ? (
                   <Link key={law.id} href={law.path} passHref className="block">
-                    <div className="h-32 flex flex-col justify-center p-6 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.1)] text-center text-white font-bold text-xl bg-[#E94E77] hover:bg-opacity-80 cursor-pointer relative">
+                    <div className="h-32 flex flex-col justify-center p-6 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.1)] text-center text-white font-bold text-xl bg-[#E94E77] hover:bg-opacity-80 relative">
                       <p className="mb-1 mt-3">{law.name}</p>
                       {law.year && <p className="text-sm font-normal text-[#FFB6C1]">{law.year}年</p>}
                       {law.badge && (
@@ -135,7 +135,7 @@ export default function Home() {
                     </div>
                   </Link>
                 ) : (
-                  <div key={law.id} className="h-32 flex flex-col justify-center p-6 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.1)] text-center text-white font-bold text-xl bg-gray-400 cursor-not-allowed relative">
+                  <div key={law.id} className="h-32 flex flex-col justify-center p-6 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.1)] text-center text-white font-bold text-xl bg-gray-400 relative">
                     <p className="mb-1 mt-3">{law.name}</p>
                     {law.year && <p className="text-sm font-normal text-gray-300">{law.year}年</p>}
                     {law.badge && (
