@@ -9,9 +9,8 @@ import { ShareButton } from '@/app/components/ShareButton'
 import { AnimatedContent } from '@/app/components/AnimatedContent'
 import { KasugaLoading } from '@/app/components/KasugaLoading'
 import type { ArticleListItem } from '@/lib/types'
-import lawSources from '@/data/law-sources.json'
-import constitutionChapters from '@/data/constitution-chapters.json'
-import famousArticles from '@/data/famous-articles.json'
+import { getFamousArticles, type FamousArticlesData } from '@/lib/famous-articles'
+import { getLawSource, getChapters, type LawSource, type ChaptersData } from '@/lib/law-config'
 
 const LawArticlesPage = () => {
   const params = useParams<{ law_category: string; law: string }>();
@@ -20,6 +19,9 @@ const LawArticlesPage = () => {
   const [articles, setArticles] = useState<ArticleListItem[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [famousArticles, setFamousArticles] = useState<FamousArticlesData | null>(null)
+  const [lawSource, setLawSource] = useState<LawSource | null>(null)
+  const [chaptersData, setChaptersData] = useState<ChaptersData | null>(null)
 
   const lawName = getLawName(law)
   const showOsaka = viewMode === 'osaka'
@@ -45,15 +47,22 @@ const LawArticlesPage = () => {
   }, [viewMode, setViewMode])
 
   useEffect(() => {
-    const fetchArticles = async () => {
+    const fetchData = async () => {
       setLoading(true)
       setError(null)
       try {
-        const response = await fetch(`/api/${law_category}/${law}`)
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`)
+        // 条文データ、有名条文データ、出典情報、章構成を並行取得
+        const [articlesResponse, famousArticlesData, lawSourceData, chaptersData] = await Promise.all([
+          fetch(`/api/${law_category}/${law}`),
+          getFamousArticles(law_category, law),
+          getLawSource(law_category, law),
+          getChapters(law_category, law)
+        ])
+        
+        if (!articlesResponse.ok) {
+          throw new Error(`HTTP error! status: ${articlesResponse.status}`)
         }
-        const result = await response.json()
+        const result = await articlesResponse.json()
         
         // 新しいAPIレスポンス形式 { data: ArticleListItem[] } に対応
         let articleList: ArticleListItem[] = []
@@ -67,17 +76,20 @@ const LawArticlesPage = () => {
         }
         
         setArticles(articleList)
+        setFamousArticles(famousArticlesData)
+        setLawSource(lawSourceData)
+        setChaptersData(chaptersData)
         
       } catch (e: any) {
         setError(e.message)
-        console.error('Failed to fetch articles:', e)
+        console.error('Failed to fetch data:', e)
       } finally {
         setLoading(false)
       }
     }
 
     if (law_category && law) {
-      fetchArticles()
+      fetchData()
     }
   }, [law_category, law])
 
@@ -119,15 +131,13 @@ const LawArticlesPage = () => {
     )
   }
 
-  const lawSource = lawSources.sources[law as keyof typeof lawSources.sources]
-  
-  // 日本国憲法の場合は章でグループ化
-  const isConstitution = law === 'constitution'
+  // 章でグループ化する場合の処理
+  const hasChapters = chaptersData !== null
   let groupedArticles: { [chapterNumber: number]: { chapter: any, articles: ArticleListItem[] } } = {}
   
-  if (isConstitution) {
+  if (hasChapters && chaptersData) {
     // 章ごとにグループ化
-    constitutionChapters.chapters.forEach(chapter => {
+    chaptersData.chapters.forEach(chapter => {
       groupedArticles[chapter.chapter] = {
         chapter,
         articles: articles.filter(article => 
@@ -179,8 +189,8 @@ const LawArticlesPage = () => {
         )}
         
         <div className="max-w-4xl mx-auto">
-        {isConstitution ? (
-          // 日本国憲法の場合：章ごとに表示
+        {hasChapters ? (
+          // 章構成がある場合：章ごとに表示
           Object.values(groupedArticles)
             .filter(group => group.articles.length > 0)
             .map(({ chapter, articles: chapterArticles }) => (
@@ -217,7 +227,7 @@ const LawArticlesPage = () => {
                 const osakaTitle = article.titleOsaka || originalTitle
                 
                 // 有名な条文のバッジ情報を取得
-                const famousArticleData = famousArticles[law]?.[article.article.toString()]
+                const famousArticleBadge = famousArticles?.[article.article.toString()]
                 
                 return (
                   <Link key={article.article} href={`/law/${law_category}/${law}/${article.article}`}>
@@ -250,9 +260,9 @@ const LawArticlesPage = () => {
                       </div>
                       
                       {/* 有名な条文のバッジを右上に表示 */}
-                      {famousArticleData && (
+                      {famousArticleBadge && (
                         <div className="absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-bold text-white shadow-md bg-slate-500">
-                          {famousArticleData.badge}
+                          {famousArticleBadge}
                         </div>
                       )}
                       
@@ -276,7 +286,7 @@ const LawArticlesPage = () => {
             const osakaTitle = article.titleOsaka || originalTitle
             
             // 有名な条文のバッジ情報を取得
-            const famousArticleData = famousArticles[law]?.[article.article.toString()]
+            const famousArticleBadge = famousArticles?.[article.article.toString()]
             
             return (
               <Link key={article.article} href={`/law/${law_category}/${law}/${article.article}`}>
@@ -309,9 +319,9 @@ const LawArticlesPage = () => {
                   </div>
                   
                   {/* 有名な条文のバッジを右上に表示 */}
-                  {famousArticleData && (
+                  {famousArticleBadge && (
                     <div className="absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-bold text-white shadow-md bg-slate-500">
-                      {famousArticleData.badge}
+                      {famousArticleBadge}
                     </div>
                   )}
                   
