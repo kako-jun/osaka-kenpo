@@ -18,38 +18,28 @@ export default function Home() {
   useEffect(() => {
     const loadAllMetadata = async () => {
       try {
-        console.log('法律メタデータを読み込み中...');
         const lawsMetadataMain = await loadLawsMetadata();
         
         if (!lawsMetadataMain) {
-          console.error('法律一覧メタデータの読み込みに失敗しました');
           setLoading(false);
           return;
         }
-        
-        console.log('法律一覧メタデータ:', lawsMetadataMain);
 
         const categoriesWithMetadata = await Promise.all(
           lawsMetadataMain.categories.map(async (category) => {
-            console.log(`カテゴリ "${category.title}" の法律を読み込み中...`);
-            
             const lawsWithMetadata = await Promise.all(
               category.laws.map(async (law) => {
                 const pathParts = law.path.split('/');
                 const lawCategory = pathParts[2];
                 const lawId = pathParts[3];
                 
-                console.log(`法律メタデータを読み込み中: ${lawCategory}/${lawId}`);
                 const metadata = await loadLawMetadata(lawCategory, lawId);
                 
-                const result = {
+                return {
                   ...law,
                   name: metadata?.name || law.id,
                   year: metadata?.year || null
                 };
-                
-                console.log(`法律データ: ${lawId} -> ${result.name}`);
-                return result;
               })
             );
             
@@ -60,7 +50,6 @@ export default function Home() {
           })
         );
         
-        console.log('全カテゴリデータ:', categoriesWithMetadata);
         setLawCategories(categoriesWithMetadata);
         setLoading(false);
       } catch (error) {

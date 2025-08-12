@@ -1,30 +1,38 @@
 # 法律追加手順書
 
 ## 概要
-新しい法律をおおさかけんぽうに追加する際の手順書です。十七条憲法を追加した際の試行錯誤を元にまとめています。
+新しい法律をおおさかけんぽうに追加する際の手順書です。2025年8月時点で**YAML + Zod**形式に移行完了。
 
 ## 1. データファイルの準備
 
 ### 1.1. 条文データの作成
-各条文につき1つのJSONファイルを作成します。
+各条文につき1つのYAMLファイルを作成します。
 
 **ファイル配置:**
 ```
-src/data/laws/[category]/[law_name]/[article_number].json
+src/data/laws/[category]/[law_name]/[article_number].yaml
 ```
 
-**JSONフォーマット:**
-```json
-{
-  "article": 1,
-  "title": "原文のタイトル",
-  "titleOsaka": "大阪弁のタイトル（オプション）",
-  "original": "原文の条文内容",
-  "osaka": "大阪弁翻訳の条文内容",
-  "commentary": "解説文",
-  "commentaryOsaka": "大阪弁の解説文（オプション）"
-}
+**YAMLフォーマット（配列形式・Zod検証）:**
+```yaml
+article: 1
+title: "原文のタイトル"
+titleOsaka: "大阪弁のタイトル（任意）"
+originalText:
+  - "原文の段落1"
+  - "原文の段落2"
+osakaText:
+  - "大阪弁翻訳の段落1" 
+  - "大阪弁翻訳の段落2"
+commentary:
+  - "解説の段落1"
+  - "解説の段落2"
+commentaryOsaka:  # 任意
+  - "大阪弁解説の段落1"
+  - "大阪弁解説の段落2"
 ```
+
+**重要**: 全てのテキストフィールドは配列で段落分割
 
 **カテゴリ例:**
 - `jp`: 現行日本法
@@ -34,40 +42,47 @@ src/data/laws/[category]/[law_name]/[article_number].json
 - `treaty`: 条約・国際法
 
 ### 1.2. 法律メタデータの追加
-`src/data/laws-metadata.json`に法律の基本情報を追加:
 
-```json
-{
-  "laws": {
-    "[law_id]": {
-      "name": "法律名",
-      "category": "カテゴリ",
-      "totalArticles": 条文数,
-      "description": "説明"
-    }
-  }
-}
+#### グローバル法律一覧 (`src/data/laws-metadata.yaml`)
+```yaml
+categories:
+  - id: "jp"
+    title: "ろっぽう"
+    icon: "⚖️"
+    laws:
+      - id: "new_law"
+        path: "/law/jp/new_law"
+        status: "available"  # または "preparing"
 ```
 
-### 1.3. 出典情報の追加
-`src/data/law-sources.json`に参考リンクと出典を追加:
+#### 個別法律メタデータ (`src/data/laws/[category]/[law]/law-metadata.yaml`)
+```yaml
+name: "新しい法律"
+year: 2024
+source: "官報第xxxx号"
+description: "法律の詳細説明"
+links:  # 任意
+  - text: "e-Gov法令検索"
+    url: "https://elaws.e-gov.go.jp/..."
+  - text: "参考資料"
+    url: "https://example.com"
+```
 
-```json
-{
-  "sources": {
-    "[law_id]": {
-      "name": "法律名",
-      "source": "出典",
-      "description": "詳細説明",
-      "links": [
-        {
-          "text": "リンク名",
-          "url": "URL"
-        }
-      ]
-    }
-  }
-}
+#### 有名条文データ (`famous-articles.yaml`) - 任意
+```yaml
+"1": "第一条の要点！"
+"5": "重要な第五条！"
+```
+
+#### 章構成データ (`chapters.yaml`) - 任意
+```yaml
+chapters:
+  - chapter: 1
+    title: "第一章"
+    titleOsaka: "第一章やで"
+    articles: [1, 2, 3]
+    description: "章の説明"
+    descriptionOsaka: "章の大阪弁説明"
 ```
 
 **注意点:**
@@ -75,25 +90,28 @@ src/data/laws/[category]/[law_name]/[article_number].json
 - 国立国会図書館デジタルコレクションのリンクは正確なPIDを確認する
 - 外国法の場合は原文の公式サイトへのリンクを含める
 
-## 2. 法律名マッピングの更新
+## 2. データ検証とローディング
 
-`src/lib/law-mappings.ts`に法律IDと表示名のマッピングを追加:
+### 2.1. 自動データ検証
+全データはZodスキーマで実行時に検証されます：
+- 条文: `ArticleSchema` (`src/lib/schemas/article.ts`)
+- メタデータ: `LawMetadataSchema` (`src/lib/schemas/law-metadata.ts`)
+- APIで自動検証され、不正なデータは500エラー
 
-```typescript
-export const lawMappings: Record<string, string> = {
-  // 既存のマッピング...
-  '[law_id]': '法律の表示名'
-}
-```
+### 2.2. データローディング
+- ブラウザ → `metadata-loader.ts` → fetch → API Routes
+- YAMLファイル読み込み → Zod検証 → 型安全データ
+- エラー時は適切なフォールバック
 
 ## 3. APIルートの確認
 
 以下のAPIルートが自動で動作することを確認:
-- `/api/[law_category]` - カテゴリ内法律一覧
 - `/api/[law_category]/[law]` - 条文一覧 
 - `/api/[law_category]/[law]/[article]` - 個別条文
+- `/api/metadata/[law_category]/[law]/[metadata_type]` - メタデータ
+- `/api/metadata/laws-metadata` - 全法律一覧
 
-通常は自動で動作しますが、特殊な構造の場合は調整が必要です。
+YAMLファイルが正しく配置されていれば自動で動作します。
 
 ## 4. 動的ルーティングの確認
 
@@ -156,10 +174,13 @@ export const lawMappings: Record<string, string> = {
 
 ### 7.2. データ関連
 **問題:** 条文が表示されない
-**対処:** JSONファイルの形式とAPIレスポンス形式を確認
+**対処:** YAMLファイルの形式とZodスキーマ準拠を確認
 
 **問題:** 法律名が表示されない
-**対処:** law-mappings.tsのマッピングを確認
+**対処:** `law-metadata.yaml`の`name`フィールドを確認
+
+**問題:** Zodバリデーションエラー
+**対処:** 全テキストフィールドが配列形式になっているか確認
 
 ### 7.3. リンク関連
 **問題:** 参考リンクが不適切
