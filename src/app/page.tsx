@@ -6,6 +6,11 @@ import { KasugaLoading } from '@/app/components/KasugaLoading';
 import { useState, useEffect } from 'react';
 import { loadBatchMetadata } from '@/lib/metadata_loader';
 
+// ページメタデータを動的に設定
+if (typeof document !== 'undefined') {
+  document.title = 'おおさかけんぽう - 法律をおおさか弁で知ろう。知らんけど';
+}
+
 // カテゴリ別絵文字アイコンコンポーネント
 const CategoryIcon = ({ icon }: { icon: string }) => {
   return <span className="text-2xl mr-2">{icon || '📄'}</span>;
@@ -86,9 +91,7 @@ export default function Home() {
     <div className="relative">
       {/* 右上にシェアボタン */}
       <div className="fixed top-20 right-4 z-10">
-        <ShareButton 
-          title="おおさかけんぽう - 法律を大阪弁で知ろう"
-        />
+        <ShareButton />
       </div>
       {/* ロゴエリア（将来の画像用スケルトン） */}
       <div className="flex justify-center mb-8 mt-8">
@@ -97,6 +100,13 @@ export default function Home() {
             <div className="text-sm mb-1">ロゴ予定地</div>
             <div className="text-xs">264×128px</div>
           </div>
+        </div>
+      </div>
+      
+      {/* カウンタエリア（将来のアクセスカウンタ用スケルトン） */}
+      <div className="flex justify-center mb-8">
+        <div className="text-center text-gray-500 text-sm">
+          これまで <span className="font-bold text-[#E94E77]">4200</span> 人も見てくれてありがとな
         </div>
       </div>
       

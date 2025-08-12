@@ -5,8 +5,8 @@ import Footer from './components/Footer';
 import BackToTopButton from './components/BackToTopButton';
 
 export const metadata: Metadata = {
-  title: 'おおさかけんぽう',
-  description: '法律を大阪弁で親しみやすく解説するサイト',
+  title: 'おおさかけんぽう - 法律をおおさか弁で知ろう。知らんけど',
+  description: '法律をおおさか弁で親しみやすく解説するサイト',
 };
 
 import { ViewModeProvider } from './context/ViewModeContext';

@@ -39,6 +39,16 @@ export default function ArticlePage() {
   const prevArticle = currentIndex > 0 ? allArticles[currentIndex - 1]?.article : null
   const nextArticle = currentIndex < allArticles.length - 1 ? allArticles[currentIndex + 1]?.article : null
 
+  // ブラウザのタイトルを設定
+  useEffect(() => {
+    if (lawName && articleData) {
+      const articleNumber = typeof articleData.article === 'number' ? `第${articleData.article}条` : (
+        articleData.article.startsWith('fusoku_') ? `附則第${articleData.article.replace('fusoku_', '')}条` : `第${articleData.article}条`
+      );
+      document.title = `${lawName} ${articleNumber} - おおさかけんぽう`;
+    }
+  }, [lawName, articleData]);
+
   // キーボードショートカットとスワイプジェスチャー
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -225,11 +235,7 @@ export default function ArticlePage() {
 
       {/* 右上に広めたるボタン */}
       <div className="fixed top-20 right-4 z-10">
-        <ShareButton 
-          title={`${lawName} ${typeof articleData.article === 'number' ? `第${articleData.article}条` : (
-            articleData.article.startsWith('fusoku_') ? `附則第${articleData.article.replace('fusoku_', '')}条` : `第${articleData.article}条`
-          )} ${showOsaka ? (articleData.titleOsaka || articleData.title) : articleData.title}`}
-        />
+        <ShareButton />
       </div>
       
       {/* 前の条文への矢印 */}
