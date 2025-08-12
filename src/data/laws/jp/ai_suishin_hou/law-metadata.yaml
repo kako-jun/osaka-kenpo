@@ -1,11 +1,7 @@
-name: AI推進法
-year: 2024
-source: 官報（令和6年法律第88号）
-description: 令和6年（2024年）6月26日公布、9月1日施行。人工知能（AI）技術の健全な発展と社会実装を促進し、イノベーション創出と社会課題解決を目指す法律
+name: 人工知能関連技術の研究開発及び活用の推進に関する法律
+year: 2025
+source: 官報（令和7年法律第53号）
+description: 令和7年（2025年）6月4日公布。人工知能関連技術の研究開発及び活用の推進に関し、基本理念を定め、国等の責務を明らかにするとともに、基本計画の策定等について定める法律
 links:
-  - text: e-Gov法令検索 - 人工知能推進法
-    url: https://elaws.e-gov.go.jp/document?lawid=506AC0000000088
-  - text: 内閣府 - AI戦略2024
-    url: https://www8.cao.go.jp/cstp/ai/ai_senryaku/6kai/6kai.html
-  - text: デジタル庁 - AI時代のデジタル政府実現に向けて
-    url: https://www.digital.go.jp/policies/ai-governance/
+  - text: e-Gov法令検索 - 人工知能関連技術の研究開発及び活用の推進に関する法律
+    url: https://laws.e-gov.go.jp/law/507AC0000000053
