@@ -96,6 +96,10 @@ function getLawCategoryName(category: string): string {
 function getLawName(slug: string): string {
   // 循環依存を避けるため、ここでは簡易実装
   // 実際の使用時はlaw_mappings.tsから import する
+  // TODO: この関数は非同期でmetadataを読み込むべきだが、
+  // 同期的なbreadcrumbs生成では難しい。
+  // 将来的には非同期のgenerateBreadcrumbsAsync関数を作るか、
+  // 呼び出し側でmetadataを事前に取得してshortNameを渡すべき
   return slug
 }
 

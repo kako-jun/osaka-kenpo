@@ -80,7 +80,7 @@ const LawArticlesPage = () => {
         setFamousArticles(famousArticlesData)
         setLawSource(lawMetadata)
         setChaptersData(chaptersData)
-        setLawName(lawMetadata?.name || law)
+        setLawName(lawMetadata?.shortName || lawMetadata?.name || law)
         
       } catch (e: any) {
         setError(e.message)
@@ -157,11 +157,18 @@ const LawArticlesPage = () => {
       {/* 右上にシェアボタン */}
       <div className="fixed top-20 right-4 z-10">
         <ShareButton 
-          title={lawName}
+          title={lawSource?.shortName || lawName}
         />
       </div>
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-2xl font-bold mb-6 text-center text-[#E94E77]">{lawName}</h1>
+        {lawSource && lawSource.shortName ? (
+          <div className="text-center mb-6">
+            <h1 className="text-2xl font-bold text-[#E94E77]">{lawSource.shortName}</h1>
+            <p className="text-sm text-gray-600 mt-2">{lawSource.name}</p>
+          </div>
+        ) : (
+          <h1 className="text-2xl font-bold mb-6 text-center text-[#E94E77]">{lawName}</h1>
+        )}
         
         {/* 出典情報 */}
         {lawSource && (

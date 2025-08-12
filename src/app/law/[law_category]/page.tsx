@@ -6,11 +6,16 @@ import { useState, useEffect } from 'react'
 import { LAW_CATEGORIES } from '@/lib/types'
 import type { LawInfo } from '@/lib/types'
 import { KasugaLoading } from '@/app/components/KasugaLoading'
+import { loadLawMetadata } from '@/lib/metadata_loader'
+
+type LawInfoWithMetadata = LawInfo & {
+  displayName?: string
+}
 
 const LawCategoryPage = () => {
   const params = useParams<{ law_category: string }>()
   const { law_category } = params
-  const [laws, setLaws] = useState<LawInfo[]>([])
+  const [laws, setLaws] = useState<LawInfoWithMetadata[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -28,14 +33,36 @@ const LawCategoryPage = () => {
         const result = await response.json()
         
         // 新しいAPIレスポンス形式に対応
+        let lawsData: LawInfo[] = []
         if (result.data && Array.isArray(result.data)) {
-          setLaws(result.data)
+          lawsData = result.data
         } else if (Array.isArray(result)) {
           // 旧形式との互換性
-          setLaws(result)
+          lawsData = result
         } else {
           throw new Error('Invalid response format')
         }
+        
+        // 各法律のメタデータを取得して display name を設定
+        const lawsWithMetadata = await Promise.all(
+          lawsData.map(async (law) => {
+            try {
+              const metadata = await loadLawMetadata(law_category, law.slug)
+              return {
+                ...law,
+                displayName: metadata?.shortName || metadata?.name || law.name
+              }
+            } catch (error) {
+              console.error(`Failed to load metadata for ${law.slug}:`, error)
+              return {
+                ...law,
+                displayName: law.name
+              }
+            }
+          })
+        )
+        
+        setLaws(lawsWithMetadata)
       } catch (e: any) {
         setError(e.message)
         console.error('Failed to fetch laws:', e)
@@ -78,7 +105,7 @@ const LawCategoryPage = () => {
             <div
               className="h-full flex flex-col justify-center p-6 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.1)] text-center text-white font-bold text-xl bg-[#E94E77] hover:bg-opacity-80 cursor-pointer"
             >
-              <p>{law.name}</p>
+              <p>{law.displayName || law.name}</p>
             </div>
           </Link>
         ))}

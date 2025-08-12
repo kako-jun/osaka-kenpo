@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { loadLawsMetadata, loadLawMetadata } from '@/lib/metadata_loader';
+import { loadBatchMetadata } from '@/lib/metadata_loader';
 
 // カテゴリ別絵文字アイコンコンポーネント
 const CategoryIcon = ({ categoryId }: { categoryId: string }) => {
@@ -34,35 +34,33 @@ const Menu = () => {
   useEffect(() => {
     const loadAllMetadata = async () => {
       try {
-        const lawsMetadataMain = await loadLawsMetadata();
+        const { lawsMetadata, lawMetadata } = await loadBatchMetadata();
         
-        if (!lawsMetadataMain) {
+        if (!lawsMetadata) {
           return;
         }
 
-        const categoriesWithMetadata = await Promise.all(
-          lawsMetadataMain.categories.map(async (category) => {
-            const lawsWithMetadata = await Promise.all(
-              category.laws.map(async (law) => {
-                const pathParts = law.path.split('/');
-                const lawCategory = pathParts[2];
-                const lawId = pathParts[3];
-                
-                const metadata = await loadLawMetadata(lawCategory, lawId);
-                return {
-                  ...law,
-                  name: metadata?.name || law.id,
-                  year: metadata?.year || null
-                };
-              })
-            );
+        const categoriesWithMetadata = lawsMetadata.categories.map((category) => {
+          const lawsWithMetadata = category.laws.map((law) => {
+            const pathParts = law.path.split('/');
+            const lawCategory = pathParts[2];
+            const lawId = pathParts[3];
+            const key = `${lawCategory}/${lawId}`;
+            
+            const metadata = lawMetadata[key];
             
             return {
-              ...category,
-              laws: lawsWithMetadata
+              ...law,
+              name: metadata?.shortName || metadata?.name || law.id,
+              year: metadata?.year || null
             };
-          })
-        );
+          });
+          
+          return {
+            ...category,
+            laws: lawsWithMetadata
+          };
+        });
         
         setLawsWithMetadata(categoriesWithMetadata);
       } catch (error) {

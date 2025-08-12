@@ -75,6 +75,29 @@ export async function loadLawsMetadata(): Promise<LawsMetadata | null> {
   }
 }
 
+// バッチでメタデータを取得する新しい関数
+export async function loadBatchMetadata(): Promise<{
+  lawsMetadata: LawsMetadata | null,
+  lawMetadata: { [key: string]: LawMetadata | null }
+}> {
+  try {
+    const baseUrl = getBaseUrl()
+    const response = await fetch(`${baseUrl}/api/metadata/batch`)
+    if (!response.ok) {
+      return { lawsMetadata: null, lawMetadata: {} }
+    }
+    
+    const data = await response.json()
+    return {
+      lawsMetadata: LawsMetadataSchema.parse(data.lawsMetadata),
+      lawMetadata: data.lawMetadata
+    }
+  } catch (error) {
+    console.error(`バッチメタデータの読み込みに失敗`, error)
+    return { lawsMetadata: null, lawMetadata: {} }
+  }
+}
+
 export async function getLawName(lawCategory: string, lawName: string): Promise<string> {
   const metadata = await loadLawMetadata(lawCategory, lawName)
   return metadata?.name || lawName
