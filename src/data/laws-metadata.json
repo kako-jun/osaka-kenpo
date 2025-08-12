@@ -1,6 +1,14 @@
 {
   "categories": [
     {
+      "id": "shinchaku",
+      "title": "新着やで",
+      "icon": "🍚",
+      "laws": [
+        { "name": "AI推進法", "path": "/law/jp/ai_suishin_hou", "status": "preparing", "year": 2024 }
+      ]
+    },
+    {
       "id": "roppou",
       "title": "ろっぽう",
       "icon": "⚖️",

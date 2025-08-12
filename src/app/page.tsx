@@ -2,8 +2,23 @@ import Link from 'next/link';
 import lawsMetadata from '@/data/laws-metadata.json';
 import { ShareButton } from '@/app/components/ShareButton';
 
+// カテゴリ別絵文字アイコンコンポーネント
+const CategoryIcon = ({ categoryId }: { categoryId: string }) => {
+  const emojiMap: { [key: string]: string } = {
+    'shinchaku': '🍚',
+    'roppou': '⚖️',
+    'mukashi': '📜',
+    'gaikoku': '🌍',
+    'gaikoku_mukashi': '🏛️',
+    'treaty': '🤝'
+  };
+
+  return <span className="text-2xl mr-2">{emojiMap[categoryId] || '📄'}</span>;
+};
+
 export default function Home() {
   const lawCategories = lawsMetadata.categories.map(category => ({
+    id: category.id,
     title: category.title,
     laws: category.laws
   }));
@@ -30,7 +45,10 @@ export default function Home() {
       <div className="space-y-8 mb-16">
         {lawCategories.map((category) => (
           <div key={category.title}>
-            <h2 className="text-2xl font-bold mb-4 border-b-2 border-[#E94E77] pb-2">{category.title}</h2>
+            <h2 className="text-2xl font-bold mb-4 border-b-2 border-[#E94E77] pb-2 flex items-center">
+              <CategoryIcon categoryId={category.id} />
+              {category.title}
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {category.laws.sort((a, b) => a.year - b.year).map((law) => (
                 law.status === 'available' ? (

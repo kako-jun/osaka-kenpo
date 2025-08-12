@@ -7,6 +7,7 @@ import lawsMetadata from '@/data/laws-metadata.json';
 // カテゴリ別絵文字アイコンコンポーネント
 const CategoryIcon = ({ categoryId }: { categoryId: string }) => {
   const emojiMap: { [key: string]: string } = {
+    'shinchaku': '🍚',
     'roppou': '⚖️',
     'mukashi': '📜',
     'gaikoku': '🌍',
@@ -110,24 +111,47 @@ const Menu = () => {
               </div>
               {category.laws
                 .sort((a, b) => a.year - b.year)
-                .map((law) => (
-                  <Link 
-                    key={law.path}
-                    href={law.path} 
-                    onClick={() => setIsOpen(false)} 
-                    className="block pl-6 pr-3 py-2 rounded-lg hover:bg-white/10 transition-colors text-sm"
-                  >
-                    <div className="flex items-center">
-                      {law.year && law.year > 0 && (
-                        <span className="text-xs text-white/60 mr-3">{law.year}年</span>
-                      )}
-                      {law.year && law.year < 0 && (
-                        <span className="text-xs text-white/60 mr-3">{law.year}年</span>
-                      )}
-                      <span>{law.name}</span>
-                    </div>
-                  </Link>
-                ))}
+                .map((law) => {
+                  const isAvailable = law.status === 'available';
+                  
+                  if (isAvailable) {
+                    return (
+                      <Link 
+                        key={law.path}
+                        href={law.path} 
+                        onClick={() => setIsOpen(false)} 
+                        className="block pl-6 pr-3 py-2 rounded-lg hover:bg-white/10 transition-colors text-sm"
+                      >
+                        <div className="flex items-center">
+                          {law.year && law.year > 0 && (
+                            <span className="text-xs text-white/60 mr-3">{law.year}年</span>
+                          )}
+                          {law.year && law.year < 0 && (
+                            <span className="text-xs text-white/60 mr-3">{law.year}年</span>
+                          )}
+                          <span>{law.name}</span>
+                        </div>
+                      </Link>
+                    );
+                  } else {
+                    return (
+                      <div 
+                        key={law.path}
+                        className="block pl-6 pr-3 py-2 text-sm cursor-default"
+                      >
+                        <div className="flex items-center text-white/40">
+                          {law.year && law.year > 0 && (
+                            <span className="text-xs text-white/30 mr-3">{law.year}年</span>
+                          )}
+                          {law.year && law.year < 0 && (
+                            <span className="text-xs text-white/30 mr-3">{law.year}年</span>
+                          )}
+                          <span>{law.name}</span>
+                        </div>
+                      </div>
+                    );
+                  }
+                })}
             </div>
           ))}
         </nav>
