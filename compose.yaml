@@ -1,0 +1,26 @@
+services:
+  osaka-kenpo:
+    image: ghcr.io/kako-jun/osaka-kenpo:latest
+    expose:
+      - "3003"
+    restart: unless-stopped
+    container_name: osaka-kenpo-app
+    environment:
+      - NODE_ENV=production
+    networks:
+      - proxy-network
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3003/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  proxy-network:
+    external: true
