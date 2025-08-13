@@ -160,8 +160,8 @@ const Menu = () => {
                 <span className="font-bold text-sm">{category.title}</span>
               </div>
               {category.laws
-                .sort((a, b) => (a.year || 0) - (b.year || 0))
-                .map((law) => {
+                .sort((a: any, b: any) => (a.year || 0) - (b.year || 0))
+                .map((law: any) => {
                   const isAvailable = law.status === 'available';
                   
                   if (isAvailable) {
