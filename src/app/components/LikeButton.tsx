@@ -15,7 +15,9 @@ export const LikeButton = ({ articleId, lawCategory, law }: LikeButtonProps) => 
 
   const handleLike = async (e: React.MouseEvent) => {
     // モバイルでのhover状態をリセット
-    e.currentTarget.blur()
+    if ('blur' in e.currentTarget) {
+      (e.currentTarget as HTMLElement).blur()
+    }
     
     // アニメーション効果
     setIsAnimating(true)

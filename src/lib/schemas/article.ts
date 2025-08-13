@@ -48,6 +48,6 @@ export function validateArticleData(data: unknown): ArticleData {
  * @param data 検証対象のデータ
  * @returns 検証結果またはエラー
  */
-export function safeValidateArticleData(data: unknown): z.SafeParseReturnType<unknown, ArticleData> {
+export function safeValidateArticleData(data: unknown) {
   return ArticleSchema.safeParse(data)
 }

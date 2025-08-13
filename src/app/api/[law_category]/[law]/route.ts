@@ -24,6 +24,7 @@ export async function GET(
     
     // ArticleListItem形式に変換
     const articlesData: ArticleListItem[] = articles.map(article => ({
+      id: article.article.toString(),
       article: article.article.toString(),
       title: article.title,
       titleOsaka: article.titleOsaka || article.title

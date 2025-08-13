@@ -163,7 +163,7 @@ export function getArticleValidationErrors(data: unknown): string[] {
     return []
   }
   
-  return result.error.errors.map(err => 
+  return result.error.issues.map((err: any) => 
     `${err.path.join('.')}: ${err.message}`
   )
 }
