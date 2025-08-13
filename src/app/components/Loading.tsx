@@ -33,8 +33,8 @@ export const Loading = () => {
           <Image 
             src="/po.webp" 
             alt="ぽう？" 
-            width={32} 
-            height={32}
+            width={40} 
+            height={40}
             className="filter invert"
           />
         </div>

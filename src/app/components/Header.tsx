@@ -16,7 +16,7 @@ const Header = () => {
               alt="おおさかけんぽう" 
               width={240} 
               height={48}
-              className="mx-auto"
+              className="mx-auto filter invert"
             />
             <p className="text-xs mt-1">法律をおおさか弁で知ろう。知らんけど</p>
           </div>
