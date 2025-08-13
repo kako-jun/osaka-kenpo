@@ -2,6 +2,7 @@
   "name": "osaka-kenpo",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "author": "kako-jun",
   "scripts": {
     "dev": "next dev",
