@@ -1,8 +1,9 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
-export const KasugaLoading = () => {
+export const Loading = () => {
   const [messageIndex, setMessageIndex] = useState(0)
 
   const messages = [
@@ -29,7 +30,13 @@ export const KasugaLoading = () => {
       {/* 春日歩っぽいキャラクター風アイコン */}
       <div className="mb-6">
         <div className="w-16 h-16 bg-[#E94E77] rounded-full flex items-center justify-center animate-bounce">
-          <div className="text-2xl text-white">📚</div>
+          <Image 
+            src="/po.webp" 
+            alt="ぽう？" 
+            width={32} 
+            height={32}
+            className="filter invert"
+          />
         </div>
       </div>
 

@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 import { useViewMode } from '@/app/context/ViewModeContext'
 import { ShareButton } from '@/app/components/ShareButton'
 import { AnimatedContent } from '@/app/components/AnimatedContent'
-import { KasugaLoading } from '@/app/components/KasugaLoading'
+import { Loading } from '@/app/components/Loading'
 import type { ArticleListItem } from '@/lib/types'
 import { loadLawBatchMetadata } from '@/lib/metadata_loader'
 import type { LawMetadata } from '@/lib/schemas/law_metadata'
@@ -105,7 +105,7 @@ const LawArticlesPage = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-cream">
-        <KasugaLoading />
+        <Loading />
       </div>
     )
   }

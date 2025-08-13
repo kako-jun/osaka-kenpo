@@ -1,5 +1,6 @@
 
 import Link from 'next/link';
+import Image from 'next/image';
 import Menu from './Menu';
 import ViewModeToggle from './ViewModeToggle';
 
@@ -10,8 +11,14 @@ const Header = () => {
       <div className="container mx-auto">
         <Link href="/" className="inline-block text-white no-underline">
           <div className="py-1">
-            <p className="text-lg font-bold">おおさかけんぽう</p>
-            <p className="text-xs">法律をおおさか弁で知ろう。知らんけど</p>
+            <Image 
+              src="/osaka-kenpo-title.webp" 
+              alt="おおさかけんぽう" 
+              width={240} 
+              height={48}
+              className="mx-auto"
+            />
+            <p className="text-xs mt-1">法律をおおさか弁で知ろう。知らんけど</p>
           </div>
         </Link>
       </div>

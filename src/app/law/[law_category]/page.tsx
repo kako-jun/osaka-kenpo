@@ -5,7 +5,7 @@ import { useParams } from 'next/navigation'
 import { useState, useEffect } from 'react'
 import { LAW_CATEGORIES } from '@/lib/types'
 import type { LawInfo } from '@/lib/types'
-import { KasugaLoading } from '@/app/components/KasugaLoading'
+import { Loading } from '@/app/components/Loading'
 import { loadLawMetadata } from '@/lib/metadata_loader'
 
 type LawInfoWithMetadata = LawInfo & {
@@ -77,7 +77,7 @@ const LawCategoryPage = () => {
   }, [law_category])
 
   if (loading) {
-    return <KasugaLoading />
+    return <Loading />
   }
 
   if (error) {
