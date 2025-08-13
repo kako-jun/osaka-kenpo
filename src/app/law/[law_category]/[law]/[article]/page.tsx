@@ -10,7 +10,7 @@ import { ShareButton } from '@/app/components/ShareButton'
 import { LikeButton } from '@/app/components/LikeButton'
 import { ArticleNavigation } from '@/app/components/ArticleNavigation'
 import { AnimatedContent } from '@/app/components/AnimatedContent'
-import { KasugaLoading } from '@/app/components/KasugaLoading'
+import { Loading } from '@/app/components/Loading'
 import { highlightKeywords } from '@/lib/text_highlight'
 import type { ArticleData } from '@/lib/types'
 
@@ -198,7 +198,7 @@ export default function ArticlePage() {
   if (loading) {
     return (
       <div className="min-h-screen bg-cream">
-        <KasugaLoading />
+        <Loading />
       </div>
     )
   }

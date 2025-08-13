@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { ShareButton } from '@/app/components/ShareButton';
-import { KasugaLoading } from '@/app/components/KasugaLoading';
+import { Loading } from '@/app/components/Loading';
 import { useState, useEffect } from 'react';
 import { loadBatchMetadata } from '@/lib/metadata_loader';
 
@@ -67,7 +67,7 @@ export default function Home() {
   if (loading) {
     return (
       <div className="min-h-screen bg-cream">
-        <KasugaLoading />
+        <Loading />
       </div>
     );
   }
