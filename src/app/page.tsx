@@ -94,11 +94,11 @@ export default function Home() {
         <ShareButton />
       </div>
       {/* ロゴエリア（将来の画像用スケルトン） */}
-      <div className="flex justify-center mb-8 mt-8">
-        <div className="w-64 h-32 bg-gray-200 rounded-lg flex items-center justify-center border-2 border-dashed border-gray-300">
+      <div className="flex justify-center mb-2 mt-8">
+        <div className="w-80 h-36 bg-gray-200 rounded-lg flex items-center justify-center border-2 border-dashed border-gray-300">
           <div className="text-center text-gray-400">
             <div className="text-sm mb-1">ロゴ予定地</div>
-            <div className="text-xs">264×128px</div>
+            <div className="text-xs">320×144px</div>
           </div>
         </div>
       </div>
@@ -108,7 +108,7 @@ export default function Home() {
         <div className="text-center text-gray-500 text-sm flex items-center justify-center gap-1">
           <span>これまで</span>
           <span className="font-bold text-[#E94E77] text-lg -translate-y-px">4200</span>
-          <span>人も見てくれてありがとな</span>
+          <span>人も見てくれてありがとなー</span>
         </div>
       </div>
       
