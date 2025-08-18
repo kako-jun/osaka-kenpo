@@ -1,14 +1,36 @@
 {
   "name": "osaka-kenpo",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "private": false,
+  "description": "難解な法律条文を親しみやすい大阪弁に翻訳して解説するWebサイト",
+  "license": "MIT",
   "type": "module",
   "author": "kako-jun",
+  "homepage": "https://osaka-kenpo.llll-ll.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kako-jun/osaka-kenpo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kako-jun/osaka-kenpo/issues"
+  },
+  "keywords": [
+    "law",
+    "constitution",
+    "osaka-dialect",
+    "legal-education",
+    "japanese-law",
+    "nextjs",
+    "typescript",
+    "education",
+    "kansai-dialect"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "js-yaml": "^4.1.0",
