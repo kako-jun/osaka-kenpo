@@ -6,11 +6,11 @@ import ViewModeToggle from './ViewModeToggle';
 
 const Header = () => {
   return (
-    <header className="bg-[#E94E77] text-white px-4 py-2 text-center relative flex items-center">
+    <header className="bg-[#E94E77] text-white px-4 pt-0.5 pb-1.5 text-center relative flex items-center">
       <Menu />
       <div className="container mx-auto">
         <Link href="/" className="inline-block text-white no-underline">
-          <div className="py-1">
+          <div className="pt-0 pb-1">
             <Image 
               src="/osaka-kenpo-title.webp" 
               alt="おおさかけんぽう" 
@@ -18,7 +18,7 @@ const Header = () => {
               height={48}
               className="mx-auto filter invert"
             />
-            <p className="text-xs mt-1">法律をおおさか弁で知ろう。知らんけど</p>
+            <p className="text-xs mt-0">法律をおおさか弁で知ろう。知らんけど</p>
           </div>
         </Link>
       </div>
