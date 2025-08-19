@@ -40,11 +40,11 @@ const NostalgicCounter = ({
   }, [counterId, type, digits]);
 
   if (loading) {
-    return <span className="font-bold text-[#E94E77] text-xl">{'0'.repeat(parseInt(digits))}</span>;
+    return <span className="font-bold text-[#E94E77] text-xl leading-none align-baseline">{'0'.repeat(parseInt(digits))}</span>;
   }
 
   return (
-    <span className="font-bold text-[#E94E77] text-xl">{count}</span>
+    <span className="font-bold text-[#E94E77] text-xl leading-none align-baseline">{count}</span>
   );
 };
 
