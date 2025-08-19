@@ -99,7 +99,7 @@ export default function Home() {
         <img 
           src="/osaka-kenpo-logo.webp" 
           alt="おおさかけんぽう" 
-          className="w-80 h-36 object-contain"
+          className="w-[370px] h-[169px] object-contain"
         />
       </div>
       
