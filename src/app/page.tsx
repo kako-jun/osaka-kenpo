@@ -5,6 +5,7 @@ import { ShareButton } from '@/app/components/ShareButton';
 import { Loading } from '@/app/components/Loading';
 import { useState, useEffect } from 'react';
 import { loadBatchMetadata } from '@/lib/metadata_loader';
+import NostalgicCounter from '@/components/NostalgicCounter';
 
 // ページメタデータを動的に設定
 if (typeof document !== 'undefined') {
@@ -102,11 +103,15 @@ export default function Home() {
         />
       </div>
       
-      {/* カウンタエリア（将来のアクセスカウンタ用スケルトン） */}
+      {/* カウンタエリア */}
       <div className="flex justify-center mb-8">
         <div className="text-center text-gray-500 text-sm flex items-center justify-center gap-1">
           <span>これまで</span>
-          <span className="font-bold text-[#E94E77] text-lg -translate-y-px">4200</span>
+          <NostalgicCounter 
+            counterId="osaka-kenpo-49a3907a" 
+            type="total"
+            digits="4"
+          />
           <span>人も見てくれてありがとなー</span>
         </div>
       </div>
