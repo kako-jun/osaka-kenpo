@@ -79,12 +79,6 @@ export const ArticleNavigation = ({
   // 共通のポップアップコンポーネント
   const ArticlePopup = () => (
     <>
-      {/* オーバーレイ */}
-      <div 
-        className="fixed inset-0 bg-black bg-opacity-50 z-40"
-        onClick={() => setShowArticlePopup(false)}
-      />
-      
       {/* ポップアップ内容 */}
       <div className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-white rounded-lg shadow-xl border border-gray-200 z-50 max-h-96 overflow-y-auto" style={{ minWidth: '300px', maxWidth: '400px' }}>
         <div className="p-4 border-b border-gray-200" style={{ backgroundColor: '#FFF8DC' }}>
