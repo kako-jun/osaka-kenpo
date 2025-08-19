@@ -166,6 +166,24 @@ export default function About() {
                   GitHub Sponsorsで応援するわ
                 </a>
               </div>
+              <div className="mt-4 p-4 bg-[#FFF8DC] rounded-lg text-center">
+                <p className="text-sm mb-3">
+                  英語やGitHubはようわからん、っちゅう人向けに<br />
+                  Amazonアソシエイトでの支援もできるで。
+                </p>
+                <a
+                  href="https://amzn.to/41dkZF1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-[#FF9900] hover:bg-opacity-80 text-white font-bold py-2 px-6 rounded-lg transition-colors"
+                >
+                  よう使う電池でも買うてや
+                </a>
+                <p className="text-xs mt-2 text-gray-600">
+                  電池ついでになんぼでも買うてくれてええんやけどな。<br />
+                  猫のエサ代に化けるわ。
+                </p>
+              </div>
             </div>
           </div>
 
