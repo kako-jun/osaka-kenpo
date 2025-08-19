@@ -393,7 +393,7 @@ export default function ArticlePage() {
             />
             
             {/* 条文用スピーカーボタン */}
-            <div className="absolute bottom-4 right-4">
+            <div className="absolute bottom-4 right-4 z-10">
               <SpeakerButton 
                 text={showOsaka ? articleData.osakaText.join('\n\n') : articleData.originalText.join('\n\n')}
                 voice={showOsaka ? 'female' : 'male'}
@@ -453,7 +453,7 @@ export default function ArticlePage() {
             </div>
             
             {/* 解説用スピーカーボタン */}
-            <div className="absolute bottom-4 right-4">
+            <div className="absolute bottom-4 right-4 z-10">
               <SpeakerButton 
                 text={showOsaka ? (articleData.commentaryOsaka || articleData.commentary).join('\n\n') : articleData.commentary.join('\n\n')}
                 voice={showOsaka ? 'female' : 'male'}

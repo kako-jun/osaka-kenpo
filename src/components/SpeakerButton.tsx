@@ -13,7 +13,10 @@ export const SpeakerButton = ({ text, voice, className = '' }: SpeakerButtonProp
     return null // ブラウザが対応していない場合は表示しない
   }
 
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    
     if (isSpeaking) {
       stop()
     } else {
@@ -26,11 +29,12 @@ export const SpeakerButton = ({ text, voice, className = '' }: SpeakerButtonProp
       onClick={handleClick}
       className={`
         inline-flex items-center justify-center
-        w-10 h-10 rounded-full
-        bg-gray-100 hover:bg-gray-200
+        w-12 h-12 rounded-full
+        bg-gray-100 hover:bg-gray-200 active:bg-gray-300
         text-gray-600 hover:text-gray-800
         transition-all duration-200
         shadow-sm hover:shadow-md
+        touch-manipulation
         ${isSpeaking ? 'animate-pulse bg-blue-100 text-blue-600' : ''}
         ${className}
       `}
