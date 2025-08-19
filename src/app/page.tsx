@@ -93,14 +93,13 @@ export default function Home() {
       <div className="fixed top-20 right-4 z-10">
         <ShareButton />
       </div>
-      {/* ロゴエリア（将来の画像用スケルトン） */}
-      <div className="flex justify-center mb-2 mt-8">
-        <div className="w-80 h-36 bg-gray-200 rounded-lg flex items-center justify-center border-2 border-dashed border-gray-300">
-          <div className="text-center text-gray-400">
-            <div className="text-sm mb-1">ロゴ予定地</div>
-            <div className="text-xs">320×144px</div>
-          </div>
-        </div>
+      {/* ロゴエリア */}
+      <div className="flex justify-center mb-1 mt-8">
+        <img 
+          src="/osaka-kenpo-logo.webp" 
+          alt="おおさかけんぽう" 
+          className="w-80 h-36 object-contain"
+        />
       </div>
       
       {/* カウンタエリア（将来のアクセスカウンタ用スケルトン） */}
