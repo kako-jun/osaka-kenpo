@@ -152,3 +152,4 @@ export async function getLawName(lawCategory: string, lawName: string): Promise<
   const metadata = await loadLawMetadata(lawCategory, lawName)
   return metadata?.name || lawName
 }
+
