@@ -71,12 +71,19 @@ export default function ArticlePage() {
 
     // スワイプジェスチャー
     let touchStartX = 0
+    let touchStartY = 0
     let touchEndX = 0
+    let touchEndY = 0
     let isTracking = false
+    let initialDirection: 'horizontal' | 'vertical' | 'unknown' = 'unknown'
+    let isHorizontalSwipe = false
     
     const handleTouchStart = (event: TouchEvent) => {
       touchStartX = event.changedTouches[0].screenX
+      touchStartY = event.changedTouches[0].screenY
       isTracking = true
+      initialDirection = 'unknown'
+      isHorizontalSwipe = false
       
       // ページ全体のコンテンツを取得（fixedボタン以外）
       const pageContent = document.getElementById('page-content') as HTMLElement | null
@@ -89,16 +96,38 @@ export default function ArticlePage() {
       if (!isTracking) return
       
       const touchCurrentX = event.changedTouches[0].screenX
-      const currentDistance = touchCurrentX - touchStartX
+      const touchCurrentY = event.changedTouches[0].screenY
+      const currentDistanceX = touchCurrentX - touchStartX
+      const currentDistanceY = touchCurrentY - touchStartY
       
-      // スワイプ演出：ページコンテンツを縮小
-      const progress = Math.min(Math.abs(currentDistance) / 100, 1) // 0-1の範囲
-      const scale = 1 - (progress * 0.05) // 最大5%縮小
+      // 初期移動方向の判定（最初の20px移動時点で判定）
+      if (initialDirection === 'unknown') {
+        const absX = Math.abs(currentDistanceX)
+        const absY = Math.abs(currentDistanceY)
+        
+        if (absX > 20 || absY > 20) {
+          // 縦移動が横移動の1.5倍以上なら縦スクロールと判定
+          if (absY > absX * 1.5) {
+            initialDirection = 'vertical'
+            isHorizontalSwipe = false
+          } else if (absX > absY) {
+            initialDirection = 'horizontal'
+            isHorizontalSwipe = true
+          }
+        }
+      }
       
-      const pageContent = document.getElementById('page-content') as HTMLElement | null
-      if (pageContent) {
-        pageContent.style.transform = `scale(${scale})`
-        pageContent.style.opacity = String(1 - progress * 0.3) // 最大30%透明化
+      // 横スワイプと判定された場合のみ演出を実行
+      if (isHorizontalSwipe) {
+        // スワイプ演出：ページコンテンツを縮小
+        const progress = Math.min(Math.abs(currentDistanceX) / 150, 1) // 0-1の範囲（閾値を150pxに増加）
+        const scale = 1 - (progress * 0.05) // 最大5%縮小
+        
+        const pageContent = document.getElementById('page-content') as HTMLElement | null
+        if (pageContent) {
+          pageContent.style.transform = `scale(${scale})`
+          pageContent.style.opacity = String(1 - progress * 0.3) // 最大30%透明化
+        }
       }
     }
     
@@ -106,10 +135,12 @@ export default function ArticlePage() {
       if (!isTracking) return
       
       touchEndX = event.changedTouches[0].screenX
+      touchEndY = event.changedTouches[0].screenY
       isTracking = false
       
-      const swipeThreshold = 100
-      const swipeDistance = touchEndX - touchStartX
+      const swipeDistanceX = touchEndX - touchStartX
+      const swipeDistanceY = touchEndY - touchStartY
+      const swipeThreshold = 150 // 閾値を100から150に増加
       
       // 必ず元に戻す処理を先に実行
       const pageContent = document.getElementById('page-content') as HTMLElement | null
@@ -125,12 +156,15 @@ export default function ArticlePage() {
         }, 300)
       }
       
-      // スワイプが閾値を超えた場合は遷移
-      if (Math.abs(swipeDistance) > swipeThreshold) {
-        if (swipeDistance > 0 && prevArticle) {
+      // 横スワイプと判定され、かつ縦移動が横移動より小さい場合のみページ遷移
+      const absX = Math.abs(swipeDistanceX)
+      const absY = Math.abs(swipeDistanceY)
+      
+      if (isHorizontalSwipe && absX > swipeThreshold && absX > absY * 1.5) {
+        if (swipeDistanceX > 0 && prevArticle) {
           // 右スワイプ（左から右へ）→ 前の条文
           navigateToArticle(prevArticle)
-        } else if (swipeDistance < 0 && nextArticle) {
+        } else if (swipeDistanceX < 0 && nextArticle) {
           // 左スワイプ（右から左へ）→ 次の条文
           navigateToArticle(nextArticle)
         }
