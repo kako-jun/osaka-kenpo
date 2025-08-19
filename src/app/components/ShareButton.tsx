@@ -11,7 +11,11 @@ export const ShareButton = ({ title, url }: ShareButtonProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const [copied, setCopied] = useState(false)
   const [shareCount, setShareCount] = useState(0)
-  const currentUrl = url || (typeof window !== 'undefined' ? window.location.href : '')
+  // URLを取得し、トップページの場合は末尾スラッシュを削除
+  const rawUrl = url || (typeof window !== 'undefined' ? window.location.href : '')
+  const currentUrl = rawUrl.endsWith('/') && new URL(rawUrl).pathname === '/' 
+    ? rawUrl.slice(0, -1) 
+    : rawUrl
 
   // ブラウザのタイトルを取得、フォールバックでpropsを使用
   const browserTitle = typeof document !== 'undefined' ? document.title : ''
