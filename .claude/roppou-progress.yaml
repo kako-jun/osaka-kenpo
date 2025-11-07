@@ -51,7 +51,8 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    egov_law_num: "132AC0000000048"  # 明治32年法律第48号
+    egov_law_num: "132AC0000000048"  # 明治32年法律第48号（現行版・会社法独立後）
+    note: "2005年会社法独立後の現行版。商行為・海商が中心"
     parts:
       - name: 第一編 総則
         articles: [1, 24]
@@ -59,6 +60,19 @@ laws:
         articles: [501, 583]
       - name: 第三編 海商
         articles: [684, 851]
+
+  - id: kaisya_hou
+    name: 会社法
+    category: jp
+    totalArticles: 979
+    status: pending
+    progress:
+      stage1_originalText: 0
+      stage2_commentary: 0
+      stage3_osakaText: 0
+      stage4_commentaryOsaka: 0
+    egov_law_num: "417AC0000000086"  # 平成17年法律第86号
+    note: "2005年に商法から独立。株式会社・合名会社・合資会社・合同会社を規律"
 
   - id: keihou
     name: 刑法
@@ -103,12 +117,12 @@ laws:
 
 # 全体の進捗サマリー
 summary:
-  totalArticles: 3179  # 憲法含む
+  totalArticles: 4158  # 憲法103 + 民法1050 + 商法851 + 会社法979 + 刑法264 + 民訴404 + 刑訴507
   stage1_completed: 103  # 憲法のみ
   stage2_completed: 103
   stage3_completed: 103
   stage4_completed: 103
-  stage1_percentage: 3.2
-  stage2_percentage: 3.2
-  stage3_percentage: 3.2
-  stage4_percentage: 3.2
+  stage1_percentage: 2.5
+  stage2_percentage: 2.5
+  stage3_percentage: 2.5
+  stage4_percentage: 2.5

@@ -165,7 +165,7 @@ export default function Home() {
           📊 六法整備の進み具合を見る
         </Link>
         <p className="mt-4 text-sm text-gray-500">
-          4段階戦略で約3,000条文を整備中やで！
+          4段階戦略で約4,158条文を整備中やで！
         </p>
       </div>
     </div>
