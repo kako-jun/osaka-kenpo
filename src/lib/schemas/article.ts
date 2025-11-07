@@ -19,16 +19,16 @@ export const ArticleSchema = z.object({
   /** 条文タイトル（大阪弁版、オプション） */
   titleOsaka: z.string().optional(),
   
-  /** 原文（段落の配列） */
+  /** 原文（段落の配列） - Stage 1で必須 */
   originalText: z.array(z.string().min(1)).min(1, '原文は必須です'),
-  
-  /** 大阪弁翻訳（段落の配列） */
-  osakaText: z.array(z.string().min(1)).min(1, '大阪弁翻訳は必須です'),
-  
-  /** 解説文（段落の配列） */
-  commentary: z.array(z.string().min(1)).min(1, '解説は必須です'),
-  
-  /** 解説文（大阪弁版、段落の配列、オプション） */
+
+  /** 大阪弁翻訳（段落の配列） - Stage 3で埋める（空配列も許可） */
+  osakaText: z.array(z.string().min(1)),
+
+  /** 解説文（段落の配列） - Stage 2で埋める（空配列も許可） */
+  commentary: z.array(z.string().min(1)),
+
+  /** 解説文（大阪弁版、段落の配列） - Stage 4で埋める（オプション） */
   commentaryOsaka: z.array(z.string().min(1)).optional()
 })
 
