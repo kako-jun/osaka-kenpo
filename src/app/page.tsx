@@ -155,6 +155,19 @@ export default function Home() {
           </div>
         ))}
       </div>
+
+      {/* フッター */}
+      <div className="py-8 border-t-2 border-gray-200 text-center">
+        <Link
+          href="/progress"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-400 to-orange-400 text-white rounded-full font-bold hover:shadow-lg transition-shadow"
+        >
+          📊 六法整備の進み具合を見る
+        </Link>
+        <p className="mt-4 text-sm text-gray-500">
+          4段階戦略で約4,158条文を整備中やで！
+        </p>
+      </div>
     </div>
   );
 }
