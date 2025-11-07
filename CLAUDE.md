@@ -43,9 +43,76 @@
 - **外国法**: ドイツ基本法・アメリカ憲法等のサンプル
 - **国際条約**: 国連憲章・南極条約等のサンプル
 
-### 🔄 進行中
-- 十七条憲法の残り条文（2-17条）追加
-- データ拡充・翻訳品質向上
+#### 🔄 進行中
+- **六法整備プロジェクト** - 4段階戦略で約3,000条文を整備中
+  - Stage 1: 原文（originalText）
+  - Stage 2: 解説（commentary）
+  - Stage 3: 大阪弁訳（osakaText）
+  - Stage 4: 大阪弁解説（commentaryOsaka）
+
+## 📋 六法整備プロジェクト（4段階戦略）
+
+### 🎯 整備対象
+- **憲法**: 103条（✅完成）
+- **民法**: 1,050条
+- **商法**: 851条
+- **刑法**: 264条
+- **民事訴訟法**: 404条
+- **刑事訴訟法**: 507条
+- **合計**: 約3,179条
+
+### 📊 4段階戦略
+手作業は一切行わず、e-Gov法令検索APIから自動取得して段階的に整備：
+
+1. **Stage 1**: 原文（originalText）← まず全条文でこれを完成
+2. **Stage 2**: 原文解説（commentary）
+3. **Stage 3**: 大阪弁訳（osakaText）
+4. **Stage 4**: 大阪弁解説（commentaryOsaka）
+
+### 🛠️ 自動化スクリプト
+
+#### 必要なパッケージのインストール
+```bash
+npm install xml2js js-yaml
+```
+
+#### 使用方法
+```bash
+# 民法を取得
+node scripts/fetch-egov-law.js minpou 129AC0000000089
+
+# 刑法を取得
+node scripts/fetch-egov-law.js keihou 140AC0000000045
+
+# 商法を取得
+node scripts/fetch-egov-law.js shouhou 132AC0000000048
+
+# 民事訴訟法を取得
+node scripts/fetch-egov-law.js minji_soshou_hou 409AC0000000109
+
+# 刑事訴訟法を取得
+node scripts/fetch-egov-law.js keiji_soshou_hou 323AC0000000131
+```
+
+#### スクリプトの動作
+1. e-Gov法令検索APIから法令XMLを取得
+2. XMLをパースして条文を抽出
+3. 各条文をYAMLファイルとして保存（Stage 1のみ埋める）
+4. `law_metadata.yaml`を自動生成
+5. `.claude/roppou-progress.yaml`の進捗を更新
+
+### 📈 進捗管理
+- **進捗ファイル**: `.claude/roppou-progress.yaml`
+- 各法律の条文数と4段階ごとの完成数を記録
+- 将来的にダッシュボードページで可視化予定
+
+### 🔗 e-Gov法令番号一覧
+- 憲法: `321CONSTITUTION`
+- 民法: `129AC0000000089`（明治29年法律第89号）
+- 商法: `132AC0000000048`（明治32年法律第48号）
+- 刑法: `140AC0000000045`（明治40年法律第45号）
+- 民事訴訟法: `409AC0000000109`（平成8年法律第109号）
+- 刑事訴訟法: `323AC0000000131`（昭和23年法律第131号）
 
 ## 🎯 次期開発予定
 
