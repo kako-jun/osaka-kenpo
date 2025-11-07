@@ -75,13 +75,13 @@ https.get(lawDataUrl, (res) => {
         console.log(`✅ Extracted ${articles.length} articles\n`);
 
         // 進捗YAMLを読み込み
-        const progressPath = path.join(__dirname, '..', '.claude', 'roppou-progress.yaml');
+        const progressPath = path.join(__dirname, '..', '.claude', 'all-laws-progress.yaml');
         const progressData = yaml.load(fs.readFileSync(progressPath, 'utf8'));
 
         // 該当する法律を見つける
         const lawInfo = progressData.laws.find(l => l.id === lawId);
         if (!lawInfo) {
-          console.error(`❌ Law ID "${lawId}" not found in progress.yaml`);
+          console.error(`❌ Law ID "${lawId}" not found in all-laws-progress.yaml`);
           process.exit(1);
         }
 
