@@ -5,13 +5,13 @@ import yaml from 'js-yaml';
 
 export async function GET() {
   try {
-    const progressPath = path.join(process.cwd(), '.claude', 'roppou-progress.yaml');
+    const progressPath = path.join(process.cwd(), '.claude', 'all-laws-progress.yaml');
     const fileContent = fs.readFileSync(progressPath, 'utf8');
     const progressData = yaml.load(fileContent);
 
     return NextResponse.json(progressData);
   } catch (error) {
-    console.error('Error loading roppou progress:', error);
+    console.error('Error loading progress:', error);
     return NextResponse.json(
       { error: 'Failed to load progress data' },
       { status: 500 }
