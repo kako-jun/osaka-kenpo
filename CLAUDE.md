@@ -119,6 +119,42 @@ node scripts/fetch-egov-law.js keiji_soshou_hou 323AC0000000131
 - 民事訴訟法: `409AC0000000109`（平成8年法律第109号）
 - 刑事訴訟法: `323AC0000000131`（昭和23年法律第131号）
 
+### 🚀 次のステップ（ローカル環境で実行）
+
+**現状**: 全4,055条分のテンプレートYAMLが生成済み（原文は空）
+
+**実施すべき作業**: ローカル環境でe-Gov APIスクリプトを実行し、全条文の原文を取得
+
+```bash
+# 民法（1,050条）を取得
+node scripts/fetch-egov-law.js minpou 129AC0000000089
+
+# 商法（851条）を取得
+node scripts/fetch-egov-law.js shouhou 132AC0000000048
+
+# 会社法（979条）を取得
+node scripts/fetch-egov-law.js kaisya_hou 417AC0000000086
+
+# 刑法（264条）を取得
+node scripts/fetch-egov-law.js keihou 140AC0000000045
+
+# 民事訴訟法（404条）を取得
+node scripts/fetch-egov-law.js minji_soshou_hou 409AC0000000109
+
+# 刑事訴訟法（507条）を取得
+node scripts/fetch-egov-law.js keiji_soshou_hou 323AC0000000131
+```
+
+**完了後の確認**:
+- `/progress` ページで進捗を確認
+- Stage 1の完成率が100%になることを確認
+- 各条文YAMLに原文が入っていることを確認
+
+**注意事項**:
+- e-Gov APIは外部ネットワークアクセスが必要
+- Claude Code on the Web環境では実行不可
+- 必ずローカル環境（自分のPC）で実行すること
+
 ## 🎯 次期開発予定
 
 ### 短期（1-2週間）
