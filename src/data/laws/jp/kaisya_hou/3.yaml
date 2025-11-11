@@ -1,8 +1,9 @@
 article: 3
-title: 第3条
+isSuppl: false
+title: （法人格）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 会社は、法人とする。
 osakaText: []
 commentary: []
 commentaryOsaka: []

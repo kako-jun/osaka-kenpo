@@ -1,8 +1,10 @@
 article: 326
-title: 第326条
+isSuppl: false
+title: （株主総会以外の機関の設置）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 株式会社には、一人又は二人以上の取締役を置かなければならない。
+  - 株式会社は、定款の定めによって、取締役会、会計参与、監査役、監査役会、会計監査人、監査等委員会又は指名委員会等を置くことができる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

@@ -1,8 +1,10 @@
 article: 589
-title: 第589条
+isSuppl: false
+title: （利息）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 貸主は、特約がなければ、借主に対して利息を請求することができない。
+  - 前項の特約があるときは、貸主は、借主が金銭その他の物を受け取った日以後の利息を請求することができる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

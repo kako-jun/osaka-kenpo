@@ -1,5 +1,7 @@
 name: 会社法
-year: ''
-source: ''
+year: 平成17年
+source: e-Gov法令検索
 description: ''
-links: []
+links:
+  - text: e-Gov法令検索
+    url: https://elaws.e-gov.go.jp/document?lawid=417AC0000000086

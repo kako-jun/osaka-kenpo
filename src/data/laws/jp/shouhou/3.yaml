@@ -1,8 +1,10 @@
 article: 3
-title: 第3条
+isSuppl: false
+title: （一方的商行為）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 当事者の一方のために商行為となる行為については、この法律をその双方に適用する。
+  - 当事者の一方が二人以上ある場合において、その一人のために商行為となる行為については、この法律をその全員に適用する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

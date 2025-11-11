@@ -1,8 +1,10 @@
 article: 200
-title: 第200条
+isSuppl: false
+title: （占有回収の訴え）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 占有者がその占有を奪われたときは、占有回収の訴えにより、その物の返還及び損害の賠償を請求することができる。
+  - 占有回収の訴えは、占有を侵奪した者の特定承継人に対して提起することができない。ただし、その承継人が侵奪の事実を知っていたときは、この限りでない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

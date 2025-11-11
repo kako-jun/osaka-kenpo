@@ -1,8 +1,10 @@
 article: 302
-title: 第302条
+isSuppl: false
+title: （控訴棄却）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 控訴裁判所は、第一審判決を相当とするときは、控訴を棄却しなければならない。
+  - 第一審判決がその理由によれば不当である場合においても、他の理由により正当であるときは、控訴を棄却しなければならない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

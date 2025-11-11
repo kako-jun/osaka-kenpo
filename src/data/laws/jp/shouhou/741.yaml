@@ -1,8 +1,10 @@
 article: 741
-title: 第741条
+isSuppl: false
+title: （荷受人の運送賃支払義務等）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 荷受人は、運送品を受け取ったときは、個品運送契約又は船荷証券の趣旨に従い、運送人に対し、次に掲げる金額の合計額（以下この節において「運送賃等」という。）を支払う義務を負う。
+  - 運送人は、運送賃等の支払を受けるまで、運送品を留置することができる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

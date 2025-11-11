@@ -1,8 +1,10 @@
 article: 540
-title: 第540条
+isSuppl: false
+title: （解除権の行使）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 契約又は法律の規定により当事者の一方が解除権を有するときは、その解除は、相手方に対する意思表示によってする。
+  - 前項の意思表示は、撤回することができない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

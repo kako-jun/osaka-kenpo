@@ -1,8 +1,11 @@
 article: 60
-title: 第60条
+isSuppl: false
+title: （補佐人）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 当事者又は訴訟代理人は、裁判所の許可を得て、補佐人とともに出頭することができる。
+  - 前項の許可は、いつでも取り消すことができる。
+  - 補佐人の陳述は、当事者又は訴訟代理人が直ちに取り消し、又は更正しないときは、当事者又は訴訟代理人が自らしたものとみなす。
 osakaText: []
 commentary: []
 commentaryOsaka: []

@@ -1,8 +1,10 @@
 article: 297
-title: 第297条
+isSuppl: false
+title: （留置権者による果実の収取）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 留置権者は、留置物から生ずる果実を収取し、他の債権者に先立って、これを自己の債権の弁済に充当することができる。
+  - 前項の果実は、まず債権の利息に充当し、なお残余があるときは元本に充当しなければならない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

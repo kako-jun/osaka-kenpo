@@ -1,8 +1,9 @@
 article: 2
-title: 第2条
+isSuppl: false
+title: （定義）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - この法律において、次の各号に掲げる用語の意義は、当該各号に定めるところによる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

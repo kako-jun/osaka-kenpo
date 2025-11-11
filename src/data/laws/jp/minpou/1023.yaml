@@ -1,8 +1,10 @@
 article: 1023
-title: 第1023条
+isSuppl: false
+title: （前の遺言と後の遺言との抵触等）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 前の遺言が後の遺言と抵触するときは、その抵触する部分については、後の遺言で前の遺言を撤回したものとみなす。
+  - 前項の規定は、遺言が遺言後の生前処分その他の法律行為と抵触する場合について準用する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

@@ -1,8 +1,9 @@
 article: 115
-title: 第115条
+isSuppl: false
+title: （無権代理の相手方の取消権）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 代理権を有しない者がした契約は、本人が追認をしない間は、相手方が取り消すことができる。ただし、契約の時において代理権を有しないことを相手方が知っていたときは、この限りでない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

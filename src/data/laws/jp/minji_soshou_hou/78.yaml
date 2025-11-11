@@ -1,8 +1,9 @@
 article: 78
-title: 第78条
+isSuppl: false
+title: （担保不提供の効果）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 原告が担保を立てるべき期間内にこれを立てないときは、裁判所は、口頭弁論を経ないで、判決で、訴えを却下することができる。ただし、判決前に担保を立てたときは、この限りでない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

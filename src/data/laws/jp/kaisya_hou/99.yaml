@@ -1,8 +1,9 @@
 article: 99
-title: 第99条
+isSuppl: false
+title: （定款の変更の手続の特則）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 設立しようとする会社が種類株式発行会社である場合において、次の各号に掲げるときは、当該各号の種類の設立時発行株式の設立時種類株主全員の同意を得なければならない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

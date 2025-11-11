@@ -1,8 +1,14 @@
 article: 62
-title: 第62条
+isSuppl: false
+title:
+  _: （助）
+  Ruby:
+    _: 幇
+    Rt: ほう
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 正犯を助した者は、従犯とする。
+  - 従犯を教唆した者には、従犯の刑を科する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

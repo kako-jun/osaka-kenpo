@@ -1,8 +1,9 @@
 article: 12
-title: 第12条
+isSuppl: false
+title: （応訴管轄）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 被告が第一審裁判所において管轄違いの抗弁を提出しないで本案について弁論をし、又は弁論準備手続において申述をしたときは、その裁判所は、管轄権を有する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

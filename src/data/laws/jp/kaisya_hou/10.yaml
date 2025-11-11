@@ -1,8 +1,9 @@
 article: 10
-title: 第10条
+isSuppl: false
+title: （支配人）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 会社（外国会社を含む。以下この編において同じ。）は、支配人を選任し、その本店又は支店において、その事業を行わせることができる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

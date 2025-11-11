@@ -1,8 +1,10 @@
 article: 30
-title: 第30条
+isSuppl: false
+title: （定款の認証）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 第二十六条第一項の定款は、公証人の認証を受けなければ、その効力を生じない。
+  - 前項の公証人の認証を受けた定款は、株式会社の成立前は、第三十三条第七項若しくは第九項又は第三十七条第一項若しくは第二項の規定による場合を除き、これを変更することができない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

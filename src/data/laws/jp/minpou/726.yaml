@@ -1,8 +1,10 @@
 article: 726
-title: 第726条
+isSuppl: false
+title: （親等の計算）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 親等は、親族間の世代数を数えて、これを定める。
+  - 傍系親族の親等を定めるには、その一人又はその配偶者から同一の祖先にさかのぼり、その祖先から他の一人に下るまでの世代数による。
 osakaText: []
 commentary: []
 commentaryOsaka: []

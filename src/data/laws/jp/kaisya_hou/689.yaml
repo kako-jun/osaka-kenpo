@@ -1,8 +1,10 @@
 article: 689
-title: 第689条
+isSuppl: false
+title: （権利の推定等）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 社債券の占有者は、当該社債券に係る社債についての権利を適法に有するものと推定する。
+  - 社債券の交付を受けた者は、当該社債券に係る社債についての権利を取得する。ただし、その者に悪意又は重大な過失があるときは、この限りでない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

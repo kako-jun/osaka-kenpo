@@ -1,8 +1,9 @@
 article: 456
-title: 第456条
+isSuppl: false
+title: （数人の保証人がある場合）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 数人の保証人がある場合には、それらの保証人が各別の行為により債務を負担したときであっても、第四百二十七条の規定を適用する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

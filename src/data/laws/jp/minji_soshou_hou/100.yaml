@@ -1,8 +1,9 @@
 article: 100
-title: 第100条
+isSuppl: false
+title: （裁判所書記官による送達）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 裁判所書記官は、その所属する裁判所の事件について出頭した者に対しては、自ら送達をすることができる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

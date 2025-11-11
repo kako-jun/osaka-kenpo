@@ -1,8 +1,10 @@
 article: 172
-title: 第172条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 身体の検査を受ける者が、鑑定人の第百六十八条第一項の規定によつてする身体の検査を拒んだ場合には、鑑定人は、裁判官にその者の身体の検査を請求することができる。
+  - 前項の請求を受けた裁判官は、第十章の規定に準じ身体の検査をすることができる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

@@ -1,8 +1,11 @@
 article: 127
-title: 第127条
+isSuppl: false
+title: （条件が成就した場合の効果）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 停止条件付法律行為は、停止条件が成就した時からその効力を生ずる。
+  - 解除条件付法律行為は、解除条件が成就した時からその効力を失う。
+  - 当事者が条件が成就した場合の効果をその成就した時以前にさかのぼらせる意思を表示したときは、その意思に従う。
 osakaText: []
 commentary: []
 commentaryOsaka: []

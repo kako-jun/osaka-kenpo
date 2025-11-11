@@ -1,8 +1,10 @@
 article: 17
-title: 第17条
+isSuppl: false
+title: （代理商の競業の禁止）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 代理商は、会社の許可を受けなければ、次に掲げる行為をしてはならない。
+  - 代理商が前項の規定に違反して同項第一号に掲げる行為をしたときは、当該行為によって代理商又は第三者が得た利益の額は、会社に生じた損害の額と推定する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

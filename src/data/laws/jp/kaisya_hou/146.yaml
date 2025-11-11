@@ -1,8 +1,10 @@
 article: 146
-title: 第146条
+isSuppl: false
+title: （株式の質入れ）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 株主は、その有する株式に質権を設定することができる。
+  - 株券発行会社の株式の質入れは、当該株式に係る株券を交付しなければ、その効力を生じない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

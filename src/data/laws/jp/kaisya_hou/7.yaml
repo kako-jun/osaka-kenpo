@@ -1,8 +1,9 @@
 article: 7
-title: 第7条
+isSuppl: false
+title: （会社と誤認させる名称等の使用の禁止）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 会社でない者は、その名称又は商号中に、会社であると誤認されるおそれのある文字を用いてはならない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

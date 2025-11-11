@@ -1,8 +1,10 @@
 article: 440
-title: 第440条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 検察官以外の者は、再審の請求をする場合には、弁護人を選任することができる。
+  - 前項の規定による弁護人の選任は、再審の判決があるまでその効力を有する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

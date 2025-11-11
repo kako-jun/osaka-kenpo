@@ -1,8 +1,10 @@
 article: 9
-title: 第9条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 数個の事件は、左の場合に関連するものとする。
+  - 犯人蔵匿の罪、証憑湮滅の罪、偽証の罪、虚偽の鑑定通訳の罪及び贓物に関する罪とその本犯の罪とは、共に犯したものとみなす。
 osakaText: []
 commentary: []
 commentaryOsaka: []

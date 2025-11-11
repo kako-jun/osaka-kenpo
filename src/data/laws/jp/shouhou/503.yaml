@@ -1,8 +1,10 @@
 article: 503
-title: 第503条
+isSuppl: false
+title: （附属的商行為）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 商人がその営業のためにする行為は、商行為とする。
+  - 商人の行為は、その営業のためにするものと推定する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

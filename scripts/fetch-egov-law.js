@@ -1,16 +1,28 @@
 #!/usr/bin/env node
 
 /**
- * e-Gov法令検索APIから法令データを取得してYAMLファイルを生成するスクリプト
+ * e-Gov法令検索APIから法令データを取得してYAMLファイルを生成するスクリプト（改善版）
+ *
+ * 改善点:
+ * - プロキシ対応（環境変数HTTPS_PROXY/HTTP_PROXYから自動取得）
+ * - 適切なUser-Agent設定
+ * - リトライ機能（最大3回）
+ * - 詳細なエラーハンドリング
+ * - レート制限（リクエスト間隔1秒）
  *
  * Usage:
  *   node scripts/fetch-egov-law.js <law_id> <egov_law_num>
  *   例: node scripts/fetch-egov-law.js minpou 129AC0000000089
+ *
+ * 環境変数:
+ *   HTTPS_PROXY - HTTPSプロキシURL（例: http://proxy.example.com:8080）
+ *   HTTP_PROXY  - HTTPプロキシURL（HTTPS_PROXYが未設定の場合に使用）
  */
 
 import fs from 'fs';
 import path from 'path';
-import https from 'https';
+import axios from 'axios';
+import { HttpsProxyAgent } from 'https-proxy-agent';
 import { parseString } from 'xml2js';
 import yaml from 'js-yaml';
 import { fileURLToPath } from 'url';
@@ -18,6 +30,16 @@ import { dirname } from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
+// 設定
+const CONFIG = {
+  RETRY_COUNT: 3,
+  RETRY_DELAY: 2000, // 2秒
+  REQUEST_DELAY: 1000, // リクエスト間隔1秒
+  TIMEOUT: 30000, // 30秒
+  USER_AGENT:
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+};
 
 // コマンドライン引数
 const lawId = process.argv[2];
@@ -33,133 +55,62 @@ if (!lawId || !egovLawNum) {
 const API_BASE = 'https://elaws.e-gov.go.jp/api/1';
 const lawDataUrl = `${API_BASE}/lawdata/${egovLawNum}`;
 
-console.log(`📚 Fetching law data from e-Gov API...`);
+// プロキシ設定を環境変数から取得
+const proxyUrl = process.env.HTTPS_PROXY || process.env.HTTP_PROXY;
+const axiosConfig = {
+  timeout: CONFIG.TIMEOUT,
+  headers: {
+    'User-Agent': CONFIG.USER_AGENT,
+    Accept: 'application/xml, text/xml, */*',
+    'Accept-Language': 'ja,en-US;q=0.9,en;q=0.8',
+    'Accept-Encoding': 'gzip, deflate, br',
+  },
+};
+
+// プロキシが設定されている場合
+if (proxyUrl) {
+  console.log(`🔐 プロキシを使用: ${proxyUrl}\n`);
+  axiosConfig.httpsAgent = new HttpsProxyAgent(proxyUrl);
+  axiosConfig.proxy = false; // axiosの組み込みプロキシ設定を無効化
+}
+
+console.log('='.repeat(60));
+console.log('📚 e-Gov法令検索API - 法令データ取得（改善版）');
+console.log('='.repeat(60));
 console.log(`   Law ID: ${lawId}`);
 console.log(`   e-Gov Law Number: ${egovLawNum}`);
-console.log(`   URL: ${lawDataUrl}\n`);
+console.log(`   URL: ${lawDataUrl}`);
+console.log('='.repeat(60) + '\n');
 
-// HTTPSリクエストを送信
-https.get(lawDataUrl, (res) => {
-  let xmlData = '';
+/**
+ * リトライ付きHTTPリクエスト
+ */
+async function fetchWithRetry(url, config, retries = CONFIG.RETRY_COUNT) {
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      console.log(`🔄 リクエスト試行 ${attempt}/${retries}...`);
+      const response = await axios.get(url, config);
+      console.log(`✅ データ取得成功 (${response.data.length} bytes)\n`);
+      return response.data;
+    } catch (error) {
+      console.error(`❌ エラー (試行 ${attempt}/${retries}): ${error.message}`);
 
-  res.on('data', (chunk) => {
-    xmlData += chunk;
-  });
-
-  res.on('end', () => {
-    console.log(`✅ Data received (${xmlData.length} bytes)`);
-
-    // XMLをパース
-    parseString(xmlData, { explicitArray: false }, (err, result) => {
-      if (err) {
-        console.error('❌ XML parse error:', err);
-        process.exit(1);
+      if (attempt < retries) {
+        console.log(`⏳ ${CONFIG.RETRY_DELAY / 1000}秒後にリトライします...\n`);
+        await sleep(CONFIG.RETRY_DELAY);
+      } else {
+        throw error;
       }
+    }
+  }
+}
 
-      try {
-        // 法令データの抽出
-        const lawData = result.DataRoot?.ApplData?.LawFullText?.Law;
-        if (!lawData) {
-          console.error('❌ Law data not found in XML');
-          process.exit(1);
-        }
-
-        const lawBody = lawData.LawBody;
-        const lawName = lawData.LawNum?._; // 法令名
-
-        console.log(`\n📖 Law Name: ${lawName}`);
-        console.log(`🔍 Extracting articles...\n`);
-
-        // 条文を抽出
-        const articles = extractArticles(lawBody);
-        console.log(`✅ Extracted ${articles.length} articles\n`);
-
-        // 進捗YAMLを読み込み
-        const progressPath = path.join(__dirname, '..', '.claude', 'all-laws-progress.yaml');
-        const progressData = yaml.load(fs.readFileSync(progressPath, 'utf8'));
-
-        // 該当する法律を見つける
-        const lawInfo = progressData.laws.find(l => l.id === lawId);
-        if (!lawInfo) {
-          console.error(`❌ Law ID "${lawId}" not found in all-laws-progress.yaml`);
-          process.exit(1);
-        }
-
-        const category = lawInfo.category;
-        const outputDir = path.join(__dirname, '..', 'src', 'data', 'laws', category, lawId);
-
-        // 出力ディレクトリを作成
-        if (!fs.existsSync(outputDir)) {
-          fs.mkdirSync(outputDir, { recursive: true });
-          console.log(`📁 Created directory: ${outputDir}`);
-        }
-
-        // 各条文をYAMLファイルとして保存
-        let savedCount = 0;
-        articles.forEach((article) => {
-          const yamlContent = yaml.dump({
-            article: article.number,
-            title: article.title || '',
-            titleOsaka: '',  // 空で用意
-            originalText: article.text,
-            osakaText: [],  // Stage 3で埋める
-            commentary: [],  // Stage 2で埋める
-            commentaryOsaka: []  // Stage 4で埋める
-          }, {
-            indent: 2,
-            lineWidth: -1,
-            noRefs: true,
-            quotingType: '"'
-          });
-
-          const filename = `${article.number}.yaml`;
-          const filepath = path.join(outputDir, filename);
-          fs.writeFileSync(filepath, yamlContent, 'utf8');
-          savedCount++;
-
-          if (savedCount % 10 === 0 || savedCount === articles.length) {
-            process.stdout.write(`\r💾 Saved ${savedCount}/${articles.length} articles...`);
-          }
-        });
-
-        console.log(`\n\n✅ All articles saved to: ${outputDir}`);
-
-        // law_metadata.yamlを作成
-        const metadataContent = yaml.dump({
-          name: lawName || lawInfo.name,
-          year: extractYear(egovLawNum),
-          source: `e-Gov法令検索`,
-          description: '',  // 後で埋める
-          links: [
-            {
-              text: 'e-Gov法令検索',
-              url: `https://elaws.e-gov.go.jp/document?lawid=${egovLawNum}`
-            }
-          ]
-        }, { indent: 2, lineWidth: -1, noRefs: true });
-
-        const metadataPath = path.join(outputDir, 'law_metadata.yaml');
-        fs.writeFileSync(metadataPath, metadataContent, 'utf8');
-        console.log(`📄 Created law_metadata.yaml`);
-
-        // 進捗を更新
-        lawInfo.progress.stage1_originalText = articles.length;
-        fs.writeFileSync(progressPath, yaml.dump(progressData, { indent: 2 }), 'utf8');
-        console.log(`📊 Updated progress: Stage 1 = ${articles.length}/${lawInfo.totalArticles}`);
-
-        console.log(`\n🎉 Done!`);
-
-      } catch (error) {
-        console.error('❌ Error processing law data:', error);
-        process.exit(1);
-      }
-    });
-  });
-
-}).on('error', (err) => {
-  console.error('❌ HTTP request error:', err);
-  process.exit(1);
-});
+/**
+ * スリープ関数
+ */
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 /**
  * 法令本文から条文を抽出
@@ -167,8 +118,18 @@ https.get(lawDataUrl, (res) => {
 function extractArticles(lawBody) {
   const articles = [];
 
-  function traverse(node, currentArticleNum = null) {
+  function traverse(node, currentArticleNum = null, isSuppl = false) {
     if (!node) return;
+
+    // SupplProvision（附則）要素をチェック
+    if (node.SupplProvision) {
+      const supplNodes = Array.isArray(node.SupplProvision)
+        ? node.SupplProvision
+        : [node.SupplProvision];
+      supplNodes.forEach((supplNode) => {
+        traverse(supplNode, null, true); // 附則フラグをtrueに
+      });
+    }
 
     // Article要素を見つけたら処理
     if (node.Article) {
@@ -177,24 +138,26 @@ function extractArticles(lawBody) {
       articleNodes.forEach((article) => {
         const articleNum = article.$?.Num || currentArticleNum;
         const articleCaption = article.ArticleCaption || '';
-        const articleTitle = article.ArticleTitle?._  || '';
+        const articleTitle = article.ArticleTitle?._ || '';
 
         // 条文本文を抽出
         const paragraphs = extractParagraphs(article);
 
+        const parsedNum = parseArticleNumber(articleNum);
         articles.push({
-          number: parseArticleNumber(articleNum),
+          number: parsedNum,
+          isSuppl: isSuppl, // 附則かどうかのフラグ
           title: articleTitle || articleCaption,
-          text: paragraphs
+          text: paragraphs,
         });
       });
     }
 
     // 再帰的に子要素を探索
     Object.keys(node).forEach((key) => {
-      if (typeof node[key] === 'object' && key !== '$') {
+      if (typeof node[key] === 'object' && key !== '$' && key !== 'SupplProvision') {
         const children = Array.isArray(node[key]) ? node[key] : [node[key]];
-        children.forEach(child => traverse(child, currentArticleNum));
+        children.forEach((child) => traverse(child, currentArticleNum, isSuppl));
       }
     });
   }
@@ -222,7 +185,7 @@ function extractParagraphs(article) {
 
     if (node.Sentence) {
       const sentences = Array.isArray(node.Sentence) ? node.Sentence : [node.Sentence];
-      return sentences.map(s => extractText(s)).join('');
+      return sentences.map((s) => extractText(s)).join('');
     }
 
     return '';
@@ -260,12 +223,174 @@ function extractYear(egovNum) {
   const yearNum = parseInt(egovNum.substring(1, 3), 10);
 
   const eras = {
-    '1': '明治',
-    '2': '大正',
-    '3': '昭和',
-    '4': '平成',
-    '5': '令和'
+    1: '明治',
+    2: '大正',
+    3: '昭和',
+    4: '平成',
+    5: '令和',
   };
 
   return `${eras[eraCode] || ''}${yearNum}年`;
 }
+
+/**
+ * メイン処理
+ */
+async function main() {
+  try {
+    // XMLデータを取得
+    const xmlData = await fetchWithRetry(lawDataUrl, axiosConfig);
+
+    // XMLをパース
+    console.log('🔍 XMLをパース中...');
+    const result = await new Promise((resolve, reject) => {
+      parseString(xmlData, { explicitArray: false }, (err, result) => {
+        if (err) reject(err);
+        else resolve(result);
+      });
+    });
+
+    // 法令データの抽出
+    const lawData = result.DataRoot?.ApplData?.LawFullText?.Law;
+    if (!lawData) {
+      throw new Error('法令データがXML内に見つかりません');
+    }
+
+    const lawBody = lawData.LawBody;
+    const lawName = lawData.LawNum?._;
+
+    console.log(`📖 法令名: ${lawName || '不明'}`);
+    console.log('🔍 条文を抽出中...\n');
+
+    // 条文を抽出
+    const articles = extractArticles(lawBody);
+    console.log(`✅ ${articles.length}条の条文を抽出しました\n`);
+
+    // 進捗YAMLを読み込み
+    const progressPath = path.join(__dirname, '..', '.claude', 'all-laws-progress.yaml');
+    const progressData = yaml.load(fs.readFileSync(progressPath, 'utf8'));
+
+    // 該当する法律を見つける
+    const lawInfo = progressData.laws.find((l) => l.id === lawId);
+    if (!lawInfo) {
+      throw new Error(`Law ID "${lawId}" が all-laws-progress.yaml 内に見つかりません`);
+    }
+
+    const category = lawInfo.category;
+    const outputDir = path.join(__dirname, '..', 'src', 'data', 'laws', category, lawId);
+
+    // 出力ディレクトリを作成
+    if (!fs.existsSync(outputDir)) {
+      fs.mkdirSync(outputDir, { recursive: true });
+      console.log(`📁 ディレクトリ作成: ${outputDir}`);
+    }
+
+    // 各条文をYAMLファイルとして保存
+    console.log('\n💾 条文を保存中...');
+    let savedCount = 0;
+
+    for (const article of articles) {
+      const yamlContent = yaml.dump(
+        {
+          article: article.number,
+          isSuppl: article.isSuppl || false, // 附則フラグを保存
+          title: article.title || '',
+          titleOsaka: '', // 空で用意
+          originalText: article.text,
+          osakaText: [], // Stage 3で埋める
+          commentary: [], // Stage 2で埋める
+          commentaryOsaka: [], // Stage 4で埋める
+        },
+        {
+          indent: 2,
+          lineWidth: -1,
+          noRefs: true,
+          quotingType: '"',
+        }
+      );
+
+      // 附則の場合はファイル名にプレフィックスを付ける
+      const filename = article.isSuppl ? `suppl_${article.number}.yaml` : `${article.number}.yaml`;
+      const filepath = path.join(outputDir, filename);
+      fs.writeFileSync(filepath, yamlContent, 'utf8');
+      savedCount++;
+
+      if (savedCount % 50 === 0 || savedCount === articles.length) {
+        process.stdout.write(`\r💾 保存済み: ${savedCount}/${articles.length}条...`);
+      }
+
+      // レート制限
+      if (savedCount < articles.length) {
+        await sleep(10); // ファイル書き込み間隔
+      }
+    }
+
+    console.log(`\n\n✅ 全条文を保存しました: ${outputDir}`);
+
+    // law_metadata.yamlを作成
+    const metadataContent = yaml.dump(
+      {
+        name: lawName || lawInfo.name,
+        year: extractYear(egovLawNum),
+        source: 'e-Gov法令検索',
+        description: '', // 後で埋める
+        links: [
+          {
+            text: 'e-Gov法令検索',
+            url: `https://elaws.e-gov.go.jp/document?lawid=${egovLawNum}`,
+          },
+        ],
+      },
+      { indent: 2, lineWidth: -1, noRefs: true }
+    );
+
+    const metadataPath = path.join(outputDir, 'law_metadata.yaml');
+    fs.writeFileSync(metadataPath, metadataContent, 'utf8');
+    console.log('📄 law_metadata.yaml を作成しました');
+
+    // 進捗を更新
+    lawInfo.progress.stage1_originalText = articles.length;
+
+    // サマリーも更新
+    progressData.summary.stage1_completed = progressData.laws.reduce(
+      (sum, law) => sum + law.progress.stage1_originalText,
+      0
+    );
+    progressData.summary.stage1_percentage = (
+      (progressData.summary.stage1_completed / progressData.summary.totalArticles) *
+      100
+    ).toFixed(1);
+
+    fs.writeFileSync(progressPath, yaml.dump(progressData, { indent: 2 }), 'utf8');
+    console.log(`📊 進捗更新: Stage 1 = ${articles.length}/${lawInfo.totalArticles}条`);
+
+    console.log('\n' + '='.repeat(60));
+    console.log('🎉 完了！');
+    console.log('='.repeat(60));
+    console.log(`✅ ${articles.length}条の法令データを取得しました`);
+    console.log(`📂 保存先: ${outputDir}`);
+    console.log('='.repeat(60));
+  } catch (error) {
+    console.error('\n' + '='.repeat(60));
+    console.error('❌ エラーが発生しました');
+    console.error('='.repeat(60));
+    console.error(`エラー内容: ${error.message}`);
+
+    if (error.response) {
+      console.error(`HTTPステータス: ${error.response.status}`);
+      console.error(`レスポンス: ${error.response.statusText}`);
+    }
+
+    console.error('\n💡 ヒント:');
+    console.error('  - ネットワーク接続を確認してください');
+    console.error('  - プロキシ設定が必要な場合は環境変数を設定してください:');
+    console.error('    export HTTPS_PROXY=http://proxy.example.com:8080');
+    console.error('  - e-Gov APIが利用可能か確認してください');
+    console.error('='.repeat(60));
+
+    process.exit(1);
+  }
+}
+
+// 実行
+main();

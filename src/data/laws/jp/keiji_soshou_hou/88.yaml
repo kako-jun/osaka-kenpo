@@ -1,8 +1,10 @@
 article: 88
-title: 第88条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 勾留されている被告人又はその弁護人、法定代理人、保佐人、配偶者、直系の親族若しくは兄弟姉妹は、保釈の請求をすることができる。
+  - 第八十二条第三項の規定は、前項の請求についてこれを準用する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

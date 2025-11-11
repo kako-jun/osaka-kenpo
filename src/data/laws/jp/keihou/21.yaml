@@ -1,8 +1,13 @@
 article: 21
-title: 第21条
+isSuppl: false
+title:
+  _: （未決留日数の本刑算入）
+  Ruby:
+    _: 勾
+    Rt: こう
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 未決留の日数は、その全部又は一部を本刑に算入することができる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

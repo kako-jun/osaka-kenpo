@@ -1,8 +1,9 @@
 article: 333
-title: 第333条
+isSuppl: false
+title: （原裁判所等による更正）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 原裁判をした裁判所又は裁判長は、抗告を理由があると認めるときは、その裁判を更正しなければならない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

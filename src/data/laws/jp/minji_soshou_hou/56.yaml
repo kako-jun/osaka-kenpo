@@ -1,8 +1,10 @@
 article: 56
-title: 第56条
+isSuppl: false
+title: （個別代理）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 訴訟代理人が数人あるときは、各自当事者を代理する。
+  - 当事者が前項の規定と異なる定めをしても、その効力を生じない。
 osakaText: []
 commentary: []
 commentaryOsaka: []
