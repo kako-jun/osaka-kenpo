@@ -1,8 +1,9 @@
-article: 111
-title: 第111条
-titleOsaka: ''
+article: "111"
+title: Art 111
+titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - (1) Ist bis zum Schluß eines Rechnungsjahres der Haushaltsplan für das folgende Jahr nicht durch Gesetz festgestellt, so ist bis zu seinem Inkrafttreten die Bundesregierung ermächtigt, alle Ausgaben zu leisten, die nötig sind,
+  - (2) Soweit nicht auf besonderem Gesetze beruhende Einnahmen aus Steuern, Abgaben und sonstigen Quellen oder die Betriebsmittelrücklage die Ausgaben unter Absatz 1 decken, darf die Bundesregierung die zur Aufrechterhaltung der Wirtschaftsführung erforderlichen Mittel bis zur Höhe eines Viertels der Endsumme des abgelaufenen Haushaltsplanes im Wege des Kredits flüssig machen.
 osakaText: []
 commentary: []
 commentaryOsaka: []

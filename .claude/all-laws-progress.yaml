@@ -204,7 +204,7 @@ laws:
     totalArticles: 146
     status: pending
     progress:
-      stage1_originalText: 0
+      stage1_originalText: 198
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
@@ -473,8 +473,8 @@ summary:
   availableLaws: 3
   pendingLaws: 34
   stage1_total: 8283
-  stage1_completed: 4912
-  stage1_percentage: '59.3'
+  stage1_completed: 5110
+  stage1_percentage: '61.7'
   stage2_completed: 103
   stage2_percentage: 1.2
   stage3_completed: 103

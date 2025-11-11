@@ -1,8 +1,10 @@
-article: 1
-title: 第一条 人間の尊厳
+article: "1"
+title: Art 1
+titleOsaka: ""
 originalText:
-  - 人間の尊厳は不可侵である。これを尊重し、保護することは、すべての国家権力の義務である。
-osakaText:
-  - 人間の尊厳っちゅーもんは、誰も侵したらあかん、絶対的なもんや。これを大事にして、守るんは、国の偉いさんみんなの義務やで。
-commentary:
-  - ドイツの憲法、基本法の最初の条文やな。人間の尊厳が何よりも大事や、っちゅーことを、はっきり言うとるんや。ナチスの悲劇を経験したドイツやからこそ、この条文が一番最初に来とるんやな。
+  - (1) Die Würde des Menschen ist unantastbar. Sie zu achten und zu schützen ist Verpflichtung aller staatlichen Gewalt.
+  - (2) Das Deutsche Volk bekennt sich darum zu unverletzlichen und unveräußerlichen Menschenrechten als Grundlage jeder menschlichen Gemeinschaft, des Friedens und der Gerechtigkeit in der Welt.
+  - (3) Die nachfolgenden Grundrechte binden Gesetzgebung, vollziehende Gewalt und Rechtsprechung als unmittelbar geltendes Recht.
+osakaText: []
+commentary: []
+commentaryOsaka: []
