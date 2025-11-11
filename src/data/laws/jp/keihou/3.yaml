@@ -1,8 +1,9 @@
 article: 3
-title: 第3条
+isSuppl: false
+title: （国民以外の者の国外犯）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - この法律は、日本国外において日本国民に対して次に掲げる罪を犯した日本国民以外の者に適用する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

@@ -1,8 +1,11 @@
 article: 789
-title: 第789条
+isSuppl: false
+title: （準正）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 父が認知した子は、その父母の婚姻によって嫡出子の身分を取得する。
+  - 婚姻中父母が認知した子は、その認知の時から、嫡出子の身分を取得する。
+  - 前二項の規定は、子が既に死亡していた場合について準用する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

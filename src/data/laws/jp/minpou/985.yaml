@@ -1,8 +1,10 @@
 article: 985
-title: 第985条
+isSuppl: false
+title: （遺言の効力の発生時期）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 遺言は、遺言者の死亡の時からその効力を生ずる。
+  - 遺言に停止条件を付した場合において、その条件が遺言者の死亡後に成就したときは、遺言は、条件が成就した時からその効力を生ずる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

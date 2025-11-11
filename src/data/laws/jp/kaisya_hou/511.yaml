@@ -1,8 +1,10 @@
 article: 511
-title: 第511条
+isSuppl: false
+title: （特別清算開始の申立て）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 債権者、清算人、監査役又は株主は、特別清算開始の申立てをすることができる。
+  - 清算株式会社に債務超過の疑いがあるときは、清算人は、特別清算開始の申立てをしなければならない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

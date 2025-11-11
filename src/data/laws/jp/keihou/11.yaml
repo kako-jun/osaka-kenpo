@@ -1,8 +1,10 @@
 article: 11
-title: 第11条
+isSuppl: false
+title: （死刑）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 死刑は、刑事施設内において、絞首して執行する。
+  - 死刑の言渡しを受けた者は、その執行に至るまで刑事施設に拘置する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

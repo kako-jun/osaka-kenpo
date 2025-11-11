@@ -1,8 +1,10 @@
 article: 533
-title: 第533条
+isSuppl: false
+title: （残額についての利息請求権等）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 相殺によって生じた残額については、債権者は、計算の閉鎖の日以後の法定利息を請求することができる。
+  - 前項の規定は、当該相殺に係る債権及び債務の各項目を交互計算に組み入れた日からこれに利息を付することを妨げない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

@@ -1,8 +1,10 @@
 article: 113
-title: 第113条
+isSuppl: false
+title: （無権代理）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 代理権を有しない者が他人の代理人としてした契約は、本人がその追認をしなければ、本人に対してその効力を生じない。
+  - 追認又はその拒絶は、相手方に対してしなければ、その相手方に対抗することができない。ただし、相手方がその事実を知ったときは、この限りでない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

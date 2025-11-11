@@ -1,8 +1,9 @@
 article: 234
-title: 第234条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 親告罪について告訴をすることができる者がない場合には、検察官は、利害関係人の申立により告訴をすることができる者を指定することができる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

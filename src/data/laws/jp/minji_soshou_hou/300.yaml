@@ -1,8 +1,11 @@
 article: 300
-title: 第300条
+isSuppl: false
+title: （反訴の提起等）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 控訴審においては、反訴の提起は、相手方の同意がある場合に限り、することができる。
+  - 相手方が異議を述べないで反訴の本案について弁論をしたときは、反訴の提起に同意したものとみなす。
+  - 前二項の規定は、選定者に係る請求の追加について準用する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

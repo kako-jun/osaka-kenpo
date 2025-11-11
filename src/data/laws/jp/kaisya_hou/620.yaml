@@ -1,8 +1,10 @@
 article: 620
-title: 第620条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 持分会社は、損失のてん補のために、その資本金の額を減少することができる。
+  - 前項の規定により減少する資本金の額は、損失の額として法務省令で定める方法により算定される額を超えることができない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

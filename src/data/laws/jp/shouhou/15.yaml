@@ -1,8 +1,10 @@
 article: 15
-title: 第15条
+isSuppl: false
+title: （商号の譲渡）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 商人の商号は、営業とともにする場合又は営業を廃止する場合に限り、譲渡することができる。
+  - 前項の規定による商号の譲渡は、登記をしなければ、第三者に対抗することができない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

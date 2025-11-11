@@ -1,8 +1,9 @@
 article: 9
-title: 第9条
+isSuppl: false
+title: （刑の種類）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 死刑、拘禁刑、罰金、拘留及び科料を主刑とし、没収を付加刑とする。
 osakaText: []
 commentary: []
 commentaryOsaka: []

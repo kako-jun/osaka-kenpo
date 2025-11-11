@@ -1,8 +1,10 @@
 article: 24
-title: 第24条
+isSuppl: false
+title: （受刑等の初日及び釈放）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 受刑の初日は、時間にかかわらず、一日として計算する。時効期間の初日についても、同様とする。
+  - 刑期が終了した場合における釈放は、その終了の日の翌日に行う。
 osakaText: []
 commentary: []
 commentaryOsaka: []

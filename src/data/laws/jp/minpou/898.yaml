@@ -1,8 +1,10 @@
 article: 898
-title: 第898条
+isSuppl: false
+title: （共同相続の効力）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 相続人が数人あるときは、相続財産は、その共有に属する。
+  - 相続財産について共有に関する規定を適用するときは、第九百条から第九百二条までの規定により算定した相続分をもって各相続人の共有持分とする。
 osakaText: []
 commentary: []
 commentaryOsaka: []

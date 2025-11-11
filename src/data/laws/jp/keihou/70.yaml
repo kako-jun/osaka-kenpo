@@ -1,8 +1,9 @@
 article: 70
-title: 第70条
+isSuppl: false
+title: （端数の切捨て）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 拘禁刑又は拘留を減軽することにより一日に満たない端数が生じたときは、これを切り捨てる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

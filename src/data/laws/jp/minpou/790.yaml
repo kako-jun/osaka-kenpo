@@ -1,8 +1,10 @@
 article: 790
-title: 第790条
+isSuppl: false
+title: （子の氏）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 嫡出である子は、父母の氏を称する。ただし、子の出生前に父母が離婚したときは、離婚の際における父母の氏を称する。
+  - 嫡出でない子は、母の氏を称する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

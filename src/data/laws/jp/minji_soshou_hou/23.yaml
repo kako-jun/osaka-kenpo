@@ -1,8 +1,10 @@
 article: 23
-title: 第23条
+isSuppl: false
+title: （裁判官の除斥）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 裁判官は、次に掲げる場合には、その職務の執行から除斥される。ただし、第六号に掲げる場合にあっては、他の裁判所の嘱託により受託裁判官としてその職務を行うことを妨げない。
+  - 前項に規定する除斥の原因があるときは、裁判所は、申立てにより又は職権で、除斥の裁判をする。
 osakaText: []
 commentary: []
 commentaryOsaka: []

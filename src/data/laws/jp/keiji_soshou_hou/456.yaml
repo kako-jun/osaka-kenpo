@@ -1,8 +1,9 @@
 article: 456
-title: 第456条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 公判期日には、検察官は、申立書に基いて陳述をしなければならない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

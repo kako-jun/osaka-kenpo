@@ -1,8 +1,10 @@
 article: 551
-title: 第551条
+isSuppl: false
+title: （贈与者の引渡義務等）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 贈与者は、贈与の目的である物又は権利を、贈与の目的として特定した時の状態で引き渡し、又は移転することを約したものと推定する。
+  - 負担付贈与については、贈与者は、その負担の限度において、売主と同じく担保の責任を負う。
 osakaText: []
 commentary: []
 commentaryOsaka: []

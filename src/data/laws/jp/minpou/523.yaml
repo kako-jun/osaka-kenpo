@@ -1,8 +1,10 @@
 article: 523
-title: 第523条
+isSuppl: false
+title: （承諾の期間の定めのある申込み）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 承諾の期間を定めてした申込みは、撤回することができない。ただし、申込者が撤回をする権利を留保したときは、この限りでない。
+  - 申込者が前項の申込みに対して同項の期間内に承諾の通知を受けなかったときは、その申込みは、その効力を失う。
 osakaText: []
 commentary: []
 commentaryOsaka: []

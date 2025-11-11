@@ -1,8 +1,4 @@
-# 全法律の進捗管理
-# 4段階戦略: Stage 1 (原文) → Stage 2 (解説) → Stage 3 (大阪弁訳) → Stage 4 (大阪弁解説)
-
 laws:
-  # ====== 日本現行法 ======
   - id: constitution
     name: 日本国憲法
     category: jp
@@ -13,87 +9,80 @@ laws:
       stage2_commentary: 103
       stage3_osakaText: 103
       stage4_commentaryOsaka: 103
-    source_url: "https://elaws.e-gov.go.jp/document?lawid=321CONSTITUTION"
-    egov_law_num: "321CONSTITUTION"
-
+    source_url: https://elaws.e-gov.go.jp/document?lawid=321CONSTITUTION
+    egov_law_num: 321CONSTITUTION
   - id: minpou
     name: 民法
     category: jp
     totalArticles: 1050
     status: pending
     progress:
-      stage1_originalText: 0
+      stage1_originalText: 1360
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://elaws.e-gov.go.jp/document?lawid=129AC0000000089"
-    egov_law_num: "129AC0000000089"
-
+    source_url: https://elaws.e-gov.go.jp/document?lawid=129AC0000000089
+    egov_law_num: 129AC0000000089
   - id: shouhou
     name: 商法
     category: jp
     totalArticles: 851
     status: pending
     progress:
-      stage1_originalText: 0
+      stage1_originalText: 457
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://elaws.e-gov.go.jp/document?lawid=132AC0000000048"
-    egov_law_num: "132AC0000000048"
-
+    source_url: https://elaws.e-gov.go.jp/document?lawid=132AC0000000048
+    egov_law_num: 132AC0000000048
   - id: kaisya_hou
     name: 会社法
     category: jp
     totalArticles: 979
     status: pending
     progress:
-      stage1_originalText: 0
+      stage1_originalText: 1152
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://elaws.e-gov.go.jp/document?lawid=417AC0000000086"
-    egov_law_num: "417AC0000000086"
-
+    source_url: https://elaws.e-gov.go.jp/document?lawid=417AC0000000086
+    egov_law_num: 417AC0000000086
   - id: keihou
     name: 刑法
     category: jp
     totalArticles: 264
     status: pending
     progress:
-      stage1_originalText: 0
+      stage1_originalText: 356
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://elaws.e-gov.go.jp/document?lawid=140AC0000000045"
-    egov_law_num: "140AC0000000045"
-
+    source_url: https://elaws.e-gov.go.jp/document?lawid=140AC0000000045
+    egov_law_num: 140AC0000000045
   - id: minji_soshou_hou
     name: 民事訴訟法
     category: jp
     totalArticles: 404
     status: pending
     progress:
-      stage1_originalText: 0
+      stage1_originalText: 540
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://elaws.e-gov.go.jp/document?lawid=408AC0000000109"
-    egov_law_num: "408AC0000000109"
-
+    source_url: https://elaws.e-gov.go.jp/document?lawid=408AC0000000109
+    egov_law_num: 408AC0000000109
   - id: keiji_soshou_hou
     name: 刑事訴訟法
     category: jp
     totalArticles: 507
     status: pending
     progress:
-      stage1_originalText: 0
+      stage1_originalText: 815
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://elaws.e-gov.go.jp/document?lawid=323AC0000000131"
-    egov_law_num: "323AC0000000131"
-
+    source_url: https://elaws.e-gov.go.jp/document?lawid=323AC0000000131
+    egov_law_num: 323AC0000000131
   - id: ai_suishin_hou
     name: AI基本法案
     category: jp
@@ -104,9 +93,8 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://www.meti.go.jp/"
-    note: "サンプルデータ"
-
+    source_url: https://www.meti.go.jp/
+    note: サンプルデータ
   - id: konden_einen_shizai_hou
     name: 墾田永年私財法
     category: jp
@@ -117,9 +105,8 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://www.ndl.go.jp/"
-    note: "天平15年（743年）の詔"
-
+    source_url: https://www.ndl.go.jp/
+    note: 天平15年（743年）の詔
   - id: shourui_awaremi_no_rei
     name: 生類憐みの令
     category: jp
@@ -130,10 +117,8 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: ""
-    note: "主要な5つの令を選択"
-
-  # ====== 日本歴史法 ======
+    source_url: ''
+    note: 主要な5つの令を選択
   - id: jushichijo_kenpo
     name: 十七条憲法
     category: jp_old
@@ -144,8 +129,7 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://www.ndl.go.jp/"
-
+    source_url: https://www.ndl.go.jp/
   - id: taiho_ritsuryo
     name: 大宝律令
     category: jp_old
@@ -156,9 +140,8 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: ""
-    note: "主要な30条を選択"
-
+    source_url: ''
+    note: 主要な30条を選択
   - id: goseibai_shikimoku
     name: 御成敗式目（貞永式目）
     category: jp_old
@@ -169,8 +152,7 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://www.ndl.go.jp/"
-
+    source_url: https://www.ndl.go.jp/
   - id: buke_shohatto
     name: 武家諸法度
     category: jp_old
@@ -181,9 +163,8 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: ""
-    note: "元和令（1615年版）"
-
+    source_url: ''
+    note: 元和令（1615年版）
   - id: kinchu_kuge_shohatto
     name: 禁中並公家諸法度
     category: jp_old
@@ -194,8 +175,7 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: ""
-
+    source_url: ''
   - id: gokajou_no_goseimon
     name: 五箇条の御誓文
     category: jp
@@ -206,8 +186,7 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://www.mext.go.jp/b_menu/hakusho/html/others/detail/1317933.htm"
-
+    source_url: https://www.mext.go.jp/b_menu/hakusho/html/others/detail/1317933.htm
   - id: meiji_kenpo
     name: 大日本帝国憲法（明治憲法）
     category: jp_old
@@ -218,9 +197,7 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://www.ndl.go.jp/"
-
-  # ====== 外国現行法 ======
+    source_url: https://www.ndl.go.jp/
   - id: german_basic_law
     name: ドイツ連邦共和国基本法
     category: foreign
@@ -231,8 +208,7 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://www.gesetze-im-internet.de/gg/index.html"
-
+    source_url: https://www.gesetze-im-internet.de/gg/index.html
   - id: us_constitution
     name: アメリカ合衆国憲法
     category: foreign
@@ -243,9 +219,8 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://www.archives.gov/founding-docs/constitution"
-    note: "本文7条 + 修正27条"
-
+    source_url: https://www.archives.gov/founding-docs/constitution
+    note: 本文7条 + 修正27条
   - id: prc_constitution
     name: 中華人民共和国憲法
     category: foreign
@@ -256,9 +231,7 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "http://www.npc.gov.cn/"
-
-  # ====== 外国歴史法 ======
+    source_url: http://www.npc.gov.cn/
   - id: hammurabi_code
     name: ハンムラビ法典
     category: foreign_old
@@ -269,8 +242,7 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://avalon.law.yale.edu/ancient/hamframe.asp"
-
+    source_url: https://avalon.law.yale.edu/ancient/hamframe.asp
   - id: magna_carta
     name: マグナ・カルタ
     category: foreign_old
@@ -281,8 +253,7 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://www.bl.uk/magna-carta"
-
+    source_url: https://www.bl.uk/magna-carta
   - id: corpus_iuris_civilis
     name: ローマ法大全
     category: roman
@@ -293,9 +264,8 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: ""
-    note: "主要な50条を選択（全体は膨大）"
-
+    source_url: ''
+    note: 主要な50条を選択（全体は膨大）
   - id: bill_of_rights
     name: 権利章典（Bill of Rights 1689）
     category: uk
@@ -306,8 +276,7 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://www.legislation.gov.uk/aep/WillandMarSess2/1/2"
-
+    source_url: https://www.legislation.gov.uk/aep/WillandMarSess2/1/2
   - id: weimarer_verfassung
     name: ワイマール憲法
     category: de
@@ -318,8 +287,7 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://www.documentarchiv.de/wr/wrv.html"
-
+    source_url: https://www.documentarchiv.de/wr/wrv.html
   - id: napoleonic_code
     name: ナポレオン法典（フランス民法典）
     category: foreign_old
@@ -330,9 +298,7 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://www.legifrance.gouv.fr/"
-
-  # ====== 国際条約 ======
+    source_url: https://www.legifrance.gouv.fr/
   - id: antarctic_treaty
     name: 南極条約
     category: treaty
@@ -343,8 +309,7 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://www.mofa.go.jp/mofaj/gaiko/kankyo/jyoyaku/nankyoku.html"
-
+    source_url: https://www.mofa.go.jp/mofaj/gaiko/kankyo/jyoyaku/nankyoku.html
   - id: ramsar_convention
     name: ラムサール条約
     category: treaty
@@ -355,8 +320,7 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://www.ramsar.org/"
-
+    source_url: https://www.ramsar.org/
   - id: un_charter
     name: 国際連合憲章
     category: treaty
@@ -367,8 +331,7 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://www.un.org/en/about-us/un-charter"
-
+    source_url: https://www.un.org/en/about-us/un-charter
   - id: npt
     name: 核兵器不拡散条約
     category: treaty
@@ -379,8 +342,7 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://www.mofa.go.jp/mofaj/gaiko/kaku/npt/"
-
+    source_url: https://www.mofa.go.jp/mofaj/gaiko/kaku/npt/
   - id: outer_space_treaty
     name: 宇宙条約
     category: treaty
@@ -391,8 +353,8 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://www.unoosa.org/oosa/en/ourwork/spacelaw/treaties/outerspacetreaty.html"
-
+    source_url: >-
+      https://www.unoosa.org/oosa/en/ourwork/spacelaw/treaties/outerspacetreaty.html
   - id: universal_postal_convention
     name: 万国郵便条約
     category: treaty
@@ -403,8 +365,7 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://www.upu.int/"
-
+    source_url: https://www.upu.int/
   - id: olympic_charter
     name: オリンピック憲章
     category: treaty
@@ -415,8 +376,7 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://olympics.com/ioc/olympic-charter"
-
+    source_url: https://olympics.com/ioc/olympic-charter
   - id: prime_meridian_conference
     name: 本初子午線国際会議決議
     category: treaty
@@ -427,8 +387,7 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: ""
-
+    source_url: ''
   - id: road_signs_convention
     name: 道路標識及び信号に関する条約
     category: treaty
@@ -439,8 +398,7 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://treaties.un.org/"
-
+    source_url: https://treaties.un.org/
   - id: metre_convention
     name: メートル条約
     category: treaty
@@ -451,8 +409,7 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://www.bipm.org/en/metre-convention"
-
+    source_url: https://www.bipm.org/en/metre-convention
   - id: itu_constitution
     name: 国際電気通信連合憲章
     category: treaty
@@ -463,8 +420,7 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://www.itu.int/"
-
+    source_url: https://www.itu.int/
   - id: unclos
     name: 国連海洋法条約
     category: treaty
@@ -475,8 +431,8 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://www.un.org/depts/los/convention_agreements/convention_overview_convention.htm"
-
+    source_url: >-
+      https://www.un.org/depts/los/convention_agreements/convention_overview_convention.htm
   - id: chicago_convention
     name: 国際民間航空条約（シカゴ条約）
     category: treaty
@@ -487,8 +443,7 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://www.icao.int/"
-
+    source_url: https://www.icao.int/
   - id: extradition_treaty
     name: 日米犯罪人引渡条約
     category: treaty
@@ -499,8 +454,7 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://www.mofa.go.jp/"
-
+    source_url: https://www.mofa.go.jp/
   - id: who_constitution
     name: 世界保健機関憲章
     category: treaty
@@ -511,9 +465,7 @@ laws:
       stage2_commentary: 0
       stage3_osakaText: 0
       stage4_commentaryOsaka: 0
-    source_url: "https://www.who.int/governance/eb/constitution/en/"
-
-# 全体サマリー
+    source_url: https://www.who.int/governance/eb/constitution/en/
 summary:
   totalLaws: 38
   totalArticles: 8283
@@ -521,37 +473,31 @@ summary:
   availableLaws: 3
   pendingLaws: 34
   stage1_total: 8283
-  stage1_completed: 198  # 憲法103 + 十七条17 + マグナカルタ63 + 南極条約14 + AI法1
-  stage1_percentage: 2.4
-  stage2_completed: 103  # 憲法のみ
+  stage1_completed: 4878
+  stage1_percentage: '58.9'
+  stage2_completed: 103
   stage2_percentage: 1.2
-  stage3_completed: 103  # 憲法のみ
+  stage3_completed: 103
   stage3_percentage: 1.2
-  stage4_completed: 103  # 憲法のみ
+  stage4_completed: 103
   stage4_percentage: 1.2
-
-# カテゴリ別サマリー
 categories:
   - name: 日本現行法
     laws: 10
     articles: 3760
     stage1_completed: 104
-
   - name: 日本歴史法
     laws: 6
     articles: 209
     stage1_completed: 17
-
   - name: 外国現行法
     laws: 3
     articles: 318
     stage1_completed: 0
-
   - name: 外国歴史法
     laws: 6
     articles: 2870
     stage1_completed: 63
-
   - name: 国際条約
     laws: 13
     articles: 1126

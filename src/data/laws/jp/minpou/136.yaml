@@ -1,8 +1,10 @@
 article: 136
-title: 第136条
+isSuppl: false
+title: （期限の利益及びその放棄）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 期限は、債務者の利益のために定めたものと推定する。
+  - 期限の利益は、放棄することができる。ただし、これによって相手方の利益を害することはできない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

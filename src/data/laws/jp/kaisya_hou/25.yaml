@@ -1,8 +1,10 @@
 article: 25
-title: 第25条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 株式会社は、次に掲げるいずれかの方法により設立することができる。
+  - 各発起人は、株式会社の設立に際し、設立時発行株式を一株以上引き受けなければならない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

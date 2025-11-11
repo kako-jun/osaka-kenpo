@@ -1,8 +1,10 @@
 article: 23
-title: 第23条
+isSuppl: false
+title: （居所）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 住所が知れない場合には、居所を住所とみなす。
+  - 日本に住所を有しない者は、その者が日本人又は外国人のいずれであるかを問わず、日本における居所をその者の住所とみなす。ただし、準拠法を定める法律に従いその者の住所地法によるべき場合は、この限りでない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

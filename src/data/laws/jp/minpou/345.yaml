@@ -1,8 +1,9 @@
 article: 345
-title: 第345条
+isSuppl: false
+title: （質権設定者による代理占有の禁止）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 質権者は、質権設定者に、自己に代わって質物の占有をさせることができない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

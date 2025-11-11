@@ -1,8 +1,9 @@
 article: 123
-title: 第123条
+isSuppl: false
+title: （水利妨害及び出水危険）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 堤防を決壊させ、水門を破壊し、その他水利の妨害となるべき行為又は出水させるべき行為をした者は、二年以下の拘禁刑又は二十万円以下の罰金に処する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

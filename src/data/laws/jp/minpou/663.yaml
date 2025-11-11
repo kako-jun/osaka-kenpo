@@ -1,8 +1,10 @@
 article: 663
-title: 第663条
+isSuppl: false
+title: （寄託物の返還の時期）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 当事者が寄託物の返還の時期を定めなかったときは、受寄者は、いつでもその返還をすることができる。
+  - 返還の時期の定めがあるときは、受寄者は、やむを得ない事由がなければ、その期限前に返還をすることができない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

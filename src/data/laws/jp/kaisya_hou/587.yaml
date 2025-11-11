@@ -1,8 +1,10 @@
 article: 587
-title: 第587条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 持分会社は、その持分の全部又は一部を譲り受けることができない。
+  - 持分会社が当該持分会社の持分を取得した場合には、当該持分は、当該持分会社がこれを取得した時に、消滅する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

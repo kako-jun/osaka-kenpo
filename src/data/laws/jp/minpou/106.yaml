@@ -1,8 +1,10 @@
 article: 106
-title: 第106条
+isSuppl: false
+title: （復代理人の権限等）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 復代理人は、その権限内の行為について、本人を代表する。
+  - 復代理人は、本人及び第三者に対して、その権限の範囲内において、代理人と同一の権利を有し、義務を負う。
 osakaText: []
 commentary: []
 commentaryOsaka: []

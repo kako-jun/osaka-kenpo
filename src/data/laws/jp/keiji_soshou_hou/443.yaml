@@ -1,8 +1,10 @@
 article: 443
-title: 第443条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 再審の請求は、これを取り下げることができる。
+  - 再審の請求を取り下げた者は、同一の理由によつては、更に再審の請求をすることができない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

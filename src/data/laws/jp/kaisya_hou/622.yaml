@@ -1,8 +1,10 @@
 article: 622
-title: 第622条
+isSuppl: false
+title: （社員の損益分配の割合）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 損益分配の割合について定款の定めがないときは、その割合は、各社員の出資の価額に応じて定める。
+  - 利益又は損失の一方についてのみ分配の割合についての定めを定款で定めたときは、その割合は、利益及び損失の分配に共通であるものと推定する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

@@ -1,8 +1,13 @@
 article: 239
-title: 第239条
+isSuppl: false
+title:
+  _: （酔強盗）
+  Ruby:
+    _: 昏
+    Rt: こん
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 人を酔させてその財物を盗取した者は、強盗として論ずる。
 osakaText: []
 commentary: []
 commentaryOsaka: []
