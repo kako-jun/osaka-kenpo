@@ -1,8 +1,10 @@
 article: 178
-title: 第178条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 株式会社は、自己株式を消却することができる。この場合においては、消却する自己株式の数（種類株式発行会社にあっては、自己株式の種類及び種類ごとの数）を定めなければならない。
+  - 取締役会設置会社においては、前項後段の規定による決定は、取締役会の決議によらなければならない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

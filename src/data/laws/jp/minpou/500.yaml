@@ -1,8 +1,9 @@
 article: 500
-title: 第500条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 第四百六十七条の規定は、前条の場合（弁済をするについて正当な利益を有する者が債権者に代位する場合を除く。）について準用する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

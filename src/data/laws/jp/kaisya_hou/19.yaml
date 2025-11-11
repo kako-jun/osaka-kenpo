@@ -1,8 +1,10 @@
 article: 19
-title: 第19条
+isSuppl: false
+title: （契約の解除）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 会社及び代理商は、契約の期間を定めなかったときは、二箇月前までに予告し、その契約を解除することができる。
+  - 前項の規定にかかわらず、やむを得ない事由があるときは、会社及び代理商は、いつでもその契約を解除することができる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

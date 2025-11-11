@@ -1,8 +1,10 @@
 article: 180
-title: 第180条
+isSuppl: false
+title: （証拠の申出）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 証拠の申出は、証明すべき事実を特定してしなければならない。
+  - 証拠の申出は、期日前においてもすることができる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

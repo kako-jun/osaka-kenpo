@@ -81,34 +81,61 @@
 3. **Stage 3**: 大阪弁訳（osakaText）
 4. **Stage 4**: 大阪弁解説（commentaryOsaka）
 
-### 🛠️ 自動化スクリプト
+### 🛠️ 自動化スクリプト（改善版）
+
+#### 改善点
+
+- ✅ プロキシ対応（環境変数 `HTTPS_PROXY`/`HTTP_PROXY` から自動取得）
+- ✅ 適切なUser-Agent設定
+- ✅ リトライ機能（最大3回）
+- ✅ 詳細なエラーハンドリング
+- ✅ レート制限（API負荷軽減）
 
 #### 必要なパッケージのインストール
 
 ```bash
-npm install xml2js js-yaml
+npm install
 ```
 
 #### 使用方法
 
+**六法を一括取得（推奨）:**
+
+```bash
+npm run fetch:roppou
+```
+
+**個別に取得:**
+
 ```bash
 # 民法を取得
-node scripts/fetch-egov-law.js minpou 129AC0000000089
+npm run fetch:law minpou 129AC0000000089
 
 # 商法を取得（現行版）
-node scripts/fetch-egov-law.js shouhou 132AC0000000048
+npm run fetch:law shouhou 132AC0000000048
 
 # 会社法を取得
-node scripts/fetch-egov-law.js kaisya_hou 417AC0000000086
+npm run fetch:law kaisya_hou 417AC0000000086
 
 # 刑法を取得
-node scripts/fetch-egov-law.js keihou 140AC0000000045
+npm run fetch:law keihou 140AC0000000045
 
 # 民事訴訟法を取得
-node scripts/fetch-egov-law.js minji_soshou_hou 409AC0000000109
+npm run fetch:law minji_soshou_hou 408AC0000000109
 
 # 刑事訴訟法を取得
-node scripts/fetch-egov-law.js keiji_soshou_hou 323AC0000000131
+npm run fetch:law keiji_soshou_hou 323AC0000000131
+```
+
+#### プロキシ設定（必要な場合）
+
+```bash
+# 環境変数でプロキシを設定
+export HTTPS_PROXY=http://proxy.example.com:8080
+export HTTP_PROXY=http://proxy.example.com:8080
+
+# その後、スクリプトを実行
+npm run fetch:roppou
 ```
 
 #### スクリプトの動作

@@ -1,8 +1,10 @@
 article: 228
-title: 第228条
+isSuppl: false
+title: （株券の無効）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 株券喪失登録（抹消されたものを除く。）がされた株券は、株券喪失登録日の翌日から起算して一年を経過した日に無効となる。
+  - 前項の規定により株券が無効となった場合には、株券発行会社は、当該株券についての株券喪失登録者に対し、株券を再発行しなければならない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

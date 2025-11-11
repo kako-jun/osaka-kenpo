@@ -1,8 +1,10 @@
 article: 506
-title: 第506条
+isSuppl: false
+title: （相殺の方法及び効力）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 相殺は、当事者の一方から相手方に対する意思表示によってする。この場合において、その意思表示には、条件又は期限を付することができない。
+  - 前項の意思表示は、双方の債務が互いに相殺に適するようになった時にさかのぼってその効力を生ずる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

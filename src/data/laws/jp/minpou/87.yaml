@@ -1,8 +1,10 @@
 article: 87
-title: 第87条
+isSuppl: false
+title: （主物及び従物）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 物の所有者が、その物の常用に供するため、自己の所有に属する他の物をこれに附属させたときは、その附属させた物を従物とする。
+  - 従物は、主物の処分に従う。
 osakaText: []
 commentary: []
 commentaryOsaka: []

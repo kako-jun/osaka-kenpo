@@ -1,8 +1,10 @@
 article: 17
-title: 第17条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 検察官は、左の場合には、直近上級の裁判所に管轄移転の請求をしなければならない。
+  - 前項各号の場合には、被告人も管轄移転の請求をすることができる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

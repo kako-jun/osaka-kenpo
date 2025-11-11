@@ -1,8 +1,9 @@
 article: 22
-title: 第22条
+isSuppl: false
+title: （期間の計算）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 月又は年によって期間を定めたときは、暦に従って計算する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

@@ -1,8 +1,10 @@
 article: 295
-title: 第295条
+isSuppl: false
+title: （留置権の内容）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 他人の物の占有者は、その物に関して生じた債権を有するときは、その債権の弁済を受けるまで、その物を留置することができる。ただし、その債権が弁済期にないときは、この限りでない。
+  - 前項の規定は、占有が不法行為によって始まった場合には、適用しない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

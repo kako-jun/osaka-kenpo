@@ -1,8 +1,10 @@
 article: 448
-title: 第448条
+isSuppl: false
+title: （保証人の負担と主たる債務の目的又は態様）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 保証人の負担が債務の目的又は態様において主たる債務より重いときは、これを主たる債務の限度に減縮する。
+  - 主たる債務の目的又は態様が保証契約の締結後に加重されたときであっても、保証人の負担は加重されない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

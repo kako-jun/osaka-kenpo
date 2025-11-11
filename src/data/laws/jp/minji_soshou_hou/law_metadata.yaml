@@ -1,5 +1,7 @@
 name: 民事訴訟法
-year: ''
-source: ''
+year: 平成8年
+source: e-Gov法令検索
 description: ''
-links: []
+links:
+  - text: e-Gov法令検索
+    url: https://elaws.e-gov.go.jp/document?lawid=408AC0000000109

@@ -1,8 +1,10 @@
 article: 3
-title: 第3条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 事物管轄を異にする数個の事件が関連するときは、上級の裁判所は、併せてこれを管轄することができる。
+  - 高等裁判所の特別権限に属する事件と他の事件とが関連するときは、高等裁判所は、併せてこれを管轄することができる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

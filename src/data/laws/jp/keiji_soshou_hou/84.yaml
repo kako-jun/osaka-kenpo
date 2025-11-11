@@ -1,8 +1,10 @@
 article: 84
-title: 第84条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 法廷においては、裁判長は、勾留の理由を告げなければならない。
+  - 検察官又は被告人及び弁護人並びにこれらの者以外の請求者は、意見を述べることができる。但し、裁判長は、相当と認めるときは、意見の陳述に代え意見を記載した書面を差し出すべきことを命ずることができる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

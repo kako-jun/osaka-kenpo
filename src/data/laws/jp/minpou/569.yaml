@@ -1,8 +1,10 @@
 article: 569
-title: 第569条
+isSuppl: false
+title: （債権の売主の担保責任）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 債権の売主が債務者の資力を担保したときは、契約の時における資力を担保したものと推定する。
+  - 弁済期に至らない債権の売主が債務者の将来の資力を担保したときは、弁済期における資力を担保したものと推定する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

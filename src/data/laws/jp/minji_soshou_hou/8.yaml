@@ -1,8 +1,10 @@
 article: 8
-title: 第8条
+isSuppl: false
+title: （訴訟の目的の価額の算定）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 裁判所法（昭和二十二年法律第五十九号）の規定により管轄が訴訟の目的の価額により定まるときは、その価額は、訴えで主張する利益によって算定する。
+  - 前項の価額を算定することができないとき、又は極めて困難であるときは、その価額は百四十万円を超えるものとみなす。
 osakaText: []
 commentary: []
 commentaryOsaka: []

@@ -1,8 +1,10 @@
 article: 89
-title: 第89条
+isSuppl: false
+title: （果実の帰属）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 天然果実は、その元物から分離する時に、これを収取する権利を有する者に帰属する。
+  - 法定果実は、これを収取する権利の存続期間に応じて、日割計算によりこれを取得する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

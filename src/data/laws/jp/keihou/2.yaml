@@ -1,8 +1,9 @@
 article: 2
-title: 第2条
+isSuppl: false
+title: （すべての者の国外犯）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - この法律は、日本国外において次に掲げる罪を犯したすべての者に適用する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

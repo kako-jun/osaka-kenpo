@@ -1,8 +1,9 @@
 article: 1
-title: 第1条
+isSuppl: false
+title: （趣旨）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 民事訴訟に関する手続については、他の法令に定めるもののほか、この法律の定めるところによる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

@@ -1,8 +1,9 @@
 article: 7
-title: 第7条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 土地管轄を異にする数個の関連事件が同一裁判所に係属する場合において、併せて審判することを必要としないものがあるときは、その裁判所は、決定で管轄権を有する他の裁判所にこれを移送することができる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

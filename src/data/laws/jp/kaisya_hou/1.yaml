@@ -1,8 +1,9 @@
 article: 1
-title: 第1条
+isSuppl: false
+title: （趣旨）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 会社の設立、組織、運営及び管理については、他の法律に特別の定めがある場合を除くほか、この法律の定めるところによる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

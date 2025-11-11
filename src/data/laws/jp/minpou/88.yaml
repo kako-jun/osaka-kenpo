@@ -1,8 +1,10 @@
 article: 88
-title: 第88条
+isSuppl: false
+title: （天然果実及び法定果実）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 物の用法に従い収取する産出物を天然果実とする。
+  - 物の使用の対価として受けるべき金銭その他の物を法定果実とする。
 osakaText: []
 commentary: []
 commentaryOsaka: []

@@ -1,8 +1,9 @@
 article: 222
-title: 第222条
+isSuppl: false
+title: （株券喪失登録簿に関する事務の委託）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 株券発行会社における第百二十三条の規定の適用については、同条中「株主名簿の」とあるのは「株主名簿及び株券喪失登録簿の」と、「株主名簿に」とあるのは「株主名簿及び株券喪失登録簿に」とする。
 osakaText: []
 commentary: []
 commentaryOsaka: []

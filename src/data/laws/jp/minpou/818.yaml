@@ -1,8 +1,11 @@
 article: 818
-title: 第818条
+isSuppl: false
+title: （親権者）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 成年に達しない子は、父母の親権に服する。
+  - 子が養子であるときは、養親の親権に服する。
+  - 親権は、父母の婚姻中は、父母が共同して行う。ただし、父母の一方が親権を行うことができないときは、他の一方が行う。
 osakaText: []
 commentary: []
 commentaryOsaka: []

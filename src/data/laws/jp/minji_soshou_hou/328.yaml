@@ -1,8 +1,10 @@
 article: 328
-title: 第328条
+isSuppl: false
+title: （抗告をすることができる裁判）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 口頭弁論を経ないで訴訟手続に関する申立てを却下した決定又は命令に対しては、抗告をすることができる。
+  - 決定又は命令により裁判をすることができない事項について決定又は命令がされたときは、これに対して抗告をすることができる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

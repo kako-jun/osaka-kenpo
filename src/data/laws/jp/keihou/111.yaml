@@ -1,8 +1,10 @@
 article: 111
-title: 第111条
+isSuppl: false
+title: （延焼）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 第百九条第二項又は前条第二項の罪を犯し、よって第百八条又は第百九条第一項に規定する物に延焼させたときは、三月以上十年以下の拘禁刑に処する。
+  - 前条第二項の罪を犯し、よって同条第一項に規定する物に延焼させたときは、三年以下の拘禁刑に処する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

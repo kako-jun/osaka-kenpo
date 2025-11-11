@@ -1,8 +1,10 @@
 article: 186
-title: 第186条
+isSuppl: false
+title: （占有の態様等に関する推定）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 占有者は、所有の意思をもって、善意で、平穏に、かつ、公然と占有をするものと推定する。
+  - 前後の両時点において占有をした証拠があるときは、占有は、その間継続したものと推定する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

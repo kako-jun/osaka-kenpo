@@ -1,8 +1,11 @@
 article: 237
-title: 第237条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 告訴は、公訴の提起があるまでこれを取り消すことができる。
+  - 告訴の取消をした者は、更に告訴をすることができない。
+  - 前二項の規定は、請求を待つて受理すべき事件についての請求についてこれを準用する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

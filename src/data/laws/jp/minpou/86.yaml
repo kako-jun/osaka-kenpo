@@ -1,8 +1,10 @@
 article: 86
-title: 第86条
+isSuppl: false
+title: （不動産及び動産）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 土地及びその定着物は、不動産とする。
+  - 不動産以外の物は、すべて動産とする。
 osakaText: []
 commentary: []
 commentaryOsaka: []

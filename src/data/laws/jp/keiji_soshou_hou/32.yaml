@@ -1,8 +1,10 @@
 article: 32
-title: 第32条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 公訴の提起前にした弁護人の選任は、第一審においてもその効力を有する。
+  - 公訴の提起後における弁護人の選任は、審級ごとにこれをしなければならない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

@@ -1,8 +1,10 @@
 article: 321
-title: 第321条
+isSuppl: false
+title: （原判決の確定した事実の拘束）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 原判決において適法に確定した事実は、上告裁判所を拘束する。
+  - 第三百十一条第二項の規定による上告があった場合には、上告裁判所は、原判決における事実の確定が法律に違反したことを理由として、その判決を破棄することができない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

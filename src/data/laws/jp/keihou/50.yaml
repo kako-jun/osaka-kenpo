@@ -1,8 +1,9 @@
 article: 50
-title: 第50条
+isSuppl: false
+title: （余罪の処理）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 併合罪のうちに既に確定裁判を経た罪とまだ確定裁判を経ていない罪とがあるときは、確定裁判を経ていない罪について更に処断する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

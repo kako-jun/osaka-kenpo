@@ -1,8 +1,10 @@
 article: 99
-title: 第99条
+isSuppl: false
+title: （送達実施機関）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 送達は、特別の定めがある場合を除き、郵便又は執行官によってする。
+  - 郵便による送達にあっては、郵便の業務に従事する者を送達をする者とする。
 osakaText: []
 commentary: []
 commentaryOsaka: []

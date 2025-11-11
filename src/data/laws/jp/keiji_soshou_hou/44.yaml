@@ -1,8 +1,10 @@
 article: 44
-title: 第44条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 裁判には、理由を附しなければならない。
+  - 上訴を許さない決定又は命令には、理由を附することを要しない。但し、第四百二十八条第二項の規定により異議の申立をすることができる決定については、この限りでない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

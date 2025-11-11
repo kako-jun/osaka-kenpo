@@ -1,8 +1,9 @@
 article: 3
-title: 第3条
+isSuppl: false
+title: （管轄権の標準時）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 日本の裁判所の管轄権は、訴えの提起の時を標準として定める。
 osakaText: []
 commentary: []
 commentaryOsaka: []

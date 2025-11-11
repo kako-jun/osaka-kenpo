@@ -1,8 +1,10 @@
 article: 6
-title: 第6条
+isSuppl: false
+title: （後見人登記）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 後見人が被後見人のために第四条の営業を行うときは、その登記をしなければならない。
+  - 後見人の代理権に加えた制限は、善意の第三者に対抗することができない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

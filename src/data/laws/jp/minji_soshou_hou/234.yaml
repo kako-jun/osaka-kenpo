@@ -1,8 +1,9 @@
 article: 234
-title: 第234条
+isSuppl: false
+title: （証拠保全）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 裁判所は、あらかじめ証拠調べをしておかなければその証拠を使用することが困難となる事情があると認めるときは、申立てにより、この章の規定に従い、証拠調べをすることができる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

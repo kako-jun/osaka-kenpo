@@ -1,8 +1,9 @@
 article: 110
-title: 第110条
+isSuppl: false
+title: （権限外の行為の表見代理）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 前条第一項本文の規定は、代理人がその権限外の行為をした場合において、第三者が代理人の権限があると信ずべき正当な理由があるときについて準用する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

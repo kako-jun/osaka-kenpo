@@ -1,8 +1,9 @@
 article: 307
-title: 第307条
+isSuppl: false
+title: （事件の差戻し）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 控訴裁判所は、訴えを不適法として却下した第一審判決を取り消す場合には、事件を第一審裁判所に差し戻さなければならない。ただし、事件につき更に弁論をする必要がないときは、この限りでない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

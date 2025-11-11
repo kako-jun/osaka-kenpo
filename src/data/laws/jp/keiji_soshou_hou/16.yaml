@@ -1,8 +1,9 @@
 article: 16
-title: 第16条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 法律による管轄裁判所がないとき、又はこれを知ることができないときは、検事総長は、最高裁判所に管轄指定の請求をしなければならない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

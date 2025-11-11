@@ -1,5 +1,7 @@
 name: 刑事訴訟法
-year: ''
-source: ''
+year: 昭和23年
+source: e-Gov法令検索
 description: ''
-links: []
+links:
+  - text: e-Gov法令検索
+    url: https://elaws.e-gov.go.jp/document?lawid=323AC0000000131

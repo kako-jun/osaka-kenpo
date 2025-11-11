@@ -1,8 +1,9 @@
 article: 365
-title: 第365条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 上訴権回復の請求があつたときは、原裁判所は、前条の決定をするまで裁判の執行を停止する決定をすることができる。この場合には、被告人に対し勾留状を発することができる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

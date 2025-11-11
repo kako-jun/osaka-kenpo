@@ -1,5 +1,7 @@
 name: 商法
-year: ''
-source: ''
+year: 明治32年
+source: e-Gov法令検索
 description: ''
-links: []
+links:
+  - text: e-Gov法令検索
+    url: https://elaws.e-gov.go.jp/document?lawid=132AC0000000048

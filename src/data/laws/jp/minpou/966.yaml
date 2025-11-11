@@ -1,8 +1,10 @@
 article: 966
-title: 第966条
+isSuppl: false
+title: （被後見人の遺言の制限）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 被後見人が、後見の計算の終了前に、後見人又はその配偶者若しくは直系卑属の利益となるべき遺言をしたときは、その遺言は、無効とする。
+  - 前項の規定は、直系血族、配偶者又は兄弟姉妹が後見人である場合には、適用しない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

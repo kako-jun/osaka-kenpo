@@ -1,8 +1,10 @@
 article: 328
-title: 第328条
+isSuppl: false
+title: （大会社における監査役会等の設置義務）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 大会社（公開会社でないもの、監査等委員会設置会社及び指名委員会等設置会社を除く。）は、監査役会及び会計監査人を置かなければならない。
+  - 公開会社でない大会社は、会計監査人を置かなければならない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

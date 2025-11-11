@@ -1,8 +1,9 @@
 article: 222
-title: 第222条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 通信の当事者のいずれの同意も得ないで電気通信の傍受を行う強制の処分については、別に法律で定めるところによる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

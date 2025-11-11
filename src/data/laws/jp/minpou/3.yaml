@@ -1,8 +1,9 @@
 article: 3
-title: 第3条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 法律行為の当事者が意思表示をした時に意思能力を有しなかったときは、その法律行為は、無効とする。
 osakaText: []
 commentary: []
 commentaryOsaka: []

@@ -1,8 +1,9 @@
 article: 555
-title: 第555条
+isSuppl: false
+title: （売買）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 売買は、当事者の一方がある財産権を相手方に移転することを約し、相手方がこれに対してその代金を支払うことを約することによって、その効力を生ずる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

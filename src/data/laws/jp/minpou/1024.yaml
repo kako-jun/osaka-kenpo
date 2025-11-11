@@ -1,8 +1,9 @@
 article: 1024
-title: 第1024条
+isSuppl: false
+title: （遺言書又は遺贈の目的物の破棄）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 遺言者が故意に遺言書を破棄したときは、その破棄した部分については、遺言を撤回したものとみなす。遺言者が故意に遺贈の目的物を破棄したときも、同様とする。
 osakaText: []
 commentary: []
 commentaryOsaka: []

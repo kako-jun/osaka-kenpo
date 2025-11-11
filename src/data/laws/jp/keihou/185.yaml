@@ -1,8 +1,13 @@
 article: 185
-title: 第185条
+isSuppl: false
+title:
+  _: （博）
+  Ruby:
+    _: 賭
+    Rt: と
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 博をした者は、五十万円以下の罰金又は科料に処する。ただし、一時の娯楽に供する物をけたにとどまるときは、この限りでない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

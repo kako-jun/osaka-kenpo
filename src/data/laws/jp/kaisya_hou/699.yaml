@@ -1,8 +1,10 @@
 article: 699
-title: 第699条
+isSuppl: false
+title: （社債券の喪失）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 社債券は、非訟事件手続法第百条に規定する公示催告手続によって無効とすることができる。
+  - 社債券を喪失した者は、非訟事件手続法第百六条第一項に規定する除権決定を得た後でなければ、その再発行を請求することができない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

@@ -1,8 +1,9 @@
 article: 5
-title: 第5条
+isSuppl: false
+title: （未成年者登記）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 未成年者が前条の営業を行うときは、その登記をしなければならない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

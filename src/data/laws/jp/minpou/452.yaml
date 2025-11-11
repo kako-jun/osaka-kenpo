@@ -1,8 +1,9 @@
 article: 452
-title: 第452条
+isSuppl: false
+title: （催告の抗弁）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 債権者が保証人に債務の履行を請求したときは、保証人は、まず主たる債務者に催告をすべき旨を請求することができる。ただし、主たる債務者が破産手続開始の決定を受けたとき、又はその行方が知れないときは、この限りでない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

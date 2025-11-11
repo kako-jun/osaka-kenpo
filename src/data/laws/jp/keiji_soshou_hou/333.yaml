@@ -1,8 +1,10 @@
 article: 333
-title: 第333条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 被告事件について犯罪の証明があつたときは、第三百三十四条の場合を除いては、判決で刑の言渡をしなければならない。
+  - 刑の執行猶予は、刑の言渡しと同時に、判決でその言渡しをしなければならない。猶予の期間中保護観察に付する場合も、同様とする。
 osakaText: []
 commentary: []
 commentaryOsaka: []

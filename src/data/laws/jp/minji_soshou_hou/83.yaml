@@ -1,8 +1,11 @@
 article: 83
-title: 第83条
+isSuppl: false
+title: （救助の効力等）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 訴訟上の救助の決定は、その定めるところに従い、訴訟及び強制執行について、次に掲げる効力を有する。
+  - 訴訟上の救助の決定は、これを受けた者のためにのみその効力を有する。
+  - 裁判所は、訴訟の承継人に対し、決定で、猶予した費用の支払を命ずる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

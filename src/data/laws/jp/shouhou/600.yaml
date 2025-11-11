@@ -1,8 +1,9 @@
 article: 600
-title: 第600条
+isSuppl: false
+title: （倉荷証券の交付義務）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 倉庫営業者は、寄託者の請求により、寄託物の倉荷証券を交付しなければならない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

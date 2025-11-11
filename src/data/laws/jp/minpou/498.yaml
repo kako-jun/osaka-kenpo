@@ -1,8 +1,10 @@
 article: 498
-title: 第498条
+isSuppl: false
+title: （供託物の還付請求等）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 弁済の目的物又は前条の代金が供託された場合には、債権者は、供託物の還付を請求することができる。
+  - 債務者が債権者の給付に対して弁済をすべき場合には、債権者は、その給付をしなければ、供託物を受け取ることができない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

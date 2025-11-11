@@ -1,8 +1,9 @@
 article: 8
-title: 第8条
+isSuppl: false
+title: （通則）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - この編の規定により登記すべき事項は、当事者の申請により、商業登記法（昭和三十八年法律第百二十五号）の定めるところに従い、商業登記簿にこれを登記する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

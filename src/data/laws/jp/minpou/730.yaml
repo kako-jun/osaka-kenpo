@@ -1,8 +1,13 @@
 article: 730
-title: 第730条
+isSuppl: false
+title:
+  _: （親族間のけ合い）
+  Ruby:
+    _: 扶
+    Rt: たす
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 直系血族及び同居の親族は、互いにけ合わなければならない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

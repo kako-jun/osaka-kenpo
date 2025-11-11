@@ -1,8 +1,10 @@
 article: 48
-title: 第48条
+isSuppl: false
+title: （罰金の併科等）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 罰金と他の刑とは、併科する。ただし、第四十六条第一項の場合は、この限りでない。
+  - 併合罪のうちの二個以上の罪について罰金に処するときは、それぞれの罪について定めた罰金の多額の合計以下で処断する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

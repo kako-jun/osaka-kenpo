@@ -1,8 +1,9 @@
 article: 5
-title: 第5条
+isSuppl: false
+title: （商行為）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 会社（外国会社を含む。次条第一項、第八条及び第九条において同じ。）がその事業としてする行為及びその事業のためにする行為は、商行為とする。
 osakaText: []
 commentary: []
 commentaryOsaka: []

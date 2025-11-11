@@ -1,8 +1,11 @@
 article: 420
-title: 第420条
+isSuppl: false
+title: （賠償額の予定）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 当事者は、債務の不履行について損害賠償の額を予定することができる。
+  - 賠償額の予定は、履行の請求又は解除権の行使を妨げない。
+  - 違約金は、賠償額の予定と推定する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

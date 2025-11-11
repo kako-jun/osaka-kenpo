@@ -1,8 +1,11 @@
 article: 135
-title: 第135条
+isSuppl: false
+title: （親会社株式の取得の禁止）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 子会社は、その親会社である株式会社の株式（以下この条において「親会社株式」という。）を取得してはならない。
+  - 前項の規定は、次に掲げる場合には、適用しない。
+  - 子会社は、相当の時期にその有する親会社株式を処分しなければならない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

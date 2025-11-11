@@ -1,8 +1,10 @@
 article: 33
-title: 第33条
+isSuppl: false
+title: （時効の停止）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 時効は、法令により執行を猶予し、又は停止した期間内は、進行しない。
+  - 拘禁刑、罰金、拘留及び科料の時効は、刑の言渡しを受けた者が国外にいる場合には、その国外にいる期間は、進行しない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

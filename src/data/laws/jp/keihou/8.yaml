@@ -1,8 +1,9 @@
 article: 8
-title: 第8条
+isSuppl: false
+title: （他の法令の罪に対する適用）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - この編の規定は、他の法令の罪についても、適用する。ただし、その法令に特別の規定があるときは、この限りでない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

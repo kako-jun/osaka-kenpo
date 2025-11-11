@@ -1,8 +1,9 @@
 article: 123
-title: 第123条
+isSuppl: false
+title: （取消し及び追認の方法）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 取り消すことができる行為の相手方が確定している場合には、その取消し又は追認は、相手方に対する意思表示によってする。
 osakaText: []
 commentary: []
 commentaryOsaka: []

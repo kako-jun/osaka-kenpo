@@ -1,8 +1,10 @@
 article: 289
-title: 第289条
+isSuppl: false
+title: （控訴状の送達）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 控訴状は、被控訴人に送達しなければならない。
+  - 第百三十七条の規定は、控訴状の送達をすることができない場合（控訴状の送達に必要な費用を予納しない場合を含む。）について準用する。
 osakaText: []
 commentary: []
 commentaryOsaka: []

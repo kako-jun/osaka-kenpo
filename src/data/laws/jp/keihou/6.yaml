@@ -1,8 +1,9 @@
 article: 6
-title: 第6条
+isSuppl: false
+title: （刑の変更）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 犯罪後の法律によって刑の変更があったときは、その軽いものによる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

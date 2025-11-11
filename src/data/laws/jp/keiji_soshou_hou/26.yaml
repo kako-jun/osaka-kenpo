@@ -1,8 +1,10 @@
 article: 26
-title: 第26条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - この章の規定は、第二十条第七号の規定を除いて、裁判所書記にこれを準用する。
+  - 決定は、裁判所書記所属の裁判所がこれをしなければならない。但し、第二十四条第一項の場合には、裁判所書記の附属する受命裁判官が、忌避の申立を却下する裁判をすることができる。
 osakaText: []
 commentary: []
 commentaryOsaka: []

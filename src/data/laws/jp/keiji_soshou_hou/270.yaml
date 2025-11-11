@@ -1,8 +1,10 @@
 article: 270
-title: 第270条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 検察官は、公訴の提起後は、訴訟に関する書類及び証拠物を閲覧し、且つ謄写することができる。
+  - 前項の規定にかかわらず、第百五十七条の六第四項に規定する記録媒体は、謄写することができない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

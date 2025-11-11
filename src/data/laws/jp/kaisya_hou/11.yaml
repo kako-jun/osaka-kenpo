@@ -1,8 +1,11 @@
 article: 11
-title: 第11条
+isSuppl: false
+title: （支配人の代理権）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 支配人は、会社に代わってその事業に関する一切の裁判上又は裁判外の行為をする権限を有する。
+  - 支配人は、他の使用人を選任し、又は解任することができる。
+  - 支配人の代理権に加えた制限は、善意の第三者に対抗することができない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

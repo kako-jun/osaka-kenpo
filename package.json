@@ -34,7 +34,9 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
     "typecheck": "tsc --noEmit",
-    "prepare": "husky"
+    "prepare": "husky",
+    "fetch:roppou": "node scripts/fetch-all-roppou.js",
+    "fetch:law": "node scripts/fetch-egov-law.js"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -59,8 +61,10 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
+    "axios": "^1.13.2",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
+    "https-proxy-agent": "^7.0.6",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.6",
     "postcss": "^8",

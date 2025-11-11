@@ -1,8 +1,10 @@
 article: 1011
-title: 第1011条
+isSuppl: false
+title: （相続財産の目録の作成）
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 遺言執行者は、遅滞なく、相続財産の目録を作成して、相続人に交付しなければならない。
+  - 遺言執行者は、相続人の請求があるときは、その立会いをもって相続財産の目録を作成し、又は公証人にこれを作成させなければならない。
 osakaText: []
 commentary: []
 commentaryOsaka: []

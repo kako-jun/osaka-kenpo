@@ -1,8 +1,9 @@
 article: 1
-title: 第1条
+isSuppl: false
+title: ""
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - この法律は、刑事事件につき、公共の福祉の維持と個人の基本的人権の保障とを全うしつつ、事案の真相を明らかにし、刑罰法令を適正且つ迅速に適用実現することを目的とする。
 osakaText: []
 commentary: []
 commentaryOsaka: []

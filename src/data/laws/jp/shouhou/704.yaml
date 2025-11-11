@@ -1,8 +1,13 @@
 article: 704
-title: 第704条
+isSuppl: false
+title:
+  _: （定期船契約）
+  Ruby:
+    _: 傭
+    Rt: よう
 titleOsaka: ""
 originalText:
-  - 【ここに原文を入力してください】
+  - 定期船契約は、当事者の一方が装した船舶に船員を乗り組ませて当該船舶を一定の期間相手方の利用に供することを約し、相手方がこれに対してその傭船料を支払うことを約することによって、その効力を生ずる。
 osakaText: []
 commentary: []
 commentaryOsaka: []
