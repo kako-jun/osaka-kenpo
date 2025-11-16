@@ -36,7 +36,8 @@
     "typecheck": "tsc --noEmit",
     "prepare": "husky",
     "fetch:roppou": "node scripts/fetch-all-roppou.js",
-    "fetch:law": "node scripts/fetch-egov-law.js"
+    "fetch:law": "node scripts/fetch-egov-law.js",
+    "translate:minpou": "node scripts/translate-minpou-osaka.js"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
