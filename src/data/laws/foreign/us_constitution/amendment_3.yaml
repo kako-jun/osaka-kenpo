@@ -1,9 +1,12 @@
 article: 3
 isAmendment: true
 title: Amendment III
-titleOsaka: ""
+titleOsaka: "修正第3条"
 originalText:
   - No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.
-osakaText: []
+originalTextJapanese:
+  - 兵士は、平時においては、所有者の同意なしに、いかなる住居にも宿営してはならない。戦時においても、法律で定める方法によらなければ、宿営してはならない。
+osakaText:
+  - 兵士は、平和なときは、持ち主の同意なしに、どんな住居にも泊まったらあかんねん。戦争のときも、法律で決めたやり方によらんかったら、泊まったらあかんで。
 commentary: []
 commentaryOsaka: []

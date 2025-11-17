@@ -1,12 +1,21 @@
 article: 17
 isAmendment: true
 title: AMENDMENT XVII
-titleOsaka: ""
+titleOsaka: "修正第17条"
 originalText:
   - "Note: Article I, section 3, of the Constitution was modified by the 17th amendment."
   - The Senate of the United States shall be composed of two Senators from each State, elected by the people thereof, for six years; and each Senator shall have one vote. The electors in each State shall have the qualifications requisite for electors of the most numerous branch of the State legislatures.
   - "When vacancies happen in the representation of any State in the Senate, the executive authority of such State shall issue writs of election to fill such vacancies: Provided, That the legislature of any State may empower the executive thereof to make temporary appointments until the people fill the vacancies by election as the legislature may direct."
   - This amendment shall not be so construed as to affect the election or term of any Senator chosen before it becomes valid as part of the Constitution.
-osakaText: []
+originalTextJapanese:
+  - 注：憲法第1条第3節は、修正第17条により修正された。
+  - 合衆国上院は、各州から2人ずつ、その州の人民により6年の任期で選出される上院議員で構成される。各上院議員は、1票の投票権を有する。各州における選挙人は、州立法府における議員数の最も多い院の選挙人に必要とされる資格を有する者でなければならない。
+  - いずれかの州の上院における代表に欠員が生じた場合、その州の行政府は、その欠員を補充するための選挙を実施する令状を発する。ただし、いずれかの州の立法府は、立法府が指示するところに従い人民が選挙により欠員を補充するまで、臨時に任命を行う権限をその州の行政府に与えることができる。
+  - この修正は、この修正がこの憲法の一部として有効となる前に選出されたいかなる上院議員の選挙又は任期にも影響を及ぼすものと解釈されてはならない。
+osakaText:
+  - 注：憲法第1条第3節は、修正第17条で修正されたんや。
+  - アメリカ上院は、各州から2人ずつ、その州の人らによって6年の任期で選ばれる上院議員で作られるんや。各上院議員は、1票の投票権を持っとるんやで。各州での選挙人は、州議会で一番議員数が多い院の選挙人に必要な資格を持っとる人やないとあかんねん。
+  - どっかの州の上院での代表に空きができたら、その州の行政府が、その空きを埋めるための選挙をやる命令を出すんや。せやけど、どっかの州の議会は、議会が指示するところに従って人らが選挙で空きを埋めるまで、臨時に任命する権限をその州の行政府に与えることができるんやな。
+  - この修正は、この修正がこの憲法の一部として有効になる前に選ばれたどんな上院議員の選挙とか任期にも影響するもんやと解釈したらあかんで。
 commentary: []
 commentaryOsaka: []

@@ -1,9 +1,12 @@
 article: 5
 isAmendment: true
 title: Amendment V
-titleOsaka: ""
+titleOsaka: "修正第5条"
 originalText:
   - No person shall be held to answer for a capital, or otherwise infamous crime, unless on a presentment or indictment of a Grand Jury, except in cases arising in the land or naval forces, or in the Militia, when in actual service in time of War or public danger; nor shall any person be subject for the same offence to be twice put in jeopardy of life or limb; nor shall be compelled in any criminal case to be a witness against himself, nor be deprived of life, liberty, or property, without due process of law; nor shall private property be taken for public use, without just compensation.
-osakaText: []
+originalTextJapanese:
+  - 何人も、大陪審の告発又は起訴によらなければ、死刑に当たる罪その他の破廉恥罪について責任を問われることはない。ただし、戦時又は公共の危険に際し現に軍務に服している陸軍若しくは海軍又は民兵に生じた事件は、この限りでない。何人も、同一の犯罪について、重ねて生命又は身体の危険にさらされることはない。何人も、いかなる刑事事件においても、自己に不利な証人となることを強制されず、また、法の適正な手続によらずに、生命、自由又は財産を奪われることはない。何人も、正当な補償なしに、私有財産を公共の用に供されることはない。
+osakaText:
+  - 誰も、大陪審の告発か起訴によらんかったら、死刑になる罪とか他の破廉恥罪について責任を問われることはないんや。せやけど、戦争のときとか公共の危険のときに、ほんまに軍務に就いとる陸軍とか海軍とか民兵に起こった事件は、この限りやないんやで。誰も、同じ犯罪について、重ねて生命とか身体の危険にさらされることはないんやな。誰も、どんな刑事事件でも、自分に不利な証人になることを強制されへんし、法のちゃんとした手続きによらんと、生命とか自由とか財産を奪われることはないんや。誰も、正当な補償なしに、私有財産を公共の用に使われることはないんやで。
 commentary: []
 commentaryOsaka: []

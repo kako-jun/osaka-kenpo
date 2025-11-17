@@ -1,7 +1,7 @@
 article: 25
 isAmendment: true
 title: AMENDMENT XXV
-titleOsaka: ""
+titleOsaka: "修正第25条"
 originalText:
   - "Note: Article II, section 1, of the Constitution was affected by the 25th amendment."
   - Section 1.
@@ -13,6 +13,27 @@ originalText:
   - Section 4.
   - Whenever the Vice President and a majority of either the principal officers of the executive departments or of such other body as Congress may by law provide, transmit to the President pro tempore of the Senate and the Speaker of the House of Representatives their written declaration that the President is unable to discharge the powers and duties of his office, the Vice President shall immediately assume the powers and duties of the office as Acting President.
   - Thereafter, when the President transmits to the President pro tempore of the Senate and the Speaker of the House of Representatives his written declaration that no inability exists, he shall resume the powers and duties of his office unless the Vice President and a majority of either the principal officers of the executive department or of such other body as Congress may by law provide, transmit within four days to the President pro tempore of the Senate and the Speaker of the House of Representatives their written declaration that the President is unable to discharge the powers and duties of his office. Thereupon Congress shall decide the issue, assembling within forty-eight hours for that purpose if not in session. If the Congress, within twenty-one days after receipt of the latter written declaration, or, if Congress is not in session, within twenty-one days after Congress is required to assemble, determines by two-thirds vote of both Houses that the President is unable to discharge the powers and duties of his office, the Vice President shall continue to discharge the same as Acting President; otherwise, the President shall resume the powers and duties of his office.
-osakaText: []
+originalTextJapanese:
+  - 注：憲法第2条第1節は、修正第25条の影響を受けた。
+  - 第1節
+  - 大統領が罷免され、又は死亡し若しくは辞任した場合、副大統領が大統領となる。
+  - 第2節
+  - 副大統領の職に欠員が生じた場合、大統領は、連邦議会の両議院の過半数の投票による承認により就任する副大統領を指名する。
+  - 第3節
+  - 大統領が、上院臨時議長及び下院議長に対し、自己がその職務の権限及び義務を遂行することができない旨の書面による宣言を送付したときは、反対の宣言を送付するまで、これらの権限及び義務は、副大統領により大統領代行として遂行される。
+  - 第4節
+  - 副大統領及び行政各部の長官の過半数又は連邦議会が法律により定めるその他の機関の過半数が、上院臨時議長及び下院議長に対し、大統領がその職務の権限及び義務を遂行することができない旨の書面による宣言を送付したときは、副大統領は、直ちに大統領代行としてその職務の権限及び義務を引き受ける。
+  - その後、大統領が、上院臨時議長及び下院議長に対し、職務遂行不能が存在しない旨の書面による宣言を送付したときは、副大統領及び行政各部の長官の過半数又は連邦議会が法律により定めるその他の機関の過半数が、4日以内に、上院臨時議長及び下院議長に対し、大統領がその職務の権限及び義務を遂行することができない旨の書面による宣言を送付しない限り、大統領は、その職務の権限及び義務を再開する。その後、連邦議会は、この問題を決定する。連邦議会は、会期中でない場合、この目的のため48時間以内に集会する。連邦議会が、後者の書面による宣言を受領してから21日以内に、又は連邦議会が会期中でない場合、連邦議会が集会を要求されてから21日以内に、両議院の3分の2の投票により、大統領がその職務の権限及び義務を遂行することができないと決定した場合、副大統領は、大統領代行としてその職務を引き続き遂行する。そうでない場合、大統領は、その職務の権限及び義務を再開する。
+osakaText:
+  - 注：憲法第2条第1節は、修正第25条の影響を受けたんや。
+  - 第1節
+  - 大統領がクビになったり、死んだり辞めたりした場合、副大統領が大統領になるんや。
+  - 第2節
+  - 副大統領の仕事に空きができた場合、大統領は、連邦議会の両方の議院の半分より多い票の承認で就任する副大統領を指名するんやで。
+  - 第3節
+  - 大統領が、上院臨時議長と下院議長に対して、自分がその仕事の権限と義務をやることができへん旨の書面での宣言を送ったときは、反対の宣言を送るまで、これらの権限と義務は、副大統領によって大統領代行としてやられるんや。
+  - 第4節
+  - 副大統領と行政の各部の長官の半分より多いか、連邦議会が法律で決める他の機関の半分より多いが、上院臨時議長と下院議長に対して、大統領がその仕事の権限と義務をやることができへん旨の書面での宣言を送ったときは、副大統領は、すぐに大統領代行としてその仕事の権限と義務を引き受けるんやで。
+  - その後、大統領が、上院臨時議長と下院議長に対して、仕事ができへんのが存在せえへん旨の書面での宣言を送ったときは、副大統領と行政の各部の長官の半分より多いか、連邦議会が法律で決める他の機関の半分より多いが、4日以内に、上院臨時議長と下院議長に対して、大統領がその仕事の権限と義務をやることができへん旨の書面での宣言を送らへん限り、大統領は、その仕事の権限と義務をもう一回始めるんや。その後、連邦議会は、この問題を決めるんやな。連邦議会は、会期中やない場合、この目的で48時間以内に集まるんや。連邦議会が、後の方の書面での宣言を受け取ってから21日以内に、連邦議会が会期中やない場合、連邦議会が集まることを要求されてから21日以内に、両方の議院の3分の2の投票で、大統領がその仕事の権限と義務をやることができへんと決めた場合、副大統領は、大統領代行としてその仕事を引き続きやるんやで。そうやない場合、大統領は、その仕事の権限と義務をもう一回始めるんや。
 commentary: []
 commentaryOsaka: []

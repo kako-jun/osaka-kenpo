@@ -1,7 +1,7 @@
 article: 7
 isAmendment: false
 title: Article. VII.
-titleOsaka: ""
+titleOsaka: "第7条"
 originalText:
   - The Ratification of the Conventions of nine States, shall be sufficient for the Establishment of this Constitution between the States so ratifying the Same.
   - The Word, "the," being interlined between the seventh and eighth Lines of the first Page, The Word "Thirty" being partly written on an Erazure in the fifteenth Line of the first Page, The Words "is tried" being interlined between the thirty second and thirty third Lines of the first Page and the Word "the" being interlined between the forty third and forty fourth Lines of the second Page.
@@ -12,6 +12,25 @@ originalText:
       Presidt and deputy from Virginia
   - "For biographies of the non-signing delegates to the Constitutional Convention,\_see the\_ Founding Fathers\_page."
   - Back to Main Constitution Page
-osakaText: []
+originalTextJapanese:
+  - 9つの州の憲法会議による批准は、これを批准する州の間において、この憲法を成立させるために十分である。
+  - 第1頁の第7行と第8行の間に「the」という語が行間に挿入され、第1頁の第15行において「Thirty」という語が消去の上に部分的に書かれ、第1頁の第32行と第33行の間に「is tried」という語が行間に挿入され、第2頁の第43行と第44行の間に「the」という語が行間に挿入されている。
+  - 書記官ウィリアム・ジャクソン認証
+  - 西暦1787年9月17日、合衆国独立12年目に、出席した州の全員一致の同意により憲法会議において作成された。これを証するため、我々はここに署名する。
+  - |-
+    ジョージ・ワシントン
+      議長兼バージニア州代表
+  - 憲法制定会議に出席したが署名しなかった代表者の経歴については、建国の父のページを参照。
+  - 憲法本文のページに戻る
+osakaText:
+  - 9つの州の憲法会議で承認されたら、それを承認した州の間で、この憲法を成立させるのに十分なんや。
+  - 第1頁の第7行と第8行の間に「the」っちゅう言葉が行間に入れられて、第1頁の第15行で「Thirty」っちゅう言葉が消された上に部分的に書かれて、第1頁の第32行と第33行の間に「is tried」っちゅう言葉が行間に入れられて、第2頁の第43行と第44行の間に「the」っちゅう言葉が行間に入れられとるんやな。
+  - 書記官ウィリアム・ジャクソン認証
+  - 西暦1787年9月17日、合衆国が独立して12年目に、出席した州の全員一致の同意で憲法会議で作られたんや。これを証明するために、ここに署名するで。
+  - |-
+    ジョージ・ワシントン
+      議長兼バージニア州代表
+  - 憲法制定会議に出席したけど署名せえへんかった代表者の経歴については、建国の父のページを見てや。
+  - 憲法本文のページに戻る
 commentary: []
 commentaryOsaka: []

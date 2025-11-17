@@ -1,7 +1,7 @@
 article: 18
 isAmendment: true
 title: AMENDMENT XVIII
-titleOsaka: ""
+titleOsaka: "修正第18条"
 originalText:
   - Section 1.
   - After one year from the ratification of this article the manufacture, sale, or transportation of intoxicating liquors within, the importation thereof into, or the exportation thereof from the United States and all territory subject to the jurisdiction thereof for beverage purposes is hereby prohibited.
@@ -9,6 +9,19 @@ originalText:
   - The Congress and the several States shall have concurrent power to enforce this article by appropriate legislation.
   - Section 3.
   - This article shall be inoperative unless it shall have been ratified as an amendment to the Constitution by the legislatures of the several States, as provided in the Constitution, within seven years from the date of the submission hereof to the States by the Congress.
-osakaText: []
+originalTextJapanese:
+  - 第1節
+  - この条の批准から1年後、飲料の目的のために、合衆国内及びその管轄に服する全ての領土における酔わせる酒類の製造、販売又は運搬、並びに合衆国及びその管轄に服する全ての領土への酒類の輸入又はそこからの輸出は、ここに禁止される。
+  - 第2節
+  - 連邦議会及び各州は、適切な立法により、この条を実施する権限を並行して有する。
+  - 第3節
+  - この条は、憲法に定められるところに従い、連邦議会により各州に提出された日から7年以内に、各州の立法府により憲法の修正として批准されなければ、無効となる。
+osakaText:
+  - 第1節
+  - この条が承認されてから1年後、飲み物の目的で、アメリカ国内とその管轄下の全部の領土で、酔わせる酒類を作ったり売ったり運んだりすること、それとアメリカとその管轄下の全部の領土への酒類の輸入とかそこからの輸出は、ここに禁止されるんや。
+  - 第2節
+  - 連邦議会と各州は、適切な立法で、この条を実行する権限を同時に持っとるんやで。
+  - 第3節
+  - この条は、憲法に決められたとおりに、連邦議会が各州に出した日から7年以内に、各州の議会で憲法の修正として承認されへんかったら、無効になるんや。
 commentary: []
 commentaryOsaka: []
