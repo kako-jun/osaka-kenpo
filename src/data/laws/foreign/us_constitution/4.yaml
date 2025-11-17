@@ -1,7 +1,7 @@
 article: 4
 isAmendment: false
 title: Article. IV.
-titleOsaka: ""
+titleOsaka: "第4条"
 originalText:
   - Section. 1.
   - Full Faith and Credit shall be given in each State to the public Acts, Records, and judicial Proceedings of every other State. And the Congress may by general Laws prescribe the Manner in which such Acts, Records and Proceedings shall be proved, and the Effect thereof.
@@ -14,6 +14,29 @@ originalText:
   - The Congress shall have Power to dispose of and make all needful Rules and Regulations respecting the Territory or other Property belonging to the United States; and nothing in this Constitution shall be so construed as to Prejudice any Claims of the United States, or of any particular State.
   - Section. 4.
   - "The United States shall guarantee to every State in this Union a Republican Form of Government, and shall protect each of them against Invasion; and on Application of the Legislature, or of the Executive (when the Legislature cannot be convened)\_against domestic Violence."
-osakaText: []
+originalTextJapanese:
+  - 第1節
+  - 各州において、他のすべての州の公の法令、記録及び司法手続に対し、十分な信頼及び信用が与えられなければならない。連邦議会は、一般的な法律により、このような法令、記録及び司法手続が証明される方法、並びにその効力を定めることができる。
+  - 第2節
+  - 各州の市民は、他のすべての州における市民の特権及び免除を享受する権利を有する。
+  - いずれかの州において反逆罪、重罪又はその他の犯罪により告訴された者が、司法を逃れて他の州において発見された場合、その者が逃亡した州の行政府の要求により、その犯罪について管轄権を有する州に移送されるために引き渡される。
+  - いずれかの州において、その州の法律に基づき労役又は労働に服する義務を負う者が、他の州に逃亡した場合、その州のいかなる法律又は規則によっても、その労役又は労働から解放されることなく、その労役又は労働を受ける権利を有する当事者の請求により引き渡される。
+  - 第3節
+  - 新しい州は、連邦議会により、この連邦に加入することができる。ただし、いずれかの他の州の管轄内において新しい州が形成され又は設立されてはならない。また、2つ以上の州又は州の一部の合併により、関係する州の立法府及び連邦議会の同意なしに、いかなる州も形成されてはならない。
+  - 連邦議会は、合衆国に属する領土又はその他の財産を処分し、並びにこれに関する必要な全ての規則及び規定を制定する権限を有する。この憲法のいかなる規定も、合衆国又は特定の州のいかなる請求権をも害するように解釈されてはならない。
+  - 第4節
+  - 合衆国は、この連邦のすべての州に対し、共和制の政体を保障し、並びにそれぞれの州を侵略から保護する。また、州立法府又は(州立法府が召集できない場合には)行政府の要請により、国内の暴力から保護する。
+osakaText:
+  - 第1節
+  - 各州では、他の全部の州の公の法令と記録と司法の手続きに対して、十分な信頼と信用を与えなあかんねん。連邦議会は、一般的な法律で、こういう法令と記録と司法の手続きが証明されるやり方と、その効力を決めることができるんや。
+  - 第2節
+  - 各州の市民は、他の全部の州での市民の特権と免除を享受する権利を持っとるんやで。
+  - どっかの州で反逆罪とか重罪とか他の犯罪で訴えられた人が、司法から逃げて他の州で見つかった場合、その人が逃げた州の行政府の要求で、その犯罪について管轄権を持っとる州に移送されるために引き渡されるんや。
+  - どっかの州で、その州の法律に基づいて労役とか労働をする義務がある人が、他の州に逃げた場合、その州のどんな法律とか規則によっても、その労役とか労働から解放されることなく、その労役とか労働を受ける権利を持っとる当事者の請求で引き渡されるんやな。
+  - 第3節
+  - 新しい州は、連邦議会によって、この連邦に入ることができるんや。せやけど、どっかの他の州の管轄の中で新しい州が作られたり設立されたりしたらあかんねん。それと、2つ以上の州とか州の一部が合併して、関係する州の議会と連邦議会の同意なしに、どんな州も作られたらあかんで。
+  - 連邦議会は、アメリカに属する領土とか他の財産を処分して、これに関する必要な全部の規則と決まりを作る権限を持っとるんや。この憲法のどんな決まりも、アメリカとか特定の州のどんな請求権も害するように解釈したらあかんねん。
+  - 第4節
+  - アメリカは、この連邦の全部の州に対して、共和制の政治体制を保障して、それぞれの州を侵略から守るんや。それと、州議会か（州議会が召集できへん場合には）行政府の要請で、国内の暴力から守るんやで。
 commentary: []
 commentaryOsaka: []

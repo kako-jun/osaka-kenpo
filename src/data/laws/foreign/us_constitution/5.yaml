@@ -1,9 +1,12 @@
 article: 5
 isAmendment: false
 title: Article. V.
-titleOsaka: ""
+titleOsaka: "第5条"
 originalText:
   - The Congress, whenever two thirds of both Houses shall deem it necessary, shall propose Amendments to this Constitution, or, on the Application of the Legislatures of two thirds of the several States, shall call a Convention for proposing Amendments, which, in either Case, shall be valid to all Intents and Purposes, as Part of this Constitution, when ratified by the Legislatures of three fourths of the several States, or by Conventions in three fourths thereof, as the one or the other Mode of Ratification may be proposed by the Congress; Provided that no Amendment which may be made prior to the Year One thousand eight hundred and eight shall in any Manner affect the first and fourth Clauses in the Ninth Section of the first Article; and that no State, without its Consent, shall be deprived of its equal Suffrage in the Senate.
-osakaText: []
+originalTextJapanese:
+  - 連邦議会は、両議院の3分の2が必要と認めるときは、この憲法の修正を発議する。又は、3分の2の州の立法府の申請により、修正を発議するための憲法会議を召集する。いずれの場合も、修正は、4分の3の州の立法府により、又は4分の3の州における憲法会議により批准されたときに、この憲法の一部として、あらゆる意図及び目的について有効となる。批准の方法は、連邦議会が提案することができる。ただし、1808年以前に行われる修正は、いかなる方法によっても、第1条第9節の第1項及び第4項に影響を及ぼしてはならない。また、いかなる州も、その同意なしに、上院における平等な投票権を奪われてはならない。
+osakaText:
+  - 連邦議会は、両方の議院の3分の2が必要やと思ったら、この憲法の修正を提案するんや。それか、3分の2の州の議会の申請で、修正を提案するための憲法会議を開くんやで。どっちの場合も、修正は、4分の3の州の議会か、4分の3の州での憲法会議で承認されたら、この憲法の一部として、あらゆる意図と目的について有効になるんやな。承認のやり方は、連邦議会が提案できるんや。せやけど、1808年より前にやる修正は、どんなやり方でも、第1条第9節の第1項と第4項に影響したらあかんねん。それと、どの州も、その同意なしに、上院での平等な投票権を奪われたらあかんで。
 commentary: []
 commentaryOsaka: []

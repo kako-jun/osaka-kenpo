@@ -1,9 +1,12 @@
 article: 1
 isAmendment: true
 title: Amendment I
-titleOsaka: ""
+titleOsaka: "修正第1条"
 originalText:
   - Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.
-osakaText: []
+originalTextJapanese:
+  - 連邦議会は、国教を樹立し、又は宗教上の行為を自由に行うことを禁止する法律を制定してはならない。言論又は出版の自由を制限する法律、並びに市民が平穏に集会し、又は苦情の処理を求めて政府に請願する権利を侵害する法律を制定してはならない。
+osakaText:
+  - 連邦議会は、国教を作ったり、宗教上のことを自由にやるのを禁止したりする法律を作ったらあかんねん。言論とか出版の自由を制限する法律、それと市民が平和に集まったり、苦情の処理を求めて政府にお願いする権利を侵す法律を作ったらあかんで。
 commentary: []
 commentaryOsaka: []
