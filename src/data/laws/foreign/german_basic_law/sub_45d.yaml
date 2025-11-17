@@ -1,9 +1,14 @@
 article: 45d
 title: Art 45d
-titleOsaka: ""
+titleOsaka: 第45d条
 originalText:
   - (1) Der Bundestag bestellt ein Gremium zur Kontrolle der nachrichtendienstlichen Tätigkeit des Bundes.
   - (2) Das Nähere regelt ein Bundesgesetz.
-osakaText: []
+originalTextJapanese:
+  - (1) 連邦議会は、連邦の情報機関活動を統制するための委員会を設置する。
+  - (2) 詳細は連邦法律により定められる。
+osakaText:
+  - (1) 連邦議会はな、連邦の情報機関活動を統制するための委員会を設置するんや。
+  - (2) 詳しいことは連邦法律で定めるんやで。
 commentary: []
 commentaryOsaka: []
