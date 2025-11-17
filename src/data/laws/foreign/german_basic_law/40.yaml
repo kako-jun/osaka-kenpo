@@ -1,9 +1,14 @@
 article: "40"
 title: Art 40
-titleOsaka: ""
+titleOsaka: "第40条"
 originalText:
   - (1) Der Bundestag wählt seinen Präsidenten, dessen Stellvertreter und die Schriftführer. Er gibt sich eine Geschäftsordnung.
   - (2) Der Präsident übt das Hausrecht und die Polizeigewalt im Gebäude des Bundestages aus. Ohne seine Genehmigung darf in den Räumen des Bundestages keine Durchsuchung oder Beschlagnahme stattfinden.
-osakaText: []
+originalTextJapanese:
+  - (1) 連邦議会は、その議長、議長代理および書記を選出する。連邦議会は、議事規則を定める。
+  - (2) 議長は、連邦議会の建物において院内権および警察権を行使する。議長の許可なくして、連邦議会の建物内において、捜索または押収を行うことができない。
+osakaText:
+  - (1) 連邦議会は、その議長、議長代理、そして書記を選出するんや。連邦議会は、議事規則を定めるで。
+  - (2) 議長は、連邦議会の建物において院内権と警察権を行使するんや。議長の許可なくして、連邦議会の建物内において、捜索や押収を行うことはできへんねん。
 commentary: []
 commentaryOsaka: []

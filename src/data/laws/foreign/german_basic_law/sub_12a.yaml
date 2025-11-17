@@ -1,6 +1,6 @@
 article: 12a
 title: Art 12a
-titleOsaka: ""
+titleOsaka: 第12a条
 originalText:
   - (1) Männer können vom vollendeten achtzehnten Lebensjahr an zum Dienst in den Streitkräften, im Bundesgrenzschutz oder in einem Zivilschutzverband verpflichtet werden.
   - (2) Wer aus Gewissensgründen den Kriegsdienst mit der Waffe verweigert, kann zu einem Ersatzdienst verpflichtet werden. Die Dauer des Ersatzdienstes darf die Dauer des Wehrdienstes nicht übersteigen. Das Nähere regelt ein Gesetz, das die Freiheit der Gewissensentscheidung nicht beeinträchtigen darf und auch eine Möglichkeit des Ersatzdienstes vorsehen muß, die in keinem Zusammenhang mit den Verbänden der Streitkräfte und des Bundesgrenzschutzes steht.
@@ -8,6 +8,19 @@ originalText:
   - (4) Kann im Verteidigungsfalle der Bedarf an zivilen Dienstleistungen im zivilen Sanitäts- und Heilwesen sowie in der ortsfesten militärischen Lazarettorganisation nicht auf freiwilliger Grundlage gedeckt werden, so können Frauen vom vollendeten achtzehnten bis zum vollendeten fünfundfünfzigsten Lebensjahr durch Gesetz oder auf Grund eines Gesetzes zu derartigen Dienstleistungen herangezogen werden. Sie dürfen auf keinen Fall zum Dienst mit der Waffe verpflichtet werden.
   - (5) Für die Zeit vor dem Verteidigungsfalle können Verpflichtungen nach Absatz 3 nur nach Maßgabe des Artikels 80a Abs. 1 begründet werden. Zur Vorbereitung auf Dienstleistungen nach Absatz 3, für die besondere Kenntnisse oder Fertigkeiten erforderlich sind, kann durch Gesetz oder auf Grund eines Gesetzes die Teilnahme an Ausbildungsveranstaltungen zur Pflicht gemacht werden. Satz 1 findet insoweit keine Anwendung.
   - (6) Kann im Verteidigungsfalle der Bedarf an Arbeitskräften für die in Absatz 3 Satz 2 genannten Bereiche auf freiwilliger Grundlage nicht gedeckt werden, so kann zur Sicherung dieses Bedarfs die Freiheit der Deutschen, die Ausübung eines Berufs oder den Arbeitsplatz aufzugeben, durch Gesetz oder auf Grund eines Gesetzes eingeschränkt werden. Vor Eintritt des Verteidigungsfalles gilt Absatz 5 Satz 1 entsprechend.
-osakaText: []
+originalTextJapanese:
+  - (1) 男子は、満18歳に達した時から、軍隊、連邦国境警備隊または民間防衛団体における勤務に従事する義務を課されることができる。
+  - (2) 良心的理由により武器を用いた軍務を拒否する者は、代替勤務に従事する義務を課されることができる。代替勤務の期間は、兵役の期間を超えてはならない。詳細は、良心の決定の自由を侵害してはならず、かつ、軍隊および連邦国境警備隊の組織と何ら関係のない代替勤務の可能性も規定しなければならない法律により定める。
+  - (3) 第1項または第2項に定める勤務に召集されていない兵役義務者は、防衛事態において、法律により、または法律に基づき、民間人の保護を含む防衛目的のための民間勤務に雇用関係において従事する義務を課されることができる。公法上の勤務関係への義務付けは、警察任務またはそれが公法上の勤務関係においてのみ履行されうる公行政の権力的任務の遂行のためにのみ許される。第1文に定める雇用関係は、軍隊、その補給部門および公行政において設定されることができる。民間人の補給部門における雇用関係への義務付けは、その生活に不可欠な需要を満たすため、またはその保護を確保するためにのみ許される。
+  - (4) 防衛事態において、民間の医療および衛生部門ならびに固定的な軍の野戦病院組織における民間勤務の需要が自発的基礎により満たされえない場合には、女子は、満18歳から満55歳まで、法律により、または法律に基づき、そのような勤務に召集されることができる。女子は、いかなる場合においても、武器を用いた勤務に従事する義務を課されてはならない。
+  - (5) 防衛事態前の時期については、第3項に定める義務付けは、第80a条第1項の基準に従ってのみ設定されることができる。第3項に定める勤務のうち特別な知識または技能を必要とするものへの準備のために、法律により、または法律に基づき、訓練行事への参加を義務とすることができる。第1文は、この限りにおいて適用されない。
+  - (6) 防衛事態において、第3項第2文に定める部門における労働力の需要が自発的基礎により満たされえない場合には、この需要を確保するために、ドイツ人の、職業の遂行または職場を放棄する自由が、法律により、または法律に基づき、制限されることができる。防衛事態の発生前には、第5項第1文が準用される。
+osakaText:
+  - (1) 男の子はな、満18歳になったら、軍隊とか連邦国境警備隊とか民間防衛団体で働く義務を課されることがあるんよ。
+  - (2) 良心的な理由で武器使うて軍務するのを拒否する人はな、代わりの勤務を義務付けられることがあるんや。代わりの勤務の期間は、兵役の期間より長うしたらあかんで。詳しいことは法律で決めるんやけど、その法律は良心の決定の自由を侵害したらあかんし、軍隊や連邦国境警備隊の組織と何の関係もない代わりの勤務の可能性も用意せなあかんねん。
+  - (3) 第1項とか第2項の勤務に召集されてへん兵役義務者はな、防衛事態のときには、法律で、または法律に基づいて、民間人の保護も含めた防衛目的のための民間勤務に雇用関係で従事する義務を課されることがあるんや。公法上の勤務関係への義務付けは、警察の仕事とか、公法上の勤務関係でしか果たされへんような公行政の権力的な仕事を遂行するためだけしか認められへんねん。第1文の雇用関係は、軍隊とかその補給部門とか公行政で設定できるんやで。民間人の補給部門での雇用関係への義務付けは、その生活に絶対必要な需要を満たすためとか、その保護を確保するためだけしか認められへんのや。
+  - (4) 防衛事態のときに、民間の医療とか衛生部門、それから固定的な軍の野戦病院組織での民間勤務の需要が自発的な基礎では満たされへん場合はな、女の子は、満18歳から満55歳まで、法律で、または法律に基づいて、そういう勤務に召集されることがあるんよ。女の子は、どんな場合でも武器使うた勤務を義務付けられたらあかんねん。
+  - (5) 防衛事態の前の時期についてはな、第3項の義務付けは、第80a条第1項の基準に従ってしか設定できへんねん。第3項の勤務のうち特別な知識とか技能が必要なやつへの準備のために、法律で、または法律に基づいて、訓練行事への参加を義務にすることができるんや。第1文は、この限りでは適用されへんで。
+  - (6) 防衛事態のときに、第3項第2文の部門での労働力の需要が自発的な基礎では満たされへん場合はな、この需要を確保するために、ドイツ人の、職業を遂行するとか職場を放棄する自由が、法律で、または法律に基づいて、制限されることがあるんや。防衛事態が発生する前には、第5項第1文が準用されるんよ。
 commentary: []
 commentaryOsaka: []

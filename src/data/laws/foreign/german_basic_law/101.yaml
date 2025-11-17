@@ -1,9 +1,14 @@
 article: "101"
 title: Art 101
-titleOsaka: ""
+titleOsaka: "第101条"
 originalText:
   - (1) Ausnahmegerichte sind unzulässig. Niemand darf seinem gesetzlichen Richter entzogen werden.
   - (2) Gerichte für besondere Sachgebiete können nur durch Gesetz errichtet werden.
-osakaText: []
+originalTextJapanese:
+  - (1) 例外裁判所は許されない。何人も、その法定裁判官を奪われてはならない。
+  - (2) 特別の事項領域のための裁判所は、法律によってのみ設置されることができる。
+osakaText:
+  - (1) 例外裁判所は許されへんねん。何人も、その法定裁判官を奪われたらあかんで。
+  - (2) 特別の事項領域のための裁判所は、法律によってのみ設置されることができるんや。
 commentary: []
 commentaryOsaka: []

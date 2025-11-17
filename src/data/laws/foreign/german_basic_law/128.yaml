@@ -1,8 +1,11 @@
 article: "128"
 title: Art 128
-titleOsaka: ""
+titleOsaka: "第128条"
 originalText:
   - Soweit fortgeltendes Recht Weisungsrechte im Sinne des Artikels 84 Abs. 5 vorsieht, bleiben sie bis zu einer anderweitigen gesetzlichen Regelung bestehen.
-osakaText: []
+originalTextJapanese:
+  - "効力を有し続ける法が第84条第5項の意味における指示権を定める限りにおいて、それらは他の法律上の規定がなされるまで存続する。"
+osakaText:
+  - "効力を持ち続ける法律が第84条第5項の意味の指示権を決めてる限りでは、それらは他の法律上の規定ができるまで残るんや。"
 commentary: []
 commentaryOsaka: []

@@ -1,10 +1,17 @@
 article: 45a
 title: Art 45a
-titleOsaka: ""
+titleOsaka: 第45a条
 originalText:
   - (1) Der Bundestag bestellt einen Ausschuß für auswärtige Angelegenheiten und einen Ausschuß für Verteidigung.
   - (2) Der Ausschuß für Verteidigung hat auch die Rechte eines Untersuchungsausschusses. Auf Antrag eines Viertels seiner Mitglieder hat er die Pflicht, eine Angelegenheit zum Gegenstand seiner Untersuchung zu machen.
   - (3) Artikel 44 Abs. 1 findet auf dem Gebiet der Verteidigung keine Anwendung.
-osakaText: []
+originalTextJapanese:
+  - (1) 連邦議会は、外務委員会および防衛委員会を設置する。
+  - (2) 防衛委員会は、調査委員会の権利をも有する。その構成員の4分の1の申立てにより、防衛委員会は、ある事項をその調査の対象とする義務を負う。
+  - (3) 第44条第1項は、防衛の領域においては適用されない。
+osakaText:
+  - (1) 連邦議会はな、外務委員会と防衛委員会を設置するんやで。
+  - (2) 防衛委員会はな、調査委員会の権利も持ってるんや。その構成員の4分の1の申立てによって、防衛委員会は、ある事項をその調査の対象にする義務を負うんよ。
+  - (3) 第44条第1項は、防衛の領域では適用されへんねん。
 commentary: []
 commentaryOsaka: []

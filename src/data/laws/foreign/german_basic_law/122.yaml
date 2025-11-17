@@ -1,9 +1,14 @@
 article: "122"
 title: Art 122
-titleOsaka: ""
+titleOsaka: "第122条"
 originalText:
   - (1) Vom Zusammentritt des Bundestages an werden die Gesetze ausschließlich von den in diesem Grundgesetze anerkannten gesetzgebenden Gewalten beschlossen.
   - (2) Gesetzgebende und bei der Gesetzgebung beratend mitwirkende Körperschaften, deren Zuständigkeit nach Absatz 1 endet, sind mit diesem Zeitpunkt aufgelöst.
-osakaText: []
+originalTextJapanese:
+  - "(1) 連邦議会の招集から、法律はこの基本法において認められた立法権によってのみ議決される。"
+  - "(2) 立法機関および立法において諮問的に協力する機関で、第1項によりその権限が終了するものは、この時点で解散される。"
+osakaText:
+  - "(1) 連邦議会が集まってからは、法律はこの基本法で認められた立法権だけが決めるんや。"
+  - "(2) 立法する機関と立法で相談に乗る機関で、第1項でその権限が終わるやつは、この時点で解散されるで。"
 commentary: []
 commentaryOsaka: []

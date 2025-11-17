@@ -1,9 +1,14 @@
 article: "8"
 title: Art 8
-titleOsaka: ""
+titleOsaka: "第8条"
 originalText:
   - (1) Alle Deutschen haben das Recht, sich ohne Anmeldung oder Erlaubnis friedlich und ohne Waffen zu versammeln.
   - (2) Für Versammlungen unter freiem Himmel kann dieses Recht durch Gesetz oder auf Grund eines Gesetzes beschränkt werden.
-osakaText: []
+originalTextJapanese:
+  - (1) すべてのドイツ人は、届出または許可なく、平穏にかつ武器を携帯することなく集会する権利を有する。
+  - (2) 屋外集会については、この権利は、法律により、または法律に基づいて制限されうる。
+osakaText:
+  - (1) すべてのドイツ人は、届出も許可もなく、平穏に、そして武器を携帯せんと集会する権利を持っとるんや。
+  - (2) 屋外集会については、この権利は、法律により、または法律に基づいて制限されることがあるで。
 commentary: []
 commentaryOsaka: []

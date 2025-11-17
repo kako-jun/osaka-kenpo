@@ -1,8 +1,11 @@
 article: "133"
 title: Art 133
-titleOsaka: ""
+titleOsaka: "第133条"
 originalText:
   - Der Bund tritt in die Rechte und Pflichten der Verwaltung des Vereinigten Wirtschaftsgebietes ein.
-osakaText: []
+originalTextJapanese:
+  - "連邦は、統一経済地域の行政の権利および義務を承継する。"
+osakaText:
+  - "連邦は、統一経済地域の行政の権利と義務を引き継ぐんや。"
 commentary: []
 commentaryOsaka: []

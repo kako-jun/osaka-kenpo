@@ -1,11 +1,20 @@
 article: "20"
 title: Art 20
-titleOsaka: ""
+titleOsaka: "第20条"
 originalText:
   - (1) Die Bundesrepublik Deutschland ist ein demokratischer und sozialer Bundesstaat.
   - (2) Alle Staatsgewalt geht vom Volke aus. Sie wird vom Volke in Wahlen und Abstimmungen und durch besondere Organe der Gesetzgebung, der vollziehenden Gewalt und der Rechtsprechung ausgeübt.
   - (3) Die Gesetzgebung ist an die verfassungsmäßige Ordnung, die vollziehende Gewalt und die Rechtsprechung sind an Gesetz und Recht gebunden.
   - (4) Gegen jeden, der es unternimmt, diese Ordnung zu beseitigen, haben alle Deutschen das Recht zum Widerstand, wenn andere Abhilfe nicht möglich ist.
-osakaText: []
+originalTextJapanese:
+  - (1) ドイツ連邦共和国は、民主的かつ社会的な連邦国家である。
+  - (2) すべての国家権力は、国民から発する。国家権力は、国民により、選挙および投票において、ならびに立法、執行権および司法の特別の機関を通じて行使される。
+  - (3) 立法は、憲法的秩序に拘束され、執行権および司法は、法律および法に拘束される。
+  - (4) この秩序を除去することを企てる者に対しては、他に救済が不可能な場合、すべてのドイツ人は抵抗する権利を有する。
+osakaText:
+  - (1) ドイツ連邦共和国は、民主的で社会的な連邦国家やねん。
+  - (2) すべての国家権力は、国民から発するんや。国家権力は、国民により、選挙と投票において、そして立法、執行権、そして司法の特別の機関を通じて行使されるで。
+  - (3) 立法は、憲法的秩序に拘束されて、執行権と司法は、法律と法に拘束されるんや。
+  - (4) この秩序を除去することを企てる者に対しては、他に救済ができへん場合、すべてのドイツ人は抵抗する権利を持っとるんやで。
 commentary: []
 commentaryOsaka: []

@@ -1,6 +1,6 @@
 article: "13"
 title: Art 13
-titleOsaka: ""
+titleOsaka: "第13条"
 originalText:
   - (1) Die Wohnung ist unverletzlich.
   - (2) Durchsuchungen dürfen nur durch den Richter, bei Gefahr im Verzuge auch durch die in den Gesetzen vorgesehenen anderen Organe angeordnet und nur in der dort vorgeschriebenen Form durchgeführt werden.
@@ -9,6 +9,21 @@ originalText:
   - (5) Sind technische Mittel ausschließlich zum Schutze der bei einem Einsatz in Wohnungen tätigen Personen vorgesehen, kann die Maßnahme durch eine gesetzlich bestimmte Stelle angeordnet werden. Eine anderweitige Verwertung der hierbei erlangten Erkenntnisse ist nur zum Zwecke der Strafverfolgung oder der Gefahrenabwehr und nur zulässig, wenn zuvor die Rechtmäßigkeit der Maßnahme richterlich festgestellt ist; bei Gefahr im Verzuge ist die richterliche Entscheidung unverzüglich nachzuholen.
   - (6) Die Bundesregierung unterrichtet den Bundestag jährlich über den nach Absatz 3 sowie über den im Zuständigkeitsbereich des Bundes nach Absatz 4 und, soweit richterlich überprüfungsbedürftig, nach Absatz 5 erfolgten Einsatz technischer Mittel. Ein vom Bundestag gewähltes Gremium übt auf der Grundlage dieses Berichts die parlamentarische Kontrolle aus. Die Länder gewährleisten eine gleichwertige parlamentarische Kontrolle.
   - (7) Eingriffe und Beschränkungen dürfen im übrigen nur zur Abwehr einer gemeinen Gefahr oder einer Lebensgefahr für einzelne Personen, auf Grund eines Gesetzes auch zur Verhütung dringender Gefahren für die öffentliche Sicherheit und Ordnung, insbesondere zur Behebung der Raumnot, zur Bekämpfung von Seuchengefahr oder zum Schutze gefährdeter Jugendlicher vorgenommen werden.
-osakaText: []
+originalTextJapanese:
+  - (1) 住居は、不可侵である。
+  - (2) 捜索は、裁判官によってのみ、緊急の場合には法律に定められた他の機関によっても命じられ、かつそこで定められた方式においてのみ実施されうる。
+  - (3) 特定の事実が、何人かが法律により個別に定められた特に重大な犯罪を犯したとの疑いを根拠づける場合、犯罪の追及のため、裁判官の命令に基づき、被疑者が推定的に滞在する住居の音響監視のための技術的手段を使用することができる。ただし、事実関係の解明が他の方法によっては不相応に困難であるか、または見込みがない場合に限る。措置は、期限を定めなければならない。命令は、3人の裁判官で構成される裁判体により行われる。緊急の場合には、単独の裁判官によっても行われうる。
+  - (4) 公共の安全に対する緊急の危険、特に公共の危険または生命の危険の防止のため、住居の監視のための技術的手段は、裁判官の命令に基づいてのみ使用されうる。緊急の場合には、措置は法律により定められた他の機関によっても命じられうる。裁判官の決定は、遅滞なく補完されなければならない。
+  - (5) 技術的手段が、住居における活動に従事する者の保護のためにのみ予定されている場合、措置は法律により定められた機関により命じられうる。その際に得られた知見の他の目的での利用は、刑事追及または危険防止の目的のためにのみ、かつ措置の合法性が事前に裁判により確認された場合にのみ許される。緊急の場合には、裁判官の決定は遅滞なく補完されなければならない。
+  - (6) 連邦政府は、第3項に基づく、ならびに連邦の管轄範囲内において第4項に基づく、および裁判による審査を必要とする限り第5項に基づく技術的手段の使用について、毎年連邦議会に報告する。連邦議会により選出された委員会は、この報告に基づき議会による統制を行う。州は、同等の議会による統制を保障する。
+  - (7) 侵害および制限は、その他、公共の危険または個人の生命の危険の防止のため、法律に基づき公共の安全および秩序に対する緊急の危険の予防のため、特に住宅不足の解消、伝染病の危険との闘いまたは危険にさらされた青少年の保護のためにのみ行われうる。
+osakaText:
+  - (1) 住居は、侵すことができへんもんや。
+  - (2) 捜索は、裁判官によってのみ、緊急の場合には法律に定められた他の機関によっても命じられて、そしてそこで定められた方式においてのみ実施されるんや。
+  - (3) 特定の事実が、誰かが法律により個別に定められた特に重大な犯罪を犯したとの疑いを根拠づける場合、犯罪の追及のため、裁判官の命令に基づいて、被疑者が推定的に滞在しとる住居の音響監視のための技術的手段を使うことができるんや。ただし、事実関係の解明が他の方法やったら不相応に困難か、または見込みがへん場合に限るで。措置は、期限を定めなあかん。命令は、3人の裁判官で構成される裁判体により行われるんやねん。緊急の場合には、単独の裁判官によっても行われることがあるで。
+  - (4) 公共の安全に対する緊急の危険、特に公共の危険や生命の危険の防止のため、住居の監視のための技術的手段は、裁判官の命令に基づいてのみ使われるんや。緊急の場合には、措置は法律により定められた他の機関によっても命じられることがあるで。裁判官の決定は、遅滞なく補完されなあかん。
+  - (5) 技術的手段が、住居における活動に従事する者の保護のためにのみ予定されとる場合、措置は法律により定められた機関により命じられることがあるんや。その際に得られた知見の他の目的での利用は、刑事追及や危険防止の目的のためにのみ、そして措置の合法性が事前に裁判により確認された場合にのみ許されるで。緊急の場合には、裁判官の決定は遅滞なく補完されなあかんねん。
+  - (6) 連邦政府は、第3項に基づく、そして連邦の管轄範囲内において第4項に基づく、そして裁判による審査が必要な限り第5項に基づく技術的手段の使用について、毎年連邦議会に報告するんや。連邦議会により選出された委員会は、この報告に基づいて議会による統制を行うで。州は、同等の議会による統制を保障するんやねん。
+  - (7) 侵害と制限は、その他、公共の危険や個人の生命の危険の防止のため、法律に基づいて公共の安全や秩序に対する緊急の危険の予防のため、特に住宅不足の解消、伝染病の危険との闘い、または危険にさらされた青少年の保護のためにのみ行われるんや。
 commentary: []
 commentaryOsaka: []
