@@ -1,10 +1,17 @@
 article: "51"
 title: Art 51
-titleOsaka: ""
+titleOsaka: "第51条"
 originalText:
   - (1) Der Bundesrat besteht aus Mitgliedern der Regierungen der Länder, die sie bestellen und abberufen. Sie können durch andere Mitglieder ihrer Regierungen vertreten werden.
   - (2) Jedes Land hat mindestens drei Stimmen, Länder mit mehr als zwei Millionen Einwohnern haben vier, Länder mit mehr als sechs Millionen Einwohnern fünf, Länder mit mehr als sieben Millionen Einwohnern sechs Stimmen.
   - (3) Jedes Land kann so viele Mitglieder entsenden, wie es Stimmen hat. Die Stimmen eines Landes können nur einheitlich und nur durch anwesende Mitglieder oder deren Vertreter abgegeben werden.
-osakaText: []
+originalTextJapanese:
+  - (1) 連邦参議院は、州政府の構成員から成り、州政府がこれを任命しまたは召還する。これらの者は、その政府の他の構成員により代表されることができる。
+  - (2) 各州は、少なくとも3票を有する。人口200万人を超える州は4票を、人口600万人を超える州は5票を、人口700万人を超える州は6票を有する。
+  - (3) 各州は、その有する票数と同数の構成員を派遣することができる。一の州の票は、統一的にかつ出席する構成員またはその代理人によってのみ投じられることができる。
+osakaText:
+  - (1) 連邦参議院は、州政府の構成員から成っとって、州政府がこれを任命したり召還したりするんや。これらの者は、その政府の他の構成員により代表されることができるで。
+  - (2) 各州は、少なくとも3票を持っとる。人口200万人を超える州は4票を、人口600万人を超える州は5票を、人口700万人を超える州は6票を持っとるねん。
+  - (3) 各州は、その持っとる票数と同数の構成員を派遣することができるんや。一の州の票は、統一的に、そして出席する構成員やその代理人によってのみ投じられることができるで。
 commentary: []
 commentaryOsaka: []

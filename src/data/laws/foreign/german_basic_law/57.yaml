@@ -1,8 +1,11 @@
 article: "57"
 title: Art 57
-titleOsaka: ""
+titleOsaka: "第57条"
 originalText:
   - Die Befugnisse des Bundespräsidenten werden im Falle seiner Verhinderung oder bei vorzeitiger Erledigung des Amtes durch den Präsidenten des Bundesrates wahrgenommen.
-osakaText: []
+originalTextJapanese:
+  - 連邦大統領の権限は、その障害の場合またはその職務の早期終了の場合において、連邦参議院議長により行使される。
+osakaText:
+  - 連邦大統領の権限は、その障害の場合や、その職務の早期終了の場合において、連邦参議院議長により行使されるんや。
 commentary: []
 commentaryOsaka: []

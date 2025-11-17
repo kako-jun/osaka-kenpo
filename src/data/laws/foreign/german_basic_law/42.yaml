@@ -1,10 +1,17 @@
 article: "42"
 title: Art 42
-titleOsaka: ""
+titleOsaka: "第42条"
 originalText:
   - (1) Der Bundestag verhandelt öffentlich. Auf Antrag eines Zehntels seiner Mitglieder oder auf Antrag der Bundesregierung kann mit Zweidrittelmehrheit die Öffentlichkeit ausgeschlossen werden. Über den Antrag wird in nichtöffentlicher Sitzung entschieden.
   - (2) Zu einem Beschlusse des Bundestages ist die Mehrheit der abgegebenen Stimmen erforderlich, soweit dieses Grundgesetz nichts anderes bestimmt. Für die vom Bundestage vorzunehmenden Wahlen kann die Geschäftsordnung Ausnahmen zulassen.
   - (3) Wahrheitsgetreue Berichte über die öffentlichen Sitzungen des Bundestages und seiner Ausschüsse bleiben von jeder Verantwortlichkeit frei.
-osakaText: []
+originalTextJapanese:
+  - (1) 連邦議会は、公開で審議する。その議員の10分の1の申立てまたは連邦政府の申立てにより、3分の2の多数で公開を排除することができる。この申立てについては、非公開の会議で決定される。
+  - (2) 連邦議会の決議には、この基本法が別段の定めをしない限り、投票された票の過半数を必要とする。連邦議会が行う選挙については、議事規則は例外を認めることができる。
+  - (3) 連邦議会およびその委員会の公開会議についての真実に基づく報道は、すべての責任から免れる。
+osakaText:
+  - (1) 連邦議会は、公開で審議するんや。その議員の10分の1の申立てや連邦政府の申立てにより、3分の2の多数で公開を排除することができるで。この申立てについては、非公開の会議で決定されるねん。
+  - (2) 連邦議会の決議には、この基本法が別段の定めをせえへん限り、投票された票の過半数を必要とするんや。連邦議会が行う選挙については、議事規則は例外を認めることができるで。
+  - (3) 連邦議会とその委員会の公開会議についての真実に基づく報道は、すべての責任から免れるんやで。
 commentary: []
 commentaryOsaka: []
