@@ -1,10 +1,17 @@
 article: "32"
 title: Art 32
-titleOsaka: ""
+titleOsaka: "第32条"
 originalText:
   - (1) Die Pflege der Beziehungen zu auswärtigen Staaten ist Sache des Bundes.
   - (2) Vor dem Abschlusse eines Vertrages, der die besonderen Verhältnisse eines Landes berührt, ist das Land rechtzeitig zu hören.
   - (3) Soweit die Länder für die Gesetzgebung zuständig sind, können sie mit Zustimmung der Bundesregierung mit auswärtigen Staaten Verträge abschließen.
-osakaText: []
+originalTextJapanese:
+  - (1) 外国との関係の維持は、連邦の事項である。
+  - (2) 州の特殊な事情に関係する条約の締結に先立ち、州は適時に意見を聴取されなければならない。
+  - (3) 州が立法について管轄を有する限りにおいて、州は、連邦政府の同意を得て、外国と条約を締結することができる。
+osakaText:
+  - (1) 外国との関係の維持は、連邦の事項やねん。
+  - (2) 州の特殊な事情に関係する条約の締結に先立って、州は適時に意見を聴取されなあかん。
+  - (3) 州が立法について管轄を有する限りにおいて、州は、連邦政府の同意を得て、外国と条約を締結することができるんや。
 commentary: []
 commentaryOsaka: []
