@@ -1,12 +1,23 @@
 article: 91c
 title: Art 91c
-titleOsaka: ""
+titleOsaka: 第91c条
 originalText:
   - (1) Bund und Länder können bei der Planung, der Errichtung und dem Betrieb der für ihre Aufgabenerfüllung benötigten informationstechnischen Systeme zusammenwirken.
   - (2) Bund und Länder können auf Grund von Vereinbarungen die für die Kommunikation zwischen ihren informationstechnischen Systemen notwendigen Standards und Sicherheitsanforderungen festlegen. Vereinbarungen über die Grundlagen der Zusammenarbeit nach Satz 1 können für einzelne nach Inhalt und Ausmaß bestimmte Aufgaben vorsehen, dass nähere Regelungen bei Zustimmung einer in der Vereinbarung zu bestimmenden qualifizierten Mehrheit für Bund und Länder in Kraft treten. Sie bedürfen der Zustimmung des Bundestages und der Volksvertretungen der beteiligten Länder; das Recht zur Kündigung dieser Vereinbarungen kann nicht ausgeschlossen werden. Die Vereinbarungen regeln auch die Kostentragung.
   - (3) Die Länder können darüber hinaus den gemeinschaftlichen Betrieb informationstechnischer Systeme sowie die Errichtung von dazu bestimmten Einrichtungen vereinbaren.
   - (4) Der Bund errichtet zur Verbindung der informationstechnischen Netze des Bundes und der Länder ein Verbindungsnetz. Das Nähere zur Errichtung und zum Betrieb des Verbindungsnetzes regelt ein Bundesgesetz mit Zustimmung des Bundesrates.
   - (5) Der übergreifende informationstechnische Zugang zu den Verwaltungsleistungen von Bund und Ländern wird durch Bundesgesetz mit Zustimmung des Bundesrates geregelt.
-osakaText: []
+originalTextJapanese:
+  - (1) 連邦およびラントは、それらの任務履行のために必要とされる情報技術システムの計画、設置および運用において協力することができる。
+  - (2) 連邦およびラントは、協定に基づき、それらの情報技術システム間の通信のために必要な標準および安全要件を定めることができる。第1文による協力の基礎に関する協定は、内容および範囲により特定された個別の任務について、協定において定められるべき特別多数の同意により、連邦およびラントについて詳細な規定が発効することを規定することができる。協定は、連邦議会および関係するラントの国民代表の同意を要する。これらの協定の解約の権利は、排除されることができない。協定は、費用の負担も定める。
+  - (3) ラントは、これを超えて、情報技術システムの共同運用ならびにそのために定められた施設の設置を合意することができる。
+  - (4) 連邦は、連邦およびラントの情報技術網を接続するため、接続網を設置する。接続網の設置および運用に関する詳細は、連邦参議院の同意を要する連邦法律により定められる。
+  - (5) 連邦およびラントの行政給付への包括的な情報技術的アクセスは、連邦参議院の同意を要する連邦法律により定められる。
+osakaText:
+  - (1) 連邦とラントは、それらの任務履行のために必要とされる情報技術システムの計画とか設置とか運用で協力できるんや。
+  - (2) 連邦とラントは、協定に基づいて、それらの情報技術システム間の通信のために必要な標準と安全要件を定めることができるんよ。第1文による協力の基礎に関する協定は、内容と範囲で特定された個別の任務について、協定で定められるべき特別多数の同意によって、連邦とラントについて詳しい規定が発効することを規定できるんや。協定は、連邦議会と関係するラントの国民代表の同意がいるんよ。これらの協定の解約の権利は、排除できへんねん。協定は、費用の負担も定めるんや。
+  - (3) ラントは、これを超えて、情報技術システムの共同運用と、そのために定められた施設の設置を合意できるんやで。
+  - (4) 連邦は、連邦とラントの情報技術網を接続するために、接続網を設置するんや。接続網の設置と運用に関する詳しいことは、連邦参議院の同意がいる連邦法律で定めるんよ。
+  - (5) 連邦とラントの行政給付への包括的な情報技術的アクセスは、連邦参議院の同意がいる連邦法律で定めるんやで。
 commentary: []
 commentaryOsaka: []
