@@ -1,8 +1,11 @@
 article: "30"
 title: Art 30
-titleOsaka: ""
+titleOsaka: "第30条"
 originalText:
   - Die Ausübung der staatlichen Befugnisse und die Erfüllung der staatlichen Aufgaben ist Sache der Länder, soweit dieses Grundgesetz keine andere Regelung trifft oder zuläßt.
-osakaText: []
+originalTextJapanese:
+  - 国家権力の行使および国家任務の遂行は、この基本法が他の規律を定めまたは許容しない限り、州の事項である。
+osakaText:
+  - 国家権力の行使と国家任務の遂行は、この基本法が他の規律を定めたり許容したりせえへん限り、州の事項やねん。
 commentary: []
 commentaryOsaka: []

@@ -1,9 +1,14 @@
 article: "22"
 title: Art 22
-titleOsaka: ""
+titleOsaka: "第22条"
 originalText:
   - (1) Die Hauptstadt der Bundesrepublik Deutschland ist Berlin. Die Repräsentation des Gesamtstaates in der Hauptstadt ist Aufgabe des Bundes. Das Nähere wird durch Bundesgesetz geregelt.
   - (2) Die Bundesflagge ist schwarz-rot-gold.
-osakaText: []
+originalTextJapanese:
+  - (1) ドイツ連邦共和国の首都は、ベルリンである。首都における全体国家の代表は、連邦の任務である。詳細は、連邦法律により定められる。
+  - (2) 連邦旗は、黒・赤・金である。
+osakaText:
+  - (1) ドイツ連邦共和国の首都は、ベルリンやねん。首都における全体国家の代表は、連邦の任務や。詳細は、連邦法律により定められるで。
+  - (2) 連邦旗は、黒・赤・金なんや。
 commentary: []
 commentaryOsaka: []
