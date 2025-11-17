@@ -1,10 +1,17 @@
 article: "79"
 title: Art 79
-titleOsaka: ""
+titleOsaka: "第79条"
 originalText:
   - (1) Das Grundgesetz kann nur durch ein Gesetz geändert werden, das den Wortlaut des Grundgesetzes ausdrücklich ändert oder ergänzt. Bei völkerrechtlichen Verträgen, die eine Friedensregelung, die Vorbereitung einer Friedensregelung oder den Abbau einer besatzungsrechtlichen Ordnung zum Gegenstand haben oder der Verteidigung der Bundesrepublik zu dienen bestimmt sind, genügt zur Klarstellung, daß die Bestimmungen des Grundgesetzes dem Abschluß und dem Inkraftsetzen der Verträge nicht entgegenstehen, eine Ergänzung des Wortlautes des Grundgesetzes, die sich auf diese Klarstellung beschränkt.
   - (2) Ein solches Gesetz bedarf der Zustimmung von zwei Dritteln der Mitglieder des Bundestages und zwei Dritteln der Stimmen des Bundesrates.
   - (3) Eine Änderung dieses Grundgesetzes, durch welche die Gliederung des Bundes in Länder, die grundsätzliche Mitwirkung der Länder bei der Gesetzgebung oder die in den Artikeln 1 und 20 niedergelegten Grundsätze berührt werden, ist unzulässig.
-osakaText: []
+originalTextJapanese:
+  - (1) 基本法は、基本法の文言を明示的に変更しまたは補充する法律によってのみ、変更されることができる。平和規律、平和規律の準備または占領法的秩序の解消を対象とし、または連邦共和国の防衛に資することを定められた国際法上の条約については、基本法の規定がこれらの条約の締結および発効に妨げとならないことを明確化するため、この明確化に限定された基本法の文言の補充で足りる。
+  - (2) このような法律は、連邦議会の議員の3分の2および連邦参議院の票の3分の2の同意を必要とする。
+  - (3) 連邦の州への分割、立法における州の基本的参与または第1条および第20条に定める基本原則に影響を及ぼすこの基本法の変更は、許されない。
+osakaText:
+  - (1) 基本法は、基本法の文言を明示的に変更したり補充したりする法律によってのみ、変更されることができるんや。平和規律、平和規律の準備、または占領法的秩序の解消を対象として、または連邦共和国の防衛に資することを定められた国際法上の条約については、基本法の規定がこれらの条約の締結と発効に妨げとならへんことを明確化するため、この明確化に限定された基本法の文言の補充で足りるで。
+  - (2) このような法律は、連邦議会の議員の3分の2と連邦参議院の票の3分の2の同意を必要とするんや。
+  - (3) 連邦の州への分割、立法における州の基本的参与、または第1条と第20条に定める基本原則に影響を及ぼすこの基本法の変更は、許されへんねん。
 commentary: []
 commentaryOsaka: []
