@@ -1,11 +1,18 @@
 article: 27
 isAmendment: true
 title: AMENDMENT XXVII
-titleOsaka: ""
+titleOsaka: "修正第27条"
 originalText:
   - Originally proposed Sept. 25, 1789. Ratified May 7, 1992.
   - No law, varying the compensation for the services of the Senators and Representatives, shall take effect, until an election of Representatives shall have intervened.
   - Back to Constitution Main Page
-osakaText: []
+originalTextJapanese:
+  - 元々1789年9月25日に提案された。1992年5月7日に批准された。
+  - 上院議員及び下院議員の職務に対する報酬を変更する法律は、下院議員の選挙が介在するまで、効力を生じてはならない。
+  - 憲法メインページに戻る
+osakaText:
+  - 元々1789年9月25日に提案されたんや。1992年5月7日に承認されたで。
+  - 上院議員と下院議員の仕事に対する給料を変える法律は、下院議員の選挙が入るまで、効力を持ったらあかんねん。
+  - 憲法メインページに戻る
 commentary: []
 commentaryOsaka: []

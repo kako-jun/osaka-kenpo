@@ -1,11 +1,18 @@
 article: 6
 isAmendment: false
 title: Article. VI.
-titleOsaka: ""
+titleOsaka: "第6条"
 originalText:
   - All Debts contracted and Engagements entered into, before the Adoption of this Constitution, shall be as valid against the United States under this Constitution, as under the Confederation.
   - This Constitution, and the Laws of the United States which shall be made in Pursuance thereof; and all Treaties made, or which shall be made, under the Authority of the United States, shall be the supreme Law of the Land; and the Judges in every State shall be bound thereby, any Thing in the Constitution or Laws of any State to the Contrary notwithstanding.
   - The Senators and Representatives before mentioned, and the Members of the several State Legislatures, and all executive and judicial Officers, both of the United States and of the several States, shall be bound by Oath or Affirmation, to support this Constitution; but no religious Test shall ever be required as a Qualification to any Office or public Trust under the United States.
-osakaText: []
+originalTextJapanese:
+  - この憲法の採択前に契約された全ての債務及び締結された全ての約定は、この憲法の下においても、連合規約の下におけると同様に、合衆国に対して有効である。
+  - この憲法、並びにこれに基づいて制定される合衆国の法律、及び合衆国の権限の下に締結された又は締結される全ての条約は、国の最高法規である。各州の裁判官は、州の憲法又は法律に反する規定があっても、これらに拘束される。
+  - 前記の上院議員及び下院議員、各州の立法府の議員、並びに合衆国及び各州の全ての行政及び司法の官職は、宣誓又は確約により、この憲法を支持する義務を負う。ただし、合衆国の下でのいかなる官職又は公職についても、宗教上の審査が資格要件とされることは決してない。
+osakaText:
+  - この憲法ができる前に契約された全部の借金と結ばれた全部の約束は、この憲法の下でも、連合規約の下やったときと同じように、アメリカに対して有効なんや。
+  - この憲法と、これに基づいて作られるアメリカの法律、それとアメリカの権限の下で結ばれた条約か結ばれる全部の条約は、国の一番上の法規やねん。各州の裁判官は、州の憲法とか法律に反する決まりがあっても、これらに縛られるんやで。
+  - 前に書いた上院議員と下院議員、各州の議会の議員、それとアメリカと各州の全部の行政と司法の役職の人は、宣誓か約束で、この憲法を支持する義務を負うんや。せやけど、アメリカの下でのどんな役職とか公職についても、宗教上の審査が資格の条件にされることは絶対にないんやで。
 commentary: []
 commentaryOsaka: []

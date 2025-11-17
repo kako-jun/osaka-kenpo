@@ -1,13 +1,24 @@
 article: 23
 isAmendment: true
 title: AMENDMENT XXIII
-titleOsaka: ""
+titleOsaka: "修正第23条"
 originalText:
   - Section 1.
   - "The District constituting the seat of Government of the United States shall appoint in such manner as the Congress may direct:"
   - A number of electors of President and Vice President equal to the whole number of Senators and Representatives in Congress to which the District would be entitled if it were a State, but in no event more than the least populous State; they shall be in addition to those appointed by the States, but they shall be considered, for the purposes of the election of President and Vice President, to be electors appointed by a State; and they shall meet in the District and perform such duties as provided by the twelfth article of amendment.
   - Section 2.
   - The Congress shall have power to enforce this article by appropriate legislation.
-osakaText: []
+originalTextJapanese:
+  - 第1節
+  - 合衆国政府の所在地を構成する地区は、連邦議会が指示する方法により、次の選挙人を任命する。
+  - 当該地区が州であった場合に連邦議会において有する権利を有する上院議員及び下院議員の総数に等しい数の大統領及び副大統領の選挙人。ただし、いかなる場合も、人口が最も少ない州を超えてはならない。これらの選挙人は、州により任命される選挙人に追加されるが、大統領及び副大統領の選挙の目的のために、州により任命された選挙人とみなされる。これらの選挙人は、当該地区において会合し、修正第12条により定められた義務を遂行する。
+  - 第2節
+  - 連邦議会は、適切な立法により、この条を実施する権限を有する。
+osakaText:
+  - 第1節
+  - アメリカ政府のあるとこを構成する地区は、連邦議会が指示する方法で、次の選挙人を決めるんや。
+  - その地区が州やったら連邦議会で持つ権利がある上院議員と下院議員の合わせた数と同じ数の大統領と副大統領の選挙人。せやけど、どんな場合も、人口が一番少ない州を超えたらあかんねん。これらの選挙人は、州で決められる選挙人に追加されるんやけど、大統領と副大統領の選挙の目的では、州で決められた選挙人やとみなされるんや。これらの選挙人は、その地区で集まって、修正第12条で決められた義務をやるんやで。
+  - 第2節
+  - 連邦議会は、適切な立法で、この条を実行する権限を持っとるんや。
 commentary: []
 commentaryOsaka: []

@@ -1,9 +1,12 @@
 article: 2
 isAmendment: true
 title: Amendment II
-titleOsaka: ""
+titleOsaka: "修正第2条"
 originalText:
   - A well regulated Militia, being necessary to the security of a free State, the right of the people to keep and bear Arms, shall not be infringed.
-osakaText: []
+originalTextJapanese:
+  - 規律ある民兵は、自由な州の安全にとって必要であるから、市民が武器を保有し携帯する権利は、侵害されてはならない。
+osakaText:
+  - ちゃんと規律がある民兵は、自由な州の安全にとって必要やから、市民が武器を持って携帯する権利は、侵されたらあかんねん。
 commentary: []
 commentaryOsaka: []

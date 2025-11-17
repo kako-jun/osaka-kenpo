@@ -1,9 +1,12 @@
 article: 9
 isAmendment: true
 title: Amendment IX
-titleOsaka: ""
+titleOsaka: "修正第9条"
 originalText:
   - The enumeration in the Constitution, of certain rights, shall not be construed to deny or disparage others retained by the people.
-osakaText: []
+originalTextJapanese:
+  - この憲法において、特定の権利を列挙したことをもって、市民が保持するその他の権利を否定し又は軽視するものと解釈してはならない。
+osakaText:
+  - この憲法で、特定の権利を列挙したことをもって、市民が持っとる他の権利を否定したり軽視したりするもんやと解釈したらあかんねん。
 commentary: []
 commentaryOsaka: []
