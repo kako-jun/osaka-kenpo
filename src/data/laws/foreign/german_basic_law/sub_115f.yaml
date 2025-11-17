@@ -1,9 +1,14 @@
 article: 115f
 title: Art 115f
-titleOsaka: ""
+titleOsaka: 第115f条
 originalText:
   - (1) Die Bundesregierung kann im Verteidigungsfalle, soweit es die Verhältnisse erfordern,
   - (2) Bundestag, Bundesrat und der Gemeinsame Ausschuß sind unverzüglich von den nach Absatz 1 getroffenen Maßnahmen zu unterrichten.
-osakaText: []
+originalTextJapanese:
+  - (1) 連邦政府は、防衛事態において、状況が要求する限り、
+  - (2) 連邦議会、連邦参議院および合同委員会は、第1項により講じられた措置について即座に報告を受けなければならない。
+osakaText:
+  - (1) 連邦政府は、防衛事態のときに、状況が要求する限りで、
+  - (2) 連邦議会と連邦参議院と合同委員会は、第1項によって講じられた措置について即座に報告を受けなあかんねん。
 commentary: []
 commentaryOsaka: []
