@@ -1,10 +1,17 @@
 article: "41"
 title: Art 41
-titleOsaka: ""
+titleOsaka: "第41条"
 originalText:
   - (1) Die Wahlprüfung ist Sache des Bundestages. Er entscheidet auch, ob ein Abgeordneter des Bundestages die Mitgliedschaft verloren hat.
   - (2) Gegen die Entscheidung des Bundestages ist die Beschwerde an das Bundesverfassungsgericht zulässig.
   - (3) Das Nähere regelt ein Bundesgesetz.
-osakaText: []
+originalTextJapanese:
+  - (1) 選挙審査は、連邦議会の事項である。連邦議会は、また、連邦議会の議員が議員資格を喪失したか否かを決定する。
+  - (2) 連邦議会の決定に対しては、連邦憲法裁判所への異議申立てが許される。
+  - (3) 詳細は、連邦法律でこれを規律する。
+osakaText:
+  - (1) 選挙審査は、連邦議会の事項やねん。連邦議会は、また、連邦議会の議員が議員資格を喪失したか否かを決定するんや。
+  - (2) 連邦議会の決定に対しては、連邦憲法裁判所への異議申立てが許されるで。
+  - (3) 詳細は、連邦法律でこれを規律するんや。
 commentary: []
 commentaryOsaka: []
