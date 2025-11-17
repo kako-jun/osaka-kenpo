@@ -1,9 +1,14 @@
 article: "74"
 title: Art 74
-titleOsaka: ""
+titleOsaka: "第74条"
 originalText:
   - "(1) Die konkurrierende Gesetzgebung erstreckt sich auf folgende Gebiete:"
   - (2) Gesetze nach Absatz 1 Nr. 25 und 27 bedürfen der Zustimmung des Bundesrates.
-osakaText: []
+originalTextJapanese:
+  - (1) 競合的立法は、以下の領域に及ぶ。
+  - (2) 第1項第25号および第27号による法律は、連邦参議院の同意を必要とする。
+osakaText:
+  - (1) 競合的立法は、以下の領域に及ぶんや。
+  - (2) 第1項第25号と第27号による法律は、連邦参議院の同意を必要とするで。
 commentary: []
 commentaryOsaka: []

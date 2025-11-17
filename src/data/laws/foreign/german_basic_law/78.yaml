@@ -1,8 +1,11 @@
 article: "78"
 title: Art 78
-titleOsaka: ""
+titleOsaka: "第78条"
 originalText:
   - Ein vom Bundestage beschlossenes Gesetz kommt zustande, wenn der Bundesrat zustimmt, den Antrag gemäß Artikel 77 Abs. 2 nicht stellt, innerhalb der Frist des Artikels 77 Abs. 3 keinen Einspruch einlegt oder ihn zurücknimmt oder wenn der Einspruch vom Bundestage überstimmt wird.
-osakaText: []
+originalTextJapanese:
+  - 連邦議会により議決された法律は、連邦参議院が同意するか、第77条第2項による申立てを行わないか、第77条第3項の期間内に異議を申し立てずもしくはこれを撤回するか、または異議が連邦議会により否決される場合に、成立する。
+osakaText:
+  - 連邦議会により議決された法律は、連邦参議院が同意するか、第77条第2項による申立てを行わへんか、第77条第3項の期間内に異議を申し立てずもしくはこれを撤回するか、または異議が連邦議会により否決される場合に、成立するんや。
 commentary: []
 commentaryOsaka: []

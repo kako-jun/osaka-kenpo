@@ -1,12 +1,23 @@
 article: "77"
 title: Art 77
-titleOsaka: ""
+titleOsaka: "第77条"
 originalText:
   - (1) Die Bundesgesetze werden vom Bundestage beschlossen. Sie sind nach ihrer Annahme durch den Präsidenten des Bundestages unverzüglich dem Bundesrate zuzuleiten.
   - (2) Der Bundesrat kann binnen drei Wochen nach Eingang des Gesetzesbeschlusses verlangen, daß ein aus Mitgliedern des Bundestages und des Bundesrates für die gemeinsame Beratung von Vorlagen gebildeter Ausschuß einberufen wird. Die Zusammensetzung und das Verfahren dieses Ausschusses regelt eine Geschäftsordnung, die vom Bundestag beschlossen wird und der Zustimmung des Bundesrates bedarf. Die in diesen Ausschuß entsandten Mitglieder des Bundesrates sind nicht an Weisungen gebunden. Ist zu einem Gesetze die Zustimmung des Bundesrates erforderlich, so können auch der Bundestag und die Bundesregierung die Einberufung verlangen. Schlägt der Ausschuß eine Änderung des Gesetzesbeschlusses vor, so hat der Bundestag erneut Beschluß zu fassen.
   - (2a) Soweit zu einem Gesetz die Zustimmung des Bundesrates erforderlich ist, hat der Bundesrat, wenn ein Verlangen nach Absatz 2 Satz 1 nicht gestellt oder das Vermittlungsverfahren ohne einen Vorschlag zur Änderung des Gesetzesbeschlusses beendet ist, in angemessener Frist über die Zustimmung Beschluß zu fassen.
   - (3) Soweit zu einem Gesetze die Zustimmung des Bundesrates nicht erforderlich ist, kann der Bundesrat, wenn das Verfahren nach Absatz 2 beendigt ist, gegen ein vom Bundestage beschlossenes Gesetz binnen zwei Wochen Einspruch einlegen. Die Einspruchsfrist beginnt im Falle des Absatzes 2 letzter Satz mit dem Eingange des vom Bundestage erneut gefaßten Beschlusses, in allen anderen Fällen mit dem Eingange der Mitteilung des Vorsitzenden des in Absatz 2 vorgesehenen Ausschusses, daß das Verfahren vor dem Ausschusse abgeschlossen ist.
   - (4) Wird der Einspruch mit der Mehrheit der Stimmen des Bundesrates beschlossen, so kann er durch Beschluß der Mehrheit der Mitglieder des Bundestages zurückgewiesen werden. Hat der Bundesrat den Einspruch mit einer Mehrheit von mindestens zwei Dritteln seiner Stimmen beschlossen, so bedarf die Zurückweisung durch den Bundestag einer Mehrheit von zwei Dritteln, mindestens der Mehrheit der Mitglieder des Bundestages.
-osakaText: []
+originalTextJapanese:
+  - (1) 連邦法律は、連邦議会により議決される。連邦法律は、連邦議会議長による採択後、直ちに連邦参議院に送付されなければならない。
+  - (2) 連邦参議院は、法律決議の到達後3週間以内に、法案の共同審議のために連邦議会および連邦参議院の構成員から成る委員会の招集を要求することができる。この委員会の構成および手続は、連邦議会により議決されかつ連邦参議院の同意を必要とする議事規則により規律される。この委員会に派遣された連邦参議院の構成員は、指示に拘束されない。法律について連邦参議院の同意が必要である場合、連邦議会および連邦政府も招集を要求することができる。委員会が法律決議の変更を提案する場合、連邦議会は再び決議しなければならない。
+  - (2a) 法律について連邦参議院の同意が必要である限り、連邦参議院は、第2項第1文による要求がなされず、または調停手続が法律決議の変更の提案なしに終了した場合、適切な期間内に同意について決議しなければならない。
+  - (3) 法律について連邦参議院の同意が必要でない限り、連邦参議院は、第2項による手続が終了した場合、連邦議会により議決された法律に対し2週間以内に異議を申し立てることができる。異議申立期間は、第2項最終文の場合には連邦議会により再び決議された決議の到達とともに、その他のすべての場合には第2項に定める委員会の委員長からの委員会における手続が終了した旨の通知の到達とともに開始する。
+  - (4) 異議が連邦参議院の票の過半数により議決された場合、これは連邦議会の議員の過半数の決議により却下されることができる。連邦参議院が異議を少なくともその票の3分の2の多数により議決した場合、連邦議会による却下は、3分の2の多数、少なくとも連邦議会の議員の過半数を必要とする。
+osakaText:
+  - (1) 連邦法律は、連邦議会により議決されるんや。連邦法律は、連邦議会議長による採択後、直ちに連邦参議院に送付されなあかんねん。
+  - (2) 連邦参議院は、法律決議の到達後3週間以内に、法案の共同審議のために連邦議会と連邦参議院の構成員から成る委員会の招集を要求することができるで。この委員会の構成と手続は、連邦議会により議決されて連邦参議院の同意を必要とする議事規則により規律されるんや。この委員会に派遣された連邦参議院の構成員は、指示に拘束されへんねん。法律について連邦参議院の同意が必要である場合、連邦議会と連邦政府も招集を要求することができるで。委員会が法律決議の変更を提案する場合、連邦議会は再び決議せなあかんのや。
+  - (2a) 法律について連邦参議院の同意が必要である限り、連邦参議院は、第2項第1文による要求がなされず、または調停手続が法律決議の変更の提案なしに終了した場合、適切な期間内に同意について決議せなあかんねん。
+  - (3) 法律について連邦参議院の同意が必要やない限り、連邦参議院は、第2項による手続が終了した場合、連邦議会により議決された法律に対して2週間以内に異議を申し立てることができるんや。異議申立期間は、第2項最終文の場合には連邦議会により再び決議された決議の到達とともに、その他のすべての場合には第2項に定める委員会の委員長からの委員会における手続が終了した旨の通知の到達とともに開始するで。
+  - (4) 異議が連邦参議院の票の過半数により議決された場合、これは連邦議会の議員の過半数の決議により却下されることができるねん。連邦参議院が異議を少なくともその票の3分の2の多数により議決した場合、連邦議会による却下は、3分の2の多数、少なくとも連邦議会の議員の過半数を必要とするんや。
 commentary: []
 commentaryOsaka: []
