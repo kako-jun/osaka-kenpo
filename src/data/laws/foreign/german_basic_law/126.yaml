@@ -1,8 +1,11 @@
 article: "126"
 title: Art 126
-titleOsaka: ""
+titleOsaka: "第126条"
 originalText:
   - Meinungsverschiedenheiten über das Fortgelten von Recht als Bundesrecht entscheidet das Bundesverfassungsgericht.
-osakaText: []
+originalTextJapanese:
+  - "法が連邦法として効力を有し続けるかどうかについての意見の相違は、連邦憲法裁判所が決定する。"
+osakaText:
+  - "法律が連邦法として効力を持ち続けるかどうかについての意見の違いは、連邦憲法裁判所が決めるんや。"
 commentary: []
 commentaryOsaka: []
