@@ -1,8 +1,11 @@
 article: "112"
 title: Art 112
-titleOsaka: ""
+titleOsaka: "第112条"
 originalText:
   - Überplanmäßige und außerplanmäßige Ausgaben bedürfen der Zustimmung des Bundesministers der Finanzen. Sie darf nur im Falle eines unvorhergesehenen und unabweisbaren Bedürfnisses erteilt werden. Näheres kann durch Bundesgesetz bestimmt werden.
-osakaText: []
+originalTextJapanese:
+  - "予算超過支出および予算外支出には、連邦財務大臣の同意を必要とする。同意は、予見できず、かつ避けられない必要性がある場合にのみ与えることができる。詳細は、連邦法律により定めることができる。"
+osakaText:
+  - "予算を超える支出と予算に入ってない支出は、連邦の財務大臣の同意がいるんや。同意は、予想できへんくて、どうしても避けられへん必要性があるときだけ出せるんやで。詳しいことは、連邦法律で決められるんや。"
 commentary: []
 commentaryOsaka: []

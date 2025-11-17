@@ -1,9 +1,14 @@
 article: "111"
 title: Art 111
-titleOsaka: ""
+titleOsaka: "第111条"
 originalText:
   - (1) Ist bis zum Schluß eines Rechnungsjahres der Haushaltsplan für das folgende Jahr nicht durch Gesetz festgestellt, so ist bis zu seinem Inkrafttreten die Bundesregierung ermächtigt, alle Ausgaben zu leisten, die nötig sind,
   - (2) Soweit nicht auf besonderem Gesetze beruhende Einnahmen aus Steuern, Abgaben und sonstigen Quellen oder die Betriebsmittelrücklage die Ausgaben unter Absatz 1 decken, darf die Bundesregierung die zur Aufrechterhaltung der Wirtschaftsführung erforderlichen Mittel bis zur Höhe eines Viertels der Endsumme des abgelaufenen Haushaltsplanes im Wege des Kredits flüssig machen.
-osakaText: []
+originalTextJapanese:
+  - "(1) 会計年度の終了までに翌年の予算が法律により確定されない場合には、その発効まで、連邦政府は、以下のために必要なすべての支出を行う権限を有する。"
+  - "(2) 特別な法律に基づく租税、賦課金およびその他の財源からの収入または運転資金準備金が第1項の支出を賄わない限りにおいて、連邦政府は、経済運営の維持に必要な資金を、前会計年度の予算の最終総額の4分の1までの額において、借入れにより調達することができる。"
+osakaText:
+  - "(1) 会計年度が終わるまでに次の年の予算が法律で決まらへんかったら、それが効力を持つまで、連邦政府は必要な支出を全部する権限があるんや。"
+  - "(2) 特別な法律に基づく税金、賦課金、その他のお金からの収入とか運転資金の積立金が第1項の支出をカバーできへん分については、連邦政府は、経済の運営を続けるのに必要なお金を、前の会計年度の予算の最後の総額の4分の1まで、借金で調達できるんやで。"
 commentary: []
 commentaryOsaka: []
