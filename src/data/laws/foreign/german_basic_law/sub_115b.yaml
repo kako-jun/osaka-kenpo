@@ -1,8 +1,11 @@
 article: 115b
 title: Art 115b
-titleOsaka: ""
+titleOsaka: 第115b条
 originalText:
   - Mit der Verkündung des Verteidigungsfalles geht die Befehls- und Kommandogewalt über die Streitkräfte auf den Bundeskanzler über.
-osakaText: []
+originalTextJapanese:
+  - 防衛事態の公布とともに、軍隊に対する命令権および指揮権は、連邦首相に移転する。
+osakaText:
+  - 防衛事態の公布とともに、軍隊に対する命令権と指揮権は、連邦首相に移るんや。
 commentary: []
 commentaryOsaka: []
