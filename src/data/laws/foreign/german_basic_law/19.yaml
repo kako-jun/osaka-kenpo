@@ -1,11 +1,20 @@
 article: "19"
 title: Art 19
-titleOsaka: ""
+titleOsaka: "第19条"
 originalText:
   - (1) Soweit nach diesem Grundgesetz ein Grundrecht durch Gesetz oder auf Grund eines Gesetzes eingeschränkt werden kann, muß das Gesetz allgemein und nicht nur für den Einzelfall gelten. Außerdem muß das Gesetz das Grundrecht unter Angabe des Artikels nennen.
   - (2) In keinem Falle darf ein Grundrecht in seinem Wesensgehalt angetastet werden.
   - (3) Die Grundrechte gelten auch für inländische juristische Personen, soweit sie ihrem Wesen nach auf diese anwendbar sind.
   - (4) Wird jemand durch die öffentliche Gewalt in seinen Rechten verletzt, so steht ihm der Rechtsweg offen. Soweit eine andere Zuständigkeit nicht begründet ist, ist der ordentliche Rechtsweg gegeben. Artikel 10 Abs. 2 Satz 2 bleibt unberührt.
-osakaText: []
+originalTextJapanese:
+  - (1) この基本法により基本権が法律により、または法律に基づいて制限されうる限りにおいて、法律は一般的に妥当し、かつ個別事例についてのみ妥当してはならない。さらに、法律は、条文を示して基本権を明示しなければならない。
+  - (2) いかなる場合にも、基本権はその本質的内容において侵害されてはならない。
+  - (3) 基本権は、その性質上これに適用可能である限りにおいて、国内の法人についても妥当する。
+  - (4) 何人かが公権力によりその権利を侵害された場合、その者には出訴の途が開かれている。他の管轄が根拠づけられない限りにおいて、通常の出訴の途が与えられている。第10条第2項第2文は、影響を受けない。
+osakaText:
+  - (1) この基本法により基本権が法律により、または法律に基づいて制限されることがある限りにおいて、法律は一般的に妥当して、そして個別事例についてのみ妥当したらあかん。さらに、法律は、条文を示して基本権を明示せなあかんねん。
+  - (2) どんな場合でも、基本権はその本質的内容において侵害されたらあかんで。
+  - (3) 基本権は、その性質上これに適用できる限りにおいて、国内の法人についても妥当するんや。
+  - (4) 誰かが公権力によりその権利を侵害された場合、その者には出訴の途が開かれとるんやで。他の管轄が根拠づけられへん限りにおいて、通常の出訴の途が与えられとる。第10条第2項第2文は、影響を受けへん。
 commentary: []
 commentaryOsaka: []

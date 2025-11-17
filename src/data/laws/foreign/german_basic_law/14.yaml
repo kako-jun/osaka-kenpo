@@ -1,10 +1,17 @@
 article: "14"
 title: Art 14
-titleOsaka: ""
+titleOsaka: "第14条"
 originalText:
   - (1) Das Eigentum und das Erbrecht werden gewährleistet. Inhalt und Schranken werden durch die Gesetze bestimmt.
   - (2) Eigentum verpflichtet. Sein Gebrauch soll zugleich dem Wohle der Allgemeinheit dienen.
   - (3) Eine Enteignung ist nur zum Wohle der Allgemeinheit zulässig. Sie darf nur durch Gesetz oder auf Grund eines Gesetzes erfolgen, das Art und Ausmaß der Entschädigung regelt. Die Entschädigung ist unter gerechter Abwägung der Interessen der Allgemeinheit und der Beteiligten zu bestimmen. Wegen der Höhe der Entschädigung steht im Streitfalle der Rechtsweg vor den ordentlichen Gerichten offen.
-osakaText: []
+originalTextJapanese:
+  - (1) 所有権および相続権は、保障される。その内容および限界は、法律により定められる。
+  - (2) 所有権は、義務を伴う。その行使は、同時に公共の福祉に資するべきである。
+  - (3) 収用は、公共の福祉のためにのみ許される。収用は、補償の種類および範囲を定める法律により、または法律に基づいてのみ行われうる。補償は、公共の利益と関係者の利益を公正に衡量して定められなければならない。補償の額については、争いがある場合、通常裁判所への出訴の途が開かれている。
+osakaText:
+  - (1) 所有権と相続権は、保障されるんや。その内容と限界は、法律により定められるで。
+  - (2) 所有権は、義務を伴うんやねん。その行使は、同時に公共の福祉に資するべきや。
+  - (3) 収用は、公共の福祉のためにのみ許されるんや。収用は、補償の種類と範囲を定める法律により、または法律に基づいてのみ行われるで。補償は、公共の利益と関係者の利益を公正に衡量して定められなあかん。補償の額については、争いがある場合、通常裁判所への出訴の途が開かれとるんやねん。
 commentary: []
 commentaryOsaka: []
