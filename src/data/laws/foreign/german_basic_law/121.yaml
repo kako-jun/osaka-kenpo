@@ -1,8 +1,11 @@
 article: "121"
 title: Art 121
-titleOsaka: ""
+titleOsaka: "第121条"
 originalText:
   - Mehrheit der Mitglieder des Bundestages und der Bundesversammlung im Sinne dieses Grundgesetzes ist die Mehrheit ihrer gesetzlichen Mitgliederzahl.
-osakaText: []
+originalTextJapanese:
+  - "この基本法の意味における連邦議会および連邦会議の構成員の過半数とは、その法定構成員数の過半数である。"
+osakaText:
+  - "この基本法で言う連邦議会と連邦会議のメンバーの過半数っちゅうのは、その法定メンバー数の過半数のことやで。"
 commentary: []
 commentaryOsaka: []

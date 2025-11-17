@@ -1,8 +1,11 @@
 article: "124"
 title: Art 124
-titleOsaka: ""
+titleOsaka: "第124条"
 originalText:
   - Recht, das Gegenstände der ausschließlichen Gesetzgebung des Bundes betrifft, wird innerhalb seines Geltungsbereiches Bundesrecht.
-osakaText: []
+originalTextJapanese:
+  - "連邦の専属的立法事項に関する法は、その適用範囲内において連邦法となる。"
+osakaText:
+  - "連邦の専属的立法事項に関する法律は、その適用範囲内で連邦法になるんや。"
 commentary: []
 commentaryOsaka: []
