@@ -1,10 +1,17 @@
 article: "145"
 title: Art 145
-titleOsaka: ""
+titleOsaka: "第145条"
 originalText:
   - (1) Der Parlamentarische Rat stellt in öffentlicher Sitzung unter Mitwirkung der Abgeordneten Groß-Berlins die Annahme dieses Grundgesetzes fest, fertigt es aus und verkündet es.
   - (2) Dieses Grundgesetz tritt mit Ablauf des Tages der Verkündung in Kraft.
   - (3) Es ist im Bundesgesetzblatte zu veröffentlichen.
-osakaText: []
+originalTextJapanese:
+  - "(1) 国会議事堂評議会は、大ベルリンの議員の協力の下で公開会議においてこの基本法の承認を確認し、これを作成し、公布する。"
+  - "(2) この基本法は、公布の日の終了とともに発効する。"
+  - "(3) これは、連邦法律公報において公表されなければならない。"
+osakaText:
+  - "(1) 国会議事堂評議会は、大ベルリンの議員が協力して公開の会議でこの基本法が承認されたことを確認して、これを作って、公布するんや。"
+  - "(2) この基本法は、公布の日が終わったときに効力を持つんやで。"
+  - "(3) これは、連邦法律公報で公表せなあかんねん。"
 commentary: []
 commentaryOsaka: []

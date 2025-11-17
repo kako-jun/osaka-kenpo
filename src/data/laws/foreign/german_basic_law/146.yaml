@@ -1,8 +1,11 @@
 article: "146"
 title: Art 146
-titleOsaka: ""
+titleOsaka: "第146条"
 originalText:
   - Dieses Grundgesetz, das nach Vollendung der Einheit und Freiheit Deutschlands für das gesamte deutsche Volk gilt, verliert seine Gültigkeit an dem Tage, an dem eine Verfassung in Kraft tritt, die von dem deutschen Volke in freier Entscheidung beschlossen worden ist.
-osakaText: []
+originalTextJapanese:
+  - "ドイツの統一と自由の完成後に全ドイツ国民に対して適用されるこの基本法は、ドイツ国民により自由な決定において議決された憲法が発効する日にその効力を失う。"
+osakaText:
+  - "ドイツの統一と自由が完成した後に全ドイツ国民に対して適用されるこの基本法は、ドイツ国民が自由な決定で決めた憲法が効力を持つ日にその効力を失うんや。"
 commentary: []
 commentaryOsaka: []
