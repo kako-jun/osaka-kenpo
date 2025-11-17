@@ -1,10 +1,15 @@
 article: 16
 isAmendment: true
 title: AMENDMENT XVI
-titleOsaka: ""
+titleOsaka: "修正第16条"
 originalText:
   - "Note: Article I, section 9, of the Constitution was modified by amendment 16."
   - The Congress shall have power to lay and collect taxes on incomes, from whatever source derived, without apportionment among the several States, and without regard to any census or enumeration.
-osakaText: []
+originalTextJapanese:
+  - 注：憲法第1条第9節は、修正第16条により修正された。
+  - 連邦議会は、いかなる源泉から得られたものであるかを問わず、所得に対して租税を賦課し徴収する権限を有する。これは、各州への配分によらず、また、いかなる人口調査又は算定にも関係なく行われる。
+osakaText:
+  - 注：憲法第1条第9節は、修正第16条で修正されたんや。
+  - 連邦議会は、どんな源泉から得られたもんかを問わず、所得に対して税金をかけて取り立てる権限を持っとるんや。これは、各州への配分によらんで、どんな人口調査とか計算にも関係なくやられるんやで。
 commentary: []
 commentaryOsaka: []

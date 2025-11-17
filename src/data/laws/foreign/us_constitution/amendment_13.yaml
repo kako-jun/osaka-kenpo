@@ -1,13 +1,24 @@
 article: 13
 isAmendment: true
 title: AMENDMENT XIII
-titleOsaka: ""
+titleOsaka: "修正第13条"
 originalText:
   - "Note: A portion of Article IV, section 2, of the Constitution was superseded by the 13th amendment."
   - Section 1.
   - Neither slavery nor involuntary servitude, except as a punishment for crime whereof the party shall have been duly convicted, shall exist within the United States, or any place subject to their jurisdiction.
   - Section 2.
   - Congress shall have power to enforce this article by appropriate legislation.
-osakaText: []
+originalTextJapanese:
+  - 注：憲法第4条第2節の一部は、修正第13条により廃止された。
+  - 第1節
+  - 奴隷制及び本人の意に反する労役は、当事者が正当に有罪とされた犯罪に対する刑罰である場合を除き、合衆国内又はその管轄に服するいかなる場所においても、存在してはならない。
+  - 第2節
+  - 連邦議会は、適切な立法により、この条を実施する権限を有する。
+osakaText:
+  - 注：憲法第4条第2節の一部は、修正第13条で廃止されたんや。
+  - 第1節
+  - 奴隷制と本人の意に反する労役は、当事者がちゃんと有罪になった犯罪に対する刑罰の場合を除いて、アメリカ国内とかその管轄下のどんなとこでも、存在したらあかんねん。
+  - 第2節
+  - 連邦議会は、適切な立法で、この条を実行する権限を持っとるんや。
 commentary: []
 commentaryOsaka: []

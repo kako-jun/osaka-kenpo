@@ -1,9 +1,12 @@
 article: 7
 isAmendment: true
 title: Amendment VII
-titleOsaka: ""
+titleOsaka: "修正第7条"
 originalText:
   - In Suits at common law, where the value in controversy shall exceed twenty dollars, the right of trial by jury shall be preserved, and no fact tried by a jury, shall be otherwise re-examined in any Court of the United States, than according to the rules of the common law.
-osakaText: []
+originalTextJapanese:
+  - コモン・ローによる訴訟において、争いの価額が20ドルを超える場合、陪審による裁判を受ける権利は、保障される。陪審により審理された事実は、コモン・ローの規則によるほか、合衆国のいかなる裁判所においても、再審理されてはならない。
+osakaText:
+  - コモン・ローによる訴訟で、争いの価額が20ドルを超える場合、陪審による裁判を受ける権利は、保障されるんや。陪審で審理された事実は、コモン・ローの規則によるほか、アメリカのどの裁判所でも、もう一回審理されたらあかんねん。
 commentary: []
 commentaryOsaka: []
