@@ -1,9 +1,14 @@
 article: "64"
 title: Art 64
-titleOsaka: ""
+titleOsaka: "第64条"
 originalText:
   - (1) Die Bundesminister werden auf Vorschlag des Bundeskanzlers vom Bundespräsidenten ernannt und entlassen.
   - (2) Der Bundeskanzler und die Bundesminister leisten bei der Amtsübernahme vor dem Bundestage den in Artikel 56 vorgesehenen Eid.
-osakaText: []
+originalTextJapanese:
+  - (1) 連邦大臣は、連邦首相の提案により、連邦大統領により任命されまたは罷免される。
+  - (2) 連邦首相および連邦大臣は、職務の引受けに際し、連邦議会の前で第56条に定める宣誓を行う。
+osakaText:
+  - (1) 連邦大臣は、連邦首相の提案により、連邦大統領により任命されたり罷免されたりするんや。
+  - (2) 連邦首相と連邦大臣は、職務の引受けに際して、連邦議会の前で第56条に定める宣誓を行うで。
 commentary: []
 commentaryOsaka: []
