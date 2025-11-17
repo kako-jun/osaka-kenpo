@@ -1,8 +1,11 @@
 article: "99"
 title: Art 99
-titleOsaka: ""
+titleOsaka: "第99条"
 originalText:
   - Dem Bundesverfassungsgerichte kann durch Landesgesetz die Entscheidung von Verfassungsstreitigkeiten innerhalb eines Landes, den in Artikel 95 Abs. 1 genannten obersten Gerichtshöfen für den letzten Rechtszug die Entscheidung in solchen Sachen zugewiesen werden, bei denen es sich um die Anwendung von Landesrecht handelt.
-osakaText: []
+originalTextJapanese:
+  - 州法律により、州内の憲法争訟の裁判が連邦憲法裁判所に、州法の適用に関する事項における最終審の裁判が第95条第1項に掲げる最上級裁判所に付与されることができる。
+osakaText:
+  - 州法律により、州内の憲法争訟の裁判が連邦憲法裁判所に、州法の適用に関する事項における最終審の裁判が第95条第1項に掲げる最上級裁判所に付与されることができるんや。
 commentary: []
 commentaryOsaka: []
