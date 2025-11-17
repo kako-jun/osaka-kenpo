@@ -1,8 +1,11 @@
 article: "139"
 title: Art 139
-titleOsaka: ""
+titleOsaka: "第139条"
 originalText:
   - Die zur "Befreiung des deutschen Volkes vom Nationalsozialismus und Militarismus" erlassenen Rechtsvorschriften werden von den Bestimmungen dieses Grundgesetzes nicht berührt.
-osakaText: []
+originalTextJapanese:
+  - "「ドイツ国民の国家社会主義および軍国主義からの解放」のために発令された法規範は、この基本法の規定により影響を受けない。"
+osakaText:
+  - "「ドイツ国民の国家社会主義と軍国主義からの解放」のために出された法規範は、この基本法の規定の影響を受けへんねん。"
 commentary: []
 commentaryOsaka: []

@@ -1,8 +1,11 @@
 article: "27"
 title: Art 27
-titleOsaka: ""
+titleOsaka: "第27条"
 originalText:
   - Alle deutschen Kauffahrteischiffe bilden eine einheitliche Handelsflotte.
-osakaText: []
+originalTextJapanese:
+  - すべてのドイツ商船は、統一的な商船隊を形成する。
+osakaText:
+  - すべてのドイツ商船は、統一的な商船隊を形成するんや。
 commentary: []
 commentaryOsaka: []

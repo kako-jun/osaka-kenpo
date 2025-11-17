@@ -1,8 +1,11 @@
 article: "17"
 title: Art 17
-titleOsaka: ""
+titleOsaka: "第17条"
 originalText:
   - Jedermann hat das Recht, sich einzeln oder in Gemeinschaft mit anderen schriftlich mit Bitten oder Beschwerden an die zuständigen Stellen und an die Volksvertretung zu wenden.
-osakaText: []
+originalTextJapanese:
+  - 何人も、単独でまたは他の者と共同して、書面により、請願または苦情を管轄官庁および国民代表に提出する権利を有する。
+osakaText:
+  - 誰でも、単独で、または他の者と一緒に、書面により、請願や苦情を管轄官庁と国民代表に提出する権利を持っとるんや。
 commentary: []
 commentaryOsaka: []

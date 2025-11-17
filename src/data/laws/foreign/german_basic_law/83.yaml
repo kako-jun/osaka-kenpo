@@ -1,8 +1,11 @@
 article: "83"
 title: Art 83
-titleOsaka: ""
+titleOsaka: "第83条"
 originalText:
   - Die Länder führen die Bundesgesetze als eigene Angelegenheit aus, soweit dieses Grundgesetz nichts anderes bestimmt oder zuläßt.
-osakaText: []
+originalTextJapanese:
+  - 州は、この基本法が別段の定めをせずまたは許容しない限り、連邦法律を固有の事項として執行する。
+osakaText:
+  - 州は、この基本法が別段の定めをせず、または許容せえへん限り、連邦法律を固有の事項として執行するんや。
 commentary: []
 commentaryOsaka: []

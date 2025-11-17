@@ -1,11 +1,20 @@
 article: "110"
 title: Art 110
-titleOsaka: ""
+titleOsaka: "第110条"
 originalText:
   - (1) Alle Einnahmen und Ausgaben des Bundes sind in den Haushaltsplan einzustellen; bei Bundesbetrieben und bei Sondervermögen brauchen nur die Zuführungen oder die Ablieferungen eingestellt zu werden. Der Haushaltsplan ist in Einnahme und Ausgabe auszugleichen.
   - (2) Der Haushaltsplan wird für ein oder mehrere Rechnungsjahre, nach Jahren getrennt, vor Beginn des ersten Rechnungsjahres durch das Haushaltsgesetz festgestellt. Für Teile des Haushaltsplanes kann vorgesehen werden, daß sie für unterschiedliche Zeiträume, nach Rechnungsjahren getrennt, gelten.
   - (3) Die Gesetzesvorlage nach Absatz 2 Satz 1 sowie Vorlagen zur Änderung des Haushaltsgesetzes und des Haushaltsplanes werden gleichzeitig mit der Zuleitung an den Bundesrat beim Bundestage eingebracht; der Bundesrat ist berechtigt, innerhalb von sechs Wochen, bei Änderungsvorlagen innerhalb von drei Wochen, zu den Vorlagen Stellung zu nehmen.
   - (4) In das Haushaltsgesetz dürfen nur Vorschriften aufgenommen werden, die sich auf die Einnahmen und die Ausgaben des Bundes und auf den Zeitraum beziehen, für den das Haushaltsgesetz beschlossen wird. Das Haushaltsgesetz kann vorschreiben, daß die Vorschriften erst mit der Verkündung des nächsten Haushaltsgesetzes oder bei Ermächtigung nach Artikel 115 zu einem späteren Zeitpunkt außer Kraft treten.
-osakaText: []
+originalTextJapanese:
+  - "(1) 連邦のすべての収入および支出は、予算に計上しなければならない。連邦企業および特別財産については、繰入れまたは納入のみを計上すれば足りる。予算は、収入と支出において均衡させなければならない。"
+  - "(2) 予算は、一つまたは複数の会計年度について、年度ごとに区分して、最初の会計年度の開始前に予算法により確定される。予算の一部については、異なる期間について、会計年度ごとに区分して適用されることを定めることができる。"
+  - "(3) 第2項第1文による法律案ならびに予算法および予算の変更案は、連邦参議院への送付と同時に連邦議会に提出される。連邦参議院は、6週間以内に、変更案については3週間以内に、これらの案に対して意見を述べる権利を有する。"
+  - "(4) 予算法には、連邦の収入および支出ならびに予算法が決定される期間に関する規定のみを含めることができる。予算法は、これらの規定が次の予算法の公布時に、または第115条による授権の場合にはより後の時点で効力を失うことを定めることができる。"
+osakaText:
+  - "(1) 連邦の収入と支出は全部、予算に載せなあかんねん。連邦の企業と特別財産については、繰り入れるやつか納めるやつだけ載せたらええんや。予算は、収入と支出でバランス取らなあかんで。"
+  - "(2) 予算は、一つか複数の会計年度について、年度ごとに分けて、最初の会計年度が始まる前に予算法で決めるんや。予算の一部については、違う期間について、会計年度ごとに分けて使うって決めることもできるで。"
+  - "(3) 第2項第1文の法律案と、予算法と予算を変える案は、連邦参議院に送るのと同時に連邦議会に出すんや。連邦参議院は、6週間以内に、変える案やったら3週間以内に、この案について意見を言う権利があるんやで。"
+  - "(4) 予算法には、連邦の収入と支出、それと予算法が決まる期間に関係する規定だけ入れられるんや。予算法は、この規定が次の予算法が公布されるときか、第115条の授権の場合はもっと後のときに効力を失うって決められるで。"
 commentary: []
 commentaryOsaka: []

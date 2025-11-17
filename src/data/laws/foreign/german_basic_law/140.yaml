@@ -1,8 +1,11 @@
 article: "140"
 title: Art 140
-titleOsaka: ""
+titleOsaka: "第140条"
 originalText:
   - Die Bestimmungen der Artikel 136, 137, 138, 139 und 141 der deutschen Verfassung vom 11. August 1919 sind Bestandteil dieses Grundgesetzes.
-osakaText: []
+originalTextJapanese:
+  - "1919年8月11日のドイツ憲法の第136条、第137条、第138条、第139条および第141条の規定は、この基本法の構成部分である。"
+osakaText:
+  - "1919年8月11日のドイツ憲法の第136条、第137条、第138条、第139条、第141条の規定は、この基本法の一部やで。"
 commentary: []
 commentaryOsaka: []

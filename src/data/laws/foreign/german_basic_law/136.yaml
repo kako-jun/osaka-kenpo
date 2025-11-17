@@ -1,9 +1,14 @@
 article: "136"
 title: Art 136
-titleOsaka: ""
+titleOsaka: "第136条"
 originalText:
   - (1) Der Bundesrat tritt erstmalig am Tage des ersten Zusammentrittes des Bundestages zusammen.
   - (2) Bis zur Wahl des ersten Bundespräsidenten werden dessen Befugnisse von dem Präsidenten des Bundesrates ausgeübt. Das Recht der Auflösung des Bundestages steht ihm nicht zu.
-osakaText: []
+originalTextJapanese:
+  - "(1) 連邦参議院は、連邦議会の最初の招集の日に初めて召集される。"
+  - "(2) 最初の連邦大統領の選挙まで、その権限は連邦参議院議長により行使される。連邦議会の解散権は、連邦参議院議長には認められない。"
+osakaText:
+  - "(1) 連邦参議院は、連邦議会が最初に集まる日に初めて召集されるんや。"
+  - "(2) 最初の連邦大統領の選挙までは、その権限は連邦参議院の議長が行使するで。連邦議会を解散する権利は、議長にはないんや。"
 commentary: []
 commentaryOsaka: []

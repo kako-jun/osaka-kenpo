@@ -1,8 +1,11 @@
 article: "62"
 title: Art 62
-titleOsaka: ""
+titleOsaka: "第62条"
 originalText:
   - Die Bundesregierung besteht aus dem Bundeskanzler und aus den Bundesministern.
-osakaText: []
+originalTextJapanese:
+  - 連邦政府は、連邦首相および連邦大臣から成る。
+osakaText:
+  - 連邦政府は、連邦首相と連邦大臣から成っとるんや。
 commentary: []
 commentaryOsaka: []

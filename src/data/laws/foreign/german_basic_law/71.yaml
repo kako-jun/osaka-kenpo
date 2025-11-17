@@ -1,8 +1,11 @@
 article: "71"
 title: Art 71
-titleOsaka: ""
+titleOsaka: "第71条"
 originalText:
   - Im Bereiche der ausschließlichen Gesetzgebung des Bundes haben die Länder die Befugnis zur Gesetzgebung nur, wenn und soweit sie hierzu in einem Bundesgesetze ausdrücklich ermächtigt werden.
-osakaText: []
+originalTextJapanese:
+  - 連邦の専属的立法の範囲において、州は、連邦法律において明示的に授権される場合に限り、かつその範囲でのみ、立法権限を有する。
+osakaText:
+  - 連邦の専属的立法の範囲において、州は、連邦法律において明示的に授権される場合に限って、そしてその範囲でのみ、立法権限を持っとるんや。
 commentary: []
 commentaryOsaka: []

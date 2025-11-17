@@ -1,11 +1,20 @@
 article: "129"
 title: Art 129
-titleOsaka: ""
+titleOsaka: "第129条"
 originalText:
   - (1) Soweit in Rechtsvorschriften, die als Bundesrecht fortgelten, eine Ermächtigung zum Erlasse von Rechtsverordnungen oder allgemeinen Verwaltungsvorschriften sowie zur Vornahme von Verwaltungsakten enthalten ist, geht sie auf die nunmehr sachlich zuständigen Stellen über. In Zweifelsfällen entscheidet die Bundesregierung im Einvernehmen mit dem Bundesrate; die Entscheidung ist zu veröffentlichen.
   - (2) Soweit in Rechtsvorschriften, die als Landesrecht fortgelten, eine solche Ermächtigung enthalten ist, wird sie von den nach Landesrecht zuständigen Stellen ausgeübt.
   - (3) Soweit Rechtsvorschriften im Sinne der Absätze 1 und 2 zu ihrer Änderung oder Ergänzung oder zum Erlaß von Rechtsvorschriften an Stelle von Gesetzen ermächtigen, sind diese Ermächtigungen erloschen.
   - (4) Die Vorschriften der Absätze 1 und 2 gelten entsprechend, soweit in Rechtsvorschriften auf nicht mehr geltende Vorschriften oder nicht mehr bestehende Einrichtungen verwiesen ist.
-osakaText: []
+originalTextJapanese:
+  - "(1) 連邦法として効力を有し続ける法規範において、法規命令または一般的行政規則の発令ならびに行政行為の実施の授権が含まれる限りにおいて、これは現在事項的に権限を有する機関に移転する。疑わしい場合には、連邦政府が連邦参議院との合意により決定する。決定は公表されなければならない。"
+  - "(2) 州法として効力を有し続ける法規範においてそのような授権が含まれる限りにおいて、これは州法により権限を有する機関により行使される。"
+  - "(3) 第1項および第2項の意味における法規範が、その変更もしくは補充または法律に代わる法規範の発令を授権する限りにおいて、これらの授権は消滅している。"
+  - "(4) 第1項および第2項の規定は、法規範においてもはや効力を有しない規定またはもはや存在しない機関に言及されている限りにおいて、これに準用される。"
+osakaText:
+  - "(1) 連邦法として効力を持ち続ける法規範に、法規命令とか一般的な行政規則を出すこととか行政行為をすることの授権が入ってる限りでは、これは今事項的に権限を持つ機関に移るんや。疑わしいときは、連邦政府が連邦参議院と合意して決めるで。決定は公表せなあかんねん。"
+  - "(2) 州法として効力を持ち続ける法規範にそういう授権が入ってる限りでは、これは州法で権限を持つ機関が行使するんや。"
+  - "(3) 第1項と第2項の意味の法規範が、その変更とか補充とか法律の代わりの法規範を出すことを授権する限りでは、こういう授権は消滅してるんやで。"
+  - "(4) 第1項と第2項の規定は、法規範にもう効力を持たへん規定とかもう存在せえへん機関が言及されてる限りでは、これに準用されるんや。"
 commentary: []
 commentaryOsaka: []

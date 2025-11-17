@@ -1,10 +1,17 @@
 article: "12"
 title: Art 12
-titleOsaka: ""
+titleOsaka: "第12条"
 originalText:
   - (1) Alle Deutschen haben das Recht, Beruf, Arbeitsplatz und Ausbildungsstätte frei zu wählen. Die Berufsausübung kann durch Gesetz oder auf Grund eines Gesetzes geregelt werden.
   - (2) Niemand darf zu einer bestimmten Arbeit gezwungen werden, außer im Rahmen einer herkömmlichen allgemeinen, für alle gleichen öffentlichen Dienstleistungspflicht.
   - (3) Zwangsarbeit ist nur bei einer gerichtlich angeordneten Freiheitsentziehung zulässig.
-osakaText: []
+originalTextJapanese:
+  - (1) すべてのドイツ人は、職業、職場および訓練場所を自由に選択する権利を有する。職業の遂行は、法律により、または法律に基づいて規律されうる。
+  - (2) 何人も、伝統的な一般的、万人に平等な公的役務義務の範囲内の場合を除き、特定の労働を強制されてはならない。
+  - (3) 強制労働は、裁判により命じられた自由の剥奪の場合にのみ許される。
+osakaText:
+  - (1) すべてのドイツ人は、職業、職場、そして訓練場所を自由に選ぶ権利を持っとるんや。職業の遂行は、法律により、または法律に基づいて規律されることがあるで。
+  - (2) 誰も、伝統的な一般的、万人に平等な公的役務義務の範囲内の場合を除いて、特定の労働を強制されたらあかん。
+  - (3) 強制労働は、裁判により命じられた自由の剥奪の場合にのみ許されるんやねん。
 commentary: []
 commentaryOsaka: []

@@ -1,9 +1,14 @@
 article: "123"
 title: Art 123
-titleOsaka: ""
+titleOsaka: "第123条"
 originalText:
   - (1) Recht aus der Zeit vor dem Zusammentritt des Bundestages gilt fort, soweit es dem Grundgesetze nicht widerspricht.
   - (2) Die vom Deutschen Reich abgeschlossenen Staatsverträge, die sich auf Gegenstände beziehen, für die nach diesem Grundgesetze die Landesgesetzgebung zuständig ist, bleiben, wenn sie nach allgemeinen Rechtsgrundsätzen gültig sind und fortgelten, unter Vorbehalt aller Rechte und Einwendungen der Beteiligten in Kraft, bis neue Staatsverträge durch die nach diesem Grundgesetze zuständigen Stellen abgeschlossen werden oder ihre Beendigung auf Grund der in ihnen enthaltenen Bestimmungen anderweitig erfolgt.
-osakaText: []
+originalTextJapanese:
+  - "(1) 連邦議会の招集前の時代の法は、基本法に矛盾しない限り、効力を有し続ける。"
+  - "(2) ドイツ帝国が締結した国家条約で、この基本法により州の立法権限に属する事項に関するものは、一般的な法原則により有効であり、かつ効力を有し続ける場合には、関係者のすべての権利および異議を留保して、この基本法により権限を有する機関により新たな国家条約が締結されるまで、またはそれらに含まれる規定に基づきその終了が他の方法により行われるまで、効力を有する。"
+osakaText:
+  - "(1) 連邦議会が集まる前の時代の法律は、基本法に矛盾してへんかったら、効力を持ち続けるんや。"
+  - "(2) ドイツ帝国が結んだ国の条約で、この基本法で州の立法権限に属する事項に関するやつは、一般的な法原則で有効で、効力を持ち続ける場合には、関係者の全部の権利と異議を留保して、この基本法で権限を持つ機関が新しい国の条約を結ぶまで、あるいはそれらに入ってる規定に基づいてその終了が他の方法で行われるまで、効力を持つんやで。"
 commentary: []
 commentaryOsaka: []

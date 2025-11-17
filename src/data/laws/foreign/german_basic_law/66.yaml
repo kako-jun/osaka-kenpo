@@ -1,8 +1,11 @@
 article: "66"
 title: Art 66
-titleOsaka: ""
+titleOsaka: "第66条"
 originalText:
   - Der Bundeskanzler und die Bundesminister dürfen kein anderes besoldetes Amt, kein Gewerbe und keinen Beruf ausüben und weder der Leitung noch ohne Zustimmung des Bundestages dem Aufsichtsrate eines auf Erwerb gerichteten Unternehmens angehören.
-osakaText: []
+originalTextJapanese:
+  - 連邦首相および連邦大臣は、その他のいかなる俸給を伴う職務、いかなる営業またはいかなる職業も行使してはならず、かつ営利を目的とする企業の指導部または連邦議会の同意なくして監査役会に所属してはならない。
+osakaText:
+  - 連邦首相と連邦大臣は、その他のいかなる俸給を伴う職務、いかなる営業、またはいかなる職業も行使したらあかんし、営利を目的とする企業の指導部や、連邦議会の同意なくして監査役会に所属したらあかんねん。
 commentary: []
 commentaryOsaka: []

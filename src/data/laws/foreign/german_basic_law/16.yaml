@@ -1,9 +1,14 @@
 article: "16"
 title: Art 16
-titleOsaka: ""
+titleOsaka: "第16条"
 originalText:
   - (1) Die deutsche Staatsangehörigkeit darf nicht entzogen werden. Der Verlust der Staatsangehörigkeit darf nur auf Grund eines Gesetzes und gegen den Willen des Betroffenen nur dann eintreten, wenn der Betroffene dadurch nicht staatenlos wird.
   - (2) Kein Deutscher darf an das Ausland ausgeliefert werden. Durch Gesetz kann eine abweichende Regelung für Auslieferungen an einen Mitgliedstaat der Europäischen Union oder an einen internationalen Gerichtshof getroffen werden, soweit rechtsstaatliche Grundsätze gewahrt sind.
-osakaText: []
+originalTextJapanese:
+  - (1) ドイツ国籍は、剥奪されてはならない。国籍の喪失は、法律に基づいてのみ、かつ関係者の意思に反しては、関係者がそれにより無国籍とならない場合にのみ生じうる。
+  - (2) いかなるドイツ人も、外国に引き渡されてはならない。欧州連合の構成国または国際裁判所への引渡しについては、法治国家の原則が遵守される限り、法律により異なる規律を定めることができる。
+osakaText:
+  - (1) ドイツ国籍は、剥奪されたらあかん。国籍の喪失は、法律に基づいてのみ、そして関係者の意思に反しては、関係者がそれにより無国籍にならへん場合にのみ生じることがあるんや。
+  - (2) どのドイツ人も、外国に引き渡されたらあかんで。欧州連合の構成国や国際裁判所への引渡しについては、法治国家の原則が遵守される限り、法律により異なる規律を定めることができるんやねん。
 commentary: []
 commentaryOsaka: []
