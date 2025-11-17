@@ -1,9 +1,14 @@
 article: "11"
 title: Art 11
-titleOsaka: ""
+titleOsaka: "第11条"
 originalText:
   - (1) Alle Deutschen genießen Freizügigkeit im ganzen Bundesgebiet.
   - (2) Dieses Recht darf nur durch Gesetz oder auf Grund eines Gesetzes und nur für die Fälle eingeschränkt werden, in denen eine ausreichende Lebensgrundlage nicht vorhanden ist und der Allgemeinheit daraus besondere Lasten entstehen würden oder in denen es zur Abwehr einer drohenden Gefahr für den Bestand oder die freiheitliche demokratische Grundordnung des Bundes oder eines Landes, zur Bekämpfung von Seuchengefahr, Naturkatastrophen oder besonders schweren Unglücksfällen, zum Schutze der Jugend vor Verwahrlosung oder um strafbaren Handlungen vorzubeugen, erforderlich ist.
-osakaText: []
+originalTextJapanese:
+  - (1) すべてのドイツ人は、連邦領域全体において移転の自由を享受する。
+  - (2) この権利は、十分な生活基盤が存在せず、かつ一般公衆に特別の負担が生じる場合、または連邦もしくは州の存立もしくは自由で民主的な基本秩序に対する切迫した危険の防止、伝染病の危険、自然災害もしくは特に重大な災害事故との闘い、青少年の荒廃からの保護、または犯罪行為の予防のために必要である場合にのみ、法律により、または法律に基づいて制限されうる。
+osakaText:
+  - (1) すべてのドイツ人は、連邦領域全体において移転の自由を享受するんや。
+  - (2) この権利は、十分な生活基盤が存在せず、そして一般公衆に特別の負担が生じる場合、または連邦や州の存立や自由で民主的な基本秩序に対する切迫した危険の防止、伝染病の危険、自然災害や特に重大な災害事故との闘い、青少年の荒廃からの保護、または犯罪行為の予防のために必要な場合にのみ、法律により、または法律に基づいて制限されることがあるんやで。
 commentary: []
 commentaryOsaka: []
