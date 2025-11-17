@@ -225,14 +225,14 @@ laws:
     name: 中華人民共和国憲法
     category: foreign
     totalArticles: 143
-    status: available
+    status: completed
     progress:
       stage1_originalText: 143
-      stage2_commentary: 0
+      stage2_commentary: 143
       stage3_osakaText: 143
-      stage4_commentaryOsaka: 0
+      stage4_commentaryOsaka: 143
     source_url: http://www.npc.gov.cn/
-    note: 全143条の翻訳完了（Stage 3）
+    note: 全143条完成（Stage 1-4すべて完了！）
   - id: hammurabi_code
     name: ハンムラビ法典
     category: foreign_old
@@ -470,18 +470,18 @@ laws:
 summary:
   totalLaws: 38
   totalArticles: 8283
-  completedLaws: 1
-  availableLaws: 4
+  completedLaws: 2
+  availableLaws: 3
   pendingLaws: 33
   stage1_total: 8283
   stage1_completed: 5253
   stage1_percentage: '63.4'
-  stage2_completed: 103
-  stage2_percentage: 1.2
+  stage2_completed: 246
+  stage2_percentage: 3.0
   stage3_completed: 246
   stage3_percentage: 3.0
-  stage4_completed: 103
-  stage4_percentage: 1.2
+  stage4_completed: 246
+  stage4_percentage: 3.0
 categories:
   - name: 日本現行法
     laws: 10
