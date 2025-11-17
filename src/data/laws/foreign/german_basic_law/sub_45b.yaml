@@ -1,8 +1,11 @@
 article: 45b
 title: Art 45b
-titleOsaka: ""
+titleOsaka: 第45b条
 originalText:
   - Zum Schutz der Grundrechte und als Hilfsorgan des Bundestages bei der Ausübung der parlamentarischen Kontrolle wird ein Wehrbeauftragter des Bundestages berufen. Das Nähere regelt ein Bundesgesetz.
-osakaText: []
+originalTextJapanese:
+  - 基本権の保護のため、および連邦議会が議会による統制を行使する際の補助機関として、連邦議会の防衛監察官が任命される。詳細は連邦法律により定められる。
+osakaText:
+  - 基本権を守るためと、連邦議会が議会による統制を行使するときの補助機関として、連邦議会の防衛監察官が任命されるんや。詳しいことは連邦法律で定めるんやで。
 commentary: []
 commentaryOsaka: []

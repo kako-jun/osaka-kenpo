@@ -1,9 +1,14 @@
 article: 45c
 title: Art 45c
-titleOsaka: ""
+titleOsaka: 第45c条
 originalText:
   - (1) Der Bundestag bestellt einen Petitionsausschuß, dem die Behandlung der nach Artikel 17 an den Bundestag gerichteten Bitten und Beschwerden obliegt.
   - (2) Die Befugnisse des Ausschusses zur Überprüfung von Beschwerden regelt ein Bundesgesetz.
-osakaText: []
+originalTextJapanese:
+  - (1) 連邦議会は、第17条により連邦議会に向けられた請願および苦情の処理を任務とする請願委員会を設置する。
+  - (2) 苦情を審査する委員会の権限は、連邦法律により定められる。
+osakaText:
+  - (1) 連邦議会はな、第17条によって連邦議会に向けられた請願と苦情の処理を任務とする請願委員会を設置するんや。
+  - (2) 苦情を審査する委員会の権限は、連邦法律で定めるんやで。
 commentary: []
 commentaryOsaka: []
