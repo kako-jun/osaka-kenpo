@@ -224,14 +224,15 @@ laws:
   - id: prc_constitution
     name: 中華人民共和国憲法
     category: foreign
-    totalArticles: 138
-    status: pending
+    totalArticles: 143
+    status: in_progress
     progress:
       stage1_originalText: 143
       stage2_commentary: 0
-      stage3_osakaText: 0
+      stage3_osakaText: 133
       stage4_commentaryOsaka: 0
     source_url: http://www.npc.gov.cn/
+    note: 第100-109条はデータ構造の問題により別途対応予定（10条保留中）
   - id: hammurabi_code
     name: ハンムラビ法典
     category: foreign_old
@@ -477,8 +478,8 @@ summary:
   stage1_percentage: '63.4'
   stage2_completed: 103
   stage2_percentage: 1.2
-  stage3_completed: 103
-  stage3_percentage: 1.2
+  stage3_completed: 236
+  stage3_percentage: 2.9
   stage4_completed: 103
   stage4_percentage: 1.2
 categories:
