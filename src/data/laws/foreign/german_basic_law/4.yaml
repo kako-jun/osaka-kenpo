@@ -1,10 +1,17 @@
 article: "4"
 title: Art 4
-titleOsaka: ""
+titleOsaka: "第4条"
 originalText:
   - (1) Die Freiheit des Glaubens, des Gewissens und die Freiheit des religiösen und weltanschaulichen Bekenntnisses sind unverletzlich.
   - (2) Die ungestörte Religionsausübung wird gewährleistet.
   - (3) Niemand darf gegen sein Gewissen zum Kriegsdienst mit der Waffe gezwungen werden. Das Nähere regelt ein Bundesgesetz.
-osakaText: []
+originalTextJapanese:
+  - (1) 信仰の自由、良心の自由および宗教的・世界観的信条の自由は、不可侵である。
+  - (2) 妨げられない宗教の実践は、保障される。
+  - (3) 何人も、その良心に反して、武器を用いる軍務を強制されてはならない。詳細は、連邦法律で定める。
+osakaText:
+  - (1) 信仰の自由、良心の自由、そして宗教的・世界観的信条の自由は、侵すことができへんもんや。
+  - (2) 妨げられへん宗教の実践は、保障されるで。
+  - (3) 誰も、自分の良心に反して、武器を使う軍務を強制されたらあかん。詳細は、連邦法律で定めるんやで。
 commentary: []
 commentaryOsaka: []

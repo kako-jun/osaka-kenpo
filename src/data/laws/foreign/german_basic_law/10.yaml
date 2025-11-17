@@ -1,9 +1,14 @@
 article: "10"
 title: Art 10
-titleOsaka: ""
+titleOsaka: "第10条"
 originalText:
   - (1) Das Briefgeheimnis sowie das Post- und Fernmeldegeheimnis sind unverletzlich.
   - (2) Beschränkungen dürfen nur auf Grund eines Gesetzes angeordnet werden. Dient die Beschränkung dem Schutze der freiheitlichen demokratischen Grundordnung oder des Bestandes oder der Sicherung des Bundes oder eines Landes, so kann das Gesetz bestimmen, daß sie dem Betroffenen nicht mitgeteilt wird und daß an die Stelle des Rechtsweges die Nachprüfung durch von der Volksvertretung bestellte Organe und Hilfsorgane tritt.
-osakaText: []
+originalTextJapanese:
+  - (1) 信書の秘密ならびに郵便および電気通信の秘密は、不可侵である。
+  - (2) 制限は、法律に基づいてのみ命じられうる。制限が自由で民主的な基本秩序の保護、または連邦もしくは州の存立もしくは安全の確保に資する場合には、法律は、それが関係者に通知されないこと、および司法手続に代えて国民代表によって任命された機関および補助機関による審査が行われることを定めることができる。
+osakaText:
+  - (1) 信書の秘密、そして郵便と電気通信の秘密は、侵すことができへんもんや。
+  - (2) 制限は、法律に基づいてのみ命じられるんやで。制限が自由で民主的な基本秩序の保護、または連邦や州の存立や安全の確保に役立つ場合には、法律は、それが関係者に通知されへんこと、そして司法手続に代えて国民代表によって任命された機関と補助機関による審査が行われることを定めることができるんやねん。
 commentary: []
 commentaryOsaka: []
