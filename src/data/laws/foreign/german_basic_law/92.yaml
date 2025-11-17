@@ -1,8 +1,11 @@
 article: "92"
 title: Art 92
-titleOsaka: ""
+titleOsaka: "第92条"
 originalText:
   - Die rechtsprechende Gewalt ist den Richtern anvertraut; sie wird durch das Bundesverfassungsgericht, durch die in diesem Grundgesetze vorgesehenen Bundesgerichte und durch die Gerichte der Länder ausgeübt.
-osakaText: []
+originalTextJapanese:
+  - 司法権は、裁判官に委ねられる。司法権は、連邦憲法裁判所、この基本法に定める連邦裁判所および州の裁判所により行使される。
+osakaText:
+  - 司法権は、裁判官に委ねられるんや。司法権は、連邦憲法裁判所、この基本法に定める連邦裁判所、そして州の裁判所により行使されるで。
 commentary: []
 commentaryOsaka: []
