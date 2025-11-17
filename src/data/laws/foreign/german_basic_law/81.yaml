@@ -1,11 +1,20 @@
 article: "81"
 title: Art 81
-titleOsaka: ""
+titleOsaka: "第81条"
 originalText:
   - (1) Wird im Falle des Artikels 68 der Bundestag nicht aufgelöst, so kann der Bundespräsident auf Antrag der Bundesregierung mit Zustimmung des Bundesrates für eine Gesetzesvorlage den Gesetzgebungsnotstand erklären, wenn der Bundestag sie ablehnt, obwohl die Bundesregierung sie als dringlich bezeichnet hat. Das gleiche gilt, wenn eine Gesetzesvorlage abgelehnt worden ist, obwohl der Bundeskanzler mit ihr den Antrag des Artikels 68 verbunden hatte.
   - (2) Lehnt der Bundestag die Gesetzesvorlage nach Erklärung des Gesetzgebungsnotstandes erneut ab oder nimmt er sie in einer für die Bundesregierung als unannehmbar bezeichneten Fassung an, so gilt das Gesetz als zustande gekommen, soweit der Bundesrat ihm zustimmt. Das gleiche gilt, wenn die Vorlage vom Bundestage nicht innerhalb von vier Wochen nach der erneuten Einbringung verabschiedet wird.
   - (3) Während der Amtszeit eines Bundeskanzlers kann auch jede andere vom Bundestage abgelehnte Gesetzesvorlage innerhalb einer Frist von sechs Monaten nach der ersten Erklärung des Gesetzgebungsnotstandes gemäß Absatz 1 und 2 verabschiedet werden. Nach Ablauf der Frist ist während der Amtszeit des gleichen Bundeskanzlers eine weitere Erklärung des Gesetzgebungsnotstandes unzulässig.
   - (4) Das Grundgesetz darf durch ein Gesetz, das nach Absatz 2 zustande kommt, weder geändert, noch ganz oder teilweise außer Kraft oder außer Anwendung gesetzt werden.
-osakaText: []
+originalTextJapanese:
+  - (1) 第68条の場合において連邦議会が解散されない場合、連邦大統領は、連邦政府の申立てにより、連邦参議院の同意を得て、法律案について立法緊急事態を宣言することができる。ただし、連邦政府がこれを緊急と指定したにもかかわらず、連邦議会がこれを否決した場合に限る。連邦首相が第68条の申立てと結びつけた法律案が否決された場合も同様とする。
+  - (2) 立法緊急事態の宣言後に連邦議会が法律案を再び否決し、または連邦政府が受け入れ不可能と指定する文言で可決した場合、連邦参議院がこれに同意する限りにおいて、法律は成立したものとみなされる。法律案が再提出後4週間以内に連邦議会により可決されない場合も同様とする。
+  - (3) 連邦首相の在任中、連邦議会により否決されたその他の法律案も、立法緊急事態の最初の宣言後6か月の期間内に、第1項および第2項により可決されることができる。この期間の経過後は、同一の連邦首相の在任中、立法緊急事態のさらなる宣言は許されない。
+  - (4) 基本法は、第2項により成立する法律により、変更され、または全部もしくは一部について効力を失い、もしくは適用が停止されてはならない。
+osakaText:
+  - (1) 第68条の場合で連邦議会が解散されへんときは、連邦大統領は、連邦政府の申立てで、連邦参議院が認めたら、法律案について立法緊急事態を宣言できるんや。ただし、連邦政府がこれを緊急やって言うたのに、連邦議会が否決した場合だけやで。連邦首相が第68条の申立てとくっつけた法律案が否決されたときも同じや。
+  - (2) 立法緊急事態を宣言した後に連邦議会が法律案をもう一回否決したり、連邦政府が受け入れられへんっていう文言で可決したときは、連邦参議院が認める限り、法律は成立したことになるんや。法律案が出し直してから4週間以内に連邦議会で可決されへんかったときも同じやで。
+  - (3) 連邦首相が在任してる間は、連邦議会に否決された他の法律案も、立法緊急事態を最初に宣言してから6か月の間に、第1項と第2項で可決できるんや。この期間が過ぎたら、同じ連邦首相が在任してる間は、立法緊急事態をもう宣言したらあかんねん。
+  - (4) 基本法は、第2項で成立する法律で、変更されたり、全部か一部の効力を失ったり、適用が止められたりしたらあかんで。
 commentary: []
 commentaryOsaka: []
