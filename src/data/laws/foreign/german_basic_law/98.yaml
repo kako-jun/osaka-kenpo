@@ -1,12 +1,23 @@
 article: "98"
 title: Art 98
-titleOsaka: ""
+titleOsaka: "第98条"
 originalText:
   - (1) Die Rechtsstellung der Bundesrichter ist durch besonderes Bundesgesetz zu regeln.
   - (2) Wenn ein Bundesrichter im Amte oder außerhalb des Amtes gegen die Grundsätze des Grundgesetzes oder gegen die verfassungsmäßige Ordnung eines Landes verstößt, so kann das Bundesverfassungsgericht mit Zweidrittelmehrheit auf Antrag des Bundestages anordnen, daß der Richter in ein anderes Amt oder in den Ruhestand zu versetzen ist. Im Falle eines vorsätzlichen Verstoßes kann auf Entlassung erkannt werden.
   - (3) Die Rechtsstellung der Richter in den Ländern ist durch besondere Landesgesetze zu regeln, soweit Artikel 74 Abs. 1 Nr. 27 nichts anderes bestimmt.
   - (4) Die Länder können bestimmen, daß über die Anstellung der Richter in den Ländern der Landesjustizminister gemeinsam mit einem Richterwahlausschuß entscheidet.
   - (5) Die Länder können für Landesrichter eine Absatz 2 entsprechende Regelung treffen. Geltendes Landesverfassungsrecht bleibt unberührt. Die Entscheidung über eine Richteranklage steht dem Bundesverfassungsgericht zu.
-osakaText: []
+originalTextJapanese:
+  - (1) 連邦裁判官の法的地位は、特別の連邦法律により規律されなければならない。
+  - (2) 連邦裁判官が職務上または職務外において基本法の原則または州の憲法秩序に違反する場合、連邦憲法裁判所は、連邦議会の申立てにより3分の2の多数で、その裁判官を他の職または退職に配置転換すべきことを命じることができる。故意の違反の場合、解任が認められることができる。
+  - (3) 州における裁判官の法的地位は、第74条第1項第27号が別段の定めをしない限り、特別の州法律により規律されなければならない。
+  - (4) 州は、州における裁判官の任命について、州司法大臣が裁判官選挙委員会と共同で決定することを定めることができる。
+  - (5) 州は、州裁判官について第2項に対応する規律を定めることができる。現行の州憲法法は影響を受けない。裁判官訴追についての裁判は、連邦憲法裁判所に属する。
+osakaText:
+  - (1) 連邦裁判官の法的地位は、特別の連邦法律により規律されなあかんねん。
+  - (2) 連邦裁判官が職務上や職務外において基本法の原則や州の憲法秩序に違反する場合、連邦憲法裁判所は、連邦議会の申立てにより3分の2の多数で、その裁判官を他の職や退職に配置転換すべきことを命じることができるんや。故意の違反の場合、解任が認められることができるで。
+  - (3) 州における裁判官の法的地位は、第74条第1項第27号が別段の定めをせえへん限り、特別の州法律により規律されなあかんねん。
+  - (4) 州は、州における裁判官の任命について、州司法大臣が裁判官選挙委員会と共同で決定することを定めることができるんや。
+  - (5) 州は、州裁判官について第2項に対応する規律を定めることができるんや。現行の州憲法法は影響を受けへんねん。裁判官訴追についての裁判は、連邦憲法裁判所に属するで。
 commentary: []
 commentaryOsaka: []
