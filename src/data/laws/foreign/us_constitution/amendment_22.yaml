@@ -1,12 +1,21 @@
 article: 22
 isAmendment: true
 title: AMENDMENT XXII
-titleOsaka: ""
+titleOsaka: "修正第22条"
 originalText:
   - Section 1.
   - No person shall be elected to the office of the President more than twice, and no person who has held the office of President, or acted as President, for more than two years of a term to which some other person was elected President shall be elected to the office of the President more than once. But this Article shall not apply to any person holding the office of President when this Article was proposed by the Congress, and shall not prevent any person who may be holding the office of President, or acting as President, during the term within which this Article becomes operative from holding the office of President or acting as President during the remainder of such term.
   - Section 2.
   - This article shall be inoperative unless it shall have been ratified as an amendment to the Constitution by the legislatures of three-fourths of the several States within seven years from the date of its submission to the States by the Congress.
-osakaText: []
+originalTextJapanese:
+  - 第1節
+  - 何人も、大統領の職に2回を超えて選出されてはならない。また、他の者が大統領に選出された任期の2年を超える期間、大統領の職を保持し、又は大統領として職務を行った者は、何人も、大統領の職に1回を超えて選出されてはならない。ただし、この条は、連邦議会によりこの条が提案された時に大統領の職を保持していたいかなる者にも適用されず、また、この条が効力を生じる任期中に大統領の職を保持し、又は大統領として職務を行っている可能性のあるいかなる者が、その任期の残りの期間、大統領の職を保持し、又は大統領として職務を行うことを妨げない。
+  - 第2節
+  - この条は、連邦議会により各州に提出された日から7年以内に、4分の3の州の立法府により憲法の修正として批准されなければ、無効となる。
+osakaText:
+  - 第1節
+  - 誰も、大統領の仕事に2回を超えて選ばれたらあかんねん。それと、他の人が大統領に選ばれた任期の2年を超える期間、大統領の仕事を持っとったり、大統領として仕事をしたりした人は、誰も、大統領の仕事に1回を超えて選ばれたらあかんで。せやけど、この条は、連邦議会がこの条を提案したときに大統領の仕事を持っとったどんな人にも適用されへんし、この条が効力を持つ任期中に大統領の仕事を持っとったり、大統領として仕事をしとったりする可能性があるどんな人が、その任期の残りの期間、大統領の仕事を持ったり、大統領として仕事をしたりすることを妨げへんのや。
+  - 第2節
+  - この条は、連邦議会が各州に出した日から7年以内に、4分の3の州の議会で憲法の修正として承認されへんかったら、無効になるんやな。
 commentary: []
 commentaryOsaka: []

@@ -1,13 +1,24 @@
 article: 26
 isAmendment: true
 title: AMENDMENT XXVI
-titleOsaka: ""
+titleOsaka: "修正第26条"
 originalText:
   - "Note: Amendment 14, section 2, of the Constitution was modified by section 1 of the 26th amendment."
   - Section 1.
   - The right of citizens of the United States, who are eighteen years of age or older, to vote shall not be denied or abridged by the United States or by any State on account of age.
   - Section 2.
   - The Congress shall have power to enforce this article by appropriate legislation.
-osakaText: []
+originalTextJapanese:
+  - 注：憲法の修正第14条第2節は、修正第26条第1節により修正された。
+  - 第1節
+  - 18歳以上の合衆国市民の投票する権利は、年齢を理由として、合衆国又はいかなる州によっても、拒否され又は制限されてはならない。
+  - 第2節
+  - 連邦議会は、適切な立法により、この条を実施する権限を有する。
+osakaText:
+  - 注：憲法の修正第14条第2節は、修正第26条第1節で修正されたんや。
+  - 第1節
+  - 18歳以上のアメリカ市民の投票する権利は、年齢を理由にして、アメリカとかどの州によっても、拒否されたり制限されたりしたらあかんねん。
+  - 第2節
+  - 連邦議会は、適切な立法で、この条を実行する権限を持っとるんや。
 commentary: []
 commentaryOsaka: []

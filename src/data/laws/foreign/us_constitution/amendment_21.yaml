@@ -1,7 +1,7 @@
 article: 21
 isAmendment: true
 title: AMENDMENT XXI
-titleOsaka: ""
+titleOsaka: "修正第21条"
 originalText:
   - Section 1.
   - The eighteenth article of amendment to the Constitution of the United States is hereby repealed.
@@ -9,6 +9,19 @@ originalText:
   - The transportation or importation into any State, Territory, or possession of the United States for delivery or use therein of intoxicating liquors, in violation of the laws thereof, is hereby prohibited.
   - Section 3.
   - This article shall be inoperative unless it shall have been ratified as an amendment to the Constitution by conventions in the several States, as provided in the Constitution, within seven years from the date of the submission hereof to the States by the Congress.
-osakaText: []
+originalTextJapanese:
+  - 第1節
+  - 合衆国憲法の修正第18条は、ここに廃止される。
+  - 第2節
+  - その法律に違反して、酔わせる酒類をいずれかの州、準州又は合衆国の領土に、そこでの配達又は使用のために運搬し又は輸入することは、ここに禁止される。
+  - 第3節
+  - この条は、憲法に定められるところに従い、連邦議会により各州に提出された日から7年以内に、各州における憲法会議により憲法の修正として批准されなければ、無効となる。
+osakaText:
+  - 第1節
+  - アメリカ憲法の修正第18条は、ここに廃止されるんや。
+  - 第2節
+  - その法律に違反して、酔わせる酒類をどっかの州とか準州とかアメリカの領土に、そこでの配達とか使用のために運んだり輸入したりすることは、ここに禁止されるんやで。
+  - 第3節
+  - この条は、憲法に決められたとおりに、連邦議会が各州に出した日から7年以内に、各州での憲法会議で憲法の修正として承認されへんかったら、無効になるんや。
 commentary: []
 commentaryOsaka: []

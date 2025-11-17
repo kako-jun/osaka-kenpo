@@ -1,9 +1,12 @@
 article: 4
 isAmendment: true
 title: Amendment IV
-titleOsaka: ""
+titleOsaka: "修正第4条"
 originalText:
   - The right of the people to be secure in their persons, houses, papers, and effects, against unreasonable searches and seizures, shall not be violated, and no Warrants shall issue, but upon probable cause, supported by Oath or affirmation, and particularly describing the place to be searched, and the persons or things to be seized.
-osakaText: []
+originalTextJapanese:
+  - 不合理な捜索及び押収から、市民がその身体、住居、書類及び所持品の安全を保障される権利は、侵害されてはならない。令状は、相当な理由に基づき、かつ、宣誓又は確約により裏付けられ、捜索する場所及び押収する人又は物を特定して記述した場合でなければ、発付されてはならない。
+osakaText:
+  - 不合理な捜索と押収から、市民がその身体と住居と書類と持ち物の安全を保障される権利は、侵されたらあかんねん。令状は、ちゃんとした理由に基づいて、宣誓か約束で裏付けられて、捜索する場所と押収する人か物を特定して書いた場合やないと、出したらあかんで。
 commentary: []
 commentaryOsaka: []

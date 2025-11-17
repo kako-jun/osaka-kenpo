@@ -1,7 +1,7 @@
 article: 3
 isAmendment: false
 title: Article. III.
-titleOsaka: ""
+titleOsaka: "第3条"
 originalText:
   - Section. 1.
   - The judicial Power of the United States, shall be vested in one supreme Court, and in such inferior Courts as the Congress may from time to time ordain and establish. The Judges, both of the supreme and inferior Courts, shall hold their Offices during good Behaviour, and shall, at stated Times, receive for their Services, a Compensation, which shall not be diminished during their Continuance in Office.
@@ -12,6 +12,25 @@ originalText:
   - Section. 3.
   - Treason against the United States, shall consist only in levying War against them, or in adhering to their Enemies, giving them Aid and Comfort. No Person shall be convicted of Treason unless on the Testimony of two Witnesses to the same overt Act, or on Confession in open Court.
   - The Congress shall have Power to declare the Punishment of Treason, but no Attainder of Treason shall work Corruption of Blood, or Forfeiture except during the Life of the Person attainted.
-osakaText: []
+originalTextJapanese:
+  - 第1節
+  - 合衆国の司法権は、1つの最高裁判所、及び連邦議会が随時制定し設置する下級裁判所に属する。最高裁判所及び下級裁判所の裁判官は、良好な行状を保つ限り、その職を保持する。裁判官は、定められた時期に、その職務に対する報酬を受け、その報酬は、在職中、減額されてはならない。
+  - 第2節
+  - 司法権は、この憲法、合衆国の法律、及び合衆国の権限の下に締結された又は締結される条約に基づいて生じる、コモン・ロー及び衡平法上のすべての事件に及ぶ。大使、その他の外交使節及び領事に影響を及ぼすすべての事件、海事法及び海上裁判権に関するすべての事件、合衆国が当事者となる争訟、2つ以上の州の間の争訟、1つの州と他の州の市民との間の争訟、異なる州の市民間の争訟、異なる州の土地付与に基づく土地を主張する同一の州の市民間の争訟、並びに1つの州若しくはその市民と、外国若しくは外国市民若しくは外国臣民との間の争訟に及ぶ。
+  - 大使、その他の外交使節及び領事に影響を及ぼすすべての事件、並びに1つの州が当事者となる事件において、最高裁判所は、第一審管轄権を有する。前記のその他のすべての事件において、最高裁判所は、連邦議会が定める例外及び規則の下で、法律及び事実の双方について、上訴管轄権を有する。
+  - 弾劾の場合を除き、すべての犯罪の裁判は、陪審によって行われる。裁判は、当該犯罪が行われた州において行われる。ただし、いずれかの州内で行われなかった場合、裁判は、連邦議会が法律により指示した場所又は複数の場所において行われる。
+  - 第3節
+  - 合衆国に対する反逆罪は、合衆国に対して戦争を起こすこと、又は合衆国の敵に援助及び便宜を与えて敵に加担することのみから成る。何人も、同一の顕在的行為についての2人の証人の証言、又は公開の法廷における自白によらなければ、反逆罪により有罪とされることはない。
+  - 連邦議会は、反逆罪の刑罰を宣言する権限を有する。ただし、反逆罪による権利剥奪は、血統の汚損又は剥奪された者の生存中を除く財産没収をもたらしてはならない。
+osakaText:
+  - 第1節
+  - アメリカの司法の権限は、1つの最高裁判所と、連邦議会が時々作って設置する下の裁判所に属するんや。最高裁判所と下の裁判所の裁判官は、ちゃんとした行いを保っとる限り、その仕事を続けられるんやで。裁判官は、決められた時期に、その仕事に対する給料をもらって、その給料は在職中に減らされたらあかんねん。
+  - 第2節
+  - 司法の権限は、この憲法とアメリカの法律、それとアメリカの権限の下で結ばれた条約か結ばれる条約に基づいて起こる、コモン・ローと衡平法上の全部の事件に及ぶんや。大使とか他の外交使節と領事に影響する全部の事件、海事法と海上裁判権に関する全部の事件、アメリカが当事者になる争い、2つ以上の州の間の争い、1つの州と他の州の市民との間の争い、違う州の市民の間の争い、違う州の土地付与に基づく土地を主張する同じ州の市民の間の争い、それと1つの州かその市民と、外国か外国市民か外国臣民との間の争いに及ぶんやな。
+  - 大使とか他の外交使節と領事に影響する全部の事件、それと1つの州が当事者になる事件では、最高裁判所が第一審の管轄権を持つんや。前に書いた他の全部の事件では、最高裁判所は、連邦議会が決める例外と規則の下で、法律と事実の両方について、上訴の管轄権を持つんやで。
+  - 弾劾の場合を除いて、全部の犯罪の裁判は、陪審でやるんや。裁判は、その犯罪が行われた州でやるんやな。せやけど、どっかの州の中で行われへんかった場合、裁判は、連邦議会が法律で指示した場所か何個かの場所でやるんやで。
+  - 第3節
+  - アメリカに対する反逆罪は、アメリカに対して戦争を起こすことか、アメリカの敵に援助と便宜を与えて敵に味方することだけから成るんや。誰も、同じはっきりした行為についての2人の証人の証言か、公開の法廷での自白によらんかったら、反逆罪で有罪にはされへんねん。
+  - 連邦議会は、反逆罪の刑罰を宣言する権限を持っとるんや。せやけど、反逆罪で権利を剥奪されても、血統の汚損とか、剥奪された人が生きとる間を除く財産没収をもたらしたらあかんで。
 commentary: []
 commentaryOsaka: []
