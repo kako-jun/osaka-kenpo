@@ -1,10 +1,17 @@
 article: "1"
 title: Art 1
-titleOsaka: ""
+titleOsaka: "第1条"
 originalText:
   - (1) Die Würde des Menschen ist unantastbar. Sie zu achten und zu schützen ist Verpflichtung aller staatlichen Gewalt.
   - (2) Das Deutsche Volk bekennt sich darum zu unverletzlichen und unveräußerlichen Menschenrechten als Grundlage jeder menschlichen Gemeinschaft, des Friedens und der Gerechtigkeit in der Welt.
   - (3) Die nachfolgenden Grundrechte binden Gesetzgebung, vollziehende Gewalt und Rechtsprechung als unmittelbar geltendes Recht.
-osakaText: []
+originalTextJapanese:
+  - (1) 人間の尊厳は不可侵である。これを尊重し、保護することは、すべての国家権力の義務である。
+  - (2) ドイツ国民は、それゆえ、侵すことのできない、かつ譲り渡すことのできない人権を、あらゆる人間社会、平和および世界における正義の基礎として承認する。
+  - (3) 以下の基本権は、立法、執行権および司法を、直接に適用される法として拘束する。
+osakaText:
+  - (1) 人間の尊厳は侵すことができへんもんなんや。これを尊重して保護することは、すべての国家権力がやらなあかん義務やで。
+  - (2) ドイツ国民は、せやから、侵すことのできへん、そして譲り渡すこともできへん人権を、あらゆる人間社会、平和、そして世界における正義の基礎として認めるんや。
+  - (3) 以下の基本権は、立法、執行権、そして司法を、直接に適用される法として拘束するんやねん。
 commentary: []
 commentaryOsaka: []

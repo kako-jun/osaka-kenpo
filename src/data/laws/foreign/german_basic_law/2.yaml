@@ -1,9 +1,14 @@
 article: "2"
 title: Art 2
-titleOsaka: ""
+titleOsaka: "第2条"
 originalText:
   - (1) Jeder hat das Recht auf die freie Entfaltung seiner Persönlichkeit, soweit er nicht die Rechte anderer verletzt und nicht gegen die verfassungsmäßige Ordnung oder das Sittengesetz verstößt.
   - (2) Jeder hat das Recht auf Leben und körperliche Unversehrtheit. Die Freiheit der Person ist unverletzlich. In diese Rechte darf nur auf Grund eines Gesetzes eingegriffen werden.
-osakaText: []
+originalTextJapanese:
+  - (1) 何人も、他人の権利を侵害せず、かつ憲法的秩序または道徳律に違反しない限りにおいて、自己の人格を自由に発展させる権利を有する。
+  - (2) 何人も、生命および身体を害されない権利を有する。人の自由は不可侵である。これらの権利は、法律に基づいてのみ侵害することができる。
+osakaText:
+  - (1) 誰でも、他人の権利を侵害せず、そして憲法的秩序や道徳律に違反せえへん限りにおいて、自分の人格を自由に発展させる権利を持っとるんや。
+  - (2) 誰でも、生命と身体を害されへん権利を持っとるで。人の自由は侵すことができへんもんや。これらの権利は、法律に基づいてのみ侵害できるんやねん。
 commentary: []
 commentaryOsaka: []

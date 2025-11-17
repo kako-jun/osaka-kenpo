@@ -1,6 +1,6 @@
 article: "7"
 title: Art 7
-titleOsaka: ""
+titleOsaka: "第7条"
 originalText:
   - (1) Das gesamte Schulwesen steht unter der Aufsicht des Staates.
   - (2) Die Erziehungsberechtigten haben das Recht, über die Teilnahme des Kindes am Religionsunterricht zu bestimmen.
@@ -8,6 +8,19 @@ originalText:
   - (4) Das Recht zur Errichtung von privaten Schulen wird gewährleistet. Private Schulen als Ersatz für öffentliche Schulen bedürfen der Genehmigung des Staates und unterstehen den Landesgesetzen. Die Genehmigung ist zu erteilen, wenn die privaten Schulen in ihren Lehrzielen und Einrichtungen sowie in der wissenschaftlichen Ausbildung ihrer Lehrkräfte nicht hinter den öffentlichen Schulen zurückstehen und eine Sonderung der Schüler nach den Besitzverhältnissen der Eltern nicht gefördert wird. Die Genehmigung ist zu versagen, wenn die wirtschaftliche und rechtliche Stellung der Lehrkräfte nicht genügend gesichert ist.
   - (5) Eine private Volksschule ist nur zuzulassen, wenn die Unterrichtsverwaltung ein besonderes pädagogisches Interesse anerkennt oder, auf Antrag von Erziehungsberechtigten, wenn sie als Gemeinschaftsschule, als Bekenntnis- oder Weltanschauungsschule errichtet werden soll und eine öffentliche Volksschule dieser Art in der Gemeinde nicht besteht.
   - (6) Vorschulen bleiben aufgehoben.
-osakaText: []
+originalTextJapanese:
+  - (1) 全学校制度は、国家の監督に服する。
+  - (2) 養育権者は、子の宗教教育への参加について決定する権利を有する。
+  - (3) 宗教教育は、無宗派学校を除き、公立学校において正規の教科である。国家の監督権を損なうことなく、宗教教育は、宗教団体の原則に従って行われる。いかなる教師も、その意思に反して宗教教育を行う義務を負わされてはならない。
+  - (4) 私立学校を設立する権利は、保障される。公立学校に代わる私立学校は、国家の認可を必要とし、州法に服する。認可は、私立学校がその教育目標および施設ならびに教員の学術的訓練において公立学校に劣らず、かつ親の財産状況による生徒の分離が助長されない場合に、与えられなければならない。認可は、教員の経済的および法的地位が十分に保障されていない場合には、拒否されなければならない。
+  - (5) 私立初等学校は、教育行政庁が特別な教育学上の利益を認める場合、または養育権者の申請により、共同体学校、宗派学校もしくは世界観学校として設立されるべきであって、かつこの種の公立初等学校が当該市町村に存在しない場合にのみ、認可されうる。
+  - (6) 就学前学校は、廃止されたままとする。
+osakaText:
+  - (1) 全学校制度は、国家の監督に服するんや。
+  - (2) 養育権者は、子の宗教教育への参加について決める権利を持っとるで。
+  - (3) 宗教教育は、無宗派学校を除いて、公立学校において正規の教科やねん。国家の監督権を損なうことなく、宗教教育は、宗教団体の原則に従って行われるんや。どの教師も、その意思に反して宗教教育を行う義務を負わされたらあかん。
+  - (4) 私立学校を設立する権利は、保障されるで。公立学校に代わる私立学校は、国家の認可が必要で、州法に服するんや。認可は、私立学校がその教育目標と施設、そして教員の学術的訓練において公立学校に劣らず、そして親の財産状況による生徒の分離が助長されへん場合に、与えられなあかんねん。認可は、教員の経済的・法的地位が十分に保障されてへん場合には、拒否されなあかん。
+  - (5) 私立初等学校は、教育行政庁が特別な教育学上の利益を認める場合、または養育権者の申請により、共同体学校、宗派学校、もしくは世界観学校として設立されるべきで、そしてこの種の公立初等学校が当該市町村に存在せえへん場合にのみ、認可されるんやで。
+  - (6) 就学前学校は、廃止されたままとするで。
 commentary: []
 commentaryOsaka: []

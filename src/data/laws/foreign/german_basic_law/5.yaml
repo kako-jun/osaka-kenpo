@@ -1,10 +1,17 @@
 article: "5"
 title: Art 5
-titleOsaka: ""
+titleOsaka: "第5条"
 originalText:
   - (1) Jeder hat das Recht, seine Meinung in Wort, Schrift und Bild frei zu äußern und zu verbreiten und sich aus allgemein zugänglichen Quellen ungehindert zu unterrichten. Die Pressefreiheit und die Freiheit der Berichterstattung durch Rundfunk und Film werden gewährleistet. Eine Zensur findet nicht statt.
   - (2) Diese Rechte finden ihre Schranken in den Vorschriften der allgemeinen Gesetze, den gesetzlichen Bestimmungen zum Schutze der Jugend und in dem Recht der persönlichen Ehre.
   - (3) Kunst und Wissenschaft, Forschung und Lehre sind frei. Die Freiheit der Lehre entbindet nicht von der Treue zur Verfassung.
-osakaText: []
+originalTextJapanese:
+  - (1) 何人も、言葉、文書および画像により、自己の意見を自由に表明し、および伝播し、ならびに一般にアクセス可能な情報源から妨げられることなく情報を得る権利を有する。出版の自由および放送と映画による報道の自由は、保障される。検閲は、行われない。
+  - (2) これらの権利は、一般法律の規定、青少年保護のための法律規定および個人の名誉の権利において、その制限を見出す。
+  - (3) 芸術と学問、研究および教授は、自由である。教授の自由は、憲法への忠誠を免除するものではない。
+osakaText:
+  - (1) 誰でも、言葉、文書、そして画像で、自分の意見を自由に表明したり広めたり、そして一般にアクセスできる情報源から妨げられへんと情報を得る権利を持っとるんや。出版の自由と放送や映画による報道の自由は、保障されるで。検閲は、行われへん。
+  - (2) これらの権利は、一般法律の規定、青少年保護のための法律規定、そして個人の名誉の権利において、その制限を見つけるんやねん。
+  - (3) 芸術と学問、研究、そして教授は、自由や。教授の自由は、憲法への忠誠を免除するもんやないで。
 commentary: []
 commentaryOsaka: []
