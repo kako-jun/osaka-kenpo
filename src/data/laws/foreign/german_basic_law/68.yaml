@@ -1,9 +1,14 @@
 article: "68"
 title: Art 68
-titleOsaka: ""
+titleOsaka: "第68条"
 originalText:
   - (1) Findet ein Antrag des Bundeskanzlers, ihm das Vertrauen auszusprechen, nicht die Zustimmung der Mehrheit der Mitglieder des Bundestages, so kann der Bundespräsident auf Vorschlag des Bundeskanzlers binnen einundzwanzig Tagen den Bundestag auflösen. Das Recht zur Auflösung erlischt, sobald der Bundestag mit der Mehrheit seiner Mitglieder einen anderen Bundeskanzler wählt.
   - (2) Zwischen dem Antrage und der Abstimmung müssen achtundvierzig Stunden liegen.
-osakaText: []
+originalTextJapanese:
+  - (1) 連邦首相の信任を表明する申立てが連邦議会の議員の過半数の同意を得ない場合、連邦大統領は、連邦首相の提案により、21日以内に連邦議会を解散することができる。解散権は、連邦議会がその議員の過半数をもって他の連邦首相を選出するや否や、消滅する。
+  - (2) 申立てと表決との間には、48時間が経過していなければならない。
+osakaText:
+  - (1) 連邦首相の信任を表明する申立てが連邦議会の議員の過半数の同意を得えへん場合、連邦大統領は、連邦首相の提案により、21日以内に連邦議会を解散することができるんや。解散権は、連邦議会がその議員の過半数をもって他の連邦首相を選出するや否や、消滅するねん。
+  - (2) 申立てと表決との間には、48時間が経過しとかなあかんで。
 commentary: []
 commentaryOsaka: []

@@ -1,9 +1,14 @@
 article: "70"
 title: Art 70
-titleOsaka: ""
+titleOsaka: "第70条"
 originalText:
   - (1) Die Länder haben das Recht der Gesetzgebung, soweit dieses Grundgesetz nicht dem Bunde Gesetzgebungsbefugnisse verleiht.
   - (2) Die Abgrenzung der Zuständigkeit zwischen Bund und Ländern bemißt sich nach den Vorschriften dieses Grundgesetzes über die ausschließliche und die konkurrierende Gesetzgebung.
-osakaText: []
+originalTextJapanese:
+  - (1) 州は、この基本法が連邦に立法権限を付与しない限り、立法権を有する。
+  - (2) 連邦と州との間の権限の範囲は、この基本法の専属的立法および競合的立法に関する規定により定められる。
+osakaText:
+  - (1) 州は、この基本法が連邦に立法権限を付与せえへん限り、立法権を持っとるんや。
+  - (2) 連邦と州との間の権限の範囲は、この基本法の専属的立法と競合的立法に関する規定により定められるで。
 commentary: []
 commentaryOsaka: []
