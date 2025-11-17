@@ -1,8 +1,11 @@
 article: "56"
 title: Art 56
-titleOsaka: ""
+titleOsaka: "第56条"
 originalText:
   - "Der Bundespräsident leistet bei seinem Amtsantritt vor den versammelten Mitgliedern des Bundestages und des Bundesrates folgenden Eid: Der Eid kann auch ohne religiöse Beteuerung geleistet werden."
-osakaText: []
+originalTextJapanese:
+  - 連邦大統領は、その就任に際し、連邦議会および連邦参議院の集会した構成員の前で次の宣誓を行う。宣誓は、宗教的確約なしに行うこともできる。
+osakaText:
+  - 連邦大統領は、その就任に際して、連邦議会と連邦参議院の集会した構成員の前で次の宣誓を行うんや。宣誓は、宗教的確約なしに行うこともできるで。
 commentary: []
 commentaryOsaka: []

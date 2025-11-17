@@ -1,11 +1,20 @@
 article: "46"
 title: Art 46
-titleOsaka: ""
+titleOsaka: "第46条"
 originalText:
   - (1) Ein Abgeordneter darf zu keiner Zeit wegen seiner Abstimmung oder wegen einer Äußerung, die er im Bundestage oder in einem seiner Ausschüsse getan hat, gerichtlich oder dienstlich verfolgt oder sonst außerhalb des Bundestages zur Verantwortung gezogen werden. Dies gilt nicht für verleumderische Beleidigungen.
   - (2) Wegen einer mit Strafe bedrohten Handlung darf ein Abgeordneter nur mit Genehmigung des Bundestages zur Verantwortung gezogen oder verhaftet werden, es sei denn, daß er bei Begehung der Tat oder im Laufe des folgenden Tages festgenommen wird.
   - (3) Die Genehmigung des Bundestages ist ferner bei jeder anderen Beschränkung der persönlichen Freiheit eines Abgeordneten oder zur Einleitung eines Verfahrens gegen einen Abgeordneten gemäß Artikel 18 erforderlich.
   - (4) Jedes Strafverfahren und jedes Verfahren gemäß Artikel 18 gegen einen Abgeordneten, jede Haft und jede sonstige Beschränkung seiner persönlichen Freiheit sind auf Verlangen des Bundestages auszusetzen.
-osakaText: []
+originalTextJapanese:
+  - (1) 議員は、連邦議会またはその委員会において行った表決または発言を理由として、いかなる時においても、裁判上もしくは職務上訴追され、またはその他連邦議会の外において責任を問われてはならない。これは、名誉毀損的侮辱には適用されない。
+  - (2) 議員は、刑罰をもって威嚇された行為について、連邦議会の許可がある場合に限り、責任を問われまたは逮捕されることができる。ただし、行為の実行中またはその翌日中に現行犯逮捕された場合は、この限りでない。
+  - (3) 連邦議会の許可は、さらに、議員の身体の自由に対するその他のすべての制限または第18条による議員に対する手続の開始に際しても必要とされる。
+  - (4) 議員に対するすべての刑事手続および第18条による手続、すべての拘禁ならびにその身体の自由に対するその他の制限は、連邦議会の要求により停止されなければならない。
+osakaText:
+  - (1) 議員は、連邦議会やその委員会において行った表決や発言を理由として、いかなる時においても、裁判上もしくは職務上訴追されたり、またはその他連邦議会の外において責任を問われたりしたらあかんねん。これは、名誉毀損的侮辱には適用されへんで。
+  - (2) 議員は、刑罰をもって威嚇された行為について、連邦議会の許可がある場合に限って、責任を問われたり逮捕されたりすることができるんや。ただし、行為の実行中やその翌日中に現行犯逮捕された場合は、この限りやないで。
+  - (3) 連邦議会の許可は、さらに、議員の身体の自由に対するその他のすべての制限や第18条による議員に対する手続の開始に際しても必要とされるねん。
+  - (4) 議員に対するすべての刑事手続と第18条による手続、すべての拘禁、そしてその身体の自由に対するその他の制限は、連邦議会の要求により停止されなあかんねん。
 commentary: []
 commentaryOsaka: []
