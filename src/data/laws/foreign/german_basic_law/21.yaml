@@ -1,12 +1,23 @@
 article: "21"
 title: Art 21
-titleOsaka: ""
+titleOsaka: "第21条"
 originalText:
   - (1) Die Parteien wirken bei der politischen Willensbildung des Volkes mit. Ihre Gründung ist frei. Ihre innere Ordnung muß demokratischen Grundsätzen entsprechen. Sie müssen über die Herkunft und Verwendung ihrer Mittel sowie über ihr Vermögen öffentlich Rechenschaft geben.
   - (2) Parteien, die nach ihren Zielen oder nach dem Verhalten ihrer Anhänger darauf ausgehen, die freiheitliche demokratische Grundordnung zu beeinträchtigen oder zu beseitigen oder den Bestand der Bundesrepublik Deutschland zu gefährden, sind verfassungswidrig.
   - (3) Parteien, die nach ihren Zielen oder dem Verhalten ihrer Anhänger darauf ausgerichtet sind, die freiheitliche demokratische Grundordnung zu beeinträchtigen oder zu beseitigen oder den Bestand der Bundesrepublik Deutschland zu gefährden, sind von staatlicher Finanzierung ausgeschlossen. Wird der Ausschluss festgestellt, so entfällt auch eine steuerliche Begünstigung dieser Parteien und von Zuwendungen an diese Parteien.
   - (4) Über die Frage der Verfassungswidrigkeit nach Absatz 2 sowie über den Ausschluss von staatlicher Finanzierung nach Absatz 3 entscheidet das Bundesverfassungsgericht.
   - (5) Das Nähere regeln Bundesgesetze.
-osakaText: []
+originalTextJapanese:
+  - (1) 政党は、国民の政治的意思形成に協力する。政党の設立は、自由である。政党の内部秩序は、民主的原則に合致しなければならない。政党は、その資金の出所および使途ならびにその財産について公に説明責任を負わなければならない。
+  - (2) その目的またはその支持者の行動により、自由で民主的な基本秩序を害し、もしくは除去し、またはドイツ連邦共和国の存立を危うくすることを目指す政党は、違憲である。
+  - (3) その目的またはその支持者の行動により、自由で民主的な基本秩序を害し、もしくは除去し、またはドイツ連邦共和国の存立を危うくすることを志向する政党は、国家による財政支援から排除される。排除が確認された場合、これらの政党への税制上の優遇およびこれらの政党への寄付に対する税制上の優遇も消滅する。
+  - (4) 第2項による違憲性の問題ならびに第3項による国家による財政支援からの排除については、連邦憲法裁判所が決定する。
+  - (5) 詳細は、連邦法律で定める。
+osakaText:
+  - (1) 政党は、国民の政治的意思形成に協力するんや。政党の設立は、自由やで。政党の内部秩序は、民主的原則に合致せなあかん。政党は、その資金の出所と使途、そしてその財産について公に説明責任を負わなあかんねん。
+  - (2) その目的や、その支持者の行動により、自由で民主的な基本秩序を害したり除去したり、またはドイツ連邦共和国の存立を危うくすることを目指す政党は、違憲や。
+  - (3) その目的や、その支持者の行動により、自由で民主的な基本秩序を害したり除去したり、またはドイツ連邦共和国の存立を危うくすることを志向する政党は、国家による財政支援から排除されるんやで。排除が確認された場合、これらの政党への税制上の優遇と、これらの政党への寄付に対する税制上の優遇も消滅するんや。
+  - (4) 第2項による違憲性の問題、そして第3項による国家による財政支援からの排除については、連邦憲法裁判所が決定するんやねん。
+  - (5) 詳細は、連邦法律で定めるで。
 commentary: []
 commentaryOsaka: []
