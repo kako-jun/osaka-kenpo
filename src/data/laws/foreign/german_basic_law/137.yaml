@@ -1,10 +1,17 @@
 article: "137"
 title: Art 137
-titleOsaka: ""
+titleOsaka: "第137条"
 originalText:
   - (1) Die Wählbarkeit von Beamten, Angestellten des öffentlichen Dienstes, Berufssoldaten, freiwilligen Soldaten auf Zeit und Richtern im Bund, in den Ländern und den Gemeinden kann gesetzlich beschränkt werden.
   - (2) Für die Wahl des ersten Bundestages, der ersten Bundesversammlung und des ersten Bundespräsidenten der Bundesrepublik gilt das vom Parlamentarischen Rat zu beschließende Wahlgesetz.
   - (3) Die dem Bundesverfassungsgerichte gemäß Artikel 41 Abs. 2 zustehende Befugnis wird bis zu seiner Errichtung von dem Deutschen Obergericht für das Vereinigte Wirtschaftsgebiet wahrgenommen, das nach Maßgabe seiner Verfahrensordnung entscheidet.
-osakaText: []
+originalTextJapanese:
+  - "(1) 連邦、各州および市町村における公務員、公務の被雇用者、職業軍人、期限付き志願兵および裁判官の被選挙権は、法律により制限することができる。"
+  - "(2) 最初の連邦議会、最初の連邦会議および連邦共和国の最初の連邦大統領の選挙については、国会議事堂評議会により議決される選挙法が適用される。"
+  - "(3) 第41条第2項により連邦憲法裁判所に帰属する権限は、その設置まで、統一経済地域のドイツ最高裁判所により行使され、同裁判所はその手続規則に従って決定する。"
+osakaText:
+  - "(1) 連邦、州、市町村の公務員、公務の雇われ人、職業軍人、期限つきの志願兵、裁判官の被選挙権は、法律で制限できるんや。"
+  - "(2) 最初の連邦議会、最初の連邦会議、連邦共和国の最初の連邦大統領の選挙については、国会議事堂評議会が決める選挙法が適用されるで。"
+  - "(3) 第41条第2項で連邦憲法裁判所に与えられる権限は、それができるまで、統一経済地域のドイツ最高裁判所が行使して、その裁判所が自分とこの手続規則に従って決めるんや。"
 commentary: []
 commentaryOsaka: []

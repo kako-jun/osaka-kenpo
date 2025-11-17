@@ -1,8 +1,11 @@
 article: "141"
 title: Art 141
-titleOsaka: ""
+titleOsaka: "第141条"
 originalText:
   - Artikel 7 Abs. 3 Satz 1 findet keine Anwendung in einem Lande, in dem am 1. Januar 1949 eine andere landesrechtliche Regelung bestand.
-osakaText: []
+originalTextJapanese:
+  - "第7条第3項第1文は、1949年1月1日に他の州法上の規定が存在した州においては適用されない。"
+osakaText:
+  - "第7条第3項第1文は、1949年1月1日に他の州法の規定があった州では適用されへんのや。"
 commentary: []
 commentaryOsaka: []
