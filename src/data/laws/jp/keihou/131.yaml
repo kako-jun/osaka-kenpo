@@ -6,5 +6,7 @@ originalText:
   - 削除
 osakaText:
   - 削除
-commentary: []
-commentaryOsaka: []
+commentary:
+  - 削除された条文です。
+commentaryOsaka:
+  - この条文は削除されたんやで。
