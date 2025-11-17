@@ -1,9 +1,12 @@
 article: 8
 isAmendment: true
 title: Amendment VIII
-titleOsaka: ""
+titleOsaka: "修正第8条"
 originalText:
   - Excessive bail shall not be required, nor excessive fines imposed, nor cruel and unusual punishments inflicted.
-osakaText: []
+originalTextJapanese:
+  - 過大な保釈金を要求してはならず、過大な罰金を科してはならず、残虐で異常な刑罰を科してはならない。
+osakaText:
+  - 過大な保釈金を要求したらあかんし、過大な罰金を科したらあかんし、残虐で異常な刑罰を科したらあかんねん。
 commentary: []
 commentaryOsaka: []

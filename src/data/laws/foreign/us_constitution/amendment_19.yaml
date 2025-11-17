@@ -1,10 +1,15 @@
 article: 19
 isAmendment: true
 title: AMENDMENT XIX
-titleOsaka: ""
+titleOsaka: "修正第19条"
 originalText:
   - The right of citizens of the United States to vote shall not be denied or abridged by the United States or by any State on account of sex.
   - Congress shall have power to enforce this article by appropriate legislation.
-osakaText: []
+originalTextJapanese:
+  - 合衆国市民の投票する権利は、性別を理由として、合衆国又はいかなる州によっても、拒否され又は制限されてはならない。
+  - 連邦議会は、適切な立法により、この条を実施する権限を有する。
+osakaText:
+  - アメリカ市民の投票する権利は、性別を理由にして、アメリカとかどの州によっても、拒否されたり制限されたりしたらあかんねん。
+  - 連邦議会は、適切な立法で、この条を実行する権限を持っとるんや。
 commentary: []
 commentaryOsaka: []

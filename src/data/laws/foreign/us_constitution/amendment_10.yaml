@@ -1,12 +1,21 @@
 article: 10
 isAmendment: true
 title: Amendment X
-titleOsaka: ""
+titleOsaka: "修正第10条"
 originalText:
   - The powers not delegated to the United States by the Constitution, nor prohibited by it to the States, are reserved to the States respectively, or to the people.
   - Amendments 11-27
   - "Note: The capitalization and punctuation in this version is from the enrolled original of the Joint Resolution of Congress proposing the Bill of Rights, which is on permanent display in the Rotunda of the National Archives Building, Washington, D.C."
   - Back to Main Bill of Rights Page
-osakaText: []
+originalTextJapanese:
+  - この憲法により合衆国に委任されず、又は州に対して禁止されていない権限は、各州又は市民に留保される。
+  - 修正第11条から第27条
+  - 注：このバージョンにおける大文字表記及び句読点は、国立公文書館ビルのロタンダに常設展示されている、権利章典を提案する連邦議会の合同決議の登録原本に由来する。
+  - 権利章典メインページに戻る
+osakaText:
+  - この憲法でアメリカに委任されへんし、州に対して禁止されてへん権限は、各州か市民に残されるんや。
+  - 修正第11条から第27条
+  - 注：このバージョンでの大文字表記と句読点は、国立公文書館ビルのロタンダに常設展示されとる、権利章典を提案する連邦議会の合同決議の登録原本から来とるんやで。
+  - 権利章典メインページに戻る
 commentary: []
 commentaryOsaka: []

@@ -1,12 +1,21 @@
 article: 24
 isAmendment: true
 title: AMENDMENT XXIV
-titleOsaka: ""
+titleOsaka: "修正第24条"
 originalText:
   - Section 1.
   - The right of citizens of the United States to vote in any primary or other election for President or Vice President, for electors for President or Vice President, or for Senator or Representative in Congress, shall not be denied or abridged by the United States or any State by reason of failure to pay any poll tax or other tax.
   - Section 2.
   - The Congress shall have power to enforce this article by appropriate legislation.
-osakaText: []
+originalTextJapanese:
+  - 第1節
+  - 大統領若しくは副大統領、大統領若しくは副大統領の選挙人、又は連邦議会の上院議員若しくは下院議員のための予備選挙その他の選挙において投票する合衆国市民の権利は、人頭税その他の租税の不払いを理由として、合衆国又はいかなる州によっても、拒否され又は制限されてはならない。
+  - 第2節
+  - 連邦議会は、適切な立法により、この条を実施する権限を有する。
+osakaText:
+  - 第1節
+  - 大統領か副大統領、大統領か副大統領の選挙人、連邦議会の上院議員か下院議員のための予備選挙とか他の選挙で投票するアメリカ市民の権利は、人頭税とか他の税金の不払いを理由にして、アメリカとかどの州によっても、拒否されたり制限されたりしたらあかんねん。
+  - 第2節
+  - 連邦議会は、適切な立法で、この条を実行する権限を持っとるんや。
 commentary: []
 commentaryOsaka: []
