@@ -1,12 +1,23 @@
 article: "6"
 title: Art 6
-titleOsaka: ""
+titleOsaka: "第6条"
 originalText:
   - (1) Ehe und Familie stehen unter dem besonderen Schutze der staatlichen Ordnung.
   - (2) Pflege und Erziehung der Kinder sind das natürliche Recht der Eltern und die zuvörderst ihnen obliegende Pflicht. Über ihre Betätigung wacht die staatliche Gemeinschaft.
   - (3) Gegen den Willen der Erziehungsberechtigten dürfen Kinder nur auf Grund eines Gesetzes von der Familie getrennt werden, wenn die Erziehungsberechtigten versagen oder wenn die Kinder aus anderen Gründen zu verwahrlosen drohen.
   - (4) Jede Mutter hat Anspruch auf den Schutz und die Fürsorge der Gemeinschaft.
   - (5) Den unehelichen Kindern sind durch die Gesetzgebung die gleichen Bedingungen für ihre leibliche und seelische Entwicklung und ihre Stellung in der Gesellschaft zu schaffen wie den ehelichen Kindern.
-osakaText: []
+originalTextJapanese:
+  - (1) 婚姻および家族は、国家秩序の特別な保護を受ける。
+  - (2) 子の養育および教育は、親の自然の権利であり、かつ何よりもまず親に課せられた義務である。その遂行については、国家共同体が監督する。
+  - (3) 養育権者の意思に反して、子を家族から分離することは、養育権者が責務を果たさない場合、または子が他の理由により荒廃する危険にさらされている場合にのみ、法律に基づいてのみ許される。
+  - (4) すべての母は、共同体の保護および支援を受ける権利を有する。
+  - (5) 嫡出でない子には、嫡出である子と同様の、身体的および精神的発達ならびに社会における地位のための条件が、立法により創出されなければならない。
+osakaText:
+  - (1) 婚姻と家族は、国家秩序の特別な保護を受けるんや。
+  - (2) 子の養育と教育は、親の自然の権利であり、そして何よりもまず親に課せられた義務やねん。その遂行については、国家共同体が監督するで。
+  - (3) 養育権者の意思に反して、子を家族から分離することは、養育権者が責務を果たさへん場合、または子が他の理由で荒廃する危険にさらされとる場合にのみ、法律に基づいてのみ許されるんや。
+  - (4) すべての母は、共同体の保護と支援を受ける権利を持っとるで。
+  - (5) 嫡出やない子には、嫡出の子と同じように、身体的・精神的発達、そして社会における地位のための条件が、立法によって作られなあかんねん。
 commentary: []
 commentaryOsaka: []

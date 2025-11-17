@@ -1,10 +1,17 @@
 article: "3"
 title: Art 3
-titleOsaka: ""
+titleOsaka: "第3条"
 originalText:
   - (1) Alle Menschen sind vor dem Gesetz gleich.
   - (2) Männer und Frauen sind gleichberechtigt. Der Staat fördert die tatsächliche Durchsetzung der Gleichberechtigung von Frauen und Männern und wirkt auf die Beseitigung bestehender Nachteile hin.
   - (3) Niemand darf wegen seines Geschlechtes, seiner Abstammung, seiner Rasse, seiner Sprache, seiner Heimat und Herkunft, seines Glaubens, seiner religiösen oder politischen Anschauungen benachteiligt oder bevorzugt werden. Niemand darf wegen seiner Behinderung benachteiligt werden.
-osakaText: []
+originalTextJapanese:
+  - (1) すべての人は、法の前に平等である。
+  - (2) 男性と女性は、平等の権利を有する。国家は、女性と男性の平等の権利の実際の実現を促進し、現存する不利益の除去に努める。
+  - (3) 何人も、性別、出自、人種、言語、故郷および出身、信仰、宗教的または政治的見解を理由として、不利益な取扱いを受け、または優遇されてはならない。何人も、障害を理由として不利益な取扱いを受けてはならない。
+osakaText:
+  - (1) すべての人は、法の前で平等やで。
+  - (2) 男性と女性は、平等の権利を持っとるんや。国家は、女性と男性の平等の権利がちゃんと実現されるよう促進して、いま残っとる不利益をなくすよう努めなあかんねん。
+  - (3) 誰も、性別、出自、人種、言語、故郷や出身、信仰、宗教的な見解や政治的な見解を理由に、不利益な扱いを受けたり、優遇されたりしたらあかん。誰も、障害を理由に不利益な扱いを受けたらあかんのや。
 commentary: []
 commentaryOsaka: []
