@@ -1,9 +1,14 @@
 article: 65a
 title: Art 65a
-titleOsaka: ""
+titleOsaka: 第65a条
 originalText:
   - (1) Der Bundesminister für Verteidigung hat die Befehls- und Kommandogewalt über die Streitkräfte.
   - (2) (weggefallen)
-osakaText: []
+originalTextJapanese:
+  - (1) 連邦防衛大臣は、軍隊に対する命令権および指揮権を有する。
+  - (2) (削除)
+osakaText:
+  - (1) 連邦防衛大臣はな、軍隊に対する命令権と指揮権を持ってるんや。
+  - (2) (削除)
 commentary: []
 commentaryOsaka: []

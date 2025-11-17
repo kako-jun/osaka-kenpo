@@ -1,8 +1,11 @@
 article: "102"
 title: Art 102
-titleOsaka: ""
+titleOsaka: "第102条"
 originalText:
   - Die Todesstrafe ist abgeschafft.
-osakaText: []
+originalTextJapanese:
+  - 死刑は廃止されている。
+osakaText:
+  - 死刑は廃止されとるで。
 commentary: []
 commentaryOsaka: []

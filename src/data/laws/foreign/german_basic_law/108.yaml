@@ -1,6 +1,6 @@
 article: "108"
 title: Art 108
-titleOsaka: ""
+titleOsaka: "第108条"
 originalText:
   - (1) Zölle, Finanzmonopole, die bundesgesetzlich geregelten Verbrauchsteuern einschließlich der Einfuhrumsatzsteuer, die Kraftfahrzeugsteuer und sonstige auf motorisierte Verkehrsmittel bezogene Verkehrsteuern ab dem 1. Juli 2009 sowie die Abgaben im Rahmen der Europäischen Gemeinschaften werden durch Bundesfinanzbehörden verwaltet. Der Aufbau dieser Behörden wird durch Bundesgesetz geregelt. Soweit Mittelbehörden eingerichtet sind, werden deren Leiter im Benehmen mit den Landesregierungen bestellt.
   - (2) Die übrigen Steuern werden durch Landesfinanzbehörden verwaltet. Der Aufbau dieser Behörden und die einheitliche Ausbildung der Beamten können durch Bundesgesetz mit Zustimmung des Bundesrates geregelt werden. Soweit Mittelbehörden eingerichtet sind, werden deren Leiter im Einvernehmen mit der Bundesregierung bestellt.
@@ -10,6 +10,23 @@ originalText:
   - (5) Das von den Bundesfinanzbehörden anzuwendende Verfahren wird durch Bundesgesetz geregelt. Das von den Landesfinanzbehörden und in den Fällen des Absatzes 4 Satz 2 von den Gemeinden (Gemeindeverbänden) anzuwendende Verfahren kann durch Bundesgesetz mit Zustimmung des Bundesrates geregelt werden.
   - (6) Die Finanzgerichtsbarkeit wird durch Bundesgesetz einheitlich geregelt.
   - (7) Die Bundesregierung kann allgemeine Verwaltungsvorschriften erlassen, und zwar mit Zustimmung des Bundesrates, soweit die Verwaltung den Landesfinanzbehörden oder Gemeinden (Gemeindeverbänden) obliegt.
-osakaText: []
+originalTextJapanese:
+  - "(1) 関税、財政専売、輸入売上税を含む連邦法により規定された消費税、自動車税および2009年7月1日以降の動力交通手段に関するその他の交通税、ならびに欧州共同体の枠内における賦課金は、連邦財政当局により管理される。これらの当局の組織は、連邦法律により規定される。中級官庁が設置される場合には、その長は州政府との協議により任命される。"
+  - "(2) その他の租税は、州財政当局により管理される。これらの当局の組織および公務員の統一的な訓練は、連邦参議院の同意を得た連邦法律により規定することができる。中級官庁が設置される場合には、その長は連邦政府との合意により任命される。"
+  - "(3) 州財政当局が、全部または一部が連邦に帰属する租税を管理する場合には、州財政当局は連邦の委託により活動する。第85条第3項および第4項は、連邦政府に代えて連邦財務大臣が行うという条件で適用される。"
+  - "(4) 連邦参議院の同意を必要とする連邦法律により、租税の管理において連邦財政当局と州財政当局の協働を、また第1項に該当する租税については州財政当局による管理を、その他の租税については連邦財政当局による管理を、それにより租税法の執行が著しく改善され、または容易になる場合に限り、規定することができる。市町村(市町村連合)のみに帰属する租税については、州財政当局に帰属する管理を、各州により全部または一部を市町村(市町村連合)に移譲することができる。第1文による連邦法律は、連邦と各州の協働について、法律に定められた多数の同意がある場合に、租税法の執行に関する規定がすべての州に対して拘束力を有することを定めることができる。"
+  - "(4a) 連邦参議院の同意を必要とする連邦法律により、第2項に該当する租税の管理において、州財政当局の協働および関係する州の合意を得て、一つまたは複数の州の州財政当局への州を越えた権限の移譲を、それにより租税法の執行が著しく改善され、または容易になる場合に限り、規定することができる。費用の負担は、連邦法律により規定することができる。"
+  - "(5) 連邦財政当局が適用すべき手続は、連邦法律により規定される。州財政当局が適用すべき手続、および第4項第2文の場合における市町村(市町村連合)が適用すべき手続は、連邦参議院の同意を得た連邦法律により規定することができる。"
+  - "(6) 財政裁判権は、連邦法律により統一的に規定される。"
+  - "(7) 連邦政府は、管理が州財政当局または市町村(市町村連合)に属する限りにおいて、連邦参議院の同意を得て、一般的な行政規則を制定することができる。"
+osakaText:
+  - "(1) 関税、財政専売、輸入の消費税を入れた連邦法で決まった消費税、自動車税と2009年7月1日からのエンジンつきの乗り物にかかる他の交通の税金、それと欧州共同体の中での賦課金は、連邦の財政役所が管理するんや。こういう役所の組織は、連邦法律で決めるで。中間の役所を作るときは、そのトップは州政府と相談して決めるんやで。"
+  - "(2) 他の税金は、州の財政役所が管理するんや。こういう役所の組織と公務員の統一的な訓練は、連邦参議院が認めた連邦法律で決められるで。中間の役所を作るときは、そのトップは連邦政府と合意して決めるんやで。"
+  - "(3) 州の財政役所が、ぜんぶか一部が連邦のもんになる税金を管理するときは、州の財政役所は連邦から頼まれてやってるんや。第85条第3項と第4項は、連邦政府の代わりに連邦の財務大臣がやるっちゅう条件で使えるで。"
+  - "(4) 連邦参議院が認めなあかん連邦法律で、税金の管理で連邦の財政役所と州の財政役所が一緒に仕事することとか、第1項の税金は州の財政役所が管理すること、他の税金は連邦の財政役所が管理することを決められるんやけど、それで税法の執行がめっちゃ良くなるか楽になるときだけやで。市町村(市町村連合)だけのもんになる税金については、州の財政役所がやってる管理を、州が全部か一部を市町村(市町村連合)に任せることもできるんや。第1文の連邦法律は、連邦と州が一緒に仕事することについて、法律で決まった多数が賛成したら、税法の執行の規則が全部の州に対して絶対守らなあかんもんになるって決められるんやで。"
+  - "(4a) 連邦参議院が認めなあかん連邦法律で、第2項の税金の管理で、州の財政役所が一緒に仕事することとか、関係する州がオーケー出したら、一つか複数の州の財政役所に州をまたいで権限を移すことを決められるんやけど、それで税法の執行がめっちゃ良くなるか楽になるときだけやで。お金の負担は、連邦法律で決められるんや。"
+  - "(5) 連邦の財政役所が使う手続きは、連邦法律で決めるんや。州の財政役所が使う手続きと、第4項第2文の場合の市町村(市町村連合)が使う手続きは、連邦参議院が認めた連邦法律で決められるで。"
+  - "(6) 財政裁判のことは、連邦法律で統一的に決めるんやで。"
+  - "(7) 連邦政府は、管理が州の財政役所とか市町村(市町村連合)のもんになってる分については、連邦参議院が認めたら、一般的な行政規則を作れるんや。"
 commentary: []
 commentaryOsaka: []

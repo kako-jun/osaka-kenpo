@@ -1,9 +1,14 @@
 article: "144"
 title: Art 144
-titleOsaka: ""
+titleOsaka: "第144条"
 originalText:
   - (1) Dieses Grundgesetz bedarf der Annahme durch die Volksvertretungen in zwei Dritteln der deutschen Länder, in denen es zunächst gelten soll.
   - (2) Soweit die Anwendung dieses Grundgesetzes in einem der in Artikel 23 aufgeführten Länder oder in einem Teile eines dieser Länder Beschränkungen unterliegt, hat das Land oder der Teil des Landes das Recht, gemäß Artikel 38 Vertreter in den Bundestag und gemäß Artikel 50 Vertreter in den Bundesrat zu entsenden.
-osakaText: []
+originalTextJapanese:
+  - "(1) この基本法は、それがまず適用されるべきドイツの州の3分の2における国民代表機関による承認を必要とする。"
+  - "(2) この基本法の適用が、第23条に列挙された州の一つまたはこれらの州の一部において制限を受ける限りにおいて、その州またはその州の一部は、第38条により連邦議会に代表を、第50条により連邦参議院に代表を派遣する権利を有する。"
+osakaText:
+  - "(1) この基本法は、まず適用されるべきドイツの州の3分の2の国民代表機関が承認せなあかんねん。"
+  - "(2) この基本法の適用が、第23条に書いてある州の一つとかこの州の一部で制限を受ける限りでは、その州とかその州の一部は、第38条で連邦議会に代表を、第50条で連邦参議院に代表を送る権利があるんや。"
 commentary: []
 commentaryOsaka: []

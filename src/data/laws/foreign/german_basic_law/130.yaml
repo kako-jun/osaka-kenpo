@@ -1,10 +1,17 @@
 article: "130"
 title: Art 130
-titleOsaka: ""
+titleOsaka: "第130条"
 originalText:
   - (1) Verwaltungsorgane und sonstige der öffentlichen Verwaltung oder Rechtspflege dienende Einrichtungen, die nicht auf Landesrecht oder Staatsverträgen zwischen Ländern beruhen, sowie die Betriebsvereinigung der südwestdeutschen Eisenbahnen und der Verwaltungsrat für das Post- und Fernmeldewesen für das französische Besatzungsgebiet unterstehen der Bundesregierung. Diese regelt mit Zustimmung des Bundesrates die Überführung, Auflösung oder Abwicklung.
   - (2) Oberster Disziplinarvorgesetzter der Angehörigen dieser Verwaltungen und Einrichtungen ist der zuständige Bundesminister.
   - (3) Nicht landesunmittelbare und nicht auf Staatsverträgen zwischen den Ländern beruhende Körperschaften und Anstalten des öffentlichen Rechtes unterstehen der Aufsicht der zuständigen obersten Bundesbehörde.
-osakaText: []
+originalTextJapanese:
+  - "(1) 州法または州間の国家条約に基づかない行政機関およびその他の公行政または司法に資する施設、ならびに南西ドイツ鉄道の運営協会およびフランス占領地域の郵便・通信業務の管理評議会は、連邦政府に従属する。連邦政府は、連邦参議院の同意を得て、移管、解散または清算を規定する。"
+  - "(2) これらの行政および施設の構成員の最上級懲戒上司は、権限を有する連邦大臣である。"
+  - "(3) 州に直接従属せず、かつ州間の国家条約に基づかない公法上の団体および営造物は、権限を有する最上級連邦官庁の監督に服する。"
+osakaText:
+  - "(1) 州の法律とか州同士の国の条約に基づいてへん行政機関とその他の公行政とか司法のために使われる施設、それと南西ドイツ鉄道の運営協会とフランス占領地域の郵便・通信業務の管理評議会は、連邦政府の下にあるんや。連邦政府は、連邦参議院が認めたら、移管、解散、清算を決めるで。"
+  - "(2) こういう行政と施設のメンバーの一番上の懲戒上司は、権限を持つ連邦大臣やで。"
+  - "(3) 州に直接従属してへんくて、州同士の国の条約に基づいてへん公法上の団体と営造物は、権限を持つ一番上の連邦の役所の監督を受けるんや。"
 commentary: []
 commentaryOsaka: []

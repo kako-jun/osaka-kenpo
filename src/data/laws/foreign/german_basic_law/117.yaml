@@ -1,9 +1,14 @@
 article: "117"
 title: Art 117
-titleOsaka: ""
+titleOsaka: "第117条"
 originalText:
   - (1) Das dem Artikel 3 Abs. 2 entgegenstehende Recht bleibt bis zu seiner Anpassung an diese Bestimmung des Grundgesetzes in Kraft, jedoch nicht länger als bis zum 31. März 1953.
   - (2) Gesetze, die das Recht der Freizügigkeit mit Rücksicht auf die gegenwärtige Raumnot einschränken, bleiben bis zu ihrer Aufhebung durch Bundesgesetz in Kraft.
-osakaText: []
+originalTextJapanese:
+  - "(1) 第3条第2項に反する法は、この基本法の規定に適合させるまで効力を有するが、1953年3月31日までとする。"
+  - "(2) 現在の住宅不足を考慮して移転の自由の権利を制限する法律は、連邦法律により廃止されるまで効力を有する。"
+osakaText:
+  - "(1) 第3条第2項に反する法律は、この基本法の規定に合わせるまで効力があるんやけど、1953年3月31日までやで。"
+  - "(2) 今の住宅不足を考えて移転の自由の権利を制限する法律は、連邦法律で廃止されるまで効力があるんや。"
 commentary: []
 commentaryOsaka: []

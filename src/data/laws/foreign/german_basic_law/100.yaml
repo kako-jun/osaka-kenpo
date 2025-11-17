@@ -1,10 +1,17 @@
 article: "100"
 title: Art 100
-titleOsaka: ""
+titleOsaka: "第100条"
 originalText:
   - (1) Hält ein Gericht ein Gesetz, auf dessen Gültigkeit es bei der Entscheidung ankommt, für verfassungswidrig, so ist das Verfahren auszusetzen und, wenn es sich um die Verletzung der Verfassung eines Landes handelt, die Entscheidung des für Verfassungsstreitigkeiten zuständigen Gerichtes des Landes, wenn es sich um die Verletzung dieses Grundgesetzes handelt, die Entscheidung des Bundesverfassungsgerichtes einzuholen. Dies gilt auch, wenn es sich um die Verletzung dieses Grundgesetzes durch Landesrecht oder um die Unvereinbarkeit eines Landesgesetzes mit einem Bundesgesetze handelt.
   - (2) Ist in einem Rechtsstreite zweifelhaft, ob eine Regel des Völkerrechtes Bestandteil des Bundesrechtes ist und ob sie unmittelbar Rechte und Pflichten für den Einzelnen erzeugt (Artikel 25), so hat das Gericht die Entscheidung des Bundesverfassungsgerichtes einzuholen.
   - (3) Will das Verfassungsgericht eines Landes bei der Auslegung des Grundgesetzes von einer Entscheidung des Bundesverfassungsgerichtes oder des Verfassungsgerichtes eines anderen Landes abweichen, so hat das Verfassungsgericht die Entscheidung des Bundesverfassungsgerichtes einzuholen.
-osakaText: []
+originalTextJapanese:
+  - (1) 裁判所が、裁判において効力の判断が問題となる法律を違憲と認める場合、手続は停止され、州の憲法の侵害に関する場合には憲法争訟に権限ある州の裁判所の裁判を、この基本法の侵害に関する場合には連邦憲法裁判所の裁判を得なければならない。このことは、州法によるこの基本法の侵害、または州法律と連邦法律との不合致に関する場合にも適用される。
+  - (2) 訴訟において、国際法の規範が連邦法の構成要素であるか否か、およびそれが個人に対して直接に権利および義務を生じさせるか否か(第25条)が疑わしい場合、裁判所は、連邦憲法裁判所の裁判を得なければならない。
+  - (3) 州の憲法裁判所が、基本法の解釈において、連邦憲法裁判所または他の州の憲法裁判所の裁判と異なることを欲する場合、その憲法裁判所は、連邦憲法裁判所の裁判を得なければならない。
+osakaText:
+  - (1) 裁判所が、裁判において効力の判断が問題となる法律を違憲と認める場合、手続は停止されて、州の憲法の侵害に関する場合には憲法争訟に権限ある州の裁判所の裁判を、この基本法の侵害に関する場合には連邦憲法裁判所の裁判を得なあかんねん。このことは、州法によるこの基本法の侵害、または州法律と連邦法律との不合致に関する場合にも適用されるんや。
+  - (2) 訴訟において、国際法の規範が連邦法の構成要素であるか否か、そしてそれが個人に対して直接に権利と義務を生じさせるか否か(第25条)が疑わしい場合、裁判所は、連邦憲法裁判所の裁判を得なあかんねん。
+  - (3) 州の憲法裁判所が、基本法の解釈において、連邦憲法裁判所や他の州の憲法裁判所の裁判と異なることを欲する場合、その憲法裁判所は、連邦憲法裁判所の裁判を得なあかんねん。
 commentary: []
 commentaryOsaka: []

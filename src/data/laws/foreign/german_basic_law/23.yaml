@@ -1,6 +1,6 @@
 article: "23"
 title: Art 23
-titleOsaka: ""
+titleOsaka: "第23条"
 originalText:
   - (1) Zur Verwirklichung eines vereinten Europas wirkt die Bundesrepublik Deutschland bei der Entwicklung der Europäischen Union mit, die demokratischen, rechtsstaatlichen, sozialen und föderativen Grundsätzen und dem Grundsatz der Subsidiarität verpflichtet ist und einen diesem Grundgesetz im wesentlichen vergleichbaren Grundrechtsschutz gewährleistet. Der Bund kann hierzu durch Gesetz mit Zustimmung des Bundesrates Hoheitsrechte übertragen. Für die Begründung der Europäischen Union sowie für Änderungen ihrer vertraglichen Grundlagen und vergleichbare Regelungen, durch die dieses Grundgesetz seinem Inhalt nach geändert oder ergänzt wird oder solche Änderungen oder Ergänzungen ermöglicht werden, gilt Artikel 79 Abs. 2 und 3.
   - (1a) Der Bundestag und der Bundesrat haben das Recht, wegen Verstoßes eines Gesetzgebungsakts der Europäischen Union gegen das Subsidiaritätsprinzip vor dem Gerichtshof der Europäischen Union Klage zu erheben. Der Bundestag ist hierzu auf Antrag eines Viertels seiner Mitglieder verpflichtet. Durch Gesetz, das der Zustimmung des Bundesrates bedarf, können für die Wahrnehmung der Rechte, die dem Bundestag und dem Bundesrat in den vertraglichen Grundlagen der Europäischen Union eingeräumt sind, Ausnahmen von Artikel 42 Abs. 2 Satz 1 und Artikel 52 Abs. 3 Satz 1 zugelassen werden.
@@ -10,6 +10,23 @@ originalText:
   - (5) Soweit in einem Bereich ausschließlicher Zuständigkeiten des Bundes Interessen der Länder berührt sind oder soweit im übrigen der Bund das Recht zur Gesetzgebung hat, berücksichtigt die Bundesregierung die Stellungnahme des Bundesrates. Wenn im Schwerpunkt Gesetzgebungsbefugnisse der Länder, die Einrichtung ihrer Behörden oder ihre Verwaltungsverfahren betroffen sind, ist bei der Willensbildung des Bundes insoweit die Auffassung des Bundesrates maßgeblich zu berücksichtigen; dabei ist die gesamtstaatliche Verantwortung des Bundes zu wahren. In Angelegenheiten, die zu Ausgabenerhöhungen oder Einnahmeminderungen für den Bund führen können, ist die Zustimmung der Bundesregierung erforderlich.
   - (6) Wenn im Schwerpunkt ausschließliche Gesetzgebungsbefugnisse der Länder auf den Gebieten der schulischen Bildung, der Kultur oder des Rundfunks betroffen sind, wird die Wahrnehmung der Rechte, die der Bundesrepublik Deutschland als Mitgliedstaat der Europäischen Union zustehen, vom Bund auf einen vom Bundesrat benannten Vertreter der Länder übertragen. Die Wahrnehmung der Rechte erfolgt unter Beteiligung und in Abstimmung mit der Bundesregierung; dabei ist die gesamtstaatliche Verantwortung des Bundes zu wahren.
   - (7) Das Nähere zu den Absätzen 4 bis 6 regelt ein Gesetz, das der Zustimmung des Bundesrates bedarf.
-osakaText: []
+originalTextJapanese:
+  - (1) 統一されたヨーロッパの実現のため、ドイツ連邦共和国は、民主的、法治国家的、社会的および連邦的諸原則ならびに補完性の原則に拘束され、かつこの基本法と本質的に比肩しうる基本権の保護を保障する欧州連合の発展に協力する。連邦は、このため、連邦参議院の同意を得た法律により、主権的権利を移譲することができる。欧州連合の設立ならびにその条約上の基礎の変更および比肩しうる規律であって、この基本法がその内容において変更されもしくは補完され、またはそのような変更もしくは補完が可能とされるものについては、第79条第2項および第3項が適用される。
+  - (1a) 連邦議会および連邦参議院は、欧州連合の立法行為が補完性原則に違反することを理由として、欧州連合司法裁判所に訴えを提起する権利を有する。連邦議会は、その構成員の4分の1の申立てにより、これを義務づけられる。欧州連合の条約上の基礎において連邦議会および連邦参議院に与えられた権利の行使のために、第42条第2項第1文および第52条第3項第1文からの例外を、連邦参議院の同意を必要とする法律により認めることができる。
+  - (2) 欧州連合の事項においては、連邦議会、および連邦参議院を通じて州が協力する。連邦政府は、連邦議会および連邦参議院に、包括的かつ可能な限り早期に報告しなければならない。
+  - (3) 連邦政府は、欧州連合の法制定行為への協力に先立ち、連邦議会に意見表明の機会を与える。連邦政府は、交渉において連邦議会の意見を考慮する。詳細は、法律で定める。
+  - (4) 連邦参議院は、対応する国内措置に協力すべき場合、または州が国内的に管轄を有する場合には、連邦の意思形成に参加する。
+  - (5) 連邦の専属的管轄の領域において州の利益が影響を受ける場合、またはその他連邦が立法権を有する場合には、連邦政府は連邦参議院の意見を考慮する。主として州の立法権限、州の官庁の設置または州の行政手続が関係する場合には、連邦の意思形成において、その限りで連邦参議院の見解が決定的に考慮されなければならない。その際、連邦の全体国家的責任が維持されなければならない。連邦の支出増加または収入減少をもたらしうる事項においては、連邦政府の同意を必要とする。
+  - (6) 主として学校教育、文化または放送の領域における州の専属的立法権限が関係する場合には、ドイツ連邦共和国に欧州連合の構成国として帰属する権利の行使は、連邦から連邦参議院により指名された州の代表者に移譲される。権利の行使は、連邦政府の関与および調整の下に行われる。その際、連邦の全体国家的責任が維持されなければならない。
+  - (7) 第4項から第6項までの詳細は、連邦参議院の同意を必要とする法律で定める。
+osakaText:
+  - (1) 統一されたヨーロッパの実現のため、ドイツ連邦共和国は、民主的、法治国家的、社会的、そして連邦的諸原則、そして補完性の原則に拘束されて、そしてこの基本法と本質的に比肩しうる基本権の保護を保障する欧州連合の発展に協力するんや。連邦は、このため、連邦参議院の同意を得た法律により、主権的権利を移譲することができるで。欧州連合の設立、そしてその条約上の基礎の変更と比肩しうる規律であって、この基本法がその内容において変更されたり補完されたり、またはそのような変更や補完が可能とされるものについては、第79条第2項と第3項が適用されるんやねん。
+  - (1a) 連邦議会と連邦参議院は、欧州連合の立法行為が補完性原則に違反することを理由として、欧州連合司法裁判所に訴えを提起する権利を持っとるんや。連邦議会は、その構成員の4分の1の申立てにより、これを義務づけられるで。欧州連合の条約上の基礎において連邦議会と連邦参議院に与えられた権利の行使のために、第42条第2項第1文と第52条第3項第1文からの例外を、連邦参議院の同意を必要とする法律により認めることができるんやねん。
+  - (2) 欧州連合の事項においては、連邦議会、そして連邦参議院を通じて州が協力するんや。連邦政府は、連邦議会と連邦参議院に、包括的で可能な限り早期に報告せなあかん。
+  - (3) 連邦政府は、欧州連合の法制定行為への協力に先立って、連邦議会に意見表明の機会を与えるんや。連邦政府は、交渉において連邦議会の意見を考慮するで。詳細は、法律で定めるんやねん。
+  - (4) 連邦参議院は、対応する国内措置に協力すべき場合、または州が国内的に管轄を有する場合には、連邦の意思形成に参加するんや。
+  - (5) 連邦の専属的管轄の領域において州の利益が影響を受ける場合、またはその他連邦が立法権を有する場合には、連邦政府は連邦参議院の意見を考慮するんや。主として州の立法権限、州の官庁の設置、または州の行政手続が関係する場合には、連邦の意思形成において、その限りで連邦参議院の見解が決定的に考慮されなあかん。その際、連邦の全体国家的責任が維持されなあかんねん。連邦の支出増加や収入減少をもたらしうる事項においては、連邦政府の同意が必要やで。
+  - (6) 主として学校教育、文化、または放送の領域における州の専属的立法権限が関係する場合には、ドイツ連邦共和国に欧州連合の構成国として帰属する権利の行使は、連邦から連邦参議院により指名された州の代表者に移譲されるんや。権利の行使は、連邦政府の関与と調整の下に行われるで。その際、連邦の全体国家的責任が維持されなあかん。
+  - (7) 第4項から第6項までの詳細は、連邦参議院の同意を必要とする法律で定めるんやねん。
 commentary: []
 commentaryOsaka: []

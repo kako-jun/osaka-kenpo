@@ -1,8 +1,11 @@
 article: "50"
 title: Art 50
-titleOsaka: ""
+titleOsaka: "第50条"
 originalText:
   - Durch den Bundesrat wirken die Länder bei der Gesetzgebung und Verwaltung des Bundes und in Angelegenheiten der Europäischen Union mit.
-osakaText: []
+originalTextJapanese:
+  - 連邦参議院を通じて、州は、連邦の立法および行政ならびに欧州連合の事項に参与する。
+osakaText:
+  - 連邦参議院を通じて、州は、連邦の立法と行政、そして欧州連合の事項に参与するんや。
 commentary: []
 commentaryOsaka: []

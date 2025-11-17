@@ -1,8 +1,11 @@
 article: "31"
 title: Art 31
-titleOsaka: ""
+titleOsaka: "第31条"
 originalText:
   - Bundesrecht bricht Landesrecht.
-osakaText: []
+originalTextJapanese:
+  - 連邦法は、州法に優先する。
+osakaText:
+  - 連邦法は、州法に優先するんや。
 commentary: []
 commentaryOsaka: []

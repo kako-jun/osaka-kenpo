@@ -1,9 +1,14 @@
 article: "43"
 title: Art 43
-titleOsaka: ""
+titleOsaka: "第43条"
 originalText:
   - (1) Der Bundestag und seine Ausschüsse können die Anwesenheit jedes Mitgliedes der Bundesregierung verlangen.
   - (2) Die Mitglieder des Bundesrates und der Bundesregierung sowie ihre Beauftragten haben zu allen Sitzungen des Bundestages und seiner Ausschüsse Zutritt. Sie müssen jederzeit gehört werden.
-osakaText: []
+originalTextJapanese:
+  - (1) 連邦議会およびその委員会は、連邦政府のすべての構成員の出席を要求することができる。
+  - (2) 連邦参議院および連邦政府の構成員ならびにその委任を受けた者は、連邦議会およびその委員会のすべての会議への出席権を有する。これらの者は、いつでも聴取されなければならない。
+osakaText:
+  - (1) 連邦議会とその委員会は、連邦政府のすべての構成員の出席を要求することができるんや。
+  - (2) 連邦参議院と連邦政府の構成員、そしてその委任を受けた者は、連邦議会とその委員会のすべての会議への出席権を持っとるで。これらの者は、いつでも聴取されなあかんねん。
 commentary: []
 commentaryOsaka: []

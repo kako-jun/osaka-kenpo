@@ -1,10 +1,17 @@
 article: "103"
 title: Art 103
-titleOsaka: ""
+titleOsaka: "第103条"
 originalText:
   - (1) Vor Gericht hat jedermann Anspruch auf rechtliches Gehör.
   - (2) Eine Tat kann nur bestraft werden, wenn die Strafbarkeit gesetzlich bestimmt war, bevor die Tat begangen wurde.
   - (3) Niemand darf wegen derselben Tat auf Grund der allgemeinen Strafgesetze mehrmals bestraft werden.
-osakaText: []
+originalTextJapanese:
+  - (1) 裁判所において、何人も法的審問を受ける権利を有する。
+  - (2) 行為は、その行為が行われる前に可罰性が法律により定められていた場合にのみ処罰されることができる。
+  - (3) 何人も、同一の行為について一般刑法により重ねて処罰されてはならない。
+osakaText:
+  - (1) 裁判所において、何人も法的審問を受ける権利を有するんや。
+  - (2) 行為は、その行為が行われる前に可罰性が法律により定められとった場合にのみ処罰されることができるんや。
+  - (3) 何人も、同一の行為について一般刑法により重ねて処罰されたらあかんねん。
 commentary: []
 commentaryOsaka: []

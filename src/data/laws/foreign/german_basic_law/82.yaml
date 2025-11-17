@@ -1,9 +1,14 @@
 article: "82"
 title: Art 82
-titleOsaka: ""
+titleOsaka: "第82条"
 originalText:
   - (1) Die nach den Vorschriften dieses Grundgesetzes zustande gekommenen Gesetze werden vom Bundespräsidenten nach Gegenzeichnung ausgefertigt und im Bundesgesetzblatt verkündet. Das Bundesgesetzblatt kann in elektronischer Form geführt werden. Rechtsverordnungen werden von der Stelle, die sie erlässt, ausgefertigt. Das Nähere zur Verkündung und zur Form von Gegenzeichnung und Ausfertigung von Gesetzen und Rechtsverordnungen regelt ein Bundesgesetz.
   - (2) Jedes Gesetz und jede Rechtsverordnung soll den Tag des Inkrafttretens bestimmen. Fehlt eine solche Bestimmung, so treten sie mit dem vierzehnten Tage nach Ablauf des Tages in Kraft, an dem das Bundesgesetzblatt ausgegeben worden ist.
-osakaText: []
+originalTextJapanese:
+  - (1) この基本法の規定により成立した法律は、連邦大統領により副署の後に署名され、連邦法律公報において公布される。連邦法律公報は電子的形式で発行されることができる。法規命令は、これを発する機関により署名される。法律および法規命令の公布ならびに副署および署名の形式の詳細は、連邦法律で定める。
+  - (2) すべての法律およびすべての法規命令は、施行の日を定めなければならない。このような定めを欠く場合には、法律および法規命令は、連邦法律公報が発行された日の経過後14日目に施行する。
+osakaText:
+  - (1) この基本法の規定で成立した法律は、連邦大統領が副署をもろた後に署名して、連邦法律公報で公布するんや。連邦法律公報は電子の形で出すこともできるで。法規命令は、それを出す機関が署名するねん。法律と法規命令の公布、それと副署と署名の形式の詳しいことは、連邦法律で決めるんや。
+  - (2) すべての法律とすべての法規命令は、いつ施行するかを決めなあかんねん。そういう決めがなかったら、法律と法規命令は、連邦法律公報が出された日が過ぎてから14日目に施行するんやで。
 commentary: []
 commentaryOsaka: []

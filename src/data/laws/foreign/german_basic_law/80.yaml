@@ -1,11 +1,20 @@
 article: "80"
 title: Art 80
-titleOsaka: ""
+titleOsaka: "第80条"
 originalText:
   - (1) Durch Gesetz können die Bundesregierung, ein Bundesminister oder die Landesregierungen ermächtigt werden, Rechtsverordnungen zu erlassen. Dabei müssen Inhalt, Zweck und Ausmaß der erteilten Ermächtigung im Gesetze bestimmt werden. Die Rechtsgrundlage ist in der Verordnung anzugeben. Ist durch Gesetz vorgesehen, daß eine Ermächtigung weiter übertragen werden kann, so bedarf es zur Übertragung der Ermächtigung einer Rechtsverordnung.
   - (2) Der Zustimmung des Bundesrates bedürfen, vorbehaltlich anderweitiger bundesgesetzlicher Regelung, Rechtsverordnungen der Bundesregierung oder eines Bundesministers über Grundsätze und Gebühren für die Benutzung der Einrichtungen des Postwesens und der Telekommunikation, über die Grundsätze der Erhebung des Entgelts für die Benutzung der Einrichtungen der Eisenbahnen des Bundes, über den Bau und Betrieb der Eisenbahnen, sowie Rechtsverordnungen auf Grund von Bundesgesetzen, die der Zustimmung des Bundesrates bedürfen oder die von den Ländern im Auftrage des Bundes oder als eigene Angelegenheit ausgeführt werden.
   - (3) Der Bundesrat kann der Bundesregierung Vorlagen für den Erlaß von Rechtsverordnungen zuleiten, die seiner Zustimmung bedürfen.
   - (4) Soweit durch Bundesgesetz oder auf Grund von Bundesgesetzen Landesregierungen ermächtigt werden, Rechtsverordnungen zu erlassen, sind die Länder zu einer Regelung auch durch Gesetz befugt.
-osakaText: []
+originalTextJapanese:
+  - (1) 法律により、連邦政府、連邦大臣または州政府は、法規命令を発する権限を授権されることができる。その際、付与された授権の内容、目的および範囲が、法律において定められなければならない。法的根拠は、命令において示されなければならない。法律により、授権がさらに移譲されることができることが定められている場合、授権の移譲には法規命令を必要とする。
+  - (2) 他の連邦法律による規律を留保して、連邦参議院の同意を必要とするのは、郵便および電気通信の施設の利用のための原則および料金について、連邦の鉄道の施設の利用のための料金の徴収の原則について、鉄道の建設および運営について、ならびに連邦参議院の同意を必要とする連邦法律に基づき、または州により連邦の委託により、もしくは固有の事項として執行される連邦法律に基づく、連邦政府または連邦大臣の法規命令である。
+  - (3) 連邦参議院は、その同意を必要とする法規命令の制定のための法案を、連邦政府に送付することができる。
+  - (4) 連邦法律によりまたは連邦法律に基づき州政府が法規命令を発する権限を授権される限り、州は、法律による規律も行う権限を有する。
+osakaText:
+  - (1) 法律により、連邦政府、連邦大臣、または州政府は、法規命令を発する権限を授権されることができるんや。その際、付与された授権の内容、目的、そして範囲が、法律において定められなあかんねん。法的根拠は、命令において示されなあかんで。法律により、授権がさらに移譲されることができることが定められとる場合、授権の移譲には法規命令を必要とするんや。
+  - (2) 他の連邦法律による規律を留保して、連邦参議院の同意を必要とするのは、郵便と電気通信の施設の利用のための原則と料金について、連邦の鉄道の施設の利用のための料金の徴収の原則について、鉄道の建設と運営について、そして連邦参議院の同意を必要とする連邦法律に基づいたり、または州により連邦の委託により、もしくは固有の事項として執行される連邦法律に基づく、連邦政府や連邦大臣の法規命令やで。
+  - (3) 連邦参議院は、その同意を必要とする法規命令の制定のための法案を、連邦政府に送付することができるねん。
+  - (4) 連邦法律によりまたは連邦法律に基づいて州政府が法規命令を発する権限を授権される限り、州は、法律による規律も行う権限を持っとるんや。
 commentary: []
 commentaryOsaka: []

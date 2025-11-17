@@ -1,8 +1,11 @@
 article: "142"
 title: Art 142
-titleOsaka: ""
+titleOsaka: "第142条"
 originalText:
   - Ungeachtet der Vorschrift des Artikels 31 bleiben Bestimmungen der Landesverfassungen auch insoweit in Kraft, als sie in Übereinstimmung mit den Artikeln 1 bis 18 dieses Grundgesetzes Grundrechte gewährleisten.
-osakaText: []
+originalTextJapanese:
+  - "第31条の規定にかかわらず、州憲法の規定は、この基本法の第1条から第18条と一致して基本権を保障する限りにおいて、効力を有する。"
+osakaText:
+  - "第31条の規定にかかわらず、州憲法の規定は、この基本法の第1条から第18条と一致して基本権を保障する限りでは、効力を持つんや。"
 commentary: []
 commentaryOsaka: []

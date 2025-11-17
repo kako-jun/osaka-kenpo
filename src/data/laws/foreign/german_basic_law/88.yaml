@@ -1,8 +1,11 @@
 article: "88"
 title: Art 88
-titleOsaka: ""
+titleOsaka: "第88条"
 originalText:
   - Der Bund errichtet eine Währungs- und Notenbank als Bundesbank. Ihre Aufgaben und Befugnisse können im Rahmen der Europäischen Union der Europäischen Zentralbank übertragen werden, die unabhängig ist und dem vorrangigen Ziel der Sicherung der Preisstabilität verpflichtet.
-osakaText: []
+originalTextJapanese:
+  - 連邦は、連邦銀行として通貨および発券銀行を設置する。その任務および権限は、欧州連合の枠組みにおいて、独立であり物価安定の確保の優先的目標に拘束される欧州中央銀行に移譲されることができる。
+osakaText:
+  - 連邦は、連邦銀行として通貨と発券銀行を設置するんや。その任務と権限は、欧州連合の枠組みにおいて、独立であって物価安定の確保の優先的目標に拘束される欧州中央銀行に移譲されることができるで。
 commentary: []
 commentaryOsaka: []

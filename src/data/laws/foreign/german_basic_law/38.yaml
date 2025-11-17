@@ -1,10 +1,17 @@
 article: "38"
 title: Art 38
-titleOsaka: ""
+titleOsaka: "第38条"
 originalText:
   - (1) Die Abgeordneten des Deutschen Bundestages werden in allgemeiner, unmittelbarer, freier, gleicher und geheimer Wahl gewählt. Sie sind Vertreter des ganzen Volkes, an Aufträge und Weisungen nicht gebunden und nur ihrem Gewissen unterworfen.
   - (2) Wahlberechtigt ist, wer das achtzehnte Lebensjahr vollendet hat; wählbar ist, wer das Alter erreicht hat, mit dem die Volljährigkeit eintritt.
   - (3) Das Nähere bestimmt ein Bundesgesetz.
-osakaText: []
+originalTextJapanese:
+  - (1) ドイツ連邦議会の議員は、普通、直接、自由、平等および秘密の選挙により選出される。議員は、全国民の代表者であり、命令および指示に拘束されず、自己の良心にのみ従う。
+  - (2) 18歳に達した者は、選挙権を有する。成年に達する年齢に達した者は、被選挙権を有する。
+  - (3) 詳細は、連邦法律でこれを定める。
+osakaText:
+  - (1) ドイツ連邦議会の議員は、普通、直接、自由、平等、そして秘密の選挙により選出されるんや。議員は、全国民の代表者であって、命令と指示に拘束されへんし、自己の良心にのみ従うんやで。
+  - (2) 18歳に達した者は、選挙権を持っとる。成年に達する年齢に達した者は、被選挙権を持っとるねん。
+  - (3) 詳細は、連邦法律でこれを定めるんや。
 commentary: []
 commentaryOsaka: []

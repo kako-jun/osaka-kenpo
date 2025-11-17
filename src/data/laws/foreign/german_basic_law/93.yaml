@@ -1,12 +1,23 @@
 article: "93"
 title: Art 93
-titleOsaka: ""
+titleOsaka: "第93条"
 originalText:
   - (1) Das Bundesverfassungsgericht ist ein allen übrigen Verfassungsorganen gegenüber selbständiger und unabhängiger Gerichtshof des Bundes.
   - (2) Das Bundesverfassungsgericht besteht aus Bundesrichtern und anderen Mitgliedern; es gliedert sich in zwei Senate. In jeden Senat werden je zur Hälfte vom Bundestag und vom Bundesrat acht Richter gewählt; sie dürfen weder dem Bundestag, dem Bundesrat, der Bundesregierung noch entsprechenden Organen eines Landes angehören. Durch Bundesgesetz nach Absatz 5 kann vorgesehen werden, dass das Wahlrecht vom anderen Wahlorgan ausgeübt werden kann, wenn innerhalb einer zu bestimmenden Frist nach dem Ende der Amtszeit oder dem vorzeitigen Ausscheiden eines Richters eine Wahl seines Nachfolgers nicht zustande kommt.
   - (3) Die Amtszeit der Mitglieder des Bundesverfassungsgerichts dauert zwölf Jahre, längstens bis zum Ende des Monats, in dem das Mitglied das 68. Lebensjahr vollendet. Nach Ablauf der Amtszeit führen die Richter ihre Amtsgeschäfte bis zur Ernennung des Nachfolgers fort. Eine anschließende oder spätere Wiederwahl ist ausgeschlossen.
   - (4) Das Bundesverfassungsgericht gibt sich eine Geschäftsordnung, die das Plenum beschließt.
   - (5) Ein Bundesgesetz regelt die Verfassung und das Verfahren des Bundesverfassungsgerichts. Es kann für Verfassungsbeschwerden die vorherige Erschöpfung des Rechtsweges zur Voraussetzung machen und ein besonderes Annahmeverfahren vorsehen.
-osakaText: []
+originalTextJapanese:
+  - (1) 連邦憲法裁判所は、他のすべての憲法機関に対して独立かつ自立した連邦の裁判所である。
+  - (2) 連邦憲法裁判所は、連邦裁判官およびその他の構成員から成り、2つの部に分かれる。各部には、連邦議会および連邦参議院により各々半数ずつ8名の裁判官が選出される。彼らは、連邦議会、連邦参議院、連邦政府、または州の対応する機関のいずれにも属してはならない。第5項による連邦法律により、裁判官の任期終了または早期退任の後の定められるべき期限内にその後任の選出が成立しない場合、選挙権が他の選挙機関により行使されることができることが定められることができる。
+  - (3) 連邦憲法裁判所の構成員の任期は12年であり、最長で構成員が68歳に達する月の末日までである。任期終了後、裁判官は、後任の任命まで職務を継続する。続けての再選または事後の再選は排除される。
+  - (4) 連邦憲法裁判所は、全体会が議決する議事規則を自ら定める。
+  - (5) 連邦法律が、連邦憲法裁判所の組織および手続を規律する。連邦法律は、憲法異議について、事前の裁判の途の尽くしを要件とし、かつ特別の受理手続を定めることができる。
+osakaText:
+  - (1) 連邦憲法裁判所は、他のすべての憲法機関に対して独立かつ自立した連邦の裁判所やねん。
+  - (2) 連邦憲法裁判所は、連邦裁判官とその他の構成員から成って、2つの部に分かれるんや。各部には、連邦議会と連邦参議院により各々半数ずつ8名の裁判官が選出されるで。彼らは、連邦議会、連邦参議院、連邦政府、または州の対応する機関のいずれにも属したらあかんねん。第5項による連邦法律により、裁判官の任期終了や早期退任の後の定められるべき期限内にその後任の選出が成立せえへん場合、選挙権が他の選挙機関により行使されることができることが定められることができるんや。
+  - (3) 連邦憲法裁判所の構成員の任期は12年であって、最長で構成員が68歳に達する月の末日までやねん。任期終了後、裁判官は、後任の任命まで職務を継続するで。続けての再選や事後の再選は排除されるんや。
+  - (4) 連邦憲法裁判所は、全体会が議決する議事規則を自ら定めるねん。
+  - (5) 連邦法律が、連邦憲法裁判所の組織と手続を規律するんや。連邦法律は、憲法異議について、事前の裁判の途の尽くしを要件として、そして特別の受理手続を定めることができるで。
 commentary: []
 commentaryOsaka: []

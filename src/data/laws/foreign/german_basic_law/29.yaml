@@ -1,6 +1,6 @@
 article: "29"
 title: Art 29
-titleOsaka: ""
+titleOsaka: "第29条"
 originalText:
   - (1) Das Bundesgebiet kann neu gegliedert werden, um zu gewährleisten, daß die Länder nach Größe und Leistungsfähigkeit die ihnen obliegenden Aufgaben wirksam erfüllen können. Dabei sind die landsmannschaftliche Verbundenheit, die geschichtlichen und kulturellen Zusammenhänge, die wirtschaftliche Zweckmäßigkeit sowie die Erfordernisse der Raumordnung und der Landesplanung zu berücksichtigen.
   - (2) Maßnahmen zur Neugliederung des Bundesgebietes ergehen durch Bundesgesetz, das der Bestätigung durch Volksentscheid bedarf. Die betroffenen Länder sind zu hören.
@@ -10,6 +10,23 @@ originalText:
   - (6) Mehrheit im Volksentscheid und in der Volksbefragung ist die Mehrheit der abgegebenen Stimmen, wenn sie mindestens ein Viertel der zum Bundestag Wahlberechtigten umfaßt. Im übrigen wird das Nähere über Volksentscheid, Volksbegehren und Volksbefragung durch ein Bundesgesetz geregelt; dieses kann auch vorsehen, daß Volksbegehren innerhalb eines Zeitraumes von fünf Jahren nicht wiederholt werden können.
   - (7) Sonstige Änderungen des Gebietsbestandes der Länder können durch Staatsverträge der beteiligten Länder oder durch Bundesgesetz mit Zustimmung des Bundesrates erfolgen, wenn das Gebiet, dessen Landeszugehörigkeit geändert werden soll, nicht mehr als 50.000 Einwohner hat. Das Nähere regelt ein Bundesgesetz, das der Zustimmung des Bundesrates und der Mehrheit der Mitglieder des Bundestages bedarf. Es muß die Anhörung der betroffenen Gemeinden und Kreise vorsehen.
   - (8) Die Länder können eine Neugliederung für das jeweils von ihnen umfaßte Gebiet oder für Teilgebiete abweichend von den Vorschriften der Absätze 2 bis 7 durch Staatsvertrag regeln. Die betroffenen Gemeinden und Kreise sind zu hören. Der Staatsvertrag bedarf der Bestätigung durch Volksentscheid in jedem beteiligten Land. Betrifft der Staatsvertrag Teilgebiete der Länder, kann die Bestätigung auf Volksentscheide in diesen Teilgebieten beschränkt werden; Satz 5 zweiter Halbsatz findet keine Anwendung. Bei einem Volksentscheid entscheidet die Mehrheit der abgegebenen Stimmen, wenn sie mindestens ein Viertel der zum Bundestag Wahlberechtigten umfaßt; das Nähere regelt ein Bundesgesetz. Der Staatsvertrag bedarf der Zustimmung des Bundestages.
-osakaText: []
+originalTextJapanese:
+  - (1) 連邦領域は、州がその規模および能力に応じて、その課せられた任務を効果的に遂行しうることを保障するため、再編されうる。その際、同郷的結合、歴史的および文化的関連、経済的合目的性ならびに空間秩序および州計画の要請が考慮されなければならない。
+  - (2) 連邦領域の再編のための措置は、国民投票による確認を必要とする連邦法律により行われる。関係州は、意見を聴取されなければならない。
+  - (3) 国民投票は、その領域または領域の一部から新たなまたは新たに区画された州が形成されるべき州（関係州）において実施される。投票されるべきは、関係州が従来どおり存続すべきか、または新たなまたは新たに区画された州が形成されるべきかという問題についてである。新たなまたは新たに区画された州の形成のための国民投票は、その将来の領域において、かつ州帰属が同一の意味において変更されるべき関係州の領域または領域の一部の総体において、それぞれ過半数が変更に賛成する場合に、成立する。国民投票は、関係州の一つの領域において過半数が変更を拒否する場合には、成立しない。ただし、関係州への帰属が変更されるべき領域の一部において3分の2の多数が変更に賛成する場合には、拒否は考慮されない。ただし、関係州の全領域において3分の2の多数が変更を拒否する場合は、この限りでない。
+  - (4) 連続した、区画された居住および経済地域であって、その諸部分が複数の州に属し、かつ少なくとも100万の住民を有するものにおいて、そこに連邦議会の選挙権を有する者の10分の1により、この地域のために統一的な州帰属が確立されることが国民発議により要求される場合には、連邦法律により2年以内に、第2項に従って州帰属が変更されるか、または関係州において国民諮問が実施されるかのいずれかが定められなければならない。
+  - (5) 国民諮問は、法律において提案されるべき州帰属の変更が賛成を得るかどうかを確認することを目的とする。法律は、異なる、しかし2以上ではない提案を国民諮問に付すことができる。提案された州帰属の変更に過半数が賛成する場合には、連邦法律により2年以内に、第2項に従って州帰属が変更されるかどうかが定められなければならない。国民諮問に付された提案が第3項第3文および第4文の基準に対応する賛成を得る場合には、国民諮問の実施後2年以内に、提案された州の形成のための連邦法律が制定されなければならず、その際、国民投票による確認はもはや必要とされない。
+  - (6) 国民投票および国民諮問における過半数は、連邦議会の選挙権を有する者の少なくとも4分の1を含む場合、投票された票の過半数である。その他、国民投票、国民発議および国民諮問についての詳細は、連邦法律により定められる。連邦法律は、国民発議が5年の期間内に繰り返されえないことを定めることもできる。
+  - (7) 州の領域構成のその他の変更は、州帰属が変更されるべき領域が5万人以下の住民を有する場合、関係州の国家条約により、または連邦参議院の同意を得た連邦法律により行われうる。詳細は、連邦参議院の同意および連邦議会の構成員の過半数を必要とする連邦法律で定める。この法律は、関係市町村および郡の意見聴取を定めなければならない。
+  - (8) 州は、第2項から第7項までの規定と異なり、それぞれ州が包括する領域またはその一部領域のための再編を、国家条約により定めることができる。関係市町村および郡は、意見を聴取されなければならない。国家条約は、参加する各州における国民投票による確認を必要とする。国家条約が州の一部領域に関係する場合、確認はこれらの一部領域における国民投票に制限されうる。第5文後段は、適用されない。国民投票においては、連邦議会の選挙権を有する者の少なくとも4分の1を含む場合、投票された票の過半数が決定する。詳細は、連邦法律で定める。国家条約は、連邦議会の同意を必要とする。
+osakaText:
+  - (1) 連邦領域は、州がその規模と能力に応じて、その課せられた任務を効果的に遂行しうることを保障するため、再編されることがあるんや。その際、同郷的結合、歴史的・文化的関連、経済的合目的性、そして空間秩序と州計画の要請が考慮されなあかん。
+  - (2) 連邦領域の再編のための措置は、国民投票による確認が必要な連邦法律により行われるんや。関係州は、意見を聴取されなあかんで。
+  - (3) 国民投票は、その領域や領域の一部から新たな、または新たに区画された州が形成されるべき州（関係州）において実施されるんや。投票されるべきは、関係州が従来どおり存続すべきか、または新たな、もしくは新たに区画された州が形成されるべきかという問題についてやで。新たな、または新たに区画された州の形成のための国民投票は、その将来の領域において、そして州帰属が同じ意味において変更されるべき関係州の領域や領域の一部の総体において、それぞれ過半数が変更に賛成する場合に、成立するんやねん。国民投票は、関係州の一つの領域において過半数が変更を拒否する場合には、成立せえへん。ただし、関係州への帰属が変更されるべき領域の一部において3分の2の多数が変更に賛成する場合には、拒否は考慮されへんで。ただし、関係州の全領域において3分の2の多数が変更を拒否する場合は、この限りやないけどな。
+  - (4) 連続した、区画された居住・経済地域であって、その諸部分が複数の州に属して、そして少なくとも100万の住民を有するものにおいて、そこに連邦議会の選挙権を有する者の10分の1により、この地域のために統一的な州帰属が確立されることが国民発議により要求される場合には、連邦法律により2年以内に、第2項に従って州帰属が変更されるか、または関係州において国民諮問が実施されるかのいずれかが定められなあかんねん。
+  - (5) 国民諮問は、法律において提案されるべき州帰属の変更が賛成を得るかどうかを確認することを目的とするんや。法律は、異なる、しかし2以上やない提案を国民諮問に付すことができるで。提案された州帰属の変更に過半数が賛成する場合には、連邦法律により2年以内に、第2項に従って州帰属が変更されるかどうかが定められなあかん。国民諮問に付された提案が第3項第3文と第4文の基準に対応する賛成を得る場合には、国民諮問の実施後2年以内に、提案された州の形成のための連邦法律が制定されなあかんねん。その際、国民投票による確認はもはや必要とされへんで。
+  - (6) 国民投票と国民諮問における過半数は、連邦議会の選挙権を有する者の少なくとも4分の1を含む場合、投票された票の過半数や。その他、国民投票、国民発議、そして国民諮問についての詳細は、連邦法律により定められるんや。連邦法律は、国民発議が5年の期間内に繰り返されることができへんことを定めることもできるで。
+  - (7) 州の領域構成のその他の変更は、州帰属が変更されるべき領域が5万人以下の住民を有する場合、関係州の国家条約により、または連邦参議院の同意を得た連邦法律により行われることがあるんや。詳細は、連邦参議院の同意と連邦議会の構成員の過半数が必要な連邦法律で定めるんやねん。この法律は、関係市町村と郡の意見聴取を定めなあかん。
+  - (8) 州は、第2項から第7項までの規定と異なって、それぞれ州が包括する領域やその一部領域のための再編を、国家条約により定めることができるんや。関係市町村と郡は、意見を聴取されなあかんで。国家条約は、参加する各州における国民投票による確認が必要やねん。国家条約が州の一部領域に関係する場合、確認はこれらの一部領域における国民投票に制限されることがあるで。第5文後段は、適用されへん。国民投票においては、連邦議会の選挙権を有する者の少なくとも4分の1を含む場合、投票された票の過半数が決定するんや。詳細は、連邦法律で定めるで。国家条約は、連邦議会の同意が必要やねん。
 commentary: []
 commentaryOsaka: []
