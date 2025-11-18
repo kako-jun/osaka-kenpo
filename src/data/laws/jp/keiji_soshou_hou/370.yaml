@@ -1,10 +1,12 @@
 article: 370
 isSuppl: false
-title: ""
-titleOsaka: ""
+title: ''
+titleOsaka: ''
 originalText:
-  - 削除
+- 削除
 osakaText:
-  - 削除
-commentary: []
-commentaryOsaka: []
+- 削除
+commentary:
+- この条文は削除されました。
+commentaryOsaka:
+- この条文は削除されたんや。
