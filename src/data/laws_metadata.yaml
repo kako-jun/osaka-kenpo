@@ -15,22 +15,22 @@ categories:
         status: available
       - id: minpou
         path: /law/jp/minpou
-        status: preparing
+        status: available
       - id: shouhou
         path: /law/jp/shouhou
-        status: preparing
+        status: available
       - id: kaisya_hou
         path: /law/jp/kaisya_hou
-        status: preparing
+        status: available
       - id: keihou
         path: /law/jp/keihou
-        status: preparing
+        status: available
       - id: minji_soshou_hou
         path: /law/jp/minji_soshou_hou
-        status: preparing
+        status: available
       - id: keiji_soshou_hou
         path: /law/jp/keiji_soshou_hou
-        status: preparing
+        status: available
   - id: mukashi
     title: むかしの法律
     icon: 📜
@@ -68,13 +68,13 @@ categories:
     laws:
       - id: german_basic_law
         path: /law/foreign/german_basic_law
-        status: preparing
+        status: available
       - id: us_constitution
         path: /law/foreign/us_constitution
-        status: preparing
+        status: available
       - id: prc_constitution
         path: /law/foreign/prc_constitution
-        status: preparing
+        status: available
   - id: gaikoku_mukashi
     title: がいこくのむかしの法律
     icon: 🏛️

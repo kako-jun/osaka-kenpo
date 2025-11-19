@@ -1,7 +1,8 @@
 name: 商法
-year: 明治32年
+year: 1899
+badge: 商売人のバイブルや！
 source: e-Gov法令検索
-description: ''
+description: 明治32年制定の商法。商行為や商人の取引を規律する基幹法。
 links:
   - text: e-Gov法令検索
     url: https://elaws.e-gov.go.jp/document?lawid=132AC0000000048

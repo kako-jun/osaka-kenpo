@@ -1,7 +1,8 @@
 name: 民事訴訟法
-year: 平成8年
+year: 1996
+badge: 民事で困ったらここや！
 source: e-Gov法令検索
-description: ''
+description: 平成8年制定の民事訴訟法。民事裁判の手続や当事者の権利・義務を定める。
 links:
   - text: e-Gov法令検索
     url: https://elaws.e-gov.go.jp/document?lawid=408AC0000000109
