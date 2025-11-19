@@ -1,7 +1,8 @@
 name: 会社法
-year: 平成17年
+year: 2005
+badge: 会社の教科書や！
 source: e-Gov法令検索
-description: ''
+description: 平成17年制定の会社法。会社の設立・機関・計算・組織再編などを定める基本法。
 links:
   - text: e-Gov法令検索
     url: https://elaws.e-gov.go.jp/document?lawid=417AC0000000086

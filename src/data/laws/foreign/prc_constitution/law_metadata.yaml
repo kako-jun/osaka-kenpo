@@ -1,8 +1,9 @@
-name: 中华人民共和国宪法
-nameOsaka: 中華人民共和国憲法
-year: 1982年（最終改正2018年）
+name: 中華人民共和国憲法
+shortName: 中華人民共和国憲法
+year: 1982
 source: gov.cn
-description: 中華人民共和国の現行憲法。1982年制定、2018年改正。
+badge: 社会主義の中華トッピングや！
+description: 中華人民共和国の現行憲法。1982年制定、2018年改正を反映。
 links:
   - text: 中国政府网
     url: https://www.gov.cn/guoqing/2018-03/22/content_5276318.htm

@@ -1,8 +1,9 @@
-name: Grundgesetz für die Bundesrepublik Deutschland
-nameOsaka: ドイツ基本法
-year: 1949年（最終改正2025年）
+name: ドイツ基本法
+shortName: ドイツ基本法
+year: 1949
 source: gesetze-im-internet.de
-description: ドイツ連邦共和国の基本法（憲法）。全146条から構成される。
+badge: 基本法やけど憲法やで！
+description: ドイツ連邦共和国の基本法（憲法）。全146条から構成され、2025年までの改正を反映。
 links:
   - text: gesetze-im-internet.de
     url: https://www.gesetze-im-internet.de/gg/
