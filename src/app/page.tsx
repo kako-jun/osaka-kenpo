@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import Link from 'next/link';
 import { ShareButton } from '@/app/components/ShareButton';
@@ -25,7 +25,7 @@ export default function Home() {
     const loadAllMetadata = async () => {
       try {
         const { lawsMetadata, lawMetadata } = await loadBatchMetadata();
-        
+
         if (!lawsMetadata) {
           setLoading(false);
           return;
@@ -37,23 +37,23 @@ export default function Home() {
             const lawCategory = pathParts[2];
             const lawId = pathParts[3];
             const key = `${lawCategory}/${lawId}`;
-            
+
             const metadata = lawMetadata[key];
-            
+
             return {
               ...law,
               name: metadata?.shortName || metadata?.name || law.id,
               year: metadata?.year || null,
-              badge: metadata?.badge || null
+              badge: metadata?.badge || null,
             };
           });
-          
+
           return {
             ...category,
-            laws: lawsWithMetadata
+            laws: lawsWithMetadata,
           };
         });
-        
+
         setLawCategories(categoriesWithMetadata);
         setLoading(false);
       } catch (error) {
@@ -77,9 +77,7 @@ export default function Home() {
     return (
       <div className="min-h-screen bg-cream flex items-center justify-center">
         <div className="text-center">
-          <div className="text-red-500 text-xl mb-4">
-            法律データが読み込めませんでした
-          </div>
+          <div className="text-red-500 text-xl mb-4">法律データが読み込めませんでした</div>
           <div className="text-gray-600 text-sm">
             ブラウザのコンソールでエラーを確認してください
           </div>
@@ -96,26 +94,22 @@ export default function Home() {
       </div>
       {/* ロゴエリア */}
       <div className="flex justify-center mb-1 mt-8">
-        <img 
-          src="/osaka-kenpo-logo.webp" 
-          alt="おおさかけんぽう" 
+        <img
+          src="/osaka-kenpo-logo.webp"
+          alt="おおさかけんぽう"
           className="w-[370px] h-[169px] object-contain"
         />
       </div>
-      
+
       {/* カウンタエリア */}
       <div className="flex justify-center mb-8">
         <div className="text-center text-gray-500 text-sm flex items-center justify-center gap-1">
           <span>これまで</span>
-          <NostalgicCounter 
-            counterId="osaka-kenpo-49a3907a" 
-            type="total"
-            digits="4"
-          />
+          <NostalgicCounter counterId="osaka-kenpo-49a3907a" type="total" digits="4" />
           <span>人も見てくれてありがとなー</span>
         </div>
       </div>
-      
+
       <h1 className="text-2xl font-bold mb-6 text-center text-[#E94E77]">知りたい法律を選んでや</h1>
       <div className="space-y-8 mb-16">
         {lawCategories.map((category) => (
@@ -125,48 +119,46 @@ export default function Home() {
               {category.title}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {category.laws.sort((a: any, b: any) => (a.year || 0) - (b.year || 0)).map((law: any) => (
-                law.status === 'available' ? (
-                  <Link key={law.id} href={law.path} passHref className="block">
-                    <div className="h-32 flex flex-col justify-center p-6 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.1)] text-center text-white font-bold text-xl bg-[#E94E77] hover:bg-opacity-80 relative">
+              {category.laws
+                .sort((a: any, b: any) => (a.year || 0) - (b.year || 0))
+                .map((law: any) =>
+                  law.status === 'available' ? (
+                    <Link key={law.id} href={law.path} passHref className="block">
+                      <div className="h-32 flex flex-col justify-center p-6 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.1)] text-center text-white font-bold text-xl bg-[#E94E77] hover:bg-opacity-80 relative">
+                        <p className="mb-1 mt-3">{law.name}</p>
+                        {law.year && (
+                          <p className="text-sm font-normal text-[#FFB6C1]">{law.year}年</p>
+                        )}
+                        {law.badge && (
+                          <span className="absolute top-2 left-2 px-2 py-1 rounded-full text-xs font-bold text-white shadow-[0_0_8px_rgba(0,0,0,0.25)] bg-[#ed6b8a]">
+                            {law.badge}
+                          </span>
+                        )}
+                      </div>
+                    </Link>
+                  ) : (
+                    <div
+                      key={law.id}
+                      className="h-32 flex flex-col justify-center p-6 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.1)] text-center text-white font-bold text-xl bg-gray-400 relative"
+                    >
                       <p className="mb-1 mt-3">{law.name}</p>
-                      {law.year && <p className="text-sm font-normal text-[#FFB6C1]">{law.year}年</p>}
+                      {law.year && (
+                        <p className="text-sm font-normal text-gray-300">{law.year}年</p>
+                      )}
                       {law.badge && (
                         <span className="absolute top-2 left-2 px-2 py-1 rounded-full text-xs font-bold text-white shadow-[0_0_8px_rgba(0,0,0,0.25)] bg-[#ed6b8a]">
                           {law.badge}
                         </span>
                       )}
-                    </div>
-                  </Link>
-                ) : (
-                  <div key={law.id} className="h-32 flex flex-col justify-center p-6 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.1)] text-center text-white font-bold text-xl bg-gray-400 relative">
-                    <p className="mb-1 mt-3">{law.name}</p>
-                    {law.year && <p className="text-sm font-normal text-gray-300">{law.year}年</p>}
-                    {law.badge && (
-                      <span className="absolute top-2 left-2 px-2 py-1 rounded-full text-xs font-bold text-white shadow-[0_0_8px_rgba(0,0,0,0.25)] bg-[#ed6b8a]">
-                        {law.badge}
+                      <span className="absolute bottom-2 right-2 text-xs font-normal bg-gray-500 px-2 py-1 rounded">
+                        準備中やで
                       </span>
-                    )}
-                    <span className="absolute bottom-2 right-2 text-xs font-normal bg-gray-500 px-2 py-1 rounded">準備中やで</span>
-                  </div>
-                )
-              ))}
+                    </div>
+                  )
+                )}
             </div>
           </div>
         ))}
-      </div>
-
-      {/* フッター */}
-      <div className="py-8 border-t-2 border-gray-200 text-center">
-        <Link
-          href="/progress"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-400 to-orange-400 text-white rounded-full font-bold hover:shadow-lg transition-shadow"
-        >
-          📊 六法整備の進み具合を見る
-        </Link>
-        <p className="mt-4 text-sm text-gray-500">
-          4段階戦略で約4,158条文を整備中やで！
-        </p>
       </div>
     </div>
   );

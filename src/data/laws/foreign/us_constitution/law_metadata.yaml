@@ -1,7 +1,9 @@
-name: Constitution of the United States
-year: 1787年（修正1791-1992年）
+name: アメリカ合衆国憲法
+shortName: アメリカ合衆国憲法
+year: 1787
 source: National Archives
-description: アメリカ合衆国憲法。本文7条と修正27条から構成される。
+badge: 自由の重さがわかるで！
+description: アメリカ合衆国憲法。本文7条と修正27条から構成される。1791〜1992年の27修正を含む。
 links:
   - text: National Archives
     url: https://www.archives.gov/founding-docs/constitution

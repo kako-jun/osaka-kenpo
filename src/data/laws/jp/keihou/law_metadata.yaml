@@ -1,7 +1,8 @@
 name: 刑法
-year: 明治40年
+year: 1907
+badge: 悪いことしたらアカンで？
 source: e-Gov法令検索
-description: ''
+description: 明治40年制定の刑法。犯罪と刑罰を定める基本刑法典。
 links:
   - text: e-Gov法令検索
     url: https://elaws.e-gov.go.jp/document?lawid=140AC0000000045

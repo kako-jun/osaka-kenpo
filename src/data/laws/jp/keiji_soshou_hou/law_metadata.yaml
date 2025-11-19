@@ -1,7 +1,8 @@
 name: 刑事訴訟法
-year: 昭和23年
+year: 1948
+badge: 刑事の流れはここやで！
 source: e-Gov法令検索
-description: ''
+description: 昭和23年制定の刑事訴訟法。刑事手続の流れと被疑者・被告人の権利を定める。
 links:
   - text: e-Gov法令検索
     url: https://elaws.e-gov.go.jp/document?lawid=323AC0000000131

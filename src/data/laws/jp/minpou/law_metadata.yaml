@@ -1,7 +1,8 @@
 name: 民法
-year: 明治29年
+year: 1896
+badge: 民のルールの土台や！
 source: e-Gov法令検索
-description: ''
+description: 明治29年制定の民法。私法の基本法として財産法と家族法を規律する。
 links:
   - text: e-Gov法令検索
     url: https://elaws.e-gov.go.jp/document?lawid=129AC0000000089
