@@ -1,8 +1,9 @@
 article: 279
+isSuppl: false
+isDeleted: true
 title: 第279条
 titleOsaka: ""
-originalText:
-  - 削除
+originalText: []
 osakaText: []
 commentary: []
 commentaryOsaka: []

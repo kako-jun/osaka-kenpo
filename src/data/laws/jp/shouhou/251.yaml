@@ -1,8 +1,9 @@
 article: 251
+isSuppl: false
+isDeleted: true
 title: 第251条
 titleOsaka: ""
-originalText:
-  - 削除
+originalText: []
 osakaText: []
 commentary: []
 commentaryOsaka: []

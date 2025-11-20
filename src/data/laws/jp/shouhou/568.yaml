@@ -1,8 +1,9 @@
 article: 568
+isSuppl: false
+isDeleted: true
 title: 第568条
 titleOsaka: ""
-originalText:
-  - 削除
+originalText: []
 osakaText: []
 commentary: []
 commentaryOsaka: []

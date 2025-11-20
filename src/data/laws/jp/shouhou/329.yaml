@@ -1,8 +1,9 @@
 article: 329
+isSuppl: false
+isDeleted: true
 title: 第329条
 titleOsaka: ""
-originalText:
-  - 削除
+originalText: []
 osakaText: []
 commentary: []
 commentaryOsaka: []

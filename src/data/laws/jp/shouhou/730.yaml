@@ -1,8 +1,9 @@
 article: 730
+isSuppl: false
+isDeleted: true
 title: 第730条
 titleOsaka: ""
-originalText:
-  - 削除
+originalText: []
 osakaText: []
 commentary: []
 commentaryOsaka: []

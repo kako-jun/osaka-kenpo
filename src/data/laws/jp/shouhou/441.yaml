@@ -1,8 +1,9 @@
 article: 441
+isSuppl: false
+isDeleted: true
 title: 第441条
 titleOsaka: ""
-originalText:
-  - 削除
+originalText: []
 osakaText: []
 commentary: []
 commentaryOsaka: []

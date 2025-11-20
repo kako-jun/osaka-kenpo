@@ -1,8 +1,9 @@
 article: 202
+isSuppl: false
+isDeleted: true
 title: 第202条
 titleOsaka: ""
-originalText:
-  - 削除
+originalText: []
 osakaText: []
 commentary: []
 commentaryOsaka: []

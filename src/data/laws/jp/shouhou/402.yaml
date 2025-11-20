@@ -1,8 +1,9 @@
 article: 402
+isSuppl: false
+isDeleted: true
 title: 第402条
 titleOsaka: ""
-originalText:
-  - 削除
+originalText: []
 osakaText: []
 commentary: []
 commentaryOsaka: []

@@ -1,8 +1,9 @@
 article: 236
+isSuppl: false
+isDeleted: true
 title: 第236条
 titleOsaka: ""
-originalText:
-  - 削除
+originalText: []
 osakaText: []
 commentary: []
 commentaryOsaka: []

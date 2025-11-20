@@ -1,8 +1,9 @@
 article: 365
+isSuppl: false
+isDeleted: true
 title: 第365条
 titleOsaka: ""
-originalText:
-  - 削除
+originalText: []
 osakaText: []
 commentary: []
 commentaryOsaka: []
