@@ -36,7 +36,11 @@
     "typecheck": "tsc --noEmit",
     "prepare": "husky",
     "fetch:roppou": "node scripts/fetch-all-roppou.js",
-    "fetch:law": "node scripts/fetch-egov-law.js"
+    "fetch:law": "node scripts/fetch-egov-law.js",
+    "refetch:titles": "node scripts/refetch-missing-titles.js",
+    "clean:titles": "node scripts/clean-law-titles.js",
+    "check:titles": "python3 scripts/find_missing_titles.py",
+    "classify:titles": "node scripts/classify-empty-titles.js"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
