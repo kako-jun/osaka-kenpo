@@ -1,8 +1,9 @@
 article: 369
+isSuppl: false
+isDeleted: true
 title: 第369条
 titleOsaka: ""
-originalText:
-  - 削除
+originalText: []
 osakaText: []
 commentary: []
 commentaryOsaka: []

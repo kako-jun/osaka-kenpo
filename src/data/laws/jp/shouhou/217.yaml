@@ -1,8 +1,9 @@
 article: 217
+isSuppl: false
+isDeleted: true
 title: 第217条
 titleOsaka: ""
-originalText:
-  - 削除
+originalText: []
 osakaText: []
 commentary: []
 commentaryOsaka: []

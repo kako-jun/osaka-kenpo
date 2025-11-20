@@ -1,8 +1,9 @@
 article: 186
+isSuppl: false
+isDeleted: true
 title: 第186条
 titleOsaka: ""
-originalText:
-  - 削除
+originalText: []
 osakaText: []
 commentary: []
 commentaryOsaka: []

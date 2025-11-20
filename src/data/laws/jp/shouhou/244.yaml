@@ -1,8 +1,9 @@
 article: 244
+isSuppl: false
+isDeleted: true
 title: 第244条
 titleOsaka: ""
-originalText:
-  - 削除
+originalText: []
 osakaText: []
 commentary: []
 commentaryOsaka: []

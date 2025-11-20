@@ -1,10 +1,9 @@
 article: 32
 isSuppl: false
+isDeleted: true
 title: 第三十二条から第五百条まで
 titleOsaka: ""
-originalText:
-  - 削除
-osakaText:
-  - 削除
+originalText: []
+osakaText: []
 commentary: []
 commentaryOsaka: []
