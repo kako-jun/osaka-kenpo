@@ -1,9 +1,9 @@
 article: 888
 isSuppl: false
-isDeleted: true
-title: 第八百八十八条
+title: ""
 titleOsaka: ""
-originalText: []
+originalText:
+  - 削除
 osakaText: []
 commentary: []
 commentaryOsaka: []
