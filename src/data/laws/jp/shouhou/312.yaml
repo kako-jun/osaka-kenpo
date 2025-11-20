@@ -1,8 +1,9 @@
 article: 312
+isSuppl: false
+isDeleted: true
 title: 第312条
 titleOsaka: ""
-originalText:
-  - 削除
+originalText: []
 osakaText: []
 commentary: []
 commentaryOsaka: []

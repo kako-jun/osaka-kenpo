@@ -1,8 +1,9 @@
 article: 669
+isSuppl: false
+isDeleted: true
 title: 第669条
 titleOsaka: ""
-originalText:
-  - 削除
+originalText: []
 osakaText: []
 commentary: []
 commentaryOsaka: []

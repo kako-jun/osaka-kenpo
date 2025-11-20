@@ -1,8 +1,9 @@
 article: 150
+isSuppl: false
+isDeleted: true
 title: 第150条
 titleOsaka: ""
-originalText:
-  - 削除
+originalText: []
 osakaText: []
 commentary: []
 commentaryOsaka: []

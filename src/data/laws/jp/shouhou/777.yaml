@@ -1,8 +1,9 @@
 article: 777
+isSuppl: false
+isDeleted: true
 title: 第777条
 titleOsaka: ""
-originalText:
-  - 削除
+originalText: []
 osakaText: []
 commentary: []
 commentaryOsaka: []

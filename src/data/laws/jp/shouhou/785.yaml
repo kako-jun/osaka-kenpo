@@ -1,8 +1,9 @@
 article: 785
+isSuppl: false
+isDeleted: true
 title: 第785条
 titleOsaka: ""
-originalText:
-  - 削除
+originalText: []
 osakaText: []
 commentary: []
 commentaryOsaka: []

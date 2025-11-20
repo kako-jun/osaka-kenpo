@@ -1,8 +1,9 @@
 article: 470
+isSuppl: false
+isDeleted: true
 title: 第470条
 titleOsaka: ""
-originalText:
-  - 削除
+originalText: []
 osakaText: []
 commentary: []
 commentaryOsaka: []

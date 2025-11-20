@@ -1,8 +1,9 @@
 article: 519
+isSuppl: false
+isDeleted: true
 title: 第519条
 titleOsaka: ""
-originalText:
-  - 削除
+originalText: []
 osakaText: []
 commentary: []
 commentaryOsaka: []

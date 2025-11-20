@@ -1,8 +1,9 @@
 article: 680
+isSuppl: false
+isDeleted: true
 title: 第680条
 titleOsaka: ""
-originalText:
-  - 削除
+originalText: []
 osakaText: []
 commentary: []
 commentaryOsaka: []

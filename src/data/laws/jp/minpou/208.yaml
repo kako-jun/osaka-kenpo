@@ -1,10 +1,9 @@
 article: 208
 isSuppl: false
+isDeleted: true
 title: 第二百八条
 titleOsaka: ""
-originalText:
-  - 削除
-osakaText:
-  - 削除
+originalText: []
+osakaText: []
 commentary: []
 commentaryOsaka: []

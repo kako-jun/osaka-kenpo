@@ -1,8 +1,9 @@
 article: 446
+isSuppl: false
+isDeleted: true
 title: 第446条
 titleOsaka: ""
-originalText:
-  - 削除
+originalText: []
 osakaText: []
 commentary: []
 commentaryOsaka: []

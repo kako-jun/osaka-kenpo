@@ -1,8 +1,9 @@
 article: 52
+isSuppl: false
+isDeleted: true
 title: 第52条
 titleOsaka: ""
-originalText:
-  - 削除
+originalText: []
 osakaText: []
 commentary: []
 commentaryOsaka: []

@@ -1,8 +1,9 @@
 article: 395
+isSuppl: false
+isDeleted: true
 title: 第395条
 titleOsaka: ""
-originalText:
-  - 削除
+originalText: []
 osakaText: []
 commentary: []
 commentaryOsaka: []
