@@ -1,9 +1,9 @@
 article: 55
 isSuppl: false
-isDeleted: true
-title: 第五十五条
+title: ""
 titleOsaka: ""
-originalText: []
+originalText:
+  - 削除
 osakaText: []
 commentary: []
 commentaryOsaka: []
