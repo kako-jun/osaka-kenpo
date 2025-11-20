@@ -143,10 +143,14 @@ function extractArticles(lawBody) {
         // 条文本文を抽出
         const paragraphs = extractParagraphs(article);
 
-        const parsedNum = parseArticleNumber(articleNum);
+        // 条文番号を保持（"132_2"のような枝番も維持）
+        const articleNumStr = String(articleNum || '');
+        const parsedNum = parseArticleNumber(articleNumStr);
+
         articles.push({
           number: parsedNum,
-          isSuppl: isSuppl, // 附則かどうかのフラグ
+          rawNumber: articleNumStr, // 元の番号を保持（132_2など）
+          isSuppl: isSuppl,
           title: articleTitle || articleCaption,
           text: paragraphs,
         });
@@ -290,16 +294,19 @@ async function main() {
     let savedCount = 0;
 
     for (const article of articles) {
+      // ファイル名用の識別子（132_2 → 132_2.yaml）
+      const fileIdentifier = article.rawNumber.replace('_', '-');
+
       const yamlContent = yaml.dump(
         {
           article: article.number,
-          isSuppl: article.isSuppl || false, // 附則フラグを保存
+          isSuppl: article.isSuppl || false,
           title: article.title || '',
-          titleOsaka: '', // 空で用意
+          titleOsaka: '',
           originalText: article.text,
-          osakaText: [], // Stage 3で埋める
-          commentary: [], // Stage 2で埋める
-          commentaryOsaka: [], // Stage 4で埋める
+          osakaText: [],
+          commentary: [],
+          commentaryOsaka: [],
         },
         {
           indent: 2,
@@ -310,7 +317,8 @@ async function main() {
       );
 
       // 附則の場合はファイル名にプレフィックスを付ける
-      const filename = article.isSuppl ? `suppl_${article.number}.yaml` : `${article.number}.yaml`;
+      // 枝番がある場合（132_2など）はハイフン区切りに変換（132-2.yaml）
+      const filename = article.isSuppl ? `suppl_${fileIdentifier}.yaml` : `${fileIdentifier}.yaml`;
       const filepath = path.join(outputDir, filename);
       fs.writeFileSync(filepath, yamlContent, 'utf8');
       savedCount++;

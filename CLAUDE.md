@@ -67,8 +67,9 @@
 - **第639-640条（2条）**: 請負の瑕疵担保責任（2020年民法改正により削除）
 
 **完成度**:
+
 - 民法Stage 1: 1,050条中1,050条完成（**100%**）✅（削除条文57条を含む）
-**対応方針**:
+  **対応方針**:
 
 1. e-Gov APIスクリプトを修正して欠落分を再取得
 2. 再取得後、大阪弁訳も追加（現在57条が未訳）
@@ -164,6 +165,229 @@
 - **修正スクリプト**: `scripts/fix-osaka-merchant-tone.cjs`（一部自動化）
 
 **注意**: 質的な改善は手動で1つずつ行う必要あり
+
+## 🚨 重要TODO: 六法の枝番条文問題（2025-11-20発覚）
+
+### 📌 問題の概要
+
+**旧fetch-egov-law.jsスクリプトに重大なバグが発見されました：**
+
+- **症状**: 枝番条文（132_2, 132_3など）を正しく処理できず、すべて"132"として上書き
+- **影響範囲**: 六法全体（民法・商法・会社法・刑法・民訴・刑訴）
+- **結果**:
+  - 民事訴訟法: 136条が欠落（404条→正しくは540条）
+  - 全条文番号がずれ、ファイル名と内容が不一致
+  - 例：旧「3.yaml」= 実際は第139条の内容
+
+### 🔍 根本原因
+
+**scripts/fetch-egov-law.js（旧版）の欠陥:**
+
+```javascript
+// ❌ 旧コード（バグあり）
+const parsedNum = parseArticleNumber(articleNum); // "132_2" → "132"
+const filename = `${parsedNum}.yaml`; // すべて"132.yaml"に上書き
+
+// ✅ 修正後（2025-11-20）
+const articleNumStr = String(articleNum || '');
+const parsedNum = parseArticleNumber(articleNumStr);
+const fileIdentifier = article.rawNumber.replace('_', '-'); // "132_2" → "132-2"
+const filename = `${fileIdentifier}.yaml`; // "132-2.yaml"として正しく保存
+```
+
+### 🎯 修正計画（3段階アプローチ）
+
+#### Phase 1: 調査と影響範囲の特定 ⏳
+
+**目的**: 六法全体でどれくらいの枝番条文が欠落しているか確認
+
+**タスク:**
+
+1. **枝番条文の特定**（法律ごと）
+
+   ```bash
+   # 各法律でe-Gov APIから枝番条文を列挙
+   node scripts/check-subdivided-articles-all-laws.js
+   ```
+
+2. **欠落数の算出**（2025-11-20調査完了）
+   - 民法: 現在1,099ファイル / 期待1,360条 → **261条欠落推定**
+   - 商法: 現在889ファイル / 期待457条 → 附則含むため調査必要
+   - 会社法: 現在1,015ファイル / 期待1,152条 → **137条欠落推定**
+   - 刑法: 現在276ファイル / 期待356条 → **80条欠落推定**
+   - 民事訴訟法: 現在495ファイル / 期待540条 → **45条欠落**（revert後の混在状態）
+   - 刑事訴訟法: 現在542ファイル / 期待815条 → **273条欠落推定**
+
+3. **現状のYAMLファイル数との比較**
+   ```bash
+   # 各法律のYAMLファイル数をカウント
+   for law in minpou shouhou kaisya_hou keihou minji_soshou_hou keiji_soshou_hou
+   do
+     echo "=== $law ==="
+     ls -1 src/data/laws/jp/$law/*.yaml | grep -v law_metadata | wc -l
+   done
+   ```
+
+**完了条件**: 六法全体の欠落条文リストが完成
+
+---
+
+#### Phase 2: ファイル名修正戦略（シンプル・確実）✅採用
+
+**重要な発見（2025-11-20）:**
+
+- **ファイル名に意味がなくなっている**のが根本問題
+- `3.yaml` → 実際は第139条の内容
+- `139.yaml` → 実際は第275条の内容
+- ファイル名とYAML内の`article`フィールドが不一致
+
+**修正方針（大阪弁訳を失わないシンプルな方法）:**
+
+```bash
+# Step 1: 混乱の元を削除
+rm src/data/laws/jp/minji_soshou_hou/*-*.yaml
+# → 中途半端な枝番ファイル48個を削除
+
+# Step 2: ファイル名を正しい条文番号にリネーム
+node scripts/rename-to-correct-article-number.js minji_soshou_hou
+# → 各YAMLの`article`フィールドを読んで、それに合わせてリネーム
+# → 後ろから順に処理（上書き防止）
+# → 結果: 抜け番ができる（それが正しい状態）
+
+# Step 3: 再取得で抜け番を埋める
+node scripts/fetch-egov-law.js minji_soshou_hou 408AC0000000109
+# → 抜け番だけが追加される
+# → 既存ファイル（大阪弁訳付き）は上書きされない
+
+# Step 4: コミット
+git add src/data/laws/jp/minji_soshou_hou/
+git commit -m "fix(民訴): 条文番号とファイル名を正しく整合"
+```
+
+**メリット:**
+
+1. ✅ 大阪弁訳が失われない（既存ファイルをリネームするだけ）
+2. ✅ 内容ベースのマッチング不要（ファイル名だけの問題）
+3. ✅ 実装がシンプル
+4. ✅ 他の六法にも同じ手順で適用可能
+
+**リネームスクリプトの仕様:**
+
+- 全YAMLファイルを読み込み
+- `article`フィールドと`isSuppl`フィールドを取得
+- 本則: `{article}.yaml` (例: `132.yaml`)
+- 附則: `suppl_{article}.yaml` (例: `suppl_1.yaml`)
+- **降順**でリネーム（大きい番号から処理して上書き防止）
+
+**完了条件**: リネームスクリプトが完成し、民事訴訟法でテスト成功
+
+---
+
+#### Phase 3: 六法の段階的再取得と復元 ⏳
+
+**目的**: 六法全体を正しいデータに置き換え、大阪弁訳を復元
+
+**実行順序:**
+
+```bash
+# 0. 現状をコミット（重要！）
+git add -A
+git commit -m "backup: 六法再取得前の状態（枝番問題修正前）"
+
+# 1. 民事訴訟法（テストケース）
+git checkout HEAD -- src/data/laws/jp/minji_soshou_hou/  # 一旦元に戻す
+node scripts/fetch-egov-law.js minji_soshou_hou 408AC0000000109
+node scripts/restore-osaka-by-content.js minji_soshou_hou
+
+# 2. 復元結果を確認
+git diff src/data/laws/jp/minji_soshou_hou/ | less
+
+# 3. 問題なければコミット
+git add src/data/laws/jp/minji_soshou_hou/
+git commit -m "fix(民訴): 枝番条文を含む540条を正しく取得し、大阪弁訳を復元"
+
+# 4. 残りの六法を順番に実施
+for law in minpou shouhou kaisya_hou keihou keiji_soshou_hou
+do
+  echo "=== $law ==="
+
+  # 法令番号を取得（別途リスト化）
+  LAW_ID=$(get_law_id $law)
+
+  # バックアップ
+  git checkout HEAD -- src/data/laws/jp/$law/
+
+  # 再取得
+  node scripts/fetch-egov-law.js $law $LAW_ID
+
+  # 復元
+  node scripts/restore-osaka-by-content.js $law
+
+  # 確認
+  git diff src/data/laws/jp/$law/ | head -100
+
+  # 問題なければコミット
+  git add src/data/laws/jp/$law/
+  git commit -m "fix($law): 枝番条文を正しく取得し、大阪弁訳を復元"
+
+  echo ""
+done
+```
+
+**検証ポイント:**
+
+1. **条文数の確認**
+   - 新ファイル数 = e-Gov API取得数
+   - 枝番ファイル（XXX-2.yaml等）が存在
+
+2. **大阪弁訳の保持**
+   - 復元率: 目標95%以上
+   - 未復元ファイルのリスト化
+
+3. **内容の正確性**
+   - ランダムに10-20条をサンプリング
+   - originalTextとosakaTextの内容が一致
+
+**完了条件**: 六法全体の再取得・復元が完了し、コミット済み
+
+---
+
+### 📊 進捗トラッキング
+
+| 法律   | Phase 1<br>調査 | Phase 2<br>スクリプト | Phase 3<br>再取得 |   現在/期待 | 欠落数 | 復元率 |
+| ------ | :-------------: | :-------------------: | :---------------: | ----------: | -----: | -----: |
+| 憲法   |       ✅        |           -           |         -         |     103/103 |      0 |      - |
+| 民法   |       ✅        |           -           |         -         | 1,099/1,360 |    261 |      - |
+| 商法   |       ✅        |           -           |         -         |    889/457※ |      ? |      - |
+| 会社法 |       ✅        |           -           |         -         | 1,015/1,152 |    137 |      - |
+| 刑法   |       ✅        |           -           |         -         |     276/356 |     80 |      - |
+| 民訴   |       ✅        |          ⏳           |        ⏳         |     495/540 |     45 |      - |
+| 刑訴   |       ✅        |           -           |         -         |     542/815 |    273 |      - |
+
+※商法は附則含むため期待値より多い可能性
+
+**凡例**: ⏳ 未着手 / 🔄 進行中 / ✅ 完了
+
+---
+
+### 🛠️ 関連スクリプト
+
+| スクリプト                                      | 用途                           |    状態     |
+| ----------------------------------------------- | ------------------------------ | :---------: |
+| `scripts/fetch-egov-law.js`                     | e-Gov APIから法令取得          | ✅ 修正済み |
+| `scripts/check-subdivided-articles-all-laws.js` | 枝番条文の特定                 | ✅ 作成済み |
+| `scripts/restore-osaka-by-content.js`           | 内容ベースで大阪弁訳を復元     |  ⏳ 未作成  |
+| `scripts/verify-article-alignment.js`           | 条文番号と内容の整合性チェック |  ⏳ 未作成  |
+
+---
+
+### 📝 備考
+
+- **この問題の発見経緯**: 民事訴訟法の第3条で原文と大阪弁訳が不一致（2025-11-20）
+- **旧データのバックアップ**: git履歴に保存済み（コミット前の状態）
+- **復元不可能な場合**: 新規作成として扱い、後日翻訳を追加
+
+---
 
 ### 🎯 次にやるべきこと
 
