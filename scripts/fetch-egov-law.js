@@ -294,44 +294,79 @@ async function main() {
     let savedCount = 0;
 
     for (const article of articles) {
-      // ファイル名用の識別子（132_2 → 132_2.yaml）
-      const fileIdentifier = article.rawNumber.replace('_', '-');
+      // 削除された条文の範囲表記（38:84など）を展開
+      const articlesToCreate = [];
 
-      const yamlContent = yaml.dump(
-        {
-          article: article.number,
-          isSuppl: article.isSuppl || false,
-          title: article.title || '',
-          titleOsaka: '',
-          originalText: article.text,
-          osakaText: [],
-          commentary: [],
-          commentaryOsaka: [],
-        },
-        {
-          indent: 2,
-          lineWidth: -1,
-          noRefs: true,
-          quotingType: '"',
+      if (article.rawNumber.includes(':')) {
+        // 範囲表記の場合：開始〜終了まで展開
+        const [start, end] = article.rawNumber.split(':').map((n) => parseInt(n, 10));
+        console.log(`\n🔄 削除条文範囲を展開: 第${start}条〜第${end}条（${end - start + 1}条）`);
+
+        for (let num = start; num <= end; num++) {
+          articlesToCreate.push({
+            number: num,
+            rawNumber: String(num),
+            isSuppl: article.isSuppl,
+            title: article.title || '',
+            text: article.text, // ["削除"]
+          });
         }
-      );
-
-      // 附則の場合はファイル名にプレフィックスを付ける
-      // 枝番がある場合（132_2など）はハイフン区切りに変換（132-2.yaml）
-      const filename = article.isSuppl ? `suppl_${fileIdentifier}.yaml` : `${fileIdentifier}.yaml`;
-      const filepath = path.join(outputDir, filename);
-      fs.writeFileSync(filepath, yamlContent, 'utf8');
-      savedCount++;
-
-      if (savedCount % 50 === 0 || savedCount === articles.length) {
-        process.stdout.write(`\r💾 保存済み: ${savedCount}/${articles.length}条...`);
+      } else {
+        // 通常の条文
+        articlesToCreate.push({
+          number: article.number,
+          rawNumber: article.rawNumber,
+          isSuppl: article.isSuppl,
+          title: article.title || '',
+          text: article.text,
+        });
       }
 
-      // レート制限
-      if (savedCount < articles.length) {
+      // 各条文をファイルとして保存
+      for (const art of articlesToCreate) {
+        // ファイル名用の識別子（132_2 → 132-2）
+        const fileIdentifier = art.rawNumber.replace('_', '-');
+
+        // 削除された条文かどうか判定
+        const isDeleted = art.text.length === 1 && art.text[0] === '削除';
+
+        const yamlContent = yaml.dump(
+          {
+            article: art.number,
+            isSuppl: art.isSuppl || false,
+            ...(isDeleted ? { isDeleted: true } : {}),
+            title: art.title || '',
+            titleOsaka: '',
+            originalText: isDeleted ? [] : art.text,
+            osakaText: [],
+            commentary: [],
+            commentaryOsaka: [],
+          },
+          {
+            indent: 2,
+            lineWidth: -1,
+            noRefs: true,
+            quotingType: '"',
+          }
+        );
+
+        // 附則の場合はファイル名にプレフィックスを付ける
+        // 枝番がある場合（132_2など）はハイフン区切りに変換（132-2.yaml）
+        const filename = art.isSuppl ? `suppl_${fileIdentifier}.yaml` : `${fileIdentifier}.yaml`;
+        const filepath = path.join(outputDir, filename);
+        fs.writeFileSync(filepath, yamlContent, 'utf8');
+        savedCount++;
+
+        if (savedCount % 50 === 0) {
+          process.stdout.write(`\r💾 保存済み: ${savedCount}条...`);
+        }
+
+        // レート制限
         await sleep(10); // ファイル書き込み間隔
       }
     }
+
+    process.stdout.write(`\r💾 保存済み: ${savedCount}条...完了\n`);
 
     console.log(`\n\n✅ 全条文を保存しました: ${outputDir}`);
 
