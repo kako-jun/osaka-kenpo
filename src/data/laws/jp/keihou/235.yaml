@@ -1,9 +1,10 @@
 article: 235
 isSuppl: false
 title: 窃盗
-titleOsaka: ""
+titleOsaka: ''
 originalText:
-  - 他人の財物を窃取した者は、窃盗の罪とし、十年以下の拘禁刑又は五十万円以下の罰金に処する。
-osakaText: []
+- 他人の財物を窃取した者は、窃盗の罪とし、十年以下の拘禁刑又は五十万円以下の罰金に処する。
+osakaText:
+- 他人の財物を窃取した者は、窃盗の罪とし、十年以下の拘禁刑又は五十万円以下の罰金に処するんや。
 commentary: []
 commentaryOsaka: []

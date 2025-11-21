@@ -1,9 +1,10 @@
 article: 3
 isSuppl: false
 title: 国民の国外犯
-titleOsaka: ""
+titleOsaka: ''
 originalText:
-  - この法律は、日本国外において次に掲げる罪を犯した日本国民に適用する。
-osakaText: []
+- この法律は、日本国外において次に掲げる罪を犯した日本国民に適用する。
+osakaText:
+- この法律は、日本国外において次に掲げる罪を犯した日本国民に適用するんや。
 commentary: []
 commentaryOsaka: []
