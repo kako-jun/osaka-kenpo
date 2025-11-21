@@ -1,9 +1,10 @@
 article: 234
 isSuppl: false
 title: 威力業務妨害
-titleOsaka: ""
+titleOsaka: ''
 originalText:
-  - 威力を用いて人の業務を妨害した者も、前条の例による。
-osakaText: []
+- 威力を用いて人の業務を妨害した者も、前条の例による。
+osakaText:
+- 威力を用いて人の業務を妨害した者も、前条の例によるんや。
 commentary: []
 commentaryOsaka: []
