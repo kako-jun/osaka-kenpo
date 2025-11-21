@@ -18,6 +18,7 @@ def check_law_directory(law_dir):
                   if f.endswith('.yaml') and f != 'law_metadata.yaml']
 
     total_files = len(yaml_files)
+    deleted = 0  # 削除条文数
     stage1 = 0  # originalText が空でない
     stage2 = 0  # commentary が空でない
     stage3 = 0  # osakaText が空でない
@@ -29,7 +30,12 @@ def check_law_directory(law_dir):
             with open(filepath, 'r', encoding='utf-8') as f:
                 data = yaml.safe_load(f)
 
-            # Stage 1: originalText（削除条文は除外）
+            # 削除条文をカウント
+            if data.get('isDeleted'):
+                deleted += 1
+                continue
+
+            # Stage 1: originalText（削除条文以外）
             if data.get('originalText') and len(data['originalText']) > 0:
                 if not (len(data['originalText']) == 1 and data['originalText'][0] == '削除'):
                     stage1 += 1
@@ -49,8 +55,12 @@ def check_law_directory(law_dir):
         except Exception as e:
             print(f"  ⚠️ エラー: {yaml_file} - {e}")
 
+    non_deleted = total_files - deleted
+
     return {
         'total': total_files,
+        'deleted': deleted,
+        'non_deleted': non_deleted,
         'stage1': stage1,
         'stage2': stage2,
         'stage3': stage3,
@@ -155,34 +165,41 @@ def main():
                 print(f"  ⚠️  {law_name}: 0条")
                 continue
 
-            print(f"  ✅ {law_name}: {result['total']}条")
-            print(f"     Stage1: {result['stage1']}/{result['total']} ({result['stage1']/result['total']*100:.1f}%)")
+            print(f"  ✅ {law_name}: {result['total']}条（削除{result['deleted']}条、実質{result['non_deleted']}条）")
 
-            if result['stage3'] > 0:
-                print(f"     Stage3: {result['stage3']}/{result['total']} ({result['stage3']/result['total']*100:.1f}%)")
-            if result['stage4'] > 0:
-                print(f"     Stage4: {result['stage4']}/{result['total']} ({result['stage4']/result['total']*100:.1f}%)")
+            if result['non_deleted'] > 0:
+                print(f"     Stage1: {result['stage1']}/{result['non_deleted']} ({result['stage1']/result['non_deleted']*100:.1f}%)")
 
-            for key in ['total', 'stage1', 'stage2', 'stage3', 'stage4']:
+                if result['stage3'] > 0:
+                    print(f"     Stage3: {result['stage3']}/{result['non_deleted']} ({result['stage3']/result['non_deleted']*100:.1f}%)")
+                if result['stage4'] > 0:
+                    print(f"     Stage4: {result['stage4']}/{result['non_deleted']} ({result['stage4']/result['non_deleted']*100:.1f}%)")
+
+            for key in ['total', 'deleted', 'non_deleted', 'stage1', 'stage2', 'stage3', 'stage4']:
                 category_total[key] += result[key]
                 grand_total[key] += result[key]
 
         print(f"\n  📊 {category_name}合計:")
-        print(f"     総条文数: {category_total['total']}条")
-        print(f"     Stage1: {category_total['stage1']}条 ({category_total['stage1']/category_total['total']*100:.1f}%)")
-        if category_total['stage3'] > 0:
-            print(f"     Stage3: {category_total['stage3']}条 ({category_total['stage3']/category_total['total']*100:.1f}%)")
-        if category_total['stage4'] > 0:
-            print(f"     Stage4: {category_total['stage4']}条 ({category_total['stage4']/category_total['total']*100:.1f}%)")
+        print(f"     総条文数: {category_total['total']}条（削除{category_total['deleted']}条、実質{category_total['non_deleted']}条）")
+        if category_total['non_deleted'] > 0:
+            print(f"     Stage1: {category_total['stage1']}条 ({category_total['stage1']/category_total['non_deleted']*100:.1f}%)")
+            if category_total['stage3'] > 0:
+                print(f"     Stage3: {category_total['stage3']}条 ({category_total['stage3']/category_total['non_deleted']*100:.1f}%)")
+            if category_total['stage4'] > 0:
+                print(f"     Stage4: {category_total['stage4']}条 ({category_total['stage4']/category_total['non_deleted']*100:.1f}%)")
 
     print(f"\n{'='*80}")
     print(f"📊 全体合計")
     print(f"{'='*80}")
     print(f"総条文数: {grand_total['total']}条")
-    print(f"Stage1完成: {grand_total['stage1']}条 ({grand_total['stage1']/grand_total['total']*100:.1f}%)")
-    print(f"Stage2完成: {grand_total['stage2']}条 ({grand_total['stage2']/grand_total['total']*100:.1f}%)")
-    print(f"Stage3完成: {grand_total['stage3']}条 ({grand_total['stage3']/grand_total['total']*100:.1f}%)")
-    print(f"Stage4完成: {grand_total['stage4']}条 ({grand_total['stage4']/grand_total['total']*100:.1f}%)")
+    print(f"削除条文: {grand_total['deleted']}条")
+    print(f"実質条文数: {grand_total['non_deleted']}条")
+    print()
+    if grand_total['non_deleted'] > 0:
+        print(f"Stage1完成: {grand_total['stage1']}条 ({grand_total['stage1']/grand_total['non_deleted']*100:.1f}%)")
+        print(f"Stage2完成: {grand_total['stage2']}条 ({grand_total['stage2']/grand_total['non_deleted']*100:.1f}%)")
+        print(f"Stage3完成: {grand_total['stage3']}条 ({grand_total['stage3']/grand_total['non_deleted']*100:.1f}%)")
+        print(f"Stage4完成: {grand_total['stage4']}条 ({grand_total['stage4']/grand_total['non_deleted']*100:.1f}%)")
     print()
 
 if __name__ == '__main__':
