@@ -63,6 +63,8 @@ for (const file of oldFiles) {
 
     if (hasTranslations) {
       translationMap.set(key, {
+        title: data.title || '',
+        titleOsaka: data.titleOsaka || '',
         osakaText: data.osakaText || [],
         commentary: data.commentary || [],
         commentaryOsaka: data.commentaryOsaka || [],
@@ -111,7 +113,9 @@ for (const file of newFiles) {
     if (translationMap.has(key)) {
       const translations = translationMap.get(key);
 
-      // 大阪弁訳を復元
+      // タイトルと大阪弁訳を復元
+      data.title = translations.title;
+      data.titleOsaka = translations.titleOsaka;
       data.osakaText = translations.osakaText;
       data.commentary = translations.commentary;
       data.commentaryOsaka = translations.commentaryOsaka;

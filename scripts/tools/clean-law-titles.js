@@ -130,7 +130,7 @@ function cleanYamlFile(filepath) {
  * メイン処理
  */
 function main() {
-  const lawDir = path.join(__dirname, '..', 'src', 'data', 'laws', lawCategory, lawId);
+  const lawDir = path.join(__dirname, '..', '..', 'src', 'data', 'laws', lawCategory, lawId);
 
   if (!fs.existsSync(lawDir)) {
     console.error(`❌ ディレクトリが見つかりません: ${lawDir}`);

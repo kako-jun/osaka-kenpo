@@ -41,6 +41,27 @@ const CONFIG = {
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
 };
 
+// カテゴリを推測する関数
+function getCategoryFromLawId(lawId) {
+  const jpLaws = [
+    'constitution',
+    'minpou',
+    'shouhou',
+    'kaisya_hou',
+    'keihou',
+    'minji_soshou_hou',
+    'keiji_soshou_hou',
+    'ai_suishin_hou',
+  ];
+  const foreignLaws = ['german_basic_law', 'us_constitution', 'prc_constitution'];
+
+  if (jpLaws.includes(lawId)) return 'jp';
+  if (foreignLaws.includes(lawId)) return 'foreign';
+
+  // デフォルトはjp
+  return 'jp';
+}
+
 // コマンドライン引数
 const lawId = process.argv[2];
 const egovLawNum = process.argv[3];
@@ -270,18 +291,9 @@ async function main() {
     const articles = extractArticles(lawBody);
     console.log(`✅ ${articles.length}条の条文を抽出しました\n`);
 
-    // 進捗YAMLを読み込み
-    const progressPath = path.join(__dirname, '..', '.claude', 'all-laws-progress.yaml');
-    const progressData = yaml.load(fs.readFileSync(progressPath, 'utf8'));
-
-    // 該当する法律を見つける
-    const lawInfo = progressData.laws.find((l) => l.id === lawId);
-    if (!lawInfo) {
-      throw new Error(`Law ID "${lawId}" が all-laws-progress.yaml 内に見つかりません`);
-    }
-
-    const category = lawInfo.category;
-    const outputDir = path.join(__dirname, '..', 'src', 'data', 'laws', category, lawId);
+    // カテゴリを推測（六法は jp、外国法は foreign等）
+    const category = getCategoryFromLawId(lawId);
+    const outputDir = path.join(__dirname, '..', '..', 'src', 'data', 'laws', category, lawId);
 
     // 出力ディレクトリを作成
     if (!fs.existsSync(outputDir)) {
@@ -373,7 +385,7 @@ async function main() {
     // law_metadata.yamlを作成
     const metadataContent = yaml.dump(
       {
-        name: lawName || lawInfo.name,
+        name: lawName || lawId,
         year: extractYear(egovLawNum),
         source: 'e-Gov法令検索',
         description: '', // 後で埋める
@@ -391,21 +403,7 @@ async function main() {
     fs.writeFileSync(metadataPath, metadataContent, 'utf8');
     console.log('📄 law_metadata.yaml を作成しました');
 
-    // 進捗を更新
-    lawInfo.progress.stage1_originalText = articles.length;
-
-    // サマリーも更新
-    progressData.summary.stage1_completed = progressData.laws.reduce(
-      (sum, law) => sum + law.progress.stage1_originalText,
-      0
-    );
-    progressData.summary.stage1_percentage = (
-      (progressData.summary.stage1_completed / progressData.summary.totalArticles) *
-      100
-    ).toFixed(1);
-
-    fs.writeFileSync(progressPath, yaml.dump(progressData, { indent: 2 }), 'utf8');
-    console.log(`📊 進捗更新: Stage 1 = ${articles.length}/${lawInfo.totalArticles}条`);
+    console.log(`📊 取得完了: ${articles.length}条`);
 
     console.log('\n' + '='.repeat(60));
     console.log('🎉 完了！');
