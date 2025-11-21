@@ -37,7 +37,7 @@ const progressPath = path.join(__dirname, '..', '.claude', 'roppou-progress.yaml
 const progressData = yaml.load(fs.readFileSync(progressPath, 'utf8'));
 
 // 該当する法律を見つける
-const lawInfo = progressData.laws.find(l => l.id === lawId);
+const lawInfo = progressData.laws.find((l) => l.id === lawId);
 if (!lawInfo) {
   console.error(`❌ Law ID "${lawId}" not found in roppou-progress.yaml`);
   process.exit(1);
@@ -55,22 +55,23 @@ if (!fs.existsSync(outputDir)) {
 // テンプレートYAMLを生成
 let savedCount = 0;
 for (let i = 1; i <= totalArticles; i++) {
-  const yamlContent = yaml.dump({
-    article: i,
-    title: `第${i}条`,
-    titleOsaka: '',
-    originalText: [
-      '【ここに原文を入力してください】'
-    ],
-    osakaText: [],  // Stage 3で埋める
-    commentary: [],  // Stage 2で埋める
-    commentaryOsaka: []  // Stage 4で埋める
-  }, {
-    indent: 2,
-    lineWidth: -1,
-    noRefs: true,
-    quotingType: '"'
-  });
+  const yamlContent = yaml.dump(
+    {
+      article: i,
+      title: `第${i}条`,
+      titleOsaka: '',
+      originalText: ['【ここに原文を入力してください】'],
+      osakaText: [], // Stage 3で埋める
+      commentary: [], // Stage 2で埋める
+      commentaryOsaka: [], // Stage 4で埋める
+    },
+    {
+      indent: 2,
+      lineWidth: -1,
+      noRefs: true,
+      quotingType: '"',
+    }
+  );
 
   const filename = `${i}.yaml`;
   const filepath = path.join(outputDir, filename);
@@ -85,17 +86,20 @@ for (let i = 1; i <= totalArticles; i++) {
 console.log(`\n\n✅ All template files saved to: ${outputDir}`);
 
 // law_metadata.yamlを作成
-const metadataContent = yaml.dump({
-  name: lawInfo.name,
-  year: '',  // 後で埋める
-  source: '',  // 後で埋める
-  description: '',  // 後で埋める
-  links: []  // 後で埋める
-}, {
-  indent: 2,
-  lineWidth: -1,
-  noRefs: true
-});
+const metadataContent = yaml.dump(
+  {
+    name: lawInfo.name,
+    year: '', // 後で埋める
+    source: '', // 後で埋める
+    description: '', // 後で埋める
+    links: [], // 後で埋める
+  },
+  {
+    indent: 2,
+    lineWidth: -1,
+    noRefs: true,
+  }
+);
 
 const metadataPath = path.join(outputDir, 'law_metadata.yaml');
 fs.writeFileSync(metadataPath, metadataContent, 'utf8');

@@ -13,71 +13,71 @@ const remainingLaws = [
     name: '日米犯罪人引渡条約',
     category: 'treaty',
     totalArticles: 21,
-    titlePattern: (i) => `第${i}条`
+    titlePattern: (i) => `第${i}条`,
   },
   {
     id: 'olympic_charter',
     name: 'オリンピック憲章',
     category: 'treaty',
     totalArticles: 60,
-    titlePattern: (i) => `Rule ${i}`
+    titlePattern: (i) => `Rule ${i}`,
   },
   {
     id: 'universal_postal_convention',
     name: '万国郵便条約',
     category: 'treaty',
     totalArticles: 40,
-    titlePattern: (i) => `第${i}条`
+    titlePattern: (i) => `第${i}条`,
   },
   {
     id: 'road_signs_convention',
     name: '道路標識及び信号に関する条約',
     category: 'treaty',
     totalArticles: 30,
-    titlePattern: (i) => `第${i}条`
+    titlePattern: (i) => `第${i}条`,
   },
   {
     id: 'itu_constitution',
     name: '国際電気通信連合憲章',
     category: 'treaty',
     totalArticles: 59,
-    titlePattern: (i) => `第${i}条`
+    titlePattern: (i) => `第${i}条`,
   },
   {
     id: 'prime_meridian_conference',
     name: '本初子午線国際会議決議',
     category: 'treaty',
     totalArticles: 7,
-    titlePattern: (i) => `決議${i}`
+    titlePattern: (i) => `決議${i}`,
   },
   {
     id: 'konden_einen_shizai_hou',
     name: '墾田永年私財法',
     category: 'jp',
     totalArticles: 1,
-    titlePattern: (i) => '全文'
+    titlePattern: (i) => '全文',
   },
   {
     id: 'shourui_awaremi_no_rei',
     name: '生類憐みの令',
     category: 'jp',
     totalArticles: 5, // 主要な5つの令
-    titlePattern: (i) => `第${i}令`
+    titlePattern: (i) => `第${i}令`,
   },
   {
     id: 'corpus_iuris_civilis',
     name: 'ローマ法大全',
     category: 'roman',
     totalArticles: 50, // 主要な50条を選択（全体は膨大すぎる）
-    titlePattern: (i) => `D. ${i}`
+    titlePattern: (i) => `D. ${i}`,
   },
   {
     id: 'taiho_ritsuryo',
     name: '大宝律令',
     category: 'jp_old',
     totalArticles: 30, // 主要な30条を選択（全体は膨大）
-    titlePattern: (i) => `第${i}条`
-  }
+    titlePattern: (i) => `第${i}条`,
+  },
 ];
 
 async function generateTemplates() {
@@ -108,13 +108,13 @@ async function generateTemplates() {
         originalText: ['【ここに原文を入力してください】'],
         osakaText: [],
         commentary: [],
-        commentaryOsaka: []
+        commentaryOsaka: [],
       };
 
       const yamlContent = yaml.dump(templateData, {
         indent: 2,
         lineWidth: -1,
-        noRefs: true
+        noRefs: true,
       });
 
       fs.writeFileSync(yamlPath, yamlContent, 'utf8');

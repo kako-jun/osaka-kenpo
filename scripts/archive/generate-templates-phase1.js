@@ -14,7 +14,7 @@ const phase1Laws = [
     category: 'jp',
     totalArticles: 5,
     articlePrefix: '一、',
-    titlePattern: (i) => `第${i}条`
+    titlePattern: (i) => `第${i}条`,
   },
   {
     id: 'meiji_kenpo',
@@ -22,7 +22,7 @@ const phase1Laws = [
     category: 'jp_old',
     totalArticles: 76,
     articlePrefix: '第',
-    titlePattern: (i) => `第${i}条`
+    titlePattern: (i) => `第${i}条`,
   },
   {
     id: 'bill_of_rights',
@@ -30,7 +30,7 @@ const phase1Laws = [
     category: 'uk',
     totalArticles: 13,
     articlePrefix: 'Article ',
-    titlePattern: (i) => `Article ${i}`
+    titlePattern: (i) => `Article ${i}`,
   },
   {
     id: 'goseibai_shikimoku',
@@ -38,8 +38,8 @@ const phase1Laws = [
     category: 'jp_old',
     totalArticles: 51,
     articlePrefix: '第',
-    titlePattern: (i) => `第${i}条`
-  }
+    titlePattern: (i) => `第${i}条`,
+  },
 ];
 
 async function generateTemplates() {
@@ -69,13 +69,13 @@ async function generateTemplates() {
         originalText: ['【ここに原文を入力してください】'],
         osakaText: [],
         commentary: [],
-        commentaryOsaka: []
+        commentaryOsaka: [],
       };
 
       const yamlContent = yaml.dump(templateData, {
         indent: 2,
         lineWidth: -1,
-        noRefs: true
+        noRefs: true,
       });
 
       fs.writeFileSync(yamlPath, yamlContent, 'utf8');

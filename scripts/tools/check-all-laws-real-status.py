@@ -58,7 +58,7 @@ def check_law_directory(law_dir):
     }
 
 def main():
-    base_dir = Path(__file__).parent.parent / 'src' / 'data' / 'laws'
+    base_dir = Path(__file__).parent.parent.parent / 'src' / 'data' / 'laws'
 
     # 日本の法律
     jp_laws = {
