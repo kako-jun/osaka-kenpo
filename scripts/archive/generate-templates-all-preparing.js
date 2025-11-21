@@ -14,21 +14,21 @@ const preparingLaws = [
     name: 'ドイツ連邦共和国基本法',
     category: 'foreign',
     totalArticles: 146,
-    titlePattern: (i) => `第${i}条`
+    titlePattern: (i) => `第${i}条`,
   },
   {
     id: 'us_constitution',
     name: 'アメリカ合衆国憲法',
     category: 'foreign',
     totalArticles: 34, // 本文7条 + 修正27条
-    titlePattern: (i) => i <= 7 ? `Article ${i}` : `Amendment ${i - 7}`
+    titlePattern: (i) => (i <= 7 ? `Article ${i}` : `Amendment ${i - 7}`),
   },
   {
     id: 'prc_constitution',
     name: '中華人民共和国憲法',
     category: 'foreign',
     totalArticles: 138,
-    titlePattern: (i) => `第${i}条`
+    titlePattern: (i) => `第${i}条`,
   },
 
   // 外国歴史法
@@ -37,21 +37,21 @@ const preparingLaws = [
     name: 'ハンムラビ法典',
     category: 'foreign_old',
     totalArticles: 282,
-    titlePattern: (i) => `第${i}条`
+    titlePattern: (i) => `第${i}条`,
   },
   {
     id: 'weimarer_verfassung',
     name: 'ワイマール憲法',
     category: 'de',
     totalArticles: 181,
-    titlePattern: (i) => `第${i}条`
+    titlePattern: (i) => `第${i}条`,
   },
   {
     id: 'napoleonic_code',
     name: 'ナポレオン法典（フランス民法典）',
     category: 'foreign_old',
     totalArticles: 2281,
-    titlePattern: (i) => `第${i}条`
+    titlePattern: (i) => `第${i}条`,
   },
 
   // 国際条約
@@ -60,56 +60,56 @@ const preparingLaws = [
     name: 'ラムサール条約',
     category: 'treaty',
     totalArticles: 12,
-    titlePattern: (i) => `第${i}条`
+    titlePattern: (i) => `第${i}条`,
   },
   {
     id: 'un_charter',
     name: '国際連合憲章',
     category: 'treaty',
     totalArticles: 111,
-    titlePattern: (i) => `第${i}条`
+    titlePattern: (i) => `第${i}条`,
   },
   {
     id: 'npt',
     name: '核兵器不拡散条約',
     category: 'treaty',
     totalArticles: 11,
-    titlePattern: (i) => `第${i}条`
+    titlePattern: (i) => `第${i}条`,
   },
   {
     id: 'outer_space_treaty',
     name: '宇宙条約',
     category: 'treaty',
     totalArticles: 17,
-    titlePattern: (i) => `第${i}条`
+    titlePattern: (i) => `第${i}条`,
   },
   {
     id: 'metre_convention',
     name: 'メートル条約',
     category: 'treaty',
     totalArticles: 18,
-    titlePattern: (i) => `第${i}条`
+    titlePattern: (i) => `第${i}条`,
   },
   {
     id: 'unclos',
     name: '国連海洋法条約',
     category: 'treaty',
     totalArticles: 320,
-    titlePattern: (i) => `第${i}条`
+    titlePattern: (i) => `第${i}条`,
   },
   {
     id: 'chicago_convention',
     name: '国際民間航空条約（シカゴ条約）',
     category: 'treaty',
     totalArticles: 96,
-    titlePattern: (i) => `第${i}条`
+    titlePattern: (i) => `第${i}条`,
   },
   {
     id: 'who_constitution',
     name: '世界保健機関憲章',
     category: 'treaty',
     totalArticles: 82,
-    titlePattern: (i) => `第${i}条`
+    titlePattern: (i) => `第${i}条`,
   },
 
   // 日本歴史法（簡単なもの）
@@ -118,14 +118,14 @@ const preparingLaws = [
     name: '禁中並公家諸法度',
     category: 'jp_old',
     totalArticles: 17,
-    titlePattern: (i) => `第${i}条`
+    titlePattern: (i) => `第${i}条`,
   },
   {
     id: 'buke_shohatto',
     name: '武家諸法度',
     category: 'jp_old',
     totalArticles: 13, // 元和令（1615年版）
-    titlePattern: (i) => `第${i}条`
+    titlePattern: (i) => `第${i}条`,
   },
 ];
 
@@ -157,13 +157,13 @@ async function generateTemplates() {
         originalText: ['【ここに原文を入力してください】'],
         osakaText: [],
         commentary: [],
-        commentaryOsaka: []
+        commentaryOsaka: [],
       };
 
       const yamlContent = yaml.dump(templateData, {
         indent: 2,
         lineWidth: -1,
-        noRefs: true
+        noRefs: true,
       });
 
       fs.writeFileSync(yamlPath, yamlContent, 'utf8');

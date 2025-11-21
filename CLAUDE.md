@@ -20,10 +20,19 @@
 
 ### 🛠️ 開発・設計ドキュメント（.claude/）
 
-- **[law-addition-guide.md](.claude/law-addition-guide.md)** - 新しい法律追加の完全手順書
-- **[animation-troubleshooting.md](.claude/animation-troubleshooting.md)** - アニメーション関連トラブルシューティング
-- **[ui-consistency-checklist.md](.claude/ui-consistency-checklist.md)** - UI一貫性チェックリスト
-- **[translation-style-guide.md](.claude/translation-style-guide.md)** - 大阪弁翻訳統合スタイルガイド（統合版）
+#### コアガイド (.claude/guides/)
+
+- **[translation-style-guide.md](.claude/guides/translation-style-guide.md)** - 大阪弁翻訳統合スタイルガイド（★最重要）
+- **[law-addition-guide.md](.claude/guides/law-addition-guide.md)** - 新しい法律追加の完全手順書
+
+#### 計画・ロードマップ (.claude/plans/)
+
+- **[scraping-roadmap.md](.claude/plans/scraping-roadmap.md)** - データ取得・整備のロードマップ
+
+#### トラブルシューティング (.claude/troubleshooting/)
+
+- **[animation-troubleshooting.md](.claude/troubleshooting/animation-troubleshooting.md)** - アニメーション関連
+- **[ui-consistency-checklist.md](.claude/troubleshooting/ui-consistency-checklist.md)** - UI一貫性チェック
 
 ### 📚 ユーザー・貢献者向けドキュメント
 
@@ -31,160 +40,80 @@
 - **[CONTRIBUTING.md](CONTRIBUTING.md)** - 貢献者向けガイドライン
 - **[docs/user-guide.md](docs/user-guide.md)** - 詳細な使い方ガイド
 
-## 📋 進捗管理ルール（2025-11-20制定）
+## 📋 進捗管理ルール（2025-11-21更新）
 
 **原則：単一の真実の源（Single Source of Truth）**
 
 - **ファイルシステム = 唯一の真実**: 実際のYAMLファイルが全て
-- **スクリプトで確認**: `python3 scripts/check-all-laws-real-status.py`
-- **ドキュメントは参照のみ**: 手動で進捗数字を書き込まない
+- **スクリプトで確認**: `python3 scripts/tools/check-all-laws-real-status.py`
+- **統合ドキュメント**: [.claude/PROGRESS.md](.claude/PROGRESS.md) に全て集約
 
 **禁止事項：**
 
 - ❌ 複数ファイルでの重複管理
-- ❌ `.claude/all-laws-progress.yaml` の手動編集
-- ❌ 推測や記憶に基づく数字の記載
+- ❌ 手動での進捗数字の記載
+- ❌ 推測や記憶に基づく情報
 
 **更新手順：**
 
-1. スクリプトを実行して実態を確認
-2. 必要に応じてこのドキュメントに結果を転記
-3. 転記日時を明記
+1. スクリプトを実行: `python3 scripts/tools/check-all-laws-real-status.py`
+2. 結果を `.claude/PROGRESS.md` にコピー
+3. 更新日時を明記
 
-## 🚀 現在の状況（2025-11-20時点）
+## 🔧 スクリプト構成（2025-11-21整理）
 
-**進捗確認:** `python3 scripts/check-all-laws-real-status.py` を実行
+**原則：汎用的なツールと使い捨てスクリプトを分離**
 
-### 📊 全体サマリー
+### scripts/tools/ - 汎用ツール
 
-- **総法律数**: 38法律
-- **総条文数**: 9,081条
-- **Stage1（原文完成）**: 8,372条（92.2%）✨
-- **Stage2（原文解説）**: 2,837条（31.2%）
-- **Stage3（大阪弁訳）**: 4,172条（45.9%）
-- **Stage4（大阪弁解説）**: 2,823条（31.1%）
+繰り返し使用する再利用可能なスクリプト
 
-### 📁 カテゴリ別進捗（Stage1）
+- **データ取得**: fetch-egov-law.js, fetch-china-constitution.js 等
+- **品質チェック**: check-all-laws-real-status.py, check-commentary-quality.cjs 等
+- **ユーティリティ**: clean-law-titles.js, restore-osaka-by-content.js 等
 
-#### 日本現行法（4,981条、85.8%完成）
+詳細: [scripts/tools/README.md](scripts/tools/README.md)
 
-- 日本国憲法: 105条（98.1%）
-- 民法: 1,273条（93.9%）
-- 商法: 889条（32.7%）⚠️ 要強化
-- 会社法: 1,116条（99.7%）
-- 刑法: 327条（94.5%）
-- 民事訴訟法: 495条（100%）✅
-- 刑事訴訟法: 744条（99.5%）
-- AI基本法: 32条（93.8%）
+### scripts/one-time/ - 使い捨てスクリプト
 
-#### 日本歴史法（216条、99.5%完成）
+特定の問題を修正するために一度だけ実行するスクリプト
 
-- 十七条憲法: 18条、大宝律令: 30条、御成敗式目: 51条
-- 墾田永年私財法: 1条、武家諸法度: 13条、禁中並公家諸法度: 17条
-- 生類憐みの令: 5条、五箇条の御誓文: 5条、明治憲法: 76条
+- **スタイル改善**: improve-keihou-style.py, improve-keiji-soshou-hou.py 等
+- **表現修正**: fix-osaka-merchant-tone.cjs, replace-kobe-with-osaka.cjs 等
+- **データ正規化**: normalize-deleted-articles.js, add-deleted-flag.js 等
 
-#### 外国現行法（375条、99.7%完成）
+詳細: [scripts/one-time/README.md](scripts/one-time/README.md)
 
-- ドイツ基本法: 198条（100%）✅
-- アメリカ憲法: 34条（97.1%）
-- 中国憲法: 143条（100%）✅
+### scripts/archive/ - 古いスクリプト
 
-#### 外国歴史法（2,610条、100%完成）
+もう使わないスクリプトの保管場所
 
-- ハンムラビ法典: 282条、マグナ・カルタ: 47条、ナポレオン法典: 2,281条
+- テンプレート生成系（generate-\*.js）
+- データ変換系（convert-\*.js）
 
-#### 国際条約（899条、99.9%完成）
+詳細: [scripts/archive/README.md](scripts/archive/README.md)
 
-- 全15条約（南極、ラムサール、国連憲章、NPT、宇宙、郵便、オリンピック、本初子午線、道路標識、メートル、ITU、海洋法、シカゴ、日米引渡、WHO）
+## 📊 進捗管理
 
-### 📋 要修正条文リスト（2025-11-18）
+**最新の進捗情報**: [.claude/PROGRESS.md](.claude/PROGRESS.md)
 
-**大阪弁解説の品質改善が必要な条文**
+```bash
+# 実際の進捗を確認
+python3 scripts/tools/check-all-laws-real-status.py
+```
 
-品質チェックスクリプト（`scripts/check-commentary-quality.cjs`）による分析結果：
+**重要**: 進捗数字は手動で更新しないでください。上記スクリプトの実行結果が唯一の真実です。
 
-#### 商法（275条に問題あり）
+### 現在の優先課題
 
-- **商人表現が強い**: 197条
-  - 第16-20条、第28-32条、第36-42条、第47-52条、第56-62条、など
-  - 問題: 「商売」「投資」「儲け」などビジネス目線が強すぎる
-  - 修正方針: 法律を学ぶ生徒目線、教育者としての優しい説明に変更
+1. **商法の原文取得**（Stage1: 32.7%）← 最優先
+2. **商法・刑法の商人表現修正**（197条 + 15条）
+3. **訴訟法の例え話追加**（刑訴492条、民訴122条）
+4. **歴史法・条約の翻訳**（原文完成済み、翻訳未着手）
 
-- **例え話が不足**: 129条
-  - 附則を除く本則条文の多く
-  - 問題: 抽象的な説明のみで具体例がない
-  - 修正方針: 身近な例え話を追加（最低3-4文、理想5-6文）
+詳細は [.claude/PROGRESS.md](.claude/PROGRESS.md) を参照。
 
-- **解説なし**: 53条（すべて附則）
-  - suppl_1.yaml 〜 suppl_53.yaml
-  - 対応: 附則は優先度低（後回し可）
-
-#### 刑法（44条に問題あり）
-
-- **商人表現**: 15条
-  - 第19条、第139条、第186条、第197条、第224条、など
-  - 問題: 「利益」「儲け」などの表現が不適切
-
-- **例え話不足**: 10条
-
-- **解説なし**: 19条（削除された条文）
-
-#### 刑事訴訟法（494条に問題あり）
-
-- **例え話が不足**: 492条
-  - ほぼ全条文（第1-7条は改善済み）
-  - 問題: 「〜や」「〜やで」の語尾変換のみで、内容が薄い
-  - 修正方針: 手続法は特に分かりやすい例が重要
-
-- **短すぎる**: 50条
-  - 150文字未満の条文
-
-- **商人表現**: 13条（利益を、など）
-
-#### 民事訴訟法（129条に問題あり）
-
-- **例え話が不足**: 122条
-  - ほぼ全条文
-  - 問題: 手続きの説明が抽象的
-  - 修正方針: 「例えば、お金を貸した友達が返してくれへん時...」など
-
-- **短すぎる**: 44条
-
-- **商人表現**: 9条（利益が、利益を、など）
-
-#### 📊 優先度別の修正計画
-
-**優先度1: 商法の商人表現（197条）**
-
-- 最も問題が顕著
-- ビジネス目線から教育者目線への大幅な書き直しが必要
-- 範囲: 第1-200条程度を集中的に
-
-**優先度2: 刑事訴訟法・民事訴訟法の例え話追加（614条）**
-
-- 語尾変換のみの条文が大半
-- 手続法は特に具体例が重要
-- 範囲: 第1-100条程度を先行
-
-**優先度3: 刑法の商人表現（15条）**
-
-- 数は少ないが修正必要
-- 範囲: 全257条を確認
-
-**優先度4: その他**
-
-- 商法附則（53条）
-- 短い解説の拡充
-
-#### 🛠️ 修正ツール
-
-- **品質チェック**: `node scripts/check-commentary-quality.cjs`
-- **詳細レポート**: `quality-check-report.json`
-- **修正スクリプト**: `scripts/fix-osaka-merchant-tone.cjs`（一部自動化）
-
-**注意**: 質的な改善は手動で1つずつ行う必要あり
-
-## 🚨 重要TODO: 六法の枝番条文問題（2025-11-20発覚）
+## 🚨 既知の技術的問題
 
 ### 📌 問題の概要
 
@@ -199,7 +128,7 @@
 
 ### 🔍 根本原因
 
-**scripts/fetch-egov-law.js（旧版）の欠陥:**
+**scripts/tools/fetch-egov-law.js（旧版）の欠陥:**
 
 ```javascript
 // ❌ 旧コード（バグあり）
@@ -225,7 +154,7 @@ const filename = `${fileIdentifier}.yaml`; // "132-2.yaml"として正しく保�
 
    ```bash
    # 各法律でe-Gov APIから枝番条文を列挙
-   node scripts/check-subdivided-articles-all-laws.js
+   node scripts/tools/check-subdivided-articles-all-laws.js
    ```
 
 2. **欠落数の算出**（2025-11-20調査完了）
@@ -269,15 +198,15 @@ LAW_ID="408AC0000000109"      # e-Gov法令番号
 find src/data/laws/jp/${LAW_NAME} -name "*.yaml" ! -name "law_metadata.yaml" -type f -delete
 
 # ===== Step 2: e-Gov APIから再取得 =====
-node scripts/fetch-egov-law.js ${LAW_NAME} ${LAW_ID}
+node scripts/tools/fetch-egov-law.js ${LAW_NAME} ${LAW_ID}
 
 # ===== Step 3: 大阪弁訳を内容ベースで復元 =====
-node scripts/restore-osaka-by-content.js ${LAW_NAME}
+node scripts/tools/restore-osaka-by-content.js ${LAW_NAME}
 # → 既存の大阪弁訳を100%復元
 # → 新規の枝番条文は大阪弁訳なし（後日追加）
 
 # ===== Step 4: タイトルクリーンアップ（カッコ削除） =====
-node scripts/clean-law-titles.js jp ${LAW_NAME}
+node scripts/tools/clean-law-titles.js jp ${LAW_NAME}
 
 # ===== Step 5: law_metadata.yamlの復元 =====
 git checkout HEAD -- src/data/laws/jp/${LAW_NAME}/law_metadata.yaml
@@ -321,8 +250,8 @@ git commit -m "backup: 六法再取得前の状態（枝番問題修正前）"
 
 # 1. 民事訴訟法（テストケース）
 git checkout HEAD -- src/data/laws/jp/minji_soshou_hou/  # 一旦元に戻す
-node scripts/fetch-egov-law.js minji_soshou_hou 408AC0000000109
-node scripts/restore-osaka-by-content.js minji_soshou_hou
+node scripts/tools/fetch-egov-law.js minji_soshou_hou 408AC0000000109
+node scripts/tools/restore-osaka-by-content.js minji_soshou_hou
 
 # 2. 復元結果を確認
 git diff src/data/laws/jp/minji_soshou_hou/ | less
@@ -343,10 +272,10 @@ do
   git checkout HEAD -- src/data/laws/jp/$law/
 
   # 再取得
-  node scripts/fetch-egov-law.js $law $LAW_ID
+  node scripts/tools/fetch-egov-law.js $law $LAW_ID
 
   # 復元
-  node scripts/restore-osaka-by-content.js $law
+  node scripts/tools/restore-osaka-by-content.js $law
 
   # 確認
   git diff src/data/laws/jp/$law/ | head -100
@@ -397,12 +326,12 @@ done
 
 ### 🛠️ 関連スクリプト
 
-| スクリプト                                      | 用途                           |    状態     |
-| ----------------------------------------------- | ------------------------------ | :---------: |
-| `scripts/fetch-egov-law.js`                     | e-Gov APIから法令取得          | ✅ 修正済み |
-| `scripts/check-subdivided-articles-all-laws.js` | 枝番条文の特定                 | ✅ 作成済み |
-| `scripts/restore-osaka-by-content.js`           | 内容ベースで大阪弁訳を復元     |  ⏳ 未作成  |
-| `scripts/verify-article-alignment.js`           | 条文番号と内容の整合性チェック |  ⏳ 未作成  |
+| スクリプト                                            | 用途                           |    状態     |
+| ----------------------------------------------------- | ------------------------------ | :---------: |
+| `scripts/tools/fetch-egov-law.js`                     | e-Gov APIから法令取得          | ✅ 修正済み |
+| `scripts/tools/check-subdivided-articles-all-laws.js` | 枝番条文の特定                 | ✅ 作成済み |
+| `scripts/tools/restore-osaka-by-content.js`           | 内容ベースで大阪弁訳を復元     |  ⏳ 未作成  |
+| `scripts/verify-article-alignment.js`                 | 条文番号と内容の整合性チェック |  ⏳ 未作成  |
 
 ---
 
@@ -427,198 +356,22 @@ done
 
 詳細は → `.claude/scraping-roadmap.md` を参照
 
-## 📋 六法整備プロジェクト（4段階戦略）- ✅ **完了**
+## 🔗 e-Gov法令番号一覧（参考）
 
-### 🎯 整備対象（六法＋会社法）
+六法のデータ取得に使用する法令番号:
 
-- **憲法**: 103条（✅ Stage 4完成）
-- **民法**: 1,360条（✅ Stage 1完成）
-- **商法**: 457条（✅ Stage 1完成）
-- **会社法**: 1,152条（✅ Stage 1完成）
-- **刑法**: 356条（✅ Stage 1完成）
-- **民事訴訟法**: 540条（✅ Stage 1完成）
-- **刑事訴訟法**: 815条（✅ Stage 1完成）
-- **合計**: 4,680条（計画4,158条・附則含む）
+- 民法: `129AC0000000089`
+- 商法: `132AC0000000048`
+- 会社法: `417AC0000000086`
+- 刑法: `140AC0000000045`
+- 民事訴訟法: `408AC0000000109`
+- 刑事訴訟法: `323AC0000000131`
 
-### 📊 4段階戦略
-
-手作業は一切行わず、e-Gov法令検索APIから自動取得して段階的に整備：
-
-1. **Stage 1**: 原文（originalText）← まず全条文でこれを完成
-2. **Stage 2**: 原文解説（commentary）
-3. **Stage 3**: 大阪弁訳（osakaText）
-4. **Stage 4**: 大阪弁解説（commentaryOsaka）
-
-### 🛠️ 自動化スクリプト（改善版）
-
-#### 改善点
-
-- ✅ プロキシ対応（環境変数 `HTTPS_PROXY`/`HTTP_PROXY` から自動取得）
-- ✅ 適切なUser-Agent設定
-- ✅ リトライ機能（最大3回）
-- ✅ 詳細なエラーハンドリング
-- ✅ レート制限（API負荷軽減）
-
-#### 必要なパッケージのインストール
+**使用例**:
 
 ```bash
-npm install
+node scripts/tools/fetch-egov-law.js minpou 129AC0000000089
 ```
-
-#### 使用方法
-
-**六法を一括取得（推奨）:**
-
-```bash
-npm run fetch:roppou
-```
-
-**個別に取得:**
-
-```bash
-# 民法を取得
-npm run fetch:law minpou 129AC0000000089
-
-# 商法を取得（現行版）
-npm run fetch:law shouhou 132AC0000000048
-
-# 会社法を取得
-npm run fetch:law kaisya_hou 417AC0000000086
-
-# 刑法を取得
-npm run fetch:law keihou 140AC0000000045
-
-# 民事訴訟法を取得
-npm run fetch:law minji_soshou_hou 408AC0000000109
-
-# 刑事訴訟法を取得
-npm run fetch:law keiji_soshou_hou 323AC0000000131
-```
-
-#### プロキシ設定（必要な場合）
-
-```bash
-# 環境変数でプロキシを設定
-export HTTPS_PROXY=http://proxy.example.com:8080
-export HTTP_PROXY=http://proxy.example.com:8080
-
-# その後、スクリプトを実行
-npm run fetch:roppou
-```
-
-#### スクリプトの動作
-
-1. e-Gov法令検索APIから法令XMLを取得
-2. XMLをパースして条文を抽出
-3. 各条文をYAMLファイルとして保存（Stage 1のみ埋める）
-4. `law_metadata.yaml`を自動生成
-5. `.claude/all-laws-progress.yaml`の進捗を更新
-
-### 📈 進捗管理
-
-- **進捗ファイル**: `.claude/all-laws-progress.yaml`（全38法律を一元管理）
-- 各法律の条文数と4段階ごとの完成数を記録
-- `/progress` ページで可視化
-
-### 🔗 e-Gov法令番号一覧
-
-- 憲法: `321CONSTITUTION`
-- 民法: `129AC0000000089`（明治29年法律第89号）
-- 商法: `132AC0000000048`（明治32年法律第48号・現行版）
-- 会社法: `417AC0000000086`（平成17年法律第86号・2005年独立）
-- 刑法: `140AC0000000045`（明治40年法律第45号）
-- 民事訴訟法: `409AC0000000109`（平成8年法律第109号）
-- 刑事訴訟法: `323AC0000000131`（昭和23年法律第131号）
-
-### 🚀 次のステップ（ローカル環境で実行）
-
-**現状**: 全4,055条分のテンプレートYAMLが生成済み（原文は空）
-
-**実施すべき作業**: ローカル環境でe-Gov APIスクリプトを実行し、全条文の原文を取得
-
-```bash
-# 民法（1,050条）を取得
-node scripts/fetch-egov-law.js minpou 129AC0000000089
-
-# 商法（851条）を取得
-node scripts/fetch-egov-law.js shouhou 132AC0000000048
-
-# 会社法（979条）を取得
-node scripts/fetch-egov-law.js kaisya_hou 417AC0000000086
-
-# 刑法（264条）を取得
-node scripts/fetch-egov-law.js keihou 140AC0000000045
-
-# 民事訴訟法（404条）を取得
-node scripts/fetch-egov-law.js minji_soshou_hou 409AC0000000109
-
-# 刑事訴訟法（507条）を取得
-node scripts/fetch-egov-law.js keiji_soshou_hou 323AC0000000131
-```
-
-**完了後の確認**:
-
-- `/progress` ページで進捗を確認
-- Stage 1の完成率が100%になることを確認
-- 各条文YAMLに原文が入っていることを確認
-
-**注意事項**:
-
-- e-Gov APIは外部ネットワークアクセスが必要
-- Claude Code on the Web環境では実行不可
-- 必ずローカル環境（自分のPC）で実行すること
-
-## 📋 全法律プロジェクト（38法律・8,283条）
-
-### 📦 法律カテゴリ別内訳
-
-1. **日本現行法**（10法律・3,760条）
-   - 六法+会社法: 4,158条（憲法103、民法1,050、商法851、会社法979、刑法264、民訴404、刑訴507）
-   - その他: AI基本法1、墾田永年私財法1、生類憐みの令5
-
-2. **日本歴史法**（6法律・209条）
-   - 十七条憲法17、大宝律令30、御成敗式目51、武家諸法度13、禁中並公家諸法度17、五箇条の御誓文5、明治憲法76
-
-3. **外国現行法**（3法律・318条）
-   - ドイツ基本法146、米国憲法34、中国憲法138
-
-4. **外国歴史法**（6法律・2,870条）
-   - ハンムラビ法典282、マグナ・カルタ63、ローマ法大全50、権利章典13、ワイマール憲法181、ナポレオン法典2,281
-
-5. **国際条約**（13法律・1,126条）
-   - 南極条約14、ラムサール条約12、国連憲章111、NPT11、宇宙条約17、万国郵便条約40、オリンピック憲章60、本初子午線会議7、道路標識条約30、メートル条約18、ITU憲章59、海洋法条約320、シカゴ条約96、日米犯罪人引渡条約21、WHO憲章82
-
-### 🛠️ データ取得戦略
-
-- **e-Gov API**: 日本現行法（六法等）→ `scripts/fetch-egov-law.js`
-- **公式サイト**: 歴史法・外国法・条約 → ローカル環境で手動fetch必要
-- **進捗管理**: `.claude/all-laws-progress.yaml` で一元管理
-
-## 🎯 次期開発予定
-
-### 最優先（今すぐ）
-
-1. **Stage 1完成**: 全8,283条の原文取得（現在2.4%）
-   - 六法4,055条をe-Gov APIで取得
-   - 歴史・外国法を各公式サイトから取得
-
-### 短期（1-2週間）
-
-1. **Stage 2開始**: 全条文の解説作成
-2. **検索機能**: サイト内全文検索の基本実装
-3. **SNS共有**: 条文画像生成・共有機能
-
-### 中期（1-2ヶ月）
-
-1. **Stage 3-4**: 大阪弁翻訳・解説作成
-2. **比較機能**: 法律間比較・差分表示
-3. **パフォーマンス最適化**: SSG拡張・速度向上
-
-### 長期（3-6ヶ月）
-
-1. **特殊ナビゲーション**: タイムマシン・ワールドツアーUI
-2. **地方条例対応**: 日本地図UI・条例データベース連携
-3. **AI要約機能**: 法律間の違い・歴史的背景の自動解説
 
 ## 💻 開発環境セットアップ
 
@@ -701,6 +454,61 @@ npm run typecheck
 - **理解促進**: 親しみやすい翻訳で法的概念を理解
 - **興味喚起**: 歴史・国際比較で法律への関心を高める
 - **継続学習**: 楽しいUI/UXでの学習継続支援
+
+---
+
+## 🎯 翻訳再開ガイド（2025-11-21更新）
+
+### ステップ1: 現状確認
+
+```bash
+# 実際の進捗を確認
+python3 scripts/tools/check-all-laws-real-status.py
+```
+
+### ステップ2: 優先順位の決定
+
+現状の問題（CLAUDE.md内の「要修正条文リスト」参照）:
+
+1. **商法**: 商人表現が強い（197条）← 最優先
+2. **刑事訴訟法**: 例え話不足（492条）
+3. **民事訴訟法**: 例え話不足（122条）
+4. **刑法**: 商人表現が強い（15条）
+
+### ステップ3: 品質チェック
+
+```bash
+# 大阪弁解説の品質をチェック
+node scripts/tools/check-commentary-quality.cjs
+
+# 結果は quality-check-report.json に保存
+```
+
+### ステップ4: 翻訳作業
+
+1. **翻訳ガイドを確認**: [.claude/guides/translation-style-guide.md](.claude/guides/translation-style-guide.md)
+2. **対象条文を選択**: 品質チェック結果から
+3. **YAMLファイルを編集**: `src/data/laws/jp/<law_name>/<article_number>.yaml`
+4. **検証**: ローカルサーバーで表示確認
+
+### ステップ5: 進捗確認
+
+```bash
+# 再度進捗を確認
+python3 scripts/tools/check-all-laws-real-status.py
+```
+
+### 重要な注意事項
+
+- **スクリプトパスが変更されました**（2025-11-21整理）
+  - 汎用ツール: `scripts/tools/`
+  - 使い捨て: `scripts/one-time/`
+  - 古いもの: `scripts/archive/`
+
+- **翻訳スタイル**
+  - 商人表現（儲け、利益等）は避ける
+  - 教育者としての優しい説明を心がける
+  - 具体的な例え話を追加（最低3-4文）
 
 ---
 
