@@ -1,9 +1,10 @@
 article: 121
 isSuppl: false
 title: 取消しの効果
-titleOsaka: ""
+titleOsaka: 取消しの効果
 originalText:
   - 取り消された行為は、初めから無効であったものとみなす。
-osakaText: []
+osakaText:
+  - 取り消された行為は、初めから無効やったもんとみなすんや。
 commentary: []
 commentaryOsaka: []
