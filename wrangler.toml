@@ -1,0 +1,11 @@
+name = "osaka-kenpo"
+compatibility_date = "2024-12-01"
+
+# Pages用設定
+pages_build_output_dir = "out"
+
+# D1データベース
+[[d1_databases]]
+binding = "DB"
+database_name = "osaka-kenpo-db"
+database_id = "YOUR_DATABASE_ID"  # wrangler d1 create で生成後に置き換え

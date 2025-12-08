@@ -40,7 +40,11 @@
     "refetch:titles": "node scripts/refetch-missing-titles.js",
     "clean:titles": "node scripts/clean-law-titles.js",
     "check:titles": "python3 scripts/find_missing_titles.py",
-    "classify:titles": "node scripts/classify-empty-titles.js"
+    "classify:titles": "node scripts/classify-empty-titles.js",
+    "db:seed": "node scripts/tools/generate-d1-seed.js > db/seed.sql",
+    "db:push": "wrangler d1 execute osaka-kenpo-db --file=./db/seed.sql",
+    "db:push:local": "wrangler d1 execute osaka-kenpo-db --file=./db/seed.sql --local",
+    "dev:cf": "wrangler pages dev out --d1=DB"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -60,6 +64,7 @@
     "zod": "^4.0.17"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241127.0",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^20",
     "@types/react": "^18",
@@ -75,6 +80,7 @@
     "postcss": "^8",
     "prettier": "^3.6.2",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^3.93.0"
   }
 }
