@@ -39,6 +39,7 @@
 - **[README.md](README.md)** - プロジェクト概要とユーザーガイド
 - **[CONTRIBUTING.md](CONTRIBUTING.md)** - 貢献者向けガイドライン
 - **[docs/user-guide.md](docs/user-guide.md)** - 詳細な使い方ガイド
+- **[docs/cloudflare-deploy.md](docs/cloudflare-deploy.md)** - Cloudflare Pages + D1 デプロイガイド
 
 ## 📋 進捗管理ルール（2025-11-21更新）
 
@@ -71,6 +72,7 @@
 - **データ取得**: fetch-egov-law.js, fetch-china-constitution.js 等
 - **品質チェック**: check-all-laws-real-status.py, check-commentary-quality.cjs 等
 - **ユーティリティ**: clean-law-titles.js, restore-osaka-by-content.js 等
+- **デプロイ**: generate-d1-seed.js（YAMLからD1用SQLを生成）
 
 詳細: [scripts/tools/README.md](scripts/tools/README.md)
 
@@ -390,9 +392,25 @@ cd osaka-kenpo
 # 依存関係をインストール
 npm install
 
-# 開発サーバーを起動
+# 開発サーバーを起動（Next.js）
 npm run dev
 ```
+
+### Cloudflare環境でのローカル開発
+
+```bash
+# 1. ビルド
+npm run build
+
+# 2. D1シードを生成してローカルDBに適用
+npm run db:seed
+npm run db:push:local
+
+# 3. Cloudflare Pages開発サーバーを起動
+npm run dev:cf
+```
+
+詳細は [docs/cloudflare-deploy.md](docs/cloudflare-deploy.md) を参照。
 
 ### コミット前の自動チェック
 
@@ -432,13 +450,15 @@ npm run typecheck
 
 ## 🛠️ 技術スタック
 
-- **フレームワーク**: Next.js 14 (App Router)
+- **フレームワーク**: Next.js 14 (App Router, 静的エクスポート)
 - **言語**: TypeScript
 - **UI**: React + Tailwind CSS
-- **データ**: 静的JSONファイル
+- **データ**: YAMLファイル → D1 (SQLite)
 - **翻訳**: LLM API（将来的に）
-- **ホスティング**: Vercel（予定）
+- **ホスティング**: Cloudflare Pages + D1
+- **API**: Cloudflare Pages Functions
 - **品質管理**: ESLint + Prettier + husky + lint-staged
+- **デプロイ**: wrangler CLI
 
 ## 🎓 教育的価値
 
