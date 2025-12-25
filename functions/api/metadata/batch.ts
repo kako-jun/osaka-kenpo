@@ -1,8 +1,6 @@
 // GET /api/metadata/batch - 全法律メタデータバッチ
 
-interface Env {
-  DB: D1Database;
-}
+/// <reference path="../../env.d.ts" />
 
 export const onRequestGet: PagesFunction<Env> = async (context) => {
   const parseJSON = (str: string | null) => {

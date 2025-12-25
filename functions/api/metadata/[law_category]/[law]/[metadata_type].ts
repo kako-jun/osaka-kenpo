@@ -1,8 +1,6 @@
 // GET /api/metadata/[law_category]/[law]/[metadata_type] - 特定のメタデータ取得
 
-interface Env {
-  DB: D1Database;
-}
+/// <reference path="../../../../env.d.ts" />
 
 export const onRequestGet: PagesFunction<Env> = async (context) => {
   const { law_category, law, metadata_type } = context.params as {
@@ -31,7 +29,9 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
           `SELECT display_name, short_name, badge, year, source, description, links
            FROM laws
            WHERE category = ? AND name = ?`
-        ).bind(law_category, law).first();
+        )
+          .bind(law_category, law)
+          .first();
 
         if (!result) {
           return Response.json({ error: 'Law not found' }, { status: 404 });
@@ -54,7 +54,9 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
            FROM chapters
            WHERE category = ? AND law_name = ?
            ORDER BY chapter`
-        ).bind(law_category, law).all();
+        )
+          .bind(law_category, law)
+          .all();
 
         if (results.length === 0) {
           return Response.json({ error: 'Chapters not found' }, { status: 404 });
@@ -77,7 +79,9 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
           `SELECT article, badge
            FROM famous_articles
            WHERE category = ? AND law_name = ?`
-        ).bind(law_category, law).all();
+        )
+          .bind(law_category, law)
+          .all();
 
         const famousArticles: Record<string, string> = {};
         for (const fa of results) {

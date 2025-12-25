@@ -1,8 +1,6 @@
 // GET /api/metadata/laws_metadata - 全法律メタデータ
 
-interface Env {
-  DB: D1Database;
-}
+/// <reference path="../../env.d.ts" />
 
 export const onRequestGet: PagesFunction<Env> = async (context) => {
   try {

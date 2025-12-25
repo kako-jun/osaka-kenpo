@@ -1,8 +1,6 @@
 // GET /api/[law_category]/[law]/[article]/batch - 条文バッチデータ
 
-interface Env {
-  DB: D1Database;
-}
+/// <reference path="../../../../env.d.ts" />
 
 export const onRequestGet: PagesFunction<Env> = async (context) => {
   const { law_category, law, article } = context.params as {
@@ -33,14 +31,18 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
                 original_text, osaka_text, commentary, commentary_osaka
          FROM articles
          WHERE category = ? AND law_name = ? AND article = ?`
-      ).bind(law_category, law, article).first(),
+      )
+        .bind(law_category, law, article)
+        .first(),
 
       // 法律メタデータ
       context.env.DB.prepare(
         `SELECT display_name, short_name, badge, year, source, description, links
          FROM laws
          WHERE category = ? AND name = ?`
-      ).bind(law_category, law).first(),
+      )
+        .bind(law_category, law)
+        .first(),
 
       // 全条文リスト
       context.env.DB.prepare(
@@ -53,7 +55,9 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
              ELSE 999999
            END,
            article`
-      ).bind(law_category, law).all(),
+      )
+        .bind(law_category, law)
+        .all(),
     ]);
 
     return Response.json({
