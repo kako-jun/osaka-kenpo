@@ -42,8 +42,11 @@
     "check:titles": "python3 scripts/find_missing_titles.py",
     "classify:titles": "node scripts/classify-empty-titles.js",
     "db:seed": "node scripts/tools/generate-d1-seed.js > db/seed.sql",
-    "db:push": "wrangler d1 execute osaka-kenpo-db --file=./db/seed.sql",
-    "db:push:local": "wrangler d1 execute osaka-kenpo-db --file=./db/seed.sql --local",
+    "db:schema:push": "node scripts/tools/d1-curl-execute.js db/schema-clean.sql",
+    "db:seed:push": "node scripts/tools/d1-curl-execute.js db/seed.sql --parallel=10",
+    "db:deploy": "npm run db:seed && npm run db:schema:push && npm run db:seed:push",
+    "db:update-law": "node scripts/tools/d1-update-law.js",
+    "db:list-laws": "node scripts/tools/d1-update-law.js --list",
     "dev:cf": "wrangler pages dev out --d1=DB"
   },
   "lint-staged": {
