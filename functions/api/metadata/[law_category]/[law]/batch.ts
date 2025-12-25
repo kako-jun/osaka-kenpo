@@ -1,8 +1,6 @@
 // GET /api/metadata/[law_category]/[law]/batch - 法律メタデータバッチ
 
-interface Env {
-  DB: D1Database;
-}
+/// <reference path="../../../../env.d.ts" />
 
 export const onRequestGet: PagesFunction<Env> = async (context) => {
   const { law_category, law } = context.params as {
@@ -31,7 +29,9 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
         `SELECT display_name, short_name, badge, year, source, description, links
          FROM laws
          WHERE category = ? AND name = ?`
-      ).bind(law_category, law).first(),
+      )
+        .bind(law_category, law)
+        .first(),
 
       // 章データ
       context.env.DB.prepare(
@@ -39,14 +39,18 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
          FROM chapters
          WHERE category = ? AND law_name = ?
          ORDER BY chapter`
-      ).bind(law_category, law).all(),
+      )
+        .bind(law_category, law)
+        .all(),
 
       // 有名条文
       context.env.DB.prepare(
         `SELECT article, badge
          FROM famous_articles
          WHERE category = ? AND law_name = ?`
-      ).bind(law_category, law).all(),
+      )
+        .bind(law_category, law)
+        .all(),
     ]);
 
     // 有名条文をオブジェクトに変換
@@ -67,18 +71,19 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
             links: parseJSON(lawResult.links as string),
           }
         : null,
-      chapters: chaptersResult.results.length > 0
-        ? {
-            chapters: chaptersResult.results.map((ch: any) => ({
-              chapter: ch.chapter,
-              title: ch.title,
-              titleOsaka: ch.title_osaka,
-              description: ch.description,
-              descriptionOsaka: ch.description_osaka,
-              articles: parseJSON(ch.articles),
-            })),
-          }
-        : null,
+      chapters:
+        chaptersResult.results.length > 0
+          ? {
+              chapters: chaptersResult.results.map((ch: any) => ({
+                chapter: ch.chapter,
+                title: ch.title,
+                titleOsaka: ch.title_osaka,
+                description: ch.description,
+                descriptionOsaka: ch.description_osaka,
+                articles: parseJSON(ch.articles),
+              })),
+            }
+          : null,
       famousArticles: Object.keys(famousArticles).length > 0 ? famousArticles : null,
     });
   } catch (error) {

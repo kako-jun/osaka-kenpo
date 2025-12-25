@@ -1,8 +1,6 @@
 // GET /api/[law_category]/[law]/[article] - 個別条文
 
-interface Env {
-  DB: D1Database;
-}
+/// <reference path="../../../env.d.ts" />
 
 export const onRequestGet: PagesFunction<Env> = async (context) => {
   const { law_category, law, article } = context.params as {
@@ -21,13 +19,12 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
               original_text, osaka_text, commentary, commentary_osaka
        FROM articles
        WHERE category = ? AND law_name = ? AND article = ?`
-    ).bind(law_category, law, article).first();
+    )
+      .bind(law_category, law, article)
+      .first();
 
     if (!result) {
-      return Response.json(
-        { error: `Article ${article} not found` },
-        { status: 404 }
-      );
+      return Response.json({ error: `Article ${article} not found` }, { status: 404 });
     }
 
     // JSON文字列をパース

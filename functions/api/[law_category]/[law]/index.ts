@@ -1,8 +1,6 @@
 // GET /api/[law_category]/[law] - 法律内の条文一覧
 
-interface Env {
-  DB: D1Database;
-}
+/// <reference path="../../../env.d.ts" />
 
 export const onRequestGet: PagesFunction<Env> = async (context) => {
   const { law_category, law } = context.params as { law_category: string; law: string };
@@ -22,7 +20,9 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
            ELSE 999999
          END,
          article`
-    ).bind(law_category, law).all();
+    )
+      .bind(law_category, law)
+      .all();
 
     return Response.json({
       data: results.map((article: any) => ({
