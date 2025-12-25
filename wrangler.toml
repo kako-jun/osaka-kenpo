@@ -8,4 +8,4 @@ pages_build_output_dir = "out"
 [[d1_databases]]
 binding = "DB"
 database_name = "osaka-kenpo-db"
-database_id = "YOUR_DATABASE_ID"  # wrangler d1 create で生成後に置き換え
+database_id = "c2e526ac-8b9a-41c1-933a-e31c60490462"
