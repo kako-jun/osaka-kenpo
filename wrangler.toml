@@ -1,8 +1,9 @@
 name = "osaka-kenpo"
 compatibility_date = "2024-12-01"
+compatibility_flags = ["nodejs_compat"]
 
-# Pages用設定
-pages_build_output_dir = "out"
+# @cloudflare/next-on-pages用設定
+pages_build_output_dir = ".vercel/output/static"
 
 # D1データベース
 [[d1_databases]]
