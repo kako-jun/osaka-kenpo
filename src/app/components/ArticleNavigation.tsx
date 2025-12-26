@@ -1,86 +1,88 @@
-'use client'
+'use client';
 
-import Link from 'next/link'
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface ArticleNavigationProps {
-  lawCategory: string
-  law: string
-  currentArticle: number | string
-  lawName: string
-  allArticles?: ArticleItem[]
+  lawCategory: string;
+  law: string;
+  currentArticle: number | string;
+  lawName: string;
+  allArticles?: ArticleItem[];
 }
 
 interface ArticleItem {
-  article: string | number
-  title: string
-  titleOsaka?: string
+  article: string | number;
+  title: string;
+  titleOsaka?: string;
 }
 
-export const ArticleNavigation = ({ 
-  lawCategory, 
-  law, 
-  currentArticle, 
+export const ArticleNavigation = ({
+  lawCategory,
+  law,
+  currentArticle,
   lawName,
-  allArticles: propArticles
+  allArticles: propArticles,
 }: ArticleNavigationProps) => {
-  const router = useRouter()
-  const [articles, setArticles] = useState<ArticleItem[]>([])
-  const [showArticlePopup, setShowArticlePopup] = useState<boolean>(false)
+  const router = useRouter();
+  const [articles, setArticles] = useState<ArticleItem[]>([]);
+  const [showArticlePopup, setShowArticlePopup] = useState<boolean>(false);
 
   // propsで渡された条文リストがあれば使用、なければAPIから取得
   useEffect(() => {
     if (propArticles && propArticles.length > 0) {
-      setArticles(propArticles)
-      return
+      setArticles(propArticles);
+      return;
     }
 
     const fetchArticles = async () => {
       try {
-        const response = await fetch(`/api/${lawCategory}/${law}`)
+        const response = await fetch(`/api/${lawCategory}/${law}`);
         if (response.ok) {
-          const result = await response.json()
-          const articleList = result.data || result
+          const result = (await response.json()) as { data?: ArticleItem[] } | ArticleItem[];
+          const articleList = Array.isArray(result) ? result : result.data;
           if (Array.isArray(articleList)) {
-            setArticles(articleList)
+            setArticles(articleList);
           }
         }
       } catch (error) {
-        console.error('Failed to fetch articles:', error)
-        setArticles([])
+        console.error('Failed to fetch articles:', error);
+        setArticles([]);
       }
-    }
+    };
 
     if (lawCategory && law) {
-      fetchArticles()
+      fetchArticles();
     }
-  }, [lawCategory, law, propArticles])
+  }, [lawCategory, law, propArticles]);
 
   // 現在の条文のインデックスを取得
-  const currentIndex = articles.findIndex(article => String(article.article) === String(currentArticle))
-  const prevArticle = currentIndex > 0 ? articles[currentIndex - 1] : null
-  const nextArticle = currentIndex < articles.length - 1 ? articles[currentIndex + 1] : null
+  const currentIndex = articles.findIndex(
+    (article) => String(article.article) === String(currentArticle)
+  );
+  const prevArticle = currentIndex > 0 ? articles[currentIndex - 1] : null;
+  const nextArticle = currentIndex < articles.length - 1 ? articles[currentIndex + 1] : null;
 
   const handleArticleSelect = (articleId: string | number) => {
-    setShowArticlePopup(false)
-    router.push(`/law/${lawCategory}/${law}/${articleId}`)
-  }
+    setShowArticlePopup(false);
+    router.push(`/law/${lawCategory}/${law}/${articleId}`);
+  };
 
   // 条文番号を表示用にフォーマット
   const formatArticleNumber = (article: string | number) => {
-    if (typeof article === 'number') return `第${article}条`
+    if (typeof article === 'number') return `第${article}条`;
     if (String(article).startsWith('fusoku_')) {
-      return `附則第${String(article).replace('fusoku_', '')}条`
+      return `附則第${String(article).replace('fusoku_', '')}条`;
     }
-    return `第${article}条`
-  }
+    return `第${article}条`;
+  };
 
   // 共通のポップアップコンポーネント
   const ArticlePopup = () => (
     <>
       {/* 透明なオーバーレイ（背景クリック/タッチで閉じる用） */}
-      <div 
+      <div
         className="fixed inset-0 z-40 touch-manipulation"
         onClick={() => setShowArticlePopup(false)}
         onTouchEnd={(e) => {
@@ -88,11 +90,16 @@ export const ArticleNavigation = ({
           setShowArticlePopup(false);
         }}
       />
-      
+
       {/* ポップアップ内容 */}
-      <div className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-white rounded-lg shadow-xl border border-gray-200 z-50 max-h-96 overflow-y-auto" style={{ minWidth: '300px', maxWidth: '400px' }}>
+      <div
+        className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-white rounded-lg shadow-xl border border-gray-200 z-50 max-h-96 overflow-y-auto"
+        style={{ minWidth: '300px', maxWidth: '400px' }}
+      >
         <div className="p-4 border-b border-gray-200" style={{ backgroundColor: '#FFF8DC' }}>
-          <h3 className="font-medium" style={{ color: '#8B4513' }}>📖 条文を選択しなはれ</h3>
+          <h3 className="font-medium" style={{ color: '#8B4513' }}>
+            📖 条文を選択しなはれ
+          </h3>
         </div>
         <div className="py-2">
           {articles.map((article) => (
@@ -100,19 +107,23 @@ export const ArticleNavigation = ({
               key={article.article}
               onClick={() => handleArticleSelect(article.article)}
               className={`w-full text-left px-4 py-2 transition-colors hover:bg-gray-100 ${
-                String(article.article) === String(currentArticle) 
-                  ? 'bg-blue-50 text-blue-600 border-l-4 border-blue-400' 
+                String(article.article) === String(currentArticle)
+                  ? 'bg-blue-50 text-blue-600 border-l-4 border-blue-400'
                   : 'text-gray-700'
               }`}
             >
               <span className="font-medium">{formatArticleNumber(article.article)}</span>
-              {article.title && <span className="ml-2 text-sm text-gray-600">{article.title.replace(/<rt[^>]*>.*?<\/rt>/g, '').replace(/<\/?ruby>/g, '')}</span>}
+              {article.title && (
+                <span className="ml-2 text-sm text-gray-600">
+                  {article.title.replace(/<rt[^>]*>.*?<\/rt>/g, '').replace(/<\/?ruby>/g, '')}
+                </span>
+              )}
             </button>
           ))}
         </div>
       </div>
     </>
-  )
+  );
 
   return (
     <div className="bg-gray-50 rounded-lg border border-gray-200 p-4">
@@ -124,7 +135,12 @@ export const ArticleNavigation = ({
           className="flex items-center px-3 py-2 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors"
         >
           <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M10 19l-7-7m0 0l7-7m-7 7h18"
+            />
           </svg>
           条文一覧へ
         </Link>
@@ -137,7 +153,12 @@ export const ArticleNavigation = ({
               className="flex items-center px-4 py-3 bg-gray-100 hover:bg-gray-200 rounded-md text-gray-700 transition-colors whitespace-nowrap"
             >
               <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
               </svg>
               {formatArticleNumber(prevArticle.article)}
             </Link>
@@ -162,7 +183,12 @@ export const ArticleNavigation = ({
             >
               {formatArticleNumber(nextArticle.article)}
               <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </Link>
           )}
@@ -178,7 +204,12 @@ export const ArticleNavigation = ({
             className="flex items-center text-blue-600 hover:text-blue-800"
           >
             <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
             </svg>
             条文一覧へ
           </Link>
@@ -192,7 +223,12 @@ export const ArticleNavigation = ({
               className="flex items-center px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-md text-gray-700 transition-colors text-sm"
             >
               <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
               </svg>
               前
             </Link>
@@ -219,7 +255,12 @@ export const ArticleNavigation = ({
             >
               次
               <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </Link>
           ) : (
@@ -228,5 +269,5 @@ export const ArticleNavigation = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
