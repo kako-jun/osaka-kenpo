@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { useViewMode } from '@/app/context/ViewModeContext';
 import { SpeakerButton } from '@/components/SpeakerButton';
 import { ShareButton } from '@/app/components/ShareButton';
 import { LikeButton } from '@/app/components/LikeButton';
@@ -36,7 +37,7 @@ export function ArticleClient({
   allArticles,
 }: ArticleClientProps) {
   const router = useRouter();
-  const [viewMode, setViewMode] = useState<'osaka' | 'original'>('osaka');
+  const { viewMode, setViewMode } = useViewMode();
 
   const showOsaka = viewMode === 'osaka';
 
