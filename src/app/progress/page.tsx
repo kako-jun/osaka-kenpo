@@ -38,7 +38,7 @@ export default function ProgressPage() {
 
   useEffect(() => {
     fetch('/api/progress/roppou')
-      .then((res) => res.json())
+      .then((res) => res.json() as Promise<ProgressData>)
       .then((data) => {
         setData(data);
         setLoading(false);
@@ -78,13 +78,8 @@ export default function ProgressPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
             六法整備の進み具合やで
           </h1>
-          <p className="text-lg text-gray-600">
-            4段階で頑張って整備してるんや
-          </p>
-          <Link
-            href="/"
-            className="inline-block mt-4 text-[#E94E77] hover:underline"
-          >
+          <p className="text-lg text-gray-600">4段階で頑張って整備してるんや</p>
+          <Link href="/" className="inline-block mt-4 text-[#E94E77] hover:underline">
             ← トップに戻る
           </Link>
         </div>
@@ -143,10 +138,18 @@ export default function ProgressPage() {
         <div className="mt-12 bg-gradient-to-r from-pink-100 to-orange-100 rounded-2xl p-6">
           <h3 className="text-xl font-bold text-gray-800 mb-4">📌 4段階戦略とは？</h3>
           <div className="space-y-2 text-gray-700">
-            <p><strong>Stage 1 (原文):</strong> e-Gov法令検索APIから原文を取得</p>
-            <p><strong>Stage 2 (解説):</strong> 法律の内容を分かりやすく解説</p>
-            <p><strong>Stage 3 (大阪弁訳):</strong> 原文を親しみやすい大阪弁に翻訳</p>
-            <p><strong>Stage 4 (大阪弁解説):</strong> 解説も大阪弁で書き直す</p>
+            <p>
+              <strong>Stage 1 (原文):</strong> e-Gov法令検索APIから原文を取得
+            </p>
+            <p>
+              <strong>Stage 2 (解説):</strong> 法律の内容を分かりやすく解説
+            </p>
+            <p>
+              <strong>Stage 3 (大阪弁訳):</strong> 原文を親しみやすい大阪弁に翻訳
+            </p>
+            <p>
+              <strong>Stage 4 (大阪弁解説):</strong> 解説も大阪弁で書き直す
+            </p>
           </div>
         </div>
       </div>
@@ -193,9 +196,17 @@ interface LawProgressCardProps {
 function LawProgressCard({ law }: LawProgressCardProps) {
   const getStatusBadge = (status: string) => {
     if (status === 'completed') {
-      return <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold">完成</span>;
+      return (
+        <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold">
+          完成
+        </span>
+      );
     } else if (status === 'pending') {
-      return <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-semibold">準備中</span>;
+      return (
+        <span className="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-semibold">
+          準備中
+        </span>
+      );
     }
     return null;
   };

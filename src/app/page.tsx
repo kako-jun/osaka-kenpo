@@ -1,90 +1,70 @@
-'use client';
-
 import Link from 'next/link';
 import { ShareButton } from '@/app/components/ShareButton';
-import { Loading } from '@/app/components/Loading';
-import { useState, useEffect } from 'react';
-import { loadBatchMetadata } from '@/lib/metadata_loader';
 import NostalgicCounter from '@/components/NostalgicCounter';
+import { lawsMetadata } from '@/data/lawsMetadata';
+import { getDB } from '@/lib/db';
 
-// ページメタデータを動的に設定
-if (typeof document !== 'undefined') {
-  document.title = 'おおさかけんぽう - 法律をおおさか弁で知ろう。知らんけど';
-}
+export const runtime = 'edge';
 
 // カテゴリ別絵文字アイコンコンポーネント
 const CategoryIcon = ({ icon }: { icon: string }) => {
   return <span className="text-2xl mr-2">{icon || '📄'}</span>;
 };
 
-export default function Home() {
-  const [lawCategories, setLawCategories] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+// 法律メタデータを取得
+async function getLawMetadataMap() {
+  try {
+    const db = getDB();
+    const result = await db
+      .prepare(
+        `SELECT category, name, display_name, short_name, badge, year
+         FROM laws`
+      )
+      .all();
 
-  useEffect(() => {
-    const loadAllMetadata = async () => {
-      try {
-        const { lawsMetadata, lawMetadata } = await loadBatchMetadata();
+    const metadataMap: Record<string, any> = {};
+    for (const row of result.results as any[]) {
+      const key = `${row.category}/${row.name}`;
+      metadataMap[key] = {
+        name: row.display_name,
+        shortName: row.short_name,
+        badge: row.badge,
+        year: row.year,
+      };
+    }
+    return metadataMap;
+  } catch (error) {
+    console.error('法律メタデータの取得に失敗:', error);
+    return {};
+  }
+}
 
-        if (!lawsMetadata) {
-          setLoading(false);
-          return;
-        }
+export default async function Home() {
+  const lawMetadataMap = await getLawMetadataMap();
 
-        const categoriesWithMetadata = lawsMetadata.categories.map((category) => {
-          const lawsWithMetadata = category.laws.map((law) => {
-            const pathParts = law.path.split('/');
-            const lawCategory = pathParts[2];
-            const lawId = pathParts[3];
-            const key = `${lawCategory}/${lawId}`;
+  // カテゴリにメタデータを結合
+  const categoriesWithMetadata = lawsMetadata.categories.map((category) => {
+    const lawsWithMetadata = category.laws.map((law) => {
+      const pathParts = law.path.split('/');
+      const lawCategory = pathParts[2];
+      const lawId = pathParts[3];
+      const key = `${lawCategory}/${lawId}`;
 
-            const metadata = lawMetadata[key];
+      const metadata = lawMetadataMap[key];
 
-            return {
-              ...law,
-              name: metadata?.shortName || metadata?.name || law.id,
-              year: metadata?.year || null,
-              badge: metadata?.badge || null,
-            };
-          });
+      return {
+        ...law,
+        name: metadata?.shortName || metadata?.name || law.id,
+        year: metadata?.year || null,
+        badge: metadata?.badge || null,
+      };
+    });
 
-          return {
-            ...category,
-            laws: lawsWithMetadata,
-          };
-        });
-
-        setLawCategories(categoriesWithMetadata);
-        setLoading(false);
-      } catch (error) {
-        console.error('メタデータ読み込みエラー:', error);
-        setLoading(false);
-      }
+    return {
+      ...category,
+      laws: lawsWithMetadata,
     };
-
-    loadAllMetadata();
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-cream">
-        <Loading />
-      </div>
-    );
-  }
-
-  if (lawCategories.length === 0) {
-    return (
-      <div className="min-h-screen bg-cream flex items-center justify-center">
-        <div className="text-center">
-          <div className="text-red-500 text-xl mb-4">法律データが読み込めませんでした</div>
-          <div className="text-gray-600 text-sm">
-            ブラウザのコンソールでエラーを確認してください
-          </div>
-        </div>
-      </div>
-    );
-  }
+  });
 
   return (
     <div className="relative">
@@ -112,7 +92,7 @@ export default function Home() {
 
       <h1 className="text-2xl font-bold mb-6 text-center text-[#E94E77]">知りたい法律を選んでや</h1>
       <div className="space-y-8 mb-16">
-        {lawCategories.map((category) => (
+        {categoriesWithMetadata.map((category) => (
           <div key={category.title}>
             <h2 className="text-2xl font-bold mb-4 border-b-2 border-[#E94E77] pb-2 flex items-center">
               <CategoryIcon icon={category.icon} />
