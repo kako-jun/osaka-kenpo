@@ -450,15 +450,15 @@ npm run typecheck
 
 ## 🛠️ 技術スタック
 
-- **フレームワーク**: Next.js 14 (App Router, 静的エクスポート)
+- **フレームワーク**: Next.js 15 (App Router, SSR on Edge)
 - **言語**: TypeScript
 - **UI**: React + Tailwind CSS
 - **データ**: YAMLファイル → D1 (SQLite)
 - **翻訳**: LLM API（将来的に）
 - **ホスティング**: Cloudflare Pages + D1
-- **API**: Cloudflare Pages Functions
+- **SSR**: @cloudflare/next-on-pages（Workers上でSSR）
 - **品質管理**: ESLint + Prettier + husky + lint-staged
-- **デプロイ**: wrangler CLI
+- **デプロイ**: GitHub連携で自動デプロイ
 
 ## 🎓 教育的価値
 

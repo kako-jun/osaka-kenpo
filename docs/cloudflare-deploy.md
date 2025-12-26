@@ -2,22 +2,28 @@
 
 ## 概要
 
-このプロジェクトは Cloudflare Pages（静的サイト）+ D1（データベース）で動作します。
+このプロジェクトは **@cloudflare/next-on-pages** を使用し、Next.js App Router のSSRをCloudflare Workers上で動作させています。
 
 ```
 ┌─────────────────────────────────────────┐
 │           Cloudflare Pages              │
-│  ┌───────────────┬─────────────────┐   │
-│  │  静的ファイル  │ Pages Functions │   │
-│  │  (Next.js)    │    (API)        │   │
-│  └───────────────┴────────┬────────┘   │
-│                           │             │
-│                    ┌──────▼──────┐      │
-│                    │     D1      │      │
-│                    │ (SQLite DB) │      │
-│                    └─────────────┘      │
+│  ┌───────────────────────────────────┐  │
+│  │  Next.js (SSR on Workers)         │  │
+│  │  @cloudflare/next-on-pages        │  │
+│  └──────────────────┬────────────────┘  │
+│                     │                    │
+│              ┌──────▼──────┐             │
+│              │     D1      │             │
+│              │ (SQLite DB) │             │
+│              └─────────────┘             │
 └─────────────────────────────────────────┘
 ```
+
+## アーキテクチャ
+
+- **SSRページ**: トップ、法律カテゴリ、法律一覧、条文詳細
+- **データソース**: D1（SQLite）- YAMLから生成
+- **切り替え機能**: 条文詳細ページのみでクライアントサイド実装
 
 ## 初回セットアップ（人間が行う作業）
 
@@ -62,13 +68,13 @@ wrangler d1 execute osaka-kenpo-db --file=./db/schema.sql
 
 **ビルド設定**:
 
-| 項目 | 値 |
-|------|-----|
-| Framework preset | None |
-| Build command | `npm run build` |
-| Build output directory | `out` |
-| Root directory | `/` |
-| Node.js version | 20 |
+| 項目                   | 値                      |
+| ---------------------- | ----------------------- |
+| Framework preset       | None                    |
+| Build command          | `npm run pages:build`   |
+| Build output directory | `.vercel/output/static` |
+| Root directory         | `/`                     |
+| Node.js version        | 20                      |
 
 ### 5. D1 バインディング設定
 
@@ -83,8 +89,8 @@ Pages プロジェクトの Settings → Functions → D1 database bindings で�
 
 1. `main` ブランチにプッシュ
 2. Cloudflare Pages が自動ビルド
-3. `npm run build` で静的ファイル生成
-4. `out/` ディレクトリがデプロイされる
+3. `npm run pages:build` で @cloudflare/next-on-pages が実行
+4. `.vercel/output/static/` がデプロイされる
 
 ### D1 データ更新
 
@@ -92,59 +98,83 @@ YAMLファイルを変更した後、D1データを更新する必要があり�
 
 ```bash
 # 1. シードSQLを生成
-node scripts/tools/generate-d1-seed.js > db/seed.sql
+npm run db:seed
 
 # 2. D1に適用（本番）
-wrangler d1 execute osaka-kenpo-db --file=./db/seed.sql
+npm run db:push
 
 # 2'. D1に適用（ローカルテスト）
-wrangler d1 execute osaka-kenpo-db --file=./db/seed.sql --local
+npm run db:push:local
 ```
 
 **重要**: 毎回フルリビルド方式なので、YAMLとD1は常に同期されます。
 
 ## ローカル開発
 
-### Pages Functions のローカル実行
+### Cloudflare環境でのローカル開発
 
 ```bash
-# wrangler で開発サーバー起動
-wrangler pages dev out --d1=DB
+# 1. ビルド
+npm run build
 
-# または npm script を追加した場合
+# 2. D1シードを生成してローカルDBに適用
+npm run db:seed
+npm run db:push:local
+
+# 3. Cloudflare Pages開発サーバーを起動
 npm run dev:cf
 ```
 
-### Next.js 開発（API なし）
+### Next.js 開発（D1なし）
 
 ```bash
 npm run dev
 ```
 
-※ ローカルの Next.js 開発では API（`/api/*`）は動作しません。
-Pages Functions は Cloudflare 環境でのみ動作します。
+※ ローカルの Next.js 開発ではD1にアクセスできないため、データ取得は失敗します。
+Cloudflare環境でテストする場合は `npm run dev:cf` を使用してください。
 
 ## ファイル構成
 
 ```
 osaka-kenpo/
 ├── wrangler.toml           # Cloudflare 設定
+├── env.d.ts                # CloudflareEnv型定義
 ├── db/
 │   ├── schema.sql          # D1 テーブル定義
 │   └── seed.sql            # 生成されるデータ（git 管理外推奨）
-├── functions/
-│   └── api/                # Pages Functions (API)
-│       ├── _middleware.ts  # CORS 設定
-│       ├── [law_category]/
-│       │   ├── index.ts
-│       │   └── [law]/
-│       │       ├── index.ts
-│       │       └── [article].ts
-│       └── metadata/
-│           └── ...
 ├── src/
-│   └── data/laws/          # YAML データ（真実の源）
-└── out/                    # ビルド出力（git 管理外）
+│   ├── app/                # Next.js App Router
+│   │   ├── page.tsx        # トップ（SSR）
+│   │   └── law/
+│   │       └── [law_category]/
+│   │           ├── page.tsx              # カテゴリ（SSR）
+│   │           └── [law]/
+│   │               ├── page.tsx          # 法律一覧（SSR）
+│   │               └── [article]/
+│   │                   ├── page.tsx      # 条文（SSR）
+│   │                   └── ArticleClient.tsx  # 切り替え機能
+│   ├── lib/
+│   │   └── db.ts           # D1アクセス関数
+│   └── data/
+│       ├── laws/           # YAML データ（真実の源）
+│       └── lawsMetadata.ts # 静的メタデータ
+└── .vercel/output/static/  # ビルド出力（git 管理外）
+```
+
+## npm scripts
+
+```json
+{
+  "scripts": {
+    "build": "next build",
+    "pages:build": "npx @cloudflare/next-on-pages",
+    "db:seed": "node scripts/tools/generate-d1-seed.js > db/seed.sql",
+    "db:push": "wrangler d1 execute osaka-kenpo-db --file=./db/seed.sql",
+    "db:push:local": "wrangler d1 execute osaka-kenpo-db --file=./db/seed.sql --local",
+    "dev:cf": "wrangler pages dev .vercel/output/static --d1=DB"
+  }
+}
 ```
 
 ## トラブルシューティング
@@ -153,34 +183,25 @@ osaka-kenpo/
 
 ```bash
 # シードを再生成して適用
-node scripts/tools/generate-d1-seed.js > db/seed.sql
-wrangler d1 execute osaka-kenpo-db --file=./db/seed.sql
+npm run db:seed
+npm run db:push
 ```
-
-### Pages Functions が動作しない
-
-1. `wrangler.toml` の `database_id` が正しいか確認
-2. Cloudflare Dashboard で D1 バインディングが設定されているか確認
 
 ### ビルドエラー
 
 ```bash
 # キャッシュをクリアしてビルド
-rm -rf .next out
+rm -rf .next .vercel
 npm run build
+npm run pages:build
 ```
 
-## npm scripts（追加推奨）
+### CloudflareEnv型エラー
 
-`package.json` に以下を追加：
+`env.d.ts` が存在し、以下の内容であることを確認：
 
-```json
-{
-  "scripts": {
-    "db:seed": "node scripts/tools/generate-d1-seed.js > db/seed.sql",
-    "db:push": "wrangler d1 execute osaka-kenpo-db --file=./db/seed.sql",
-    "db:push:local": "wrangler d1 execute osaka-kenpo-db --file=./db/seed.sql --local",
-    "dev:cf": "wrangler pages dev out --d1=DB"
-  }
+```typescript
+interface CloudflareEnv {
+  DB: D1Database;
 }
 ```
