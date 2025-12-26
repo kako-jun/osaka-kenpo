@@ -7,8 +7,31 @@ import BackToTopButton from './components/BackToTopButton';
 export const metadata: Metadata = {
   metadataBase: new URL('https://osaka-kenpo.llll-ll.com'),
   title: 'おおさかけんぽう - 法律をおおさか弁で知ろう。知らんけど',
-  description: '法律をおおさか弁で親しみやすく解説するサイト',
-  keywords: ['法律', '憲法', '大阪弁', '関西弁', '法学', '条文', '解説'],
+  description:
+    '法律をおおさか弁で親しみやすく解説するサイト。日本国憲法・民法・商法・会社法・刑法・民事訴訟法・刑事訴訟法の六法から、ドイツ基本法・アメリカ合衆国憲法・マグナカルタまで。',
+  keywords: [
+    '法律',
+    '憲法',
+    '大阪弁',
+    '関西弁',
+    '法学',
+    '条文',
+    '解説',
+    '民法',
+    '商法',
+    '会社法',
+    '刑法',
+    '民事訴訟法',
+    '刑事訴訟法',
+    '六法',
+    'AI推進法',
+    '十七条憲法',
+    'ドイツ基本法',
+    'アメリカ合衆国憲法',
+    '中華人民共和国憲法',
+    'マグナカルタ',
+    '南極条約',
+  ],
   authors: [{ name: 'kako-jun' }],
   creator: 'kako-jun',
   publisher: 'おおさかけんぽう',
@@ -17,7 +40,8 @@ export const metadata: Metadata = {
     locale: 'ja_JP',
     url: '/',
     title: 'おおさかけんぽう - 法律をおおさか弁で知ろう。知らんけど',
-    description: '法律をおおさか弁で親しみやすく解説するサイト',
+    description:
+      '法律をおおさか弁で親しみやすく解説するサイト。日本国憲法・民法・商法・会社法・刑法・民事訴訟法・刑事訴訟法の六法から、ドイツ基本法・アメリカ合衆国憲法・マグナカルタまで。',
     siteName: 'おおさかけんぽう',
     images: [
       {
@@ -31,7 +55,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'おおさかけんぽう - 法律をおおさか弁で知ろう。知らんけど',
-    description: '法律をおおさか弁で親しみやすく解説するサイト',
+    description: '法律をおおさか弁で親しみやすく解説。六法からドイツ基本法・マグナカルタまで。',
     images: ['/osaka-kenpo-logo.webp'],
   },
   icons: {
@@ -40,9 +64,7 @@ export const metadata: Metadata = {
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
       { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
     ],
-    apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
   robots: {
     index: true,
