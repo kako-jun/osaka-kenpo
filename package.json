@@ -28,6 +28,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "pages:build": "npx @cloudflare/next-on-pages",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
@@ -47,7 +48,8 @@
     "db:deploy": "npm run db:seed && npm run db:schema:push && npm run db:seed:push",
     "db:update-law": "node scripts/tools/d1-update-law.js",
     "db:list-laws": "node scripts/tools/d1-update-law.js --list",
-    "dev:cf": "wrangler pages dev out --d1=DB"
+    "preview": "wrangler pages dev",
+    "deploy": "wrangler pages deploy"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -60,13 +62,14 @@
   },
   "dependencies": {
     "js-yaml": "^4.1.1",
-    "next": "14.2.3",
-    "react": "^18",
-    "react-dom": "^18",
+    "next": "15.5.2",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
     "xml2js": "^0.6.2",
     "zod": "^4.0.17"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.16",
     "@cloudflare/workers-types": "^4.20241127.0",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^20",
