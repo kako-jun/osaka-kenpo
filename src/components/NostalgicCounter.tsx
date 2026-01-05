@@ -22,7 +22,7 @@ const NostalgicCounter = ({ counterId, type = "total", digits = "4" }: Nostalgic
         await fetch(incrementUrl);
 
         // その後表示用の値を取得（テキスト形式、digits指定付き）
-        const displayUrl = `https://api.nostalgic.llll-ll.com/visit?action=display&id=${encodeURIComponent(
+        const displayUrl = `https://api.nostalgic.llll-ll.com/visit?action=get&id=${encodeURIComponent(
           counterId
         )}&type=${type}&format=text&digits=${digits}`;
         const response = await fetch(displayUrl);
