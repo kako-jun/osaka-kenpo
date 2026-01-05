@@ -16,13 +16,13 @@ const NostalgicCounter = ({ counterId, type = "total", digits = "4" }: Nostalgic
     const fetchCount = async () => {
       try {
         // まずインクリメント
-        const incrementUrl = `https://nostalgic.llll-ll.com/api/visit?action=increment&id=${encodeURIComponent(
+        const incrementUrl = `https://api.nostalgic.llll-ll.com/visit?action=increment&id=${encodeURIComponent(
           counterId
         )}`;
         await fetch(incrementUrl);
 
         // その後表示用の値を取得（テキスト形式、digits指定付き）
-        const displayUrl = `https://nostalgic.llll-ll.com/api/visit?action=display&id=${encodeURIComponent(
+        const displayUrl = `https://api.nostalgic.llll-ll.com/visit?action=display&id=${encodeURIComponent(
           counterId
         )}&type=${type}&format=text&digits=${digits}`;
         const response = await fetch(displayUrl);
