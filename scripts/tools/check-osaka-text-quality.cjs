@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 
 /**
- * commentaryOsakaの品質チェックスクリプト（範囲ベース版）
+ * osakaTextの品質チェックスクリプト（範囲ベース版）
  *
  * チェック項目：
  * 1. 「大阪商人すぎる」表現（商売、投資、利益、損得など）
- * 2. 短すぎる解説（150文字未満）
- * 3. 例え話の不足（「例えば」「例えばな」がない）
+ * 2. 語尾変換のみ（例：「〜である」→「〜や」のみ）
+ * 3. 短すぎる翻訳（1文のみ）
+ * 4. ワンパターン表現（「知らんけど」の乱用など）
+ * 5. 男性的表現（「わい」「わいら」など）
  *
  * 出力：
  * - 問題のある条文番号リスト
@@ -34,12 +36,17 @@ const ISSUE_PATTERNS = {
     ],
   },
   tooShort: {
-    name: '短すぎる解説',
-    threshold: 150,
+    name: '短すぎる翻訳（1文のみ）',
+    threshold: 50,
   },
-  noExamples: {
-    name: '例え話の不足',
-    patterns: [/例えば/, /例えばな/],
+  onePattern: {
+    name: 'ワンパターン表現',
+    patterns: [/知らんけど/g],
+    maxCount: 2,
+  },
+  maleTone: {
+    name: '男性的表現',
+    patterns: [/わい/, /わいら/, /おんどれ/, /あほんだら/, /〜やん(?![（])/],
   },
 };
 
@@ -58,20 +65,16 @@ function checkYamlFile(filePath) {
       return null;
     }
 
-    // commentaryOsakaがない or 空の場合
-    if (
-      !data.commentaryOsaka ||
-      !Array.isArray(data.commentaryOsaka) ||
-      data.commentaryOsaka.length === 0
-    ) {
+    // osakaTextがない or 空の場合
+    if (!data.osakaText || !Array.isArray(data.osakaText) || data.osakaText.length === 0) {
       return {
         article: data.article,
         file: path.basename(filePath),
-        issues: ['解説なし'],
+        issues: ['翻訳なし'],
       };
     }
 
-    const fullText = data.commentaryOsaka.join('');
+    const fullText = data.osakaText.join('');
     const issues = [];
 
     // 1. 大阪商人すぎる表現のチェック
@@ -86,15 +89,29 @@ function checkYamlFile(filePath) {
       issues.push(`商人表現: ${[...new Set(merchantMatches)].join(', ')}`);
     }
 
-    // 2. 短すぎる解説のチェック
-    if (fullText.length < ISSUE_PATTERNS.tooShort.threshold) {
-      issues.push(`短い: ${fullText.length}文字`);
+    // 2. 短すぎる翻訳のチェック
+    if (data.osakaText.length === 1 && fullText.length < ISSUE_PATTERNS.tooShort.threshold) {
+      issues.push(`短い: ${data.osakaText.length}文, ${fullText.length}文字`);
     }
 
-    // 3. 例え話の不足のチェック
-    const hasExample = ISSUE_PATTERNS.noExamples.patterns.some((pattern) => pattern.test(fullText));
-    if (!hasExample && fullText.length > 0) {
-      issues.push('例え話なし');
+    // 3. ワンパターン表現のチェック
+    ISSUE_PATTERNS.onePattern.patterns.forEach((pattern) => {
+      const matches = fullText.match(pattern);
+      if (matches && matches.length > ISSUE_PATTERNS.onePattern.maxCount) {
+        issues.push(`ワンパターン: "${matches[0]}" ${matches.length}回`);
+      }
+    });
+
+    // 4. 男性的表現のチェック
+    const maleMatches = [];
+    ISSUE_PATTERNS.maleTone.patterns.forEach((pattern) => {
+      const matches = fullText.match(pattern);
+      if (matches) {
+        maleMatches.push(...matches);
+      }
+    });
+    if (maleMatches.length > 0) {
+      issues.push(`男性表現: ${[...new Set(maleMatches)].join(', ')}`);
     }
 
     if (issues.length > 0) {
@@ -102,6 +119,7 @@ function checkYamlFile(filePath) {
         article: data.article,
         file: path.basename(filePath),
         issues: issues,
+        sentenceCount: data.osakaText.length,
         length: fullText.length,
       };
     }
@@ -173,7 +191,7 @@ function suggestRanges(problems, windowSize = 20) {
 
 // メイン処理
 function main() {
-  console.log('🔍 commentaryOsakaの品質チェックを開始します\n');
+  console.log('🔍 osakaTextの品質チェックを開始します\n');
 
   const laws = [
     { path: 'src/data/laws/jp/minpou', name: '民法' },
@@ -194,10 +212,11 @@ function main() {
 
       // 問題タイプ別に集計
       const byIssueType = {
-        解説なし: [],
+        翻訳なし: [],
         商人表現: [],
         短い: [],
-        例え話なし: [],
+        ワンパターン: [],
+        男性表現: [],
       };
 
       problems.forEach((p) => {
@@ -206,10 +225,12 @@ function main() {
             byIssueType['商人表現'].push(p);
           } else if (issue.startsWith('短い')) {
             byIssueType['短い'].push(p);
-          } else if (issue === '例え話なし') {
-            byIssueType['例え話なし'].push(p);
-          } else if (issue === '解説なし') {
-            byIssueType['解説なし'].push(p);
+          } else if (issue.startsWith('ワンパターン')) {
+            byIssueType['ワンパターン'].push(p);
+          } else if (issue.startsWith('男性表現')) {
+            byIssueType['男性表現'].push(p);
+          } else if (issue === '翻訳なし') {
+            byIssueType['翻訳なし'].push(p);
           }
         });
       });
@@ -221,10 +242,11 @@ function main() {
       console.log(
         `  問題のある条文数: ${problems.length} (${((problems.length / totalFiles) * 100).toFixed(1)}%)`
       );
-      console.log(`    - 解説なし: ${byIssueType['解説なし'].length}条`);
+      console.log(`    - 翻訳なし: ${byIssueType['翻訳なし'].length}条`);
       console.log(`    - 商人表現: ${byIssueType['商人表現'].length}条`);
       console.log(`    - 短い: ${byIssueType['短い'].length}条`);
-      console.log(`    - 例え話なし: ${byIssueType['例え話なし'].length}条`);
+      console.log(`    - ワンパターン: ${byIssueType['ワンパターン'].length}条`);
+      console.log(`    - 男性表現: ${byIssueType['男性表現'].length}条`);
 
       // 範囲ベースの再翻訳提案
       const ranges = suggestRanges(problems, 20);
@@ -269,7 +291,7 @@ function main() {
   console.log('\n' + '='.repeat(70));
 
   // 詳細レポートをファイルに出力
-  const reportPath = 'commentary-osaka-quality-report.json';
+  const reportPath = 'osaka-text-quality-report.json';
   fs.writeFileSync(reportPath, JSON.stringify(allResults, null, 2), 'utf8');
   console.log(`\n📄 詳細レポートを ${reportPath} に出力しました`);
 
