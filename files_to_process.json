@@ -1,0 +1,4586 @@
+[
+  {
+    "file": "3.yaml",
+    "article": 3,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "32.yaml",
+    "article": 32,
+    "title": "失踪の宣告の取消し",
+    "hasContent": true
+  },
+  {
+    "file": "98.yaml",
+    "article": 98,
+    "title": "公示による意思表示",
+    "hasContent": true
+  },
+  {
+    "file": "121.yaml",
+    "article": 121,
+    "title": "取消しの効果",
+    "hasContent": true
+  },
+  {
+    "file": "158.yaml",
+    "article": 158,
+    "title": "未成年者又は成年被後見人と時効の完成猶予",
+    "hasContent": true
+  },
+  {
+    "file": "159.yaml",
+    "article": 159,
+    "title": "夫婦間の権利の時効の完成猶予",
+    "hasContent": true
+  },
+  {
+    "file": "160.yaml",
+    "article": 160,
+    "title": "相続財産に関する時効の完成猶予",
+    "hasContent": true
+  },
+  {
+    "file": "161.yaml",
+    "article": 161,
+    "title": "天災等による時効の完成猶予",
+    "hasContent": true
+  },
+  {
+    "file": "162.yaml",
+    "article": 162,
+    "title": "所有権の取得時効",
+    "hasContent": true
+  },
+  {
+    "file": "163.yaml",
+    "article": 163,
+    "title": "所有権以外の財産権の取得時効",
+    "hasContent": true
+  },
+  {
+    "file": "164.yaml",
+    "article": 164,
+    "title": "占有の中止等による取得時効の中断",
+    "hasContent": true
+  },
+  {
+    "file": "165.yaml",
+    "article": 165,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "213-2.yaml",
+    "article": 213,
+    "title": "継続的給付を受けるための設備の設置権等",
+    "hasContent": true
+  },
+  {
+    "file": "213.yaml",
+    "article": 213,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "252.yaml",
+    "article": 252,
+    "title": "共有物の管理",
+    "hasContent": true
+  },
+  {
+    "file": "258.yaml",
+    "article": 258,
+    "title": "裁判による共有物の分割",
+    "hasContent": true
+  },
+  {
+    "file": "262-2.yaml",
+    "article": 262,
+    "title": "所在等不明共有者の持分の取得",
+    "hasContent": true
+  },
+  {
+    "file": "262.yaml",
+    "article": 262,
+    "title": "共有物に関する証書",
+    "hasContent": true
+  },
+  {
+    "file": "264-10.yaml",
+    "article": 264,
+    "title": "管理不全土地管理人の権限",
+    "hasContent": true
+  },
+  {
+    "file": "264-11.yaml",
+    "article": 264,
+    "title": "管理不全土地管理人の義務",
+    "hasContent": true
+  },
+  {
+    "file": "264-12.yaml",
+    "article": 264,
+    "title": "管理不全土地管理人の解任及び辞任",
+    "hasContent": true
+  },
+  {
+    "file": "264-13.yaml",
+    "article": 264,
+    "title": "管理不全土地管理人の報酬等",
+    "hasContent": true
+  },
+  {
+    "file": "264-2.yaml",
+    "article": 264,
+    "title": "所有者不明土地管理命令",
+    "hasContent": true
+  },
+  {
+    "file": "264-3.yaml",
+    "article": 264,
+    "title": "所有者不明土地管理人の権限",
+    "hasContent": true
+  },
+  {
+    "file": "264-4.yaml",
+    "article": 264,
+    "title": "所有者不明土地等に関する訴えの取扱い",
+    "hasContent": true
+  },
+  {
+    "file": "264-5.yaml",
+    "article": 264,
+    "title": "所有者不明土地管理人の義務",
+    "hasContent": true
+  },
+  {
+    "file": "264-6.yaml",
+    "article": 264,
+    "title": "所有者不明土地管理人の解任及び辞任",
+    "hasContent": true
+  },
+  {
+    "file": "264-7.yaml",
+    "article": 264,
+    "title": "所有者不明土地管理人の報酬等",
+    "hasContent": true
+  },
+  {
+    "file": "264-8.yaml",
+    "article": 264,
+    "title": "所有者不明建物管理命令",
+    "hasContent": true
+  },
+  {
+    "file": "264-9.yaml",
+    "article": 264,
+    "title": "管理不全土地管理命令",
+    "hasContent": true
+  },
+  {
+    "file": "264.yaml",
+    "article": 264,
+    "title": "準共有",
+    "hasContent": true
+  },
+  {
+    "file": "269.yaml",
+    "article": 269,
+    "title": "工作物等の収去等",
+    "hasContent": true
+  },
+  {
+    "file": "398-10.yaml",
+    "article": 398,
+    "title": "根抵当権者又は債務者の会社分割",
+    "hasContent": true
+  },
+  {
+    "file": "398-11.yaml",
+    "article": 398,
+    "title": "根抵当権の処分",
+    "hasContent": true
+  },
+  {
+    "file": "398-12.yaml",
+    "article": 398,
+    "title": "根抵当権の譲渡",
+    "hasContent": true
+  },
+  {
+    "file": "398-13.yaml",
+    "article": 398,
+    "title": "根抵当権の一部譲渡",
+    "hasContent": true
+  },
+  {
+    "file": "398-14.yaml",
+    "article": 398,
+    "title": "根抵当権の共有",
+    "hasContent": true
+  },
+  {
+    "file": "398-15.yaml",
+    "article": 398,
+    "title": "抵当権の順位の譲渡又は放棄と根抵当権の譲渡又は一部譲渡",
+    "hasContent": true
+  },
+  {
+    "file": "398-16.yaml",
+    "article": 398,
+    "title": "共同根抵当",
+    "hasContent": true
+  },
+  {
+    "file": "398-17.yaml",
+    "article": 398,
+    "title": "共同根抵当の変更等",
+    "hasContent": true
+  },
+  {
+    "file": "398-18.yaml",
+    "article": 398,
+    "title": "累積根抵当",
+    "hasContent": true
+  },
+  {
+    "file": "398-19.yaml",
+    "article": 398,
+    "title": "根抵当権の元本の確定請求",
+    "hasContent": true
+  },
+  {
+    "file": "398-2.yaml",
+    "article": 398,
+    "title": "根抵当権",
+    "hasContent": true
+  },
+  {
+    "file": "398-20.yaml",
+    "article": 398,
+    "title": "根抵当権の元本の確定事由",
+    "hasContent": true
+  },
+  {
+    "file": "398-21.yaml",
+    "article": 398,
+    "title": "根抵当権の極度額の減額請求",
+    "hasContent": true
+  },
+  {
+    "file": "398-3.yaml",
+    "article": 398,
+    "title": "根抵当権の被担保債権の範囲",
+    "hasContent": true
+  },
+  {
+    "file": "398-4.yaml",
+    "article": 398,
+    "title": "根抵当権の被担保債権の範囲及び債務者の変更",
+    "hasContent": true
+  },
+  {
+    "file": "398-5.yaml",
+    "article": 398,
+    "title": "根抵当権の極度額の変更",
+    "hasContent": true
+  },
+  {
+    "file": "398-6.yaml",
+    "article": 398,
+    "title": "根抵当権の元本確定期日の定め",
+    "hasContent": true
+  },
+  {
+    "file": "398-7.yaml",
+    "article": 398,
+    "title": "根抵当権の被担保債権の譲渡等",
+    "hasContent": true
+  },
+  {
+    "file": "398-8.yaml",
+    "article": 398,
+    "title": "根抵当権者又は債務者の相続",
+    "hasContent": true
+  },
+  {
+    "file": "398-9.yaml",
+    "article": 398,
+    "title": "根抵当権者又は債務者の合併",
+    "hasContent": true
+  },
+  {
+    "file": "398.yaml",
+    "article": 398,
+    "title": "抵当権の目的である地上権等の放棄",
+    "hasContent": true
+  },
+  {
+    "file": "412.yaml",
+    "article": 412,
+    "title": "履行期と履行遅滞",
+    "hasContent": true
+  },
+  {
+    "file": "413.yaml",
+    "article": 413,
+    "title": "受領遅滞",
+    "hasContent": true
+  },
+  {
+    "file": "417.yaml",
+    "article": 417,
+    "title": "損害賠償の方法",
+    "hasContent": true
+  },
+  {
+    "file": "422.yaml",
+    "article": 422,
+    "title": "損害賠償による代位",
+    "hasContent": true
+  },
+  {
+    "file": "423-2.yaml",
+    "article": 423,
+    "title": "代位行使の範囲",
+    "hasContent": true
+  },
+  {
+    "file": "423-3.yaml",
+    "article": 423,
+    "title": "債権者への支払又は引渡し",
+    "hasContent": true
+  },
+  {
+    "file": "423-4.yaml",
+    "article": 423,
+    "title": "相手方の抗弁",
+    "hasContent": true
+  },
+  {
+    "file": "423-5.yaml",
+    "article": 423,
+    "title": "債務者の取立てその他の処分の権限等",
+    "hasContent": true
+  },
+  {
+    "file": "423-6.yaml",
+    "article": 423,
+    "title": "被代位権利の行使に係る訴えを提起した場合の訴訟告知",
+    "hasContent": true
+  },
+  {
+    "file": "423.yaml",
+    "article": 423,
+    "title": "債権者代位権の要件",
+    "hasContent": true
+  },
+  {
+    "file": "424-2.yaml",
+    "article": 424,
+    "title": "相当の対価を得てした財産の処分行為の特則",
+    "hasContent": true
+  },
+  {
+    "file": "424-3.yaml",
+    "article": 424,
+    "title": "特定の債権者に対する担保の供与等の特則",
+    "hasContent": true
+  },
+  {
+    "file": "424-4.yaml",
+    "article": 424,
+    "title": "過大な代物弁済等の特則",
+    "hasContent": true
+  },
+  {
+    "file": "424-5.yaml",
+    "article": 424,
+    "title": "転得者に対する詐害行為取消請求",
+    "hasContent": true
+  },
+  {
+    "file": "424-6.yaml",
+    "article": 424,
+    "title": "財産の返還又は価額の償還の請求",
+    "hasContent": true
+  },
+  {
+    "file": "424-7.yaml",
+    "article": 424,
+    "title": "被告及び訴訟告知",
+    "hasContent": true
+  },
+  {
+    "file": "424-8.yaml",
+    "article": 424,
+    "title": "詐害行為の取消しの範囲",
+    "hasContent": true
+  },
+  {
+    "file": "424.yaml",
+    "article": 424,
+    "title": "詐害行為取消請求",
+    "hasContent": true
+  },
+  {
+    "file": "425-2.yaml",
+    "article": 425,
+    "title": "債務者の受けた反対給付に関する受益者の権利",
+    "hasContent": true
+  },
+  {
+    "file": "425-3.yaml",
+    "article": 425,
+    "title": "受益者の債権の回復",
+    "hasContent": true
+  },
+  {
+    "file": "425.yaml",
+    "article": 425,
+    "title": "認容判決の効力が及ぶ者の範囲",
+    "hasContent": true
+  },
+  {
+    "file": "435.yaml",
+    "article": 435,
+    "title": "連帯債権者の一人との間の混同",
+    "hasContent": true
+  },
+  {
+    "file": "458-2.yaml",
+    "article": 458,
+    "title": "主たる債務の履行状況に関する情報の提供義務",
+    "hasContent": true
+  },
+  {
+    "file": "458.yaml",
+    "article": 458,
+    "title": "連帯保証人について生じた事由の効力",
+    "hasContent": true
+  },
+  {
+    "file": "459.yaml",
+    "article": 459,
+    "title": "委託を受けた保証人の求償権",
+    "hasContent": true
+  },
+  {
+    "file": "465-2.yaml",
+    "article": 465,
+    "title": "個人根保証契約の保証人の責任等",
+    "hasContent": true
+  },
+  {
+    "file": "465-3.yaml",
+    "article": 465,
+    "title": "個人貸金等根保証契約の元本確定期日",
+    "hasContent": true
+  },
+  {
+    "file": "465-4.yaml",
+    "article": 465,
+    "title": "個人根保証契約の元本の確定事由",
+    "hasContent": true
+  },
+  {
+    "file": "465-5.yaml",
+    "article": 465,
+    "title": "保証人が法人である根保証契約の求償権",
+    "hasContent": true
+  },
+  {
+    "file": "465-6.yaml",
+    "article": 465,
+    "title": "公正証書の作成と保証の効力",
+    "hasContent": true
+  },
+  {
+    "file": "465-7.yaml",
+    "article": 465,
+    "title": "保証に係る公正証書の方式の特則",
+    "hasContent": true
+  },
+  {
+    "file": "465-8.yaml",
+    "article": 465,
+    "title": "公正証書の作成と求償権についての保証の効力",
+    "hasContent": true
+  },
+  {
+    "file": "465-9.yaml",
+    "article": 465,
+    "title": "公正証書の作成と保証の効力に関する規定の適用除外",
+    "hasContent": true
+  },
+  {
+    "file": "465.yaml",
+    "article": 465,
+    "title": "共同保証人間の求償権",
+    "hasContent": true
+  },
+  {
+    "file": "466-2.yaml",
+    "article": 466,
+    "title": "譲渡制限の意思表示がされた債権に係る債務者の供託",
+    "hasContent": true
+  },
+  {
+    "file": "466-3.yaml",
+    "article": 466,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "466-4.yaml",
+    "article": 466,
+    "title": "譲渡制限の意思表示がされた債権の差押え",
+    "hasContent": true
+  },
+  {
+    "file": "466-5.yaml",
+    "article": 466,
+    "title": "預金債権又は貯金債権に係る譲渡制限の意思表示の効力",
+    "hasContent": true
+  },
+  {
+    "file": "466.yaml",
+    "article": 466,
+    "title": "債権の譲渡性",
+    "hasContent": true
+  },
+  {
+    "file": "472-2.yaml",
+    "article": 472,
+    "title": "免責的債務引受における引受人の抗弁等",
+    "hasContent": true
+  },
+  {
+    "file": "472-3.yaml",
+    "article": 472,
+    "title": "免責的債務引受における引受人の求償権",
+    "hasContent": true
+  },
+  {
+    "file": "472.yaml",
+    "article": 472,
+    "title": "免責的債務引受の要件及び効果",
+    "hasContent": true
+  },
+  {
+    "file": "501.yaml",
+    "article": 501,
+    "title": "弁済による代位の効果",
+    "hasContent": true
+  },
+  {
+    "file": "502.yaml",
+    "article": 502,
+    "title": "一部弁済による代位",
+    "hasContent": true
+  },
+  {
+    "file": "503.yaml",
+    "article": 503,
+    "title": "債権者による債権証書の交付等",
+    "hasContent": true
+  },
+  {
+    "file": "504.yaml",
+    "article": 504,
+    "title": "債権者による担保の喪失等",
+    "hasContent": true
+  },
+  {
+    "file": "505.yaml",
+    "article": 505,
+    "title": "相殺の要件等",
+    "hasContent": true
+  },
+  {
+    "file": "506.yaml",
+    "article": 506,
+    "title": "相殺の方法及び効力",
+    "hasContent": true
+  },
+  {
+    "file": "507.yaml",
+    "article": 507,
+    "title": "履行地の異なる債務の相殺",
+    "hasContent": true
+  },
+  {
+    "file": "508.yaml",
+    "article": 508,
+    "title": "時効により消滅した債権を自働債権とする相殺",
+    "hasContent": true
+  },
+  {
+    "file": "509.yaml",
+    "article": 509,
+    "title": "不法行為等により生じた債権を受働債権とする相殺の禁止",
+    "hasContent": true
+  },
+  {
+    "file": "510.yaml",
+    "article": 510,
+    "title": "差押禁止債権を受働債権とする相殺の禁止",
+    "hasContent": true
+  },
+  {
+    "file": "511.yaml",
+    "article": 511,
+    "title": "差押えを受けた債権を受働債権とする相殺の禁止",
+    "hasContent": true
+  },
+  {
+    "file": "512-2.yaml",
+    "article": 512,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "512.yaml",
+    "article": 512,
+    "title": "相殺の充当",
+    "hasContent": true
+  },
+  {
+    "file": "513.yaml",
+    "article": 513,
+    "title": "更改",
+    "hasContent": true
+  },
+  {
+    "file": "514.yaml",
+    "article": 514,
+    "title": "債務者の交替による更改",
+    "hasContent": true
+  },
+  {
+    "file": "515.yaml",
+    "article": 515,
+    "title": "債権者の交替による更改",
+    "hasContent": true
+  },
+  {
+    "file": "518.yaml",
+    "article": 518,
+    "title": "更改後の債務への担保の移転",
+    "hasContent": true
+  },
+  {
+    "file": "519.yaml",
+    "article": 519,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "520-10.yaml",
+    "article": 520,
+    "title": "指図証券の債務者の調査の権利等",
+    "hasContent": true
+  },
+  {
+    "file": "520-11.yaml",
+    "article": 520,
+    "title": "指図証券の喪失",
+    "hasContent": true
+  },
+  {
+    "file": "520-12.yaml",
+    "article": 520,
+    "title": "指図証券喪失の場合の権利行使方法",
+    "hasContent": true
+  },
+  {
+    "file": "520-13.yaml",
+    "article": 520,
+    "title": "記名式所持人払証券の譲渡",
+    "hasContent": true
+  },
+  {
+    "file": "520-14.yaml",
+    "article": 520,
+    "title": "記名式所持人払証券の所持人の権利の推定",
+    "hasContent": true
+  },
+  {
+    "file": "520-15.yaml",
+    "article": 520,
+    "title": "記名式所持人払証券の善意取得",
+    "hasContent": true
+  },
+  {
+    "file": "520-16.yaml",
+    "article": 520,
+    "title": "記名式所持人払証券の譲渡における債務者の抗弁の制限",
+    "hasContent": true
+  },
+  {
+    "file": "520-17.yaml",
+    "article": 520,
+    "title": "記名式所持人払証券の質入れ",
+    "hasContent": true
+  },
+  {
+    "file": "520-18.yaml",
+    "article": 520,
+    "title": "指図証券の規定の準用",
+    "hasContent": true
+  },
+  {
+    "file": "520-19.yaml",
+    "article": 520,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "520-2.yaml",
+    "article": 520,
+    "title": "指図証券の譲渡",
+    "hasContent": true
+  },
+  {
+    "file": "520-20.yaml",
+    "article": 520,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "520-3.yaml",
+    "article": 520,
+    "title": "指図証券の裏書の方式",
+    "hasContent": true
+  },
+  {
+    "file": "520-4.yaml",
+    "article": 520,
+    "title": "指図証券の所持人の権利の推定",
+    "hasContent": true
+  },
+  {
+    "file": "520-5.yaml",
+    "article": 520,
+    "title": "指図証券の善意取得",
+    "hasContent": true
+  },
+  {
+    "file": "520-6.yaml",
+    "article": 520,
+    "title": "指図証券の譲渡における債務者の抗弁の制限",
+    "hasContent": true
+  },
+  {
+    "file": "520-7.yaml",
+    "article": 520,
+    "title": "指図証券の質入れ",
+    "hasContent": true
+  },
+  {
+    "file": "520-8.yaml",
+    "article": 520,
+    "title": "指図証券の弁済の場所",
+    "hasContent": true
+  },
+  {
+    "file": "520-9.yaml",
+    "article": 520,
+    "title": "指図証券の提示と履行遅滞",
+    "hasContent": true
+  },
+  {
+    "file": "520.yaml",
+    "article": 520,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "521.yaml",
+    "article": 521,
+    "title": "契約の締結及び内容の自由",
+    "hasContent": true
+  },
+  {
+    "file": "522.yaml",
+    "article": 522,
+    "title": "契約の成立と方式",
+    "hasContent": true
+  },
+  {
+    "file": "523.yaml",
+    "article": 523,
+    "title": "承諾の期間の定めのある申込み",
+    "hasContent": true
+  },
+  {
+    "file": "524.yaml",
+    "article": 524,
+    "title": "遅延した承諾の効力",
+    "hasContent": true
+  },
+  {
+    "file": "525.yaml",
+    "article": 525,
+    "title": "承諾の期間の定めのない申込み",
+    "hasContent": true
+  },
+  {
+    "file": "526.yaml",
+    "article": 526,
+    "title": "申込者の死亡等",
+    "hasContent": true
+  },
+  {
+    "file": "527.yaml",
+    "article": 527,
+    "title": "承諾の通知を必要としない場合における契約の成立時期",
+    "hasContent": true
+  },
+  {
+    "file": "528.yaml",
+    "article": 528,
+    "title": "申込みに変更を加えた承諾",
+    "hasContent": true
+  },
+  {
+    "file": "529-2.yaml",
+    "article": 529,
+    "title": "指定した行為をする期間の定めのある懸賞広告",
+    "hasContent": true
+  },
+  {
+    "file": "529-3.yaml",
+    "article": 529,
+    "title": "指定した行為をする期間の定めのない懸賞広告",
+    "hasContent": true
+  },
+  {
+    "file": "529.yaml",
+    "article": 529,
+    "title": "懸賞広告",
+    "hasContent": true
+  },
+  {
+    "file": "530.yaml",
+    "article": 530,
+    "title": "懸賞広告の撤回の方法",
+    "hasContent": true
+  },
+  {
+    "file": "531.yaml",
+    "article": 531,
+    "title": "懸賞広告の報酬を受ける権利",
+    "hasContent": true
+  },
+  {
+    "file": "532.yaml",
+    "article": 532,
+    "title": "優等懸賞広告",
+    "hasContent": true
+  },
+  {
+    "file": "533.yaml",
+    "article": 533,
+    "title": "同時履行の抗弁",
+    "hasContent": true
+  },
+  {
+    "file": "536.yaml",
+    "article": 536,
+    "title": "債務者の危険負担等",
+    "hasContent": true
+  },
+  {
+    "file": "537.yaml",
+    "article": 537,
+    "title": "第三者のためにする契約",
+    "hasContent": true
+  },
+  {
+    "file": "538.yaml",
+    "article": 538,
+    "title": "第三者の権利の確定",
+    "hasContent": true
+  },
+  {
+    "file": "539-2.yaml",
+    "article": 539,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "539.yaml",
+    "article": 539,
+    "title": "債務者の抗弁",
+    "hasContent": true
+  },
+  {
+    "file": "540.yaml",
+    "article": 540,
+    "title": "解除権の行使",
+    "hasContent": true
+  },
+  {
+    "file": "541.yaml",
+    "article": 541,
+    "title": "催告による解除",
+    "hasContent": true
+  },
+  {
+    "file": "542.yaml",
+    "article": 542,
+    "title": "催告によらない解除",
+    "hasContent": true
+  },
+  {
+    "file": "543.yaml",
+    "article": 543,
+    "title": "債権者の責めに帰すべき事由による場合",
+    "hasContent": true
+  },
+  {
+    "file": "544.yaml",
+    "article": 544,
+    "title": "解除権の不可分性",
+    "hasContent": true
+  },
+  {
+    "file": "545.yaml",
+    "article": 545,
+    "title": "解除の効果",
+    "hasContent": true
+  },
+  {
+    "file": "546.yaml",
+    "article": 546,
+    "title": "契約の解除と同時履行",
+    "hasContent": true
+  },
+  {
+    "file": "547.yaml",
+    "article": 547,
+    "title": "催告による解除権の消滅",
+    "hasContent": true
+  },
+  {
+    "file": "548-2.yaml",
+    "article": 548,
+    "title": "定型約款の合意",
+    "hasContent": true
+  },
+  {
+    "file": "548-3.yaml",
+    "article": 548,
+    "title": "定型約款の内容の表示",
+    "hasContent": true
+  },
+  {
+    "file": "548-4.yaml",
+    "article": 548,
+    "title": "定型約款の変更",
+    "hasContent": true
+  },
+  {
+    "file": "548.yaml",
+    "article": 548,
+    "title": "解除権者の故意による目的物の損傷等による解除権の消滅",
+    "hasContent": true
+  },
+  {
+    "file": "549.yaml",
+    "article": 549,
+    "title": "贈与",
+    "hasContent": true
+  },
+  {
+    "file": "550.yaml",
+    "article": 550,
+    "title": "書面によらない贈与の解除",
+    "hasContent": true
+  },
+  {
+    "file": "551.yaml",
+    "article": 551,
+    "title": "贈与者の引渡義務等",
+    "hasContent": true
+  },
+  {
+    "file": "552.yaml",
+    "article": 552,
+    "title": "定期贈与",
+    "hasContent": true
+  },
+  {
+    "file": "553.yaml",
+    "article": 553,
+    "title": "負担付贈与",
+    "hasContent": true
+  },
+  {
+    "file": "554.yaml",
+    "article": 554,
+    "title": "死因贈与",
+    "hasContent": true
+  },
+  {
+    "file": "555.yaml",
+    "article": 555,
+    "title": "売買",
+    "hasContent": true
+  },
+  {
+    "file": "556.yaml",
+    "article": 556,
+    "title": "売買の一方の予約",
+    "hasContent": true
+  },
+  {
+    "file": "557.yaml",
+    "article": 557,
+    "title": "手付",
+    "hasContent": true
+  },
+  {
+    "file": "558.yaml",
+    "article": 558,
+    "title": "売買契約に関する費用",
+    "hasContent": true
+  },
+  {
+    "file": "559.yaml",
+    "article": 559,
+    "title": "有償契約への準用",
+    "hasContent": true
+  },
+  {
+    "file": "560.yaml",
+    "article": 560,
+    "title": "権利移転の対抗要件に係る売主の義務",
+    "hasContent": true
+  },
+  {
+    "file": "561.yaml",
+    "article": 561,
+    "title": "他人の権利の売買における売主の義務",
+    "hasContent": true
+  },
+  {
+    "file": "562.yaml",
+    "article": 562,
+    "title": "買主の追完請求権",
+    "hasContent": true
+  },
+  {
+    "file": "563.yaml",
+    "article": 563,
+    "title": "買主の代金減額請求権",
+    "hasContent": true
+  },
+  {
+    "file": "564.yaml",
+    "article": 564,
+    "title": "買主の損害賠償請求及び解除権の行使",
+    "hasContent": true
+  },
+  {
+    "file": "565.yaml",
+    "article": 565,
+    "title": "移転した権利が契約の内容に適合しない場合における売主の担保責任",
+    "hasContent": true
+  },
+  {
+    "file": "566.yaml",
+    "article": 566,
+    "title": "目的物の種類又は品質に関する担保責任の期間の制限",
+    "hasContent": true
+  },
+  {
+    "file": "567.yaml",
+    "article": 567,
+    "title": "目的物の滅失等についての危険の移転",
+    "hasContent": true
+  },
+  {
+    "file": "568.yaml",
+    "article": 568,
+    "title": "競売における担保責任等",
+    "hasContent": true
+  },
+  {
+    "file": "569.yaml",
+    "article": 569,
+    "title": "債権の売主の担保責任",
+    "hasContent": true
+  },
+  {
+    "file": "570.yaml",
+    "article": 570,
+    "title": "抵当権等がある場合の買主による費用の償還請求",
+    "hasContent": true
+  },
+  {
+    "file": "572.yaml",
+    "article": 572,
+    "title": "担保責任を負わない旨の特約",
+    "hasContent": true
+  },
+  {
+    "file": "573.yaml",
+    "article": 573,
+    "title": "代金の支払期限",
+    "hasContent": true
+  },
+  {
+    "file": "574.yaml",
+    "article": 574,
+    "title": "代金の支払場所",
+    "hasContent": true
+  },
+  {
+    "file": "575.yaml",
+    "article": 575,
+    "title": "果実の帰属及び代金の利息の支払",
+    "hasContent": true
+  },
+  {
+    "file": "576.yaml",
+    "article": 576,
+    "title": "権利を取得することができない等のおそれがある場合の買主による代金の支払の拒絶",
+    "hasContent": true
+  },
+  {
+    "file": "577.yaml",
+    "article": 577,
+    "title": "抵当権等の登記がある場合の買主による代金の支払の拒絶",
+    "hasContent": true
+  },
+  {
+    "file": "578.yaml",
+    "article": 578,
+    "title": "売主による代金の供託の請求",
+    "hasContent": true
+  },
+  {
+    "file": "579.yaml",
+    "article": 579,
+    "title": "買戻しの特約",
+    "hasContent": true
+  },
+  {
+    "file": "580.yaml",
+    "article": 580,
+    "title": "買戻しの期間",
+    "hasContent": true
+  },
+  {
+    "file": "581.yaml",
+    "article": 581,
+    "title": "買戻しの特約の対抗力",
+    "hasContent": true
+  },
+  {
+    "file": "582.yaml",
+    "article": 582,
+    "title": "買戻権の代位行使",
+    "hasContent": true
+  },
+  {
+    "file": "583.yaml",
+    "article": 583,
+    "title": "買戻しの実行",
+    "hasContent": true
+  },
+  {
+    "file": "584.yaml",
+    "article": 584,
+    "title": "共有持分の買戻特約付売買",
+    "hasContent": true
+  },
+  {
+    "file": "585.yaml",
+    "article": 585,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "586.yaml",
+    "article": 586,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "587-2.yaml",
+    "article": 587,
+    "title": "書面でする消費貸借等",
+    "hasContent": true
+  },
+  {
+    "file": "587.yaml",
+    "article": 587,
+    "title": "消費貸借",
+    "hasContent": true
+  },
+  {
+    "file": "588.yaml",
+    "article": 588,
+    "title": "準消費貸借",
+    "hasContent": true
+  },
+  {
+    "file": "589.yaml",
+    "article": 589,
+    "title": "利息",
+    "hasContent": true
+  },
+  {
+    "file": "590.yaml",
+    "article": 590,
+    "title": "貸主の引渡義務等",
+    "hasContent": true
+  },
+  {
+    "file": "591.yaml",
+    "article": 591,
+    "title": "返還の時期",
+    "hasContent": true
+  },
+  {
+    "file": "592.yaml",
+    "article": 592,
+    "title": "価額の償還",
+    "hasContent": true
+  },
+  {
+    "file": "593-2.yaml",
+    "article": 593,
+    "title": "借用物受取り前の貸主による使用貸借の解除",
+    "hasContent": true
+  },
+  {
+    "file": "593.yaml",
+    "article": 593,
+    "title": "使用貸借",
+    "hasContent": true
+  },
+  {
+    "file": "594.yaml",
+    "article": 594,
+    "title": "借主による使用及び収益",
+    "hasContent": true
+  },
+  {
+    "file": "595.yaml",
+    "article": 595,
+    "title": "借用物の費用の負担",
+    "hasContent": true
+  },
+  {
+    "file": "596.yaml",
+    "article": 596,
+    "title": "貸主の引渡義務等",
+    "hasContent": true
+  },
+  {
+    "file": "597.yaml",
+    "article": 597,
+    "title": "期間満了等による使用貸借の終了",
+    "hasContent": true
+  },
+  {
+    "file": "598.yaml",
+    "article": 598,
+    "title": "使用貸借の解除",
+    "hasContent": true
+  },
+  {
+    "file": "599.yaml",
+    "article": 599,
+    "title": "借主による収去等",
+    "hasContent": true
+  },
+  {
+    "file": "600.yaml",
+    "article": 600,
+    "title": "損害賠償及び費用の償還の請求権についての期間の制限",
+    "hasContent": true
+  },
+  {
+    "file": "601.yaml",
+    "article": 601,
+    "title": "賃貸借",
+    "hasContent": true
+  },
+  {
+    "file": "602.yaml",
+    "article": 602,
+    "title": "短期賃貸借",
+    "hasContent": true
+  },
+  {
+    "file": "603.yaml",
+    "article": 603,
+    "title": "短期賃貸借の更新",
+    "hasContent": true
+  },
+  {
+    "file": "604.yaml",
+    "article": 604,
+    "title": "賃貸借の存続期間",
+    "hasContent": true
+  },
+  {
+    "file": "605-2.yaml",
+    "article": 605,
+    "title": "不動産の賃貸人たる地位の移転",
+    "hasContent": true
+  },
+  {
+    "file": "605-3.yaml",
+    "article": 605,
+    "title": "合意による不動産の賃貸人たる地位の移転",
+    "hasContent": true
+  },
+  {
+    "file": "605-4.yaml",
+    "article": 605,
+    "title": "不動産の賃借人による妨害の停止の請求等",
+    "hasContent": true
+  },
+  {
+    "file": "605.yaml",
+    "article": 605,
+    "title": "不動産賃貸借の対抗力",
+    "hasContent": true
+  },
+  {
+    "file": "606.yaml",
+    "article": 606,
+    "title": "賃貸人による修繕等",
+    "hasContent": true
+  },
+  {
+    "file": "607-2.yaml",
+    "article": 607,
+    "title": "賃借人による修繕",
+    "hasContent": true
+  },
+  {
+    "file": "607.yaml",
+    "article": 607,
+    "title": "賃借人の意思に反する保存行為",
+    "hasContent": true
+  },
+  {
+    "file": "608.yaml",
+    "article": 608,
+    "title": "賃借人による費用の償還請求",
+    "hasContent": true
+  },
+  {
+    "file": "609.yaml",
+    "article": 609,
+    "title": "減収による賃料の減額請求",
+    "hasContent": true
+  },
+  {
+    "file": "610.yaml",
+    "article": 610,
+    "title": "減収による解除",
+    "hasContent": true
+  },
+  {
+    "file": "611.yaml",
+    "article": 611,
+    "title": "賃借物の一部滅失等による賃料の減額等",
+    "hasContent": true
+  },
+  {
+    "file": "612.yaml",
+    "article": 612,
+    "title": "賃借権の譲渡及び転貸の制限",
+    "hasContent": true
+  },
+  {
+    "file": "613.yaml",
+    "article": 613,
+    "title": "転貸の効果",
+    "hasContent": true
+  },
+  {
+    "file": "614.yaml",
+    "article": 614,
+    "title": "賃料の支払時期",
+    "hasContent": true
+  },
+  {
+    "file": "615.yaml",
+    "article": 615,
+    "title": "賃借人の通知義務",
+    "hasContent": true
+  },
+  {
+    "file": "616-2.yaml",
+    "article": 616,
+    "title": "賃借物の全部滅失等による賃貸借の終了",
+    "hasContent": true
+  },
+  {
+    "file": "616.yaml",
+    "article": 616,
+    "title": "賃借人による使用及び収益",
+    "hasContent": true
+  },
+  {
+    "file": "617.yaml",
+    "article": 617,
+    "title": "期間の定めのない賃貸借の解約の申入れ",
+    "hasContent": true
+  },
+  {
+    "file": "618.yaml",
+    "article": 618,
+    "title": "期間の定めのある賃貸借の解約をする権利の留保",
+    "hasContent": true
+  },
+  {
+    "file": "619.yaml",
+    "article": 619,
+    "title": "賃貸借の更新の推定等",
+    "hasContent": true
+  },
+  {
+    "file": "620.yaml",
+    "article": 620,
+    "title": "賃貸借の解除の効力",
+    "hasContent": true
+  },
+  {
+    "file": "621.yaml",
+    "article": 621,
+    "title": "賃借人の原状回復義務",
+    "hasContent": true
+  },
+  {
+    "file": "622-2.yaml",
+    "article": 622,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "622.yaml",
+    "article": 622,
+    "title": "使用貸借の規定の準用",
+    "hasContent": true
+  },
+  {
+    "file": "623.yaml",
+    "article": 623,
+    "title": "雇用",
+    "hasContent": true
+  },
+  {
+    "file": "624-2.yaml",
+    "article": 624,
+    "title": "履行の割合に応じた報酬",
+    "hasContent": true
+  },
+  {
+    "file": "624.yaml",
+    "article": 624,
+    "title": "報酬の支払時期",
+    "hasContent": true
+  },
+  {
+    "file": "625.yaml",
+    "article": 625,
+    "title": "使用者の権利の譲渡の制限等",
+    "hasContent": true
+  },
+  {
+    "file": "626.yaml",
+    "article": 626,
+    "title": "期間の定めのある雇用の解除",
+    "hasContent": true
+  },
+  {
+    "file": "627.yaml",
+    "article": 627,
+    "title": "期間の定めのない雇用の解約の申入れ",
+    "hasContent": true
+  },
+  {
+    "file": "628.yaml",
+    "article": 628,
+    "title": "やむを得ない事由による雇用の解除",
+    "hasContent": true
+  },
+  {
+    "file": "629.yaml",
+    "article": 629,
+    "title": "雇用の更新の推定等",
+    "hasContent": true
+  },
+  {
+    "file": "630.yaml",
+    "article": 630,
+    "title": "雇用の解除の効力",
+    "hasContent": true
+  },
+  {
+    "file": "631.yaml",
+    "article": 631,
+    "title": "使用者についての破産手続の開始による解約の申入れ",
+    "hasContent": true
+  },
+  {
+    "file": "632.yaml",
+    "article": 632,
+    "title": "請負",
+    "hasContent": true
+  },
+  {
+    "file": "633.yaml",
+    "article": 633,
+    "title": "報酬の支払時期",
+    "hasContent": true
+  },
+  {
+    "file": "634.yaml",
+    "article": 634,
+    "title": "注文者が受ける利益の割合に応じた報酬",
+    "hasContent": true
+  },
+  {
+    "file": "636.yaml",
+    "article": 636,
+    "title": "請負人の担保責任の制限",
+    "hasContent": true
+  },
+  {
+    "file": "637.yaml",
+    "article": 637,
+    "title": "目的物の種類又は品質に関する担保責任の期間の制限",
+    "hasContent": true
+  },
+  {
+    "file": "641.yaml",
+    "article": 641,
+    "title": "注文者による契約の解除",
+    "hasContent": true
+  },
+  {
+    "file": "642.yaml",
+    "article": 642,
+    "title": "注文者についての破産手続の開始による解除",
+    "hasContent": true
+  },
+  {
+    "file": "643.yaml",
+    "article": 643,
+    "title": "委任",
+    "hasContent": true
+  },
+  {
+    "file": "644-2.yaml",
+    "article": 644,
+    "title": "復受任者の選任等",
+    "hasContent": true
+  },
+  {
+    "file": "644.yaml",
+    "article": 644,
+    "title": "受任者の注意義務",
+    "hasContent": true
+  },
+  {
+    "file": "645.yaml",
+    "article": 645,
+    "title": "受任者による報告",
+    "hasContent": true
+  },
+  {
+    "file": "646.yaml",
+    "article": 646,
+    "title": "受任者による受取物の引渡し等",
+    "hasContent": true
+  },
+  {
+    "file": "647.yaml",
+    "article": 647,
+    "title": "受任者の金銭の消費についての責任",
+    "hasContent": true
+  },
+  {
+    "file": "648-2.yaml",
+    "article": 648,
+    "title": "成果等に対する報酬",
+    "hasContent": true
+  },
+  {
+    "file": "648.yaml",
+    "article": 648,
+    "title": "受任者の報酬",
+    "hasContent": true
+  },
+  {
+    "file": "649.yaml",
+    "article": 649,
+    "title": "受任者による費用の前払請求",
+    "hasContent": true
+  },
+  {
+    "file": "650.yaml",
+    "article": 650,
+    "title": "受任者による費用等の償還請求等",
+    "hasContent": true
+  },
+  {
+    "file": "651.yaml",
+    "article": 651,
+    "title": "委任の解除",
+    "hasContent": true
+  },
+  {
+    "file": "652.yaml",
+    "article": 652,
+    "title": "委任の解除の効力",
+    "hasContent": true
+  },
+  {
+    "file": "653.yaml",
+    "article": 653,
+    "title": "委任の終了事由",
+    "hasContent": true
+  },
+  {
+    "file": "654.yaml",
+    "article": 654,
+    "title": "委任の終了後の処分",
+    "hasContent": true
+  },
+  {
+    "file": "655.yaml",
+    "article": 655,
+    "title": "委任の終了の対抗要件",
+    "hasContent": true
+  },
+  {
+    "file": "656.yaml",
+    "article": 656,
+    "title": "準委任",
+    "hasContent": true
+  },
+  {
+    "file": "657-2.yaml",
+    "article": 657,
+    "title": "寄託物受取り前の寄託者による寄託の解除等",
+    "hasContent": true
+  },
+  {
+    "file": "657.yaml",
+    "article": 657,
+    "title": "寄託",
+    "hasContent": true
+  },
+  {
+    "file": "658.yaml",
+    "article": 658,
+    "title": "寄託物の使用及び第三者による保管",
+    "hasContent": true
+  },
+  {
+    "file": "659.yaml",
+    "article": 659,
+    "title": "無報酬の受寄者の注意義務",
+    "hasContent": true
+  },
+  {
+    "file": "660.yaml",
+    "article": 660,
+    "title": "受寄者の通知義務等",
+    "hasContent": true
+  },
+  {
+    "file": "661.yaml",
+    "article": 661,
+    "title": "寄託者による損害賠償",
+    "hasContent": true
+  },
+  {
+    "file": "662.yaml",
+    "article": 662,
+    "title": "寄託者による返還請求等",
+    "hasContent": true
+  },
+  {
+    "file": "663.yaml",
+    "article": 663,
+    "title": "寄託物の返還の時期",
+    "hasContent": true
+  },
+  {
+    "file": "664-2.yaml",
+    "article": 664,
+    "title": "損害賠償及び費用の償還の請求権についての期間の制限",
+    "hasContent": true
+  },
+  {
+    "file": "664.yaml",
+    "article": 664,
+    "title": "寄託物の返還の場所",
+    "hasContent": true
+  },
+  {
+    "file": "665-2.yaml",
+    "article": 665,
+    "title": "混合寄託",
+    "hasContent": true
+  },
+  {
+    "file": "665.yaml",
+    "article": 665,
+    "title": "委任の規定の準用",
+    "hasContent": true
+  },
+  {
+    "file": "666.yaml",
+    "article": 666,
+    "title": "消費寄託",
+    "hasContent": true
+  },
+  {
+    "file": "667-2.yaml",
+    "article": 667,
+    "title": "他の組合員の債務不履行",
+    "hasContent": true
+  },
+  {
+    "file": "667-3.yaml",
+    "article": 667,
+    "title": "組合員の一人についての意思表示の無効等",
+    "hasContent": true
+  },
+  {
+    "file": "667.yaml",
+    "article": 667,
+    "title": "組合契約",
+    "hasContent": true
+  },
+  {
+    "file": "668.yaml",
+    "article": 668,
+    "title": "組合財産の共有",
+    "hasContent": true
+  },
+  {
+    "file": "669.yaml",
+    "article": 669,
+    "title": "金銭出資の不履行の責任",
+    "hasContent": true
+  },
+  {
+    "file": "670-2.yaml",
+    "article": 670,
+    "title": "組合の代理",
+    "hasContent": true
+  },
+  {
+    "file": "670.yaml",
+    "article": 670,
+    "title": "業務の決定及び執行の方法",
+    "hasContent": true
+  },
+  {
+    "file": "671.yaml",
+    "article": 671,
+    "title": "委任の規定の準用",
+    "hasContent": true
+  },
+  {
+    "file": "672.yaml",
+    "article": 672,
+    "title": "業務執行組合員の辞任及び解任",
+    "hasContent": true
+  },
+  {
+    "file": "673.yaml",
+    "article": 673,
+    "title": "組合員の組合の業務及び財産状況に関する検査",
+    "hasContent": true
+  },
+  {
+    "file": "674.yaml",
+    "article": 674,
+    "title": "組合員の損益分配の割合",
+    "hasContent": true
+  },
+  {
+    "file": "675.yaml",
+    "article": 675,
+    "title": "組合の債権者の権利の行使",
+    "hasContent": true
+  },
+  {
+    "file": "676.yaml",
+    "article": 676,
+    "title": "組合員の持分の処分及び組合財産の分割",
+    "hasContent": true
+  },
+  {
+    "file": "677-2.yaml",
+    "article": 677,
+    "title": "組合員の加入",
+    "hasContent": true
+  },
+  {
+    "file": "677.yaml",
+    "article": 677,
+    "title": "組合財産に対する組合員の債権者の権利の行使の禁止",
+    "hasContent": true
+  },
+  {
+    "file": "678.yaml",
+    "article": 678,
+    "title": "組合員の脱退",
+    "hasContent": true
+  },
+  {
+    "file": "679.yaml",
+    "article": 679,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "680-2.yaml",
+    "article": 680,
+    "title": "脱退した組合員の責任等",
+    "hasContent": true
+  },
+  {
+    "file": "680.yaml",
+    "article": 680,
+    "title": "組合員の除名",
+    "hasContent": true
+  },
+  {
+    "file": "681.yaml",
+    "article": 681,
+    "title": "脱退した組合員の持分の払戻し",
+    "hasContent": true
+  },
+  {
+    "file": "682.yaml",
+    "article": 682,
+    "title": "組合の解散事由",
+    "hasContent": true
+  },
+  {
+    "file": "683.yaml",
+    "article": 683,
+    "title": "組合の解散の請求",
+    "hasContent": true
+  },
+  {
+    "file": "684.yaml",
+    "article": 684,
+    "title": "組合契約の解除の効力",
+    "hasContent": true
+  },
+  {
+    "file": "685.yaml",
+    "article": 685,
+    "title": "組合の清算及び清算人の選任",
+    "hasContent": true
+  },
+  {
+    "file": "686.yaml",
+    "article": 686,
+    "title": "清算人の業務の決定及び執行の方法",
+    "hasContent": true
+  },
+  {
+    "file": "687.yaml",
+    "article": 687,
+    "title": "組合員である清算人の辞任及び解任",
+    "hasContent": true
+  },
+  {
+    "file": "688.yaml",
+    "article": 688,
+    "title": "清算人の職務及び権限並びに残余財産の分割方法",
+    "hasContent": true
+  },
+  {
+    "file": "689.yaml",
+    "article": 689,
+    "title": "終身定期金契約",
+    "hasContent": true
+  },
+  {
+    "file": "690.yaml",
+    "article": 690,
+    "title": "終身定期金の計算",
+    "hasContent": true
+  },
+  {
+    "file": "691.yaml",
+    "article": 691,
+    "title": "終身定期金契約の解除",
+    "hasContent": true
+  },
+  {
+    "file": "692.yaml",
+    "article": 692,
+    "title": "終身定期金契約の解除と同時履行",
+    "hasContent": true
+  },
+  {
+    "file": "693.yaml",
+    "article": 693,
+    "title": "終身定期金債権の存続の宣告",
+    "hasContent": true
+  },
+  {
+    "file": "694.yaml",
+    "article": 694,
+    "title": "終身定期金の遺贈",
+    "hasContent": true
+  },
+  {
+    "file": "695.yaml",
+    "article": 695,
+    "title": "和解",
+    "hasContent": true
+  },
+  {
+    "file": "696.yaml",
+    "article": 696,
+    "title": "和解の効力",
+    "hasContent": true
+  },
+  {
+    "file": "697.yaml",
+    "article": 697,
+    "title": "事務管理",
+    "hasContent": true
+  },
+  {
+    "file": "698.yaml",
+    "article": 698,
+    "title": "緊急事務管理",
+    "hasContent": true
+  },
+  {
+    "file": "699.yaml",
+    "article": 699,
+    "title": "管理者の通知義務",
+    "hasContent": true
+  },
+  {
+    "file": "700.yaml",
+    "article": 700,
+    "title": "管理者による事務管理の継続",
+    "hasContent": true
+  },
+  {
+    "file": "701.yaml",
+    "article": 701,
+    "title": "委任の規定の準用",
+    "hasContent": true
+  },
+  {
+    "file": "702.yaml",
+    "article": 702,
+    "title": "管理者による費用の償還請求等",
+    "hasContent": true
+  },
+  {
+    "file": "703.yaml",
+    "article": 703,
+    "title": "不当利得の返還義務",
+    "hasContent": true
+  },
+  {
+    "file": "704.yaml",
+    "article": 704,
+    "title": "悪意の受益者の返還義務等",
+    "hasContent": true
+  },
+  {
+    "file": "705.yaml",
+    "article": 705,
+    "title": "債務の不存在を知ってした弁済",
+    "hasContent": true
+  },
+  {
+    "file": "706.yaml",
+    "article": 706,
+    "title": "期限前の弁済",
+    "hasContent": true
+  },
+  {
+    "file": "707.yaml",
+    "article": 707,
+    "title": "他人の債務の弁済",
+    "hasContent": true
+  },
+  {
+    "file": "708.yaml",
+    "article": 708,
+    "title": "不法原因給付",
+    "hasContent": true
+  },
+  {
+    "file": "709.yaml",
+    "article": 709,
+    "title": "不法行為による損害賠償",
+    "hasContent": true
+  },
+  {
+    "file": "710.yaml",
+    "article": 710,
+    "title": "財産以外の損害の賠償",
+    "hasContent": true
+  },
+  {
+    "file": "711.yaml",
+    "article": 711,
+    "title": "近親者に対する損害の賠償",
+    "hasContent": true
+  },
+  {
+    "file": "712.yaml",
+    "article": 712,
+    "title": "責任能力",
+    "hasContent": true
+  },
+  {
+    "file": "713.yaml",
+    "article": 713,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "714.yaml",
+    "article": 714,
+    "title": "責任無能力者の監督義務者等の責任",
+    "hasContent": true
+  },
+  {
+    "file": "715.yaml",
+    "article": 715,
+    "title": "使用者等の責任",
+    "hasContent": true
+  },
+  {
+    "file": "716.yaml",
+    "article": 716,
+    "title": "注文者の責任",
+    "hasContent": true
+  },
+  {
+    "file": "717.yaml",
+    "article": 717,
+    "title": "土地の工作物等の占有者及び所有者の責任",
+    "hasContent": true
+  },
+  {
+    "file": "718.yaml",
+    "article": 718,
+    "title": "動物の占有者等の責任",
+    "hasContent": true
+  },
+  {
+    "file": "719.yaml",
+    "article": 719,
+    "title": "共同不法行為者の責任",
+    "hasContent": true
+  },
+  {
+    "file": "720.yaml",
+    "article": 720,
+    "title": "正当防衛及び緊急避難",
+    "hasContent": true
+  },
+  {
+    "file": "721.yaml",
+    "article": 721,
+    "title": "損害賠償請求権に関する胎児の権利能力",
+    "hasContent": true
+  },
+  {
+    "file": "722.yaml",
+    "article": 722,
+    "title": "損害賠償の方法、中間利息の控除及び過失相殺",
+    "hasContent": true
+  },
+  {
+    "file": "723.yaml",
+    "article": 723,
+    "title": "（名誉損における原状回復）毀",
+    "hasContent": true
+  },
+  {
+    "file": "724-2.yaml",
+    "article": 724,
+    "title": "人の生命又は身体を害する不法行為による損害賠償請求権の消滅時効",
+    "hasContent": true
+  },
+  {
+    "file": "724.yaml",
+    "article": 724,
+    "title": "不法行為による損害賠償請求権の消滅時効",
+    "hasContent": true
+  },
+  {
+    "file": "725.yaml",
+    "article": 725,
+    "title": "親族の範囲",
+    "hasContent": true
+  },
+  {
+    "file": "726.yaml",
+    "article": 726,
+    "title": "親等の計算",
+    "hasContent": true
+  },
+  {
+    "file": "727.yaml",
+    "article": 727,
+    "title": "縁組による親族関係の発生",
+    "hasContent": true
+  },
+  {
+    "file": "728.yaml",
+    "article": 728,
+    "title": "離婚等による姻族関係の終了",
+    "hasContent": true
+  },
+  {
+    "file": "729.yaml",
+    "article": 729,
+    "title": "離縁による親族関係の終了",
+    "hasContent": true
+  },
+  {
+    "file": "730.yaml",
+    "article": 730,
+    "title": "（親族間のけ合い）扶",
+    "hasContent": true
+  },
+  {
+    "file": "731.yaml",
+    "article": 731,
+    "title": "婚姻適齢",
+    "hasContent": true
+  },
+  {
+    "file": "732.yaml",
+    "article": 732,
+    "title": "重婚の禁止",
+    "hasContent": true
+  },
+  {
+    "file": "734.yaml",
+    "article": 734,
+    "title": "近親者間の婚姻の禁止",
+    "hasContent": true
+  },
+  {
+    "file": "735.yaml",
+    "article": 735,
+    "title": "直系姻族間の婚姻の禁止",
+    "hasContent": true
+  },
+  {
+    "file": "736.yaml",
+    "article": 736,
+    "title": "養親子等の間の婚姻の禁止",
+    "hasContent": true
+  },
+  {
+    "file": "738.yaml",
+    "article": 738,
+    "title": "成年被後見人の婚姻",
+    "hasContent": true
+  },
+  {
+    "file": "739.yaml",
+    "article": 739,
+    "title": "婚姻の届出",
+    "hasContent": true
+  },
+  {
+    "file": "740.yaml",
+    "article": 740,
+    "title": "婚姻の届出の受理",
+    "hasContent": true
+  },
+  {
+    "file": "741.yaml",
+    "article": 741,
+    "title": "外国に在る日本人間の婚姻の方式",
+    "hasContent": true
+  },
+  {
+    "file": "742.yaml",
+    "article": 742,
+    "title": "婚姻の無効",
+    "hasContent": true
+  },
+  {
+    "file": "743.yaml",
+    "article": 743,
+    "title": "婚姻の取消し",
+    "hasContent": true
+  },
+  {
+    "file": "744.yaml",
+    "article": 744,
+    "title": "不適法な婚姻の取消し",
+    "hasContent": true
+  },
+  {
+    "file": "745.yaml",
+    "article": 745,
+    "title": "不適齢者の婚姻の取消し",
+    "hasContent": true
+  },
+  {
+    "file": "747.yaml",
+    "article": 747,
+    "title": "詐欺又は強迫による婚姻の取消し",
+    "hasContent": true
+  },
+  {
+    "file": "748.yaml",
+    "article": 748,
+    "title": "婚姻の取消しの効力",
+    "hasContent": true
+  },
+  {
+    "file": "749.yaml",
+    "article": 749,
+    "title": "離婚の規定の準用",
+    "hasContent": true
+  },
+  {
+    "file": "750.yaml",
+    "article": 750,
+    "title": "夫婦の氏",
+    "hasContent": true
+  },
+  {
+    "file": "751.yaml",
+    "article": 751,
+    "title": "生存配偶者の復氏等",
+    "hasContent": true
+  },
+  {
+    "file": "752.yaml",
+    "article": 752,
+    "title": "同居、協力及び扶助の義務",
+    "hasContent": true
+  },
+  {
+    "file": "754.yaml",
+    "article": 754,
+    "title": "夫婦間の契約の取消権",
+    "hasContent": true
+  },
+  {
+    "file": "755.yaml",
+    "article": 755,
+    "title": "夫婦の財産関係",
+    "hasContent": true
+  },
+  {
+    "file": "756.yaml",
+    "article": 756,
+    "title": "夫婦財産契約の対抗要件",
+    "hasContent": true
+  },
+  {
+    "file": "758.yaml",
+    "article": 758,
+    "title": "夫婦の財産関係の変更の制限等",
+    "hasContent": true
+  },
+  {
+    "file": "759.yaml",
+    "article": 759,
+    "title": "財産の管理者の変更及び共有財産の分割の対抗要件",
+    "hasContent": true
+  },
+  {
+    "file": "760.yaml",
+    "article": 760,
+    "title": "婚姻費用の分担",
+    "hasContent": true
+  },
+  {
+    "file": "761.yaml",
+    "article": 761,
+    "title": "日常の家事に関する債務の連帯責任",
+    "hasContent": true
+  },
+  {
+    "file": "762.yaml",
+    "article": 762,
+    "title": "夫婦間における財産の帰属",
+    "hasContent": true
+  },
+  {
+    "file": "763.yaml",
+    "article": 763,
+    "title": "協議上の離婚",
+    "hasContent": true
+  },
+  {
+    "file": "764.yaml",
+    "article": 764,
+    "title": "婚姻の規定の準用",
+    "hasContent": true
+  },
+  {
+    "file": "765.yaml",
+    "article": 765,
+    "title": "離婚の届出の受理",
+    "hasContent": true
+  },
+  {
+    "file": "766.yaml",
+    "article": 766,
+    "title": "離婚後の子の監護に関する事項の定め等",
+    "hasContent": true
+  },
+  {
+    "file": "767.yaml",
+    "article": 767,
+    "title": "離婚による復氏等",
+    "hasContent": true
+  },
+  {
+    "file": "768.yaml",
+    "article": 768,
+    "title": "財産分与",
+    "hasContent": true
+  },
+  {
+    "file": "769.yaml",
+    "article": 769,
+    "title": "離婚による復氏の際の権利の承継",
+    "hasContent": true
+  },
+  {
+    "file": "770.yaml",
+    "article": 770,
+    "title": "裁判上の離婚",
+    "hasContent": true
+  },
+  {
+    "file": "771.yaml",
+    "article": 771,
+    "title": "協議上の離婚の規定の準用",
+    "hasContent": true
+  },
+  {
+    "file": "772.yaml",
+    "article": 772,
+    "title": "嫡出の推定",
+    "hasContent": true
+  },
+  {
+    "file": "773.yaml",
+    "article": 773,
+    "title": "父を定めることを目的とする訴え",
+    "hasContent": true
+  },
+  {
+    "file": "774.yaml",
+    "article": 774,
+    "title": "嫡出の否認",
+    "hasContent": true
+  },
+  {
+    "file": "775.yaml",
+    "article": 775,
+    "title": "嫡出否認の訴え",
+    "hasContent": true
+  },
+  {
+    "file": "776.yaml",
+    "article": 776,
+    "title": "嫡出の承認",
+    "hasContent": true
+  },
+  {
+    "file": "777.yaml",
+    "article": 777,
+    "title": "嫡出否認の訴えの出訴期間",
+    "hasContent": true
+  },
+  {
+    "file": "778-2.yaml",
+    "article": 778,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "778-3.yaml",
+    "article": 778,
+    "title": "子の監護に要した費用の償還の制限",
+    "hasContent": true
+  },
+  {
+    "file": "778-4.yaml",
+    "article": 778,
+    "title": "相続の開始後に新たに子と推定された者の価額の支払請求権",
+    "hasContent": true
+  },
+  {
+    "file": "778.yaml",
+    "article": 778,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "779.yaml",
+    "article": 779,
+    "title": "認知",
+    "hasContent": true
+  },
+  {
+    "file": "780.yaml",
+    "article": 780,
+    "title": "認知能力",
+    "hasContent": true
+  },
+  {
+    "file": "781.yaml",
+    "article": 781,
+    "title": "認知の方式",
+    "hasContent": true
+  },
+  {
+    "file": "782.yaml",
+    "article": 782,
+    "title": "成年の子の認知",
+    "hasContent": true
+  },
+  {
+    "file": "783.yaml",
+    "article": 783,
+    "title": "胎児又は死亡した子の認知",
+    "hasContent": true
+  },
+  {
+    "file": "784.yaml",
+    "article": 784,
+    "title": "認知の効力",
+    "hasContent": true
+  },
+  {
+    "file": "785.yaml",
+    "article": 785,
+    "title": "認知の取消しの禁止",
+    "hasContent": true
+  },
+  {
+    "file": "786.yaml",
+    "article": 786,
+    "title": "認知の無効の訴え",
+    "hasContent": true
+  },
+  {
+    "file": "787.yaml",
+    "article": 787,
+    "title": "認知の訴え",
+    "hasContent": true
+  },
+  {
+    "file": "788.yaml",
+    "article": 788,
+    "title": "認知後の子の監護に関する事項の定め等",
+    "hasContent": true
+  },
+  {
+    "file": "789.yaml",
+    "article": 789,
+    "title": "準正",
+    "hasContent": true
+  },
+  {
+    "file": "790.yaml",
+    "article": 790,
+    "title": "子の氏",
+    "hasContent": true
+  },
+  {
+    "file": "791.yaml",
+    "article": 791,
+    "title": "子の氏の変更",
+    "hasContent": true
+  },
+  {
+    "file": "792.yaml",
+    "article": 792,
+    "title": "養親となる者の年齢",
+    "hasContent": true
+  },
+  {
+    "file": "793.yaml",
+    "article": 793,
+    "title": "尊属又は年長者を養子とすることの禁止",
+    "hasContent": true
+  },
+  {
+    "file": "794.yaml",
+    "article": 794,
+    "title": "後見人が被後見人を養子とする縁組",
+    "hasContent": true
+  },
+  {
+    "file": "795.yaml",
+    "article": 795,
+    "title": "配偶者のある者が未成年者を養子とする縁組",
+    "hasContent": true
+  },
+  {
+    "file": "796.yaml",
+    "article": 796,
+    "title": "配偶者のある者の縁組",
+    "hasContent": true
+  },
+  {
+    "file": "797.yaml",
+    "article": 797,
+    "title": "十五歳未満の者を養子とする縁組",
+    "hasContent": true
+  },
+  {
+    "file": "798.yaml",
+    "article": 798,
+    "title": "未成年者を養子とする縁組",
+    "hasContent": true
+  },
+  {
+    "file": "799.yaml",
+    "article": 799,
+    "title": "婚姻の規定の準用",
+    "hasContent": true
+  },
+  {
+    "file": "800.yaml",
+    "article": 800,
+    "title": "縁組の届出の受理",
+    "hasContent": true
+  },
+  {
+    "file": "801.yaml",
+    "article": 801,
+    "title": "外国に在る日本人間の縁組の方式",
+    "hasContent": true
+  },
+  {
+    "file": "802.yaml",
+    "article": 802,
+    "title": "縁組の無効",
+    "hasContent": true
+  },
+  {
+    "file": "803.yaml",
+    "article": 803,
+    "title": "縁組の取消し",
+    "hasContent": true
+  },
+  {
+    "file": "804.yaml",
+    "article": 804,
+    "title": "養親が二十歳未満の者である場合の縁組の取消し",
+    "hasContent": true
+  },
+  {
+    "file": "805.yaml",
+    "article": 805,
+    "title": "養子が尊属又は年長者である場合の縁組の取消し",
+    "hasContent": true
+  },
+  {
+    "file": "806-2.yaml",
+    "article": 806,
+    "title": "配偶者の同意のない縁組等の取消し",
+    "hasContent": true
+  },
+  {
+    "file": "806-3.yaml",
+    "article": 806,
+    "title": "子の監護をすべき者の同意のない縁組等の取消し",
+    "hasContent": true
+  },
+  {
+    "file": "806.yaml",
+    "article": 806,
+    "title": "後見人と被後見人との間の無許可縁組の取消し",
+    "hasContent": true
+  },
+  {
+    "file": "807.yaml",
+    "article": 807,
+    "title": "養子が未成年者である場合の無許可縁組の取消し",
+    "hasContent": true
+  },
+  {
+    "file": "808.yaml",
+    "article": 808,
+    "title": "婚姻の取消し等の規定の準用",
+    "hasContent": true
+  },
+  {
+    "file": "809.yaml",
+    "article": 809,
+    "title": "嫡出子の身分の取得",
+    "hasContent": true
+  },
+  {
+    "file": "810.yaml",
+    "article": 810,
+    "title": "養子の氏",
+    "hasContent": true
+  },
+  {
+    "file": "811-2.yaml",
+    "article": 811,
+    "title": "夫婦である養親と未成年者との離縁",
+    "hasContent": true
+  },
+  {
+    "file": "811.yaml",
+    "article": 811,
+    "title": "協議上の離縁等",
+    "hasContent": true
+  },
+  {
+    "file": "812.yaml",
+    "article": 812,
+    "title": "婚姻の規定の準用",
+    "hasContent": true
+  },
+  {
+    "file": "813.yaml",
+    "article": 813,
+    "title": "離縁の届出の受理",
+    "hasContent": true
+  },
+  {
+    "file": "814.yaml",
+    "article": 814,
+    "title": "裁判上の離縁",
+    "hasContent": true
+  },
+  {
+    "file": "815.yaml",
+    "article": 815,
+    "title": "養子が十五歳未満である場合の離縁の訴えの当事者",
+    "hasContent": true
+  },
+  {
+    "file": "816.yaml",
+    "article": 816,
+    "title": "離縁による復氏等",
+    "hasContent": true
+  },
+  {
+    "file": "817-10.yaml",
+    "article": 817,
+    "title": "特別養子縁組の離縁",
+    "hasContent": true
+  },
+  {
+    "file": "817-11.yaml",
+    "article": 817,
+    "title": "離縁による実方との親族関係の回復",
+    "hasContent": true
+  },
+  {
+    "file": "817-2.yaml",
+    "article": 817,
+    "title": "特別養子縁組の成立",
+    "hasContent": true
+  },
+  {
+    "file": "817-3.yaml",
+    "article": 817,
+    "title": "養親の夫婦共同縁組",
+    "hasContent": true
+  },
+  {
+    "file": "817-4.yaml",
+    "article": 817,
+    "title": "養親となる者の年齢",
+    "hasContent": true
+  },
+  {
+    "file": "817-5.yaml",
+    "article": 817,
+    "title": "養子となる者の年齢",
+    "hasContent": true
+  },
+  {
+    "file": "817-6.yaml",
+    "article": 817,
+    "title": "父母の同意",
+    "hasContent": true
+  },
+  {
+    "file": "817-7.yaml",
+    "article": 817,
+    "title": "子の利益のための特別の必要性",
+    "hasContent": true
+  },
+  {
+    "file": "817-8.yaml",
+    "article": 817,
+    "title": "監護の状況",
+    "hasContent": true
+  },
+  {
+    "file": "817-9.yaml",
+    "article": 817,
+    "title": "実方との親族関係の終了",
+    "hasContent": true
+  },
+  {
+    "file": "817.yaml",
+    "article": 817,
+    "title": "離縁による復氏の際の権利の承継",
+    "hasContent": true
+  },
+  {
+    "file": "818.yaml",
+    "article": 818,
+    "title": "親権者",
+    "hasContent": true
+  },
+  {
+    "file": "819.yaml",
+    "article": 819,
+    "title": "離婚又は認知の場合の親権者",
+    "hasContent": true
+  },
+  {
+    "file": "820.yaml",
+    "article": 820,
+    "title": "監護及び教育の権利義務",
+    "hasContent": true
+  },
+  {
+    "file": "821.yaml",
+    "article": 821,
+    "title": "子の人格の尊重等",
+    "hasContent": true
+  },
+  {
+    "file": "822.yaml",
+    "article": 822,
+    "title": "居所の指定",
+    "hasContent": true
+  },
+  {
+    "file": "823.yaml",
+    "article": 823,
+    "title": "職業の許可",
+    "hasContent": true
+  },
+  {
+    "file": "824.yaml",
+    "article": 824,
+    "title": "財産の管理及び代表",
+    "hasContent": true
+  },
+  {
+    "file": "825.yaml",
+    "article": 825,
+    "title": "父母の一方が共同の名義でした行為の効力",
+    "hasContent": true
+  },
+  {
+    "file": "826.yaml",
+    "article": 826,
+    "title": "利益相反行為",
+    "hasContent": true
+  },
+  {
+    "file": "827.yaml",
+    "article": 827,
+    "title": "財産の管理における注意義務",
+    "hasContent": true
+  },
+  {
+    "file": "828.yaml",
+    "article": 828,
+    "title": "財産の管理の計算",
+    "hasContent": true
+  },
+  {
+    "file": "829.yaml",
+    "article": 829,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "830.yaml",
+    "article": 830,
+    "title": "第三者が無償で子に与えた財産の管理",
+    "hasContent": true
+  },
+  {
+    "file": "831.yaml",
+    "article": 831,
+    "title": "委任の規定の準用",
+    "hasContent": true
+  },
+  {
+    "file": "832.yaml",
+    "article": 832,
+    "title": "財産の管理について生じた親子間の債権の消滅時効",
+    "hasContent": true
+  },
+  {
+    "file": "833.yaml",
+    "article": 833,
+    "title": "子に代わる親権の行使",
+    "hasContent": true
+  },
+  {
+    "file": "834-2.yaml",
+    "article": 834,
+    "title": "親権停止の審判",
+    "hasContent": true
+  },
+  {
+    "file": "834.yaml",
+    "article": 834,
+    "title": "親権喪失の審判",
+    "hasContent": true
+  },
+  {
+    "file": "835.yaml",
+    "article": 835,
+    "title": "管理権喪失の審判",
+    "hasContent": true
+  },
+  {
+    "file": "836.yaml",
+    "article": 836,
+    "title": "親権喪失、親権停止又は管理権喪失の審判の取消し",
+    "hasContent": true
+  },
+  {
+    "file": "837.yaml",
+    "article": 837,
+    "title": "親権又は管理権の辞任及び回復",
+    "hasContent": true
+  },
+  {
+    "file": "838.yaml",
+    "article": 838,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "839.yaml",
+    "article": 839,
+    "title": "未成年後見人の指定",
+    "hasContent": true
+  },
+  {
+    "file": "840.yaml",
+    "article": 840,
+    "title": "未成年後見人の選任",
+    "hasContent": true
+  },
+  {
+    "file": "841.yaml",
+    "article": 841,
+    "title": "父母による未成年後見人の選任の請求",
+    "hasContent": true
+  },
+  {
+    "file": "843.yaml",
+    "article": 843,
+    "title": "成年後見人の選任",
+    "hasContent": true
+  },
+  {
+    "file": "844.yaml",
+    "article": 844,
+    "title": "後見人の辞任",
+    "hasContent": true
+  },
+  {
+    "file": "845.yaml",
+    "article": 845,
+    "title": "辞任した後見人による新たな後見人の選任の請求",
+    "hasContent": true
+  },
+  {
+    "file": "846.yaml",
+    "article": 846,
+    "title": "後見人の解任",
+    "hasContent": true
+  },
+  {
+    "file": "847.yaml",
+    "article": 847,
+    "title": "後見人の欠格事由",
+    "hasContent": true
+  },
+  {
+    "file": "848.yaml",
+    "article": 848,
+    "title": "未成年後見監督人の指定",
+    "hasContent": true
+  },
+  {
+    "file": "849.yaml",
+    "article": 849,
+    "title": "後見監督人の選任",
+    "hasContent": true
+  },
+  {
+    "file": "850.yaml",
+    "article": 850,
+    "title": "後見監督人の欠格事由",
+    "hasContent": true
+  },
+  {
+    "file": "851.yaml",
+    "article": 851,
+    "title": "後見監督人の職務",
+    "hasContent": true
+  },
+  {
+    "file": "852.yaml",
+    "article": 852,
+    "title": "委任及び後見人の規定の準用",
+    "hasContent": true
+  },
+  {
+    "file": "853.yaml",
+    "article": 853,
+    "title": "財産の調査及び目録の作成",
+    "hasContent": true
+  },
+  {
+    "file": "854.yaml",
+    "article": 854,
+    "title": "財産の目録の作成前の権限",
+    "hasContent": true
+  },
+  {
+    "file": "855.yaml",
+    "article": 855,
+    "title": "後見人の被後見人に対する債権又は債務の申出義務",
+    "hasContent": true
+  },
+  {
+    "file": "856.yaml",
+    "article": 856,
+    "title": "被後見人が包括財産を取得した場合についての準用",
+    "hasContent": true
+  },
+  {
+    "file": "857-2.yaml",
+    "article": 857,
+    "title": "未成年後見人が数人ある場合の権限の行使等",
+    "hasContent": true
+  },
+  {
+    "file": "857.yaml",
+    "article": 857,
+    "title": "未成年被後見人の身上の監護に関する権利義務",
+    "hasContent": true
+  },
+  {
+    "file": "858.yaml",
+    "article": 858,
+    "title": "成年被後見人の意思の尊重及び身上の配慮",
+    "hasContent": true
+  },
+  {
+    "file": "859-2.yaml",
+    "article": 859,
+    "title": "成年後見人が数人ある場合の権限の行使等",
+    "hasContent": true
+  },
+  {
+    "file": "859-3.yaml",
+    "article": 859,
+    "title": "成年被後見人の居住用不動産の処分についての許可",
+    "hasContent": true
+  },
+  {
+    "file": "859.yaml",
+    "article": 859,
+    "title": "財産の管理及び代表",
+    "hasContent": true
+  },
+  {
+    "file": "860-2.yaml",
+    "article": 860,
+    "title": "成年後見人による郵便物等の管理",
+    "hasContent": true
+  },
+  {
+    "file": "860-3.yaml",
+    "article": 860,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "860.yaml",
+    "article": 860,
+    "title": "利益相反行為",
+    "hasContent": true
+  },
+  {
+    "file": "861.yaml",
+    "article": 861,
+    "title": "支出金額の予定及び後見の事務の費用",
+    "hasContent": true
+  },
+  {
+    "file": "862.yaml",
+    "article": 862,
+    "title": "後見人の報酬",
+    "hasContent": true
+  },
+  {
+    "file": "863.yaml",
+    "article": 863,
+    "title": "後見の事務の監督",
+    "hasContent": true
+  },
+  {
+    "file": "864.yaml",
+    "article": 864,
+    "title": "後見監督人の同意を要する行為",
+    "hasContent": true
+  },
+  {
+    "file": "865.yaml",
+    "article": 865,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "866.yaml",
+    "article": 866,
+    "title": "被後見人の財産等の譲受けの取消し",
+    "hasContent": true
+  },
+  {
+    "file": "867.yaml",
+    "article": 867,
+    "title": "未成年被後見人に代わる親権の行使",
+    "hasContent": true
+  },
+  {
+    "file": "868.yaml",
+    "article": 868,
+    "title": "財産に関する権限のみを有する未成年後見人",
+    "hasContent": true
+  },
+  {
+    "file": "869.yaml",
+    "article": 869,
+    "title": "委任及び親権の規定の準用",
+    "hasContent": true
+  },
+  {
+    "file": "870.yaml",
+    "article": 870,
+    "title": "後見の計算",
+    "hasContent": true
+  },
+  {
+    "file": "871.yaml",
+    "article": 871,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "872.yaml",
+    "article": 872,
+    "title": "未成年被後見人と未成年後見人等との間の契約等の取消し",
+    "hasContent": true
+  },
+  {
+    "file": "873-2.yaml",
+    "article": 873,
+    "title": "成年被後見人の死亡後の成年後見人の権限",
+    "hasContent": true
+  },
+  {
+    "file": "873.yaml",
+    "article": 873,
+    "title": "返還金に対する利息の支払等",
+    "hasContent": true
+  },
+  {
+    "file": "874.yaml",
+    "article": 874,
+    "title": "委任の規定の準用",
+    "hasContent": true
+  },
+  {
+    "file": "875.yaml",
+    "article": 875,
+    "title": "後見に関して生じた債権の消滅時効",
+    "hasContent": true
+  },
+  {
+    "file": "876-10.yaml",
+    "article": 876,
+    "title": "補助の事務及び補助人の任務の終了等",
+    "hasContent": true
+  },
+  {
+    "file": "876-2.yaml",
+    "article": 876,
+    "title": "保佐人及び臨時保佐人の選任等",
+    "hasContent": true
+  },
+  {
+    "file": "876-3.yaml",
+    "article": 876,
+    "title": "保佐監督人",
+    "hasContent": true
+  },
+  {
+    "file": "876-4.yaml",
+    "article": 876,
+    "title": "保佐人に代理権を付与する旨の審判",
+    "hasContent": true
+  },
+  {
+    "file": "876-5.yaml",
+    "article": 876,
+    "title": "保佐の事務及び保佐人の任務の終了等",
+    "hasContent": true
+  },
+  {
+    "file": "876-6.yaml",
+    "article": 876,
+    "title": "補助の開始",
+    "hasContent": true
+  },
+  {
+    "file": "876-7.yaml",
+    "article": 876,
+    "title": "補助人及び臨時補助人の選任等",
+    "hasContent": true
+  },
+  {
+    "file": "876-8.yaml",
+    "article": 876,
+    "title": "補助監督人",
+    "hasContent": true
+  },
+  {
+    "file": "876-9.yaml",
+    "article": 876,
+    "title": "補助人に代理権を付与する旨の審判",
+    "hasContent": true
+  },
+  {
+    "file": "876.yaml",
+    "article": 876,
+    "title": "保佐の開始",
+    "hasContent": true
+  },
+  {
+    "file": "877.yaml",
+    "article": 877,
+    "title": "扶養義務者",
+    "hasContent": true
+  },
+  {
+    "file": "878.yaml",
+    "article": 878,
+    "title": "扶養の順位",
+    "hasContent": true
+  },
+  {
+    "file": "879.yaml",
+    "article": 879,
+    "title": "扶養の程度又は方法",
+    "hasContent": true
+  },
+  {
+    "file": "880.yaml",
+    "article": 880,
+    "title": "扶養に関する協議又は審判の変更又は取消し",
+    "hasContent": true
+  },
+  {
+    "file": "881.yaml",
+    "article": 881,
+    "title": "扶養請求権の処分の禁止",
+    "hasContent": true
+  },
+  {
+    "file": "882.yaml",
+    "article": 882,
+    "title": "相続開始の原因",
+    "hasContent": true
+  },
+  {
+    "file": "883.yaml",
+    "article": 883,
+    "title": "相続開始の場所",
+    "hasContent": true
+  },
+  {
+    "file": "884.yaml",
+    "article": 884,
+    "title": "相続回復請求権",
+    "hasContent": true
+  },
+  {
+    "file": "885.yaml",
+    "article": 885,
+    "title": "相続財産に関する費用",
+    "hasContent": true
+  },
+  {
+    "file": "886.yaml",
+    "article": 886,
+    "title": "相続に関する胎児の権利能力",
+    "hasContent": true
+  },
+  {
+    "file": "887.yaml",
+    "article": 887,
+    "title": "子及びその代襲者等の相続権",
+    "hasContent": true
+  },
+  {
+    "file": "889.yaml",
+    "article": 889,
+    "title": "直系尊属及び兄弟姉妹の相続権",
+    "hasContent": true
+  },
+  {
+    "file": "890.yaml",
+    "article": 890,
+    "title": "配偶者の相続権",
+    "hasContent": true
+  },
+  {
+    "file": "891.yaml",
+    "article": 891,
+    "title": "相続人の欠格事由",
+    "hasContent": true
+  },
+  {
+    "file": "892.yaml",
+    "article": 892,
+    "title": "推定相続人の廃除",
+    "hasContent": true
+  },
+  {
+    "file": "893.yaml",
+    "article": 893,
+    "title": "遺言による推定相続人の廃除",
+    "hasContent": true
+  },
+  {
+    "file": "894.yaml",
+    "article": 894,
+    "title": "推定相続人の廃除の取消し",
+    "hasContent": true
+  },
+  {
+    "file": "895.yaml",
+    "article": 895,
+    "title": "推定相続人の廃除に関する審判確定前の遺産の管理",
+    "hasContent": true
+  },
+  {
+    "file": "896.yaml",
+    "article": 896,
+    "title": "相続の一般的効力",
+    "hasContent": true
+  },
+  {
+    "file": "897-2.yaml",
+    "article": 897,
+    "title": "相続財産の保存",
+    "hasContent": true
+  },
+  {
+    "file": "897.yaml",
+    "article": 897,
+    "title": "祭祀に関する権利の承継",
+    "hasContent": true
+  },
+  {
+    "file": "898.yaml",
+    "article": 898,
+    "title": "共同相続の効力",
+    "hasContent": true
+  },
+  {
+    "file": "899-2.yaml",
+    "article": 899,
+    "title": "共同相続における権利の承継の対抗要件",
+    "hasContent": true
+  },
+  {
+    "file": "899.yaml",
+    "article": 899,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "900.yaml",
+    "article": 900,
+    "title": "法定相続分",
+    "hasContent": true
+  },
+  {
+    "file": "901.yaml",
+    "article": 901,
+    "title": "代襲相続人の相続分",
+    "hasContent": true
+  },
+  {
+    "file": "902-2.yaml",
+    "article": 902,
+    "title": "相続分の指定がある場合の債権者の権利の行使",
+    "hasContent": true
+  },
+  {
+    "file": "902.yaml",
+    "article": 902,
+    "title": "遺言による相続分の指定",
+    "hasContent": true
+  },
+  {
+    "file": "903.yaml",
+    "article": 903,
+    "title": "特別受益者の相続分",
+    "hasContent": true
+  },
+  {
+    "file": "904-2.yaml",
+    "article": 904,
+    "title": "寄与分",
+    "hasContent": true
+  },
+  {
+    "file": "904-3.yaml",
+    "article": 904,
+    "title": "期間経過後の遺産の分割における相続分",
+    "hasContent": true
+  },
+  {
+    "file": "904.yaml",
+    "article": 904,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "905.yaml",
+    "article": 905,
+    "title": "相続分の取戻権",
+    "hasContent": true
+  },
+  {
+    "file": "906-2.yaml",
+    "article": 906,
+    "title": "遺産の分割前に遺産に属する財産が処分された場合の遺産の範囲",
+    "hasContent": true
+  },
+  {
+    "file": "906.yaml",
+    "article": 906,
+    "title": "遺産の分割の基準",
+    "hasContent": true
+  },
+  {
+    "file": "907.yaml",
+    "article": 907,
+    "title": "遺産の分割の協議又は審判",
+    "hasContent": true
+  },
+  {
+    "file": "908.yaml",
+    "article": 908,
+    "title": "遺産の分割の方法の指定及び遺産の分割の禁止",
+    "hasContent": true
+  },
+  {
+    "file": "909-2.yaml",
+    "article": 909,
+    "title": "遺産の分割前における預貯金債権の行使",
+    "hasContent": true
+  },
+  {
+    "file": "909.yaml",
+    "article": 909,
+    "title": "遺産の分割の効力",
+    "hasContent": true
+  },
+  {
+    "file": "910.yaml",
+    "article": 910,
+    "title": "相続の開始後に認知された者の価額の支払請求権",
+    "hasContent": true
+  },
+  {
+    "file": "911.yaml",
+    "article": 911,
+    "title": "共同相続人間の担保責任",
+    "hasContent": true
+  },
+  {
+    "file": "912.yaml",
+    "article": 912,
+    "title": "遺産の分割によって受けた債権についての担保責任",
+    "hasContent": true
+  },
+  {
+    "file": "913.yaml",
+    "article": 913,
+    "title": "資力のない共同相続人がある場合の担保責任の分担",
+    "hasContent": true
+  },
+  {
+    "file": "914.yaml",
+    "article": 914,
+    "title": "遺言による担保責任の定め",
+    "hasContent": true
+  },
+  {
+    "file": "915.yaml",
+    "article": 915,
+    "title": "相続の承認又は放棄をすべき期間",
+    "hasContent": true
+  },
+  {
+    "file": "916.yaml",
+    "article": 916,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "917.yaml",
+    "article": 917,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "918.yaml",
+    "article": 918,
+    "title": "相続人による管理",
+    "hasContent": true
+  },
+  {
+    "file": "919.yaml",
+    "article": 919,
+    "title": "相続の承認及び放棄の撤回及び取消し",
+    "hasContent": true
+  },
+  {
+    "file": "920.yaml",
+    "article": 920,
+    "title": "単純承認の効力",
+    "hasContent": true
+  },
+  {
+    "file": "921.yaml",
+    "article": 921,
+    "title": "法定単純承認",
+    "hasContent": true
+  },
+  {
+    "file": "922.yaml",
+    "article": 922,
+    "title": "限定承認",
+    "hasContent": true
+  },
+  {
+    "file": "923.yaml",
+    "article": 923,
+    "title": "共同相続人の限定承認",
+    "hasContent": true
+  },
+  {
+    "file": "924.yaml",
+    "article": 924,
+    "title": "限定承認の方式",
+    "hasContent": true
+  },
+  {
+    "file": "925.yaml",
+    "article": 925,
+    "title": "限定承認をしたときの権利義務",
+    "hasContent": true
+  },
+  {
+    "file": "926.yaml",
+    "article": 926,
+    "title": "限定承認者による管理",
+    "hasContent": true
+  },
+  {
+    "file": "927.yaml",
+    "article": 927,
+    "title": "相続債権者及び受遺者に対する公告及び催告",
+    "hasContent": true
+  },
+  {
+    "file": "928.yaml",
+    "article": 928,
+    "title": "公告期間満了前の弁済の拒絶",
+    "hasContent": true
+  },
+  {
+    "file": "929.yaml",
+    "article": 929,
+    "title": "公告期間満了後の弁済",
+    "hasContent": true
+  },
+  {
+    "file": "930.yaml",
+    "article": 930,
+    "title": "期限前の債務等の弁済",
+    "hasContent": true
+  },
+  {
+    "file": "931.yaml",
+    "article": 931,
+    "title": "受遺者に対する弁済",
+    "hasContent": true
+  },
+  {
+    "file": "932.yaml",
+    "article": 932,
+    "title": "弁済のための相続財産の換価",
+    "hasContent": true
+  },
+  {
+    "file": "933.yaml",
+    "article": 933,
+    "title": "相続債権者及び受遺者の換価手続への参加",
+    "hasContent": true
+  },
+  {
+    "file": "934.yaml",
+    "article": 934,
+    "title": "不当な弁済をした限定承認者の責任等",
+    "hasContent": true
+  },
+  {
+    "file": "935.yaml",
+    "article": 935,
+    "title": "公告期間内に申出をしなかった相続債権者及び受遺者",
+    "hasContent": true
+  },
+  {
+    "file": "936.yaml",
+    "article": 936,
+    "title": "相続人が数人ある場合の相続財産の清算人",
+    "hasContent": true
+  },
+  {
+    "file": "937.yaml",
+    "article": 937,
+    "title": "法定単純承認の事由がある場合の相続債権者",
+    "hasContent": true
+  },
+  {
+    "file": "938.yaml",
+    "article": 938,
+    "title": "相続の放棄の方式",
+    "hasContent": true
+  },
+  {
+    "file": "939.yaml",
+    "article": 939,
+    "title": "相続の放棄の効力",
+    "hasContent": true
+  },
+  {
+    "file": "940.yaml",
+    "article": 940,
+    "title": "相続の放棄をした者による管理",
+    "hasContent": true
+  },
+  {
+    "file": "941.yaml",
+    "article": 941,
+    "title": "相続債権者又は受遺者の請求による財産分離",
+    "hasContent": true
+  },
+  {
+    "file": "942.yaml",
+    "article": 942,
+    "title": "財産分離の効力",
+    "hasContent": true
+  },
+  {
+    "file": "943.yaml",
+    "article": 943,
+    "title": "財産分離の請求後の相続財産の管理",
+    "hasContent": true
+  },
+  {
+    "file": "944.yaml",
+    "article": 944,
+    "title": "財産分離の請求後の相続人による管理",
+    "hasContent": true
+  },
+  {
+    "file": "945.yaml",
+    "article": 945,
+    "title": "不動産についての財産分離の対抗要件",
+    "hasContent": true
+  },
+  {
+    "file": "946.yaml",
+    "article": 946,
+    "title": "物上代位の規定の準用",
+    "hasContent": true
+  },
+  {
+    "file": "947.yaml",
+    "article": 947,
+    "title": "相続債権者及び受遺者に対する弁済",
+    "hasContent": true
+  },
+  {
+    "file": "948.yaml",
+    "article": 948,
+    "title": "相続人の固有財産からの弁済",
+    "hasContent": true
+  },
+  {
+    "file": "949.yaml",
+    "article": 949,
+    "title": "財産分離の請求の防止等",
+    "hasContent": true
+  },
+  {
+    "file": "950.yaml",
+    "article": 950,
+    "title": "相続人の債権者の請求による財産分離",
+    "hasContent": true
+  },
+  {
+    "file": "951.yaml",
+    "article": 951,
+    "title": "相続財産法人の成立",
+    "hasContent": true
+  },
+  {
+    "file": "952.yaml",
+    "article": 952,
+    "title": "相続財産の清算人の選任",
+    "hasContent": true
+  },
+  {
+    "file": "953.yaml",
+    "article": 953,
+    "title": "不在者の財産の管理人に関する規定の準用",
+    "hasContent": true
+  },
+  {
+    "file": "954.yaml",
+    "article": 954,
+    "title": "相続財産の清算人の報告",
+    "hasContent": true
+  },
+  {
+    "file": "955.yaml",
+    "article": 955,
+    "title": "相続財産法人の不成立",
+    "hasContent": true
+  },
+  {
+    "file": "956.yaml",
+    "article": 956,
+    "title": "相続財産の清算人の代理権の消滅",
+    "hasContent": true
+  },
+  {
+    "file": "957.yaml",
+    "article": 957,
+    "title": "相続債権者及び受遺者に対する弁済",
+    "hasContent": true
+  },
+  {
+    "file": "958-2.yaml",
+    "article": 958,
+    "title": "特別縁故者に対する相続財産の分与",
+    "hasContent": true
+  },
+  {
+    "file": "958.yaml",
+    "article": 958,
+    "title": "権利を主張する者がない場合",
+    "hasContent": true
+  },
+  {
+    "file": "959.yaml",
+    "article": 959,
+    "title": "残余財産の国庫への帰属",
+    "hasContent": true
+  },
+  {
+    "file": "960.yaml",
+    "article": 960,
+    "title": "遺言の方式",
+    "hasContent": true
+  },
+  {
+    "file": "961.yaml",
+    "article": 961,
+    "title": "遺言能力",
+    "hasContent": true
+  },
+  {
+    "file": "962.yaml",
+    "article": 962,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "963.yaml",
+    "article": 963,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "964.yaml",
+    "article": 964,
+    "title": "包括遺贈及び特定遺贈",
+    "hasContent": true
+  },
+  {
+    "file": "965.yaml",
+    "article": 965,
+    "title": "相続人に関する規定の準用",
+    "hasContent": true
+  },
+  {
+    "file": "966.yaml",
+    "article": 966,
+    "title": "被後見人の遺言の制限",
+    "hasContent": true
+  },
+  {
+    "file": "967.yaml",
+    "article": 967,
+    "title": "普通の方式による遺言の種類",
+    "hasContent": true
+  },
+  {
+    "file": "968.yaml",
+    "article": 968,
+    "title": "自筆証書遺言",
+    "hasContent": true
+  },
+  {
+    "file": "969-2.yaml",
+    "article": 969,
+    "title": "公正証書遺言の方式の特則",
+    "hasContent": true
+  },
+  {
+    "file": "969.yaml",
+    "article": 969,
+    "title": "公正証書遺言",
+    "hasContent": true
+  },
+  {
+    "file": "970.yaml",
+    "article": 970,
+    "title": "秘密証書遺言",
+    "hasContent": true
+  },
+  {
+    "file": "971.yaml",
+    "article": 971,
+    "title": "方式に欠ける秘密証書遺言の効力",
+    "hasContent": true
+  },
+  {
+    "file": "972.yaml",
+    "article": 972,
+    "title": "秘密証書遺言の方式の特則",
+    "hasContent": true
+  },
+  {
+    "file": "973.yaml",
+    "article": 973,
+    "title": "成年被後見人の遺言",
+    "hasContent": true
+  },
+  {
+    "file": "974.yaml",
+    "article": 974,
+    "title": "証人及び立会人の欠格事由",
+    "hasContent": true
+  },
+  {
+    "file": "975.yaml",
+    "article": 975,
+    "title": "共同遺言の禁止",
+    "hasContent": true
+  },
+  {
+    "file": "976.yaml",
+    "article": 976,
+    "title": "死亡の危急に迫った者の遺言",
+    "hasContent": true
+  },
+  {
+    "file": "977.yaml",
+    "article": 977,
+    "title": "伝染病隔離者の遺言",
+    "hasContent": true
+  },
+  {
+    "file": "978.yaml",
+    "article": 978,
+    "title": "在船者の遺言",
+    "hasContent": true
+  },
+  {
+    "file": "979.yaml",
+    "article": 979,
+    "title": "船舶遭難者の遺言",
+    "hasContent": true
+  },
+  {
+    "file": "980.yaml",
+    "article": 980,
+    "title": "遺言関係者の署名及び押印",
+    "hasContent": true
+  },
+  {
+    "file": "981.yaml",
+    "article": 981,
+    "title": "署名又は押印が不能の場合",
+    "hasContent": true
+  },
+  {
+    "file": "982.yaml",
+    "article": 982,
+    "title": "普通の方式による遺言の規定の準用",
+    "hasContent": true
+  },
+  {
+    "file": "983.yaml",
+    "article": 983,
+    "title": "特別の方式による遺言の効力",
+    "hasContent": true
+  },
+  {
+    "file": "984.yaml",
+    "article": 984,
+    "title": "外国に在る日本人の遺言の方式",
+    "hasContent": true
+  },
+  {
+    "file": "985.yaml",
+    "article": 985,
+    "title": "遺言の効力の発生時期",
+    "hasContent": true
+  },
+  {
+    "file": "986.yaml",
+    "article": 986,
+    "title": "遺贈の放棄",
+    "hasContent": true
+  },
+  {
+    "file": "987.yaml",
+    "article": 987,
+    "title": "受遺者に対する遺贈の承認又は放棄の催告",
+    "hasContent": true
+  },
+  {
+    "file": "988.yaml",
+    "article": 988,
+    "title": "受遺者の相続人による遺贈の承認又は放棄",
+    "hasContent": true
+  },
+  {
+    "file": "989.yaml",
+    "article": 989,
+    "title": "遺贈の承認及び放棄の撤回及び取消し",
+    "hasContent": true
+  },
+  {
+    "file": "990.yaml",
+    "article": 990,
+    "title": "包括受遺者の権利義務",
+    "hasContent": true
+  },
+  {
+    "file": "991.yaml",
+    "article": 991,
+    "title": "受遺者による担保の請求",
+    "hasContent": true
+  },
+  {
+    "file": "992.yaml",
+    "article": 992,
+    "title": "受遺者による果実の取得",
+    "hasContent": true
+  },
+  {
+    "file": "993.yaml",
+    "article": 993,
+    "title": "遺贈義務者による費用の償還請求",
+    "hasContent": true
+  },
+  {
+    "file": "994.yaml",
+    "article": 994,
+    "title": "受遺者の死亡による遺贈の失効",
+    "hasContent": true
+  },
+  {
+    "file": "995.yaml",
+    "article": 995,
+    "title": "遺贈の無効又は失効の場合の財産の帰属",
+    "hasContent": true
+  },
+  {
+    "file": "996.yaml",
+    "article": 996,
+    "title": "相続財産に属しない権利の遺贈",
+    "hasContent": true
+  },
+  {
+    "file": "997.yaml",
+    "article": 997,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "998.yaml",
+    "article": 998,
+    "title": "遺贈義務者の引渡義務",
+    "hasContent": true
+  },
+  {
+    "file": "999.yaml",
+    "article": 999,
+    "title": "遺贈の物上代位",
+    "hasContent": true
+  },
+  {
+    "file": "1001.yaml",
+    "article": 1001,
+    "title": "債権の遺贈の物上代位",
+    "hasContent": true
+  },
+  {
+    "file": "1002.yaml",
+    "article": 1002,
+    "title": "負担付遺贈",
+    "hasContent": true
+  },
+  {
+    "file": "1003.yaml",
+    "article": 1003,
+    "title": "負担付遺贈の受遺者の免責",
+    "hasContent": true
+  },
+  {
+    "file": "1004.yaml",
+    "article": 1004,
+    "title": "遺言書の検認",
+    "hasContent": true
+  },
+  {
+    "file": "1005.yaml",
+    "article": 1005,
+    "title": "過料",
+    "hasContent": true
+  },
+  {
+    "file": "1006.yaml",
+    "article": 1006,
+    "title": "遺言執行者の指定",
+    "hasContent": true
+  },
+  {
+    "file": "1007.yaml",
+    "article": 1007,
+    "title": "遺言執行者の任務の開始",
+    "hasContent": true
+  },
+  {
+    "file": "1008.yaml",
+    "article": 1008,
+    "title": "遺言執行者に対する就職の催告",
+    "hasContent": true
+  },
+  {
+    "file": "1009.yaml",
+    "article": 1009,
+    "title": "遺言執行者の欠格事由",
+    "hasContent": true
+  },
+  {
+    "file": "1010.yaml",
+    "article": 1010,
+    "title": "遺言執行者の選任",
+    "hasContent": true
+  },
+  {
+    "file": "1011.yaml",
+    "article": 1011,
+    "title": "相続財産の目録の作成",
+    "hasContent": true
+  },
+  {
+    "file": "1012.yaml",
+    "article": 1012,
+    "title": "遺言執行者の権利義務",
+    "hasContent": true
+  },
+  {
+    "file": "1013.yaml",
+    "article": 1013,
+    "title": "遺言の執行の妨害行為の禁止",
+    "hasContent": true
+  },
+  {
+    "file": "1014.yaml",
+    "article": 1014,
+    "title": "特定財産に関する遺言の執行",
+    "hasContent": true
+  },
+  {
+    "file": "1015.yaml",
+    "article": 1015,
+    "title": "遺言執行者の行為の効果",
+    "hasContent": true
+  },
+  {
+    "file": "1016.yaml",
+    "article": 1016,
+    "title": "遺言執行者の復任権",
+    "hasContent": true
+  },
+  {
+    "file": "1017.yaml",
+    "article": 1017,
+    "title": "遺言執行者が数人ある場合の任務の執行",
+    "hasContent": true
+  },
+  {
+    "file": "1018.yaml",
+    "article": 1018,
+    "title": "遺言執行者の報酬",
+    "hasContent": true
+  },
+  {
+    "file": "1019.yaml",
+    "article": 1019,
+    "title": "遺言執行者の解任及び辞任",
+    "hasContent": true
+  },
+  {
+    "file": "1020.yaml",
+    "article": 1020,
+    "title": "委任の規定の準用",
+    "hasContent": true
+  },
+  {
+    "file": "1021.yaml",
+    "article": 1021,
+    "title": "遺言の執行に関する費用の負担",
+    "hasContent": true
+  },
+  {
+    "file": "1022.yaml",
+    "article": 1022,
+    "title": "遺言の撤回",
+    "hasContent": true
+  },
+  {
+    "file": "1023.yaml",
+    "article": 1023,
+    "title": "前の遺言と後の遺言との抵触等",
+    "hasContent": true
+  },
+  {
+    "file": "1024.yaml",
+    "article": 1024,
+    "title": "遺言書又は遺贈の目的物の破棄",
+    "hasContent": true
+  },
+  {
+    "file": "1025.yaml",
+    "article": 1025,
+    "title": "撤回された遺言の効力",
+    "hasContent": true
+  },
+  {
+    "file": "1026.yaml",
+    "article": 1026,
+    "title": "遺言の撤回権の放棄の禁止",
+    "hasContent": true
+  },
+  {
+    "file": "1027.yaml",
+    "article": 1027,
+    "title": "負担付遺贈に係る遺言の取消し",
+    "hasContent": true
+  },
+  {
+    "file": "1028.yaml",
+    "article": 1028,
+    "title": "配偶者居住権",
+    "hasContent": true
+  },
+  {
+    "file": "1029.yaml",
+    "article": 1029,
+    "title": "審判による配偶者居住権の取得",
+    "hasContent": true
+  },
+  {
+    "file": "1030.yaml",
+    "article": 1030,
+    "title": "配偶者居住権の存続期間",
+    "hasContent": true
+  },
+  {
+    "file": "1031.yaml",
+    "article": 1031,
+    "title": "配偶者居住権の登記等",
+    "hasContent": true
+  },
+  {
+    "file": "1032.yaml",
+    "article": 1032,
+    "title": "配偶者による使用及び収益",
+    "hasContent": true
+  },
+  {
+    "file": "1033.yaml",
+    "article": 1033,
+    "title": "居住建物の修繕等",
+    "hasContent": true
+  },
+  {
+    "file": "1034.yaml",
+    "article": 1034,
+    "title": "居住建物の費用の負担",
+    "hasContent": true
+  },
+  {
+    "file": "1035.yaml",
+    "article": 1035,
+    "title": "居住建物の返還等",
+    "hasContent": true
+  },
+  {
+    "file": "1036.yaml",
+    "article": 1036,
+    "title": "使用貸借及び賃貸借の規定の準用",
+    "hasContent": true
+  },
+  {
+    "file": "1037.yaml",
+    "article": 1037,
+    "title": "配偶者短期居住権",
+    "hasContent": true
+  },
+  {
+    "file": "1038.yaml",
+    "article": 1038,
+    "title": "配偶者による使用",
+    "hasContent": true
+  },
+  {
+    "file": "1039.yaml",
+    "article": 1039,
+    "title": "配偶者居住権の取得による配偶者短期居住権の消滅",
+    "hasContent": true
+  },
+  {
+    "file": "1040.yaml",
+    "article": 1040,
+    "title": "居住建物の返還等",
+    "hasContent": true
+  },
+  {
+    "file": "1041.yaml",
+    "article": 1041,
+    "title": "使用貸借等の規定の準用",
+    "hasContent": true
+  },
+  {
+    "file": "1042.yaml",
+    "article": 1042,
+    "title": "遺留分の帰属及びその割合",
+    "hasContent": true
+  },
+  {
+    "file": "1043.yaml",
+    "article": 1043,
+    "title": "遺留分を算定するための財産の価額",
+    "hasContent": true
+  },
+  {
+    "file": "1044.yaml",
+    "article": 1044,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "1045.yaml",
+    "article": 1045,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "1046.yaml",
+    "article": 1046,
+    "title": "遺留分侵害額の請求",
+    "hasContent": true
+  },
+  {
+    "file": "1047.yaml",
+    "article": 1047,
+    "title": "受遺者又は受贈者の負担額",
+    "hasContent": true
+  },
+  {
+    "file": "1048.yaml",
+    "article": 1048,
+    "title": "遺留分侵害額請求権の期間の制限",
+    "hasContent": true
+  },
+  {
+    "file": "1049.yaml",
+    "article": 1049,
+    "title": "遺留分の放棄",
+    "hasContent": true
+  },
+  {
+    "file": "1050.yaml",
+    "article": 1050,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_1.yaml",
+    "article": 1,
+    "title": "施行期日",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_10.yaml",
+    "article": 10,
+    "title": "配偶者の居住の権利に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_11.yaml",
+    "article": 11,
+    "title": "債権を目的とする質権の対抗要件に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_12.yaml",
+    "article": 12,
+    "title": "指図債権に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_13.yaml",
+    "article": 13,
+    "title": "根抵当権に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_14.yaml",
+    "article": 14,
+    "title": "債権の目的に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_15.yaml",
+    "article": 15,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_159.yaml",
+    "article": 159,
+    "title": "国等の事務",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_16.yaml",
+    "article": 16,
+    "title": "政令への委任",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_160.yaml",
+    "article": 160,
+    "title": "処分、申請等に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_161.yaml",
+    "article": 161,
+    "title": "不服申立てに関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_162.yaml",
+    "article": 162,
+    "title": "手数料に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_163.yaml",
+    "article": 163,
+    "title": "罰則に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_164.yaml",
+    "article": 164,
+    "title": "その他の経過措置の政令への委任",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_17.yaml",
+    "article": 17,
+    "title": "啓発活動",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_18.yaml",
+    "article": 18,
+    "title": "周知",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_19.yaml",
+    "article": 19,
+    "title": "検討",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_2.yaml",
+    "article": 2,
+    "title": "再婚禁止に違反した婚姻の経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_20.yaml",
+    "article": 20,
+    "title": "政令への委任",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_21.yaml",
+    "article": 21,
+    "title": "保証債務に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_22.yaml",
+    "article": 22,
+    "title": "債権の譲渡に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_23.yaml",
+    "article": 23,
+    "title": "債務の引受けに関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_24.yaml",
+    "article": 24,
+    "title": "記名式所持人払債権に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_25.yaml",
+    "article": 25,
+    "title": "罰則に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_250.yaml",
+    "article": 250,
+    "title": "検討",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_251.yaml",
+    "article": 251,
+    "title": "(no title)",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_26.yaml",
+    "article": 26,
+    "title": "政令への委任",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_27.yaml",
+    "article": 27,
+    "title": "更改に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_28.yaml",
+    "article": 28,
+    "title": "有価証券に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_29.yaml",
+    "article": 29,
+    "title": "契約の成立に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_3.yaml",
+    "article": 3,
+    "title": "嫡出の推定に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_30.yaml",
+    "article": 30,
+    "title": "契約の効力に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_31.yaml",
+    "article": 31,
+    "title": "政令への委任",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_32.yaml",
+    "article": 32,
+    "title": "契約の解除に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_33.yaml",
+    "article": 33,
+    "title": "定型約款に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_34.yaml",
+    "article": 34,
+    "title": "その他の経過措置の政令等への委任",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_35.yaml",
+    "article": 35,
+    "title": "不法行為等に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_36.yaml",
+    "article": 36,
+    "title": "遺言執行者の報酬に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_37.yaml",
+    "article": 37,
+    "title": "政令への委任",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_4.yaml",
+    "article": 4,
+    "title": "嫡出の否認及び嫡出の承認に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_5.yaml",
+    "article": 5,
+    "title": "胎児の認知及び認知の無効に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_51.yaml",
+    "article": 51,
+    "title": "事務の区分に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_6.yaml",
+    "article": 6,
+    "title": "政令への委任",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_7.yaml",
+    "article": 7,
+    "title": "遺贈義務者の引渡義務等に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_71.yaml",
+    "article": 71,
+    "title": "罰則に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_72.yaml",
+    "article": 72,
+    "title": "政令への委任",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_73.yaml",
+    "article": 73,
+    "title": "検討",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_8.yaml",
+    "article": 8,
+    "title": "遺言執行者の権利義務等に関する経過措置",
+    "hasContent": true
+  },
+  {
+    "file": "suppl_9.yaml",
+    "article": 9,
+    "title": "撤回された遺言の効力に関する経過措置",
+    "hasContent": true
+  }
+]
