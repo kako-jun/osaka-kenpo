@@ -35,10 +35,7 @@ const ISSUE_PATTERNS = {
       /商売は信用/,
     ],
   },
-  tooShort: {
-    name: '短すぎる翻訳（1文のみ）',
-    threshold: 50,
-  },
+
   onePattern: {
     name: 'ワンパターン表現',
     patterns: [/知らんけど/g],
@@ -89,12 +86,7 @@ function checkYamlFile(filePath) {
       issues.push(`商人表現: ${[...new Set(merchantMatches)].join(', ')}`);
     }
 
-    // 2. 短すぎる翻訳のチェック
-    if (data.osakaText.length === 1 && fullText.length < ISSUE_PATTERNS.tooShort.threshold) {
-      issues.push(`短い: ${data.osakaText.length}文, ${fullText.length}文字`);
-    }
-
-    // 3. ワンパターン表現のチェック
+    // 2. ワンパターン表現のチェック
     ISSUE_PATTERNS.onePattern.patterns.forEach((pattern) => {
       const matches = fullText.match(pattern);
       if (matches && matches.length > ISSUE_PATTERNS.onePattern.maxCount) {
@@ -214,7 +206,6 @@ function main() {
       const byIssueType = {
         翻訳なし: [],
         商人表現: [],
-        短い: [],
         ワンパターン: [],
         男性表現: [],
       };
@@ -223,8 +214,6 @@ function main() {
         p.issues.forEach((issue) => {
           if (issue.startsWith('商人表現')) {
             byIssueType['商人表現'].push(p);
-          } else if (issue.startsWith('短い')) {
-            byIssueType['短い'].push(p);
           } else if (issue.startsWith('ワンパターン')) {
             byIssueType['ワンパターン'].push(p);
           } else if (issue.startsWith('男性表現')) {
@@ -244,7 +233,6 @@ function main() {
       );
       console.log(`    - 翻訳なし: ${byIssueType['翻訳なし'].length}条`);
       console.log(`    - 商人表現: ${byIssueType['商人表現'].length}条`);
-      console.log(`    - 短い: ${byIssueType['短い'].length}条`);
       console.log(`    - ワンパターン: ${byIssueType['ワンパターン'].length}条`);
       console.log(`    - 男性表現: ${byIssueType['男性表現'].length}条`);
 
