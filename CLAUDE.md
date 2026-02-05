@@ -25,19 +25,19 @@
 - **[translation-style-guide.md](.claude/guides/translation-style-guide.md)** - 大阪弁翻訳統合スタイルガイド（★最重要）
 - **[law-addition-guide.md](.claude/guides/law-addition-guide.md)** - 新しい法律追加の完全手順書
 
-#### 計画・ロードマップ (.claude/plans/)
+#### 翻訳プロンプト (.claude/prompts/)
 
-- **[scraping-roadmap.md](.claude/plans/scraping-roadmap.md)** - データ取得・整備のロードマップ
+- **[translation-prompt-template.md](.claude/prompts/translation-prompt-template.md)** - 基本翻訳プロンプトテンプレート
+- 各法律の範囲翻訳プロンプト（民法、商法、会社法、刑法、民訴、刑訴）
 
 #### トラブルシューティング (.claude/troubleshooting/)
 
 - **[animation-troubleshooting.md](.claude/troubleshooting/animation-troubleshooting.md)** - アニメーション関連
 - **[ui-consistency-checklist.md](.claude/troubleshooting/ui-consistency-checklist.md)** - UI一貫性チェック
 
-### 📚 ユーザー・貢献者向けドキュメント
+### 📚 ユーザー向けドキュメント
 
 - **[README.md](README.md)** - プロジェクト概要とユーザーガイド
-- **[CONTRIBUTING.md](CONTRIBUTING.md)** - 貢献者向けガイドライン
 - **[docs/user-guide.md](docs/user-guide.md)** - 詳細な使い方ガイド
 - **[docs/cloudflare-deploy.md](docs/cloudflare-deploy.md)** - Cloudflare Pages + D1 デプロイガイド
 
