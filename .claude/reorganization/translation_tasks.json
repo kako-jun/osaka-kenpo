@@ -1,0 +1,5159 @@
+{
+  "task1": {
+    "name": "osakaText商人表現修正",
+    "description": "osakaTextに商人表現がある66条の翻訳を修正",
+    "issues": [
+      {
+        "article": 1002,
+        "file": "1002.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 2,
+        "length": 135
+      },
+      {
+        "article": 107,
+        "file": "107.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 1,
+        "length": 89
+      },
+      {
+        "article": 108,
+        "file": "108.yaml",
+        "issues": ["商人表現: 利益が, が"],
+        "sentenceCount": 2,
+        "length": 196
+      },
+      {
+        "article": 121,
+        "file": "121-2.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 3,
+        "length": 315
+      },
+      {
+        "article": 128,
+        "file": "128.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 1,
+        "length": 68
+      },
+      {
+        "article": 13,
+        "file": "13.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 4,
+        "length": 354
+      },
+      {
+        "article": 130,
+        "file": "130.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 2,
+        "length": 142
+      },
+      {
+        "article": 136,
+        "file": "136.yaml",
+        "issues": ["商人表現: 利益の, の"],
+        "sentenceCount": 2,
+        "length": 75
+      },
+      {
+        "article": 137,
+        "file": "137.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 1,
+        "length": 35
+      },
+      {
+        "article": 145,
+        "file": "145.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 1,
+        "length": 98
+      },
+      {
+        "article": 154,
+        "file": "154.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 1,
+        "length": 114
+      },
+      {
+        "article": 17,
+        "file": "17.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 4,
+        "length": 338
+      },
+      {
+        "article": 191,
+        "file": "191.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 1,
+        "length": 165
+      },
+      {
+        "article": 213,
+        "file": "213-2.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 7,
+        "length": 725
+      },
+      {
+        "article": 221,
+        "file": "221.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 2,
+        "length": 116
+      },
+      {
+        "article": 264,
+        "file": "264-14.yaml",
+        "issues": ["商人表現: 利益が, が"],
+        "sentenceCount": 4,
+        "length": 526
+      },
+      {
+        "article": 264,
+        "file": "264-9.yaml",
+        "issues": ["商人表現: 利益が, が"],
+        "sentenceCount": 3,
+        "length": 349
+      },
+      {
+        "article": 288,
+        "file": "288.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 2,
+        "length": 118
+      },
+      {
+        "article": 307,
+        "file": "307.yaml",
+        "issues": ["商人表現: 利益の, の"],
+        "sentenceCount": 2,
+        "length": 129
+      },
+      {
+        "article": 32,
+        "file": "32.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 2,
+        "length": 205
+      },
+      {
+        "article": 329,
+        "file": "329.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 2,
+        "length": 146
+      },
+      {
+        "article": 376,
+        "file": "376.yaml",
+        "issues": ["商人表現: 利益の, の"],
+        "sentenceCount": 2,
+        "length": 159
+      },
+      {
+        "article": 377,
+        "file": "377.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 2,
+        "length": 207
+      },
+      {
+        "article": 387,
+        "file": "387.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 2,
+        "length": 149
+      },
+      {
+        "article": 398,
+        "file": "398-15.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 1,
+        "length": 72
+      },
+      {
+        "article": 417,
+        "file": "417-2.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 2,
+        "length": 168
+      },
+      {
+        "article": 422,
+        "file": "422-2.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 1,
+        "length": 114
+      },
+      {
+        "article": 424,
+        "file": "424.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 4,
+        "length": 307
+      },
+      {
+        "article": 429,
+        "file": "429.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 1,
+        "length": 123
+      },
+      {
+        "article": 438,
+        "file": "438.yaml",
+        "issues": ["商人表現: 利益の, の"],
+        "sentenceCount": 1,
+        "length": 51
+      },
+      {
+        "article": 439,
+        "file": "439.yaml",
+        "issues": ["商人表現: 利益の, の"],
+        "sentenceCount": 2,
+        "length": 154
+      },
+      {
+        "article": 458,
+        "file": "458-3.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 3,
+        "length": 243
+      },
+      {
+        "article": 459,
+        "file": "459-2.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 3,
+        "length": 327
+      },
+      {
+        "article": 462,
+        "file": "462.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 3,
+        "length": 281
+      },
+      {
+        "article": 474,
+        "file": "474.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 4,
+        "length": 281
+      },
+      {
+        "article": 479,
+        "file": "479.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 1,
+        "length": 64
+      },
+      {
+        "article": 500,
+        "file": "500.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 1,
+        "length": 64
+      },
+      {
+        "article": 504,
+        "file": "504.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 2,
+        "length": 297
+      },
+      {
+        "article": 536,
+        "file": "536.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 2,
+        "length": 184
+      },
+      {
+        "article": 537,
+        "file": "537.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 3,
+        "length": 195
+      },
+      {
+        "article": 539,
+        "file": "539.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 1,
+        "length": 55
+      },
+      {
+        "article": 548,
+        "file": "548-2.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 2,
+        "length": 365
+      },
+      {
+        "article": 634,
+        "file": "634.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 1,
+        "length": 116
+      },
+      {
+        "article": 647,
+        "file": "647.yaml",
+        "issues": ["商人表現: 利益の, の"],
+        "sentenceCount": 1,
+        "length": 102
+      },
+      {
+        "article": 702,
+        "file": "702.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 3,
+        "length": 154
+      },
+      {
+        "article": 703,
+        "file": "703.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 1,
+        "length": 98
+      },
+      {
+        "article": 706,
+        "file": "706.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 1,
+        "length": 105
+      },
+      {
+        "article": 709,
+        "file": "709.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 1,
+        "length": 59
+      },
+      {
+        "article": 720,
+        "file": "720.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 2,
+        "length": 156
+      },
+      {
+        "article": 748,
+        "file": "748.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 3,
+        "length": 201
+      },
+      {
+        "article": 766,
+        "file": "766.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 4,
+        "length": 271
+      },
+      {
+        "article": 774,
+        "file": "774.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 5,
+        "length": 453
+      },
+      {
+        "article": 778,
+        "file": "778-2.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 4,
+        "length": 520
+      },
+      {
+        "article": 786,
+        "file": "786.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 4,
+        "length": 484
+      },
+      {
+        "article": 817,
+        "file": "817-10.yaml",
+        "issues": ["商人表現: 利益の, の"],
+        "sentenceCount": 2,
+        "length": 127
+      },
+      {
+        "article": 817,
+        "file": "817-6.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 1,
+        "length": 115
+      },
+      {
+        "article": 817,
+        "file": "817-7.yaml",
+        "issues": ["商人表現: 利益の, の"],
+        "sentenceCount": 1,
+        "length": 91
+      },
+      {
+        "article": 819,
+        "file": "819.yaml",
+        "issues": ["商人表現: 利益の, の"],
+        "sentenceCount": 6,
+        "length": 315
+      },
+      {
+        "article": 820,
+        "file": "820.yaml",
+        "issues": ["商人表現: 利益の, の"],
+        "sentenceCount": 1,
+        "length": 41
+      },
+      {
+        "article": 826,
+        "file": "826.yaml",
+        "issues": ["商人表現: 利益が, が"],
+        "sentenceCount": 2,
+        "length": 170
+      },
+      {
+        "article": 834,
+        "file": "834-2.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 2,
+        "length": 211
+      },
+      {
+        "article": 834,
+        "file": "834.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 1,
+        "length": 182
+      },
+      {
+        "article": 835,
+        "file": "835.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 1,
+        "length": 111
+      },
+      {
+        "article": 876,
+        "file": "876-2.yaml",
+        "issues": ["商人表現: 利益が, が"],
+        "sentenceCount": 3,
+        "length": 177
+      },
+      {
+        "article": 876,
+        "file": "876-7.yaml",
+        "issues": ["商人表現: 利益が, が"],
+        "sentenceCount": 3,
+        "length": 177
+      },
+      {
+        "article": 907,
+        "file": "907.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "sentenceCount": 2,
+        "length": 251
+      }
+    ]
+  },
+  "task2": {
+    "name": "commentaryOsaka空_第1-200条",
+    "description": "commentaryOsakaが空の第1-200条に解説を追加",
+    "issues": [
+      {
+        "article": 155,
+        "file": "155.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 156,
+        "file": "156.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 157,
+        "file": "157.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 170,
+        "file": "170.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 171,
+        "file": "171.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 172,
+        "file": "172.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 173,
+        "file": "173.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 174,
+        "file": "174.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 38,
+        "file": "38.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 39,
+        "file": "39.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 40,
+        "file": "40.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 41,
+        "file": "41.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 42,
+        "file": "42.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 43,
+        "file": "43.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 44,
+        "file": "44.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 45,
+        "file": "45.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 46,
+        "file": "46.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 47,
+        "file": "47.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 48,
+        "file": "48.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 49,
+        "file": "49.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 50,
+        "file": "50.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 51,
+        "file": "51.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 52,
+        "file": "52.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 53,
+        "file": "53.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 54,
+        "file": "54.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 55,
+        "file": "55.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 56,
+        "file": "56.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 57,
+        "file": "57.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 58,
+        "file": "58.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 59,
+        "file": "59.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 60,
+        "file": "60.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 61,
+        "file": "61.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 62,
+        "file": "62.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 63,
+        "file": "63.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 64,
+        "file": "64.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 65,
+        "file": "65.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 66,
+        "file": "66.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 67,
+        "file": "67.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 68,
+        "file": "68.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 69,
+        "file": "69.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 70,
+        "file": "70.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 71,
+        "file": "71.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 72,
+        "file": "72.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 73,
+        "file": "73.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 74,
+        "file": "74.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 75,
+        "file": "75.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 76,
+        "file": "76.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 77,
+        "file": "77.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 78,
+        "file": "78.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 79,
+        "file": "79.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 80,
+        "file": "80.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 81,
+        "file": "81.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 82,
+        "file": "82.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 83,
+        "file": "83.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 84,
+        "file": "84.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1,
+        "file": "suppl_1.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 10,
+        "file": "suppl_10.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 11,
+        "file": "suppl_11.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 12,
+        "file": "suppl_12.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 13,
+        "file": "suppl_13.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 14,
+        "file": "suppl_14.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 15,
+        "file": "suppl_15.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 159,
+        "file": "suppl_159.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 16,
+        "file": "suppl_16.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 160,
+        "file": "suppl_160.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 161,
+        "file": "suppl_161.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 162,
+        "file": "suppl_162.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 163,
+        "file": "suppl_163.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 164,
+        "file": "suppl_164.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 17,
+        "file": "suppl_17.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 18,
+        "file": "suppl_18.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 19,
+        "file": "suppl_19.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 2,
+        "file": "suppl_2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 20,
+        "file": "suppl_20.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 21,
+        "file": "suppl_21.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 22,
+        "file": "suppl_22.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 23,
+        "file": "suppl_23.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 24,
+        "file": "suppl_24.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 25,
+        "file": "suppl_25.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 26,
+        "file": "suppl_26.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 27,
+        "file": "suppl_27.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 28,
+        "file": "suppl_28.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 29,
+        "file": "suppl_29.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 3,
+        "file": "suppl_3.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 30,
+        "file": "suppl_30.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 31,
+        "file": "suppl_31.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 32,
+        "file": "suppl_32.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 33,
+        "file": "suppl_33.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 34,
+        "file": "suppl_34.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 35,
+        "file": "suppl_35.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 36,
+        "file": "suppl_36.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 37,
+        "file": "suppl_37.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 4,
+        "file": "suppl_4.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 5,
+        "file": "suppl_5.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 51,
+        "file": "suppl_51.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 6,
+        "file": "suppl_6.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 7,
+        "file": "suppl_7.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 71,
+        "file": "suppl_71.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 72,
+        "file": "suppl_72.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 73,
+        "file": "suppl_73.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 8,
+        "file": "suppl_8.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 9,
+        "file": "suppl_9.yaml",
+        "issues": ["解説なし"]
+      }
+    ]
+  },
+  "task3": {
+    "name": "commentaryOsaka空_第201-600条",
+    "description": "commentaryOsakaが空の第201-600条に解説を追加",
+    "issues": [
+      {
+        "article": 208,
+        "file": "208.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 363,
+        "file": "363.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 365,
+        "file": "365.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 367,
+        "file": "367.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 368,
+        "file": "368.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 425,
+        "file": "425-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 425,
+        "file": "425-3.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 425,
+        "file": "425.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 435,
+        "file": "435.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 458,
+        "file": "458-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 458,
+        "file": "458.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 459,
+        "file": "459.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 465,
+        "file": "465-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 465,
+        "file": "465-3.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 465,
+        "file": "465-4.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 465,
+        "file": "465-5.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 465,
+        "file": "465-6.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 465,
+        "file": "465-7.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 465,
+        "file": "465-8.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 465,
+        "file": "465-9.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 465,
+        "file": "465.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 466,
+        "file": "466-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 466,
+        "file": "466-3.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 466,
+        "file": "466-4.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 466,
+        "file": "466-5.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 466,
+        "file": "466.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 472,
+        "file": "472-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 472,
+        "file": "472-3.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 472,
+        "file": "472.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 480,
+        "file": "480.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 501,
+        "file": "501.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 502,
+        "file": "502.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 503,
+        "file": "503.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 504,
+        "file": "504.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 505,
+        "file": "505.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 506,
+        "file": "506.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 507,
+        "file": "507.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 508,
+        "file": "508.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 509,
+        "file": "509.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 510,
+        "file": "510.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 511,
+        "file": "511.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 512,
+        "file": "512-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 512,
+        "file": "512.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 513,
+        "file": "513.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 514,
+        "file": "514.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 515,
+        "file": "515.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 516,
+        "file": "516.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 517,
+        "file": "517.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 518,
+        "file": "518.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 519,
+        "file": "519.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 520,
+        "file": "520-10.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 520,
+        "file": "520-11.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 520,
+        "file": "520-12.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 520,
+        "file": "520-13.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 520,
+        "file": "520-14.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 520,
+        "file": "520-15.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 520,
+        "file": "520-16.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 520,
+        "file": "520-17.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 520,
+        "file": "520-18.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 520,
+        "file": "520-19.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 520,
+        "file": "520-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 520,
+        "file": "520-20.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 520,
+        "file": "520-3.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 520,
+        "file": "520-4.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 520,
+        "file": "520-5.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 520,
+        "file": "520-6.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 520,
+        "file": "520-7.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 520,
+        "file": "520-8.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 520,
+        "file": "520-9.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 520,
+        "file": "520.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 521,
+        "file": "521.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 522,
+        "file": "522.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 523,
+        "file": "523.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 524,
+        "file": "524.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 525,
+        "file": "525.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 526,
+        "file": "526.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 527,
+        "file": "527.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 528,
+        "file": "528.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 529,
+        "file": "529-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 529,
+        "file": "529-3.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 529,
+        "file": "529.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 530,
+        "file": "530.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 531,
+        "file": "531.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 532,
+        "file": "532.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 533,
+        "file": "533.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 534,
+        "file": "534.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 535,
+        "file": "535.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 536,
+        "file": "536.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 537,
+        "file": "537.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 538,
+        "file": "538.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 539,
+        "file": "539-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 539,
+        "file": "539.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 540,
+        "file": "540.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 541,
+        "file": "541.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 542,
+        "file": "542.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 543,
+        "file": "543.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 544,
+        "file": "544.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 545,
+        "file": "545.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 546,
+        "file": "546.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 547,
+        "file": "547.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 548,
+        "file": "548-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 548,
+        "file": "548-3.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 548,
+        "file": "548-4.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 548,
+        "file": "548.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 549,
+        "file": "549.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 550,
+        "file": "550.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 551,
+        "file": "551.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 552,
+        "file": "552.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 553,
+        "file": "553.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 554,
+        "file": "554.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 555,
+        "file": "555.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 556,
+        "file": "556.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 557,
+        "file": "557.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 558,
+        "file": "558.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 559,
+        "file": "559.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 560,
+        "file": "560.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 561,
+        "file": "561.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 562,
+        "file": "562.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 563,
+        "file": "563.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 564,
+        "file": "564.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 565,
+        "file": "565.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 566,
+        "file": "566.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 567,
+        "file": "567.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 568,
+        "file": "568.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 569,
+        "file": "569.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 570,
+        "file": "570.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 571,
+        "file": "571.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 572,
+        "file": "572.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 573,
+        "file": "573.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 574,
+        "file": "574.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 575,
+        "file": "575.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 576,
+        "file": "576.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 577,
+        "file": "577.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 578,
+        "file": "578.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 579,
+        "file": "579.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 580,
+        "file": "580.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 581,
+        "file": "581.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 582,
+        "file": "582.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 583,
+        "file": "583.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 584,
+        "file": "584.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 585,
+        "file": "585.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 586,
+        "file": "586.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 587,
+        "file": "587-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 587,
+        "file": "587.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 588,
+        "file": "588.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 589,
+        "file": "589.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 590,
+        "file": "590.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 591,
+        "file": "591.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 592,
+        "file": "592.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 593,
+        "file": "593-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 593,
+        "file": "593.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 594,
+        "file": "594.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 595,
+        "file": "595.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 596,
+        "file": "596.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 597,
+        "file": "597.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 598,
+        "file": "598.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 599,
+        "file": "599.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 600,
+        "file": "600.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 250,
+        "file": "suppl_250.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 251,
+        "file": "suppl_251.yaml",
+        "issues": ["解説なし"]
+      }
+    ]
+  },
+  "task4": {
+    "name": "commentaryOsaka空_第601-1050条",
+    "description": "commentaryOsakaが空の第601-1050条に解説を追加",
+    "issues": [
+      {
+        "article": 1000,
+        "file": "1000.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1001,
+        "file": "1001.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1002,
+        "file": "1002.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1003,
+        "file": "1003.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1004,
+        "file": "1004.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1005,
+        "file": "1005.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1006,
+        "file": "1006.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1007,
+        "file": "1007.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1008,
+        "file": "1008.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1009,
+        "file": "1009.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1010,
+        "file": "1010.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1011,
+        "file": "1011.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1012,
+        "file": "1012.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1013,
+        "file": "1013.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1014,
+        "file": "1014.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1015,
+        "file": "1015.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1016,
+        "file": "1016.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1017,
+        "file": "1017.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1018,
+        "file": "1018.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1019,
+        "file": "1019.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1020,
+        "file": "1020.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1021,
+        "file": "1021.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1022,
+        "file": "1022.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1023,
+        "file": "1023.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1024,
+        "file": "1024.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1025,
+        "file": "1025.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1026,
+        "file": "1026.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1027,
+        "file": "1027.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1028,
+        "file": "1028.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1029,
+        "file": "1029.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1030,
+        "file": "1030.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1031,
+        "file": "1031.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1032,
+        "file": "1032.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1033,
+        "file": "1033.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1034,
+        "file": "1034.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1035,
+        "file": "1035.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1036,
+        "file": "1036.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1037,
+        "file": "1037.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1038,
+        "file": "1038.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1039,
+        "file": "1039.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1040,
+        "file": "1040.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1041,
+        "file": "1041.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1042,
+        "file": "1042.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1043,
+        "file": "1043.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1044,
+        "file": "1044.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1045,
+        "file": "1045.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1046,
+        "file": "1046.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1047,
+        "file": "1047.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1048,
+        "file": "1048.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1049,
+        "file": "1049.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 1050,
+        "file": "1050.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 601,
+        "file": "601.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 602,
+        "file": "602.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 603,
+        "file": "603.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 604,
+        "file": "604.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 605,
+        "file": "605-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 605,
+        "file": "605-3.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 605,
+        "file": "605-4.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 605,
+        "file": "605.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 606,
+        "file": "606.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 607,
+        "file": "607-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 607,
+        "file": "607.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 608,
+        "file": "608.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 609,
+        "file": "609.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 610,
+        "file": "610.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 611,
+        "file": "611.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 612,
+        "file": "612.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 613,
+        "file": "613.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 614,
+        "file": "614.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 615,
+        "file": "615.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 616,
+        "file": "616-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 616,
+        "file": "616.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 617,
+        "file": "617.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 618,
+        "file": "618.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 619,
+        "file": "619.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 620,
+        "file": "620.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 621,
+        "file": "621.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 622,
+        "file": "622-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 622,
+        "file": "622.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 623,
+        "file": "623.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 624,
+        "file": "624-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 624,
+        "file": "624.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 625,
+        "file": "625.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 626,
+        "file": "626.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 627,
+        "file": "627.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 628,
+        "file": "628.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 629,
+        "file": "629.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 630,
+        "file": "630.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 631,
+        "file": "631.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 632,
+        "file": "632.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 633,
+        "file": "633.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 634,
+        "file": "634.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 635,
+        "file": "635.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 636,
+        "file": "636.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 637,
+        "file": "637.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 638,
+        "file": "638.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 639,
+        "file": "639.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 640,
+        "file": "640.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 641,
+        "file": "641.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 642,
+        "file": "642.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 643,
+        "file": "643.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 644,
+        "file": "644-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 644,
+        "file": "644.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 645,
+        "file": "645.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 646,
+        "file": "646.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 647,
+        "file": "647.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 648,
+        "file": "648-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 648,
+        "file": "648.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 649,
+        "file": "649.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 650,
+        "file": "650.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 651,
+        "file": "651.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 652,
+        "file": "652.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 653,
+        "file": "653.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 654,
+        "file": "654.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 655,
+        "file": "655.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 656,
+        "file": "656.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 657,
+        "file": "657-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 657,
+        "file": "657.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 658,
+        "file": "658.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 659,
+        "file": "659.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 660,
+        "file": "660.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 661,
+        "file": "661.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 662,
+        "file": "662.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 663,
+        "file": "663.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 664,
+        "file": "664-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 664,
+        "file": "664.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 665,
+        "file": "665-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 665,
+        "file": "665.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 666,
+        "file": "666.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 667,
+        "file": "667-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 667,
+        "file": "667-3.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 667,
+        "file": "667.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 668,
+        "file": "668.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 669,
+        "file": "669.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 670,
+        "file": "670-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 670,
+        "file": "670.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 671,
+        "file": "671.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 672,
+        "file": "672.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 673,
+        "file": "673.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 674,
+        "file": "674.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 675,
+        "file": "675.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 676,
+        "file": "676.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 677,
+        "file": "677-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 677,
+        "file": "677.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 678,
+        "file": "678.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 679,
+        "file": "679.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 680,
+        "file": "680-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 680,
+        "file": "680.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 681,
+        "file": "681.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 682,
+        "file": "682.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 683,
+        "file": "683.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 684,
+        "file": "684.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 685,
+        "file": "685.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 686,
+        "file": "686.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 687,
+        "file": "687.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 688,
+        "file": "688.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 689,
+        "file": "689.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 690,
+        "file": "690.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 691,
+        "file": "691.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 692,
+        "file": "692.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 693,
+        "file": "693.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 694,
+        "file": "694.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 695,
+        "file": "695.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 696,
+        "file": "696.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 697,
+        "file": "697.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 698,
+        "file": "698.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 699,
+        "file": "699.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 700,
+        "file": "700.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 701,
+        "file": "701.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 702,
+        "file": "702.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 703,
+        "file": "703.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 704,
+        "file": "704.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 705,
+        "file": "705.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 706,
+        "file": "706.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 707,
+        "file": "707.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 708,
+        "file": "708.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 709,
+        "file": "709.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 710,
+        "file": "710.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 711,
+        "file": "711.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 712,
+        "file": "712.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 713,
+        "file": "713.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 714,
+        "file": "714.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 715,
+        "file": "715.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 716,
+        "file": "716.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 717,
+        "file": "717.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 718,
+        "file": "718.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 719,
+        "file": "719.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 720,
+        "file": "720.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 721,
+        "file": "721.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 722,
+        "file": "722.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 723,
+        "file": "723.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 724,
+        "file": "724-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 724,
+        "file": "724.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 725,
+        "file": "725.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 726,
+        "file": "726.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 727,
+        "file": "727.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 728,
+        "file": "728.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 729,
+        "file": "729.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 730,
+        "file": "730.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 731,
+        "file": "731.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 732,
+        "file": "732.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 733,
+        "file": "733.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 734,
+        "file": "734.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 735,
+        "file": "735.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 736,
+        "file": "736.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 737,
+        "file": "737.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 738,
+        "file": "738.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 739,
+        "file": "739.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 740,
+        "file": "740.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 741,
+        "file": "741.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 742,
+        "file": "742.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 743,
+        "file": "743.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 744,
+        "file": "744.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 745,
+        "file": "745.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 746,
+        "file": "746.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 747,
+        "file": "747.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 748,
+        "file": "748.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 749,
+        "file": "749.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 750,
+        "file": "750.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 751,
+        "file": "751.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 752,
+        "file": "752.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 753,
+        "file": "753.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 754,
+        "file": "754.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 755,
+        "file": "755.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 756,
+        "file": "756.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 757,
+        "file": "757.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 758,
+        "file": "758.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 759,
+        "file": "759.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 760,
+        "file": "760.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 761,
+        "file": "761.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 762,
+        "file": "762.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 763,
+        "file": "763.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 764,
+        "file": "764.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 765,
+        "file": "765.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 766,
+        "file": "766.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 767,
+        "file": "767.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 768,
+        "file": "768.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 769,
+        "file": "769.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 770,
+        "file": "770.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 771,
+        "file": "771.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 772,
+        "file": "772.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 773,
+        "file": "773.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 774,
+        "file": "774.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 775,
+        "file": "775.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 776,
+        "file": "776.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 777,
+        "file": "777.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 778,
+        "file": "778-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 778,
+        "file": "778-3.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 778,
+        "file": "778-4.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 778,
+        "file": "778.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 779,
+        "file": "779.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 780,
+        "file": "780.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 781,
+        "file": "781.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 782,
+        "file": "782.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 783,
+        "file": "783.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 784,
+        "file": "784.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 785,
+        "file": "785.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 786,
+        "file": "786.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 787,
+        "file": "787.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 788,
+        "file": "788.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 789,
+        "file": "789.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 790,
+        "file": "790.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 791,
+        "file": "791.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 792,
+        "file": "792.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 793,
+        "file": "793.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 794,
+        "file": "794.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 795,
+        "file": "795.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 796,
+        "file": "796.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 797,
+        "file": "797.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 798,
+        "file": "798.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 799,
+        "file": "799.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 800,
+        "file": "800.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 801,
+        "file": "801.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 802,
+        "file": "802.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 803,
+        "file": "803.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 804,
+        "file": "804.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 805,
+        "file": "805.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 806,
+        "file": "806-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 806,
+        "file": "806-3.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 806,
+        "file": "806.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 807,
+        "file": "807.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 808,
+        "file": "808.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 809,
+        "file": "809.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 810,
+        "file": "810.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 811,
+        "file": "811-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 811,
+        "file": "811.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 812,
+        "file": "812.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 813,
+        "file": "813.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 814,
+        "file": "814.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 815,
+        "file": "815.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 816,
+        "file": "816.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 817,
+        "file": "817-10.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 817,
+        "file": "817-11.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 817,
+        "file": "817-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 817,
+        "file": "817-3.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 817,
+        "file": "817-4.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 817,
+        "file": "817-5.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 817,
+        "file": "817-6.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 817,
+        "file": "817-7.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 817,
+        "file": "817-8.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 817,
+        "file": "817-9.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 817,
+        "file": "817.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 818,
+        "file": "818.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 819,
+        "file": "819.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 820,
+        "file": "820.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 821,
+        "file": "821.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 822,
+        "file": "822.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 823,
+        "file": "823.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 824,
+        "file": "824.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 825,
+        "file": "825.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 826,
+        "file": "826.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 827,
+        "file": "827.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 828,
+        "file": "828.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 829,
+        "file": "829.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 830,
+        "file": "830.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 831,
+        "file": "831.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 832,
+        "file": "832.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 833,
+        "file": "833.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 834,
+        "file": "834-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 834,
+        "file": "834.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 835,
+        "file": "835.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 836,
+        "file": "836.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 837,
+        "file": "837.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 838,
+        "file": "838.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 839,
+        "file": "839.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 840,
+        "file": "840.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 841,
+        "file": "841.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 842,
+        "file": "842.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 843,
+        "file": "843.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 844,
+        "file": "844.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 845,
+        "file": "845.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 846,
+        "file": "846.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 847,
+        "file": "847.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 848,
+        "file": "848.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 849,
+        "file": "849.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 850,
+        "file": "850.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 851,
+        "file": "851.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 852,
+        "file": "852.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 853,
+        "file": "853.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 854,
+        "file": "854.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 855,
+        "file": "855.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 856,
+        "file": "856.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 857,
+        "file": "857-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 857,
+        "file": "857.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 858,
+        "file": "858.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 859,
+        "file": "859-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 859,
+        "file": "859-3.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 859,
+        "file": "859.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 860,
+        "file": "860-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 860,
+        "file": "860-3.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 860,
+        "file": "860.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 861,
+        "file": "861.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 862,
+        "file": "862.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 863,
+        "file": "863.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 864,
+        "file": "864.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 865,
+        "file": "865.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 866,
+        "file": "866.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 867,
+        "file": "867.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 868,
+        "file": "868.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 869,
+        "file": "869.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 870,
+        "file": "870.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 871,
+        "file": "871.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 872,
+        "file": "872.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 873,
+        "file": "873-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 873,
+        "file": "873.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 874,
+        "file": "874.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 875,
+        "file": "875.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 876,
+        "file": "876-10.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 876,
+        "file": "876-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 876,
+        "file": "876-3.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 876,
+        "file": "876-4.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 876,
+        "file": "876-5.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 876,
+        "file": "876-6.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 876,
+        "file": "876-7.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 876,
+        "file": "876-8.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 876,
+        "file": "876-9.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 876,
+        "file": "876.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 877,
+        "file": "877.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 878,
+        "file": "878.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 879,
+        "file": "879.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 880,
+        "file": "880.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 881,
+        "file": "881.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 882,
+        "file": "882.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 883,
+        "file": "883.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 884,
+        "file": "884.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 885,
+        "file": "885.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 886,
+        "file": "886.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 887,
+        "file": "887.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 888,
+        "file": "888.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 889,
+        "file": "889.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 890,
+        "file": "890.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 891,
+        "file": "891.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 892,
+        "file": "892.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 893,
+        "file": "893.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 894,
+        "file": "894.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 895,
+        "file": "895.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 896,
+        "file": "896.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 897,
+        "file": "897-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 897,
+        "file": "897.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 898,
+        "file": "898.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 899,
+        "file": "899-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 899,
+        "file": "899.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 900,
+        "file": "900.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 901,
+        "file": "901.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 902,
+        "file": "902-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 902,
+        "file": "902.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 903,
+        "file": "903.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 904,
+        "file": "904-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 904,
+        "file": "904-3.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 904,
+        "file": "904.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 905,
+        "file": "905.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 906,
+        "file": "906-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 906,
+        "file": "906.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 907,
+        "file": "907.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 908,
+        "file": "908.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 909,
+        "file": "909-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 909,
+        "file": "909.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 910,
+        "file": "910.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 911,
+        "file": "911.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 912,
+        "file": "912.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 913,
+        "file": "913.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 914,
+        "file": "914.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 915,
+        "file": "915.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 916,
+        "file": "916.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 917,
+        "file": "917.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 918,
+        "file": "918.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 919,
+        "file": "919.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 920,
+        "file": "920.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 921,
+        "file": "921.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 922,
+        "file": "922.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 923,
+        "file": "923.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 924,
+        "file": "924.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 925,
+        "file": "925.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 926,
+        "file": "926.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 927,
+        "file": "927.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 928,
+        "file": "928.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 929,
+        "file": "929.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 930,
+        "file": "930.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 931,
+        "file": "931.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 932,
+        "file": "932.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 933,
+        "file": "933.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 934,
+        "file": "934.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 935,
+        "file": "935.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 936,
+        "file": "936.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 937,
+        "file": "937.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 938,
+        "file": "938.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 939,
+        "file": "939.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 940,
+        "file": "940.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 941,
+        "file": "941.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 942,
+        "file": "942.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 943,
+        "file": "943.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 944,
+        "file": "944.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 945,
+        "file": "945.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 946,
+        "file": "946.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 947,
+        "file": "947.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 948,
+        "file": "948.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 949,
+        "file": "949.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 950,
+        "file": "950.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 951,
+        "file": "951.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 952,
+        "file": "952.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 953,
+        "file": "953.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 954,
+        "file": "954.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 955,
+        "file": "955.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 956,
+        "file": "956.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 957,
+        "file": "957.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 958,
+        "file": "958-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 958,
+        "file": "958.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 959,
+        "file": "959.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 960,
+        "file": "960.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 961,
+        "file": "961.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 962,
+        "file": "962.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 963,
+        "file": "963.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 964,
+        "file": "964.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 965,
+        "file": "965.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 966,
+        "file": "966.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 967,
+        "file": "967.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 968,
+        "file": "968.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 969,
+        "file": "969-2.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 969,
+        "file": "969.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 970,
+        "file": "970.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 971,
+        "file": "971.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 972,
+        "file": "972.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 973,
+        "file": "973.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 974,
+        "file": "974.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 975,
+        "file": "975.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 976,
+        "file": "976.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 977,
+        "file": "977.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 978,
+        "file": "978.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 979,
+        "file": "979.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 980,
+        "file": "980.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 981,
+        "file": "981.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 982,
+        "file": "982.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 983,
+        "file": "983.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 984,
+        "file": "984.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 985,
+        "file": "985.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 986,
+        "file": "986.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 987,
+        "file": "987.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 988,
+        "file": "988.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 989,
+        "file": "989.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 990,
+        "file": "990.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 991,
+        "file": "991.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 992,
+        "file": "992.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 993,
+        "file": "993.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 994,
+        "file": "994.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 995,
+        "file": "995.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 996,
+        "file": "996.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 997,
+        "file": "997.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 998,
+        "file": "998.yaml",
+        "issues": ["解説なし"]
+      },
+      {
+        "article": 999,
+        "file": "999.yaml",
+        "issues": ["解説なし"]
+      }
+    ]
+  },
+  "task5": {
+    "name": "commentaryOsaka品質改善_商人表現",
+    "description": "commentaryOsakaの商人表現を修正",
+    "issues": [
+      {
+        "article": 1,
+        "file": "1.yaml",
+        "issues": ["商人表現: 商売で, で"],
+        "length": 391
+      },
+      {
+        "article": 107,
+        "file": "107.yaml",
+        "issues": ["商人表現: 利益の, の"],
+        "length": 246
+      },
+      {
+        "article": 108,
+        "file": "108.yaml",
+        "issues": ["商人表現: 利益が, が", "例え話なし"],
+        "length": 223
+      },
+      {
+        "article": 121,
+        "file": "121-2.yaml",
+        "issues": ["商人表現: 利益の, の"],
+        "length": 339
+      },
+      {
+        "article": 126,
+        "file": "126.yaml",
+        "issues": ["商人表現: 商売で, で"],
+        "length": 245
+      },
+      {
+        "article": 128,
+        "file": "128.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "length": 254
+      },
+      {
+        "article": 13,
+        "file": "13.yaml",
+        "issues": ["商人表現: 利益を, を", "例え話なし"],
+        "length": 290
+      },
+      {
+        "article": 136,
+        "file": "136.yaml",
+        "issues": ["商人表現: 利益の, の"],
+        "length": 320
+      },
+      {
+        "article": 137,
+        "file": "137.yaml",
+        "issues": ["商人表現: 利益の, の"],
+        "length": 276
+      },
+      {
+        "article": 142,
+        "file": "142.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "length": 259
+      },
+      {
+        "article": 154,
+        "file": "154.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "length": 268
+      },
+      {
+        "article": 191,
+        "file": "191.yaml",
+        "issues": ["商人表現: 利益の, の"],
+        "length": 408
+      },
+      {
+        "article": 211,
+        "file": "211.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "length": 346
+      },
+      {
+        "article": 212,
+        "file": "212.yaml",
+        "issues": ["商人表現: 利益の, の"],
+        "length": 429
+      },
+      {
+        "article": 214,
+        "file": "214.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "length": 325
+      },
+      {
+        "article": 220,
+        "file": "220.yaml",
+        "issues": ["商人表現: 利益の, の"],
+        "length": 410
+      },
+      {
+        "article": 221,
+        "file": "221.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "length": 300
+      },
+      {
+        "article": 224,
+        "file": "224.yaml",
+        "issues": ["商人表現: 利益が, が"],
+        "length": 351
+      },
+      {
+        "article": 226,
+        "file": "226.yaml",
+        "issues": ["商人表現: 利益が, が"],
+        "length": 258
+      },
+      {
+        "article": 231,
+        "file": "231.yaml",
+        "issues": ["商人表現: 利益が, が"],
+        "length": 378
+      },
+      {
+        "article": 244,
+        "file": "244.yaml",
+        "issues": ["商人表現: 利益の, の"],
+        "length": 294
+      },
+      {
+        "article": 248,
+        "file": "248.yaml",
+        "issues": ["商人表現: 利益の, の"],
+        "length": 319
+      },
+      {
+        "article": 271,
+        "file": "271.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "length": 235
+      },
+      {
+        "article": 275,
+        "file": "275.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "length": 304
+      },
+      {
+        "article": 288,
+        "file": "288.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "length": 372
+      },
+      {
+        "article": 301,
+        "file": "301.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "length": 348
+      },
+      {
+        "article": 307,
+        "file": "307.yaml",
+        "issues": ["商人表現: 利益の, の"],
+        "length": 437
+      },
+      {
+        "article": 315,
+        "file": "315.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "length": 408
+      },
+      {
+        "article": 32,
+        "file": "32.yaml",
+        "issues": ["商人表現: 利益の, の"],
+        "length": 400
+      },
+      {
+        "article": 329,
+        "file": "329.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "length": 446
+      },
+      {
+        "article": 374,
+        "file": "374.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "length": 374
+      },
+      {
+        "article": 376,
+        "file": "376.yaml",
+        "issues": ["商人表現: 利益の, の"],
+        "length": 436
+      },
+      {
+        "article": 377,
+        "file": "377.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "length": 502
+      },
+      {
+        "article": 385,
+        "file": "385.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "length": 311
+      },
+      {
+        "article": 387,
+        "file": "387.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "length": 463
+      },
+      {
+        "article": 391,
+        "file": "391.yaml",
+        "issues": ["商人表現: 投資を, を, 利益を"],
+        "length": 363
+      },
+      {
+        "article": 398,
+        "file": "398-15.yaml",
+        "issues": ["商人表現: 利益を, を", "短い: 115文字"],
+        "length": 115
+      },
+      {
+        "article": 398,
+        "file": "398-22.yaml",
+        "issues": ["商人表現: 商売人, 人"],
+        "length": 468
+      },
+      {
+        "article": 401,
+        "file": "401.yaml",
+        "issues": ["商人表現: 商売の, の"],
+        "length": 529
+      },
+      {
+        "article": 417,
+        "file": "417-2.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "length": 605
+      },
+      {
+        "article": 422,
+        "file": "422-2.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "length": 505
+      },
+      {
+        "article": 429,
+        "file": "429.yaml",
+        "issues": ["商人表現: 利益を, を, 儲け"],
+        "length": 557
+      },
+      {
+        "article": 436,
+        "file": "436.yaml",
+        "issues": ["商人表現: 貸す方"],
+        "length": 576
+      },
+      {
+        "article": 438,
+        "file": "438.yaml",
+        "issues": ["商人表現: 利益の, の"],
+        "length": 456
+      },
+      {
+        "article": 439,
+        "file": "439.yaml",
+        "issues": ["商人表現: 利益の, の"],
+        "length": 627
+      },
+      {
+        "article": 458,
+        "file": "458-3.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "length": 708
+      },
+      {
+        "article": 459,
+        "file": "459-2.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "length": 813
+      },
+      {
+        "article": 462,
+        "file": "462.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "length": 730
+      },
+      {
+        "article": 474,
+        "file": "474.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "length": 784
+      },
+      {
+        "article": 479,
+        "file": "479.yaml",
+        "issues": ["商人表現: 利益を, を"],
+        "length": 527
+      },
+      {
+        "article": 500,
+        "file": "500.yaml",
+        "issues": ["商人表現: 利益が, が", "短い: 138文字"],
+        "length": 138
+      },
+      {
+        "article": 6,
+        "file": "6.yaml",
+        "issues": ["商人表現: 商売の, の"],
+        "length": 480
+      },
+      {
+        "article": 8,
+        "file": "8.yaml",
+        "issues": ["商人表現: 利益が, が", "例え話なし"],
+        "length": 449
+      }
+    ]
+  },
+  "task6": {
+    "name": "commentaryOsaka品質改善_例え話追加",
+    "description": "commentaryOsakaに例え話がない条文に例え話を追加",
+    "issues": [
+      {
+        "article": 100,
+        "file": "100.yaml",
+        "issues": ["例え話なし"],
+        "length": 214
+      },
+      {
+        "article": 104,
+        "file": "104.yaml",
+        "issues": ["例え話なし"],
+        "length": 232
+      },
+      {
+        "article": 108,
+        "file": "108.yaml",
+        "issues": ["商人表現: 利益が, が", "例え話なし"],
+        "length": 223
+      },
+      {
+        "article": 111,
+        "file": "111.yaml",
+        "issues": ["例え話なし"],
+        "length": 239
+      },
+      {
+        "article": 113,
+        "file": "113.yaml",
+        "issues": ["例え話なし"],
+        "length": 266
+      },
+      {
+        "article": 114,
+        "file": "114.yaml",
+        "issues": ["例え話なし"],
+        "length": 217
+      },
+      {
+        "article": 12,
+        "file": "12.yaml",
+        "issues": ["例え話なし"],
+        "length": 197
+      },
+      {
+        "article": 123,
+        "file": "123.yaml",
+        "issues": ["例え話なし"],
+        "length": 279
+      },
+      {
+        "article": 13,
+        "file": "13.yaml",
+        "issues": ["商人表現: 利益を, を", "例え話なし"],
+        "length": 290
+      },
+      {
+        "article": 14,
+        "file": "14.yaml",
+        "issues": ["例え話なし"],
+        "length": 189
+      },
+      {
+        "article": 15,
+        "file": "15.yaml",
+        "issues": ["例え話なし"],
+        "length": 269
+      },
+      {
+        "article": 150,
+        "file": "150.yaml",
+        "issues": ["例え話なし"],
+        "length": 284
+      },
+      {
+        "article": 152,
+        "file": "152.yaml",
+        "issues": ["例え話なし"],
+        "length": 306
+      },
+      {
+        "article": 16,
+        "file": "16.yaml",
+        "issues": ["短い: 108文字", "例え話なし"],
+        "length": 108
+      },
+      {
+        "article": 165,
+        "file": "165.yaml",
+        "issues": ["例え話なし"],
+        "length": 158
+      },
+      {
+        "article": 166,
+        "file": "166.yaml",
+        "issues": ["例え話なし"],
+        "length": 252
+      },
+      {
+        "article": 17,
+        "file": "17.yaml",
+        "issues": ["例え話なし"],
+        "length": 193
+      },
+      {
+        "article": 18,
+        "file": "18.yaml",
+        "issues": ["短い: 135文字", "例え話なし"],
+        "length": 135
+      },
+      {
+        "article": 2,
+        "file": "2.yaml",
+        "issues": ["例え話なし"],
+        "length": 403
+      },
+      {
+        "article": 20,
+        "file": "20.yaml",
+        "issues": ["例え話なし"],
+        "length": 252
+      },
+      {
+        "article": 21,
+        "file": "21.yaml",
+        "issues": ["例え話なし"],
+        "length": 193
+      },
+      {
+        "article": 22,
+        "file": "22.yaml",
+        "issues": ["短い: 93文字", "例え話なし"],
+        "length": 93
+      },
+      {
+        "article": 23,
+        "file": "23.yaml",
+        "issues": ["短い: 103文字", "例え話なし"],
+        "length": 103
+      },
+      {
+        "article": 24,
+        "file": "24.yaml",
+        "issues": ["短い: 92文字", "例え話なし"],
+        "length": 92
+      },
+      {
+        "article": 25,
+        "file": "25.yaml",
+        "issues": ["短い: 142文字", "例え話なし"],
+        "length": 142
+      },
+      {
+        "article": 252,
+        "file": "252.yaml",
+        "issues": ["例え話なし"],
+        "length": 326
+      },
+      {
+        "article": 26,
+        "file": "26.yaml",
+        "issues": ["短い: 125文字", "例え話なし"],
+        "length": 125
+      },
+      {
+        "article": 262,
+        "file": "262-2.yaml",
+        "issues": ["例え話なし"],
+        "length": 309
+      },
+      {
+        "article": 264,
+        "file": "264-10.yaml",
+        "issues": ["例え話なし"],
+        "length": 162
+      },
+      {
+        "article": 264,
+        "file": "264-11.yaml",
+        "issues": ["短い: 99文字", "例え話なし"],
+        "length": 99
+      },
+      {
+        "article": 264,
+        "file": "264-12.yaml",
+        "issues": ["短い: 145文字", "例え話なし"],
+        "length": 145
+      },
+      {
+        "article": 264,
+        "file": "264-13.yaml",
+        "issues": ["短い: 120文字", "例え話なし"],
+        "length": 120
+      },
+      {
+        "article": 264,
+        "file": "264-3.yaml",
+        "issues": ["例え話なし"],
+        "length": 198
+      },
+      {
+        "article": 264,
+        "file": "264-6.yaml",
+        "issues": ["例え話なし"],
+        "length": 165
+      },
+      {
+        "article": 264,
+        "file": "264-8.yaml",
+        "issues": ["短い: 148文字", "例え話なし"],
+        "length": 148
+      },
+      {
+        "article": 269,
+        "file": "269.yaml",
+        "issues": ["例え話なし"],
+        "length": 279
+      },
+      {
+        "article": 27,
+        "file": "27.yaml",
+        "issues": ["短い: 125文字", "例え話なし"],
+        "length": 125
+      },
+      {
+        "article": 29,
+        "file": "29.yaml",
+        "issues": ["短い: 139文字", "例え話なし"],
+        "length": 139
+      },
+      {
+        "article": 3,
+        "file": "3.yaml",
+        "issues": ["例え話なし"],
+        "length": 305
+      },
+      {
+        "article": 30,
+        "file": "30.yaml",
+        "issues": ["例え話なし"],
+        "length": 212
+      },
+      {
+        "article": 31,
+        "file": "31.yaml",
+        "issues": ["短い: 138文字", "例え話なし"],
+        "length": 138
+      },
+      {
+        "article": 33,
+        "file": "33.yaml",
+        "issues": ["短い: 112文字", "例え話なし"],
+        "length": 112
+      },
+      {
+        "article": 35,
+        "file": "35.yaml",
+        "issues": ["短い: 114文字", "例え話なし"],
+        "length": 114
+      },
+      {
+        "article": 36,
+        "file": "36.yaml",
+        "issues": ["短い: 116文字", "例え話なし"],
+        "length": 116
+      },
+      {
+        "article": 37,
+        "file": "37.yaml",
+        "issues": ["例え話なし"],
+        "length": 153
+      },
+      {
+        "article": 398,
+        "file": "398-10.yaml",
+        "issues": ["短い: 110文字", "例え話なし"],
+        "length": 110
+      },
+      {
+        "article": 398,
+        "file": "398-11.yaml",
+        "issues": ["短い: 104文字", "例え話なし"],
+        "length": 104
+      },
+      {
+        "article": 398,
+        "file": "398-14.yaml",
+        "issues": ["短い: 112文字", "例え話なし"],
+        "length": 112
+      },
+      {
+        "article": 398,
+        "file": "398-16.yaml",
+        "issues": ["短い: 115文字", "例え話なし"],
+        "length": 115
+      },
+      {
+        "article": 398,
+        "file": "398-17.yaml",
+        "issues": ["短い: 106文字", "例え話なし"],
+        "length": 106
+      },
+      {
+        "article": 398,
+        "file": "398-18.yaml",
+        "issues": ["短い: 125文字", "例え話なし"],
+        "length": 125
+      },
+      {
+        "article": 398,
+        "file": "398-19.yaml",
+        "issues": ["短い: 109文字", "例え話なし"],
+        "length": 109
+      },
+      {
+        "article": 398,
+        "file": "398-20.yaml",
+        "issues": ["短い: 109文字", "例え話なし"],
+        "length": 109
+      },
+      {
+        "article": 398,
+        "file": "398-21.yaml",
+        "issues": ["短い: 106文字", "例え話なし"],
+        "length": 106
+      },
+      {
+        "article": 398,
+        "file": "398-5.yaml",
+        "issues": ["短い: 94文字", "例え話なし"],
+        "length": 94
+      },
+      {
+        "article": 398,
+        "file": "398-7.yaml",
+        "issues": ["短い: 112文字", "例え話なし"],
+        "length": 112
+      },
+      {
+        "article": 398,
+        "file": "398-8.yaml",
+        "issues": ["短い: 116文字", "例え話なし"],
+        "length": 116
+      },
+      {
+        "article": 398,
+        "file": "398-9.yaml",
+        "issues": ["短い: 103文字", "例え話なし"],
+        "length": 103
+      },
+      {
+        "article": 4,
+        "file": "4.yaml",
+        "issues": ["例え話なし"],
+        "length": 427
+      },
+      {
+        "article": 412,
+        "file": "412.yaml",
+        "issues": ["例え話なし"],
+        "length": 159
+      },
+      {
+        "article": 413,
+        "file": "413.yaml",
+        "issues": ["短い: 98文字", "例え話なし"],
+        "length": 98
+      },
+      {
+        "article": 423,
+        "file": "423-2.yaml",
+        "issues": ["短い: 95文字", "例え話なし"],
+        "length": 95
+      },
+      {
+        "article": 423,
+        "file": "423-3.yaml",
+        "issues": ["短い: 83文字", "例え話なし"],
+        "length": 83
+      },
+      {
+        "article": 423,
+        "file": "423-5.yaml",
+        "issues": ["短い: 90文字", "例え話なし"],
+        "length": 90
+      },
+      {
+        "article": 423,
+        "file": "423-6.yaml",
+        "issues": ["短い: 80文字", "例え話なし"],
+        "length": 80
+      },
+      {
+        "article": 423,
+        "file": "423.yaml",
+        "issues": ["短い: 142文字", "例え話なし"],
+        "length": 142
+      },
+      {
+        "article": 424,
+        "file": "424-2.yaml",
+        "issues": ["短い: 100文字", "例え話なし"],
+        "length": 100
+      },
+      {
+        "article": 424,
+        "file": "424-3.yaml",
+        "issues": ["短い: 96文字", "例え話なし"],
+        "length": 96
+      },
+      {
+        "article": 424,
+        "file": "424-4.yaml",
+        "issues": ["短い: 99文字", "例え話なし"],
+        "length": 99
+      },
+      {
+        "article": 424,
+        "file": "424-5.yaml",
+        "issues": ["短い: 83文字", "例え話なし"],
+        "length": 83
+      },
+      {
+        "article": 424,
+        "file": "424-6.yaml",
+        "issues": ["短い: 103文字", "例え話なし"],
+        "length": 103
+      },
+      {
+        "article": 424,
+        "file": "424-7.yaml",
+        "issues": ["短い: 97文字", "例え話なし"],
+        "length": 97
+      },
+      {
+        "article": 424,
+        "file": "424-8.yaml",
+        "issues": ["短い: 96文字", "例え話なし"],
+        "length": 96
+      },
+      {
+        "article": 8,
+        "file": "8.yaml",
+        "issues": ["商人表現: 利益が, が", "例え話なし"],
+        "length": 449
+      },
+      {
+        "article": 85,
+        "file": "85.yaml",
+        "issues": ["例え話なし"],
+        "length": 291
+      },
+      {
+        "article": 86,
+        "file": "86.yaml",
+        "issues": ["例え話なし"],
+        "length": 321
+      },
+      {
+        "article": 88,
+        "file": "88.yaml",
+        "issues": ["例え話なし"],
+        "length": 328
+      },
+      {
+        "article": 95,
+        "file": "95.yaml",
+        "issues": ["例え話なし"],
+        "length": 256
+      },
+      {
+        "article": 96,
+        "file": "96.yaml",
+        "issues": ["例え話なし"],
+        "length": 208
+      },
+      {
+        "article": 98,
+        "file": "98-2.yaml",
+        "issues": ["例え話なし"],
+        "length": 210
+      },
+      {
+        "article": 98,
+        "file": "98.yaml",
+        "issues": ["例え話なし"],
+        "length": 437
+      }
+    ]
+  }
+}
