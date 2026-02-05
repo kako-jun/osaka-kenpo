@@ -36,7 +36,8 @@ def fix_commentary(commentary_list, article_num):
     for i, paragraph in enumerate(commentary_list):
         text = str(paragraph)
 
-        # 「條」→「条」に統一
+        # commentaryOsakaの本文中のみ「條」→「条」に統一
+        # （タイトルは公式表記なので保持）
         text = text.replace("條", "条")
 
         # 第1段落の冒頭パターンを修正
@@ -75,15 +76,12 @@ def main():
 
         article_num = data.get("article", 0)
 
-        # commentaryOsakaを修正
+        # commentaryOsakaのみ修正
+        # （title, titleOsaka, originalText, commentaryは公式表記なので保持）
         if "commentaryOsaka" in data and data["commentaryOsaka"]:
             data["commentaryOsaka"] = fix_commentary(
                 data["commentaryOsaka"], article_num
             )
-
-        # titleOsakaも修正（もしあれば）
-        if "titleOsaka" in data and data["titleOsaka"]:
-            data["titleOsaka"] = data["titleOsaka"].replace("條", "条")
 
         # YAMLとして保存
         with open(yaml_file, "w", encoding="utf-8") as f:
