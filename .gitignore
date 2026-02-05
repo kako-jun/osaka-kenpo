@@ -41,3 +41,4 @@ next-env.d.ts
 .wrangler/
 db/seed.sql
 .mcp.json
+*.json
