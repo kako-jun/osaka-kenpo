@@ -1,7 +1,7 @@
 article: 1
 isAmendment: false
 title: Article. I.
-titleOsaka: "第1条"
+titleOsaka: '第1条'
 originalText:
   - Section. 1.
   - All legislative Powers herein granted shall be vested in a Congress of the United States, which shall consist of a Senate and House of Representatives.
@@ -17,8 +17,8 @@ originalText:
   - No Person shall be a Senator who shall not have attained to the Age of thirty Years, and been nine Years a Citizen of the United States, and who shall not, when elected, be an Inhabitant of that State for which he shall be chosen.
   - The Vice President of the United States shall be President of the Senate, but shall have no Vote, unless they be equally divided.
   - The Senate shall chuse their other Officers, and also a President pro tempore, in the Absence of the Vice President, or when he shall exercise the Office of President of the United States.
-  - "The Senate shall have the sole Power to try all Impeachments. When sitting for that Purpose, they shall be on Oath or Affirmation. When the President of the United States is tried, the Chief Justice shall preside: And no Person shall be convicted without the Concurrence of two thirds of the Members present."
-  - "Judgment in Cases of Impeachment shall not extend further than to removal from Office, and disqualification to hold and enjoy any Office of honor, Trust or Profit under the United States: but the Party convicted shall nevertheless be liable and subject to Indictment, Trial, Judgment and Punishment, according to Law."
+  - 'The Senate shall have the sole Power to try all Impeachments. When sitting for that Purpose, they shall be on Oath or Affirmation. When the President of the United States is tried, the Chief Justice shall preside: And no Person shall be convicted without the Concurrence of two thirds of the Members present.'
+  - 'Judgment in Cases of Impeachment shall not extend further than to removal from Office, and disqualification to hold and enjoy any Office of honor, Trust or Profit under the United States: but the Party convicted shall nevertheless be liable and subject to Indictment, Trial, Judgment and Punishment, according to Law.'
   - Section. 4.
   - The Times, Places and Manner of holding Elections for Senators and Representatives, shall be prescribed in each State by the Legislature thereof; but the Congress may at any time by Law make or alter such Regulations, except as to the Places of chusing Senators.
   - The Congress shall assemble at least once in every Year, and such Meeting shall be on the first Monday in December, unless they shall by Law appoint a different Day.
@@ -59,9 +59,9 @@ originalText:
   - No Bill of Attainder or ex post facto Law shall be passed.
   - No Capitation, or other direct, Tax shall be laid, unless in Proportion to the Census or enumeration herein before directed to be taken.
   - No Tax or Duty shall be laid on Articles exported from any State.
-  - "No Preference shall be given by any Regulation of Commerce or Revenue to the Ports of one State over those of another: nor shall Vessels bound to, or from, one State, be obliged to enter, clear, or pay Duties in another."
+  - 'No Preference shall be given by any Regulation of Commerce or Revenue to the Ports of one State over those of another: nor shall Vessels bound to, or from, one State, be obliged to enter, clear, or pay Duties in another.'
   - No Money shall be drawn from the Treasury, but in Consequence of Appropriations made by Law; and a regular Statement and Account of the Receipts and Expenditures of all public Money shall be published from time to time.
-  - "No Title of Nobility shall be granted by the United States: And no Person holding any Office of Profit or Trust under them, shall, without the Consent of the Congress, accept of any present, Emolument, Office, or Title, of any kind whatever, from any King, Prince, or foreign State."
+  - 'No Title of Nobility shall be granted by the United States: And no Person holding any Office of Profit or Trust under them, shall, without the Consent of the Congress, accept of any present, Emolument, Office, or Title, of any kind whatever, from any King, Prince, or foreign State.'
   - Section. 10.
   - No State shall enter into any Treaty, Alliance, or Confederation; grant Letters of Marque and Reprisal; coin Money; emit Bills of Credit; make any Thing but gold and silver Coin a Tender in Payment of Debts; pass any Bill of Attainder, ex post facto Law, or Law impairing the Obligation of Contracts, or grant any Title of Nobility.
   - "No State shall, without the Consent of the Congress, lay any Imposts or Duties on Imports or Exports, except what may be absolutely necessary for executing it's inspection Laws: and the net Produce of all Duties and Imposts, laid by any State on Imports or Exports, shall be for the Use of the Treasury of the United States; and all such Laws shall be subject to the Revision and Controul of the Congress."
@@ -199,6 +199,10 @@ commentary:
   - 連邦議会は上院（各州2人・6年任期）と下院（人口比例・2年任期）の二院制です。第8節で議会の権限を列挙し、第9節で議会の権限の制限を定めています。最後の「必要かつ適切な」条項（弾力条項）は連邦権限拡大の根拠となってきました。
   - 三権分立の第一の権力として立法権を規定し、大統領の拒否権（第7節）や弾劾制度（第2節・第3節）など、権力の抑制と均衡の仕組みを組み込んでいます。日本国憲法第41条以降の国会規定に相当しますが、より詳細で具体的です。
 commentaryOsaka:
-  - 立法府（連邦議会）を決める条項で、憲法の中で一番長くて詳しい条文やで。アメリカ憲法は本文7条しかないんやけど、この第1条だけで全体の半分以上を占めとるんや。
-  - 連邦議会は上院と下院の二院制やねん。これ、1787年の憲法制定会議で大モメにモメた結果できた仕組みなんや。人口の多い州（バージニアとか）は「人口に比例して議員を決めるべきや」って主張したんやけど、人口の少ない州（デラウェアとか）は「各州平等に議員を出すべきや」って譲らへんかったんやな。そこで「コネティカット妥協（Great Compromise）」っちゅう名案が出てきて、「下院は人口比例、上院は各州2人ずつ」っちゅう今の形に落ち着いたんや。上院は各州から2人ずつで6年任期、下院は人口に応じて選ばれて2年任期やから、上院は落ち着いててベテランが多くて、下院は若い人も多くて活気があるっちゅう感じやな。第8節で議会ができることを18個列挙しとるんやで。税金を取ること、戦争を宣言すること、郵便局を作ること、海賊を罰することとか、めっちゃ具体的に書いてあるんや。最後の「必要で適切な法律を全部作ること（Necessary and Proper Clause）」っちゅう条項は弾力条項って呼ばれとって、時代が変わっても柔軟に対応できるようにしてるんやけど、これが連邦政府の権限拡大の根拠にもなって論争の種にもなっとるんやな。
-  - 三権分立の一番目の権力として立法権を決めとるんやけど、ここが面白いのは、権力を抑えてバランスを取る仕組みがぎょうさん組み込まれとることやねん。大統領が法案に拒否権を使えるし（第7節）、議会はその拒否権を3分の2の賛成で覆せるんや。議会は大統領や裁判官を弾劾できる（第2節・第3節）権限も持っとるで。下院が弾劾を決議して、上院が裁判をするっちゅう二段階方式やねん。例えば、トランプ大統領は在任中に2回も弾劾されたけど（2019年と2021年）、上院で3分の2の賛成が得られんくて無罪になったんや。これ、じゃんけんみたいに、どこか一つが強くなりすぎへんようにしてるんやな。第9節64項には「アメリカが貴族の称号を与えたらあかん」っちゅう決まりもあって、王様とか貴族のおる社会への強い拒否感が表れとるんやで。建国の父たちは「権力は腐敗する、絶対的権力は絶対に腐敗する」って信じとったから、議会の権限をはっきり書いて制限したんや。日本国憲法の国会の決まり（第41条以降）に当たるけど、アメリカの方がもっと詳しくて具体的やな。
+  - 立法府（連邦議会）を決める条項で、憲法の中で一番長くて詳しい条文なんやで。アメリカ憲法は本文7条しかないんやけど、この第1条だけで全体の半分以上を占めとるんや。建国の父たちが「立法府こそが民主主義の心臓部や」って考えとったから、めっちゃ丁寧に決まりを作ったんやな。
+
+  - 連邦議会は上院と下院の二院制やねん。これ、1787年の憲法制定会議でものすごい大モメになった結果できた仕組みなんや。人口の多い州（バージニアとか）は「人口に比例して議員を決めるべきや！」って主張したんやけど、人口の少ない州（デラウェアとか）は「各州平等に議員を出すべきや！」って譲らへんかったんやな。会議が決裂しそうになったとき、コネティカット州の代表が「下院は人口比例、上院は各州2人ずつにしたらどうや？」って提案して、みんなが「それならええわ」って納得したんや。これを「コネティカット妥協（Great Compromise）」って呼ぶんやで。例えばな、カリフォルニア州は人口4,000万人やけど、ワイオミング州は人口60万人しかおらんのや。下院やとカリフォルニアは52人も議員がおるのに、ワイオミングは1人だけやねん。せやけど上院やと両方とも2人ずつで平等なんや。これで大きい州も小さい州も納得できる仕組みができたんやな。
+
+  - 第8節で議会ができることを18個列挙しとるんやけど、これがめっちゃ具体的で面白いんや。税金を取ること、戦争を宣言すること、郵便局を作ること、海賊を罰することとか、当時の社会がどんなもんやったか想像できるやろ？最後の「必要で適切な法律を全部作ること（Necessary and Proper Clause）」っちゅう条項は弾力条項って呼ばれてて、時代が変わっても柔軟に対応できるようにしてるんやな。例えば、1787年には電気もなかったし飛行機もなかったけど、この弾力条項のおかげで、連邦航空局（FAA）を作ったり電力規制をしたりできるようになったんや。せやけど、「これって連邦政府の権限拡大の口実ちゃうん？」っちゅう批判もあるんやで。実際、1819年のマカロック対メリーランド判決で、最高裁が「弾力条項は広く解釈してええ」って言うてから、連邦政府の権限がどんどん大きくなっていったんやな。
+
+  - 三権分立の一番目の権力として立法権を決めとるんやけど、ここが面白いのは、権力を抑えてバランスを取る仕組みがぎょうさん組み込まれとることやねん。大統領が法案に拒否権（veto）を使えるし、議会はその拒否権を3分の2の賛成で覆せるんや。議会は大統領や裁判官を弾劾できる権限も持っとるで。下院が「この人クビにすべきや」って決議して、上院が裁判をするっちゅう二段階方式やねん。例えばな、トランプ大統領は在任中に2回も弾劾されたんや（2019年のウクライナ疑惑と2021年の議事堂襲撃扇動）。せやけど上院で3分の2の賛成が得られんくて、両方とも無罪になったんやで。これ、じゃんけんみたいに、どこか一つが強くなりすぎへんようにしてるんやな。第9節64項には「アメリカが貴族の称号を与えたらあかん」っちゅう決まりもあって、王様とか貴族のおる社会への強い拒否感が表れとるんや。建国の父たちは「権力は腐敗する、絶対的権力は絶対に腐敗する」って信じとったから、議会の権限をはっきり書いて制限したんやで。日本国憲法の国会の決まり（第41条以降）に当たるけど、アメリカの方がもっと詳しくて具体的に書いてあるんや。
