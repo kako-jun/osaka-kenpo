@@ -1,6 +1,6 @@
-article: "76"
+article: '76'
 title: Art 76
-titleOsaka: "第76条"
+titleOsaka: '第76条'
 originalText:
   - (1) Gesetzesvorlagen werden beim Bundestage durch die Bundesregierung, aus der Mitte des Bundestages oder durch den Bundesrat eingebracht.
   - (2) Vorlagen der Bundesregierung sind zunächst dem Bundesrat zuzuleiten. Der Bundesrat ist berechtigt, innerhalb von sechs Wochen zu diesen Vorlagen Stellung zu nehmen. Verlangt er aus wichtigem Grunde, insbesondere mit Rücksicht auf den Umfang einer Vorlage, eine Fristverlängerung, so beträgt die Frist neun Wochen. Die Bundesregierung kann eine Vorlage, die sie bei der Zuleitung an den Bundesrat ausnahmsweise als besonders eilbedürftig bezeichnet hat, nach drei Wochen oder, wenn der Bundesrat ein Verlangen nach Satz 3 geäußert hat, nach sechs Wochen dem Bundestag zuleiten, auch wenn die Stellungnahme des Bundesrates noch nicht bei ihr eingegangen ist; sie hat die Stellungnahme des Bundesrates unverzüglich nach Eingang dem Bundestag nachzureichen. Bei Vorlagen zur Änderung dieses Grundgesetzes und zur Übertragung von Hoheitsrechten nach Artikel 23 oder Artikel 24 beträgt die Frist zur Stellungnahme neun Wochen; Satz 4 findet keine Anwendung.
@@ -16,7 +16,6 @@ osakaText:
 commentary:
   - 第1項は、法律案を連邦議会に提出できるのは連邦政府、連邦議会議員、連邦参議院の3者であることを定めています。第2項は、政府提出法案については、まず連邦参議院に送付し、6週間（重要な場合9週間）以内に意見を求めることを規定しています。緊急性がある場合は短縮も可能です。憲法改正案等は9週間必要です。第3項は、連邦参議院提出法案については、政府が6週間以内に議会に送付し、政府見解を付すことを定めています。このように、法案提出段階から連邦参議院の関与を確保し、連邦制の調整を図る仕組みです。
 commentaryOsaka:
-  - 第1項は「法律案を連邦議会に出せるのは、政府、連邦議会議員、連邦参議院の3つや」っちゅうことや。日本やと内閣と国会議員だけやけど、ドイツは州の代表である連邦参議院も法案提出権を持っとるんや。これがめっちゃ大事でな。州が「こういう法律が必要や」って思ったら、連邦参議院を通じて連邦議会に法案を出せるんや。これで州の声が立法に直接反映されるんやな。日本の地方自治体は国会に法案出されへんから、この違いは大きいで。
-  - 第2項では「政府が法案出す時は、まず連邦参議院に送って6週間（大事な案件は9週間）意見を聞く。緊急の時は3週間に短縮できるけど、憲法改正とか主権の移譲（EUへの権限委譲とか）は必ず9週間」って決めてるんや。なんでこんなことするかっちゅうと、政府が作った法案でも州に影響があることが多いからなんや。例えば、教育法を変えるとしたら、実際に学校を運営してるのは州やから、州の意見を聞かんと現場で混乱するやろ？せやから、法案作る段階から州に見せて意見もらうんや。これで「法律作ったけど実行できへん」っていう事態を防いでるんやな。
-  - 第3項は「連邦参議院が法案出す時は、政府が6週間以内に連邦議会に送って、政府の意見も付ける」っちゅうことや。州が法案出しても、政府が「これはこういう問題があるで」とか「こうした方がええんちゃう？」って意見を添えられるんやな。学校で例えたら「生徒会が提案する時は、まず先生に見せて意見もらう。先生が提案する時は、生徒会に見せて意見もらう。どっちが提案しても、相手の意見を聞いてから全体会議に出す」みたいな感じや。これで、連邦と州がお互いの立場を理解した上で法律が作られるんや。第76条は立法過程の入口で、ここから連邦と州の協働が始まるんやで。
-
+  - あたしな、この第76条見てドイツ連邦制の民主性にほんま感心したんや。第1項は「法律案を連邦議会に出せるのは、政府、連邦議会議員、連邦参議院の3つや」っちゅうことやねん。日本やと内閣と国会議員だけやけど、ドイツは州の代表である連邦参議院も法案提出権を持っとるんや。これがめっちゃ大事でな。州が「こういう法律が必要や」って思ったら、連邦参議院を通じて連邦議会に法案を出せるんや。例えばな、1990年のドイツ再統一の時、新しく加わった東ドイツの5つの州が「東西格差を是正する法律が必要や」って声を上げて、連邦参議院から法案提出できたんやで。これで州の声が立法に直接反映されるんやな。日本の地方自治体は国会に法案出されへんから、この違いは大きいで。ドイツは「州が主役の連邦制」っていう発想なんや。
+  - 第2項がめっちゃ丁寧な手続きやねん。「政府が法案出す時は、まず連邦参議院に送って6週間（大事な案件は9週間）意見を聞く。緊急の時は3週間に短縮できるけど、憲法改正とか主権の移譲（EUへの権限委譲とか）は必ず9週間」って決めてるんや。なんでこんなことするかっちゅうと、政府が作った法案でも州に影響があることが多いからなんや。例えば、2006年の連邦制改革で教育権限を州に移す改正があったんやけど、その前に各州が何ヶ月もかけて意見調整したんやで。実際に学校を運営してるのは州やから、州の意見を聞かんと現場で混乱するやろ？せやから、法案作る段階から州に見せて意見もらうんや。これで「法律作ったけど実行できへん」っていう事態を防いでるんやな。緊急時は短縮できるけど、憲法改正とか主権移譲（EU統合関連）みたいな国の将来を決める重要案件は、必ず9週間かけて州の意見を丁寧に聞くんや。これがドイツの慎重さやで。
+  - 第3項は「連邦参議院が法案出す時は、政府が6週間以内に連邦議会に送って、政府の意見も付ける」っちゅうことや。州が法案出しても、政府が「これはこういう問題があるで」とか「こうした方がええんちゃう？」って意見を添えられるんやな。例えばな、2000年代に連邦参議院が「地方の中小企業支援法」を提案した時、連邦経済省が「この財源確保が課題やで」っていう詳細な意見書を付けたんや。これで議論が深まるんやな。学校で例えたら「生徒会が提案する時は、まず先生に見せて意見もらう。先生が提案する時は、生徒会に見せて意見もらう。どっちが提案しても、相手の意見を聞いてから全体会議に出す」みたいな感じや。これで、連邦と州がお互いの立場を理解した上で法律が作られるんや。第76条は立法過程の入口で、ここから連邦と州の協働が始まるんやで。法案提出だけでこれだけ丁寧な仕組みがあるっていうのが、ドイツ連邦制の真髄なんや。
