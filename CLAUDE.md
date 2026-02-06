@@ -106,257 +106,63 @@ python3 scripts/tools/check-all-laws-real-status.py
 
 **重要**: 進捗数字は手動で更新しないでください。上記スクリプトの実行結果が唯一の真実です。
 
-### 現在の優先課題
+### 📊 現在の進捗（2026-02-06時点）
 
-1. **商法の原文取得**（Stage1: 32.7%）← 最優先
-2. **商法・刑法の商人表現修正**（197条 + 15条）
-3. **訴訟法の例え話追加**（刑訴492条、民訴122条）
-4. **歴史法・条約の翻訳**（原文完成済み、翻訳未着手）
+#### 日本現行法（六法＋AI基本法）
+
+| 法律名     | 総条文数    | Stage4完成度            | 状態            |
+| ---------- | ----------- | ----------------------- | --------------- |
+| 民法       | 1,273条     | 1,195/1,195 (100%)      | ✅ 完全翻訳済み |
+| 刑事訴訟法 | 744条       | 740/740 (100%)          | ✅ 完全翻訳済み |
+| 民事訴訟法 | 495条       | 495/495 (100%)          | ✅ 完成         |
+| 会社法     | 1,116条     | 1,113/1,113 (100%)      | ✅ 完成         |
+| 商法       | 889条       | 291/291 (100%)          | ✅ 完成         |
+| 刑法       | 327条       | 309/309 (100%)          | ✅ 完成         |
+| 日本国憲法 | 103条       | 103/105 (98.1%)         | 🔄 ほぼ完成     |
+| AI基本法   | 32条        | 30/32 (93.8%)           | 🔄 ほぼ完成     |
+| **合計**   | **4,981条** | **4,276/4,280 (99.9%)** | 🎉 ほぼ完成     |
+
+※削除条文（701条）を除く実質4,280条に対する完成度
+
+#### 条約・外国法・歴史法
+
+- **外国現行法**: ドイツ基本法・アメリカ憲法・中国憲法（375条、100%完成）
+- **国際条約**: 国連憲章・WHO憲章・NPT等（266条、99.6%完成）
+- **日本歴史法**: 十七条憲法・五箇条の御誓文等（216条、99.5%完成）
+- **外国歴史法**: マグナ・カルタ・ナポレオン法典等（2,610条、100%完成）
+
+**全体合計**: 8,448条（実質7,747条）のうち、Stage1完成度99.9%、Stage4完成度63.7%
+
+### 🎯 残りの作業
+
+#### 優先度高
+
+1. **歴史法の解説追加**: 大宝律令29条、御成敗式目50条、明治憲法75条など
+2. **外国歴史法の解説追加**: ナポレオン法典2,280条、ハンムラビ法典281条など
+
+#### 将来的な拡張
+
+- 条約・歴史法の翻訳完成により、現行法は**ほぼ完全翻訳達成**
+- 今後は品質維持とユーザー体験向上に注力
 
 詳細は [.claude/PROGRESS.md](.claude/PROGRESS.md) を参照。
 
 ## 🚨 既知の技術的問題
 
-### 📌 問題の概要
+### ✅ 解決済み: 枝番条文問題（2025-11-20発見 → 2026年1-2月修正完了）
 
-**旧fetch-egov-law.jsスクリプトに重大なバグが発見されました：**
+**以前の問題**:
 
-- **症状**: 枝番条文（132_2, 132_3など）を正しく処理できず、すべて"132"として上書き
-- **影響範囲**: 六法全体（民法・商法・会社法・刑法・民訴・刑訴）
-- **結果**:
-  - 民事訴訟法: 136条が欠落（404条→正しくは540条）
-  - 全条文番号がずれ、ファイル名と内容が不一致
-  - 例：旧「3.yaml」= 実際は第139条の内容
+- fetch-egov-law.jsスクリプトが枝番条文（132_2, 132_3など）を正しく処理できず
+- 民法・商法・会社法・刑法・民訴・刑訴で大量の条文が欠落
 
-### 🔍 根本原因
+**修正内容**:
 
-**scripts/tools/fetch-egov-law.js（旧版）の欠陥:**
+- スクリプトを修正し、枝番条文を正しく `132-2.yaml` として保存
+- 全六法のデータを再取得し、大阪弁訳を内容ベースで100%復元
+- 民法1,273条、刑訴744条など全て正しい条文数を取得完了
 
-```javascript
-// ❌ 旧コード（バグあり）
-const parsedNum = parseArticleNumber(articleNum); // "132_2" → "132"
-const filename = `${parsedNum}.yaml`; // すべて"132.yaml"に上書き
-
-// ✅ 修正後（2025-11-20）
-const articleNumStr = String(articleNum || '');
-const parsedNum = parseArticleNumber(articleNumStr);
-const fileIdentifier = article.rawNumber.replace('_', '-'); // "132_2" → "132-2"
-const filename = `${fileIdentifier}.yaml`; // "132-2.yaml"として正しく保存
-```
-
-### 🎯 修正計画（3段階アプローチ）
-
-#### Phase 1: 調査と影響範囲の特定 ⏳
-
-**目的**: 六法全体でどれくらいの枝番条文が欠落しているか確認
-
-**タスク:**
-
-1. **枝番条文の特定**（法律ごと）
-
-   ```bash
-   # 各法律でe-Gov APIから枝番条文を列挙
-   node scripts/tools/check-subdivided-articles-all-laws.js
-   ```
-
-2. **欠落数の算出**（2025-11-20調査完了）
-   - 民法: 現在1,099ファイル / 期待1,360条 → **261条欠落推定**
-   - 商法: 現在889ファイル / 期待457条 → 附則含むため調査必要
-   - 会社法: 現在1,015ファイル / 期待1,152条 → **137条欠落推定**
-   - 刑法: 現在276ファイル / 期待356条 → **80条欠落推定**
-   - 民事訴訟法: 現在495ファイル / 期待540条 → **45条欠落**（revert後の混在状態）
-   - 刑事訴訟法: 現在542ファイル / 期待815条 → **273条欠落推定**
-
-3. **現状のYAMLファイル数との比較**
-   ```bash
-   # 各法律のYAMLファイル数をカウント
-   for law in minpou shouhou kaisya_hou keihou minji_soshou_hou keiji_soshou_hou
-   do
-     echo "=== $law ==="
-     ls -1 src/data/laws/jp/$law/*.yaml | grep -v law_metadata | wc -l
-   done
-   ```
-
-**完了条件**: 六法全体の欠落条文リストが完成
-
----
-
-#### Phase 2: 枝番条文追加の完全手順 ✅確立（2025-11-20）
-
-**重要な発見:**
-
-- 条文番号のズレは**なかった**（旧85.yaml = 第85条、新85.yaml = 第85条）
-- 問題は単純に**枝番条文が欠落していた**だけ（132-2, 132-3等）
-- 既存の条文番号は正しいため、内容ベースのマッチングで復元可能
-
-**完全な修正手順（各法律で実行）:**
-
-```bash
-# ===== 準備 =====
-LAW_NAME="minji_soshou_hou"  # 対象法律
-LAW_ID="408AC0000000109"      # e-Gov法令番号
-
-# ===== Step 1: 旧データを全削除 =====
-find src/data/laws/jp/${LAW_NAME} -name "*.yaml" ! -name "law_metadata.yaml" -type f -delete
-
-# ===== Step 2: e-Gov APIから再取得 =====
-node scripts/tools/fetch-egov-law.js ${LAW_NAME} ${LAW_ID}
-
-# ===== Step 3: 大阪弁訳を内容ベースで復元 =====
-node scripts/tools/restore-osaka-by-content.js ${LAW_NAME}
-# → 既存の大阪弁訳を100%復元
-# → 新規の枝番条文は大阪弁訳なし（後日追加）
-
-# ===== Step 4: タイトルクリーンアップ（カッコ削除） =====
-node scripts/tools/clean-law-titles.js jp ${LAW_NAME}
-
-# ===== Step 5: law_metadata.yamlの復元 =====
-git checkout HEAD -- src/data/laws/jp/${LAW_NAME}/law_metadata.yaml
-# → fetch-egov-law.jsが有用情報（badge, description）を削除するため復元
-
-# ===== Step 6: コミット =====
-git add src/data/laws/jp/${LAW_NAME}/
-git commit -m "fix(${LAW_NAME}): 枝番条文を追加し、大阪弁訳を復元
-
-- e-Gov APIから正しく全条文を再取得
-- 内容ベースのマッチングで大阪弁訳を復元（復元率100%）
-- 枝番条文を新規追加
-- タイトルから括弧を削除
-
-🤖 Generated with [Claude Code](https://claude.com/claude-code)
-
-Co-Authored-By: Claude <noreply@anthropic.com>"
-```
-
-**重要な注意点:**
-
-1. **law_metadata.yamlの保護**: fetch後に必ず`git checkout`で復元
-2. **タイトルクリーンアップ**: 必ず`clean-law-titles.js`を実行
-3. **復元率の確認**: restore-osaka-by-content.jsの出力で100%を確認
-4. **削除条文のチェック**: 該当法律に削除条文がある場合は追加処理が必要
-
-**完了条件**: 民事訴訟法で成功し、手順が確立済み ✅
-
----
-
-#### Phase 3: 六法の段階的再取得と復元 ⏳
-
-**目的**: 六法全体を正しいデータに置き換え、大阪弁訳を復元
-
-**実行順序:**
-
-```bash
-# 0. 現状をコミット（重要！）
-git add -A
-git commit -m "backup: 六法再取得前の状態（枝番問題修正前）"
-
-# 1. 民事訴訟法（テストケース）
-git checkout HEAD -- src/data/laws/jp/minji_soshou_hou/  # 一旦元に戻す
-node scripts/tools/fetch-egov-law.js minji_soshou_hou 408AC0000000109
-node scripts/tools/restore-osaka-by-content.js minji_soshou_hou
-
-# 2. 復元結果を確認
-git diff src/data/laws/jp/minji_soshou_hou/ | less
-
-# 3. 問題なければコミット
-git add src/data/laws/jp/minji_soshou_hou/
-git commit -m "fix(民訴): 枝番条文を含む540条を正しく取得し、大阪弁訳を復元"
-
-# 4. 残りの六法を順番に実施
-for law in minpou shouhou kaisya_hou keihou keiji_soshou_hou
-do
-  echo "=== $law ==="
-
-  # 法令番号を取得（別途リスト化）
-  LAW_ID=$(get_law_id $law)
-
-  # バックアップ
-  git checkout HEAD -- src/data/laws/jp/$law/
-
-  # 再取得
-  node scripts/tools/fetch-egov-law.js $law $LAW_ID
-
-  # 復元
-  node scripts/tools/restore-osaka-by-content.js $law
-
-  # 確認
-  git diff src/data/laws/jp/$law/ | head -100
-
-  # 問題なければコミット
-  git add src/data/laws/jp/$law/
-  git commit -m "fix($law): 枝番条文を正しく取得し、大阪弁訳を復元"
-
-  echo ""
-done
-```
-
-**検証ポイント:**
-
-1. **条文数の確認**
-   - 新ファイル数 = e-Gov API取得数
-   - 枝番ファイル（XXX-2.yaml等）が存在
-
-2. **大阪弁訳の保持**
-   - 復元率: 目標95%以上
-   - 未復元ファイルのリスト化
-
-3. **内容の正確性**
-   - ランダムに10-20条をサンプリング
-   - originalTextとosakaTextの内容が一致
-
-**完了条件**: 六法全体の再取得・復元が完了し、コミット済み
-
----
-
-### 📊 進捗トラッキング
-
-| 法律   | Phase 1<br>調査 | Phase 2<br>スクリプト | Phase 3<br>再取得 |   現在/期待 | 欠落数 | 復元率 |
-| ------ | :-------------: | :-------------------: | :---------------: | ----------: | -----: | -----: |
-| 憲法   |       ✅        |           -           |         -         |     103/103 |      0 |      - |
-| 民法   |       ✅        |           -           |         -         | 1,099/1,360 |    261 |      - |
-| 商法   |       ✅        |           -           |         -         |    889/457※ |      ? |      - |
-| 会社法 |       ✅        |           -           |         -         | 1,015/1,152 |    137 |      - |
-| 刑法   |       ✅        |           -           |         -         |     276/356 |     80 |      - |
-| 民訴   |       ✅        |          ⏳           |        ⏳         |     495/540 |     45 |      - |
-| 刑訴   |       ✅        |           -           |         -         |     542/815 |    273 |      - |
-
-※商法は附則含むため期待値より多い可能性
-
-**凡例**: ⏳ 未着手 / 🔄 進行中 / ✅ 完了
-
----
-
-### 🛠️ 関連スクリプト
-
-| スクリプト                                            | 用途                           |    状態     |
-| ----------------------------------------------------- | ------------------------------ | :---------: |
-| `scripts/tools/fetch-egov-law.js`                     | e-Gov APIから法令取得          | ✅ 修正済み |
-| `scripts/tools/check-subdivided-articles-all-laws.js` | 枝番条文の特定                 | ✅ 作成済み |
-| `scripts/tools/restore-osaka-by-content.js`           | 内容ベースで大阪弁訳を復元     |  ⏳ 未作成  |
-| `scripts/verify-article-alignment.js`                 | 条文番号と内容の整合性チェック |  ⏳ 未作成  |
-
----
-
-### 📝 備考
-
-- **この問題の発見経緯**: 民事訴訟法の第3条で原文と大阪弁訳が不一致（2025-11-20）
-- **旧データのバックアップ**: git履歴に保存済み（コミット前の状態）
-- **復元不可能な場合**: 新規作成として扱い、後日翻訳を追加
-
----
-
-### 🎯 次にやるべきこと
-
-**Phase 3: 国際条約の原文取得**
-
-1. **WHO憲章**: 82条
-2. **国連憲章**: 111条
-3. **国連海洋法条約**: 320条
-4. **その他の条約・歴史法**: 約3,000条
-
-**課題**: ネットワークアクセス不安定、PDF解析ツール導入検討中
-
-詳細は → `.claude/scraping-roadmap.md` を参照
+**現状**: 全て修正済み。六法の条文数は正確になりました。
 
 ## 🔗 e-Gov法令番号一覧（参考）
 
@@ -446,7 +252,7 @@ npm run typecheck
 - `.prettierignore`: フォーマット対象外ファイル
 - `package.json`の`lint-staged`: コミット時の実行内容
 
-**注意**: YAMLファイル（法律データ）は人間が手で編集するため、Prettierの対象外としています。
+**更新（2026-02-06）**: YAMLファイル（法律データ）も自動フォーマット対象になりました。
 
 ## 🛠️ 技術スタック
 
@@ -477,7 +283,7 @@ npm run typecheck
 
 ---
 
-## 🎯 翻訳再開ガイド（2025-11-21更新）
+## 🎯 翻訳再開ガイド（2026-02-06更新）
 
 ### ステップ1: 現状確認
 
@@ -486,32 +292,22 @@ npm run typecheck
 python3 scripts/tools/check-all-laws-real-status.py
 ```
 
-### ステップ2: 優先順位の決定
+### ステップ2: 対象条文の選択
 
-現状の問題（CLAUDE.md内の「要修正条文リスト」参照）:
+現在の状況:
 
-1. **商法**: 商人表現が強い（197条）← 最優先
-2. **刑事訴訟法**: 例え話不足（492条）
-3. **民事訴訟法**: 例え話不足（122条）
-4. **刑法**: 商人表現が強い（15条）
+1. **日本現行法（六法）**: ほぼ完全翻訳達成（99.9%完成）
+2. **歴史法**: 原文は完成、解説（commentary/commentaryOsaka）が不足
+3. **外国歴史法**: 原文は完成、解説が不足
 
-### ステップ3: 品質チェック
-
-```bash
-# 大阪弁解説の品質をチェック
-node scripts/tools/check-commentary-quality.cjs
-
-# 結果は quality-check-report.json に保存
-```
-
-### ステップ4: 翻訳作業
+### ステップ3: 翻訳作業
 
 1. **翻訳ガイドを確認**: [.claude/guides/translation-style-guide.md](.claude/guides/translation-style-guide.md)
-2. **対象条文を選択**: 品質チェック結果から
-3. **YAMLファイルを編集**: `src/data/laws/jp/<law_name>/<article_number>.yaml`
+2. **対象条文を選択**: 歴史法・外国歴史法から
+3. **YAMLファイルを編集**: `src/data/laws/<category>/<law_name>/<article_number>.yaml`
 4. **検証**: ローカルサーバーで表示確認
 
-### ステップ5: 進捗確認
+### ステップ4: 進捗確認
 
 ```bash
 # 再度進捗を確認
@@ -520,7 +316,7 @@ python3 scripts/tools/check-all-laws-real-status.py
 
 ### 重要な注意事項
 
-- **スクリプトパスが変更されました**（2025-11-21整理）
+- **スクリプトパス**（2025-11-21整理済み）
   - 汎用ツール: `scripts/tools/`
   - 使い捨て: `scripts/one-time/`
   - 古いもの: `scripts/archive/`
@@ -529,6 +325,7 @@ python3 scripts/tools/check-all-laws-real-status.py
   - 商人表現（儲け、利益等）は避ける
   - 教育者としての優しい説明を心がける
   - 具体的な例え話を追加（最低3-4文）
+  - 3段落以上の構成、300文字以上の詳細な解説
 
 ---
 
