@@ -9,9 +9,10 @@ import { SharePlatformButton } from './share/SharePlatformButton';
 interface ShareButtonProps {
   title?: string;
   url?: string;
+  popupDirection?: 'up' | 'down';
 }
 
-export const ShareButton = ({ title, url }: ShareButtonProps) => {
+export const ShareButton = ({ title, url, popupDirection = 'down' }: ShareButtonProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const { copied, copyToClipboard } = useCopyToClipboard();
 
@@ -55,7 +56,9 @@ export const ShareButton = ({ title, url }: ShareButtonProps) => {
       {isOpen && (
         <>
           <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
-          <div className="absolute right-0 top-12 bg-white rounded-lg shadow-xl border border-gray-200 z-50 min-w-[200px]">
+          <div
+            className={`absolute right-0 ${popupDirection === 'up' ? 'bottom-12' : 'top-12'} bg-white rounded-lg shadow-xl border border-gray-200 z-50 min-w-[200px]`}
+          >
             <div className="p-4 border-b border-gray-200" style={{ backgroundColor: '#FFF8DC' }}>
               <div className="font-medium" style={{ color: '#8B4513' }}>
                 広めたる
