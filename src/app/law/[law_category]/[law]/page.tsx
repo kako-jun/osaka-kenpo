@@ -9,15 +9,77 @@ import {
 import { ShareButton } from '@/app/components/ShareButton';
 import { ArticleListItem } from '@/app/components/ArticleListItem';
 import { lawsMetadata } from '@/data/lawsMetadata';
+import Link from 'next/link';
 
 export const runtime = 'edge';
 
+const ARTICLES_PER_PAGE = 100;
+
+// 条文番号から数値を抽出（ソート用）
+function getArticleNumber(article: string): number {
+  // suppl_1 → 100000 + 1 = 100001
+  if (article.startsWith('suppl_')) {
+    return 100000 + parseInt(article.replace('suppl_', ''), 10);
+  }
+  // amendment_1 → 200000 + 1 = 200001
+  if (article.startsWith('amendment_')) {
+    return 200000 + parseInt(article.replace('amendment_', ''), 10);
+  }
+  // 1-2 → 1.5 のような枝番
+  const match = article.match(/^(\d+)-(\d+)$/);
+  if (match) {
+    return parseInt(match[1], 10) + parseInt(match[2], 10) * 0.001;
+  }
+  // 通常の数値
+  const num = parseInt(article, 10);
+  return isNaN(num) ? 999999 : num;
+}
+
+// 条文を分類
+function classifyArticles(articles: ArticleRow[]) {
+  const normal: ArticleRow[] = [];
+  const supplementary: ArticleRow[] = [];
+
+  for (const article of articles) {
+    const articleStr = String(article.article);
+    if (articleStr.startsWith('suppl_') || articleStr.startsWith('amendment_')) {
+      supplementary.push(article);
+    } else {
+      normal.push(article);
+    }
+  }
+
+  // ソート
+  normal.sort((a, b) => getArticleNumber(String(a.article)) - getArticleNumber(String(b.article)));
+  supplementary.sort(
+    (a, b) => getArticleNumber(String(a.article)) - getArticleNumber(String(b.article))
+  );
+
+  return { normal, supplementary };
+}
+
+// ページ範囲を計算
+function getPageRanges(totalArticles: number): { start: number; end: number; label: string }[] {
+  const ranges: { start: number; end: number; label: string }[] = [];
+  for (let i = 0; i < totalArticles; i += ARTICLES_PER_PAGE) {
+    const start = i + 1;
+    const end = Math.min(i + ARTICLES_PER_PAGE, totalArticles);
+    ranges.push({ start, end, label: `${start}〜${end}条` });
+  }
+  return ranges;
+}
+
 export default async function LawArticlesPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ law_category: string; law: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const { law_category, law } = await params;
+  const resolvedSearchParams = await searchParams;
+  const pageParam = resolvedSearchParams.page;
+  const currentPage = typeof pageParam === 'string' ? parseInt(pageParam, 10) || 1 : 1;
 
   // D1から並行でデータ取得
   const [articles, lawMetadata, chapters, famousArticles] = await Promise.all([
@@ -44,9 +106,9 @@ export default async function LawArticlesPage({
     );
   }
 
-  // 章でグループ化
+  // 章でグループ化（章構成がある法律用）
   const hasChapters = chapters && chapters.length > 0;
-  let groupedArticles: { [chapterKey: string]: { chapter: ChapterRow; articles: ArticleRow[] } } =
+  const groupedArticles: { [chapterKey: string]: { chapter: ChapterRow; articles: ArticleRow[] } } =
     {};
 
   if (hasChapters) {
@@ -63,6 +125,21 @@ export default async function LawArticlesPage({
       };
     }
   }
+
+  // 条文を分類
+  const { normal, supplementary } = classifyArticles(articles);
+  const totalNormalArticles = normal.length;
+  const needsPagination = totalNormalArticles > ARTICLES_PER_PAGE;
+
+  // ページング計算
+  const pageRanges = getPageRanges(totalNormalArticles);
+  const startIndex = (currentPage - 1) * ARTICLES_PER_PAGE;
+  const endIndex = Math.min(startIndex + ARTICLES_PER_PAGE, totalNormalArticles);
+  const currentArticles = needsPagination ? normal.slice(startIndex, endIndex) : normal;
+
+  // 附則ページかどうか
+  const showSupplementary = pageParam === 'suppl' || (!needsPagination && supplementary.length > 0);
+  const isSupplPage = pageParam === 'suppl';
 
   return (
     <div className="min-h-screen bg-cream">
@@ -92,44 +169,165 @@ export default async function LawArticlesPage({
           </div>
         )}
 
-        <div className="max-w-4xl mx-auto">
-          {hasChapters
-            ? // 章構成がある場合
-              Object.values(groupedArticles)
-                .filter((group) => group.articles.length > 0)
-                .map(({ chapter, articles: chapterArticles }) => (
-                  <div key={chapter.chapter} className="mb-8">
-                    <div className="mb-4">
-                      <h2 className="text-xl font-bold text-[#E94E77] border-b-2 border-[#E94E77] pb-2">
-                        {chapter.title}
-                      </h2>
-                      {chapter.description && (
-                        <p className="text-sm text-gray-600 mt-2">{chapter.description}</p>
-                      )}
-                    </div>
+        {/* ページネーション（条文数が多い場合） */}
+        {needsPagination && (
+          <div className="max-w-4xl mx-auto mb-6">
+            <div className="flex flex-wrap gap-2 justify-center">
+              {pageRanges.map((range, index) => {
+                const pageNum = index + 1;
+                const isActive = !isSupplPage && currentPage === pageNum;
+                return (
+                  <Link
+                    key={pageNum}
+                    href={`/law/${law_category}/${law}${pageNum === 1 ? '' : `?page=${pageNum}`}`}
+                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                      isActive
+                        ? 'bg-[#E94E77] text-white'
+                        : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                    }`}
+                  >
+                    {range.label}
+                  </Link>
+                );
+              })}
+              {supplementary.length > 0 && (
+                <Link
+                  href={`/law/${law_category}/${law}?page=suppl`}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                    isSupplPage
+                      ? 'bg-[#E94E77] text-white'
+                      : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                  }`}
+                >
+                  附則
+                </Link>
+              )}
+            </div>
+          </div>
+        )}
 
-                    {chapterArticles.map((article) => (
-                      <ArticleListItem
-                        key={article.article}
-                        article={article.article}
-                        title={article.title || ''}
-                        href={`/law/${law_category}/${law}/${article.article}`}
-                        famousArticleBadge={famousArticles?.[article.article.toString()]}
-                      />
-                    ))}
-                  </div>
-                ))
-            : // 章構成がない場合
-              articles.map((article) => (
+        <div className="max-w-4xl mx-auto">
+          {isSupplPage ? (
+            // 附則ページ
+            <div>
+              <h2 className="text-xl font-bold text-[#E94E77] border-b-2 border-[#E94E77] pb-2 mb-4">
+                附則
+              </h2>
+              {supplementary.map((article) => (
                 <ArticleListItem
                   key={article.article}
                   article={article.article}
                   title={article.title || ''}
                   href={`/law/${law_category}/${law}/${article.article}`}
                   famousArticleBadge={famousArticles?.[article.article.toString()]}
+                  isDeleted={article.is_deleted === 1}
                 />
               ))}
+            </div>
+          ) : hasChapters && !needsPagination ? (
+            // 章構成があり、ページングが不要な場合
+            Object.values(groupedArticles)
+              .filter((group) => group.articles.length > 0)
+              .map(({ chapter, articles: chapterArticles }) => (
+                <div key={chapter.chapter} className="mb-8">
+                  <div className="mb-4">
+                    <h2 className="text-xl font-bold text-[#E94E77] border-b-2 border-[#E94E77] pb-2">
+                      {chapter.title}
+                    </h2>
+                    {chapter.description && (
+                      <p className="text-sm text-gray-600 mt-2">{chapter.description}</p>
+                    )}
+                  </div>
+
+                  {chapterArticles.map((article) => (
+                    <ArticleListItem
+                      key={article.article}
+                      article={article.article}
+                      title={article.title || ''}
+                      href={`/law/${law_category}/${law}/${article.article}`}
+                      famousArticleBadge={famousArticles?.[article.article.toString()]}
+                      isDeleted={article.is_deleted === 1}
+                    />
+                  ))}
+                </div>
+              ))
+          ) : (
+            // ページング表示（または章構成がない場合）
+            <>
+              {needsPagination && (
+                <div className="mb-4 text-center text-gray-600">
+                  第{startIndex + 1}条〜第{endIndex}条を表示中（全{totalNormalArticles}条）
+                </div>
+              )}
+              {currentArticles.map((article) => (
+                <ArticleListItem
+                  key={article.article}
+                  article={article.article}
+                  title={article.title || ''}
+                  href={`/law/${law_category}/${law}/${article.article}`}
+                  famousArticleBadge={famousArticles?.[article.article.toString()]}
+                  isDeleted={article.is_deleted === 1}
+                />
+              ))}
+            </>
+          )}
+
+          {/* 附則セクション（ページングがなく、通常条文と一緒に表示する場合） */}
+          {!needsPagination && supplementary.length > 0 && !isSupplPage && (
+            <div className="mt-8">
+              <h2 className="text-xl font-bold text-[#E94E77] border-b-2 border-[#E94E77] pb-2 mb-4">
+                附則
+              </h2>
+              {supplementary.map((article) => (
+                <ArticleListItem
+                  key={article.article}
+                  article={article.article}
+                  title={article.title || ''}
+                  href={`/law/${law_category}/${law}/${article.article}`}
+                  famousArticleBadge={famousArticles?.[article.article.toString()]}
+                  isDeleted={article.is_deleted === 1}
+                />
+              ))}
+            </div>
+          )}
         </div>
+
+        {/* 下部ページネーション */}
+        {needsPagination && (
+          <div className="max-w-4xl mx-auto mt-8">
+            <div className="flex flex-wrap gap-2 justify-center">
+              {pageRanges.map((range, index) => {
+                const pageNum = index + 1;
+                const isActive = !isSupplPage && currentPage === pageNum;
+                return (
+                  <Link
+                    key={pageNum}
+                    href={`/law/${law_category}/${law}${pageNum === 1 ? '' : `?page=${pageNum}`}`}
+                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                      isActive
+                        ? 'bg-[#E94E77] text-white'
+                        : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                    }`}
+                  >
+                    {range.label}
+                  </Link>
+                );
+              })}
+              {supplementary.length > 0 && (
+                <Link
+                  href={`/law/${law_category}/${law}?page=suppl`}
+                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                    isSupplPage
+                      ? 'bg-[#E94E77] text-white'
+                      : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                  }`}
+                >
+                  附則
+                </Link>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
