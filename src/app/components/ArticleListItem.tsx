@@ -8,6 +8,7 @@ interface ArticleListItemProps {
   famousArticleBadge?: string | null;
   isDeleted?: boolean;
   originalText?: string;
+  likeCount?: number;
 }
 
 // 原文の冒頭を取得（50文字程度で省略）
@@ -25,6 +26,7 @@ export function ArticleListItem({
   famousArticleBadge,
   isDeleted,
   originalText,
+  likeCount = 0,
 }: ArticleListItemProps) {
   const hasTitle = title && title.trim() !== '';
   const excerpt = !hasTitle && originalText ? getExcerpt(originalText) : '';
@@ -63,6 +65,11 @@ export function ArticleListItem({
         {!isDeleted && famousArticleBadge && (
           <div className="absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-bold text-white shadow-md bg-slate-500">
             {famousArticleBadge}
+          </div>
+        )}
+        {!isDeleted && (
+          <div className="absolute bottom-3 right-3 flex items-center text-xs text-gray-400">
+            <span>ええやん {likeCount}</span>
           </div>
         )}
       </div>
