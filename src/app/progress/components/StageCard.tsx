@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 interface StageCardProps {
   stage: string;
   title: string;
@@ -8,7 +10,7 @@ interface StageCardProps {
   color: string;
 }
 
-export function StageCard({
+export const StageCard = memo(function StageCard({
   stage,
   title,
   emoji,
@@ -36,4 +38,4 @@ export function StageCard({
       </div>
     </div>
   );
-}
+});

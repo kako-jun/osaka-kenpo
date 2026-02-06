@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 interface ProgressBarProps {
   label: string;
   completed: number;
@@ -6,7 +8,13 @@ interface ProgressBarProps {
   color: string;
 }
 
-export function ProgressBar({ label, completed, total, percentage, color }: ProgressBarProps) {
+export const ProgressBar = memo(function ProgressBar({
+  label,
+  completed,
+  total,
+  percentage,
+  color,
+}: ProgressBarProps) {
   return (
     <div className="space-y-2">
       <div className="flex justify-between text-sm">
@@ -26,4 +34,4 @@ export function ProgressBar({ label, completed, total, percentage, color }: Prog
       </div>
     </div>
   );
-}
+});

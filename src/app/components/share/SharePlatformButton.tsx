@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import type { SharePlatform } from './sharePlatforms';
 
 interface SharePlatformButtonProps {
@@ -5,7 +6,10 @@ interface SharePlatformButtonProps {
   onClick: (platform: SharePlatform) => void;
 }
 
-export function SharePlatformButton({ platform, onClick }: SharePlatformButtonProps) {
+export const SharePlatformButton = memo(function SharePlatformButton({
+  platform,
+  onClick,
+}: SharePlatformButtonProps) {
   return (
     <button
       onClick={() => onClick(platform)}
@@ -19,4 +23,4 @@ export function SharePlatformButton({ platform, onClick }: SharePlatformButtonPr
       <span className="text-gray-700">{platform.label}</span>
     </button>
   );
-}
+});
