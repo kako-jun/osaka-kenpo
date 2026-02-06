@@ -83,7 +83,7 @@ export const ShareButton = ({ title, url, popupDirection = 'down' }: ShareButton
                 }`}
               >
                 {copied ? <CheckIcon /> : <ClipboardIcon />}
-                {copied ? 'コピー済み!' : 'リンクをコピー'}
+                {copied ? 'コピーしました' : 'リンクをコピー'}
               </button>
             </div>
           </div>
