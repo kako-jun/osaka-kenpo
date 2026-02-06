@@ -105,7 +105,7 @@ function main() {
           const values = [
             escapeSQL(category),
             escapeSQL(lawName),
-            chapter.chapter,
+            escapeSQL(String(chapter.chapter)),
             escapeSQL(chapter.title),
             escapeSQL(chapter.titleOsaka || null),
             escapeSQL(chapter.description || null),
