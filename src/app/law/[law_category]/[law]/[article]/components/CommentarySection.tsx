@@ -38,7 +38,7 @@ export function CommentarySection({
         <span className="text-white text-sm font-bold">ワンポイント解説</span>
       </div>
 
-      <div className="p-4 pt-2 relative pb-8">
+      <div className="p-4 pt-2 relative pb-12">
         <AnimatedContent
           showOsaka={showOsaka}
           originalContent={
@@ -65,7 +65,7 @@ export function CommentarySection({
           }
         />
         {/* スピーカーボタン: 右下に配置（原文セクションと同様） */}
-        <div className="absolute bottom-0 right-0">
+        <div className="absolute bottom-4 right-0">
           <SpeakerButton
             text={
               showOsaka ? (commentaryOsaka || commentary).join('\n\n') : commentary.join('\n\n')
@@ -76,7 +76,7 @@ export function CommentarySection({
       </div>
 
       {/* ボタンエリア: ええやん+広めたるセンタリング */}
-      <div className="flex justify-center items-center mt-2 pt-4 border-t border-gray-200">
+      <div className="flex justify-center items-center mt-2 pt-4 pb-2 border-t border-gray-200">
         <div className="flex items-center gap-2">
           <LikeButton articleId={articleId} lawCategory={lawCategory} law={law} />
           <ShareButton popupDirection="up" />

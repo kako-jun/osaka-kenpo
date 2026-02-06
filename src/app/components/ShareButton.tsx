@@ -58,6 +58,7 @@ export const ShareButton = ({ title, url, popupDirection = 'down' }: ShareButton
           <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
           <div
             className={`absolute right-0 ${popupDirection === 'up' ? 'bottom-12' : 'top-12'} bg-white rounded-lg shadow-xl border border-gray-200 z-50 min-w-[200px]`}
+            onClick={(e) => e.stopPropagation()}
           >
             <div className="p-4 border-b border-gray-200" style={{ backgroundColor: '#FFF8DC' }}>
               <div className="font-medium" style={{ color: '#8B4513' }}>
