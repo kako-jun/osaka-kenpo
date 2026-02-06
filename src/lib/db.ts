@@ -14,15 +14,15 @@ export interface LawRow {
 
 export interface ArticleRow {
   article: string;
-  title: string;
+  title: string | null;
   title_osaka: string | null;
   is_deleted: number;
   category?: string;
   law_name?: string;
-  original_text?: string;
-  osaka_text?: string;
-  commentary?: string;
-  commentary_osaka?: string;
+  original_text?: string | null;
+  osaka_text?: string | null;
+  commentary?: string | null;
+  commentary_osaka?: string | null;
 }
 
 export interface ChapterRow {
