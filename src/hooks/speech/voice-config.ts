@@ -83,13 +83,11 @@ export function selectJapaneseVoice(config: VoiceConfig): SpeechSynthesisVoice |
     return undefined;
   }
 
-  // まず希望する性別の音声を探す
-  const matchingVoice = japaneseVoices.find(
+  // 指定された性別の声だけの一覧を作り、その1つ目を選ぶ
+  const genderedVoices = japaneseVoices.filter(
     (voice) => guessVoiceGender(voice.name) === preferredGender
   );
-
-  // 見つかればそれを使用、なければ最初の日本語音声を使用
-  const selectedVoice = matchingVoice || japaneseVoices[0];
+  const selectedVoice = genderedVoices[0] || japaneseVoices[0];
 
   // キャッシュに保存
   voiceCache[preferredGender] = selectedVoice;
