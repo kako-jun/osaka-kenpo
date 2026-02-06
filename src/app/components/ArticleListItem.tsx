@@ -51,7 +51,7 @@ export function ArticleListItem({
               <span dangerouslySetInnerHTML={{ __html: title }} />
             </div>
           ) : excerpt ? (
-            <div className="text-gray-400 text-sm leading-relaxed truncate">{excerpt}</div>
+            <div className="text-gray-400 text-sm leading-relaxed truncate italic">{excerpt}</div>
           ) : null}
         </div>
 
