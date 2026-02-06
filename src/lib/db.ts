@@ -1,12 +1,52 @@
 import { getRequestContext } from '@cloudflare/next-on-pages';
 
+// Type definitions for D1 database results
+export interface LawRow {
+  category: string;
+  name: string;
+  display_name: string;
+  short_name: string;
+  badge: string | null;
+  year: number | null;
+  source?: string;
+  description?: string;
+}
+
+export interface ArticleRow {
+  article: string;
+  title: string;
+  title_osaka: string | null;
+  is_deleted: number;
+  category?: string;
+  law_name?: string;
+  original_text?: string;
+  osaka_text?: string;
+  commentary?: string;
+  commentary_osaka?: string;
+}
+
+export interface ChapterRow {
+  chapter: string;
+  title: string;
+  title_osaka: string | null;
+  articles: string;
+  category: string;
+  law_name: string;
+  description?: string;
+}
+
+export interface FamousArticleRow {
+  article: string;
+  badge: string;
+}
+
 export function getDB() {
   const { env } = getRequestContext();
   return env.DB;
 }
 
 // 法律一覧を取得
-export async function getLaws() {
+export async function getLaws(): Promise<LawRow[]> {
   const db = getDB();
   const result = await db
     .prepare(
@@ -14,7 +54,7 @@ export async function getLaws() {
        FROM laws
        ORDER BY category, name`
     )
-    .all();
+    .all<LawRow>();
   return result.results;
 }
 
@@ -34,7 +74,7 @@ export async function getLawsByCategory(category: string) {
 }
 
 // 法律の条文一覧を取得
-export async function getArticles(category: string, lawName: string) {
+export async function getArticles(category: string, lawName: string): Promise<ArticleRow[]> {
   const db = getDB();
   const result = await db
     .prepare(
@@ -46,12 +86,16 @@ export async function getArticles(category: string, lawName: string) {
          article`
     )
     .bind(category, lawName)
-    .all();
+    .all<ArticleRow>();
   return result.results;
 }
 
 // 特定の条文を取得
-export async function getArticle(category: string, lawName: string, articleId: string) {
+export async function getArticle(
+  category: string,
+  lawName: string,
+  articleId: string
+): Promise<ArticleRow | null> {
   const db = getDB();
   const result = await db
     .prepare(
@@ -59,12 +103,12 @@ export async function getArticle(category: string, lawName: string, articleId: s
        WHERE category = ? AND law_name = ? AND article = ?`
     )
     .bind(category, lawName, articleId)
-    .first();
+    .first<ArticleRow>();
   return result;
 }
 
 // 法律メタデータを取得
-export async function getLawMetadata(category: string, lawName: string) {
+export async function getLawMetadata(category: string, lawName: string): Promise<LawRow | null> {
   const db = getDB();
   const result = await db
     .prepare(
@@ -72,12 +116,12 @@ export async function getLawMetadata(category: string, lawName: string) {
        WHERE category = ? AND name = ?`
     )
     .bind(category, lawName)
-    .first();
+    .first<LawRow>();
   return result;
 }
 
 // 章データを取得
-export async function getChapters(category: string, lawName: string) {
+export async function getChapters(category: string, lawName: string): Promise<ChapterRow[]> {
   const db = getDB();
   const result = await db
     .prepare(
@@ -86,12 +130,15 @@ export async function getChapters(category: string, lawName: string) {
        ORDER BY chapter`
     )
     .bind(category, lawName)
-    .all();
+    .all<ChapterRow>();
   return result.results;
 }
 
 // 有名条文バッジを取得
-export async function getFamousArticles(category: string, lawName: string) {
+export async function getFamousArticles(
+  category: string,
+  lawName: string
+): Promise<Record<string, string>> {
   const db = getDB();
   const result = await db
     .prepare(
@@ -99,11 +146,11 @@ export async function getFamousArticles(category: string, lawName: string) {
        WHERE category = ? AND law_name = ?`
     )
     .bind(category, lawName)
-    .all();
+    .all<FamousArticleRow>();
 
   // { article: badge } 形式に変換
   const badges: Record<string, string> = {};
-  for (const row of result.results as any[]) {
+  for (const row of result.results) {
     badges[row.article] = row.badge;
   }
   return badges;

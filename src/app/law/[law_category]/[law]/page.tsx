@@ -1,4 +1,11 @@
-import { getArticles, getLawMetadata, getChapters, getFamousArticles } from '@/lib/db';
+import {
+  getArticles,
+  getLawMetadata,
+  getChapters,
+  getFamousArticles,
+  type ArticleRow,
+  type ChapterRow,
+} from '@/lib/db';
 import { ShareButton } from '@/app/components/ShareButton';
 import { ArticleListItem } from '@/app/components/ArticleListItem';
 import { lawsMetadata } from '@/data/lawsMetadata';
@@ -22,8 +29,7 @@ export default async function LawArticlesPage({
 
   const staticLaw = lawsMetadata.categories.flatMap((c) => c.laws).find((l) => l.id === law);
   const lawName = staticLaw?.shortName || law;
-  const lawFullName = (lawMetadata as any)?.display_name || lawName;
-  const lawSource = lawMetadata as any;
+  const lawFullName = lawMetadata?.display_name || lawName;
 
   if (!articles || articles.length === 0) {
     return (
@@ -40,17 +46,18 @@ export default async function LawArticlesPage({
 
   // 章でグループ化
   const hasChapters = chapters && chapters.length > 0;
-  let groupedArticles: { [chapterKey: string]: { chapter: any; articles: any[] } } = {};
+  let groupedArticles: { [chapterKey: string]: { chapter: ChapterRow; articles: ArticleRow[] } } =
+    {};
 
   if (hasChapters) {
-    for (const chapter of chapters as any[]) {
+    for (const chapter of chapters) {
       const chapterKey = String(chapter.chapter);
-      const chapterArticlesList = JSON.parse(chapter.articles || '[]');
+      const chapterArticlesList = JSON.parse(chapter.articles || '[]') as string[];
       groupedArticles[chapterKey] = {
         chapter,
-        articles: (articles as any[]).filter((article) =>
+        articles: articles.filter((article) =>
           chapterArticlesList.some(
-            (chapterArticle: any) => String(chapterArticle) === String(article.article)
+            (chapterArticle) => String(chapterArticle) === String(article.article)
           )
         ),
       };
@@ -70,17 +77,17 @@ export default async function LawArticlesPage({
         </div>
 
         {/* 出典情報 */}
-        {lawSource && (
+        {lawMetadata && (
           <div className="max-w-4xl mx-auto mb-8 bg-blue-50 rounded-lg shadow-[0_0_15px_rgba(0,0,0,0.05)] p-6 border border-blue-100">
             <h2 className="text-lg font-bold text-gray-800 mb-3">📚 出典・参考資料</h2>
             <div className="space-y-2 text-sm text-gray-600">
-              {lawSource.source && (
+              {lawMetadata.source && (
                 <p>
                   <strong>出典：</strong>
-                  {lawSource.source}
+                  {lawMetadata.source}
                 </p>
               )}
-              {lawSource.description && <p>{lawSource.description}</p>}
+              {lawMetadata.description && <p>{lawMetadata.description}</p>}
             </div>
           </div>
         )}
@@ -101,7 +108,7 @@ export default async function LawArticlesPage({
                       )}
                     </div>
 
-                    {chapterArticles.map((article: any) => (
+                    {chapterArticles.map((article) => (
                       <ArticleListItem
                         key={article.article}
                         article={article.article}
@@ -113,7 +120,7 @@ export default async function LawArticlesPage({
                   </div>
                 ))
             : // 章構成がない場合
-              (articles as any[]).map((article) => (
+              articles.map((article) => (
                 <ArticleListItem
                   key={article.article}
                   article={article.article}

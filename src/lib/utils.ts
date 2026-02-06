@@ -52,16 +52,19 @@ export function safeJsonParse<T>(jsonString: string): T | null {
 }
 
 /**
- * 条文データのバリデーション
+ * 条文データのバリデーション（レガシー関数）
+ * 注: 現在はZodスキーマ（src/lib/schemas/article.ts）を使用することを推奨
  */
-export function validateArticleData(data: any): boolean {
+export function validateArticleData(data: unknown): boolean {
+  if (!data || typeof data !== 'object') return false;
+
+  const article = data as Record<string, unknown>;
   return (
-    data &&
-    typeof data.article === 'number' &&
-    typeof data.title === 'string' &&
-    typeof data.original === 'string' &&
-    typeof data.osaka === 'string' &&
-    typeof data.commentary === 'string'
+    typeof article.article === 'number' &&
+    typeof article.title === 'string' &&
+    typeof article.original === 'string' &&
+    typeof article.osaka === 'string' &&
+    typeof article.commentary === 'string'
   );
 }
 
