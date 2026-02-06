@@ -67,7 +67,7 @@ export function CommentarySection({
       </div>
 
       {/* ボタンエリア: ええやん+広めたるセンタリング、スピーカー右寄せ */}
-      <div className="flex justify-center items-center relative mt-4 pt-4 border-t border-gray-200">
+      <div className="flex justify-center items-center relative mt-2 pt-3 border-t border-gray-200">
         <div className="flex items-center gap-2">
           <LikeButton articleId={articleId} lawCategory={lawCategory} law={law} />
           <ShareButton />
