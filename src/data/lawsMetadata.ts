@@ -167,7 +167,7 @@ export const lawsMetadata: LawsMetadata = {
           id: 'gokajou_no_goseimon',
           shortName: '五箇条の御誓文',
           path: '/law/jp_old/gokajou_no_goseimon',
-          status: 'available',
+          status: 'preparing',
           year: 1868,
           badge: '広く会議をおこすで！',
         },
