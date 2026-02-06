@@ -25,6 +25,15 @@ const FEMALE_VOICE_PATTERNS = [
 // 男性の声として知られている音声名のパターン
 const MALE_VOICE_PATTERNS = ['ichiro', 'keita', 'otoya', 'takumi', 'male', 'hiro'];
 
+// 一度選択した声をキャッシュ（同じ性別の要求には必ず同じ声を返す）
+const voiceCache: {
+  male: SpeechSynthesisVoice | null;
+  female: SpeechSynthesisVoice | null;
+} = {
+  male: null,
+  female: null,
+};
+
 /**
  * 音声名から性別を推測する
  */
@@ -42,10 +51,21 @@ function guessVoiceGender(voiceName: string): 'male' | 'female' | 'unknown' {
 
 /**
  * 日本語音声を選択する
+ * 同じ性別の要求には必ず同じ声を返す（キャッシュ使用）
  * @param config 音声設定
  * @returns 選択された音声、または未定義
  */
 export function selectJapaneseVoice(config: VoiceConfig): SpeechSynthesisVoice | undefined {
+  const preferredGender = config.voice || 'female';
+
+  // キャッシュがあればそれを返す
+  if (voiceCache[preferredGender]) {
+    logger.debug(`Using cached voice for ${preferredGender}`, {
+      voiceName: voiceCache[preferredGender]!.name,
+    });
+    return voiceCache[preferredGender]!;
+  }
+
   const voices = window.speechSynthesis.getVoices();
   logger.debug('Available voices', {
     voices: voices.map((v) => `${v.name} (${v.lang})`),
@@ -63,9 +83,6 @@ export function selectJapaneseVoice(config: VoiceConfig): SpeechSynthesisVoice |
     return undefined;
   }
 
-  // 希望する性別の音声を探す
-  const preferredGender = config.voice || 'female';
-
   // まず希望する性別の音声を探す
   const matchingVoice = japaneseVoices.find(
     (voice) => guessVoiceGender(voice.name) === preferredGender
@@ -74,7 +91,10 @@ export function selectJapaneseVoice(config: VoiceConfig): SpeechSynthesisVoice |
   // 見つかればそれを使用、なければ最初の日本語音声を使用
   const selectedVoice = matchingVoice || japaneseVoices[0];
 
-  logger.debug(`Selected voice for ${preferredGender}`, {
+  // キャッシュに保存
+  voiceCache[preferredGender] = selectedVoice;
+
+  logger.debug(`Selected and cached voice for ${preferredGender}`, {
     voiceName: selectedVoice.name,
     guessedGender: guessVoiceGender(selectedVoice.name),
   });
