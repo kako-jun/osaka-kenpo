@@ -42,7 +42,7 @@ export function NavigationButtons({
 
         <button
           onClick={onShowPopup}
-          className="text-gray-500 font-medium hover:text-blue-600 px-2 py-1 text-sm"
+          className="text-blue-600 font-medium hover:text-blue-800 px-2 py-1 text-sm underline"
         >
           {formatArticleNumber(currentArticle)} ({currentIndex + 1}/{totalArticles})
         </button>
@@ -76,7 +76,7 @@ export function NavigationButtons({
       <div className="relative">
         <button
           onClick={onShowPopup}
-          className="text-gray-500 font-medium hover:text-blue-600 hover:bg-blue-50 px-3 py-2 rounded-md transition-colors cursor-pointer"
+          className="text-blue-600 font-medium hover:text-blue-800 hover:bg-blue-50 px-3 py-2 rounded-md transition-colors cursor-pointer underline"
         >
           {formatArticleNumber(currentArticle)} ({currentIndex + 1} / {totalArticles})
         </button>
