@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS laws;
 CREATE TABLE laws (id INTEGER PRIMARY KEY AUTOINCREMENT, category TEXT NOT NULL, name TEXT NOT NULL, display_name TEXT NOT NULL, short_name TEXT, badge TEXT, year INTEGER, source TEXT, description TEXT, links TEXT, UNIQUE(category, name));
 
 DROP TABLE IF EXISTS articles;
-CREATE TABLE articles (id INTEGER PRIMARY KEY AUTOINCREMENT, category TEXT NOT NULL, law_name TEXT NOT NULL, article TEXT NOT NULL, is_suppl INTEGER DEFAULT 0, is_deleted INTEGER DEFAULT 0, title TEXT, title_osaka TEXT, original_text TEXT, osaka_text TEXT, commentary TEXT, commentary_osaka TEXT, UNIQUE(category, law_name, article));
+CREATE TABLE articles (id INTEGER PRIMARY KEY AUTOINCREMENT, category TEXT NOT NULL, law_name TEXT NOT NULL, article TEXT NOT NULL, is_suppl INTEGER DEFAULT 0, is_deleted INTEGER DEFAULT 0, title TEXT DEFAULT '', title_osaka TEXT DEFAULT '', original_text TEXT DEFAULT '[]', osaka_text TEXT DEFAULT '[]', commentary TEXT DEFAULT '[]', commentary_osaka TEXT DEFAULT '[]', UNIQUE(category, law_name, article));
 
 DROP TABLE IF EXISTS chapters;
 CREATE TABLE chapters (id INTEGER PRIMARY KEY AUTOINCREMENT, category TEXT NOT NULL, law_name TEXT NOT NULL, chapter INTEGER NOT NULL, title TEXT NOT NULL, title_osaka TEXT, description TEXT, description_osaka TEXT, articles TEXT, UNIQUE(category, law_name, chapter));
