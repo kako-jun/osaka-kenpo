@@ -80,16 +80,19 @@ export const metadata: Metadata = {
 };
 
 import { ViewModeProvider } from './context/ViewModeContext';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ja">
       <ViewModeProvider>
         <body className="flex flex-col min-h-screen">
-          <Header />
-          <main className="flex-1 container mx-auto px-4 pt-2 pb-4">{children}</main>
-          <Footer />
-          <BackToTopButton />
+          <ErrorBoundary>
+            <Header />
+            <main className="flex-1 container mx-auto px-4 pt-2 pb-4">{children}</main>
+            <Footer />
+            <BackToTopButton />
+          </ErrorBoundary>
         </body>
       </ViewModeProvider>
     </html>
