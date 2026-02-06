@@ -5,7 +5,6 @@ import { z } from 'zod';
 import { validateArticleData, type ArticleData } from '../schemas/article';
 import { logger } from '../logger';
 import { FileOperationError, ValidationError, DataLoadError } from '../errors';
-import { transformLegacyJsonData } from './data-transformer';
 
 /**
  * YAML形式の条文データを読み込み、Zodで検証する
@@ -50,11 +49,8 @@ export async function loadArticleFromJson(filePath: string): Promise<ArticleData
     const fileContent = await fs.readFile(filePath, 'utf8');
     const rawData = JSON.parse(fileContent);
 
-    // 旧形式から新形式への変換
-    const mappedData = transformLegacyJsonData(rawData);
-
-    // Zodで検証
-    const validatedData = validateArticleData(mappedData);
+    // Zodで検証（既に新形式のデータのみ）
+    const validatedData = validateArticleData(rawData);
     return validatedData;
   } catch (error) {
     logger.error(`Failed to load article from ${filePath}`, error, { filePath });

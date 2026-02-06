@@ -7,6 +7,6 @@
 
 export { loadArticle, loadAllArticles } from './article-loader';
 export { loadArticleFromYaml, loadArticleFromJson } from './file-readers';
-export { splitIntoParagraphs, transformLegacyJsonData } from './data-transformer';
+export { splitIntoParagraphs } from './data-transformer';
 export { sortArticles } from './article-sorter';
 export { getArticleValidationErrors } from './validator';
