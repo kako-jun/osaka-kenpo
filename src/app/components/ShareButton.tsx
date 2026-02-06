@@ -1,73 +1,20 @@
 'use client';
 
 import { useState } from 'react';
-import { logger } from '@/lib/logger';
+import { platforms, type SharePlatform } from './share/sharePlatforms';
+import { ShareIcon, CheckIcon, ClipboardIcon } from './share/ShareIcons';
+import { useCopyToClipboard } from './share/useCopyToClipboard';
+import { SharePlatformButton } from './share/SharePlatformButton';
 
 interface ShareButtonProps {
   title?: string;
   url?: string;
 }
 
-interface SharePlatform {
-  id: string;
-  label: string;
-  icon: string;
-  bg: string;
-  rounded: string;
-  getUrl: (text: string, url: string) => string;
-}
-
-const platforms: SharePlatform[] = [
-  {
-    id: 'x',
-    label: 'X',
-    icon: '𝕏',
-    bg: 'bg-black',
-    rounded: 'rounded-sm',
-    getUrl: (text, url) =>
-      `https://x.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,
-  },
-  {
-    id: 'note',
-    label: 'note',
-    icon: 'n',
-    bg: 'bg-black',
-    rounded: 'rounded-full',
-    getUrl: (text, url) =>
-      `https://note.com/intent/post?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`,
-  },
-  {
-    id: 'hatena',
-    label: 'はてブ',
-    icon: 'B!',
-    bg: 'bg-[#00A4DE]',
-    rounded: 'rounded',
-    getUrl: (text, url) =>
-      `https://b.hatena.ne.jp/entry/panel/?url=${encodeURIComponent(url)}&title=${encodeURIComponent(text)}`,
-  },
-  {
-    id: 'line',
-    label: 'LINE',
-    icon: 'L',
-    bg: 'bg-[#06C755]',
-    rounded: 'rounded',
-    getUrl: (text, url) =>
-      `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`,
-  },
-  {
-    id: 'facebook',
-    label: 'Facebook',
-    icon: 'f',
-    bg: 'bg-[#1877F2]',
-    rounded: 'rounded',
-    getUrl: (text, url) =>
-      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}&quote=${encodeURIComponent(text)}`,
-  },
-];
-
 export const ShareButton = ({ title, url }: ShareButtonProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [copied, setCopied] = useState(false);
+  const { copied, copyToClipboard } = useCopyToClipboard();
+
   // URLを取得し、トップページの場合は末尾スラッシュを削除
   const rawUrl = url || (typeof window !== 'undefined' ? window.location.href : '');
   const currentUrl =
@@ -80,48 +27,11 @@ export const ShareButton = ({ title, url }: ShareButtonProps) => {
   const shareText = cleanTitle;
 
   const handleCopyLink = async () => {
-    try {
-      if (
-        typeof navigator !== 'undefined' &&
-        navigator.clipboard &&
-        navigator.clipboard.writeText
-      ) {
-        await navigator.clipboard.writeText(currentUrl);
-        setCopied(true);
-        setTimeout(() => {
-          setCopied(false);
-          setIsOpen(false);
-        }, 1500);
-      } else {
-        // フォールバック: 古いブラウザや制限のある環境用
-        const textArea = document.createElement('textarea');
-        textArea.value = currentUrl;
-        textArea.style.position = 'fixed';
-        textArea.style.left = '-999999px';
-        textArea.style.top = '-999999px';
-        document.body.appendChild(textArea);
-        textArea.select();
-        textArea.setSelectionRange(0, 99999);
-        const successful = document.execCommand('copy');
-        document.body.removeChild(textArea);
-
-        if (successful) {
-          setCopied(true);
-          setTimeout(() => {
-            setCopied(false);
-            setIsOpen(false);
-          }, 1500);
-        } else {
-          logger.error('Failed to copy to clipboard');
-          setIsOpen(false);
-        }
-      }
-    } catch (err) {
-      logger.error('Failed to copy to clipboard', err);
-      // エラーでも少し待ってから閉じる
-      setTimeout(() => {
-        setIsOpen(false);
-      }, 500);
+    const success = await copyToClipboard(currentUrl);
+    if (success) {
+      setTimeout(() => setIsOpen(false), 1500);
+    } else {
+      setTimeout(() => setIsOpen(false), 500);
     }
   };
 
@@ -138,14 +48,7 @@ export const ShareButton = ({ title, url }: ShareButtonProps) => {
         className="bg-[#E94E77] hover:bg-[#d63d6b] text-white px-3 py-2 rounded-full shadow-lg transition-colors flex items-center space-x-2 border-2 border-[#E94E77]"
         title="広めたる"
       >
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"
-          />
-        </svg>
+        <ShareIcon />
         <span className="font-medium text-sm">広めたる</span>
       </button>
 
@@ -160,18 +63,11 @@ export const ShareButton = ({ title, url }: ShareButtonProps) => {
             </div>
             <div className="p-2">
               {platforms.map((platform) => (
-                <button
+                <SharePlatformButton
                   key={platform.id}
-                  onClick={() => handleSharePlatform(platform)}
-                  className="flex items-center w-full px-3 py-2 text-sm hover:bg-gray-100 rounded transition-colors"
-                >
-                  <div
-                    className={`w-4 h-4 mr-2 ${platform.bg} ${platform.rounded} flex items-center justify-center`}
-                  >
-                    <span className="text-white text-xs font-bold">{platform.icon}</span>
-                  </div>
-                  <span className="text-gray-700">{platform.label}</span>
-                </button>
+                  platform={platform}
+                  onClick={handleSharePlatform}
+                />
               ))}
 
               <hr className="my-2" />
@@ -182,35 +78,7 @@ export const ShareButton = ({ title, url }: ShareButtonProps) => {
                   copied ? 'text-green-700 bg-green-50' : 'text-gray-700 hover:bg-gray-100'
                 }`}
               >
-                {copied ? (
-                  <svg
-                    className="w-4 h-4 mr-2 text-green-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    className="w-4 h-4 mr-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
-                    />
-                  </svg>
-                )}
+                {copied ? <CheckIcon /> : <ClipboardIcon />}
                 {copied ? 'コピー済み!' : 'リンクをコピー'}
               </button>
             </div>
