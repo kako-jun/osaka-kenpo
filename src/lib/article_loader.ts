@@ -4,6 +4,7 @@ import yaml from 'js-yaml';
 import { z } from 'zod';
 import { validateArticleData, safeValidateArticleData, type ArticleData } from './schemas/article';
 import { logger } from './logger';
+import { FileOperationError, ValidationError, DataLoadError } from './errors';
 
 /**
  * YAML形式の条文データを読み込み、Zodで検証する
@@ -20,7 +21,21 @@ export async function loadArticleFromYaml(filePath: string): Promise<ArticleData
     return validatedData;
   } catch (error) {
     logger.error(`Failed to load article from ${filePath}`, error, { filePath });
-    throw new Error(`条文データの読み込みに失敗しました: ${path.basename(filePath)}`);
+
+    if (error instanceof z.ZodError) {
+      throw new ValidationError(`条文データの形式が不正です: ${path.basename(filePath)}`, {
+        filePath,
+        zodErrors: error.issues,
+      });
+    }
+
+    if (error instanceof Error && 'code' in error && error.code === 'ENOENT') {
+      throw new FileOperationError('読み込み', filePath, error);
+    }
+
+    throw new DataLoadError(`条文データの読み込みに失敗しました: ${path.basename(filePath)}`, {
+      filePath,
+    });
   }
 }
 
@@ -63,7 +78,27 @@ export async function loadArticleFromJson(filePath: string): Promise<ArticleData
     return validatedData;
   } catch (error) {
     logger.error(`Failed to load article from ${filePath}`, error, { filePath });
-    throw new Error(`条文データの読み込みに失敗しました: ${path.basename(filePath)}`);
+
+    if (error instanceof z.ZodError) {
+      throw new ValidationError(`条文データの形式が不正です: ${path.basename(filePath)}`, {
+        filePath,
+        zodErrors: error.issues,
+      });
+    }
+
+    if (error instanceof SyntaxError) {
+      throw new ValidationError(`JSONの解析に失敗しました: ${path.basename(filePath)}`, {
+        filePath,
+      });
+    }
+
+    if (error instanceof Error && 'code' in error && error.code === 'ENOENT') {
+      throw new FileOperationError('読み込み', filePath, error);
+    }
+
+    throw new DataLoadError(`条文データの読み込みに失敗しました: ${path.basename(filePath)}`, {
+      filePath,
+    });
   }
 }
 
@@ -93,7 +128,14 @@ export async function loadArticle(
     try {
       return await loadArticleFromJson(jsonPath);
     } catch {
-      throw new Error(`条文データが見つかりません: ${lawCategory}/${lawName}/${articleId}`);
+      throw new DataLoadError(
+        `条文データが見つかりません: ${lawCategory}/${lawName}/${articleId}`,
+        {
+          lawCategory,
+          lawName,
+          articleId,
+        }
+      );
     }
   }
 }
@@ -158,7 +200,10 @@ export async function loadAllArticles(
       lawCategory,
       lawName,
     });
-    throw new Error(`条文一覧の読み込みに失敗しました: ${lawCategory}/${lawName}`);
+    throw new DataLoadError(`条文一覧の読み込みに失敗しました: ${lawCategory}/${lawName}`, {
+      lawCategory,
+      lawName,
+    });
   }
 }
 
