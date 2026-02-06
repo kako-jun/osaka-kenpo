@@ -1,5 +1,6 @@
 import { AnimatedContent } from '@/app/components/AnimatedContent';
 import { SpeakerButton } from '@/components/SpeakerButton';
+import { LikeButton } from '@/app/components/LikeButton';
 import { LightBulbIcon } from '@/components/icons';
 import { highlightKeywords } from '@/lib/text_highlight';
 
@@ -8,6 +9,9 @@ interface CommentarySectionProps {
   commentaryOsaka?: string[];
   showOsaka: boolean;
   onToggleView: () => void;
+  articleId: string;
+  lawCategory: string;
+  law: string;
 }
 
 export function CommentarySection({
@@ -15,6 +19,9 @@ export function CommentarySection({
   commentaryOsaka,
   showOsaka,
   onToggleView,
+  articleId,
+  lawCategory,
+  law,
 }: CommentarySectionProps) {
   return (
     <div
@@ -58,11 +65,17 @@ export function CommentarySection({
         />
       </div>
 
-      <div className="absolute bottom-4 right-4 z-10">
-        <SpeakerButton
-          text={showOsaka ? (commentaryOsaka || commentary).join('\n\n') : commentary.join('\n\n')}
-          voice={showOsaka ? 'female' : 'male'}
-        />
+      {/* ボタンエリア: ええやんセンタリング、スピーカー右寄せ */}
+      <div className="flex justify-center items-center relative mt-4 pt-4 border-t border-gray-200">
+        <LikeButton articleId={articleId} lawCategory={lawCategory} law={law} />
+        <div className="absolute right-0">
+          <SpeakerButton
+            text={
+              showOsaka ? (commentaryOsaka || commentary).join('\n\n') : commentary.join('\n\n')
+            }
+            voice={showOsaka ? 'female' : 'male'}
+          />
+        </div>
       </div>
     </div>
   );

@@ -5,7 +5,6 @@ import { ArticleNavigation } from '@/app/components/ArticleNavigation';
 import { useArticleNavigation } from '@/hooks/useArticleNavigation';
 import { ArticleNavigationButtons } from './components/ArticleNavigationButtons';
 import { ArticleHeader } from './components/ArticleHeader';
-import { FixedActionButtons } from './components/FixedActionButtons';
 import { ArticleTextSection } from './components/ArticleTextSection';
 import { CommentarySection } from './components/CommentarySection';
 import { OperationHint } from './components/OperationHint';
@@ -63,8 +62,6 @@ export function ArticleClient({
 
   return (
     <main className="min-h-screen bg-cream relative">
-      <FixedActionButtons articleId={articleId} lawCategory={lawCategory} law={law} />
-
       <ArticleNavigationButtons
         prevArticle={prevArticle}
         nextArticle={nextArticle}
@@ -107,6 +104,9 @@ export function ArticleClient({
               commentaryOsaka={articleData.commentaryOsaka}
               showOsaka={showOsaka}
               onToggleView={toggleViewMode}
+              articleId={articleId}
+              lawCategory={lawCategory}
+              law={law}
             />
 
             <OperationHint />
