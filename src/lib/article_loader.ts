@@ -3,6 +3,7 @@ import path from 'path';
 import yaml from 'js-yaml';
 import { z } from 'zod';
 import { validateArticleData, safeValidateArticleData, type ArticleData } from './schemas/article';
+import { logger } from './logger';
 
 /**
  * YAML形式の条文データを読み込み、Zodで検証する
@@ -18,7 +19,7 @@ export async function loadArticleFromYaml(filePath: string): Promise<ArticleData
     const validatedData = validateArticleData(rawData);
     return validatedData;
   } catch (error) {
-    console.error(`Failed to load article from ${filePath}:`, error);
+    logger.error(`Failed to load article from ${filePath}`, error, { filePath });
     throw new Error(`条文データの読み込みに失敗しました: ${path.basename(filePath)}`);
   }
 }
@@ -61,7 +62,7 @@ export async function loadArticleFromJson(filePath: string): Promise<ArticleData
     const validatedData = validateArticleData(mappedData);
     return validatedData;
   } catch (error) {
-    console.error(`Failed to load article from ${filePath}:`, error);
+    logger.error(`Failed to load article from ${filePath}`, error, { filePath });
     throw new Error(`条文データの読み込みに失敗しました: ${path.basename(filePath)}`);
   }
 }
@@ -127,7 +128,7 @@ export async function loadAllArticles(
         const article = await loadArticle(lawCategory, lawName, articleId);
         articles.push(article);
       } catch (error) {
-        console.warn(`Skipping invalid article: ${file}`, error);
+        logger.warn(`Skipping invalid article: ${file}`, { file, lawCategory, lawName, error });
       }
     }
 
@@ -153,7 +154,10 @@ export async function loadAllArticles(
       return String(a.article).localeCompare(String(b.article));
     });
   } catch (error) {
-    console.error(`Failed to load articles from ${lawCategory}/${lawName}:`, error);
+    logger.error(`Failed to load articles from ${lawCategory}/${lawName}`, error, {
+      lawCategory,
+      lawName,
+    });
     throw new Error(`条文一覧の読み込みに失敗しました: ${lawCategory}/${lawName}`);
   }
 }

@@ -1,7 +1,7 @@
 'use client';
-
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { logger } from '@/lib/logger';
 
 interface LawProgress {
   id: string;
@@ -44,7 +44,7 @@ export default function ProgressPage() {
         setLoading(false);
       })
       .catch((error) => {
-        console.error('Failed to fetch progress:', error);
+        logger.error('Failed to fetch progress', error);
         setLoading(false);
       });
   }, []);

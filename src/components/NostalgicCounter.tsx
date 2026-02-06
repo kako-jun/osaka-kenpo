@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
+import { logger } from '@/lib/logger';
 
 interface NostalgicCounterProps {
   counterId: string;
@@ -49,7 +50,7 @@ const NostalgicCounter = ({ counterId, type = 'total', digits = '4' }: Nostalgic
           sessionStorage.setItem(`${displayKey}_time`, now.toString());
         }
       } catch (error) {
-        console.error('Failed to fetch counter:', error);
+        logger.error('Failed to fetch counter', error, { counterId, type, digits });
         setCount('0'.repeat(parseInt(digits)));
       } finally {
         setLoading(false);

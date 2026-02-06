@@ -1,9 +1,9 @@
 'use client';
-
-import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { formatArticleNumber } from '@/lib/utils';
+import { logger } from '@/lib/logger';
 
 interface ArticleNavigationProps {
   lawCategory: string;
@@ -48,7 +48,7 @@ export const ArticleNavigation = ({
           }
         }
       } catch (error) {
-        console.error('Failed to fetch articles:', error);
+        logger.error('Failed to fetch articles', error, { lawCategory, law });
         setArticles([]);
       }
     };
