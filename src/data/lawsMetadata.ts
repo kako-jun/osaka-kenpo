@@ -62,7 +62,7 @@ export const lawsMetadata: LawsMetadata = {
           path: '/law/jp_old/kinchu_kuge_shohatto',
           status: 'preparing',
         },
-        { id: 'gokajou_no_goseimon', path: '/law/jp/gokajou_no_goseimon', status: 'preparing' },
+        { id: 'gokajou_no_goseimon', path: '/law/jp/gokajou_no_goseimon', status: 'available' },
         { id: 'meiji_kenpo', path: '/law/jp_old/meiji_kenpo', status: 'preparing' },
       ],
     },
@@ -100,8 +100,8 @@ export const lawsMetadata: LawsMetadata = {
       laws: [
         { id: 'antarctic_treaty', path: '/law/treaty/antarctic_treaty', status: 'available' },
         { id: 'ramsar_convention', path: '/law/treaty/ramsar_convention', status: 'preparing' },
-        { id: 'un_charter', path: '/law/treaty/un_charter', status: 'preparing' },
-        { id: 'npt', path: '/law/treaty/npt', status: 'preparing' },
+        { id: 'un_charter', path: '/law/treaty/un_charter', status: 'available' },
+        { id: 'npt', path: '/law/treaty/npt', status: 'available' },
         { id: 'outer_space_treaty', path: '/law/treaty/outer_space_treaty', status: 'preparing' },
         {
           id: 'universal_postal_convention',
@@ -124,7 +124,7 @@ export const lawsMetadata: LawsMetadata = {
         { id: 'unclos', path: '/law/treaty/unclos', status: 'preparing' },
         { id: 'chicago_convention', path: '/law/treaty/chicago_convention', status: 'preparing' },
         { id: 'extradition_treaty', path: '/law/treaty/extradition_treaty', status: 'preparing' },
-        { id: 'who_constitution', path: '/law/treaty/who_constitution', status: 'preparing' },
+        { id: 'who_constitution', path: '/law/treaty/who_constitution', status: 'available' },
       ],
     },
   ],
