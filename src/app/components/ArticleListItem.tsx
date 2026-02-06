@@ -6,6 +6,7 @@ interface ArticleListItemProps {
   title: string;
   href: string;
   famousArticleBadge?: string | null;
+  isDeleted?: boolean;
 }
 
 export function ArticleListItem({
@@ -13,22 +14,41 @@ export function ArticleListItem({
   title,
   href,
   famousArticleBadge,
+  isDeleted,
 }: ArticleListItemProps) {
   return (
     <Link href={href}>
-      <div className="block p-6 bg-white rounded-lg shadow-[0_0_15px_rgba(0,0,0,0.05)] hover:shadow-[0_0_20px_rgba(0,0,0,0.1)] transition-shadow cursor-pointer border-l-4 border-[#E94E77] mb-4 relative">
+      <div
+        className={`block p-6 rounded-lg shadow-[0_0_15px_rgba(0,0,0,0.05)] hover:shadow-[0_0_20px_rgba(0,0,0,0.1)] transition-shadow cursor-pointer border-l-4 mb-4 relative ${
+          isDeleted ? 'bg-gray-100 border-gray-400' : 'bg-white border-[#E94E77]'
+        }`}
+      >
         <div className="flex flex-col sm:flex-row sm:items-center">
-          <span className="font-bold text-[#E94E77] text-lg mb-2 sm:mb-0 sm:mr-4">
+          <span
+            className={`font-bold text-lg mb-2 sm:mb-0 sm:mr-4 ${
+              isDeleted ? 'text-gray-400' : 'text-[#E94E77]'
+            }`}
+          >
             {formatArticleNumber(article)}
           </span>
-          {title && title.trim() !== '' && (
-            <div className="text-gray-800 text-base leading-relaxed">
-              <span dangerouslySetInnerHTML={{ __html: title }} />
-            </div>
+          {isDeleted ? (
+            <div className="text-gray-400 text-base">（削除）</div>
+          ) : (
+            title &&
+            title.trim() !== '' && (
+              <div className="text-gray-800 text-base leading-relaxed">
+                <span dangerouslySetInnerHTML={{ __html: title }} />
+              </div>
+            )
           )}
         </div>
 
-        {famousArticleBadge && (
+        {isDeleted && (
+          <div className="absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-bold text-white shadow-md bg-gray-400">
+            削除
+          </div>
+        )}
+        {!isDeleted && famousArticleBadge && (
           <div className="absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-bold text-white shadow-md bg-slate-500">
             {famousArticleBadge}
           </div>
