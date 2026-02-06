@@ -8,29 +8,40 @@ import {
 } from '@/lib/db';
 import { ShareButton } from '@/app/components/ShareButton';
 import { ArticleListItem } from '@/app/components/ArticleListItem';
-import { Pagination, getPageRanges } from '@/app/components/Pagination';
+import { Pagination } from '@/app/components/Pagination';
 import { lawsMetadata } from '@/data/lawsMetadata';
 
 export const runtime = 'edge';
 
 const ARTICLES_PER_PAGE = 100;
 
+// 条文番号から基本番号を抽出（1-2 → 1, 876-5 → 876）
+function getBaseArticleNumber(article: string): number {
+  // suppl_1 や amendment_1 は特別扱い
+  if (article.startsWith('suppl_') || article.startsWith('amendment_')) {
+    return -1; // 附則は別扱い
+  }
+  // 枝番（1-2など）は基本番号を返す
+  const match = article.match(/^(\d+)/);
+  if (match) {
+    return parseInt(match[1], 10);
+  }
+  return -1;
+}
+
 // 条文番号から数値を抽出（ソート用）
 function getArticleNumber(article: string): number {
-  // suppl_1 → 100000 + 1 = 100001
   if (article.startsWith('suppl_')) {
     return 100000 + parseInt(article.replace('suppl_', ''), 10);
   }
-  // amendment_1 → 200000 + 1 = 200001
   if (article.startsWith('amendment_')) {
     return 200000 + parseInt(article.replace('amendment_', ''), 10);
   }
-  // 1-2 → 1.5 のような枝番
+  // 枝番: 1-2 → 1.002
   const match = article.match(/^(\d+)-(\d+)$/);
   if (match) {
     return parseInt(match[1], 10) + parseInt(match[2], 10) * 0.001;
   }
-  // 通常の数値
   const num = parseInt(article, 10);
   return isNaN(num) ? 999999 : num;
 }
@@ -56,6 +67,43 @@ function classifyArticles(articles: ArticleRow[]) {
   );
 
   return { normal, supplementary };
+}
+
+// 条文番号の範囲でページを計算
+function getArticlePageRanges(
+  articles: ArticleRow[]
+): { start: number; end: number; label: string }[] {
+  if (articles.length === 0) return [];
+
+  // 最大の条文番号を取得
+  let maxArticleNum = 0;
+  for (const article of articles) {
+    const baseNum = getBaseArticleNumber(String(article.article));
+    if (baseNum > maxArticleNum) {
+      maxArticleNum = baseNum;
+    }
+  }
+
+  // 100条ごとにページを作成
+  const ranges: { start: number; end: number; label: string }[] = [];
+  for (let start = 1; start <= maxArticleNum; start += ARTICLES_PER_PAGE) {
+    const end = start + ARTICLES_PER_PAGE - 1;
+    ranges.push({
+      start,
+      end,
+      label: `${start}〜${Math.min(end, maxArticleNum)}条`,
+    });
+  }
+
+  return ranges;
+}
+
+// 指定された条文番号範囲の条文をフィルタ
+function filterArticlesByRange(articles: ArticleRow[], start: number, end: number): ArticleRow[] {
+  return articles.filter((article) => {
+    const baseNum = getBaseArticleNumber(String(article.article));
+    return baseNum >= start && baseNum <= end;
+  });
 }
 
 export default async function LawArticlesPage({
@@ -117,18 +165,20 @@ export default async function LawArticlesPage({
 
   // 条文を分類
   const { normal, supplementary } = classifyArticles(articles);
-  const totalNormalArticles = normal.length;
-  const needsPagination = totalNormalArticles > ARTICLES_PER_PAGE;
 
-  // ページング計算
-  const pageRanges = getPageRanges(totalNormalArticles, ARTICLES_PER_PAGE);
-  const startIndex = (currentPage - 1) * ARTICLES_PER_PAGE;
-  const endIndex = Math.min(startIndex + ARTICLES_PER_PAGE, totalNormalArticles);
-  const currentArticles = needsPagination ? normal.slice(startIndex, endIndex) : normal;
+  // 条文番号ベースでページ範囲を計算
+  const pageRanges = getArticlePageRanges(normal);
+  const needsPagination = pageRanges.length > 1;
+
+  // 現在のページの条文番号範囲
+  const currentRange = pageRanges[currentPage - 1] || pageRanges[0];
+  const currentArticles = needsPagination
+    ? filterArticlesByRange(normal, currentRange.start, currentRange.end)
+    : normal;
+
   const basePath = `/law/${law_category}/${law}`;
 
   // 附則ページかどうか
-  const showSupplementary = pageParam === 'suppl' || (!needsPagination && supplementary.length > 0);
   const isSupplPage = pageParam === 'suppl';
 
   return (
