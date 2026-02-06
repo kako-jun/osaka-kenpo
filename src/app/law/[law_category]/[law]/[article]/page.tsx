@@ -69,11 +69,26 @@ export default async function ArticlePage({
   };
 
   // 全条文リストをクライアント用に変換
-  const allArticles = allArticlesRows.map((a: ArticleRow) => ({
-    article: a.article,
-    title: a.title || '',
-    titleOsaka: a.title_osaka || undefined,
-  }));
+  const allArticles = allArticlesRows.map((a: ArticleRow) => {
+    let originalTextExcerpt: string | undefined;
+    if (!a.title && a.original_text) {
+      try {
+        const parsed = JSON.parse(a.original_text);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          const firstLine = parsed[0].replace(/\s+/g, ' ').trim();
+          originalTextExcerpt = firstLine.length > 40 ? firstLine.slice(0, 40) + '...' : firstLine;
+        }
+      } catch {
+        // ignore parse errors
+      }
+    }
+    return {
+      article: a.article,
+      title: a.title || '',
+      titleOsaka: a.title_osaka || undefined,
+      originalText: originalTextExcerpt,
+    };
+  });
 
   return (
     <ArticleClient
