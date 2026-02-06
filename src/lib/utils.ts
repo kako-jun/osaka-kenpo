@@ -5,23 +5,23 @@
  */
 export function sortArticleNumbers(articles: string[]): string[] {
   return articles.sort((a, b) => {
-    const numA = parseInt(a)
-    const numB = parseInt(b)
-    
+    const numA = parseInt(a);
+    const numB = parseInt(b);
+
     // 数値として解釈できない場合は文字列ソート
     if (isNaN(numA) || isNaN(numB)) {
-      return a.localeCompare(b)
+      return a.localeCompare(b);
     }
-    
-    return numA - numB
-  })
+
+    return numA - numB;
+  });
 }
 
 /**
  * 条文番号を整形する（例: "1" -> "第1条"）
  */
 export function formatArticleNumber(article: number | string): string {
-  return `第${article}条`
+  return `第${article}条`;
 }
 
 /**
@@ -32,75 +32,7 @@ export function generateSlug(text: string): string {
     .toLowerCase()
     .replace(/[^a-z0-9\u3040-\u309f\u30a0-\u30ff\u4e00-\u9faf]/g, '_')
     .replace(/_+/g, '_')
-    .replace(/^_|_$/g, '')
-}
-
-/**
- * パンくずナビゲーション用のアイテムを生成
- */
-export interface BreadcrumbItem {
-  label: string
-  href?: string
-}
-
-export function generateBreadcrumbs(
-  lawCategory: string,
-  law?: string,
-  article?: string
-): BreadcrumbItem[] {
-  const breadcrumbs: BreadcrumbItem[] = [
-    { label: 'トップ', href: '/' }
-  ]
-
-  if (lawCategory) {
-    breadcrumbs.push({
-      label: getLawCategoryName(lawCategory),
-      href: `/law/${lawCategory}`
-    })
-  }
-
-  if (law) {
-    breadcrumbs.push({
-      label: getLawName(law),
-      href: `/law/${lawCategory}/${law}`
-    })
-  }
-
-  if (article) {
-    breadcrumbs.push({
-      label: formatArticleNumber(article)
-    })
-  }
-
-  return breadcrumbs
-}
-
-/**
- * 法律カテゴリ名を取得
- */
-function getLawCategoryName(category: string): string {
-  const categoryNames: { [key: string]: string } = {
-    jp: '日本・現行法',
-    jp_old: '日本・歴史法',
-    foreign: '外国・現行法', 
-    foreign_old: '外国・歴史法',
-    treaty: '国際条約'
-  }
-  
-  return categoryNames[category] || category
-}
-
-/**
- * 法律名を取得（law_mappings.tsから）
- */
-function getLawName(slug: string): string {
-  // 循環依存を避けるため、ここでは簡易実装
-  // 実際の使用時はlaw_mappings.tsから import する
-  // TODO: この関数は非同期でmetadataを読み込むべきだが、
-  // 同期的なbreadcrumbs生成では難しい。
-  // 将来的には非同期のgenerateBreadcrumbsAsync関数を作るか、
-  // 呼び出し側でmetadataを事前に取得してshortNameを渡すべき
-  return slug
+    .replace(/^_|_$/g, '');
 }
 
 /**
@@ -108,10 +40,10 @@ function getLawName(slug: string): string {
  */
 export function safeJsonParse<T>(jsonString: string): T | null {
   try {
-    return JSON.parse(jsonString) as T
+    return JSON.parse(jsonString) as T;
   } catch (error) {
-    console.error('JSON parse error:', error)
-    return null
+    console.error('JSON parse error:', error);
+    return null;
   }
 }
 
@@ -126,7 +58,7 @@ export function validateArticleData(data: any): boolean {
     typeof data.original === 'string' &&
     typeof data.osaka === 'string' &&
     typeof data.commentary === 'string'
-  )
+  );
 }
 
 /**
@@ -136,8 +68,8 @@ export function createErrorResponse(message: string, status: number = 400) {
   return {
     error: message,
     status,
-    timestamp: new Date().toISOString()
-  }
+    timestamp: new Date().toISOString(),
+  };
 }
 
 /**
@@ -147,6 +79,6 @@ export function createSuccessResponse<T>(data: T, message?: string) {
   return {
     data,
     message,
-    timestamp: new Date().toISOString()
-  }
+    timestamp: new Date().toISOString(),
+  };
 }

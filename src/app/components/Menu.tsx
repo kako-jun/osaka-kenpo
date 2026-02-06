@@ -4,34 +4,6 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { lawsMetadata } from '@/data/lawsMetadata';
 
-// 法律IDから表示名へのマッピング
-const LAW_NAMES: { [key: string]: string } = {
-  ai_suishin_hou: 'AI推進法',
-  constitution: '日本国憲法',
-  minpou: '民法',
-  shouhou: '商法',
-  kaisya_hou: '会社法',
-  keihou: '刑法',
-  minji_soshou_hou: '民事訴訟法',
-  keiji_soshou_hou: '刑事訴訟法',
-  jushichijo_kenpo: '十七条憲法',
-  konden_einen_shizai_hou: '墾田永年私財法',
-  taika_no_kaishin: '大化の改新',
-  meiji_constitution: '大日本帝国憲法',
-  china_constitution: '中華人民共和国憲法',
-  us_constitution: 'アメリカ合衆国憲法',
-  france_1789_declaration: 'フランス人権宣言',
-  germany_grundgesetz: 'ドイツ連邦共和国基本法',
-  eu_fundamental_rights: 'EU基本権憲章',
-  magna_carta: 'マグナ・カルタ',
-  habeas_corpus: '人身保護法',
-  bill_of_rights: '権利章典',
-  code_hammurabi: 'ハンムラビ法典',
-  who_constitution: 'WHO憲章',
-  un_charter: '国連憲章',
-  unclos: '国連海洋法条約',
-};
-
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -157,7 +129,7 @@ const Menu = () => {
               </div>
               {category.laws.map((law) => {
                 const isAvailable = law.status === 'available';
-                const lawName = LAW_NAMES[law.id] || law.id;
+                const lawName = law.shortName || law.id;
 
                 if (isAvailable) {
                   return (
