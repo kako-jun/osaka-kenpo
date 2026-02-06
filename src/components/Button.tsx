@@ -50,7 +50,7 @@ function getButtonClasses({
   fullWidth = false,
   className = '',
 }: Pick<BaseButtonProps, 'variant' | 'size' | 'fullWidth' | 'className'>): string {
-  return `${fullWidth ? 'w-full' : 'inline-block'} ${variantStyles[variant]} ${sizeStyles[size]} font-bold rounded-lg transition-colors ${className}`.trim();
+  return `${fullWidth ? 'block w-full text-center' : 'inline-block'} ${variantStyles[variant]} ${sizeStyles[size]} font-bold rounded-lg transition-colors ${className}`.trim();
 }
 
 export function Button(props: ButtonProps) {
