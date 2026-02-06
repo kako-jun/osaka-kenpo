@@ -3,6 +3,7 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 import { logger } from '@/lib/logger';
 import { isAppError, getUserFriendlyMessage } from '@/lib/errors';
+import { Button } from './Button';
 
 interface ErrorBoundaryProps {
   children: ReactNode;
@@ -60,18 +61,12 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
             </div>
 
             <div className="space-y-3">
-              <button
-                onClick={this.resetError}
-                className="w-full bg-[#E94E77] text-white font-bold py-3 px-6 rounded-lg hover:bg-opacity-90 transition-colors"
-              >
+              <Button onClick={this.resetError} variant="primary" size="lg" fullWidth>
                 もう一度試す
-              </button>
-              <a
-                href="/"
-                className="block w-full text-center bg-gray-200 text-gray-800 font-bold py-3 px-6 rounded-lg hover:bg-gray-300 transition-colors"
-              >
+              </Button>
+              <Button as="link" href="/" variant="secondary" size="lg" fullWidth>
                 トップページに戻る
-              </a>
+              </Button>
             </div>
 
             {process.env.NODE_ENV === 'development' && (
@@ -102,15 +97,10 @@ export function PageErrorBoundary({ children }: { children: ReactNode }): ReactN
       fallback={(error, reset) => (
         <div className="max-w-2xl mx-auto my-8 bg-white rounded-lg shadow-lg p-6">
           <div className="text-center">
-            <div className="text-4xl mb-3">⚠️</div>
-            <h2 className="text-xl font-bold text-gray-800 mb-2">ページの読み込みに失敗しました</h2>
             <p className="text-gray-600 mb-4">{getUserFriendlyMessage(error)}</p>
-            <button
-              onClick={reset}
-              className="bg-[#E94E77] text-white font-bold py-2 px-6 rounded hover:bg-opacity-90"
-            >
+            <Button onClick={reset} variant="primary">
               再読み込み
-            </button>
+            </Button>
           </div>
         </div>
       )}

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import Link from 'next/link';
 
 interface MenuItemProps {
@@ -7,7 +8,7 @@ interface MenuItemProps {
   label: string;
 }
 
-export function MenuItem({ href, onClick, icon, label }: MenuItemProps) {
+export const MenuItem = memo(function MenuItem({ href, onClick, icon, label }: MenuItemProps) {
   return (
     <Link
       href={href}
@@ -18,7 +19,7 @@ export function MenuItem({ href, onClick, icon, label }: MenuItemProps) {
       {label}
     </Link>
   );
-}
+});
 
 export function HomeIcon() {
   return (

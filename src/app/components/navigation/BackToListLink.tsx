@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import Link from 'next/link';
 import { ArrowLeftIcon } from '@/components/icons';
 
@@ -7,7 +8,11 @@ interface BackToListLinkProps {
   className?: string;
 }
 
-export function BackToListLink({ lawCategory, law, className = '' }: BackToListLinkProps) {
+export const BackToListLink = memo(function BackToListLink({
+  lawCategory,
+  law,
+  className = '',
+}: BackToListLinkProps) {
   return (
     <Link
       href={`/law/${lawCategory}/${law}`}
@@ -17,4 +22,4 @@ export function BackToListLink({ lawCategory, law, className = '' }: BackToListL
       条文一覧へ
     </Link>
   );
-}
+});
