@@ -69,7 +69,7 @@ export function ArticleListItem({
         )}
         {!isDeleted && (
           <div className="absolute bottom-3 right-3 flex items-center text-xs text-gray-400">
-            <span>ええやん {likeCount}</span>
+            <span>{likeCount} ええやん</span>
           </div>
         )}
       </div>
