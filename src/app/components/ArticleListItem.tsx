@@ -38,7 +38,7 @@ export function ArticleListItem({
           isDeleted ? 'bg-gray-100 border-gray-400' : 'bg-white border-[#E94E77]'
         }`}
       >
-        <div className="flex flex-col sm:flex-row sm:items-center pb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center pb-4">
           <span
             className={`font-bold text-lg mb-2 sm:mb-0 sm:mr-4 shrink-0 ${
               isDeleted ? 'text-gray-400' : 'text-[#E94E77]'
