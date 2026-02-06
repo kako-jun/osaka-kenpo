@@ -1,4 +1,4 @@
-import { getArticle, getArticles, getLawMetadata } from '@/lib/db';
+import { getArticle, getArticles, getLawMetadata, type ArticleRow } from '@/lib/db';
 import { ArticleClient } from './ArticleClient';
 import { lawsMetadata } from '@/data/lawsMetadata';
 
@@ -33,27 +33,25 @@ export default async function ArticlePage({
     );
   }
 
-  const row = articleRow as any;
   const staticLaw = lawsMetadata.categories.flatMap((c) => c.laws).find((l) => l.id === law);
   const lawName =
-    (lawMetadata as any)?.short_name ||
-    (lawMetadata as any)?.display_name ||
-    staticLaw?.shortName ||
-    law;
+    lawMetadata?.short_name || lawMetadata?.display_name || staticLaw?.shortName || law;
 
   // D1のカラムからArticleData形式に変換
   const articleData = {
-    article: row.article,
-    title: row.title || '',
-    titleOsaka: row.title_osaka || undefined,
-    originalText: JSON.parse(row.original_text || '[]'),
-    osakaText: JSON.parse(row.osaka_text || '[]'),
-    commentary: JSON.parse(row.commentary || '[]'),
-    commentaryOsaka: row.commentary_osaka ? JSON.parse(row.commentary_osaka) : undefined,
+    article: articleRow.article,
+    title: articleRow.title || '',
+    titleOsaka: articleRow.title_osaka || undefined,
+    originalText: JSON.parse(articleRow.original_text || '[]'),
+    osakaText: JSON.parse(articleRow.osaka_text || '[]'),
+    commentary: JSON.parse(articleRow.commentary || '[]'),
+    commentaryOsaka: articleRow.commentary_osaka
+      ? JSON.parse(articleRow.commentary_osaka)
+      : undefined,
   };
 
   // 全条文リストをクライアント用に変換
-  const allArticles = (allArticlesRows as any[]).map((a) => ({
+  const allArticles = allArticlesRows.map((a: ArticleRow) => ({
     article: a.article,
     title: a.title || '',
     titleOsaka: a.title_osaka || undefined,

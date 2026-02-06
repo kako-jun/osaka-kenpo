@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ShareButton } from '@/app/components/ShareButton';
 import NostalgicCounter from '@/components/NostalgicCounter';
-import { lawsMetadata } from '@/data/lawsMetadata';
+import { lawsMetadata, type LawEntry } from '@/data/lawsMetadata';
 
 // カテゴリ別絵文字アイコンコンポーネント
 const CategoryIcon = ({ icon }: { icon: string }) => {
@@ -10,21 +10,7 @@ const CategoryIcon = ({ icon }: { icon: string }) => {
 
 export default function Home() {
   // lawsMetadataはビルド時に自動生成されるため、すでにyear/badgeが含まれている
-  const categoriesWithMetadata = lawsMetadata.categories.map((category) => {
-    const lawsWithMetadata = category.laws.map((law) => {
-      return {
-        ...law,
-        name: law.shortName,
-        year: law.year || null,
-        badge: law.badge || null,
-      };
-    });
-
-    return {
-      ...category,
-      laws: lawsWithMetadata,
-    };
-  });
+  const categoriesWithMetadata = lawsMetadata.categories;
 
   return (
     <div className="relative">
@@ -60,12 +46,12 @@ export default function Home() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {category.laws
-                .sort((a: any, b: any) => (a.year || 0) - (b.year || 0))
-                .map((law: any) =>
+                .sort((a, b) => (a.year || 0) - (b.year || 0))
+                .map((law) =>
                   law.status === 'available' ? (
                     <Link key={law.id} href={law.path} passHref className="block">
                       <div className="h-32 flex flex-col justify-center p-6 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.1)] text-center text-white font-bold text-xl bg-[#E94E77] hover:bg-opacity-80 relative">
-                        <p className="mb-1 mt-3">{law.name}</p>
+                        <p className="mb-1 mt-3">{law.shortName}</p>
                         {law.year && (
                           <p className="text-sm font-normal text-[#FFB6C1]">{law.year}年</p>
                         )}
@@ -81,7 +67,7 @@ export default function Home() {
                       key={law.id}
                       className="h-32 flex flex-col justify-center p-6 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.1)] text-center text-white font-bold text-xl bg-gray-400 relative"
                     >
-                      <p className="mb-1 mt-3">{law.name}</p>
+                      <p className="mb-1 mt-3">{law.shortName}</p>
                       {law.year && (
                         <p className="text-sm font-normal text-gray-300">{law.year}年</p>
                       )}
