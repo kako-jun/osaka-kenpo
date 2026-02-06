@@ -1,6 +1,7 @@
 import { AnimatedContent } from '@/app/components/AnimatedContent';
 import { SpeakerButton } from '@/components/SpeakerButton';
 import { LikeButton } from '@/app/components/LikeButton';
+import { ShareButton } from '@/app/components/ShareButton';
 import { LightBulbIcon } from '@/components/icons';
 import { highlightKeywords } from '@/lib/text_highlight';
 
@@ -65,9 +66,12 @@ export function CommentarySection({
         />
       </div>
 
-      {/* ボタンエリア: ええやんセンタリング、スピーカー右寄せ */}
+      {/* ボタンエリア: ええやん+広めたるセンタリング、スピーカー右寄せ */}
       <div className="flex justify-center items-center relative mt-4 pt-4 border-t border-gray-200">
-        <LikeButton articleId={articleId} lawCategory={lawCategory} law={law} />
+        <div className="flex items-center gap-2">
+          <LikeButton articleId={articleId} lawCategory={lawCategory} law={law} />
+          <ShareButton />
+        </div>
         <div className="absolute right-0">
           <SpeakerButton
             text={
