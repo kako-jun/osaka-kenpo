@@ -25,9 +25,9 @@ const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID || '2382302b68c88c87f1cfe93
 const API_TOKEN = process.env.CLOUDFLARE_API_TOKEN;
 // 並列リクエスト数（コマンドラインで --parallel=N で指定可能）
 let CONCURRENT_REQUESTS = 1; // デフォルトは順次実行（スキーマ用）
-if (process.argv.includes('--parallel')) {
-  const arg = process.argv.find((a) => a.startsWith('--parallel='));
-  if (arg) CONCURRENT_REQUESTS = parseInt(arg.split('=')[1]) || 10;
+const parallelArg = process.argv.find((a) => a === '--parallel' || a.startsWith('--parallel='));
+if (parallelArg) {
+  if (parallelArg.includes('=')) CONCURRENT_REQUESTS = parseInt(parallelArg.split('=')[1]) || 10;
   else CONCURRENT_REQUESTS = 10;
 }
 
