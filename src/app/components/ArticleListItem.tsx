@@ -68,7 +68,7 @@ export function ArticleListItem({
           </div>
         )}
         {!isDeleted && (
-          <div className="absolute bottom-2 right-3 flex items-center text-xs text-[#E94E77]">
+          <div className="absolute bottom-3 right-4 flex items-center text-xs text-[#E94E77]">
             <span>{likeCount} ええやん</span>
           </div>
         )}
