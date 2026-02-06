@@ -11,12 +11,30 @@ export default async function ArticlePage({
 }) {
   const { law_category, law, article } = await params;
 
-  // D1から並行でデータ取得
-  const [articleRow, allArticlesRows, lawMetadata] = await Promise.all([
-    getArticle(law_category, law, article),
-    getArticles(law_category, law),
-    getLawMetadata(law_category, law),
-  ]);
+  let articleRow, allArticlesRows, lawMetadata;
+  try {
+    // D1から並行でデータ取得
+    [articleRow, allArticlesRows, lawMetadata] = await Promise.all([
+      getArticle(law_category, law, article),
+      getArticles(law_category, law),
+      getLawMetadata(law_category, law),
+    ]);
+  } catch (error) {
+    console.error('DB Error:', error);
+    return (
+      <div className="min-h-screen bg-cream">
+        <div className="container mx-auto px-4 py-8">
+          <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-6 text-center">
+            <h1 className="text-2xl font-bold text-primary mb-4">データ取得エラー</h1>
+            <p className="text-gray-600 mb-4">{String(error)}</p>
+            <a href="/" className="text-blue-600 hover:underline">
+              トップページに戻る
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (!articleRow) {
     return (
