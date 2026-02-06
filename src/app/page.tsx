@@ -54,7 +54,7 @@ export default async function Home() {
 
       return {
         ...law,
-        name: metadata?.shortName || metadata?.name || law.id,
+        name: metadata?.shortName || metadata?.name || law.shortName || law.id,
         year: metadata?.year || null,
         badge: metadata?.badge || null,
       };

@@ -1,5 +1,6 @@
 import { getArticle, getArticles, getLawMetadata } from '@/lib/db';
 import { ArticleClient } from './ArticleClient';
+import { lawsMetadata } from '@/data/lawsMetadata';
 
 export const runtime = 'edge';
 
@@ -33,7 +34,12 @@ export default async function ArticlePage({
   }
 
   const row = articleRow as any;
-  const lawName = (lawMetadata as any)?.short_name || (lawMetadata as any)?.display_name || law;
+  const staticLaw = lawsMetadata.categories.flatMap((c) => c.laws).find((l) => l.id === law);
+  const lawName =
+    (lawMetadata as any)?.short_name ||
+    (lawMetadata as any)?.display_name ||
+    staticLaw?.shortName ||
+    law;
 
   // D1のカラムからArticleData形式に変換
   const articleData = {
