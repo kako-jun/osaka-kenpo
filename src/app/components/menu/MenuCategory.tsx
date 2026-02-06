@@ -25,14 +25,23 @@ export function MenuCategory({ category, onLinkClick }: MenuCategoryProps) {
                 key={law.path}
                 href={law.path}
                 onClick={onLinkClick}
-                className="block pl-6 pr-3 py-2 rounded-lg hover:bg-white/10 transition-colors text-sm"
+                className="flex items-center pl-3 pr-3 py-2 rounded-lg hover:bg-white/10 transition-colors text-sm"
               >
+                {law.year && (
+                  <span className="text-white/50 text-xs w-12 shrink-0">{law.year}</span>
+                )}
                 <span>{lawName}</span>
               </Link>
             );
           } else {
             return (
-              <div key={law.path} className="block pl-6 pr-3 py-2 text-sm cursor-default">
+              <div
+                key={law.path}
+                className="flex items-center pl-3 pr-3 py-2 text-sm cursor-default"
+              >
+                {law.year && (
+                  <span className="text-white/30 text-xs w-12 shrink-0">{law.year}</span>
+                )}
                 <span className="text-white/40">{lawName}</span>
               </div>
             );
