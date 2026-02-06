@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getDB, getArticles, getLawMetadata, getChapters, getFamousArticles } from '@/lib/db';
 import { ShareButton } from '@/app/components/ShareButton';
+import { lawsMetadata } from '@/data/lawsMetadata';
 
 export const runtime = 'edge';
 
@@ -19,7 +20,12 @@ export default async function LawArticlesPage({
     getFamousArticles(law_category, law),
   ]);
 
-  const lawName = (lawMetadata as any)?.short_name || (lawMetadata as any)?.display_name || law;
+  const staticLaw = lawsMetadata.categories.flatMap((c) => c.laws).find((l) => l.id === law);
+  const lawName =
+    (lawMetadata as any)?.short_name ||
+    (lawMetadata as any)?.display_name ||
+    staticLaw?.shortName ||
+    law;
   const lawFullName = (lawMetadata as any)?.display_name || law;
   const lawSource = lawMetadata as any;
 
