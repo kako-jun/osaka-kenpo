@@ -7,9 +7,18 @@
     "perfectArticles": 327,
     "perfectPercentage": "25.7",
     "ranges": [
-      [1, 307],
-      [329, 329],
-      [363, 1050]
+      [
+        1,
+        307
+      ],
+      [
+        329,
+        329
+      ],
+      [
+        363,
+        1050
+      ]
     ]
   },
   "商法": {
@@ -19,7 +28,12 @@
     "allProblems": 765,
     "perfectArticles": 85,
     "perfectPercentage": "9.6",
-    "ranges": [[1, 850]]
+    "ranges": [
+      [
+        1,
+        850
+      ]
+    ]
   },
   "会社法": {
     "totalFiles": 1116,
@@ -28,7 +42,12 @@
     "allProblems": 892,
     "perfectArticles": 87,
     "perfectPercentage": "7.8",
-    "ranges": [[1, 979]]
+    "ranges": [
+      [
+        1,
+        979
+      ]
+    ]
   },
   "刑法": {
     "totalFiles": 327,
@@ -38,8 +57,14 @@
     "perfectArticles": 185,
     "perfectPercentage": "56.6",
     "ranges": [
-      [1, 139],
-      [161, 262]
+      [
+        1,
+        139
+      ],
+      [
+        161,
+        262
+      ]
     ]
   },
   "民事訴訟法": {
@@ -50,11 +75,26 @@
     "perfectArticles": 307,
     "perfectPercentage": "62.0",
     "ranges": [
-      [2, 141],
-      [191, 203],
-      [251, 299],
-      [322, 322],
-      [375, 375]
+      [
+        2,
+        141
+      ],
+      [
+        191,
+        203
+      ],
+      [
+        251,
+        299
+      ],
+      [
+        322,
+        322
+      ],
+      [
+        375,
+        375
+      ]
     ]
   },
   "刑事訴訟法": {
@@ -64,6 +104,11 @@
     "allProblems": 368,
     "perfectArticles": 150,
     "perfectPercentage": "20.2",
-    "ranges": [[1, 516]]
+    "ranges": [
+      [
+        1,
+        516
+      ]
+    ]
   }
 }
