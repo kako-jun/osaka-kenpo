@@ -1,18 +1,82 @@
-export function ChevronLeftIcon({ className = 'w-4 h-4' }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-    </svg>
-  );
+/**
+ * 共通SVGアイコンコンポーネント
+ */
+
+interface IconProps {
+  className?: string;
+  width?: number;
+  height?: number;
 }
 
-export function ChevronRightIcon({ className = 'w-4 h-4' }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-    </svg>
-  );
-}
+// 電球アイコン（ワンポイント解説用）
+export const LightBulbIcon = ({ width = 16, height = 16 }: IconProps) => (
+  <svg
+    width={width}
+    height={height}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M9 21C9 21.5523 9.44772 22 10 22H14C14.5523 22 15 21.5523 15 21V20H9V21Z"
+      fill="#9CA3AF"
+    />
+    <path
+      d="M12 2C8.13401 2 5 5.13401 5 9C5 11.3869 6.33193 13.4617 8.27344 14.5547C8.27344 14.5547 9 15.5 9 17H15C15 15.5 15.7266 14.5547 15.7266 14.5547C17.6681 13.4617 19 11.3869 19 9C19 5.13401 15.866 2 12 2Z"
+      fill="#FCD34D"
+    />
+    <path d="M9 18H15V19H9V18Z" fill="#9CA3AF" />
+  </svg>
+);
+
+// 吹き出しアイコン（コメント用）
+export const ChatBubbleIcon = ({ className = '', width = 20, height = 20 }: IconProps) => (
+  <svg
+    className={className}
+    width={width}
+    height={height}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M8 12h.01M12 12h.01M16 12h.01M3 12c0 4.418 4.03 8 9 8a9.863 9.863 0 004.255-.949L21 20l-1.395-3.72C20.488 15.042 21 13.574 21 12c0-4.418-4.03-8-9-8s-9 3.582-9 8z"
+      stroke="#DC2626"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+    />
+  </svg>
+);
+
+// 左矢印アイコン（前の条文へ）
+export const ChevronLeftIcon = ({ className = '', width = 24, height = 60 }: IconProps) => (
+  <svg width={width} height={height} viewBox="0 0 24 60" fill="currentColor" className={className}>
+    <path
+      d="M20 10 L8 30 L20 50"
+      stroke="currentColor"
+      strokeWidth="2"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+// 右矢印アイコン（次の条文へ）
+export const ChevronRightIcon = ({ className = '', width = 24, height = 60 }: IconProps) => (
+  <svg width={width} height={height} viewBox="0 0 24 60" fill="currentColor" className={className}>
+    <path
+      d="M4 10 L16 30 L4 50"
+      stroke="currentColor"
+      strokeWidth="2"
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
 
 export function ArrowLeftIcon({ className = 'w-4 h-4' }: { className?: string }) {
   return (
@@ -22,26 +86,6 @@ export function ArrowLeftIcon({ className = 'w-4 h-4' }: { className?: string })
         strokeLinejoin="round"
         strokeWidth={2}
         d="M10 19l-7-7m0 0l7-7m-7 7h18"
-      />
-    </svg>
-  );
-}
-
-export function LightBulbIcon({ className = 'w-5 h-5 text-white' }: { className?: string }) {
-  return (
-    <svg className={className} fill="currentColor" viewBox="0 0 20 20">
-      <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z" />
-    </svg>
-  );
-}
-
-export function ChatBubbleIcon({ className = 'w-5 h-5' }: { className?: string }) {
-  return (
-    <svg className={className} fill="currentColor" viewBox="0 0 20 20">
-      <path
-        fillRule="evenodd"
-        d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z"
-        clipRule="evenodd"
       />
     </svg>
   );

@@ -58,7 +58,7 @@ categories:
         status: preparing
       - id: gokajou_no_goseimon
         path: /law/jp_old/gokajou_no_goseimon
-        status: preparing
+        status: available
       - id: meiji_kenpo
         path: /law/jp_old/meiji_kenpo
         status: preparing
@@ -109,10 +109,10 @@ categories:
         status: preparing
       - id: un_charter
         path: /law/treaty/un_charter
-        status: preparing
+        status: available
       - id: npt
         path: /law/treaty/npt
-        status: preparing
+        status: available
       - id: outer_space_treaty
         path: /law/treaty/outer_space_treaty
         status: preparing
@@ -145,4 +145,4 @@ categories:
         status: preparing
       - id: who_constitution
         path: /law/treaty/who_constitution
-        status: preparing
+        status: available
