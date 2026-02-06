@@ -79,7 +79,7 @@ export function CommentarySection({
       <div className="flex justify-center items-center mt-2 pt-4 border-t border-gray-200">
         <div className="flex items-center gap-2">
           <LikeButton articleId={articleId} lawCategory={lawCategory} law={law} />
-          <ShareButton />
+          <ShareButton popupDirection="up" />
         </div>
       </div>
     </div>
