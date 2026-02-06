@@ -7,6 +7,39 @@ export interface VoiceConfig {
   volume?: number;
 }
 
+// 女性の声として知られている音声名のパターン
+const FEMALE_VOICE_PATTERNS = [
+  'haruka',
+  'nanami',
+  'kyoko',
+  'o-ren',
+  'siri',
+  'google',
+  'female',
+  'ayumi',
+  'mizuki',
+  'sayaka',
+  'mei',
+];
+
+// 男性の声として知られている音声名のパターン
+const MALE_VOICE_PATTERNS = ['ichiro', 'keita', 'otoya', 'takumi', 'male', 'hiro'];
+
+/**
+ * 音声名から性別を推測する
+ */
+function guessVoiceGender(voiceName: string): 'male' | 'female' | 'unknown' {
+  const lowerName = voiceName.toLowerCase();
+
+  if (FEMALE_VOICE_PATTERNS.some((pattern) => lowerName.includes(pattern))) {
+    return 'female';
+  }
+  if (MALE_VOICE_PATTERNS.some((pattern) => lowerName.includes(pattern))) {
+    return 'male';
+  }
+  return 'unknown';
+}
+
 /**
  * 日本語音声を選択する
  * @param config 音声設定
@@ -22,18 +55,31 @@ export function selectJapaneseVoice(config: VoiceConfig): SpeechSynthesisVoice |
     return undefined;
   }
 
-  const japaneseVoice = voices.find((voice) => voice.lang.includes('ja'));
+  // 日本語音声のみをフィルタリング
+  const japaneseVoices = voices.filter((voice) => voice.lang.includes('ja'));
 
-  if (!japaneseVoice) {
+  if (japaneseVoices.length === 0) {
     logger.debug('No Japanese voice found');
     return undefined;
   }
 
-  logger.debug(`Selected voice for ${config.voice || 'default'}`, {
-    voiceName: japaneseVoice.name,
+  // 希望する性別の音声を探す
+  const preferredGender = config.voice || 'female';
+
+  // まず希望する性別の音声を探す
+  const matchingVoice = japaneseVoices.find(
+    (voice) => guessVoiceGender(voice.name) === preferredGender
+  );
+
+  // 見つかればそれを使用、なければ最初の日本語音声を使用
+  const selectedVoice = matchingVoice || japaneseVoices[0];
+
+  logger.debug(`Selected voice for ${preferredGender}`, {
+    voiceName: selectedVoice.name,
+    guessedGender: guessVoiceGender(selectedVoice.name),
   });
 
-  return japaneseVoice;
+  return selectedVoice;
 }
 
 /**
