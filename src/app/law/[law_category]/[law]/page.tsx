@@ -112,7 +112,7 @@ export default async function LawArticlesPage({
                       <ArticleListItem
                         key={article.article}
                         article={article.article}
-                        title={article.title}
+                        title={article.title || ''}
                         href={`/law/${law_category}/${law}/${article.article}`}
                         famousArticleBadge={famousArticles?.[article.article.toString()]}
                       />
@@ -124,7 +124,7 @@ export default async function LawArticlesPage({
                 <ArticleListItem
                   key={article.article}
                   article={article.article}
-                  title={article.title}
+                  title={article.title || ''}
                   href={`/law/${law_category}/${law}/${article.article}`}
                   famousArticleBadge={famousArticles?.[article.article.toString()]}
                 />
