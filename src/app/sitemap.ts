@@ -53,8 +53,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 0.8,
           });
 
-          // 条文ページは動的に生成されるため、ここではスキップ
-          // 実際の条文データを読み込む必要があるが、簡素化のため基本ページのみ含める
+          // 条文ページ
+          const lawDir = path.join(dataDir, 'laws', category.id, law.id);
+          if (fs.existsSync(lawDir)) {
+            const files = fs.readdirSync(lawDir).filter(
+              (f) =>
+                f.endsWith('.yaml') &&
+                !['law_metadata.yaml', 'chapters.yaml', 'famous_articles.yaml'].includes(f)
+            );
+            for (const file of files) {
+              const articleId = file.replace('.yaml', '');
+              routes.push({
+                url: `${baseUrl}/law/${category.id}/${law.id}/${articleId}`,
+                lastModified: new Date(),
+                changeFrequency: 'monthly',
+                priority: 0.6,
+              });
+            }
+          }
         }
       }
     }
