@@ -1,3 +1,5 @@
+'use client';
+
 import { useViewMode } from '@/app/context/ViewModeContext';
 import { ArticleNavigation } from '@/app/components/ArticleNavigation';
 import { useArticleNavigation } from '@/hooks/useArticleNavigation';
