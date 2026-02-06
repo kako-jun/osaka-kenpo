@@ -22,7 +22,7 @@ export function Pagination({
   hasSupplementary,
 }: PaginationProps) {
   return (
-    <div className="flex flex-wrap gap-2 justify-center">
+    <div className="flex flex-wrap gap-1 justify-center">
       {pageRanges.map((range, index) => {
         const pageNum = index + 1;
         const isActive = !isSupplPage && currentPage === pageNum;
@@ -30,7 +30,7 @@ export function Pagination({
           <Link
             key={pageNum}
             href={`${basePath}${pageNum === 1 ? '' : `?page=${pageNum}`}`}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+            className={`px-2 py-1.5 rounded text-xs font-medium transition-colors min-w-[5.5rem] text-center ${
               isActive
                 ? 'bg-[#E94E77] text-white'
                 : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
@@ -43,7 +43,7 @@ export function Pagination({
       {hasSupplementary && (
         <Link
           href={`${basePath}?page=suppl`}
-          className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+          className={`px-2 py-1.5 rounded text-xs font-medium transition-colors min-w-[5.5rem] text-center ${
             isSupplPage
               ? 'bg-[#E94E77] text-white'
               : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
