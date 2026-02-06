@@ -45,7 +45,10 @@ export const ShareButton = ({ title, url, popupDirection = 'down' }: ShareButton
   return (
     <div className="relative">
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={(e) => {
+          e.stopPropagation();
+          setIsOpen(!isOpen);
+        }}
         className="bg-[#E94E77] hover:bg-[#d63d6b] text-white px-3 py-2 rounded-full shadow-lg transition-colors flex items-center space-x-2 border-2 border-[#E94E77]"
         title="広めたる"
       >
@@ -55,7 +58,13 @@ export const ShareButton = ({ title, url, popupDirection = 'down' }: ShareButton
 
       {isOpen && (
         <>
-          <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
+          <div
+            className="fixed inset-0 z-40"
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsOpen(false);
+            }}
+          />
           <div
             className={`absolute right-0 ${popupDirection === 'up' ? 'bottom-12' : 'top-12'} bg-white rounded-lg shadow-xl border border-gray-200 z-50 min-w-[200px]`}
             onClick={(e) => e.stopPropagation()}
