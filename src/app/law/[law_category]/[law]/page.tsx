@@ -15,6 +15,20 @@ export const runtime = 'edge';
 
 const ARTICLES_PER_PAGE = 100;
 
+// 原文JSONから最初の段落を取得
+function getFirstParagraph(originalTextJson: string | null | undefined): string {
+  if (!originalTextJson) return '';
+  try {
+    const parsed = JSON.parse(originalTextJson);
+    if (Array.isArray(parsed) && parsed.length > 0) {
+      return String(parsed[0]);
+    }
+  } catch {
+    // パース失敗時は空文字
+  }
+  return '';
+}
+
 // 条文番号から基本番号を抽出（1-2 → 1, 876-5 → 876）
 function getBaseArticleNumber(article: string): number {
   // suppl_1 や amendment_1 は特別扱い
@@ -237,6 +251,7 @@ export default async function LawArticlesPage({
                   href={`/law/${law_category}/${law}/${article.article}`}
                   famousArticleBadge={famousArticles?.[article.article.toString()]}
                   isDeleted={article.is_deleted === 1}
+                  originalText={getFirstParagraph(article.original_text)}
                 />
               ))}
             </div>
@@ -278,6 +293,7 @@ export default async function LawArticlesPage({
                   href={`/law/${law_category}/${law}/${article.article}`}
                   famousArticleBadge={famousArticles?.[article.article.toString()]}
                   isDeleted={article.is_deleted === 1}
+                  originalText={getFirstParagraph(article.original_text)}
                 />
               ))}
             </>
@@ -297,6 +313,7 @@ export default async function LawArticlesPage({
                   href={`/law/${law_category}/${law}/${article.article}`}
                   famousArticleBadge={famousArticles?.[article.article.toString()]}
                   isDeleted={article.is_deleted === 1}
+                  originalText={getFirstParagraph(article.original_text)}
                 />
               ))}
             </div>

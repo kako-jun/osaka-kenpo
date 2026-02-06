@@ -78,7 +78,7 @@ export async function getArticles(category: string, lawName: string): Promise<Ar
   const db = getDB();
   const result = await db
     .prepare(
-      `SELECT article, title, title_osaka, is_deleted
+      `SELECT article, title, title_osaka, is_deleted, original_text
        FROM articles
        WHERE category = ? AND law_name = ?
        ORDER BY
