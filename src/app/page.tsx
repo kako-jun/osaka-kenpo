@@ -2,61 +2,21 @@ import Link from 'next/link';
 import { ShareButton } from '@/app/components/ShareButton';
 import NostalgicCounter from '@/components/NostalgicCounter';
 import { lawsMetadata } from '@/data/lawsMetadata';
-import { getDB } from '@/lib/db';
-
-export const runtime = 'edge';
 
 // カテゴリ別絵文字アイコンコンポーネント
 const CategoryIcon = ({ icon }: { icon: string }) => {
   return <span className="text-2xl mr-2">{icon || '📄'}</span>;
 };
 
-// 法律メタデータを取得
-async function getLawMetadataMap() {
-  try {
-    const db = getDB();
-    const result = await db
-      .prepare(
-        `SELECT category, name, display_name, short_name, badge, year
-         FROM laws`
-      )
-      .all();
-
-    const metadataMap: Record<string, any> = {};
-    for (const row of result.results as any[]) {
-      const key = `${row.category}/${row.name}`;
-      metadataMap[key] = {
-        name: row.display_name,
-        shortName: row.short_name,
-        badge: row.badge,
-        year: row.year,
-      };
-    }
-    return metadataMap;
-  } catch (error) {
-    console.error('法律メタデータの取得に失敗:', error);
-    return {};
-  }
-}
-
-export default async function Home() {
-  const lawMetadataMap = await getLawMetadataMap();
-
-  // カテゴリにメタデータを結合
+export default function Home() {
+  // lawsMetadataはビルド時に自動生成されるため、すでにyear/badgeが含まれている
   const categoriesWithMetadata = lawsMetadata.categories.map((category) => {
     const lawsWithMetadata = category.laws.map((law) => {
-      const pathParts = law.path.split('/');
-      const lawCategory = pathParts[2];
-      const lawId = pathParts[3];
-      const key = `${lawCategory}/${lawId}`;
-
-      const metadata = lawMetadataMap[key];
-
       return {
         ...law,
         name: law.shortName,
-        year: metadata?.year || null,
-        badge: metadata?.badge || null,
+        year: law.year || null,
+        badge: law.badge || null,
       };
     });
 

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { formatArticleNumber } from '@/lib/utils';
 
 interface ArticleNavigationProps {
   lawCategory: string;
@@ -67,15 +68,6 @@ export const ArticleNavigation = ({
   const handleArticleSelect = (articleId: string | number) => {
     setShowArticlePopup(false);
     router.push(`/law/${lawCategory}/${law}/${articleId}`);
-  };
-
-  // 条文番号を表示用にフォーマット
-  const formatArticleNumber = (article: string | number) => {
-    if (typeof article === 'number') return `第${article}条`;
-    if (String(article).startsWith('fusoku_')) {
-      return `附則第${String(article).replace('fusoku_', '')}条`;
-    }
-    return `第${article}条`;
   };
 
   // 共通のポップアップコンポーネント

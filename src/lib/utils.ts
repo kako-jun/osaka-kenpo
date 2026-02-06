@@ -18,9 +18,13 @@ export function sortArticleNumbers(articles: string[]): string[] {
 }
 
 /**
- * 条文番号を整形する（例: "1" -> "第1条"）
+ * 条文番号を整形する（例: "1" -> "第1条", "fusoku_1" -> "附則第1条"）
  */
 export function formatArticleNumber(article: number | string): string {
+  if (typeof article === 'number') return `第${article}条`;
+  if (String(article).startsWith('fusoku_')) {
+    return `附則第${String(article).replace('fusoku_', '')}条`;
+  }
   return `第${article}条`;
 }
 

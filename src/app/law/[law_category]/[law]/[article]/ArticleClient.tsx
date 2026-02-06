@@ -1,7 +1,3 @@
-'use client';
-
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useViewMode } from '@/app/context/ViewModeContext';
 import { SpeakerButton } from '@/components/SpeakerButton';
@@ -10,6 +6,14 @@ import { LikeButton } from '@/app/components/LikeButton';
 import { ArticleNavigation } from '@/app/components/ArticleNavigation';
 import { AnimatedContent } from '@/app/components/AnimatedContent';
 import { highlightKeywords } from '@/lib/text_highlight';
+import { formatArticleNumber } from '@/lib/utils';
+import { useArticleNavigation } from '@/hooks/useArticleNavigation';
+import {
+  LightBulbIcon,
+  ChatBubbleIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from '@/components/icons';
 
 interface ArticleClientProps {
   lawCategory: string;
@@ -36,7 +40,6 @@ export function ArticleClient({
   lawName,
   allArticles,
 }: ArticleClientProps) {
-  const router = useRouter();
   const { viewMode, setViewMode } = useViewMode();
 
   const showOsaka = viewMode === 'osaka';
@@ -53,137 +56,15 @@ export function ArticleClient({
   const nextArticle =
     currentIndex < allArticles.length - 1 ? allArticles[currentIndex + 1]?.article : null;
 
-  const navigateToArticle = (articleId: string | number) => {
-    router.push(`/law/${lawCategory}/${law}/${articleId}`);
-  };
-
-  // キーボードショートカットとスワイプジェスチャー
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      const isInputFocused = ['INPUT', 'TEXTAREA', 'SELECT'].includes(
-        (event.target as HTMLElement)?.tagName
-      );
-
-      if (!isInputFocused) {
-        if (event.code === 'Space') {
-          event.preventDefault();
-          toggleViewMode();
-        } else if (event.code === 'ArrowLeft' && prevArticle) {
-          event.preventDefault();
-          navigateToArticle(prevArticle);
-        } else if (event.code === 'ArrowRight' && nextArticle) {
-          event.preventDefault();
-          navigateToArticle(nextArticle);
-        }
-      }
-    };
-
-    // スワイプジェスチャー
-    let touchStartX = 0;
-    let touchStartY = 0;
-    let isTracking = false;
-    let isHorizontalSwipe = false;
-
-    const handleTouchStart = (event: TouchEvent) => {
-      touchStartX = event.changedTouches[0].screenX;
-      touchStartY = event.changedTouches[0].screenY;
-      isTracking = true;
-      isHorizontalSwipe = false;
-
-      const pageContent = document.getElementById('page-content') as HTMLElement | null;
-      if (pageContent) {
-        pageContent.style.transition = 'none';
-      }
-    };
-
-    const handleTouchMove = (event: TouchEvent) => {
-      if (!isTracking) return;
-
-      const touchCurrentX = event.changedTouches[0].screenX;
-      const touchCurrentY = event.changedTouches[0].screenY;
-      const currentDistanceX = touchCurrentX - touchStartX;
-      const currentDistanceY = touchCurrentY - touchStartY;
-
-      const absX = Math.abs(currentDistanceX);
-      const absY = Math.abs(currentDistanceY);
-
-      if (absX > 20 || absY > 20) {
-        if (absY > absX * 1.5) {
-          isHorizontalSwipe = false;
-        } else if (absX > absY) {
-          isHorizontalSwipe = true;
-        }
-      }
-
-      if (isHorizontalSwipe) {
-        const progress = Math.min(Math.abs(currentDistanceX) / 150, 1);
-        const scale = 1 - progress * 0.05;
-
-        const pageContent = document.getElementById('page-content') as HTMLElement | null;
-        if (pageContent) {
-          pageContent.style.transform = `scale(${scale})`;
-          pageContent.style.opacity = String(1 - progress * 0.3);
-        }
-      }
-    };
-
-    const handleTouchEnd = (event: TouchEvent) => {
-      if (!isTracking) return;
-
-      const touchEndX = event.changedTouches[0].screenX;
-      const touchEndY = event.changedTouches[0].screenY;
-      isTracking = false;
-
-      const swipeDistanceX = touchEndX - touchStartX;
-      const swipeDistanceY = touchEndY - touchStartY;
-      const swipeThreshold = 150;
-
-      const pageContent = document.getElementById('page-content') as HTMLElement | null;
-      if (pageContent) {
-        pageContent.style.transition = 'transform 0.3s ease-out, opacity 0.3s ease-out';
-        pageContent.style.transform = 'scale(1)';
-        pageContent.style.opacity = '1';
-
-        setTimeout(() => {
-          pageContent.style.transition = '';
-          pageContent.style.transform = '';
-          pageContent.style.opacity = '';
-        }, 300);
-      }
-
-      const absX = Math.abs(swipeDistanceX);
-      const absY = Math.abs(swipeDistanceY);
-
-      if (isHorizontalSwipe && absX > swipeThreshold && absX > absY * 1.5) {
-        if (swipeDistanceX > 0 && prevArticle) {
-          navigateToArticle(prevArticle);
-        } else if (swipeDistanceX < 0 && nextArticle) {
-          navigateToArticle(nextArticle);
-        }
-      }
-    };
-
-    document.addEventListener('keydown', handleKeyDown);
-    document.addEventListener('touchstart', handleTouchStart, { passive: true });
-    document.addEventListener('touchmove', handleTouchMove, { passive: true });
-    document.addEventListener('touchend', handleTouchEnd, { passive: true });
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.removeEventListener('touchstart', handleTouchStart);
-      document.removeEventListener('touchmove', handleTouchMove);
-      document.removeEventListener('touchend', handleTouchEnd);
-    };
-  }, [viewMode, prevArticle, nextArticle]);
-
-  // 条文番号フォーマット
-  const formatArticleNumber = (article: string | number) => {
-    if (typeof article === 'number') return `第${article}条`;
-    if (String(article).startsWith('fusoku_')) {
-      return `附則第${String(article).replace('fusoku_', '')}条`;
-    }
-    return `第${article}条`;
-  };
+  // カスタムhookでナビゲーション処理を管理
+  const { navigateToArticle } = useArticleNavigation({
+    lawCategory,
+    law,
+    viewMode,
+    toggleViewMode,
+    prevArticle,
+    nextArticle,
+  });
 
   return (
     <main className="min-h-screen bg-cream relative">
@@ -206,22 +87,7 @@ export function ArticleClient({
           style={{ background: 'transparent' }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-200 to-transparent opacity-0 group-hover:opacity-80 transition-opacity"></div>
-          <svg
-            width="24"
-            height="60"
-            viewBox="0 0 24 60"
-            fill="currentColor"
-            className="relative z-10"
-          >
-            <path
-              d="M20 10 L8 30 L20 50"
-              stroke="currentColor"
-              strokeWidth="2"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          <ChevronLeftIcon className="relative z-10" />
         </button>
       )}
 
@@ -234,22 +100,7 @@ export function ArticleClient({
           style={{ background: 'transparent' }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-200 to-transparent opacity-0 group-hover:opacity-80 transition-opacity"></div>
-          <svg
-            width="24"
-            height="60"
-            viewBox="0 0 24 60"
-            fill="currentColor"
-            className="relative z-10"
-          >
-            <path
-              d="M4 10 L16 30 L4 50"
-              stroke="currentColor"
-              strokeWidth="2"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          <ChevronRightIcon className="relative z-10" />
         </button>
       )}
 
@@ -359,44 +210,12 @@ export function ArticleClient({
               title="クリックまたはスペースキーで表示を切り替え"
             >
               <div className="absolute -top-4 left-6 bg-red-500 rounded-full w-8 h-8 flex items-center justify-center">
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9 21C9 21.5523 9.44772 22 10 22H14C14.5523 22 15 21.5523 15 21V20H9V21Z"
-                    fill="#9CA3AF"
-                  />
-                  <path
-                    d="M12 2C8.13401 2 5 5.13401 5 9C5 11.3869 6.33193 13.4617 8.27344 14.5547C8.27344 14.5547 9 15.5 9 17H15C15 15.5 15.7266 14.5547 15.7266 14.5547C17.6681 13.4617 19 11.3869 19 9C19 5.13401 15.866 2 12 2Z"
-                    fill="#FCD34D"
-                  />
-                  <path d="M9 18H15V19H9V18Z" fill="#9CA3AF" />
-                </svg>
+                <LightBulbIcon />
               </div>
 
               <div className="p-4">
                 <h3 className="text-lg font-bold text-red-600 mb-3 flex items-center">
-                  <svg
-                    className="mr-2"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M8 12h.01M12 12h.01M16 12h.01M3 12c0 4.418 4.03 8 9 8a9.863 9.863 0 004.255-.949L21 20l-1.395-3.72C20.488 15.042 21 13.574 21 12c0-4.418-4.03-8-9-8s-9 3.582-9 8z"
-                      stroke="#DC2626"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      fill="none"
-                    />
-                  </svg>
+                  <ChatBubbleIcon className="mr-2" />
                   ワンポイント解説
                 </h3>
                 <AnimatedContent
