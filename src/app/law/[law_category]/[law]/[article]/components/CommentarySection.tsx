@@ -64,21 +64,22 @@ export function CommentarySection({
             </div>
           }
         />
-      </div>
-
-      {/* ボタンエリア: ええやん+広めたるセンタリング、スピーカー右寄せ */}
-      <div className="flex justify-center items-center relative mt-2 pt-3 border-t border-gray-200">
-        <div className="flex items-center gap-2">
-          <LikeButton articleId={articleId} lawCategory={lawCategory} law={law} />
-          <ShareButton />
-        </div>
-        <div className="absolute right-0">
+        {/* スピーカーボタン: 水平線より上、右寄せ */}
+        <div className="flex justify-end mt-2">
           <SpeakerButton
             text={
               showOsaka ? (commentaryOsaka || commentary).join('\n\n') : commentary.join('\n\n')
             }
             voice={showOsaka ? 'female' : 'male'}
           />
+        </div>
+      </div>
+
+      {/* ボタンエリア: ええやん+広めたるセンタリング */}
+      <div className="flex justify-center items-center mt-2 pt-4 border-t border-gray-200">
+        <div className="flex items-center gap-2">
+          <LikeButton articleId={articleId} lawCategory={lawCategory} law={law} />
+          <ShareButton />
         </div>
       </div>
     </div>
