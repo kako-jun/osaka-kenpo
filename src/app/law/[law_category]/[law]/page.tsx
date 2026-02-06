@@ -220,11 +220,6 @@ export default async function LawArticlesPage({
           ) : (
             // ページング表示（または章構成がない場合）
             <>
-              {needsPagination && (
-                <div className="mb-4 text-center text-gray-600">
-                  第{startIndex + 1}条〜第{endIndex}条を表示中（全{totalNormalArticles}条）
-                </div>
-              )}
               {currentArticles.map((article) => (
                 <ArticleListItem
                   key={article.article}
