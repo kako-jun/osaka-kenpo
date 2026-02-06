@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import { getDB, getArticles, getLawMetadata, getChapters, getFamousArticles } from '@/lib/db';
+import { getArticles, getLawMetadata, getChapters, getFamousArticles } from '@/lib/db';
 import { ShareButton } from '@/app/components/ShareButton';
+import { ArticleListItem } from '@/app/components/ArticleListItem';
 import { lawsMetadata } from '@/data/lawsMetadata';
 
 export const runtime = 'edge';
@@ -57,15 +57,6 @@ export default async function LawArticlesPage({
     }
   }
 
-  // 条文番号フォーマット
-  const formatArticleNumber = (article: string | number) => {
-    if (typeof article === 'number') return `第${article}条`;
-    if (String(article).startsWith('fusoku_')) {
-      return `附則第${String(article).replace('fusoku_', '')}条`;
-    }
-    return `第${article}条`;
-  };
-
   return (
     <div className="min-h-screen bg-cream">
       {/* 右上にシェアボタン */}
@@ -110,67 +101,27 @@ export default async function LawArticlesPage({
                       )}
                     </div>
 
-                    {chapterArticles.map((article: any) => {
-                      const famousArticleBadge = famousArticles?.[article.article.toString()];
-
-                      return (
-                        <Link
-                          key={article.article}
-                          href={`/law/${law_category}/${law}/${article.article}`}
-                        >
-                          <div className="block p-6 bg-white rounded-lg shadow-[0_0_15px_rgba(0,0,0,0.05)] hover:shadow-[0_0_20px_rgba(0,0,0,0.1)] transition-shadow cursor-pointer border-l-4 border-[#E94E77] mb-4 relative">
-                            <div className="flex flex-col sm:flex-row sm:items-center">
-                              <span className="font-bold text-[#E94E77] text-lg mb-2 sm:mb-0 sm:mr-4">
-                                {formatArticleNumber(article.article)}
-                              </span>
-                              {article.title && article.title.trim() !== '' && (
-                                <div className="text-gray-800 text-base leading-relaxed">
-                                  <span dangerouslySetInnerHTML={{ __html: article.title }} />
-                                </div>
-                              )}
-                            </div>
-
-                            {famousArticleBadge && (
-                              <div className="absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-bold text-white shadow-md bg-slate-500">
-                                {famousArticleBadge}
-                              </div>
-                            )}
-                          </div>
-                        </Link>
-                      );
-                    })}
+                    {chapterArticles.map((article: any) => (
+                      <ArticleListItem
+                        key={article.article}
+                        article={article.article}
+                        title={article.title}
+                        href={`/law/${law_category}/${law}/${article.article}`}
+                        famousArticleBadge={famousArticles?.[article.article.toString()]}
+                      />
+                    ))}
                   </div>
                 ))
             : // 章構成がない場合
-              (articles as any[]).map((article) => {
-                const famousArticleBadge = famousArticles?.[article.article.toString()];
-
-                return (
-                  <Link
-                    key={article.article}
-                    href={`/law/${law_category}/${law}/${article.article}`}
-                  >
-                    <div className="block p-6 bg-white rounded-lg shadow-[0_0_15px_rgba(0,0,0,0.05)] hover:shadow-[0_0_20px_rgba(0,0,0,0.1)] transition-shadow cursor-pointer border-l-4 border-[#E94E77] mb-4 relative">
-                      <div className="flex flex-col sm:flex-row sm:items-center">
-                        <span className="font-bold text-[#E94E77] text-lg mb-2 sm:mb-0 sm:mr-4">
-                          {formatArticleNumber(article.article)}
-                        </span>
-                        {article.title && article.title.trim() !== '' && (
-                          <div className="text-gray-800 text-base leading-relaxed">
-                            <span dangerouslySetInnerHTML={{ __html: article.title }} />
-                          </div>
-                        )}
-                      </div>
-
-                      {famousArticleBadge && (
-                        <div className="absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-bold text-white shadow-md bg-slate-500">
-                          {famousArticleBadge}
-                        </div>
-                      )}
-                    </div>
-                  </Link>
-                );
-              })}
+              (articles as any[]).map((article) => (
+                <ArticleListItem
+                  key={article.article}
+                  article={article.article}
+                  title={article.title}
+                  href={`/law/${law_category}/${law}/${article.article}`}
+                  famousArticleBadge={famousArticles?.[article.article.toString()]}
+                />
+              ))}
         </div>
       </div>
     </div>

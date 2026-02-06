@@ -27,6 +27,7 @@
   ],
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/tools/generate-laws-metadata.cjs",
     "build": "next build",
     "pages:build": "npx @cloudflare/next-on-pages",
     "start": "next start",
@@ -36,6 +37,7 @@
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
     "typecheck": "tsc --noEmit",
     "prepare": "husky",
+    "generate:metadata": "node scripts/tools/generate-laws-metadata.cjs",
     "fetch:roppou": "node scripts/fetch-all-roppou.js",
     "fetch:law": "node scripts/fetch-egov-law.js",
     "refetch:titles": "node scripts/refetch-missing-titles.js",

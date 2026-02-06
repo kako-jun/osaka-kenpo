@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 // 期間・割合・数字関係のルールのみ
 const IMPORTANT_KEYWORDS = [
@@ -14,7 +14,7 @@ const IMPORTANT_KEYWORDS = [
   /(\d+)日間/g,
   /(\d+)週間/g,
   /(\d+)時間/g,
-  
+
   // 期間制限（「以内」「以下」「未満」等）
   /(\d+)日以内/g,
   /(\d+)ヶ月以内/g,
@@ -24,7 +24,7 @@ const IMPORTANT_KEYWORDS = [
   /(\d+)日以下/g,
   /(\d+)ヶ月以下/g,
   /(\d+)年以下/g,
-  
+
   // 期間表現（漢数字と算用数字の組み合わせ）
   /[一二三四五六七八九十百千万]+年/g,
   /[一二三四五六七八九十百千万]+ヶ月/g,
@@ -33,7 +33,7 @@ const IMPORTANT_KEYWORDS = [
   /[一二三四五六七八九十百千万]+日/g,
   /[一二三四五六七八九十百千万]+週間/g,
   /[一二三四五六七八九十百千万]+時間/g,
-  
+
   // 分数・割合（包括的パターン）
   /[一二三四五六七八九十百千万]+分の[一二三四五六七八九十百千万]+以上/g,
   /[一二三四五六七八九十百千万]+分の[一二三四五六七八九十百千万]+/g,
@@ -42,7 +42,7 @@ const IMPORTANT_KEYWORDS = [
   /半数/g,
   /全員/g,
   /満場一致/g,
-  
+
   // 回数・度数・人数（包括的パターン）
   /[一二三四五六七八九十百千万]+回/g,
   /[一二三四五六七八九十百千万]+人以上/g,
@@ -50,58 +50,62 @@ const IMPORTANT_KEYWORDS = [
   /(\d+)回/g,
   /(\d+)人以上/g,
   /(\d+)人/g,
-  
+
   // 角度・温度（地理的座標や一般的な温度・角度は除外し、法的文脈のみ）
   // 現在は度数のハイライトを無効化
   /(\d+)%/g,
   /(\d+)パーセント/g,
-]
+];
+
+// 全てのキーワードを統合した正規表現を1回だけ作成（パフォーマンス最適化）
+const KEYWORD_PATTERN = new RegExp(`(${IMPORTANT_KEYWORDS.map((p) => p.source).join('|')})`, 'g');
 
 /**
  * 大阪弁テキストの重要キーワードをハイライトする
- * @param text - ハイライト対象のテキスト  
+ * @param text - ハイライト対象のテキスト
  * @returns ハイライト済みのReact要素
  */
 export function highlightKeywords(text: string): React.ReactNode {
-  if (!text) return text
-  
-  // 全てのキーワードを統合した正規表現を作成
-  const keywordPattern = new RegExp(`(${IMPORTANT_KEYWORDS.map(p => p.source).join('|')})`, 'g')
-  
-  const parts: React.ReactNode[] = []
-  let lastIndex = 0
-  let match
-  
+  if (!text) return text;
+
+  const parts: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let match;
+
+  // 正規表現はモジュールレベルで作成済みなので、そのまま使用
+  // ただしlastIndexをリセットして使い回す
+  KEYWORD_PATTERN.lastIndex = 0;
+
   // 正規表現のマッチを順次処理
-  while ((match = keywordPattern.exec(text)) !== null) {
+  while ((match = KEYWORD_PATTERN.exec(text)) !== null) {
     // マッチ前のテキストを追加
     if (match.index > lastIndex) {
-      parts.push(text.slice(lastIndex, match.index))
+      parts.push(text.slice(lastIndex, match.index));
     }
-    
+
     // ハイライト対象のキーワードを追加
     parts.push(
-      <span 
+      <span
         key={parts.length}
         style={{
           backgroundColor: '#fef3c7',
-          color: '#92400e', 
+          color: '#92400e',
           padding: '2px 4px',
           borderRadius: '4px',
-          fontWeight: '600'
+          fontWeight: '600',
         }}
       >
         {match[0]}
       </span>
-    )
-    
-    lastIndex = keywordPattern.lastIndex
+    );
+
+    lastIndex = KEYWORD_PATTERN.lastIndex;
   }
-  
+
   // 最後の部分を追加
   if (lastIndex < text.length) {
-    parts.push(text.slice(lastIndex))
+    parts.push(text.slice(lastIndex));
   }
-  
-  return parts.length > 1 ? parts : text
+
+  return parts.length > 1 ? parts : text;
 }
