@@ -76,7 +76,7 @@ export default async function ArticlePage({
         const parsed = JSON.parse(a.original_text);
         if (Array.isArray(parsed) && parsed.length > 0) {
           const firstLine = parsed[0].replace(/\s+/g, ' ').trim();
-          originalTextExcerpt = firstLine.length > 50 ? firstLine.slice(0, 50) + '...' : firstLine;
+          originalTextExcerpt = firstLine.length > 20 ? firstLine.slice(0, 20) + '...' : firstLine;
         }
       } catch {
         // ignore parse errors
