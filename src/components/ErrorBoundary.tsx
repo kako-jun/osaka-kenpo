@@ -64,9 +64,12 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
               <Button onClick={this.resetError} variant="primary" size="lg" fullWidth>
                 もう一度試す
               </Button>
-              <Button as="link" href="/" variant="secondary" size="lg" fullWidth>
+              <a
+                href="/"
+                className="block w-full text-center bg-gray-200 hover:bg-gray-300 text-gray-800 py-3 px-6 font-bold rounded-lg transition-colors"
+              >
                 トップページに戻る
-              </Button>
+              </a>
             </div>
 
             {process.env.NODE_ENV === 'development' && (
