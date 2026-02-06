@@ -1,7 +1,7 @@
 article: 405
 isSuppl: false
 title: 利息の元本への組入れ
-titleOsaka: ""
+titleOsaka: ''
 originalText:
   - 利息の支払が一年分以上延滞した場合において、債権者が催告をしても、債務者がその利息を支払わないときは、債権者は、これを元本に組み入れることができる。
 osakaText:

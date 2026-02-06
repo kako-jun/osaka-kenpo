@@ -33,7 +33,3 @@ next-env.d.ts
 package-lock.json
 yarn.lock
 pnpm-lock.yaml
-
-# Data files (YAML is formatted by humans)
-src/data/**/*.yaml
-.claude/**/*.yaml

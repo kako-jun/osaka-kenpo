@@ -5,14 +5,14 @@ chapters:
     articles: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     description: 法律の目的、定義、基本理念、各主体の責務について定める
     descriptionOsaka: この法律の目的や、AIって何やねん、みんなが何をせなあかんかを決めてるで
-  - chapter: 2  
+  - chapter: 2
     title: 第二章　基本的施策
     titleOsaka: 第二章　基本的な取組
     articles: [11, 12, 13, 14, 15, 16, 17]
     description: 研究開発推進、施設整備、適正性確保、人材育成、教育振興等の基本的施策について定める
     descriptionOsaka: 研究開発を進めたり、人材を育てたり、ちゃんとした使い方をするための取組を決めてるで
   - chapter: 3
-    title: 第三章　人工知能基本計画  
+    title: 第三章　人工知能基本計画
     titleOsaka: 第三章　AI基本計画
     articles: [18]
     description: 政府が策定する人工知能基本計画について定める

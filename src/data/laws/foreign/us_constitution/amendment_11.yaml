@@ -1,9 +1,9 @@
 article: 11
 isAmendment: true
 title: AMENDMENT XI
-titleOsaka: "修正第11条"
+titleOsaka: '修正第11条'
 originalText:
-  - "Note: Article III, section 2, of the Constitution was modified by amendment 11. The Judicial power of the United States shall not be construed to extend to any suit in law or equity, commenced or prosecuted against one of the United States by Citizens of another State, or by Citizens or Subjects of any Foreign State."
+  - 'Note: Article III, section 2, of the Constitution was modified by amendment 11. The Judicial power of the United States shall not be construed to extend to any suit in law or equity, commenced or prosecuted against one of the United States by Citizens of another State, or by Citizens or Subjects of any Foreign State.'
 originalTextJapanese:
   - 注：憲法第3条第2節は、修正第11条により修正された。合衆国の司法権は、他の州の市民又は外国の市民若しくは臣民により、合衆国のいずれかの州に対して提起され又は追行されるコモン・ロー又は衡平法上の訴訟に及ぶものと解釈されてはならない。
 osakaText:
