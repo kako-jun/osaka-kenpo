@@ -1,5 +1,7 @@
 // ユーティリティ関数
 
+import { logger } from './logger';
+
 /**
  * 文字列の配列を数値でソートする
  */
@@ -46,7 +48,7 @@ export function safeJsonParse<T>(jsonString: string): T | null {
   try {
     return JSON.parse(jsonString) as T;
   } catch (error) {
-    console.error('JSON parse error:', error);
+    logger.error('JSON parse error', error, { jsonString: jsonString.substring(0, 100) });
     return null;
   }
 }

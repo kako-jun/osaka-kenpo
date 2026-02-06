@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { logger } from '@/lib/logger';
 
 interface ShareButtonProps {
   title?: string;
@@ -111,12 +112,12 @@ export const ShareButton = ({ title, url }: ShareButtonProps) => {
             setIsOpen(false);
           }, 1500);
         } else {
-          console.error('コピーに失敗しました');
+          logger.error('Failed to copy to clipboard');
           setIsOpen(false);
         }
       }
     } catch (err) {
-      console.error('コピーに失敗しました:', err);
+      logger.error('Failed to copy to clipboard', err);
       // エラーでも少し待ってから閉じる
       setTimeout(() => {
         setIsOpen(false);
