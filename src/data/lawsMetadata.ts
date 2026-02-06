@@ -46,7 +46,7 @@ export const lawsMetadata: LawsMetadata = {
         { id: 'jushichijo_kenpo', path: '/law/jp_old/jushichijo_kenpo', status: 'available' },
         {
           id: 'konden_einen_shizai_hou',
-          path: '/law/jp/konden_einen_shizai_hou',
+          path: '/law/jp_old/konden_einen_shizai_hou',
           status: 'preparing',
         },
         { id: 'taiho_ritsuryo', path: '/law/jp_old/taiho_ritsuryo', status: 'preparing' },
@@ -54,7 +54,7 @@ export const lawsMetadata: LawsMetadata = {
         { id: 'buke_shohatto', path: '/law/jp_old/buke_shohatto', status: 'preparing' },
         {
           id: 'shourui_awaremi_no_rei',
-          path: '/law/jp/shourui_awaremi_no_rei',
+          path: '/law/jp_old/shourui_awaremi_no_rei',
           status: 'preparing',
         },
         {
@@ -62,7 +62,7 @@ export const lawsMetadata: LawsMetadata = {
           path: '/law/jp_old/kinchu_kuge_shohatto',
           status: 'preparing',
         },
-        { id: 'gokajou_no_goseimon', path: '/law/jp/gokajou_no_goseimon', status: 'available' },
+        { id: 'gokajou_no_goseimon', path: '/law/jp_old/gokajou_no_goseimon', status: 'available' },
         { id: 'meiji_kenpo', path: '/law/jp_old/meiji_kenpo', status: 'preparing' },
       ],
     },
@@ -82,12 +82,12 @@ export const lawsMetadata: LawsMetadata = {
       icon: '🏛️',
       laws: [
         { id: 'hammurabi_code', path: '/law/foreign_old/hammurabi_code', status: 'preparing' },
-        { id: 'magna_carta', path: '/law/foreign_old/magna_carta', status: 'available' },
         {
           id: 'corpus_iuris_civilis',
           path: '/law/roman/corpus_iuris_civilis',
           status: 'preparing',
         },
+        { id: 'magna_carta', path: '/law/foreign_old/magna_carta', status: 'available' },
         { id: 'bill_of_rights', path: '/law/uk/bill_of_rights', status: 'preparing' },
         { id: 'weimarer_verfassung', path: '/law/de/weimarer_verfassung', status: 'preparing' },
         { id: 'napoleonic_code', path: '/law/foreign_old/napoleonic_code', status: 'preparing' },
