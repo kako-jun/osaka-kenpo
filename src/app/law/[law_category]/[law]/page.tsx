@@ -8,8 +8,8 @@ import {
 } from '@/lib/db';
 import { ShareButton } from '@/app/components/ShareButton';
 import { ArticleListItem } from '@/app/components/ArticleListItem';
+import { Pagination, getPageRanges } from '@/app/components/Pagination';
 import { lawsMetadata } from '@/data/lawsMetadata';
-import Link from 'next/link';
 
 export const runtime = 'edge';
 
@@ -56,17 +56,6 @@ function classifyArticles(articles: ArticleRow[]) {
   );
 
   return { normal, supplementary };
-}
-
-// ページ範囲を計算
-function getPageRanges(totalArticles: number): { start: number; end: number; label: string }[] {
-  const ranges: { start: number; end: number; label: string }[] = [];
-  for (let i = 0; i < totalArticles; i += ARTICLES_PER_PAGE) {
-    const start = i + 1;
-    const end = Math.min(i + ARTICLES_PER_PAGE, totalArticles);
-    ranges.push({ start, end, label: `${start}〜${end}条` });
-  }
-  return ranges;
 }
 
 export default async function LawArticlesPage({
@@ -132,10 +121,11 @@ export default async function LawArticlesPage({
   const needsPagination = totalNormalArticles > ARTICLES_PER_PAGE;
 
   // ページング計算
-  const pageRanges = getPageRanges(totalNormalArticles);
+  const pageRanges = getPageRanges(totalNormalArticles, ARTICLES_PER_PAGE);
   const startIndex = (currentPage - 1) * ARTICLES_PER_PAGE;
   const endIndex = Math.min(startIndex + ARTICLES_PER_PAGE, totalNormalArticles);
   const currentArticles = needsPagination ? normal.slice(startIndex, endIndex) : normal;
+  const basePath = `/law/${law_category}/${law}`;
 
   // 附則ページかどうか
   const showSupplementary = pageParam === 'suppl' || (!needsPagination && supplementary.length > 0);
@@ -172,37 +162,13 @@ export default async function LawArticlesPage({
         {/* ページネーション（条文数が多い場合） */}
         {needsPagination && (
           <div className="max-w-4xl mx-auto mb-6">
-            <div className="flex flex-wrap gap-2 justify-center">
-              {pageRanges.map((range, index) => {
-                const pageNum = index + 1;
-                const isActive = !isSupplPage && currentPage === pageNum;
-                return (
-                  <Link
-                    key={pageNum}
-                    href={`/law/${law_category}/${law}${pageNum === 1 ? '' : `?page=${pageNum}`}`}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                      isActive
-                        ? 'bg-[#E94E77] text-white'
-                        : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-                    }`}
-                  >
-                    {range.label}
-                  </Link>
-                );
-              })}
-              {supplementary.length > 0 && (
-                <Link
-                  href={`/law/${law_category}/${law}?page=suppl`}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    isSupplPage
-                      ? 'bg-[#E94E77] text-white'
-                      : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-                  }`}
-                >
-                  附則
-                </Link>
-              )}
-            </div>
+            <Pagination
+              basePath={basePath}
+              pageRanges={pageRanges}
+              currentPage={currentPage}
+              isSupplPage={isSupplPage}
+              hasSupplementary={supplementary.length > 0}
+            />
           </div>
         )}
 
@@ -295,37 +261,13 @@ export default async function LawArticlesPage({
         {/* 下部ページネーション */}
         {needsPagination && (
           <div className="max-w-4xl mx-auto mt-8">
-            <div className="flex flex-wrap gap-2 justify-center">
-              {pageRanges.map((range, index) => {
-                const pageNum = index + 1;
-                const isActive = !isSupplPage && currentPage === pageNum;
-                return (
-                  <Link
-                    key={pageNum}
-                    href={`/law/${law_category}/${law}${pageNum === 1 ? '' : `?page=${pageNum}`}`}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                      isActive
-                        ? 'bg-[#E94E77] text-white'
-                        : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-                    }`}
-                  >
-                    {range.label}
-                  </Link>
-                );
-              })}
-              {supplementary.length > 0 && (
-                <Link
-                  href={`/law/${law_category}/${law}?page=suppl`}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    isSupplPage
-                      ? 'bg-[#E94E77] text-white'
-                      : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-                  }`}
-                >
-                  附則
-                </Link>
-              )}
-            </div>
+            <Pagination
+              basePath={basePath}
+              pageRanges={pageRanges}
+              currentPage={currentPage}
+              isSupplPage={isSupplPage}
+              hasSupplementary={supplementary.length > 0}
+            />
           </div>
         )}
       </div>
