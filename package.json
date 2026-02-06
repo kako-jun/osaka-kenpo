@@ -58,6 +58,9 @@
     ],
     "*.{json,css,md}": [
       "prettier --write"
+    ],
+    "src/data/**/*.yaml": [
+      "prettier --write"
     ]
   },
   "dependencies": {
