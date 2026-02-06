@@ -21,12 +21,8 @@ export default async function LawArticlesPage({
   ]);
 
   const staticLaw = lawsMetadata.categories.flatMap((c) => c.laws).find((l) => l.id === law);
-  const lawName =
-    (lawMetadata as any)?.short_name ||
-    (lawMetadata as any)?.display_name ||
-    staticLaw?.shortName ||
-    law;
-  const lawFullName = (lawMetadata as any)?.display_name || law;
+  const lawName = staticLaw?.shortName || law;
+  const lawFullName = (lawMetadata as any)?.display_name || lawName;
   const lawSource = lawMetadata as any;
 
   if (!articles || articles.length === 0) {
@@ -77,14 +73,10 @@ export default async function LawArticlesPage({
         <ShareButton />
       </div>
       <div className="container mx-auto px-4 py-8">
-        {lawSource?.short_name ? (
-          <div className="text-center mb-6">
-            <h1 className="text-2xl font-bold text-[#E94E77]">{lawSource.short_name}</h1>
-            <p className="text-sm text-gray-600 mt-2">{lawFullName}</p>
-          </div>
-        ) : (
-          <h1 className="text-2xl font-bold mb-6 text-center text-[#E94E77]">{lawName}</h1>
-        )}
+        <div className="text-center mb-6">
+          <h1 className="text-2xl font-bold text-[#E94E77]">{lawName}</h1>
+          {lawFullName !== lawName && <p className="text-sm text-gray-600 mt-2">{lawFullName}</p>}
+        </div>
 
         {/* 出典情報 */}
         {lawSource && (
