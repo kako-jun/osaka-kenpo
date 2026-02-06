@@ -65,7 +65,7 @@ export function CommentarySection({
           }
         />
         {/* スピーカーボタン: 右下に配置（原文セクションと同様） */}
-        <div className="absolute bottom-0 right-0">
+        <div className="absolute bottom-2 right-0">
           <SpeakerButton
             text={
               showOsaka ? (commentaryOsaka || commentary).join('\n\n') : commentary.join('\n\n')
