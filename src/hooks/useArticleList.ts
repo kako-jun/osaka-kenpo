@@ -6,6 +6,7 @@ export interface ArticleItem {
   article: string | number;
   title: string;
   titleOsaka?: string;
+  originalText?: string;
 }
 
 export function useArticleList(lawCategory: string, law: string, propArticles?: ArticleItem[]) {

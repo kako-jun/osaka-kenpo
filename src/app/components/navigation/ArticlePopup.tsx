@@ -43,11 +43,13 @@ export function ArticlePopup({ articles, currentArticle, onSelect, onClose }: Ar
               }`}
             >
               <span className="font-medium">{formatArticleNumber(article.article)}</span>
-              {article.title && (
+              {article.title ? (
                 <span className="ml-2 text-sm text-gray-600">
                   {article.title.replace(/<rt[^>]*>.*?<\/rt>/g, '').replace(/<\/?ruby>/g, '')}
                 </span>
-              )}
+              ) : article.originalText ? (
+                <span className="ml-2 text-sm text-gray-400 italic">{article.originalText}</span>
+              ) : null}
             </button>
           ))}
         </div>
