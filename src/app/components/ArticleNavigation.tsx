@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useArticleList, type ArticleItem } from '@/hooks/useArticleList';
 import { ArticlePopup } from './navigation/ArticlePopup';
-import { BackToListLink } from './navigation/BackToListLink';
 import { NavigationButtons } from './navigation/NavigationButtons';
 
 interface ArticleNavigationProps {
@@ -40,9 +39,7 @@ export const ArticleNavigation = ({
   return (
     <div className="bg-gray-50 rounded-lg border border-gray-200 p-4">
       {/* PC用レイアウト */}
-      <div className="hidden sm:flex justify-between items-center">
-        <BackToListLink lawCategory={lawCategory} law={law} className="px-3 py-2" />
-
+      <div className="hidden sm:flex justify-center items-center">
         <div className="relative">
           <NavigationButtons
             lawCategory={lawCategory}
@@ -67,10 +64,6 @@ export const ArticleNavigation = ({
 
       {/* モバイル用レイアウト */}
       <div className="sm:hidden">
-        <div className="mb-3">
-          <BackToListLink lawCategory={lawCategory} law={law} />
-        </div>
-
         <div className="relative">
           <NavigationButtons
             lawCategory={lawCategory}

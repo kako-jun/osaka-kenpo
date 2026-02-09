@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
+import { ArrowLeftIcon } from '@/components/icons';
 import {
   getArticles,
   getLawMetadata,
@@ -233,15 +235,16 @@ export default async function LawArticlesPage({
       <div className="fixed top-20 right-4 z-10">
         <ShareButton />
       </div>
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 pt-4 pb-8">
         {/* 法律一覧への戻るリンク */}
-        <div className="mb-4">
-          <a
+        <div className="mb-2">
+          <Link
             href="/"
-            className="inline-flex items-center text-sm text-gray-600 hover:text-[#E94E77] transition-colors"
+            className="flex items-center text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors px-3 py-2 w-fit"
           >
-            ← 法律一覧へ
-          </a>
+            <ArrowLeftIcon className="w-4 h-4 mr-1" />
+            法律一覧へ
+          </Link>
         </div>
 
         <div className="text-center mb-6">

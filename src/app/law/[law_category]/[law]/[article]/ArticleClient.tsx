@@ -2,6 +2,7 @@
 
 import { useViewMode } from '@/app/context/ViewModeContext';
 import { ArticleNavigation } from '@/app/components/ArticleNavigation';
+import { BackToListLink } from '@/app/components/navigation/BackToListLink';
 import { useArticleNavigation } from '@/hooks/useArticleNavigation';
 import { ArticleNavigationButtons } from './components/ArticleNavigationButtons';
 import { ArticleHeader } from './components/ArticleHeader';
@@ -69,15 +70,10 @@ export function ArticleClient({
       />
 
       <div id="page-content">
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 pt-4 pb-8">
           {/* 条文一覧への戻るリンク */}
-          <div className="mb-4">
-            <a
-              href={`/law/${lawCategory}/${law}`}
-              className="inline-flex items-center text-sm text-gray-600 hover:text-[#E94E77] transition-colors"
-            >
-              ← 条文一覧へ
-            </a>
+          <div className="mb-2">
+            <BackToListLink lawCategory={lawCategory} law={law} className="px-3 py-2" />
           </div>
 
           <ArticleHeader
