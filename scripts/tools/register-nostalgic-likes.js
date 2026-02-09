@@ -8,11 +8,16 @@
  *   node scripts/tools/register-nostalgic-likes.js --token=YOUR_TOKEN [--dry-run] [--api-url=URL]
  */
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { execSync } from 'child_process';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const OSAKA_KENPO_BASE = 'https://osaka-kenpo.llll-ll.com';
-const DEFAULT_API_URL = 'https://api.nostalgic.llll-ll.com/api/like';
+const DEFAULT_API_URL = 'https://api.nostalgic.llll-ll.com/like';
 const BATCH_SIZE = 100;
 
 function parseArgs() {
@@ -26,12 +31,13 @@ function parseArgs() {
   return args;
 }
 
-function collectArticles(lawsDir) {
+function collectArticles(lawsDir, filterCategory, filterLaw) {
   const items = [];
 
   const categories = fs
     .readdirSync(lawsDir, { withFileTypes: true })
     .filter((d) => d.isDirectory())
+    .filter((d) => !filterCategory || d.name === filterCategory)
     .map((d) => d.name);
 
   for (const category of categories) {
@@ -39,6 +45,7 @@ function collectArticles(lawsDir) {
     const laws = fs
       .readdirSync(categoryDir, { withFileTypes: true })
       .filter((d) => d.isDirectory())
+      .filter((d) => !filterLaw || d.name === filterLaw)
       .map((d) => d.name);
 
     for (const law of laws) {
@@ -46,7 +53,13 @@ function collectArticles(lawsDir) {
       const files = fs
         .readdirSync(lawDir)
         .filter((f) => f.endsWith('.yaml') || f.endsWith('.yml'))
-        .filter((f) => f !== 'metadata.yaml' && f !== 'chapters.yaml' && f !== 'famous.yaml');
+        .filter(
+          (f) =>
+            f !== 'metadata.yaml' &&
+            f !== 'law_metadata.yaml' &&
+            f !== 'chapters.yaml' &&
+            f !== 'famous.yaml'
+        );
 
       for (const file of files) {
         const article = file.replace(/\.ya?ml$/, '');
@@ -60,19 +73,13 @@ function collectArticles(lawsDir) {
   return items;
 }
 
-async function batchCreate(apiUrl, token, items) {
-  const response = await fetch(`${apiUrl}?action=batchCreate`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ token, items }),
-  });
-
-  if (!response.ok) {
-    const text = await response.text();
-    throw new Error(`API error ${response.status}: ${text}`);
-  }
-
-  return response.json();
+function batchCreate(apiUrl, token, items) {
+  const body = JSON.stringify({ token, items });
+  const result = execSync(
+    `curl -s -X POST "${apiUrl}?action=batchCreate" -H "Content-Type: application/json" -d '${body.replace(/'/g, "'\\''")}'`,
+    { timeout: 30000 }
+  );
+  return JSON.parse(result.toString());
 }
 
 async function main() {
@@ -80,7 +87,7 @@ async function main() {
 
   if (!args.token) {
     console.error(
-      'Usage: node register-nostalgic-likes.js --token=YOUR_TOKEN [--dry-run] [--api-url=URL]'
+      'Usage: node register-nostalgic-likes.js --token=YOUR_TOKEN [--category=CAT] [--law=LAW] [--dry-run] [--api-url=URL]'
     );
     process.exit(1);
   }
@@ -94,7 +101,7 @@ async function main() {
   console.log(`Dry run: ${dryRun}`);
   console.log('');
 
-  const items = collectArticles(lawsDir);
+  const items = collectArticles(lawsDir, args.category, args.law);
   console.log(`Found ${items.length} articles to register`);
   console.log('');
 

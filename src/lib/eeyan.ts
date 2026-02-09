@@ -1,7 +1,7 @@
 // ええやんユーティリティ
 
 /** nostalgic API ベースURL */
-export const NOSTALGIC_API_BASE = 'https://api.nostalgic.llll-ll.com/api/like';
+export const NOSTALGIC_API_BASE = 'https://api.nostalgic.llll-ll.com/like';
 
 /** localStorage のキー */
 const USER_ID_KEY = 'eeyan_user_id';
