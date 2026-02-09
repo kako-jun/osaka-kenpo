@@ -7,7 +7,7 @@ import {
   type ChapterRow,
 } from '@/lib/db';
 import { ShareButton } from '@/app/components/ShareButton';
-import { ArticleListItem } from '@/app/components/ArticleListItem';
+import { ArticleListWithEeyan } from './components/ArticleListWithEeyan';
 import { Pagination } from '@/app/components/Pagination';
 import { lawsMetadata } from '@/data/lawsMetadata';
 
@@ -118,6 +118,24 @@ function filterArticlesByRange(articles: ArticleRow[], start: number, end: numbe
     const baseNum = getBaseArticleNumber(String(article.article));
     return baseNum >= start && baseNum <= end;
   });
+}
+
+// ArticleRow[] を ArticleListWithEeyan 用のデータに変換
+function toArticleData(
+  articles: ArticleRow[],
+  law_category: string,
+  law: string,
+  famousArticles: Record<string, string>,
+  includeOriginalText = false
+) {
+  return articles.map((article) => ({
+    article: article.article,
+    title: article.title || '',
+    href: `/law/${law_category}/${law}/${article.article}`,
+    famousArticleBadge: famousArticles?.[article.article.toString()] || null,
+    isDeleted: article.is_deleted === 1,
+    originalText: includeOriginalText ? getFirstParagraph(article.original_text) : undefined,
+  }));
 }
 
 export default async function LawArticlesPage({
@@ -243,17 +261,11 @@ export default async function LawArticlesPage({
               <h2 className="text-xl font-bold text-[#E94E77] border-b-2 border-[#E94E77] pb-2 mb-4">
                 附則
               </h2>
-              {supplementary.map((article) => (
-                <ArticleListItem
-                  key={article.article}
-                  article={article.article}
-                  title={article.title || ''}
-                  href={`/law/${law_category}/${law}/${article.article}`}
-                  famousArticleBadge={famousArticles?.[article.article.toString()]}
-                  isDeleted={article.is_deleted === 1}
-                  originalText={getFirstParagraph(article.original_text)}
-                />
-              ))}
+              <ArticleListWithEeyan
+                articles={toArticleData(supplementary, law_category, law, famousArticles, true)}
+                lawCategory={law_category}
+                law={law}
+              />
             </div>
           ) : hasChapters && !needsPagination ? (
             // 章構成があり、ページングが不要な場合
@@ -270,33 +282,20 @@ export default async function LawArticlesPage({
                     )}
                   </div>
 
-                  {chapterArticles.map((article) => (
-                    <ArticleListItem
-                      key={article.article}
-                      article={article.article}
-                      title={article.title || ''}
-                      href={`/law/${law_category}/${law}/${article.article}`}
-                      famousArticleBadge={famousArticles?.[article.article.toString()]}
-                      isDeleted={article.is_deleted === 1}
-                    />
-                  ))}
+                  <ArticleListWithEeyan
+                    articles={toArticleData(chapterArticles, law_category, law, famousArticles)}
+                    lawCategory={law_category}
+                    law={law}
+                  />
                 </div>
               ))
           ) : (
             // ページング表示（または章構成がない場合）
-            <>
-              {currentArticles.map((article) => (
-                <ArticleListItem
-                  key={article.article}
-                  article={article.article}
-                  title={article.title || ''}
-                  href={`/law/${law_category}/${law}/${article.article}`}
-                  famousArticleBadge={famousArticles?.[article.article.toString()]}
-                  isDeleted={article.is_deleted === 1}
-                  originalText={getFirstParagraph(article.original_text)}
-                />
-              ))}
-            </>
+            <ArticleListWithEeyan
+              articles={toArticleData(currentArticles, law_category, law, famousArticles, true)}
+              lawCategory={law_category}
+              law={law}
+            />
           )}
 
           {/* 附則セクション（ページングがなく、通常条文と一緒に表示する場合） */}
@@ -305,17 +304,11 @@ export default async function LawArticlesPage({
               <h2 className="text-xl font-bold text-[#E94E77] border-b-2 border-[#E94E77] pb-2 mb-4">
                 附則
               </h2>
-              {supplementary.map((article) => (
-                <ArticleListItem
-                  key={article.article}
-                  article={article.article}
-                  title={article.title || ''}
-                  href={`/law/${law_category}/${law}/${article.article}`}
-                  famousArticleBadge={famousArticles?.[article.article.toString()]}
-                  isDeleted={article.is_deleted === 1}
-                  originalText={getFirstParagraph(article.original_text)}
-                />
-              ))}
+              <ArticleListWithEeyan
+                articles={toArticleData(supplementary, law_category, law, famousArticles, true)}
+                lawCategory={law_category}
+                law={law}
+              />
             </div>
           )}
         </div>
