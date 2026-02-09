@@ -25,9 +25,13 @@ function getLawDisplayName(category: string, lawName: string): string {
   return lawName;
 }
 
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, '');
+}
+
 function getExcerpt(text: string, maxLength: number = 40): string {
   if (!text) return '';
-  const cleaned = text.replace(/\s+/g, ' ').trim();
+  const cleaned = stripHtml(text).replace(/\s+/g, ' ').trim();
   if (cleaned.length <= maxLength) return cleaned;
   return cleaned.slice(0, maxLength) + '...';
 }
@@ -230,7 +234,10 @@ export default function EeyanPage() {
                                 {formatArticleNumber(like.article)}
                               </span>
                               {hasTitle ? (
-                                <span className="text-gray-600 text-sm truncate">{like.title}</span>
+                                <span
+                                  className="text-gray-600 text-sm truncate"
+                                  dangerouslySetInnerHTML={{ __html: like.title! }}
+                                />
                               ) : excerpt ? (
                                 <span className="text-gray-400 text-sm truncate italic">
                                   {excerpt}
