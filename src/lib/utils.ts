@@ -20,12 +20,12 @@ export function sortArticleNumbers(articles: string[]): string[] {
 }
 
 /**
- * 条文番号を整形する（例: "1" -> "第1条", "fusoku_1" -> "附則第1条"）
+ * 条文番号を整形する（例: "1" -> "第1条", "suppl-1" -> "附則第1条"）
  */
 export function formatArticleNumber(article: number | string): string {
   if (typeof article === 'number') return `第${article}条`;
-  if (String(article).startsWith('fusoku_')) {
-    return `附則第${String(article).replace('fusoku_', '')}条`;
+  if (String(article).startsWith('suppl-')) {
+    return `附則第${String(article).replace('suppl-', '')}条`;
   }
   return `第${article}条`;
 }
@@ -91,9 +91,8 @@ export function getExcerpt(text: string, maxLength: number = 50): string {
  * 条文番号のソートキーを返す（枝番・附則・改正対応）
  */
 export function getArticleSortKey(article: string): number {
-  if (article.startsWith('suppl_')) return 100000 + parseInt(article.replace('suppl_', ''), 10);
-  if (article.startsWith('amendment_'))
-    return 200000 + parseInt(article.replace('amendment_', ''), 10);
+  if (article.startsWith('suppl-')) return 100000 + parseInt(article.replace('suppl-', ''), 10);
+  if (article.startsWith('amend-')) return 200000 + parseInt(article.replace('amend-', ''), 10);
   const match = article.match(/^(\d+)-(\d+)$/);
   if (match) return parseInt(match[1], 10) + parseInt(match[2], 10) * 0.001;
   const num = parseInt(article, 10);

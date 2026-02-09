@@ -1,5 +1,5 @@
-import { Metadata } from 'next'
-import { ArticleData } from './types'
+import { Metadata } from 'next';
+import { ArticleData } from './types';
 
 /**
  * 条文ページ用のメタデータを生成
@@ -11,18 +11,19 @@ export function generateArticleMetadata(
   lawCategory: string,
   lawId: string
 ): Metadata {
-  const articleNumber = typeof articleData.article === 'number' 
-    ? `第${articleData.article}条` 
-    : articleData.article.startsWith('fusoku_') 
-      ? `附則第${articleData.article.replace('fusoku_', '')}条` 
-      : `第${articleData.article}条`
+  const articleNumber =
+    typeof articleData.article === 'number'
+      ? `第${articleData.article}条`
+      : articleData.article.startsWith('suppl-')
+        ? `附則第${articleData.article.replace('suppl-', '')}条`
+        : `第${articleData.article}条`;
 
-  const title = `${lawName} ${articleNumber} - おおさかけんぽう`
-  const description = articleData.osakaText?.[0] 
+  const title = `${lawName} ${articleNumber} - おおさかけんぽう`;
+  const description = articleData.osakaText?.[0]
     ? `${lawName}${articleNumber}を大阪弁で解説：${articleData.osakaText[0].substring(0, 100)}...`
-    : `${lawName}${articleNumber}の条文と解説`
+    : `${lawName}${articleNumber}の条文と解説`;
 
-  const url = `/law/${lawCategory}/${lawId}/${articleData.article}`
+  const url = `/law/${lawCategory}/${lawId}/${articleData.article}`;
 
   return {
     title,
@@ -51,7 +52,7 @@ export function generateArticleMetadata(
     alternates: {
       canonical: url,
     },
-  }
+  };
 }
 
 /**
@@ -64,10 +65,10 @@ export function generateLawMetadata(
   lawCategory: string,
   lawId: string
 ): Metadata {
-  const title = `${lawName} - ${categoryName} - おおさかけんぽう`
-  const description = `${lawName}を大阪弁で親しみやすく解説。${lawDescription}`
+  const title = `${lawName} - ${categoryName} - おおさかけんぽう`;
+  const description = `${lawName}を大阪弁で親しみやすく解説。${lawDescription}`;
 
-  const url = `/law/${lawCategory}/${lawId}`
+  const url = `/law/${lawCategory}/${lawId}`;
 
   return {
     title,
@@ -96,7 +97,7 @@ export function generateLawMetadata(
     alternates: {
       canonical: url,
     },
-  }
+  };
 }
 
 /**
@@ -107,10 +108,10 @@ export function generateCategoryMetadata(
   categoryDescription: string,
   lawCategory: string
 ): Metadata {
-  const title = `${categoryName} - おおさかけんぽう`
-  const description = `${categoryName}の法律を大阪弁で親しみやすく解説。${categoryDescription}`
+  const title = `${categoryName} - おおさかけんぽう`;
+  const description = `${categoryName}の法律を大阪弁で親しみやすく解説。${categoryDescription}`;
 
-  const url = `/law/${lawCategory}`
+  const url = `/law/${lawCategory}`;
 
   return {
     title,
@@ -139,5 +140,5 @@ export function generateCategoryMetadata(
     alternates: {
       canonical: url,
     },
-  }
+  };
 }

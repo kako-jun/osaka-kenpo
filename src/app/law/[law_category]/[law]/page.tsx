@@ -60,8 +60,8 @@ function getFirstParagraph(originalTextJson: string | null | undefined): string 
 
 // 条文番号から基本番号を抽出（1-2 → 1, 876-5 → 876）
 function getBaseArticleNumber(article: string): number {
-  // suppl_1 や amendment_1 は特別扱い
-  if (article.startsWith('suppl_') || article.startsWith('amendment_')) {
+  // suppl-1 や amend-1 は特別扱い
+  if (article.startsWith('suppl-') || article.startsWith('amend-')) {
     return -1; // 附則は別扱い
   }
   // 枝番（1-2など）は基本番号を返す
@@ -79,7 +79,7 @@ function classifyArticles(articles: ArticleRow[]) {
 
   for (const article of articles) {
     const articleStr = String(article.article);
-    if (articleStr.startsWith('suppl_') || articleStr.startsWith('amendment_')) {
+    if (articleStr.startsWith('suppl-') || articleStr.startsWith('amend-')) {
       supplementary.push(article);
     } else {
       normal.push(article);
