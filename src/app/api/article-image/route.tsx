@@ -78,7 +78,7 @@ export async function GET(request: Request) {
 
   const fontSize = width < 600 ? 14 : 16;
   const titleFontSize = width < 600 ? 20 : 24;
-  const lawNameFontSize = width < 600 ? 12 : 14;
+  const lawNameFontSize = width < 600 ? 16 : 20;
 
   const headers = { 'Cache-Control': 'public, max-age=86400, s-maxage=604800' };
 
@@ -116,7 +116,7 @@ export async function GET(request: Request) {
             color: '#E94E77',
             fontSize: titleFontSize,
             fontWeight: 'bold',
-            marginBottom: titleOsaka ? '4px' : '24px',
+            marginBottom: '20px',
           }}
         >
           {articleLabel}
@@ -145,14 +145,14 @@ export async function GET(request: Request) {
                 marginBottom: '12px',
               }}
             >
-              大阪弁原文
+              おおさか弁
             </div>
             {displayText.map((paragraph, index) => (
               <div
                 key={index}
                 style={{
                   display: 'flex',
-                  color: '#E94E77',
+                  color: '#333',
                   fontSize: fontSize,
                   lineHeight: 1.8,
                   marginBottom: '8px',
@@ -193,7 +193,7 @@ export async function GET(request: Request) {
                 key={index}
                 style={{
                   display: 'flex',
-                  color: '#374151',
+                  color: '#333',
                   fontSize: fontSize,
                   lineHeight: 1.8,
                   marginBottom: '8px',
@@ -211,7 +211,6 @@ export async function GET(request: Request) {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            marginTop: 'auto',
             paddingTop: '16px',
           }}
         >
@@ -222,7 +221,7 @@ export async function GET(request: Request) {
               fontSize: fontSize - 2,
             }}
           >
-            おおさかけんぽう - osaka-kenpo.pages.dev
+            おおさかけんぽう - osaka-kenpo.llll-ll.com
           </div>
         </div>
       </div>
