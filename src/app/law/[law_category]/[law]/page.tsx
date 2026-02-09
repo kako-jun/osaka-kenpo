@@ -231,22 +231,21 @@ export default async function LawArticlesPage({
 
   return (
     <div className="min-h-screen bg-cream">
+      {/* 左上に戻るリンク */}
+      <div className="fixed top-20 left-4 z-10">
+        <Link
+          href="/"
+          className="flex items-center text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors px-3 py-2 bg-white shadow-lg"
+        >
+          <ArrowLeftIcon className="w-4 h-4 mr-1" />
+          法律一覧へ
+        </Link>
+      </div>
       {/* 右上にシェアボタン */}
       <div className="fixed top-20 right-4 z-10">
         <ShareButton />
       </div>
-      <div className="container mx-auto px-4 pt-4 pb-8">
-        {/* 法律一覧への戻るリンク */}
-        <div className="mb-2">
-          <Link
-            href="/"
-            className="flex items-center text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors px-3 py-2 w-fit"
-          >
-            <ArrowLeftIcon className="w-4 h-4 mr-1" />
-            法律一覧へ
-          </Link>
-        </div>
-
+      <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-6">
           <h1 className="text-2xl font-bold text-[#E94E77]">{lawName}</h1>
           {lawFullName !== lawName && <p className="text-sm text-gray-600 mt-2">{lawFullName}</p>}
