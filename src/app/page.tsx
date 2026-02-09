@@ -1,7 +1,7 @@
-import Link from 'next/link';
 import { ShareButton } from '@/app/components/ShareButton';
 import NostalgicCounter from '@/components/NostalgicCounter';
-import { lawsMetadata, type LawEntry } from '@/data/lawsMetadata';
+import { LawCardWithEeyan } from '@/app/components/LawCardWithEeyan';
+import { lawsMetadata } from '@/data/lawsMetadata';
 
 // カテゴリ別絵文字アイコンコンポーネント
 const CategoryIcon = ({ icon }: { icon: string }) => {
@@ -47,41 +47,9 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {category.laws
                 .sort((a, b) => (a.year || 0) - (b.year || 0))
-                .map((law) =>
-                  law.status === 'available' ? (
-                    <Link key={law.id} href={law.path} passHref className="block">
-                      <div className="h-32 flex flex-col justify-center p-6 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.1)] text-center text-white font-bold text-xl bg-[#E94E77] hover:bg-opacity-80 relative">
-                        <p className="mb-1 mt-3">{law.shortName}</p>
-                        {law.year && (
-                          <p className="text-sm font-normal text-[#FFB6C1]">{law.year}年</p>
-                        )}
-                        {law.badge && (
-                          <span className="absolute top-2 left-2 px-2 py-1 rounded-full text-xs font-bold text-white shadow-[0_0_8px_rgba(0,0,0,0.25)] bg-[#ed6b8a]">
-                            {law.badge}
-                          </span>
-                        )}
-                      </div>
-                    </Link>
-                  ) : (
-                    <div
-                      key={law.id}
-                      className="h-32 flex flex-col justify-center p-6 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.1)] text-center text-white font-bold text-xl bg-gray-400 relative"
-                    >
-                      <p className="mb-1 mt-3">{law.shortName}</p>
-                      {law.year && (
-                        <p className="text-sm font-normal text-gray-300">{law.year}年</p>
-                      )}
-                      {law.badge && (
-                        <span className="absolute top-2 left-2 px-2 py-1 rounded-full text-xs font-bold text-white shadow-[0_0_8px_rgba(0,0,0,0.25)] bg-[#ed6b8a]">
-                          {law.badge}
-                        </span>
-                      )}
-                      <span className="absolute bottom-2 right-2 text-xs font-normal bg-gray-500 px-2 py-1 rounded">
-                        準備中やで
-                      </span>
-                    </div>
-                  )
-                )}
+                .map((law) => (
+                  <LawCardWithEeyan key={law.id} law={law} />
+                ))}
             </div>
           </div>
         ))}

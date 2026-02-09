@@ -6,7 +6,7 @@ import { useScrollLock } from '@/hooks/useScrollLock';
 import { HamburgerButton } from './menu/HamburgerButton';
 import { MenuBackdrop } from './menu/MenuBackdrop';
 import { CloseButton } from './menu/CloseButton';
-import { MenuItem, HomeIcon, InfoIcon } from './menu/MenuItem';
+import { MenuItem, HomeIcon, InfoIcon, HeartIcon } from './menu/MenuItem';
 import { MenuCategory } from './menu/MenuCategory';
 
 const Menu = () => {
@@ -40,6 +40,12 @@ const Menu = () => {
               onClick={() => setIsOpen(false)}
               icon={<InfoIcon />}
               label="このサイトのこと"
+            />
+            <MenuItem
+              href="/eeyan"
+              onClick={() => setIsOpen(false)}
+              icon={<HeartIcon />}
+              label="ええやん一覧"
             />
           </div>
 

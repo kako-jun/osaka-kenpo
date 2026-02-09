@@ -66,8 +66,10 @@
     ]
   },
   "dependencies": {
+    "@types/qrcode": "^1.5.6",
     "js-yaml": "^4.1.1",
     "next": "15.5.2",
+    "qrcode": "^1.5.4",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "xml2js": "^0.6.2",

@@ -102,3 +102,17 @@ CREATE TRIGGER articles_au AFTER UPDATE ON articles BEGIN
   INSERT INTO articles_fts(rowid, category, law_name, article, title, title_osaka, original_text, osaka_text, commentary, commentary_osaka)
   VALUES (new.id, new.category, new.law_name, new.article, new.title, new.title_osaka, new.original_text, new.osaka_text, new.commentary, new.commentary_osaka);
 END;
+
+-- 個人ええやん（学習ブックマーク）
+DROP TABLE IF EXISTS user_likes;
+CREATE TABLE user_likes (
+  user_id TEXT NOT NULL,
+  category TEXT NOT NULL,
+  law_name TEXT NOT NULL,
+  article TEXT NOT NULL,
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  PRIMARY KEY (user_id, category, law_name, article)
+);
+
+CREATE INDEX idx_user_likes_user ON user_likes(user_id);
+CREATE INDEX idx_user_likes_law ON user_likes(user_id, category, law_name);
