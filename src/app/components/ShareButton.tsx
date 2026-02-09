@@ -128,7 +128,7 @@ export const ShareButton = ({
   };
 
   const handleImageSharePlatform = (platform: SharePlatform) => {
-    const text = `${shareText} (画像)`;
+    const text = `${shareText}\n${currentUrl}`;
     const shareUrl = platform.getUrl(text, imageApiUrl);
     window.open(shareUrl, '_blank', 'width=600,height=400');
     handleClose();
