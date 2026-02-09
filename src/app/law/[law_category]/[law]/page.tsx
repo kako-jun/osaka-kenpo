@@ -234,6 +234,16 @@ export default async function LawArticlesPage({
         <ShareButton />
       </div>
       <div className="container mx-auto px-4 py-8">
+        {/* 法律一覧への戻るリンク */}
+        <div className="mb-4">
+          <a
+            href="/"
+            className="inline-flex items-center text-sm text-gray-600 hover:text-[#E94E77] transition-colors"
+          >
+            ← 法律一覧へ
+          </a>
+        </div>
+
         <div className="text-center mb-6">
           <h1 className="text-2xl font-bold text-[#E94E77]">{lawName}</h1>
           {lawFullName !== lawName && <p className="text-sm text-gray-600 mt-2">{lawFullName}</p>}

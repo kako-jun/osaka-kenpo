@@ -1,34 +1,16 @@
-import Link from 'next/link';
 import { AnimatedContent } from '@/app/components/AnimatedContent';
 import { formatArticleNumber } from '@/lib/utils';
 
 interface ArticleHeaderProps {
-  lawCategory: string;
-  law: string;
-  lawName: string;
   article: string | number;
   title: string;
   titleOsaka?: string;
   showOsaka: boolean;
 }
 
-export function ArticleHeader({
-  lawCategory,
-  law,
-  lawName,
-  article,
-  title,
-  titleOsaka,
-  showOsaka,
-}: ArticleHeaderProps) {
+export function ArticleHeader({ article, title, titleOsaka, showOsaka }: ArticleHeaderProps) {
   return (
     <header className="text-center mb-4">
-      <Link
-        href={`/law/${lawCategory}/${law}`}
-        className="inline-block text-lg text-gray-600 mb-2 hover:text-[#E94E77] transition-colors"
-      >
-        {lawName}
-      </Link>
       <AnimatedContent
         showOsaka={showOsaka}
         originalContent={
