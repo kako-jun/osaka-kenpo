@@ -69,7 +69,7 @@ export function ArticleListItem({
             {famousArticleBadge}
           </div>
         )}
-        {!isDeleted && likeCount > 0 && (
+        {!isDeleted && (
           <div
             className={`absolute bottom-3 right-4 flex items-center gap-1 text-xs ${
               isLiked ? 'text-[#E94E77]' : 'text-gray-400'
