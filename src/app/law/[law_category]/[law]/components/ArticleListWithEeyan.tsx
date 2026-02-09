@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { ArticleListItem } from '@/app/components/ArticleListItem';
-import { NOSTALGIC_API_BASE, getUserId, getNostalgicId } from '@/lib/eeyan';
+import { NOSTALGIC_API_BASE, getEeyanUserId, getNostalgicId } from '@/lib/eeyan';
 
 interface ArticleData {
   article: string;
@@ -62,7 +62,7 @@ export function ArticleListWithEeyan({ articles, lawCategory, law }: ArticleList
       }
 
       // osaka-kenpo: 個人状態取得
-      const userId = getUserId();
+      const userId = getEeyanUserId();
       if (userId) {
         promises.push(
           fetch(`/api/eeyan?userId=${userId}&category=${lawCategory}&lawName=${law}`)

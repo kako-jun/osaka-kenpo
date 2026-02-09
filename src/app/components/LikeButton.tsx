@@ -1,7 +1,12 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { NOSTALGIC_API_BASE, getOrCreateUserId, getUserId, getNostalgicId } from '@/lib/eeyan';
+import {
+  NOSTALGIC_API_BASE,
+  getOrCreateEeyanUserId,
+  getEeyanUserId,
+  getNostalgicId,
+} from '@/lib/eeyan';
 
 interface LikeButtonProps {
   articleId?: string;
@@ -42,7 +47,7 @@ export const LikeButton = ({ articleId, lawCategory, law }: LikeButtonProps) => 
         );
 
         // osaka-kenpo: 個人状態取得
-        const userId = getUserId();
+        const userId = getEeyanUserId();
         if (userId && lawCategory && law) {
           promises.push(
             fetch(`/api/eeyan?userId=${userId}&category=${lawCategory}&lawName=${law}`)
@@ -82,7 +87,7 @@ export const LikeButton = ({ articleId, lawCategory, law }: LikeButtonProps) => 
       setLikeCount((prev) => (newLiked ? prev + 1 : Math.max(0, prev - 1)));
 
       // ユーザーID取得（初回クリック時に生成）
-      const userId = getOrCreateUserId();
+      const userId = getOrCreateEeyanUserId();
 
       // nostalgic toggle + osaka-kenpo toggle を並行実行
       const promises: Promise<unknown>[] = [
