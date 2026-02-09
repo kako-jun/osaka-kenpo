@@ -63,6 +63,15 @@ export function ArticleClient({
 
   return (
     <main className="min-h-screen bg-cream relative">
+      {/* 左上に戻るリンク */}
+      <div className="fixed top-20 left-4 z-10">
+        <BackToListLink
+          lawCategory={lawCategory}
+          law={law}
+          className="px-3 py-2 bg-white shadow-lg"
+        />
+      </div>
+
       <ArticleNavigationButtons
         prevArticle={prevArticle}
         nextArticle={nextArticle}
@@ -70,12 +79,7 @@ export function ArticleClient({
       />
 
       <div id="page-content">
-        <div className="container mx-auto px-4 pt-4 pb-8">
-          {/* 条文一覧への戻るリンク */}
-          <div className="mb-2">
-            <BackToListLink lawCategory={lawCategory} law={law} className="px-3 py-2" />
-          </div>
-
+        <div className="container mx-auto px-4 py-8">
           <ArticleHeader
             article={articleData.article}
             title={articleData.title}
