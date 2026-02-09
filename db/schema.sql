@@ -5,7 +5,7 @@
 DROP TABLE IF EXISTS laws;
 CREATE TABLE laws (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  category TEXT NOT NULL,           -- 'jp', 'foreign', 'historical', 'treaty'
+  category TEXT NOT NULL,           -- 'jp', 'jp_hist', 'world', 'world_hist', 'treaty'
   name TEXT NOT NULL,               -- 'constitution', 'minpou', etc.
   display_name TEXT NOT NULL,       -- '日本国憲法'
   short_name TEXT,                  -- 短縮名

@@ -12,21 +12,21 @@ const preparingLaws = [
   {
     id: 'german_basic_law',
     name: 'ドイツ連邦共和国基本法',
-    category: 'foreign',
+    category: 'world',
     totalArticles: 146,
     titlePattern: (i) => `第${i}条`,
   },
   {
     id: 'us_constitution',
     name: 'アメリカ合衆国憲法',
-    category: 'foreign',
+    category: 'world',
     totalArticles: 34, // 本文7条 + 修正27条
     titlePattern: (i) => (i <= 7 ? `Article ${i}` : `Amendment ${i - 7}`),
   },
   {
     id: 'prc_constitution',
     name: '中華人民共和国憲法',
-    category: 'foreign',
+    category: 'world',
     totalArticles: 138,
     titlePattern: (i) => `第${i}条`,
   },
@@ -35,7 +35,7 @@ const preparingLaws = [
   {
     id: 'hammurabi_code',
     name: 'ハンムラビ法典',
-    category: 'foreign_old',
+    category: 'world_hist',
     totalArticles: 282,
     titlePattern: (i) => `第${i}条`,
   },
@@ -49,7 +49,7 @@ const preparingLaws = [
   {
     id: 'napoleonic_code',
     name: 'ナポレオン法典（フランス民法典）',
-    category: 'foreign_old',
+    category: 'world_hist',
     totalArticles: 2281,
     titlePattern: (i) => `第${i}条`,
   },
@@ -116,14 +116,14 @@ const preparingLaws = [
   {
     id: 'kinchu_kuge_shohatto',
     name: '禁中並公家諸法度',
-    category: 'jp_old',
+    category: 'jp_hist',
     totalArticles: 17,
     titlePattern: (i) => `第${i}条`,
   },
   {
     id: 'buke_shohatto',
     name: '武家諸法度',
-    category: 'jp_old',
+    category: 'jp_hist',
     totalArticles: 13, // 元和令（1615年版）
     titlePattern: (i) => `第${i}条`,
   },

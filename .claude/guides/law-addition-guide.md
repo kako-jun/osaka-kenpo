@@ -41,9 +41,9 @@ commentaryOsaka: # 任意
 **カテゴリ例:**
 
 - `jp`: 現行日本法
-- `jp_old`: 歴史的日本法
-- `foreign`: 外国現行法
-- `foreign_old`: 歴史的外国法
+- `jp_hist`: 歴史的日本法
+- `world`: 外国現行法
+- `world_hist`: 歴史的外国法
 - `treaty`: 条約・国際法
 
 ### 1.2. 法律メタデータの追加

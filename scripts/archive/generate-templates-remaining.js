@@ -74,7 +74,7 @@ const remainingLaws = [
   {
     id: 'taiho_ritsuryo',
     name: '大宝律令',
-    category: 'jp_old',
+    category: 'jp_hist',
     totalArticles: 30, // 主要な30条を選択（全体は膨大）
     titlePattern: (i) => `第${i}条`,
   },
