@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { formatArticleNumber } from '@/lib/utils';
+import { formatArticleNumber, getExcerpt } from '@/lib/utils';
 
 interface ArticleListItemProps {
   article: string | number;
@@ -10,14 +10,6 @@ interface ArticleListItemProps {
   originalText?: string;
   likeCount?: number;
   isLiked?: boolean;
-}
-
-// 原文の冒頭を取得（50文字程度で省略）
-function getExcerpt(text: string, maxLength: number = 50): string {
-  if (!text) return '';
-  const cleaned = text.replace(/\s+/g, ' ').trim();
-  if (cleaned.length <= maxLength) return cleaned;
-  return cleaned.slice(0, maxLength) + '...';
 }
 
 export function ArticleListItem({

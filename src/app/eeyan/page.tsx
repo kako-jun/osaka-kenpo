@@ -5,7 +5,7 @@ import Link from 'next/link';
 import QRCode from 'qrcode';
 import { getOrCreateUserId, setUserId, getUserId } from '@/lib/eeyan';
 import { lawsMetadata } from '@/data/lawsMetadata';
-import { formatArticleNumber } from '@/lib/utils';
+import { formatArticleNumber, stripHtml, getExcerpt, getArticleSortKey } from '@/lib/utils';
 
 interface LikeEntry {
   category: string;
@@ -25,17 +25,6 @@ function getLawDisplayName(category: string, lawName: string): string {
   return lawName;
 }
 
-function stripHtml(html: string): string {
-  return html.replace(/<[^>]*>/g, '');
-}
-
-function getExcerpt(text: string, maxLength: number = 40): string {
-  if (!text) return '';
-  const cleaned = stripHtml(text).replace(/\s+/g, ' ').trim();
-  if (cleaned.length <= maxLength) return cleaned;
-  return cleaned.slice(0, maxLength) + '...';
-}
-
 function formatDate(dateStr: string): string {
   const d = new Date(dateStr);
   const y = d.getFullYear();
@@ -45,16 +34,6 @@ function formatDate(dateStr: string): string {
 }
 
 type SortMode = 'date' | 'article';
-
-function getArticleSortKey(article: string): number {
-  if (article.startsWith('suppl_')) return 100000 + parseInt(article.replace('suppl_', ''), 10);
-  if (article.startsWith('amendment_'))
-    return 200000 + parseInt(article.replace('amendment_', ''), 10);
-  const match = article.match(/^(\d+)-(\d+)$/);
-  if (match) return parseInt(match[1], 10) + parseInt(match[2], 10) * 0.001;
-  const num = parseInt(article, 10);
-  return isNaN(num) ? 999999 : num;
-}
 
 export default function EeyanPage() {
   const [likes, setLikes] = useState<LikeEntry[]>([]);
@@ -222,7 +201,7 @@ export default function EeyanPage() {
                       {sortedArticles.map((like) => {
                         const hasTitle = like.title && like.title.trim() !== '';
                         const excerpt =
-                          !hasTitle && like.originalText ? getExcerpt(like.originalText) : '';
+                          !hasTitle && like.originalText ? getExcerpt(like.originalText, 40) : '';
                         return (
                           <Link
                             key={like.article}

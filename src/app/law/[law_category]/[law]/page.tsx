@@ -10,6 +10,7 @@ import { ShareButton } from '@/app/components/ShareButton';
 import { ArticleListWithEeyan } from './components/ArticleListWithEeyan';
 import { Pagination } from '@/app/components/Pagination';
 import { lawsMetadata } from '@/data/lawsMetadata';
+import { getArticleSortKey } from '@/lib/utils';
 
 export const runtime = 'edge';
 
@@ -43,23 +44,6 @@ function getBaseArticleNumber(article: string): number {
   return -1;
 }
 
-// 条文番号から数値を抽出（ソート用）
-function getArticleNumber(article: string): number {
-  if (article.startsWith('suppl_')) {
-    return 100000 + parseInt(article.replace('suppl_', ''), 10);
-  }
-  if (article.startsWith('amendment_')) {
-    return 200000 + parseInt(article.replace('amendment_', ''), 10);
-  }
-  // 枝番: 1-2 → 1.002
-  const match = article.match(/^(\d+)-(\d+)$/);
-  if (match) {
-    return parseInt(match[1], 10) + parseInt(match[2], 10) * 0.001;
-  }
-  const num = parseInt(article, 10);
-  return isNaN(num) ? 999999 : num;
-}
-
 // 条文を分類
 function classifyArticles(articles: ArticleRow[]) {
   const normal: ArticleRow[] = [];
@@ -75,9 +59,11 @@ function classifyArticles(articles: ArticleRow[]) {
   }
 
   // ソート
-  normal.sort((a, b) => getArticleNumber(String(a.article)) - getArticleNumber(String(b.article)));
+  normal.sort(
+    (a, b) => getArticleSortKey(String(a.article)) - getArticleSortKey(String(b.article))
+  );
   supplementary.sort(
-    (a, b) => getArticleNumber(String(a.article)) - getArticleNumber(String(b.article))
+    (a, b) => getArticleSortKey(String(a.article)) - getArticleSortKey(String(b.article))
   );
 
   return { normal, supplementary };

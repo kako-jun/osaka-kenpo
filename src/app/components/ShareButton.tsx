@@ -5,6 +5,7 @@ import { platforms, type SharePlatform } from './share/sharePlatforms';
 import { ShareIcon, CheckIcon, ClipboardIcon } from './share/ShareIcons';
 import { useCopyToClipboard } from './share/useCopyToClipboard';
 import { SharePlatformButton } from './share/SharePlatformButton';
+import { stripHtml } from '@/lib/utils';
 
 interface ShareButtonProps {
   title?: string;
@@ -24,7 +25,7 @@ export const ShareButton = ({ title, url, popupDirection = 'down' }: ShareButton
   // ブラウザのタイトルを取得、フォールバックでpropsを使用
   const browserTitle = typeof document !== 'undefined' ? document.title : '';
   const effectiveTitle = title || browserTitle;
-  const cleanTitle = effectiveTitle.replace(/<[^>]*>/g, '');
+  const cleanTitle = stripHtml(effectiveTitle);
   const shareText = cleanTitle;
 
   const handleCopyLink = async () => {
