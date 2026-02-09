@@ -104,7 +104,7 @@ export async function GET(request: Request) {
     totalHeight += 20;
   }
 
-  totalHeight += 16 + fontSize; // フッター paddingTop + テキスト
+  totalHeight += 16 + fontSize + outerPadding; // フッター paddingTop + テキスト + 下余白
   const finalHeight = Math.max(400, Math.ceil(totalHeight));
 
   const headers = { 'Cache-Control': 'public, max-age=86400, s-maxage=604800' };
