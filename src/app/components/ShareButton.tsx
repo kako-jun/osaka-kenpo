@@ -61,6 +61,19 @@ function DownloadIcon() {
   );
 }
 
+function OpenInNewIcon() {
+  return (
+    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+      />
+    </svg>
+  );
+}
+
 function BackIcon() {
   return (
     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -118,6 +131,11 @@ export const ShareButton = ({
     const text = `${shareText} (画像)`;
     const shareUrl = platform.getUrl(text, imageApiUrl);
     window.open(shareUrl, '_blank', 'width=600,height=400');
+    handleClose();
+  };
+
+  const handleOpenImageInNewTab = () => {
+    window.open(imageApiUrl, '_blank');
     handleClose();
   };
 
@@ -276,6 +294,15 @@ export const ShareButton = ({
                   </div>
                 </div>
                 <div className="p-2">
+                  {/* 画像を別タブで開くボタン */}
+                  <button
+                    onClick={handleOpenImageInNewTab}
+                    className="flex items-center w-full px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded transition-colors"
+                  >
+                    <OpenInNewIcon />
+                    画像を別タブで開く
+                  </button>
+
                   {/* 画像保存ボタン */}
                   <button
                     onClick={handleDownloadImage}

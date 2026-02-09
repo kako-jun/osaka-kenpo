@@ -67,15 +67,6 @@ export async function GET(request: Request) {
     return new Response('Font loading failed', { status: 500 });
   }
 
-  // テキスト量に応じて高さを動的に計算
-  const textLines = displayText.join('\n').length;
-  const commentaryLines = displayCommentary.join('\n').length;
-  const estimatedHeight = Math.max(
-    600,
-    Math.min(2400, 300 + textLines * 1.5 + commentaryLines * 1.5)
-  );
-  const finalHeight = Math.round(estimatedHeight);
-
   const fontSize = width < 600 ? 14 : 16;
   const titleFontSize = width < 600 ? 20 : 24;
   const lawNameFontSize = width < 600 ? 16 : 20;
@@ -89,7 +80,6 @@ export async function GET(request: Request) {
           display: 'flex',
           flexDirection: 'column',
           width: '100%',
-          height: '100%',
           backgroundColor: '#FFF8DC',
           padding: '40px',
           fontFamily: '"Klee One"',
@@ -228,7 +218,6 @@ export async function GET(request: Request) {
     ),
     {
       width,
-      height: finalHeight,
       fonts: [
         {
           name: 'Klee One',
