@@ -6,29 +6,45 @@ import QRCode from 'qrcode';
 import { getOrCreateUserId, setUserId, getUserId } from '@/lib/eeyan';
 import { lawsMetadata } from '@/data/lawsMetadata';
 import { ShareButton } from '@/app/components/ShareButton';
+import { formatArticleNumber } from '@/lib/utils';
 
 interface LikeEntry {
   category: string;
   lawName: string;
   article: string;
   createdAt: string;
+  title?: string;
+  originalText?: string;
 }
 
 function getLawDisplayName(category: string, lawName: string): string {
+  const targetPath = `/law/${category}/${lawName}`;
   for (const cat of lawsMetadata.categories) {
-    if (cat.id === category) {
-      const law = cat.laws.find((l) => l.id === lawName);
-      if (law) return law.shortName;
-    }
+    const law = cat.laws.find((l) => l.path === targetPath);
+    if (law) return law.shortName;
   }
   return lawName;
+}
+
+function getExcerpt(text: string, maxLength: number = 40): string {
+  if (!text) return '';
+  const cleaned = text.replace(/\s+/g, ' ').trim();
+  if (cleaned.length <= maxLength) return cleaned;
+  return cleaned.slice(0, maxLength) + '...';
+}
+
+function formatDate(dateStr: string): string {
+  const d = new Date(dateStr);
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
 }
 
 export default function EeyanPage() {
   const [likes, setLikes] = useState<LikeEntry[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [userId, setUserIdState] = useState('');
-  const [syncInput, setSyncInput] = useState('');
   const [syncMessage, setSyncMessage] = useState('');
   const [copied, setCopied] = useState(false);
   const [qrDataUrl, setQrDataUrl] = useState('');
@@ -52,6 +68,20 @@ export default function EeyanPage() {
   }, []);
 
   useEffect(() => {
+    // URLパラメータによる自動同期
+    const params = new URLSearchParams(window.location.search);
+    const syncId = params.get('sync');
+    if (syncId && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(syncId)) {
+      setUserId(syncId);
+      setUserIdState(syncId);
+      setSyncMessage('同期したで！');
+      fetchLikes(syncId);
+      // URLからパラメータを消す
+      window.history.replaceState({}, '', window.location.pathname);
+      setTimeout(() => setSyncMessage(''), 3000);
+      return;
+    }
+
     const uid = getUserId();
     setUserIdState(uid);
     if (uid) {
@@ -61,10 +91,11 @@ export default function EeyanPage() {
     }
   }, [fetchLikes]);
 
-  // QRコード生成
+  // QRコード生成（URLを埋め込む）
   useEffect(() => {
     if (!userId) return;
-    QRCode.toDataURL(userId, {
+    const syncUrl = `${window.location.origin}/eeyan?sync=${userId}`;
+    QRCode.toDataURL(syncUrl, {
       errorCorrectionLevel: 'L',
       margin: 2,
       width: 160,
@@ -107,21 +138,6 @@ export default function EeyanPage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleSync = () => {
-    const trimmed = syncInput.trim();
-    if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(trimmed)) {
-      setSyncMessage('IDの形式がちゃうで。UUIDを入力してな。');
-      return;
-    }
-    setUserId(trimmed);
-    setUserIdState(trimmed);
-    setSyncMessage('同期したで！ページを更新するわ...');
-    setIsLoading(true);
-    fetchLikes(trimmed);
-    setSyncInput('');
-    setTimeout(() => setSyncMessage(''), 3000);
-  };
-
   const handleCreateId = () => {
     const uid = getOrCreateUserId();
     setUserIdState(uid);
@@ -161,8 +177,7 @@ export default function EeyanPage() {
             <div className="space-y-6">
               {Object.values(grouped).map((group) => (
                 <div key={`${group.category}/${group.lawName}`}>
-                  <h3 className="font-bold text-[#E94E77] mb-2 flex items-center gap-1">
-                    <span>■</span>
+                  <h3 className="font-bold text-[#E94E77] mb-2">
                     <Link
                       href={`/law/${group.category}/${group.lawName}`}
                       className="hover:underline"
@@ -170,19 +185,35 @@ export default function EeyanPage() {
                       {group.displayName}
                     </Link>
                   </h3>
-                  <div className="space-y-1 pl-4 border-l-2 border-[#E94E77]/20">
-                    {group.articles.map((like) => (
-                      <Link
-                        key={like.article}
-                        href={`/law/${like.category}/${like.lawName}/${like.article}`}
-                        className="flex items-center justify-between py-2 px-3 rounded hover:bg-gray-50 transition-colors"
-                      >
-                        <span className="text-gray-800">第{like.article}条</span>
-                        <span className="text-xs text-gray-400">
-                          {new Date(like.createdAt).toLocaleDateString('ja-JP')}
-                        </span>
-                      </Link>
-                    ))}
+                  <div className="space-y-1">
+                    {group.articles.map((like) => {
+                      const hasTitle = like.title && like.title.trim() !== '';
+                      const excerpt =
+                        !hasTitle && like.originalText ? getExcerpt(like.originalText) : '';
+                      return (
+                        <Link
+                          key={like.article}
+                          href={`/law/${like.category}/${like.lawName}/${like.article}`}
+                          className="flex items-center justify-between py-2 px-3 rounded hover:bg-gray-50 transition-colors"
+                        >
+                          <div className="flex items-center gap-2 min-w-0">
+                            <span className="text-gray-800 shrink-0">
+                              {formatArticleNumber(like.article)}
+                            </span>
+                            {hasTitle ? (
+                              <span className="text-gray-600 text-sm truncate">{like.title}</span>
+                            ) : excerpt ? (
+                              <span className="text-gray-400 text-sm truncate italic">
+                                {excerpt}
+                              </span>
+                            ) : null}
+                          </div>
+                          <span className="text-xs text-gray-400 shrink-0 ml-2">
+                            {formatDate(like.createdAt)}
+                          </span>
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               ))}
@@ -198,7 +229,7 @@ export default function EeyanPage() {
         {userId ? (
           <>
             <div className="mb-4">
-              <label className="text-sm text-gray-600 block mb-1">あんたのID</label>
+              <label className="text-sm text-gray-600 block mb-1">きみのID</label>
               <div className="flex items-center gap-2">
                 <code className="flex-1 text-xs bg-gray-100 p-2 rounded break-all">{userId}</code>
                 <button
@@ -212,33 +243,16 @@ export default function EeyanPage() {
 
             {qrDataUrl && (
               <div className="mb-4 flex flex-col items-center">
-                <p className="text-sm text-gray-600 mb-2">べつの端末のカメラで読み取ってな</p>
+                <p className="text-sm text-gray-600 mb-2">
+                  べつの端末のカメラでこのQRコードを読み取るだけで同期できるで
+                </p>
                 <img src={qrDataUrl} alt="QRコード" className="w-40 h-40" />
               </div>
             )}
 
-            <div className="border-t pt-4">
-              <label className="text-sm text-gray-600 block mb-1">べつの端末のIDを入力</label>
-              <div className="flex items-center gap-2">
-                <input
-                  type="text"
-                  value={syncInput}
-                  onChange={(e) => setSyncInput(e.target.value)}
-                  placeholder="UUID を入力してな"
-                  className="flex-1 text-sm border rounded p-2 focus:outline-none focus:ring-2 focus:ring-[#E94E77]"
-                />
-                <button
-                  onClick={handleSync}
-                  className="px-3 py-2 text-sm bg-[#E94E77] text-white rounded hover:bg-[#d63d66] transition-colors whitespace-nowrap"
-                >
-                  同期
-                </button>
-              </div>
-              {syncMessage && <p className="text-sm text-[#E94E77] mt-2">{syncMessage}</p>}
-              <p className="text-xs text-gray-400 mt-2">
-                同期すると、今の端末のええやんは入力したIDのものに置き換わるで
-              </p>
-            </div>
+            {syncMessage && (
+              <p className="text-sm text-[#E94E77] mt-2 text-center">{syncMessage}</p>
+            )}
           </>
         ) : (
           <div className="text-center py-4">

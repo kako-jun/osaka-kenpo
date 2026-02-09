@@ -95,16 +95,52 @@ export async function GET(request: Request) {
         likes: result.results.map((r) => r.article),
       });
     } else {
-      // 全法律横断のええやん一覧
+      // 全法律横断のええやん一覧（タイトルと原文も取得）
       const result = await db
         .prepare(
-          'SELECT category, law_name as lawName, article, created_at as createdAt FROM user_likes WHERE user_id = ? ORDER BY created_at DESC'
+          `SELECT ul.category, ul.law_name as lawName, ul.article, ul.created_at as createdAt,
+                  a.title, a.original_text as originalText
+           FROM user_likes ul
+           LEFT JOIN articles a ON ul.category = a.category AND ul.law_name = a.law_name AND ul.article = a.article
+           WHERE ul.user_id = ?
+           ORDER BY ul.created_at DESC`
         )
         .bind(userId)
-        .all<{ category: string; lawName: string; article: string; createdAt: string }>();
+        .all<{
+          category: string;
+          lawName: string;
+          article: string;
+          createdAt: string;
+          title: string | null;
+          originalText: string | null;
+        }>();
+
+      // originalText はJSONなので最初の段落を抽出
+      const likes = result.results.map((r) => {
+        let firstParagraph = '';
+        if (r.originalText) {
+          try {
+            const parsed = JSON.parse(r.originalText);
+            if (Array.isArray(parsed) && parsed.length > 0) {
+              firstParagraph = String(parsed[0]);
+            }
+          } catch {
+            // ignore
+          }
+        }
+        return {
+          category: r.category,
+          lawName: r.lawName,
+          article: r.article,
+          createdAt: r.createdAt,
+          title: r.title || '',
+          originalText: firstParagraph,
+        };
+      });
+
       return Response.json({
         success: true,
-        likes: result.results,
+        likes,
       });
     }
   } catch {
