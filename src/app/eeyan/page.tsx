@@ -192,7 +192,7 @@ export default function EeyanPage() {
                           className="flex items-center justify-between py-2 px-3 rounded hover:bg-gray-50 transition-colors"
                         >
                           <div className="flex items-center gap-2 min-w-0">
-                            <span className="text-gray-800 shrink-0">
+                            <span className="text-blue-600 font-medium shrink-0">
                               {formatArticleNumber(like.article)}
                             </span>
                             {hasTitle ? (
