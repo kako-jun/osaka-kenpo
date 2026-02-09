@@ -1,7 +1,6 @@
 export interface SharePlatform {
   id: string;
   label: string;
-  iconImage?: string;
   getUrl: (text: string, url: string) => string;
 }
 
@@ -39,7 +38,6 @@ export const platforms: SharePlatform[] = [
   {
     id: 'mypace',
     label: 'MY PACE',
-    iconImage: '/mypace-star.webp',
     getUrl: (text, url) =>
       `https://mypace.llll-ll.com/intent/post?text=${encodeURIComponent(`${text} ${url}`)}`,
   },
