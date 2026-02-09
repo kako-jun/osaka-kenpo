@@ -71,6 +71,36 @@ export function validateArticleData(data: unknown): boolean {
 }
 
 /**
+ * HTMLタグを除去する
+ */
+export function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, '');
+}
+
+/**
+ * テキストの冒頭を取得（指定文字数で省略）
+ */
+export function getExcerpt(text: string, maxLength: number = 50): string {
+  if (!text) return '';
+  const cleaned = stripHtml(text).replace(/\s+/g, ' ').trim();
+  if (cleaned.length <= maxLength) return cleaned;
+  return cleaned.slice(0, maxLength) + '...';
+}
+
+/**
+ * 条文番号のソートキーを返す（枝番・附則・改正対応）
+ */
+export function getArticleSortKey(article: string): number {
+  if (article.startsWith('suppl_')) return 100000 + parseInt(article.replace('suppl_', ''), 10);
+  if (article.startsWith('amendment_'))
+    return 200000 + parseInt(article.replace('amendment_', ''), 10);
+  const match = article.match(/^(\d+)-(\d+)$/);
+  if (match) return parseInt(match[1], 10) + parseInt(match[2], 10) * 0.001;
+  const num = parseInt(article, 10);
+  return isNaN(num) ? 999999 : num;
+}
+
+/**
  * エラーメッセージの標準化
  */
 export function createErrorResponse(message: string, status: number = 400) {
