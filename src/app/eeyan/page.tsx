@@ -159,7 +159,9 @@ export default function EeyanPage() {
           </div>
         ) : (
           <div>
-            <p className="text-sm text-gray-500 mb-4">{likes.length}件のええやん</p>
+            <p className="text-sm text-gray-500 mb-4">
+              {likes.length.toLocaleString()}件のええやん
+            </p>
             <div className="space-y-6">
               {Object.values(grouped).map((group) => {
                 const groupKey = `${group.category}/${group.lawName}`;
@@ -201,7 +203,7 @@ export default function EeyanPage() {
                           <Link
                             key={like.article}
                             href={`/law/${like.category}/${like.lawName}/${like.article}`}
-                            className="flex items-center justify-between py-2 px-3 rounded hover:bg-gray-50 transition-colors"
+                            className="flex items-center justify-between py-2 pl-3 rounded hover:bg-gray-50 transition-colors"
                           >
                             <div className="flex items-center gap-2 min-w-0">
                               <span className="text-blue-600 font-medium shrink-0">
