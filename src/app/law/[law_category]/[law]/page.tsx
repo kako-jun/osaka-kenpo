@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import {
   getArticles,
   getLawMetadata,
@@ -13,6 +14,33 @@ import { lawsMetadata } from '@/data/lawsMetadata';
 import { getArticleSortKey } from '@/lib/utils';
 
 export const runtime = 'edge';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ law_category: string; law: string }>;
+}): Promise<Metadata> {
+  const { law_category, law } = await params;
+  const staticLaw = lawsMetadata.categories.flatMap((c) => c.laws).find((l) => l.id === law);
+  const lawName = staticLaw?.shortName || law;
+  const title = `${lawName} - おおさかけんぽう`;
+  const description = `${lawName}の条文一覧。大阪弁で親しみやすく解説。`;
+  const url = `/law/${law_category}/${law}`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url,
+    },
+    twitter: {
+      title,
+      description,
+    },
+  };
+}
 
 const ARTICLES_PER_PAGE = 100;
 

@@ -1,8 +1,56 @@
+import type { Metadata } from 'next';
 import { getArticle, getArticles, getLawMetadata, type ArticleRow } from '@/lib/db';
 import { ArticleClient } from './ArticleClient';
 import { lawsMetadata } from '@/data/lawsMetadata';
+import { formatArticleNumber } from '@/lib/utils';
 
 export const runtime = 'edge';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ law_category: string; law: string; article: string }>;
+}): Promise<Metadata> {
+  const { law_category, law, article } = await params;
+  const staticLaw = lawsMetadata.categories.flatMap((c) => c.laws).find((l) => l.id === law);
+  const lawName = staticLaw?.shortName || law;
+
+  const articleRow = await getArticle(law_category, law, article);
+  const articleLabel = formatArticleNumber(article);
+  const articleTitle = articleRow?.title ? `${articleLabel}（${articleRow.title}）` : articleLabel;
+  const title = `${articleTitle} - ${lawName} - おおさかけんぽう`;
+
+  let description = `${lawName} ${articleLabel}を大阪弁で親しみやすく解説。`;
+  if (articleRow?.osaka_text) {
+    try {
+      const parsed = JSON.parse(articleRow.osaka_text);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        const firstLine = String(parsed[0]).replace(/\s+/g, ' ').trim();
+        if (firstLine.length > 0) {
+          description = firstLine.length > 100 ? firstLine.slice(0, 100) + '...' : firstLine;
+        }
+      }
+    } catch {
+      // ignore
+    }
+  }
+
+  const url = `/law/${law_category}/${law}/${article}`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url,
+    },
+    twitter: {
+      title,
+      description,
+    },
+  };
+}
 
 export default async function ArticlePage({
   params,
