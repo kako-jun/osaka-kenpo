@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import QRCode from 'qrcode';
-import { getOrCreateEeyanUserId, setEeyanUserId, getEeyanUserId } from '@/lib/eeyan';
+import { setEeyanUserId, getEeyanUserId } from '@/lib/eeyan';
 import { lawsMetadata } from '@/data/lawsMetadata';
 import { formatArticleNumber, stripHtml, getExcerpt, getArticleSortKey } from '@/lib/utils';
 
@@ -133,11 +133,6 @@ export default function EeyanPage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleCreateId = () => {
-    const uid = getOrCreateEeyanUserId();
-    setUserIdState(uid);
-  };
-
   return (
     <div className="relative">
       <h1 className="text-2xl font-bold mb-6 text-center text-[#E94E77] mt-8">わたしのええやん</h1>
@@ -238,54 +233,36 @@ export default function EeyanPage() {
         )}
       </div>
 
-      {/* 端末間同期セクション */}
-      <div className="bg-white rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.08)] p-6 mb-16">
-        <h2 className="text-lg font-bold text-[#E94E77] mb-4">べつの端末でも使いたいとき</h2>
+      {/* 端末間同期セクション（ええやん済みの場合のみ表示） */}
+      {userId && likes.length > 0 && (
+        <div className="bg-white rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.08)] p-6 mb-16">
+          <h2 className="text-lg font-bold text-[#E94E77] mb-4">べつの端末でも使いたいとき</h2>
 
-        {userId ? (
-          <>
-            <div className="mb-4">
-              <label className="text-sm text-gray-600 block mb-1">きみのID</label>
-              <div className="flex items-center gap-2">
-                <code className="flex-1 text-xs bg-gray-100 p-2 rounded break-all">{userId}</code>
-                <button
-                  onClick={handleCopy}
-                  className="px-3 py-2 text-sm bg-[#E94E77] text-white rounded hover:bg-[#d63d66] transition-colors whitespace-nowrap"
-                >
-                  {copied ? 'コピーしたで！' : 'コピー'}
-                </button>
-              </div>
+          <div className="mb-4">
+            <label className="text-sm text-gray-600 block mb-1">きみのID</label>
+            <div className="flex items-center gap-2">
+              <code className="flex-1 text-xs bg-gray-100 p-2 rounded break-all">{userId}</code>
+              <button
+                onClick={handleCopy}
+                className="px-3 py-2 text-sm bg-[#E94E77] text-white rounded hover:bg-[#d63d66] transition-colors whitespace-nowrap"
+              >
+                {copied ? 'コピーしたで！' : 'コピー'}
+              </button>
             </div>
-
-            {qrDataUrl && (
-              <div className="mb-4 flex flex-col items-center">
-                <p className="text-sm text-gray-600 mb-2">
-                  べつの端末のカメラでこのQRコードを読み取るだけで同期できるで
-                </p>
-                <img src={qrDataUrl} alt="QRコード" className="w-40 h-40" />
-              </div>
-            )}
-
-            {syncMessage && (
-              <p className="text-sm text-[#E94E77] mt-2 text-center">{syncMessage}</p>
-            )}
-          </>
-        ) : (
-          <div className="text-center py-4">
-            <p className="text-sm text-gray-500 mb-3">
-              ええやんボタンを押すとIDが自動で作られるで。
-              <br />
-              先にIDだけ作りたい場合は↓のボタンを押してな。
-            </p>
-            <button
-              onClick={handleCreateId}
-              className="px-4 py-2 text-sm bg-[#E94E77] text-white rounded-full hover:bg-[#d63d66] transition-colors"
-            >
-              IDを作る
-            </button>
           </div>
-        )}
-      </div>
+
+          {qrDataUrl && (
+            <div className="mb-4 flex flex-col items-center">
+              <p className="text-sm text-gray-600 mb-2">
+                べつの端末のカメラでこのQRコードを読み取るだけで同期できるで
+              </p>
+              <img src={qrDataUrl} alt="QRコード" className="w-40 h-40" />
+            </div>
+          )}
+
+          {syncMessage && <p className="text-sm text-[#E94E77] mt-2 text-center">{syncMessage}</p>}
+        </div>
+      )}
     </div>
   );
 }
