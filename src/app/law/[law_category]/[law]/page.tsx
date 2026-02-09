@@ -1,6 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ArrowLeftIcon } from '@/components/icons';
 import {
   getArticles,
   getLawMetadata,
@@ -10,6 +8,7 @@ import {
   type ChapterRow,
 } from '@/lib/db';
 import { ShareButton } from '@/app/components/ShareButton';
+import { ScrollAwareBackLink } from '@/app/components/navigation/ScrollAwareBackLink';
 import { ArticleListWithEeyan } from './components/ArticleListWithEeyan';
 import { Pagination } from '@/app/components/Pagination';
 import { lawsMetadata } from '@/data/lawsMetadata';
@@ -233,13 +232,7 @@ export default async function LawArticlesPage({
     <div className="min-h-screen bg-cream">
       {/* 左上に戻るリンク */}
       <div className="fixed top-20 left-4 z-10">
-        <Link
-          href="/"
-          className="flex items-center text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded-md transition-colors px-3 py-2 bg-white shadow-lg"
-        >
-          <ArrowLeftIcon className="w-4 h-4 mr-1" />
-          法律一覧へ
-        </Link>
+        <ScrollAwareBackLink href="/">法律一覧へ</ScrollAwareBackLink>
       </div>
       {/* 右上にシェアボタン */}
       <div className="fixed top-20 right-4 z-10">

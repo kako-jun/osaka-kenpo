@@ -2,7 +2,7 @@
 
 import { useViewMode } from '@/app/context/ViewModeContext';
 import { ArticleNavigation } from '@/app/components/ArticleNavigation';
-import { BackToListLink } from '@/app/components/navigation/BackToListLink';
+import { ScrollAwareBackLink } from '@/app/components/navigation/ScrollAwareBackLink';
 import { useArticleNavigation } from '@/hooks/useArticleNavigation';
 import { ArticleNavigationButtons } from './components/ArticleNavigationButtons';
 import { ArticleHeader } from './components/ArticleHeader';
@@ -65,11 +65,7 @@ export function ArticleClient({
     <main className="min-h-screen bg-cream relative">
       {/* 左上に戻るリンク */}
       <div className="fixed top-20 left-4 z-10">
-        <BackToListLink
-          lawCategory={lawCategory}
-          law={law}
-          className="px-3 py-2 bg-white shadow-lg"
-        />
+        <ScrollAwareBackLink href={`/law/${lawCategory}/${law}`}>条文一覧へ</ScrollAwareBackLink>
       </div>
 
       <ArticleNavigationButtons
