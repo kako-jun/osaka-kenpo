@@ -1,5 +1,8 @@
 # ええやん機能 仕様書
 
+> **実装状況**: ✅ 完了（2026-02-09）  
+> すべての機能が実装済みです。このドキュメントは仕様の参照用として保持しています。
+
 ## 概要
 
 条文の大阪弁訳に対して「ええやん」（いいね）できる機能。
@@ -86,7 +89,7 @@ Body: { "ids": ["osaka-kenpo-jp-minpou-1", "osaka-kenpo-jp-minpou-2", ...] }
 ### ユーザー識別
 
 - 初回アクセス時にブラウザで UUID v4 を生成
-- `localStorage` に `eeyaan_user_id` として保存
+- `localStorage` の `osaka-kenpo` キー内に `eeyanUserId` として保存
 - 別端末で同期する場合は UUID を入力（QRコード等）
 
 ### D1 スキーマ
@@ -107,13 +110,13 @@ CREATE INDEX idx_user_likes_law ON user_likes(user_id, category, law_name);
 
 ### API ルート
 
-`/api/eeyaan` に新設。全て Edge Runtime で動作。
+`/api/eeyan` に実装済み。全て Edge Runtime で動作。
 
-#### POST /api/eeyaan — ええやんトグル
+#### POST /api/eeyan — ええやんトグル
 
 ```typescript
 // リクエスト
-POST /api/eeyaan
+POST /api/eeyan
 Content-Type: application/json
 {
   "userId": "550e8400-e29b-41d4-a716-446655440000",
@@ -131,11 +134,11 @@ Content-Type: application/json
 
 存在すれば削除、なければ追加のトグル動作。
 
-#### GET /api/eeyaan?userId={}&category={}&lawName={} — 法律ごとの個人ええやん一覧
+#### GET /api/eeyan?userId={}&category={}&lawName={} — 法律ごとの個人ええやん一覧
 
 ```typescript
 // リクエスト
-GET /api/eeyaan?userId=550e8400-...&category=jp&lawName=minpou
+GET /api/eeyan?userId=550e8400-...&category=jp&lawName=minpou
 
 // レスポンス
 {
@@ -146,11 +149,11 @@ GET /api/eeyaan?userId=550e8400-...&category=jp&lawName=minpou
 
 条文一覧ページで「自分がええやん済みか」を表示するために使用。
 
-#### GET /api/eeyaan?userId={} — 全法律横断のええやん一覧
+#### GET /api/eeyan?userId={} — 全法律横断のええやん一覧
 
 ```typescript
 // リクエスト
-GET /api/eeyaan?userId=550e8400-...
+GET /api/eeyan?userId=550e8400-...
 
 // レスポンス
 {
@@ -190,7 +193,7 @@ GET /api/eeyaan?userId=550e8400-...
 ```
 
 - 全体カウント: nostalgic batchGet で法律内の全条文分を一括取得
-- 個人状態: osaka-kenpo `/api/eeyaan?userId=...&category=...&lawName=...` で一括取得
+- 個人状態: osaka-kenpo `/api/eeyan?userId=...&category=...&lawName=...` で一括取得
 
 ### 法律一覧ページ（トップ）
 
@@ -206,9 +209,9 @@ GET /api/eeyaan?userId=550e8400-...
 - 法律ごとの合計: nostalgic batchGet で全条文のカウントを取得し、合算
 - キャッシュ: 毎回全条文を batchGet するのはコストが高いため、合計値のキャッシュ戦略が必要（後述）
 
-### ええやんした一覧ページ（新設）
+### ええやんした一覧ページ（実装済み）
 
-`/eeyaan` に個人のええやん一覧 + 端末間同期の UI を統合する。
+`/eeyan` に個人のええやん一覧 + 端末間同期の UI を実装済み。
 
 ```
 ┌─────────────────────────────────────────────┐
@@ -241,14 +244,14 @@ GET /api/eeyaan?userId=550e8400-...
 └─────────────────────────────────────────────┘
 ```
 
-- データソース: osaka-kenpo `/api/eeyaan?userId=...`
+- データソース: osaka-kenpo `/api/eeyan?userId=...`
 - 法律名の表示には `lawsMetadata` を使用
 - 条文タイトルは D1 articles テーブルから取得
 - 端末間同期の UI はページ下部にまとめる（メイン用途はええやん一覧の閲覧）
 
 ## 4. 端末間同期
 
-### `/eeyaan` ページ内の同期セクション
+### `/eeyan` ページ内の同期セクション
 
 ええやん一覧ページの下部に同期 UI を配置。専用の設定ページは設けない。
 
@@ -262,7 +265,7 @@ GET /api/eeyaan?userId=550e8400-...
 
 ```
 端末A (UUID生成済み)
-  └→ /eeyaan ページ下部でQRコード表示 or IDコピー
+  └→ /eeyan ページ下部でQRコード表示 or IDコピー
         │
         ▼
 端末B (QRコード読み取り or ID入力)
@@ -300,23 +303,44 @@ GET /api/eeyaan?userId=550e8400-...
 
 ## 6. nostalgic like サービスの初期登録
 
-約8,000条文分の like サービスを事前に nostalgic に登録する必要がある。
+✅ **実装完了（2026-02-09）**
+
+8,702条文分の like サービスを nostalgic に登録済み。
 
 ```bash
-# 一括登録スクリプト（新規作成が必要）
-# 各条文に対して nostalgic の create API を呼び出す
-node scripts/tools/register-nostalgic-likes.js
+# 一括登録スクリプト
+node scripts/tools/register-nostalgic-likes.js --token=YOUR_TOKEN
+
+# ドライラン（登録前の確認）
+node scripts/tools/register-nostalgic-likes.js --token=YOUR_TOKEN --dry-run
+
+# 特定カテゴリ・法律のみ登録
+node scripts/tools/register-nostalgic-likes.js --token=YOUR_TOKEN --category=jp --law=minpou
 ```
 
-登録時に取得した ID は、条文のメタデータとして管理するか、命名規則から算出可能にする。
+登録された ID は命名規則 `osaka-kenpo-{category}-{law}-{article}` から算出可能。
 
-## 7. 実装順序
+## 7. 実装状況
 
-1. **osaka-kenpo D1 スキーマ追加**: `user_likes` テーブル
-2. **osaka-kenpo API ルート新設**: `/api/eeyaan`
-3. **nostalgic like サービス一括登録**: 全条文分
-4. **LikeButton 改修**: nostalgic + osaka-kenpo D1 の二重呼び出し
-5. **条文一覧ページ**: ええやん数表示
-6. **法律一覧ページ**: トータルええやん数表示
-7. **ええやん一覧ページ新設**: `/eeyaan`
-8. **端末間同期**: `/eeyaan` ページ内に同期セクション
+### ✅ 完了した機能（2026-02-09）
+
+1. **✅ osaka-kenpo D1 スキーマ追加**: `user_likes` テーブル
+2. **✅ osaka-kenpo API ルート実装**: `/api/eeyan`
+3. **✅ nostalgic like サービス一括登録**: 全8,702条文
+4. **✅ LikeButton 改修**: nostalgic + osaka-kenpo D1 の二重呼び出し
+5. **✅ 条文一覧ページ**: ええやん数表示（ArticleListWithEeyan）
+6. **✅ 法律一覧ページ**: トータルええやん数表示（LawCardWithEeyan）
+7. **✅ ええやん一覧ページ**: `/eeyan` 実装済み
+8. **✅ 端末間同期**: `/eeyan` ページ内にQRコード同期セクション
+
+### 実装ファイル
+
+- **API**: `src/app/api/eeyan/route.ts`
+- **ページ**: `src/app/eeyan/page.tsx`
+- **コンポーネント**:
+  - `src/app/components/LikeButton.tsx`
+  - `src/app/components/ArticleListWithEeyan.tsx`
+  - `src/app/components/LawCardWithEeyan.tsx`
+- **ユーティリティ**: `src/lib/eeyan.ts`
+- **スキーマ**: `db/schema.sql`
+- **登録スクリプト**: `scripts/tools/register-nostalgic-likes.js`
