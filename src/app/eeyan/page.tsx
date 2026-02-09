@@ -40,6 +40,18 @@ function formatDate(dateStr: string): string {
   return `${y}-${m}-${day}`;
 }
 
+type SortMode = 'date' | 'article';
+
+function getArticleSortKey(article: string): number {
+  if (article.startsWith('suppl_')) return 100000 + parseInt(article.replace('suppl_', ''), 10);
+  if (article.startsWith('amendment_'))
+    return 200000 + parseInt(article.replace('amendment_', ''), 10);
+  const match = article.match(/^(\d+)-(\d+)$/);
+  if (match) return parseInt(match[1], 10) + parseInt(match[2], 10) * 0.001;
+  const num = parseInt(article, 10);
+  return isNaN(num) ? 999999 : num;
+}
+
 export default function EeyanPage() {
   const [likes, setLikes] = useState<LikeEntry[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -47,6 +59,7 @@ export default function EeyanPage() {
   const [syncMessage, setSyncMessage] = useState('');
   const [copied, setCopied] = useState(false);
   const [qrDataUrl, setQrDataUrl] = useState('');
+  const [sortModes, setSortModes] = useState<Record<string, SortMode>>({});
 
   const fetchLikes = useCallback(async (uid: string) => {
     if (!uid) {
@@ -170,48 +183,70 @@ export default function EeyanPage() {
           <div>
             <p className="text-sm text-gray-500 mb-4">{likes.length}件のええやん</p>
             <div className="space-y-6">
-              {Object.values(grouped).map((group) => (
-                <div key={`${group.category}/${group.lawName}`}>
-                  <h3 className="font-bold text-[#E94E77] mb-2">
-                    <Link
-                      href={`/law/${group.category}/${group.lawName}`}
-                      className="hover:underline"
-                    >
-                      {group.displayName}
-                    </Link>
-                  </h3>
-                  <div className="space-y-1">
-                    {group.articles.map((like) => {
-                      const hasTitle = like.title && like.title.trim() !== '';
-                      const excerpt =
-                        !hasTitle && like.originalText ? getExcerpt(like.originalText) : '';
-                      return (
+              {Object.values(grouped).map((group) => {
+                const groupKey = `${group.category}/${group.lawName}`;
+                const sortMode = sortModes[groupKey] || 'date';
+                const sortedArticles = [...group.articles].sort((a, b) =>
+                  sortMode === 'article'
+                    ? getArticleSortKey(a.article) - getArticleSortKey(b.article)
+                    : new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+                );
+                return (
+                  <div key={groupKey}>
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="font-bold text-[#E94E77]">
                         <Link
-                          key={like.article}
-                          href={`/law/${like.category}/${like.lawName}/${like.article}`}
-                          className="flex items-center justify-between py-2 px-3 rounded hover:bg-gray-50 transition-colors"
+                          href={`/law/${group.category}/${group.lawName}`}
+                          className="hover:underline"
                         >
-                          <div className="flex items-center gap-2 min-w-0">
-                            <span className="text-blue-600 font-medium shrink-0">
-                              {formatArticleNumber(like.article)}
-                            </span>
-                            {hasTitle ? (
-                              <span className="text-gray-600 text-sm truncate">{like.title}</span>
-                            ) : excerpt ? (
-                              <span className="text-gray-400 text-sm truncate italic">
-                                {excerpt}
-                              </span>
-                            ) : null}
-                          </div>
-                          <span className="text-xs text-gray-400 shrink-0 ml-2">
-                            {formatDate(like.createdAt)}
-                          </span>
+                          {group.displayName}
                         </Link>
-                      );
-                    })}
+                      </h3>
+                      <button
+                        onClick={() =>
+                          setSortModes((prev) => ({
+                            ...prev,
+                            [groupKey]: prev[groupKey] === 'article' ? 'date' : 'article',
+                          }))
+                        }
+                        className="text-xs text-gray-400 hover:text-gray-600 transition-colors"
+                      >
+                        {sortMode === 'date' ? '日時順' : '条文順'}
+                      </button>
+                    </div>
+                    <div className="space-y-1">
+                      {sortedArticles.map((like) => {
+                        const hasTitle = like.title && like.title.trim() !== '';
+                        const excerpt =
+                          !hasTitle && like.originalText ? getExcerpt(like.originalText) : '';
+                        return (
+                          <Link
+                            key={like.article}
+                            href={`/law/${like.category}/${like.lawName}/${like.article}`}
+                            className="flex items-center justify-between py-2 px-3 rounded hover:bg-gray-50 transition-colors"
+                          >
+                            <div className="flex items-center gap-2 min-w-0">
+                              <span className="text-blue-600 font-medium shrink-0">
+                                {formatArticleNumber(like.article)}
+                              </span>
+                              {hasTitle ? (
+                                <span className="text-gray-600 text-sm truncate">{like.title}</span>
+                              ) : excerpt ? (
+                                <span className="text-gray-400 text-sm truncate italic">
+                                  {excerpt}
+                                </span>
+                              ) : null}
+                            </div>
+                            <span className="text-xs text-gray-400 shrink-0 ml-2">
+                              {formatDate(like.createdAt)}
+                            </span>
+                          </Link>
+                        );
+                      })}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         )}
