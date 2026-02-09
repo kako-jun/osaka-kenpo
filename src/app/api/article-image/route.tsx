@@ -70,6 +70,42 @@ export async function GET(request: Request) {
   const fontSize = width < 600 ? 14 : 16;
   const titleFontSize = width < 600 ? 20 : 24;
   const lawNameFontSize = width < 600 ? 16 : 20;
+  const lineHeight = 1.8;
+  const outerPadding = 40; // 外側パディング
+  const sectionPadding = 20; // セクション内パディング
+  const borderWidth = 2;
+
+  // テキスト量から画像の高さを正確に計算
+  // CJK文字は fontSize とほぼ同幅
+  const contentWidth = width - outerPadding * 2 - (sectionPadding + borderWidth) * 2;
+
+  function calcTextHeight(paragraphs: string[], fs: number, lh: number): number {
+    return paragraphs.reduce((sum, p) => {
+      const lines = Math.max(1, Math.ceil(p.length / Math.floor(contentWidth / fs)));
+      return sum + lines * fs * lh + 8; // 8 = marginBottom
+    }, 0);
+  }
+
+  let totalHeight = outerPadding * 2; // 上下パディング
+  totalHeight += lawNameFontSize + 8; // 法律名 + marginBottom
+  totalHeight += titleFontSize + 20; // 条文タイトル + marginBottom
+
+  if (displayText.length > 0) {
+    totalHeight += sectionPadding * 2 + borderWidth * 2; // セクションpadding+border
+    totalHeight += fontSize - 2 + 12; // 見出し + marginBottom
+    totalHeight += calcTextHeight(displayText, fontSize, lineHeight);
+    totalHeight += 20; // セクション marginBottom
+  }
+
+  if (displayCommentary.length > 0) {
+    totalHeight += sectionPadding * 2 + borderWidth * 2;
+    totalHeight += fontSize - 2 + 12;
+    totalHeight += calcTextHeight(displayCommentary, fontSize, lineHeight);
+    totalHeight += 20;
+  }
+
+  totalHeight += 16 + fontSize; // フッター paddingTop + テキスト
+  const finalHeight = Math.max(400, Math.ceil(totalHeight));
 
   const headers = { 'Cache-Control': 'public, max-age=86400, s-maxage=604800' };
 
@@ -218,6 +254,7 @@ export async function GET(request: Request) {
     ),
     {
       width,
+      height: finalHeight,
       fonts: [
         {
           name: 'Klee One',
