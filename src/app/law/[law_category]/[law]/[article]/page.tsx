@@ -36,6 +36,7 @@ export async function generateMetadata({
   }
 
   const url = `/law/${law_category}/${law}/${article}`;
+  const imageUrl = `/api/article-image?category=${law_category}&law=${law}&article=${article}`;
 
   return {
     title,
@@ -44,10 +45,13 @@ export async function generateMetadata({
       title,
       description,
       url,
+      images: [imageUrl],
     },
     twitter: {
+      card: 'summary_large_image',
       title,
       description,
+      images: [imageUrl],
     },
   };
 }
