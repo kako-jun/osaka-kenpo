@@ -70,10 +70,17 @@ export function ArticleClient({
 
       <div id="page-content">
         <div className="container mx-auto px-4 py-8">
+          {/* 条文一覧への戻るリンク */}
+          <div className="mb-4">
+            <a
+              href={`/law/${lawCategory}/${law}`}
+              className="inline-flex items-center text-sm text-gray-600 hover:text-[#E94E77] transition-colors"
+            >
+              ← 条文一覧へ
+            </a>
+          </div>
+
           <ArticleHeader
-            lawCategory={lawCategory}
-            law={law}
-            lawName={lawName}
             article={articleData.article}
             title={articleData.title}
             titleOsaka={articleData.titleOsaka}
