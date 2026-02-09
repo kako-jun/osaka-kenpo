@@ -5,7 +5,6 @@ import Link from 'next/link';
 import QRCode from 'qrcode';
 import { getOrCreateUserId, setUserId, getUserId } from '@/lib/eeyan';
 import { lawsMetadata } from '@/data/lawsMetadata';
-import { ShareButton } from '@/app/components/ShareButton';
 import { formatArticleNumber } from '@/lib/utils';
 
 interface LikeEntry {
@@ -145,10 +144,6 @@ export default function EeyanPage() {
 
   return (
     <div className="relative">
-      <div className="fixed top-20 right-4 z-10">
-        <ShareButton />
-      </div>
-
       <h1 className="text-2xl font-bold mb-6 text-center text-[#E94E77] mt-8">わたしのええやん</h1>
 
       {/* ええやん一覧セクション */}
