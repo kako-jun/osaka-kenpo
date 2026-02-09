@@ -15,11 +15,11 @@ from typing import Dict, List, Tuple
 # 対象法律のパスマッピング
 LAW_PATHS = {
     "南極条約": "src/data/laws/treaty/antarctic_treaty",
-    "マグナ・カルタ": "src/data/laws/foreign_old/magna_carta",
-    "十七条憲法": "src/data/laws/jp_old/jushichijo_kenpo",
-    "アメリカ憲法": "src/data/laws/foreign/us_constitution",
-    "ドイツ基本法": "src/data/laws/foreign/german_basic_law",
-    "中国憲法": "src/data/laws/foreign/prc_constitution",
+    "マグナ・カルタ": "src/data/laws/world_hist/magna_carta",
+    "十七条憲法": "src/data/laws/jp_hist/jushichijo_kenpo",
+    "アメリカ憲法": "src/data/laws/world/us_constitution",
+    "ドイツ基本法": "src/data/laws/world/german_basic_law",
+    "中国憲法": "src/data/laws/world/prc_constitution",
     "AI推進法": "src/data/laws/jp/ai_suishin_hou",
     "日本国憲法": "src/data/laws/jp/constitution",
     "会社法": "src/data/laws/jp/kaisya_hou",

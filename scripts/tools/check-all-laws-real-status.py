@@ -83,7 +83,7 @@ def main():
     }
 
     # 日本歴史法
-    jp_old_laws = {
+    jp_hist_laws = {
         'jushichijo_kenpo': '十七条憲法',
         'taiho_ritsuryo': '大宝律令',
         'goseibai_shikimoku': '御成敗式目',
@@ -103,7 +103,7 @@ def main():
     }
 
     # 外国歴史法
-    foreign_old_laws = {
+    world_hist_laws = {
         'hammurabi_code': 'ハンムラビ法典',
         'magna_carta': 'マグナ・カルタ',
         'corpus_iuris_civilis': 'ローマ法大全',
@@ -133,9 +133,9 @@ def main():
 
     all_categories = [
         ('日本現行法', 'jp', jp_laws),
-        ('日本歴史法', 'jp_old', jp_old_laws),
-        ('外国現行法', 'foreign', foreign_laws),
-        ('外国歴史法', 'foreign_old', foreign_old_laws),
+        ('日本歴史法', 'jp_hist', jp_hist_laws),
+        ('外国現行法', 'world', foreign_laws),
+        ('外国歴史法', 'world_hist', world_hist_laws),
         ('国際条約', 'treaty', treaties)
     ]
 

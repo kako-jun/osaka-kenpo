@@ -110,7 +110,7 @@ export const lawsMetadata: LawsMetadata = {
         {
           id: 'jushichijo_kenpo',
           shortName: '十七条憲法',
-          path: '/law/jp_old/jushichijo_kenpo',
+          path: '/law/jp_hist/jushichijo_kenpo',
           status: 'available',
           year: 604,
           badge: '和がだいじ！',
@@ -118,7 +118,7 @@ export const lawsMetadata: LawsMetadata = {
         {
           id: 'konden_einen_shizai_hou',
           shortName: '墾田永年私財法',
-          path: '/law/jp_old/konden_einen_shizai_hou',
+          path: '/law/jp_hist/konden_einen_shizai_hou',
           status: 'preparing',
           year: 743,
           badge: '土地がもらえる！',
@@ -126,7 +126,7 @@ export const lawsMetadata: LawsMetadata = {
         {
           id: 'taiho_ritsuryo',
           shortName: '大宝律令',
-          path: '/law/jp_old/taiho_ritsuryo',
+          path: '/law/jp_hist/taiho_ritsuryo',
           status: 'preparing',
           year: 701,
           badge: '日本初の法律！',
@@ -134,7 +134,7 @@ export const lawsMetadata: LawsMetadata = {
         {
           id: 'goseibai_shikimoku',
           shortName: '御成敗式目',
-          path: '/law/jp_old/goseibai_shikimoku',
+          path: '/law/jp_hist/goseibai_shikimoku',
           status: 'preparing',
           year: 1232,
           badge: '武士初の法律！',
@@ -142,7 +142,7 @@ export const lawsMetadata: LawsMetadata = {
         {
           id: 'buke_shohatto',
           shortName: '武家諸法度',
-          path: '/law/jp_old/buke_shohatto',
+          path: '/law/jp_hist/buke_shohatto',
           status: 'preparing',
           year: 1615,
           badge: '大名をしばるで！',
@@ -150,7 +150,7 @@ export const lawsMetadata: LawsMetadata = {
         {
           id: 'shourui_awaremi_no_rei',
           shortName: '生類憐みの令',
-          path: '/law/jp_old/shourui_awaremi_no_rei',
+          path: '/law/jp_hist/shourui_awaremi_no_rei',
           status: 'preparing',
           year: 1687,
           badge: '犬さん大事！',
@@ -158,7 +158,7 @@ export const lawsMetadata: LawsMetadata = {
         {
           id: 'kinchu_kuge_shohatto',
           shortName: '禁中並公家諸法度',
-          path: '/law/jp_old/kinchu_kuge_shohatto',
+          path: '/law/jp_hist/kinchu_kuge_shohatto',
           status: 'preparing',
           year: 1615,
           badge: '朝廷さんも約束！',
@@ -166,7 +166,7 @@ export const lawsMetadata: LawsMetadata = {
         {
           id: 'gokajou_no_goseimon',
           shortName: '五箇条の御誓文',
-          path: '/law/jp_old/gokajou_no_goseimon',
+          path: '/law/jp_hist/gokajou_no_goseimon',
           status: 'preparing',
           year: 1868,
           badge: '広く会議をおこすで！',
@@ -174,7 +174,7 @@ export const lawsMetadata: LawsMetadata = {
         {
           id: 'meiji_kenpo',
           shortName: '大日本帝国憲法',
-          path: '/law/jp_old/meiji_kenpo',
+          path: '/law/jp_hist/meiji_kenpo',
           status: 'preparing',
           year: 1889,
           badge: '日本の夜明け？',
@@ -189,7 +189,7 @@ export const lawsMetadata: LawsMetadata = {
         {
           id: 'german_basic_law',
           shortName: 'ドイツ基本法',
-          path: '/law/foreign/german_basic_law',
+          path: '/law/world/german_basic_law',
           status: 'available',
           year: 1949,
           badge: '基本法やけど憲法やで！',
@@ -197,7 +197,7 @@ export const lawsMetadata: LawsMetadata = {
         {
           id: 'us_constitution',
           shortName: 'アメリカ合衆国憲法',
-          path: '/law/foreign/us_constitution',
+          path: '/law/world/us_constitution',
           status: 'available',
           year: 1787,
           badge: '自由の重さがわかるで！',
@@ -205,7 +205,7 @@ export const lawsMetadata: LawsMetadata = {
         {
           id: 'prc_constitution',
           shortName: '中華人民共和国憲法',
-          path: '/law/foreign/prc_constitution',
+          path: '/law/world/prc_constitution',
           status: 'available',
           year: 1982,
           badge: '社会主義の中華トッピングや！',
@@ -220,7 +220,7 @@ export const lawsMetadata: LawsMetadata = {
         {
           id: 'hammurabi_code',
           shortName: 'ハンムラビ法典',
-          path: '/law/foreign_old/hammurabi_code',
+          path: '/law/world_hist/hammurabi_code',
           status: 'preparing',
           year: -1750,
           badge: '目には目？',
@@ -228,7 +228,7 @@ export const lawsMetadata: LawsMetadata = {
         {
           id: 'magna_carta',
           shortName: 'マグナ・カルタ',
-          path: '/law/foreign_old/magna_carta',
+          path: '/law/world_hist/magna_carta',
           status: 'available',
           year: 1215,
           badge: '王権をしばるで！',
@@ -236,7 +236,7 @@ export const lawsMetadata: LawsMetadata = {
         {
           id: 'corpus_iuris_civilis',
           shortName: 'ローマ法大全',
-          path: '/law/foreign_old/corpus_iuris_civilis',
+          path: '/law/world_hist/corpus_iuris_civilis',
           status: 'preparing',
           year: 534,
           badge: '法律のおかあさん！',
@@ -244,7 +244,7 @@ export const lawsMetadata: LawsMetadata = {
         {
           id: 'bill_of_rights',
           shortName: '権利章典',
-          path: '/law/foreign_old/bill_of_rights',
+          path: '/law/world_hist/bill_of_rights',
           status: 'preparing',
           year: 1689,
           badge: '議会が一番！',
@@ -252,7 +252,7 @@ export const lawsMetadata: LawsMetadata = {
         {
           id: 'weimarer_verfassung',
           shortName: 'ワイマール憲法',
-          path: '/law/foreign_old/weimarer_verfassung',
+          path: '/law/world_hist/weimarer_verfassung',
           status: 'preparing',
           year: 1919,
           badge: '生活保障や！',
@@ -260,7 +260,7 @@ export const lawsMetadata: LawsMetadata = {
         {
           id: 'napoleonic_code',
           shortName: 'ナポレオン法典',
-          path: '/law/foreign_old/napoleonic_code',
+          path: '/law/world_hist/napoleonic_code',
           status: 'preparing',
           year: 1804,
           badge: '民法のおとうさん！',

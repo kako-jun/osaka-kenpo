@@ -19,7 +19,7 @@ const phase1Laws = [
   {
     id: 'meiji_kenpo',
     name: '大日本帝国憲法（明治憲法）',
-    category: 'jp_old',
+    category: 'jp_hist',
     totalArticles: 76,
     articlePrefix: '第',
     titlePattern: (i) => `第${i}条`,
@@ -35,7 +35,7 @@ const phase1Laws = [
   {
     id: 'goseibai_shikimoku',
     name: '御成敗式目（貞永式目）',
-    category: 'jp_old',
+    category: 'jp_hist',
     totalArticles: 51,
     articlePrefix: '第',
     titlePattern: (i) => `第${i}条`,

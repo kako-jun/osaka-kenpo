@@ -56,7 +56,7 @@ function getCategoryFromLawId(lawId) {
   const foreignLaws = ['german_basic_law', 'us_constitution', 'prc_constitution'];
 
   if (jpLaws.includes(lawId)) return 'jp';
-  if (foreignLaws.includes(lawId)) return 'foreign';
+  if (foreignLaws.includes(lawId)) return 'world';
 
   // デフォルトはjp
   return 'jp';
