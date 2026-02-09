@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import QRCode from 'qrcode';
-import { getOrCreateUserId, setUserId, getUserId } from '@/lib/eeyan';
+import { getOrCreateEeyanUserId, setEeyanUserId, getEeyanUserId } from '@/lib/eeyan';
 import { lawsMetadata } from '@/data/lawsMetadata';
 import { formatArticleNumber, stripHtml, getExcerpt, getArticleSortKey } from '@/lib/utils';
 
@@ -67,7 +67,7 @@ export default function EeyanPage() {
     const params = new URLSearchParams(window.location.search);
     const syncId = params.get('sync');
     if (syncId && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(syncId)) {
-      setUserId(syncId);
+      setEeyanUserId(syncId);
       setUserIdState(syncId);
       setSyncMessage('同期したで！');
       fetchLikes(syncId);
@@ -77,7 +77,7 @@ export default function EeyanPage() {
       return;
     }
 
-    const uid = getUserId();
+    const uid = getEeyanUserId();
     setUserIdState(uid);
     if (uid) {
       fetchLikes(uid);
@@ -134,7 +134,7 @@ export default function EeyanPage() {
   };
 
   const handleCreateId = () => {
-    const uid = getOrCreateUserId();
+    const uid = getOrCreateEeyanUserId();
     setUserIdState(uid);
   };
 

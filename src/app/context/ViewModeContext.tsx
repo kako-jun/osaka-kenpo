@@ -2,6 +2,7 @@
 
 import { createContext, useState, useContext, ReactNode, useEffect, useMemo } from 'react';
 import type { ViewMode } from '@/lib/types';
+import { getViewMode, setViewMode as saveViewMode } from '@/lib/storage';
 
 interface ViewModeContextType {
   viewMode: ViewMode;
@@ -21,9 +22,9 @@ export const ViewModeProvider = ({ children }: { children: ReactNode }) => {
   // ローカルストレージから読み込み
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('osaka-kenpo-viewmode');
-      if (saved && (saved === 'osaka' || saved === 'original')) {
-        setViewMode(saved as ViewMode);
+      const saved = getViewMode();
+      if (saved === 'osaka' || saved === 'original') {
+        setViewMode(saved);
       }
       setIsInitialized(true);
     }
@@ -32,9 +33,7 @@ export const ViewModeProvider = ({ children }: { children: ReactNode }) => {
   // ローカルストレージに保存する関数
   const updateViewMode = (mode: ViewMode) => {
     setViewMode(mode);
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('osaka-kenpo-viewmode', mode);
-    }
+    saveViewMode(mode);
   };
 
   // stateとactionsを分離して、actionsは再レンダーを引き起こさない
