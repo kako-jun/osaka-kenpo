@@ -17,7 +17,7 @@ export function FixedActionButtons({ articleId, lawCategory, law }: FixedActionB
 
       {/* 右上に広めたるボタン */}
       <div className="fixed top-20 right-4 z-10">
-        <ShareButton />
+        <ShareButton articleParams={{ category: lawCategory, law, article: articleId }} />
       </div>
     </>
   );
