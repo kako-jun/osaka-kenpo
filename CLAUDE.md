@@ -181,6 +181,31 @@ python3 scripts/tools/check-all-laws-real-status.py
 node scripts/tools/fetch-egov-law.js minpou 129AC0000000089
 ```
 
+## 🚀 デプロイ手順（重要）
+
+### フロントエンド（Cloudflare Pages）
+
+**`git push` するだけで自動デプロイされる。手動デプロイは不要。**
+
+- `npm run pages:build` や `wrangler pages deploy` を手動で実行しないこと
+- GitHub連携により、mainブランチへのpushで自動ビルド＆デプロイが走る
+
+### API（D1データベース）のみ手動デプロイ
+
+YAMLデータ（`src/data/laws/` 配下）を変更した場合のみ、以下を実行する：
+
+```bash
+npm run db:seed                    # シードSQL生成
+npx wrangler d1 execute osaka-kenpo-db --file=./db/schema-clean.sql --remote  # スキーマ適用
+npx wrangler d1 execute osaka-kenpo-db --file=./db/seed.sql --remote          # データ適用
+```
+
+### やってはいけないこと
+
+- ❌ `npm run pages:build` → `wrangler pages deploy` の手動デプロイ（git pushで自動）
+- ❌ フロントエンドのコード変更だけでD1を再デプロイ（不要）
+- ❌ YAMLデータ変更後にD1デプロイを忘れる（データが古いまま）
+
 ## 💻 開発環境セットアップ
 
 ### 必要な環境

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { NOSTALGIC_API_BASE } from '@/lib/eeyan';
 import type { LawEntry } from '@/data/lawsMetadata';
@@ -12,7 +12,7 @@ interface LawCardWithEeyanProps {
 export function LawCardWithEeyan({ law }: LawCardWithEeyanProps) {
   const [totalLikes, setTotalLikes] = useState<number | null>(null);
 
-  useEffect(() => {
+  const fetchTotalLikes = useCallback(() => {
     if (law.status !== 'available') return;
 
     // Extract category and lawName from path: /law/{category}/{lawName}
@@ -45,6 +45,34 @@ export function LawCardWithEeyan({ law }: LawCardWithEeyanProps) {
       })
       .catch(() => {});
   }, [law]);
+
+  // 初回マウント時 + props変更時に取得
+  useEffect(() => {
+    fetchTotalLikes();
+  }, [fetchTotalLikes]);
+
+  // ページが再表示された時にデータを再取得（キャッシュ無視）
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        // キャッシュを無効化して再取得
+        if (law.status !== 'available') return;
+        const parts = law.path.split('/');
+        const category = parts[2];
+        const lawName = parts[3];
+        if (!category || !lawName) return;
+        const cacheKey = `eeyan_total_${category}_${lawName}`;
+        const cacheTimeKey = `${cacheKey}_time`;
+        sessionStorage.removeItem(cacheKey);
+        sessionStorage.removeItem(cacheTimeKey);
+        fetchTotalLikes();
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [fetchTotalLikes, law]);
 
   if (law.status !== 'available') {
     return (
