@@ -20,7 +20,7 @@ export default function About() {
 
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-3xl font-bold text-center text-[#E94E77] mb-8">このサイトのこと</h1>
+          <h1 className="text-2xl font-bold text-center text-[#E94E77] mb-8">このサイトのこと</h1>
 
           <ContentSection title="💡 おおさかけんぽう？">
             <p>
