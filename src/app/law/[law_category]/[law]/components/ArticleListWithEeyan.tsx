@@ -2,7 +2,12 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { ArticleListItem } from '@/app/components/ArticleListItem';
-import { NOSTALGIC_API_BASE, getEeyanUserId, getNostalgicId } from '@/lib/eeyan';
+import {
+  NOSTALGIC_API_BASE,
+  NOSTALGIC_BATCH_LIMIT,
+  getEeyanUserId,
+  getNostalgicId,
+} from '@/lib/eeyan';
 
 interface ArticleData {
   article: string;
@@ -29,19 +34,22 @@ export function ArticleListWithEeyan({ articles, lawCategory, law }: ArticleList
     // nostalgic batchGet で全体カウント取得
     const nostalgicIds = articles.map((a) => getNostalgicId(lawCategory, law, a.article));
 
-    // 1000件ずつ分割
-    for (let i = 0; i < nostalgicIds.length; i += 1000) {
-      const batchIds = nostalgicIds.slice(i, i + 1000);
+    // Nostalgic APIの上限に合わせて分割
+    for (let i = 0; i < nostalgicIds.length; i += NOSTALGIC_BATCH_LIMIT) {
+      const batchIds = nostalgicIds.slice(i, i + NOSTALGIC_BATCH_LIMIT);
       promises.push(
         fetch(`${NOSTALGIC_API_BASE}?action=batchGet`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ ids: batchIds }),
         })
-          .then(
-            (res) =>
-              res.json() as Promise<{ success: boolean; data: Record<string, { total: number }> }>
-          )
+          .then((res) => {
+            if (!res.ok) throw new Error(`batchGet failed: ${res.status}`);
+            return res.json() as Promise<{
+              success: boolean;
+              data: Record<string, { total: number }>;
+            }>;
+          })
           .then((data) => {
             if (data.success && data.data) {
               const counts: Record<string, number> = {};
