@@ -1,0 +1,63 @@
+【タスク】法律条文のハルシネーション・誤情報チェック
+
+以下の法律について、全条文の commentary（標準語解説）と commentaryOsaka（大阪弁解説）にハルシネーションや事実誤認がないかチェックしてください。
+
+【対象法律】
+- カテゴリ: 日本歴史法
+- 法律ID: kinchu_kuge_shohatto
+- ディレクトリ: /home/d131/repos/2025/osaka-kenpo/src/data/laws/jp_hist/kinchu_kuge_shohatto
+- 総条文数: 18条
+
+【チェック方法】
+1. 各条文のYAMLファイルを読み込む
+2. 以下の観点でチェック：
+   - 事実関係の正確性（条文内容と解説の対応）
+   - ハルシネーション（存在しない条文・判例への言及）
+   - 論理的整合性（解説内の矛盾、例え話の妥当性）
+   - 表現の適切性（商人表現、誤解を招く表現）
+3. 問題がある場合のみ記録
+
+【出力形式】
+JSON形式で以下の構造で返してください：
+
+{
+  "lawId": "kinchu_kuge_shohatto",
+  "categoryName": "日本歴史法",
+  "totalArticles": 18,
+  "checkedArticles": 0,
+  "issuesFound": 0,
+  "issues": [
+    {
+      "articleNumber": "条文番号",
+      "filePath": "YAMLファイルのパス",
+      "type": "factual_error | hallucination | logical_inconsistency | inappropriate_expression",
+      "severity": "high | medium | low",
+      "field": "commentary | commentaryOsaka",
+      "description": "問題の詳細説明",
+      "suggestion": "修正案（あれば）"
+    }
+  ]
+}
+
+【サンプル条文】（最初の3条文）
+
+第law_metadata条: /home/d131/repos/2025/osaka-kenpo/src/data/laws/jp_hist/kinchu_kuge_shohatto/law_metadata.yaml
+原文: ...
+解説あり: commentary=0段落, commentaryOsaka=0段落
+
+
+第1条: /home/d131/repos/2025/osaka-kenpo/src/data/laws/jp_hist/kinchu_kuge_shohatto/1.yaml
+原文: ...
+解説あり: commentary=1段落, commentaryOsaka=0段落
+
+
+第2条: /home/d131/repos/2025/osaka-kenpo/src/data/laws/jp_hist/kinchu_kuge_shohatto/2.yaml
+原文: ...
+解説あり: commentary=0段落, commentaryOsaka=0段落
+
+
+【重要】
+- 全18条を順番にチェックしてください
+- 問題がない条文は記録不要です
+- 削除条文（deleted: true）はスキップしてください
+- チェック完了後、上記JSON形式で結果を返してください
