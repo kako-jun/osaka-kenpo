@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { ArticleListItem } from '@/app/components/ArticleListItem';
 import {
   NOSTALGIC_API_BASE,
@@ -8,6 +8,7 @@ import {
   getEeyanUserId,
   getNostalgicId,
 } from '@/lib/eeyan';
+import { useEeyanRevision } from '@/app/context/EeyanContext';
 
 interface ArticleData {
   article: string;
@@ -27,6 +28,7 @@ interface ArticleListWithEeyanProps {
 export function ArticleListWithEeyan({ articles, lawCategory, law }: ArticleListWithEeyanProps) {
   const [likeCounts, setLikeCounts] = useState<Record<string, number>>({});
   const [userLikes, setUserLikes] = useState<Set<string>>(new Set());
+  const eeyanRevision = useEeyanRevision();
 
   const fetchEeyanData = useCallback(async () => {
     const promises: Promise<void>[] = [];
@@ -91,17 +93,26 @@ export function ArticleListWithEeyan({ articles, lawCategory, law }: ArticleList
     fetchEeyanData();
   }, [fetchEeyanData]);
 
-  // ページが再表示された時にデータを再取得
+  // ええやん操作後に再取得（別ページの LikeButton からの通知）
+  useEffect(() => {
+    if (eeyanRevision === 0) return; // 初回マウント時はスキップ
+    fetchEeyanData();
+  }, [eeyanRevision, fetchEeyanData]);
+
+  // ページが再表示された時にデータを再取得（デバウンス付き）
   // （タブ切り替え、bfcache復元、他アプリからの復帰に対応）
+  const visibilityTimerRef = useRef<ReturnType<typeof setTimeout>>();
   useEffect(() => {
     const handleVisibilityChange = () => {
       if (document.visibilityState === 'visible') {
-        fetchEeyanData();
+        clearTimeout(visibilityTimerRef.current);
+        visibilityTimerRef.current = setTimeout(fetchEeyanData, 500);
       }
     };
     document.addEventListener('visibilitychange', handleVisibilityChange);
     return () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
+      clearTimeout(visibilityTimerRef.current);
     };
   }, [fetchEeyanData]);
 

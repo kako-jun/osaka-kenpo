@@ -1,12 +1,13 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import {
   NOSTALGIC_API_BASE,
   getOrCreateEeyanUserId,
   getEeyanUserId,
   getNostalgicId,
 } from '@/lib/eeyan';
+import { useNotifyEeyanChanged } from '@/app/context/EeyanContext';
 
 interface LikeButtonProps {
   articleId?: string;
@@ -19,6 +20,9 @@ export const LikeButton = ({ articleId, lawCategory, law }: LikeButtonProps) => 
   const [likeCount, setLikeCount] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const isTogglingRef = useRef(false);
+
+  const notifyEeyanChanged = useNotifyEeyanChanged();
 
   const nostalgicId =
     articleId && lawCategory && law ? getNostalgicId(lawCategory, law, articleId) : null;
@@ -73,40 +77,86 @@ export const LikeButton = ({ articleId, lawCategory, law }: LikeButtonProps) => 
   const handleLike = useCallback(
     async (e: React.MouseEvent) => {
       if (!nostalgicId || !lawCategory || !law || !articleId) return;
+      // 連打ガード: 前回のトグルが完了するまで新しいトグルを受け付けない
+      if (isTogglingRef.current) return;
+      isTogglingRef.current = true;
 
-      // モバイルでのhover状態をリセット
-      (e.currentTarget as HTMLElement).blur();
+      try {
+        // モバイルでのhover状態をリセット
+        (e.currentTarget as HTMLElement).blur();
 
-      // アニメーション
-      setIsAnimating(true);
-      setTimeout(() => setIsAnimating(false), 300);
+        // アニメーション
+        setIsAnimating(true);
+        setTimeout(() => setIsAnimating(false), 300);
 
-      // 楽観的更新
-      const newLiked = !liked;
-      setLiked(newLiked);
-      setLikeCount((prev) => (newLiked ? prev + 1 : Math.max(0, prev - 1)));
+        // 楽観的更新（失敗時に戻すため旧値を保持）
+        const prevLiked = liked;
+        const newLiked = !liked;
+        setLiked(newLiked);
+        setLikeCount((prev) => (newLiked ? prev + 1 : Math.max(0, prev - 1)));
 
-      // ユーザーID取得（初回クリック時に生成）
-      const userId = getOrCreateEeyanUserId();
+        // ユーザーID取得（初回クリック時に生成）
+        const userId = getOrCreateEeyanUserId();
 
-      // nostalgic toggle + osaka-kenpo toggle を並行実行
-      const promises: Promise<unknown>[] = [
-        fetch(`${NOSTALGIC_API_BASE}?action=toggle&id=${nostalgicId}`).catch(() => {}),
-        fetch('/api/eeyan', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            userId,
-            category: lawCategory,
-            lawName: law,
-            article: articleId,
-          }),
-        }).catch(() => {}),
-      ];
+        const toggleNostalgic = () =>
+          fetch(`${NOSTALGIC_API_BASE}?action=toggle&id=${nostalgicId}`)
+            .then((res) => res.ok)
+            .catch(() => false);
 
-      await Promise.all(promises);
+        const toggleD1 = () =>
+          fetch('/api/eeyan', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              userId,
+              category: lawCategory,
+              lawName: law,
+              article: articleId,
+            }),
+          })
+            .then((res) => res.ok)
+            .catch(() => false);
+
+        // nostalgic toggle + D1 toggle を並行実行し、個別に結果を追跡
+        let [nostalgicOk, d1Ok] = await Promise.all([toggleNostalgic(), toggleD1()]);
+
+        // 片方でも失敗した場合: 失敗した方を1回リトライ
+        if (!nostalgicOk || !d1Ok) {
+          const retries: Promise<boolean>[] = [];
+          if (!nostalgicOk) retries.push(toggleNostalgic());
+          if (!d1Ok) retries.push(toggleD1());
+          const retryResults = await Promise.all(retries);
+
+          let idx = 0;
+          if (!nostalgicOk) nostalgicOk = retryResults[idx++];
+          if (!d1Ok) d1Ok = retryResults[idx];
+        }
+
+        if (nostalgicOk && d1Ok) {
+          // 両方成功: キャッシュ無効化 + 同期通知
+          const cacheKey = `eeyan_total_${lawCategory}_${law}`;
+          try {
+            sessionStorage.removeItem(cacheKey);
+            sessionStorage.removeItem(`${cacheKey}_time`);
+          } catch {
+            // sessionStorage が使えない環境では無視
+          }
+          notifyEeyanChanged();
+          return;
+        }
+
+        // リトライ後も失敗: UIを元に戻す
+        setLiked(prevLiked);
+        setLikeCount((prev) => (prevLiked ? prev + 1 : Math.max(0, prev - 1)));
+
+        // 成功した側をロールバック（再toggle）して整合性を保つ
+        if (nostalgicOk) toggleNostalgic().catch(() => {});
+        if (d1Ok) toggleD1().catch(() => {});
+      } finally {
+        isTogglingRef.current = false;
+      }
     },
-    [nostalgicId, liked, lawCategory, law, articleId]
+    [nostalgicId, liked, lawCategory, law, articleId, notifyEeyanChanged]
   );
 
   return (

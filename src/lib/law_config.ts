@@ -81,5 +81,5 @@ export async function getLawName(lawCategory: string, lawName: string): Promise<
  */
 export async function getLawYear(lawCategory: string, lawName: string): Promise<number | null> {
   const lawMetadata = await getLawMetadata(lawCategory, lawName);
-  return lawMetadata?.year || null;
+  return lawMetadata?.year ?? null;
 }

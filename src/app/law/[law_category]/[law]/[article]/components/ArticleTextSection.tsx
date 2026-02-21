@@ -1,6 +1,7 @@
 import { AnimatedContent } from '@/app/components/AnimatedContent';
 import { SpeakerButton } from '@/components/SpeakerButton';
 import { highlightKeywords } from '@/lib/text_highlight';
+import { sanitizeHtml } from '@/lib/sanitize';
 
 interface ArticleTextSectionProps {
   originalText: string[];
@@ -30,7 +31,11 @@ export function ArticleTextSection({
           <div className="text-lg leading-relaxed">
             <div className="text-gray-800">
               {originalText.map((paragraph, index) => (
-                <p key={index} className="mb-3" dangerouslySetInnerHTML={{ __html: paragraph }} />
+                <p
+                  key={index}
+                  className="mb-3"
+                  dangerouslySetInnerHTML={{ __html: sanitizeHtml(paragraph) }}
+                />
               ))}
             </div>
           </div>

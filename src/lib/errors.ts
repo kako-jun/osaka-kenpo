@@ -24,8 +24,10 @@ export class AppError extends Error {
     this.isOperational = isOperational;
     this.context = context;
 
-    // スタックトレースを正しく設定
-    Error.captureStackTrace(this, this.constructor);
+    // スタックトレースを正しく設定（Edge Runtimeでは利用不可）
+    if (typeof Error.captureStackTrace === 'function') {
+      Error.captureStackTrace(this, this.constructor);
+    }
   }
 }
 
