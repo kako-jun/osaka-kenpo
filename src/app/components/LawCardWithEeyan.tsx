@@ -1,16 +1,43 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import Link from 'next/link';
 import { NOSTALGIC_API_BASE } from '@/lib/eeyan';
+import { useEeyanRevision } from '@/app/context/EeyanContext';
 import type { LawEntry } from '@/data/lawsMetadata';
 
 interface LawCardWithEeyanProps {
   law: LawEntry;
 }
 
+/** sessionStorage の安全なラッパー（ストレージ制限環境でクラッシュしない） */
+function safeSessionGet(key: string): string | null {
+  try {
+    return sessionStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function safeSessionSet(key: string, value: string): void {
+  try {
+    sessionStorage.setItem(key, value);
+  } catch {
+    // ストレージ制限環境では無視
+  }
+}
+
+function safeSessionRemove(key: string): void {
+  try {
+    sessionStorage.removeItem(key);
+  } catch {
+    // ストレージ制限環境では無視
+  }
+}
+
 export function LawCardWithEeyan({ law }: LawCardWithEeyanProps) {
   const [totalLikes, setTotalLikes] = useState<number | null>(null);
+  const eeyanRevision = useEeyanRevision();
 
   const fetchTotalLikes = useCallback(() => {
     if (law.status !== 'available') return;
@@ -25,8 +52,8 @@ export function LawCardWithEeyan({ law }: LawCardWithEeyanProps) {
     const cacheTimeKey = `${cacheKey}_time`;
 
     // Check sessionStorage cache (5 min)
-    const cached = sessionStorage.getItem(cacheKey);
-    const cachedTime = sessionStorage.getItem(cacheTimeKey);
+    const cached = safeSessionGet(cacheKey);
+    const cachedTime = safeSessionGet(cacheTimeKey);
     if (cached && cachedTime && Date.now() - Number(cachedTime) < 5 * 60 * 1000) {
       setTotalLikes(Number(cached));
       return;
@@ -39,8 +66,8 @@ export function LawCardWithEeyan({ law }: LawCardWithEeyanProps) {
         const d = data as { success: boolean; total: number };
         if (d.success) {
           setTotalLikes(d.total);
-          sessionStorage.setItem(cacheKey, String(d.total));
-          sessionStorage.setItem(cacheTimeKey, String(Date.now()));
+          safeSessionSet(cacheKey, String(d.total));
+          safeSessionSet(cacheTimeKey, String(Date.now()));
         }
       })
       .catch(() => {});
@@ -51,26 +78,45 @@ export function LawCardWithEeyan({ law }: LawCardWithEeyanProps) {
     fetchTotalLikes();
   }, [fetchTotalLikes]);
 
-  // ページが再表示された時にデータを再取得（キャッシュ無視）
+  // ええやん操作後にキャッシュをクリアして再取得
+  useEffect(() => {
+    if (eeyanRevision === 0) return; // 初回マウント時はスキップ
+    if (law.status !== 'available') return;
+    const parts = law.path.split('/');
+    const category = parts[2];
+    const lawName = parts[3];
+    if (!category || !lawName) return;
+    const cacheKey = `eeyan_total_${category}_${lawName}`;
+    safeSessionRemove(cacheKey);
+    safeSessionRemove(`${cacheKey}_time`);
+    fetchTotalLikes();
+  }, [eeyanRevision, law, fetchTotalLikes]);
+
+  // ページが再表示された時にデータを再取得（キャッシュ無視、デバウンス付き）
+  const visibilityTimerRef = useRef<ReturnType<typeof setTimeout>>();
   useEffect(() => {
     const handleVisibilityChange = () => {
       if (document.visibilityState === 'visible') {
-        // キャッシュを無効化して再取得
-        if (law.status !== 'available') return;
-        const parts = law.path.split('/');
-        const category = parts[2];
-        const lawName = parts[3];
-        if (!category || !lawName) return;
-        const cacheKey = `eeyan_total_${category}_${lawName}`;
-        const cacheTimeKey = `${cacheKey}_time`;
-        sessionStorage.removeItem(cacheKey);
-        sessionStorage.removeItem(cacheTimeKey);
-        fetchTotalLikes();
+        clearTimeout(visibilityTimerRef.current);
+        visibilityTimerRef.current = setTimeout(() => {
+          // キャッシュを無効化して再取得
+          if (law.status !== 'available') return;
+          const parts = law.path.split('/');
+          const category = parts[2];
+          const lawName = parts[3];
+          if (!category || !lawName) return;
+          const cacheKey = `eeyan_total_${category}_${lawName}`;
+          const cacheTimeKey = `${cacheKey}_time`;
+          safeSessionRemove(cacheKey);
+          safeSessionRemove(cacheTimeKey);
+          fetchTotalLikes();
+        }, 500);
       }
     };
     document.addEventListener('visibilitychange', handleVisibilityChange);
     return () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
+      clearTimeout(visibilityTimerRef.current);
     };
   }, [fetchTotalLikes, law]);
 

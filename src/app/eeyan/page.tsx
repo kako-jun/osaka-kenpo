@@ -6,6 +6,7 @@ import QRCode from 'qrcode';
 import { setEeyanUserId, getEeyanUserId } from '@/lib/eeyan';
 import { lawsMetadata } from '@/data/lawsMetadata';
 import { formatArticleNumber, stripHtml, getExcerpt, getArticleSortKey } from '@/lib/utils';
+import { sanitizeHtml } from '@/lib/sanitize';
 
 interface LikeEntry {
   category: string;
@@ -212,7 +213,7 @@ export default function EeyanPage() {
                               {hasTitle ? (
                                 <span
                                   className="text-gray-600 text-sm truncate"
-                                  dangerouslySetInnerHTML={{ __html: like.title! }}
+                                  dangerouslySetInnerHTML={{ __html: sanitizeHtml(like.title!) }}
                                 />
                               ) : excerpt ? (
                                 <span className="text-gray-400 text-sm truncate italic">

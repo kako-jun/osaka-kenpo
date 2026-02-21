@@ -1,9 +1,9 @@
 import { MetadataRoute } from 'next';
-import fs from 'fs';
-import path from 'path';
-import yaml from 'js-yaml';
-import { LawsMetadataSchema } from '@/lib/schemas/laws_metadata';
+import { lawsMetadata } from '@/data/lawsMetadata';
+import { getDB } from '@/lib/db';
 import { logger } from '@/lib/logger';
+
+export const runtime = 'edge';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://osaka-kenpo.llll-ll.com';
@@ -25,52 +25,48 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   try {
-    // 全法律メタデータを直接読み込み
-    const dataDir = path.join(process.cwd(), 'src/data');
-    const metadataPath = path.join(dataDir, 'laws_metadata.yaml');
+    // lawsMetadata からカテゴリ・法律ページを生成
+    for (const category of lawsMetadata.categories) {
+      // カテゴリページ（表示用カテゴリはスキップ: パスを持たない）
+      const firstLaw = category.laws[0];
+      if (!firstLaw) continue;
 
-    if (fs.existsSync(metadataPath)) {
-      const yamlContent = fs.readFileSync(metadataPath, 'utf-8');
-      const data = yaml.load(yamlContent);
-      const lawsMetadata = LawsMetadataSchema.parse(data);
+      // 法律ページ
+      for (const law of category.laws) {
+        if (law.status !== 'available') continue;
 
-      // カテゴリページ
-      for (const category of lawsMetadata.categories) {
         routes.push({
-          url: `${baseUrl}/law/${category.id}`,
+          url: `${baseUrl}${law.path}`,
           lastModified: new Date(),
           changeFrequency: 'monthly',
-          priority: 0.9,
+          priority: 0.8,
         });
 
-        // 法律ページと条文ページ
-        for (const law of category.laws) {
-          // 法律ページ
-          routes.push({
-            url: `${baseUrl}/law/${category.id}/${law.id}`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.8,
-          });
+        // D1 から条文一覧を取得
+        const parts = law.path.split('/');
+        const categoryId = parts[2];
+        const lawName = parts[3];
+        if (!categoryId || !lawName) continue;
 
-          // 条文ページ
-          const lawDir = path.join(dataDir, 'laws', category.id, law.id);
-          if (fs.existsSync(lawDir)) {
-            const files = fs.readdirSync(lawDir).filter(
-              (f) =>
-                f.endsWith('.yaml') &&
-                !['law_metadata.yaml', 'chapters.yaml', 'famous_articles.yaml'].includes(f)
-            );
-            for (const file of files) {
-              const articleId = file.replace('.yaml', '');
-              routes.push({
-                url: `${baseUrl}/law/${category.id}/${law.id}/${articleId}`,
-                lastModified: new Date(),
-                changeFrequency: 'monthly',
-                priority: 0.6,
-              });
-            }
+        try {
+          const db = getDB();
+          const result = await db
+            .prepare(
+              `SELECT article FROM articles WHERE category = ? AND law_name = ? ORDER BY article`
+            )
+            .bind(categoryId, lawName)
+            .all<{ article: string }>();
+
+          for (const row of result.results) {
+            routes.push({
+              url: `${baseUrl}/law/${categoryId}/${lawName}/${row.article}`,
+              lastModified: new Date(),
+              changeFrequency: 'monthly',
+              priority: 0.6,
+            });
           }
+        } catch {
+          // D1 アクセス失敗時は条文ページを省略（法律ページまでは出力する）
         }
       }
     }

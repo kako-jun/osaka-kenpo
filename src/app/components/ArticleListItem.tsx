@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { formatArticleNumber, getExcerpt } from '@/lib/utils';
+import { sanitizeHtml } from '@/lib/sanitize';
 
 interface ArticleListItemProps {
   article: string | number;
@@ -44,7 +45,7 @@ export function ArticleListItem({
             <div className="text-gray-400 text-base">（削除）</div>
           ) : hasTitle ? (
             <div className="text-gray-800 text-base leading-relaxed">
-              <span dangerouslySetInnerHTML={{ __html: title }} />
+              <span dangerouslySetInnerHTML={{ __html: sanitizeHtml(title) }} />
             </div>
           ) : excerpt ? (
             <div className="text-gray-400 text-sm leading-relaxed truncate italic">{excerpt}</div>

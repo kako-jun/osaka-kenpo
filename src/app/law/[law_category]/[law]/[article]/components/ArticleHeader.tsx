@@ -1,5 +1,6 @@
 import { AnimatedContent } from '@/app/components/AnimatedContent';
 import { formatArticleNumber } from '@/lib/utils';
+import { sanitizeHtml } from '@/lib/sanitize';
 
 interface ArticleHeaderProps {
   article: string | number;
@@ -16,7 +17,10 @@ export function ArticleHeader({ article, title, titleOsaka, showOsaka }: Article
         originalContent={
           <h1 className="text-2xl font-bold mb-6">
             <span className="text-[#E94E77]">{formatArticleNumber(article)} </span>
-            <span className="text-gray-800" dangerouslySetInnerHTML={{ __html: title }} />
+            <span
+              className="text-gray-800"
+              dangerouslySetInnerHTML={{ __html: sanitizeHtml(title) }}
+            />
           </h1>
         }
         osakaContent={
