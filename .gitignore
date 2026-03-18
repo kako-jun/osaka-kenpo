@@ -42,3 +42,11 @@ next-env.d.ts
 db/seed.sql
 .mcp.json
 *.json
+
+# dev scripts and reports
+*quality*.py
+*fix-*.py
+*check_*.py
+*-report.txt
+*-batch-ids.txt
+/reports/
