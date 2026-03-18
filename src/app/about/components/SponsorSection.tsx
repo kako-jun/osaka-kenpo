@@ -1,4 +1,5 @@
 import { Button } from '@/components/Button';
+import { sanitizeHtml } from '@/lib/sanitize';
 
 interface SponsorSectionProps {
   description: string;
@@ -19,12 +20,15 @@ export function SponsorSection({
 
   return (
     <div className={`mt-4 p-4 ${bgColor} rounded-lg text-center`}>
-      <p className="text-sm mb-3" dangerouslySetInnerHTML={{ __html: description }} />
+      <p className="text-sm mb-3" dangerouslySetInnerHTML={{ __html: sanitizeHtml(description) }} />
       <Button as="external" href={buttonUrl} variant={variant}>
         {buttonText}
       </Button>
       {note && (
-        <p className="text-xs mt-2 text-gray-600" dangerouslySetInnerHTML={{ __html: note }} />
+        <p
+          className="text-xs mt-2 text-gray-600"
+          dangerouslySetInnerHTML={{ __html: sanitizeHtml(note) }}
+        />
       )}
     </div>
   );
