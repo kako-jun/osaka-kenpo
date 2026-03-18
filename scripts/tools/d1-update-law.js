@@ -30,8 +30,13 @@ const rootDir = path.resolve(__dirname, '../..');
 const dataDir = path.join(rootDir, 'src/data/laws');
 
 // 設定
-const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID || '2382302b68c88c87f1cfe936739eb574';
+const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID;
 const API_TOKEN = process.env.CLOUDFLARE_API_TOKEN;
+
+if (!ACCOUNT_ID) {
+  console.error('Error: CLOUDFLARE_ACCOUNT_ID environment variable is required');
+  process.exit(1);
+}
 
 // wrangler.tomlからdatabase_idを読み取る
 function getDatabaseId() {

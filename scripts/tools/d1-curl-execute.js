@@ -21,8 +21,13 @@ const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '../..');
 
 // 設定
-const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID || '2382302b68c88c87f1cfe936739eb574';
+const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID;
 const API_TOKEN = process.env.CLOUDFLARE_API_TOKEN;
+
+if (!ACCOUNT_ID) {
+  console.error('Error: CLOUDFLARE_ACCOUNT_ID environment variable is required');
+  process.exit(1);
+}
 // 並列リクエスト数（コマンドラインで --parallel=N で指定可能）
 let CONCURRENT_REQUESTS = 1; // デフォルトは順次実行（スキーマ用）
 const parallelArg = process.argv.find((a) => a === '--parallel' || a.startsWith('--parallel='));
