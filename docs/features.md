@@ -1,6 +1,6 @@
 # 機能仕様書
 
-> 最終更新: 2026-02-21
+> 最終更新: 2026-04-13
 > 対象: ソースコードの実装に基づく実態記録
 
 ---
@@ -94,48 +94,68 @@ interface EeyanContextType {
 | 条文   | `LikeButton`           | Nostalgic `get` + D1 GET（単一カウント + 個人状態）        |
 | /eeyan | `EeyanPage`            | D1 GET（全いいね一覧）                                     |
 
-## 3. 訪問カウンター
+## 3. 閲覧数カウンター
 
 ### 概要
 
-トップページに表示される「これまでN人も見てくれてありがとなー」のカウンター。
+条文の閲覧数を複数の粒度で表示する機能。Nostalgic Counter API（Visit API）を使用する。
 
-### コンポーネント
+### 3.1 トップページの合計閲覧数
 
-`NostalgicCounter`（`src/components/NostalgicCounter.tsx`）
+`TotalViewCounter`（`src/app/components/TotalViewCounter.tsx`）
+
+トップページに「N回も読んでくれてありがとなー」として全条文の閲覧数合計を表示する。
+
+**動作フロー**:
+
+1. `sessionStorage` のキャッシュをチェック（TTL: 5分）
+2. キャッシュがあればそれを表示
+3. なければ Nostalgic Counter API の `sumByPrefix`（prefix: `osaka-kenpo-`）で全条文の合計を取得
+4. 結果を `sessionStorage` にキャッシュ
+
+**エラー時**: `0000` を表示（取得失敗時は初期値のまま）。
+
+### 3.2 条文ページの閲覧数
+
+`ArticleViewCounter`（`src/app/components/ArticleViewCounter.tsx`）
+
+各条文ページに閲覧数を `EyeIcon` 付きで控えめに表示する。
 
 ```typescript
-interface NostalgicCounterProps {
-  counterId: string; // 例: 'osaka-kenpo-49a3907a'
-  type?: 'total' | 'today' | 'yesterday' | 'week' | 'month';
-  digits?: string; // 表示桁数（例: '4'）
+interface ArticleViewCounterProps {
+  articleId: string;
+  lawCategory: string;
+  law: string;
 }
 ```
 
-### 動作フロー
+**動作フロー**:
 
 1. **インクリメント**（セッション内1回のみ）:
    - `sessionStorage` の `counter_incremented_{counterId}` をチェック
-   - 未インクリメントなら `Nostalgic Visit API` の `increment` を呼び出し
+   - 未インクリメントなら Nostalgic Counter API の `increment` を呼び出し
    - `sessionStorage` にフラグを記録
-
 2. **表示値取得**:
-   - `sessionStorage` の `counter_value_{counterId}_{type}` をチェック（TTL: 5分）
-   - キャッシュがあればそれを表示
-   - なければ `Nostalgic Visit API` の `get` を呼び出し
+   - インクリメント直後はキャッシュを無視して最新値を取得
+   - それ以外は `sessionStorage` のキャッシュをチェック（TTL: 5分）
+   - Nostalgic Counter API の `get`（format: json）で取得
    - 結果を `sessionStorage` にキャッシュ
 
-### 使用箇所
+**エラー時**: 非表示（`null` を返す）。
 
-トップページ（`src/app/page.tsx`）:
+### 3.3 法律ページの条文別閲覧数
 
-```tsx
-<NostalgicCounter counterId="osaka-kenpo-49a3907a" type="total" digits="4" />
-```
+法律ページの条文一覧で、各条文の閲覧数を Nostalgic Counter API の `batchGet` で一括取得して表示する。
 
-### エラー時
+### 3.4 法律カードの閲覧数合計
 
-カウント取得失敗時は `'0'.repeat(digits)` を表示（例: `'0000'`）。
+トップページの法律カードに、各法律の全条文閲覧数合計を `sumByPrefix` で取得して表示する。
+
+### 3.5 共通基盤
+
+- **Counter API ベースURL**: `NOSTALGIC_COUNTER_API_BASE`（`src/lib/eeyan.ts`）
+- **sessionStorage 安全ラッパー**: `safeSessionGet` / `safeSessionSet` / `safeSessionRemove`（`src/lib/storage.ts`）
+- **アイコン**: `EyeIcon`（`src/components/icons.tsx`）
 
 ## 4. OG 画像生成
 

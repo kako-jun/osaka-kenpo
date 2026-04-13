@@ -1,6 +1,6 @@
 # アーキテクチャ仕様書
 
-> 最終更新: 2026-02-21
+> 最終更新: 2026-04-13
 > 対象: ソースコードの実装に基づく実態記録
 
 ---
@@ -77,12 +77,12 @@ osaka-kenpo/
 │   │   │   │   └── route.ts          # ええやん API（D1）
 │   │   │   └── article-image/
 │   │   │       └── route.tsx         # OG 画像生成 API
-│   │   ├── components/               # 共有コンポーネント（LikeButton, ShareButton 等）
+│   │   ├── components/               # 共有コンポーネント（LikeButton, ShareButton, TotalViewCounter, ArticleViewCounter 等）
 │   │   └── context/                  # React Context
 │   │       ├── ViewModeContext.tsx    # 大阪弁/原文切替
 │   │       └── EeyanContext.tsx      # ええやん変更通知
 │   ├── components/                   # アプリ全体の共有コンポーネント
-│   │   ├── NostalgicCounter.tsx      # 訪問カウンター
+│   │   ├── icons.tsx                 # アイコンコンポーネント（EyeIcon 等）
 │   │   ├── ErrorBoundary.tsx         # エラーバウンダリ
 │   │   └── Button.tsx               # 汎用ボタン
 │   ├── data/
@@ -97,8 +97,8 @@ osaka-kenpo/
 │   ├── hooks/                        # カスタムフック
 │   └── lib/
 │       ├── db.ts                     # D1 データベースアクセス関数
-│       ├── eeyan.ts                  # ええやんユーティリティ
-│       ├── storage.ts                # localStorage 管理
+│       ├── eeyan.ts                  # ええやん＋カウンターユーティリティ
+│       ├── storage.ts                # localStorage 管理 + sessionStorage 安全ラッパー
 │       ├── types.ts                  # 型定義・LAW_CATEGORIES 定数
 │       ├── utils.ts                  # ユーティリティ関数
 │       ├── logger.ts                 # ログユーティリティ
@@ -116,6 +116,7 @@ osaka-kenpo/
 │   ├── tools/                        # 汎用スクリプト
 │   │   ├── generate-laws-metadata.cjs  # lawsMetadata.ts 生成
 │   │   ├── generate-d1-seed.js         # D1 Seed SQL 生成
+│   │   ├── create-counters.cjs            # 閲覧数カウンター一括作成
 │   │   ├── check-all-laws-real-status.py  # 進捗チェック
 │   │   └── ...
 │   ├── one-time/                     # 使い捨てスクリプト
@@ -219,10 +220,10 @@ database_id = "c2e526ac-8b9a-41c1-933a-e31c60490462"
 
 ### 6.4 外部 API（Nostalgic）
 
-| API             | ベース URL                                | 用途                     |
-| --------------- | ----------------------------------------- | ------------------------ |
-| Nostalgic Like  | `https://api.nostalgic.llll-ll.com/like`  | グローバルいいねカウント |
-| Nostalgic Visit | `https://api.nostalgic.llll-ll.com/visit` | 訪問カウンター           |
+| API                       | ベース URL                                | 用途                     |
+| ------------------------- | ----------------------------------------- | ------------------------ |
+| Nostalgic Like            | `https://api.nostalgic.llll-ll.com/like`  | グローバルいいねカウント |
+| Nostalgic Counter (Visit) | `https://api.nostalgic.llll-ll.com/visit` | 閲覧数カウンター         |
 
 ## 7. ビルド・デプロイフロー
 
@@ -304,7 +305,8 @@ D1 からデータを取得し、HTML をレンダリングする。
 | `ArticleListWithEeyan.tsx` | Nostalgic batchGet、D1 GET        |
 | `LawCardWithEeyan.tsx`     | Nostalgic sumByPrefix             |
 | `EeyanPage` (`/eeyan`)     | D1 GET                            |
-| `NostalgicCounter.tsx`     | Nostalgic visit increment/get     |
+| `TotalViewCounter.tsx`     | Nostalgic Counter sumByPrefix     |
+| `ArticleViewCounter.tsx`   | Nostalgic Counter increment/get   |
 | `ShareButton.tsx`          | なし（URL 生成のみ）              |
 | `ViewModeContext.tsx`      | localStorage のみ                 |
 

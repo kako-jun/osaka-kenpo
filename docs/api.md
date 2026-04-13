@@ -1,6 +1,6 @@
 # API 仕様書
 
-> 最終更新: 2026-02-21
+> 最終更新: 2026-04-13
 > 対象: ソースコードの実装に基づく実態記録
 
 ---
@@ -9,12 +9,12 @@
 
 osaka-kenpo は2種類の API を使用する:
 
-| 区分 | API                 | ホスト                    | 用途                       |
-| ---- | ------------------- | ------------------------- | -------------------------- |
-| 内部 | /api/eeyan          | osaka-kenpo.llll-ll.com   | ユーザー個人のええやん管理 |
-| 内部 | /api/article-image  | osaka-kenpo.llll-ll.com   | OG 画像の動的生成          |
-| 外部 | Nostalgic Like API  | api.nostalgic.llll-ll.com | グローバルいいねカウント   |
-| 外部 | Nostalgic Visit API | api.nostalgic.llll-ll.com | 訪問カウンター             |
+| 区分 | API                           | ホスト                    | 用途                       |
+| ---- | ----------------------------- | ------------------------- | -------------------------- |
+| 内部 | /api/eeyan                    | osaka-kenpo.llll-ll.com   | ユーザー個人のええやん管理 |
+| 内部 | /api/article-image            | osaka-kenpo.llll-ll.com   | OG 画像の動的生成          |
+| 外部 | Nostalgic Like API            | api.nostalgic.llll-ll.com | グローバルいいねカウント   |
+| 外部 | Nostalgic Counter API (Visit) | api.nostalgic.llll-ll.com | 閲覧数カウンター           |
 
 ## 2. 内部 API
 
@@ -297,11 +297,20 @@ GET {BASE}?action=sumByPrefix&prefix={prefix}
 
 **使用箇所**: `LawCardWithEeyan`（トップページの法律カード）
 
-### 3.2 Nostalgic Visit API
+### 3.2 Nostalgic Counter API (Visit)
 
 **ベース URL**: `https://api.nostalgic.llll-ll.com/visit`
+**定数**: `NOSTALGIC_COUNTER_API_BASE`（`src/lib/eeyan.ts`）
 
-#### 3.2.1 increment — 訪問カウントのインクリメント
+#### ID 体系
+
+条文ごとのカウンター ID は Like API と同じ `getNostalgicId()` を使用:
+
+```
+osaka-kenpo-{category}-{lawName}-{article}
+```
+
+#### 3.2.1 increment — 閲覧カウントのインクリメント
 
 **リクエスト**:
 
@@ -309,30 +318,81 @@ GET {BASE}?action=sumByPrefix&prefix={prefix}
 GET {BASE}?action=increment&id={counterId}
 ```
 
-**使用箇所**: `NostalgicCounter`（トップページ）
+**使用箇所**: `ArticleViewCounter`（条文詳細ページ）
 **備考**: セッション内で1回のみ実行（`sessionStorage` でフラグ管理）
 
-#### 3.2.2 get — 訪問カウントの取得
+#### 3.2.2 get — 閲覧カウントの取得
 
 **リクエスト**:
 
 ```
-GET {BASE}?action=get&id={counterId}&type={type}&format=text&digits={digits}
+GET {BASE}?action=get&id={counterId}&format=json
 ```
 
-**パラメータ**:
+**レスポンス**:
 
-| パラメータ | 値                                             | 説明               |
-| ---------- | ---------------------------------------------- | ------------------ |
-| `id`       | `osaka-kenpo-49a3907a`                         | カウンター ID      |
-| `type`     | `total`, `today`, `yesterday`, `week`, `month` | 集計期間           |
-| `format`   | `text`                                         | テキスト形式で返す |
-| `digits`   | `4`                                            | 表示桁数           |
+```json
+{
+  "success": true,
+  "data": {
+    "total": 42
+  }
+}
+```
 
-**レスポンス**: プレーンテキスト（例: `1234`）
-
-**使用箇所**: `NostalgicCounter`（トップページ）
+**使用箇所**: `ArticleViewCounter`（条文詳細ページ）
 **キャッシュ**: `sessionStorage` で5分間キャッシュ
+
+#### 3.2.3 sumByPrefix — プレフィックスで合計取得
+
+**リクエスト**:
+
+```
+GET {BASE}?action=sumByPrefix&prefix={prefix}
+```
+
+プレフィックス例: `osaka-kenpo-`（全条文合計）、`osaka-kenpo-jp-minpou-`（法律単位合計）
+
+**レスポンス**:
+
+```json
+{
+  "success": true,
+  "total": 1234
+}
+```
+
+**使用箇所**:
+
+- `TotalViewCounter`（トップページ、全条文合計）
+- 法律カード（法律ごとの閲覧数合計）
+
+#### 3.2.4 batchGet — 複数 ID のカウント一括取得
+
+**リクエスト**:
+
+```
+POST {BASE}?action=batchGet
+Content-Type: application/json
+
+{
+  "ids": ["osaka-kenpo-jp-minpou-1", "osaka-kenpo-jp-minpou-2", ...]
+}
+```
+
+**レスポンス**:
+
+```json
+{
+  "success": true,
+  "data": {
+    "osaka-kenpo-jp-minpou-1": { "total": 5 },
+    "osaka-kenpo-jp-minpou-2": { "total": 12 }
+  }
+}
+```
+
+**使用箇所**: 法律ページの条文一覧（各条文の閲覧数を一括表示）
 
 ## 4. API 呼び出しパターン
 
@@ -353,12 +413,13 @@ GET {BASE}?action=get&id={counterId}&type={type}&format=text&digits={digits}
 
 ### 4.3 キャッシュ戦略まとめ
 
-| コンポーネント                       | キャッシュ先        | TTL            | 無効化                             |
-| ------------------------------------ | ------------------- | -------------- | ---------------------------------- |
-| `LawCardWithEeyan`                   | sessionStorage      | 5分            | `visibilitychange` で削除 + 再取得 |
-| `NostalgicCounter`（値）             | sessionStorage      | 5分            | なし                               |
-| `NostalgicCounter`（インクリメント） | sessionStorage      | セッション中   | なし                               |
-| `LikeButton`                         | なし                | -              | マウント時に毎回取得               |
-| `ArticleListWithEeyan`               | なし                | -              | `visibilitychange` で再取得        |
-| `EeyanPage`                          | なし                | -              | マウント時に1回取得                |
-| `/api/article-image`                 | CDN (Cache-Control) | 7日 (s-maxage) | なし                               |
+| コンポーネント                         | キャッシュ先        | TTL            | 無効化                             |
+| -------------------------------------- | ------------------- | -------------- | ---------------------------------- |
+| `LawCardWithEeyan`                     | sessionStorage      | 5分            | `visibilitychange` で削除 + 再取得 |
+| `TotalViewCounter`（合計値）           | sessionStorage      | 5分            | なし                               |
+| `ArticleViewCounter`（値）             | sessionStorage      | 5分            | increment 直後はキャッシュ無視     |
+| `ArticleViewCounter`（インクリメント） | sessionStorage      | セッション中   | なし                               |
+| `LikeButton`                           | なし                | -              | マウント時に毎回取得               |
+| `ArticleListWithEeyan`                 | なし                | -              | `visibilitychange` で再取得        |
+| `EeyanPage`                            | なし                | -              | マウント時に1回取得                |
+| `/api/article-image`                   | CDN (Cache-Control) | 7日 (s-maxage) | なし                               |
