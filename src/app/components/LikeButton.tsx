@@ -8,6 +8,7 @@ import {
   getNostalgicId,
 } from '@/lib/eeyan';
 import { useNotifyEeyanChanged } from '@/app/context/EeyanContext';
+import { safeSessionRemove } from '@/lib/storage';
 
 interface LikeButtonProps {
   articleId?: string;
@@ -135,12 +136,8 @@ export const LikeButton = ({ articleId, lawCategory, law }: LikeButtonProps) => 
         if (nostalgicOk && d1Ok) {
           // 両方成功: キャッシュ無効化 + 同期通知
           const cacheKey = `eeyan_total_${lawCategory}_${law}`;
-          try {
-            sessionStorage.removeItem(cacheKey);
-            sessionStorage.removeItem(`${cacheKey}_time`);
-          } catch {
-            // sessionStorage が使えない環境では無視
-          }
+          safeSessionRemove(cacheKey);
+          safeSessionRemove(`${cacheKey}_time`);
           notifyEeyanChanged();
           return;
         }
