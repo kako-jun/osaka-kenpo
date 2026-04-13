@@ -3,24 +3,11 @@
 import { useEffect, useState } from 'react';
 import { NOSTALGIC_COUNTER_API_BASE } from '@/lib/eeyan';
 import { logger } from '@/lib/logger';
+import { safeSessionGet, safeSessionSet } from '@/lib/storage';
 
 const CACHE_KEY = 'counter_total_all';
 const CACHE_TIME_KEY = 'counter_total_all_time';
 const CACHE_DURATION = 5 * 60 * 1000; // 5分
-
-function safeSessionGet(key: string): string | null {
-  try {
-    return sessionStorage.getItem(key);
-  } catch {
-    return null;
-  }
-}
-
-function safeSessionSet(key: string, value: string): void {
-  try {
-    sessionStorage.setItem(key, value);
-  } catch {}
-}
 
 /**
  * 全条文の閲覧数合計を表示するコンポーネント

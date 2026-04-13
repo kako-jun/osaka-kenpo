@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// Node.js 18+ required (global fetch)
 /**
  * 条文カウンター一括作成スクリプト
  *
