@@ -241,12 +241,15 @@ src/data/laws/
 export function formatArticleNumber(article: number | string): string {
   if (typeof article === 'number') return `第${article}条`;
   const s = String(article);
-  // 附則（suppl / fusoku、ハイフン・アンダースコア両対応）
-  const supplMatch = s.match(/^(?:suppl|fusoku)[_-](.+)$/);
+  // 附則（正規形式: suppl-N のみ）
+  const supplMatch = s.match(/^suppl-(.+)$/);
   if (supplMatch) return `附則第${supplMatch[1]}条`;
-  // 修正条項（amend / amendment、同上）
-  const amendMatch = s.match(/^(?:amend|amendment)[_-](.+)$/);
+  // 修正条項（正規形式: amend-N のみ）
+  const amendMatch = s.match(/^amend-(.+)$/);
   if (amendMatch) return `修正第${amendMatch[1]}条`;
+  // 枝番（121-2 等）
+  const branchMatch = s.match(/^(\d+)-(\d+)$/);
+  if (branchMatch) return `第${branchMatch[1]}条の${branchMatch[2]}`;
   return `第${article}条`;
 }
 ```
