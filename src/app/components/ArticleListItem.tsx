@@ -71,7 +71,7 @@ export function ArticleListItem({
       )}
       {!isDeleted && (
         <div className="absolute bottom-3 right-4 flex items-center gap-3 text-xs">
-          {viewCount !== undefined && viewCount > 0 && (
+          {viewCount !== undefined && (
             <span className="flex items-center gap-1 text-gray-400">
               <EyeIcon />
               <span>{viewCount.toLocaleString()}</span>
