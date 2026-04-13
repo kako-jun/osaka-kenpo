@@ -23,7 +23,7 @@ export function ArticleListItem({
   isDeleted,
   originalText,
   likeCount = 0,
-  viewCount,
+  viewCount = 0,
   isLiked,
 }: ArticleListItemProps) {
   const hasTitle = title && title.trim() !== '';
@@ -71,12 +71,10 @@ export function ArticleListItem({
       )}
       {!isDeleted && (
         <div className="absolute bottom-3 right-4 flex items-center gap-3 text-xs">
-          {viewCount !== undefined && (
-            <span className="flex items-center gap-1 text-gray-400">
-              <EyeIcon />
-              <span>{viewCount.toLocaleString()}</span>
-            </span>
-          )}
+          <span className="flex items-center gap-1 text-gray-400">
+            <EyeIcon />
+            <span>{viewCount.toLocaleString()}</span>
+          </span>
           <span
             className={`flex items-center gap-1 ${isLiked ? 'text-[#E94E77]' : 'text-gray-400'}`}
           >

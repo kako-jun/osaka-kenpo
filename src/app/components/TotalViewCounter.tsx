@@ -14,7 +14,7 @@ const CACHE_DURATION = 5 * 60 * 1000; // 5分
  * sumByPrefix で osaka-kenpo- プレフィックスの全カウンター合計を取得
  */
 export function TotalViewCounter() {
-  const [total, setTotal] = useState<number | null>(null);
+  const [total, setTotal] = useState<number>(0);
 
   useEffect(() => {
     const fetchTotal = async () => {
@@ -42,12 +42,6 @@ export function TotalViewCounter() {
 
     fetchTotal();
   }, []);
-
-  if (total === null) {
-    return (
-      <span className="font-bold text-[#E94E77] text-xl leading-none align-baseline">0000</span>
-    );
-  }
 
   return (
     <span className="font-bold text-[#E94E77] text-xl leading-none align-baseline">
