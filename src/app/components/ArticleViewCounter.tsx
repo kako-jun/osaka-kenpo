@@ -5,6 +5,7 @@ import { NOSTALGIC_COUNTER_API_BASE, getNostalgicId } from '@/lib/eeyan';
 import { logger } from '@/lib/logger';
 import { safeSessionGet, safeSessionSet } from '@/lib/storage';
 import { EyeIcon } from '@/components/icons';
+import { useNotifyEeyanChanged } from '@/app/context/EeyanContext';
 
 interface ArticleViewCounterProps {
   articleId: string;
@@ -22,6 +23,7 @@ const CACHE_DURATION = 5 * 60 * 1000; // 5分
 export function ArticleViewCounter({ articleId, lawCategory, law }: ArticleViewCounterProps) {
   const [count, setCount] = useState<number>(0);
   const hasIncremented = useRef(false);
+  const notifyChanged = useNotifyEeyanChanged();
 
   const counterId = getNostalgicId(lawCategory, law, articleId);
 
@@ -42,6 +44,7 @@ export function ArticleViewCounter({ articleId, lawCategory, law }: ArticleViewC
           safeSessionSet(sessionKey, 'true');
           hasIncremented.current = true;
           didIncrement = true;
+          notifyChanged();
         }
 
         // increment 直後はキャッシュを無視して最新値を取得
