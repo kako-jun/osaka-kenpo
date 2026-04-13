@@ -21,14 +21,14 @@ export function sortArticleNumbers(articles: string[]): string[] {
 
 /**
  * 条文番号を整形する（例: "1" -> "第1条", "suppl-1" -> "附則第1条"）
- * ハイフン・アンダースコアどちらの区切りにも対応
+ * 正規形式のみ受け付ける（suppl-N, amend-N）。旧形式（fusoku_, amendment_, アンダースコア）は不正データ
  */
 export function formatArticleNumber(article: number | string): string {
   if (typeof article === 'number') return `第${article}条`;
   const s = String(article);
-  const supplMatch = s.match(/^(?:suppl|fusoku)[_-](.+)$/);
+  const supplMatch = s.match(/^suppl-(.+)$/);
   if (supplMatch) return `附則第${supplMatch[1]}条`;
-  const amendMatch = s.match(/^(?:amend|amendment)[_-](.+)$/);
+  const amendMatch = s.match(/^amend-(.+)$/);
   if (amendMatch) return `修正第${amendMatch[1]}条`;
   const branchMatch = s.match(/^(\d+)-(\d+)$/);
   if (branchMatch) return `第${branchMatch[1]}条の${branchMatch[2]}`;
@@ -96,9 +96,9 @@ export function getExcerpt(text: string, maxLength: number = 50): string {
  * 条文番号のソートキーを返す（枝番・附則・改正対応）
  */
 export function getArticleSortKey(article: string): number {
-  const supplMatch = article.match(/^(?:suppl|fusoku)[_-](.+)$/);
+  const supplMatch = article.match(/^suppl-(.+)$/);
   if (supplMatch) return 100000 + (parseInt(supplMatch[1], 10) || 0);
-  const amendMatch = article.match(/^(?:amend|amendment)[_-](.+)$/);
+  const amendMatch = article.match(/^amend-(.+)$/);
   if (amendMatch) return 200000 + (parseInt(amendMatch[1], 10) || 0);
   const match = article.match(/^(\d+)-(\d+)$/);
   if (match) return parseInt(match[1], 10) + parseInt(match[2], 10) * 0.001;
