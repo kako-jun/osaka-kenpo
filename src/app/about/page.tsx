@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="bg-cream">
       {/* 右上にシェアボタン */}
       <div className="fixed top-20 right-4 z-10">
         <ShareButton />
