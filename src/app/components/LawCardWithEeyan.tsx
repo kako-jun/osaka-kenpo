@@ -89,7 +89,7 @@ export function LawCardWithEeyan({ law }: LawCardWithEeyanProps) {
     fetchTotalViews();
   }, [fetchTotalLikes, fetchTotalViews]);
 
-  // ええやん操作後にキャッシュをクリアして再取得
+  // ええやん/カウンター操作後にキャッシュをクリアして再取得
   useEffect(() => {
     if (eeyanRevision === 0) return; // 初回マウント時はスキップ
     if (law.status !== 'available') return;
@@ -97,11 +97,15 @@ export function LawCardWithEeyan({ law }: LawCardWithEeyanProps) {
     const category = parts[2];
     const lawName = parts[3];
     if (!category || !lawName) return;
-    const cacheKey = `eeyan_total_${category}_${lawName}`;
-    safeSessionRemove(cacheKey);
-    safeSessionRemove(`${cacheKey}_time`);
+    const eeyanCacheKey = `eeyan_total_${category}_${lawName}`;
+    const counterCacheKey = `counter_total_${category}_${lawName}`;
+    safeSessionRemove(eeyanCacheKey);
+    safeSessionRemove(`${eeyanCacheKey}_time`);
+    safeSessionRemove(counterCacheKey);
+    safeSessionRemove(`${counterCacheKey}_time`);
     fetchTotalLikes();
-  }, [eeyanRevision, law, fetchTotalLikes]);
+    fetchTotalViews();
+  }, [eeyanRevision, law, fetchTotalLikes, fetchTotalViews]);
 
   // ページが再表示された時にデータを再取得（キャッシュ無視、デバウンス付き）
   const visibilityTimerRef = useRef<ReturnType<typeof setTimeout>>();
