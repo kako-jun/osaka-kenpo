@@ -107,6 +107,29 @@ export default async function ArticlePage({
   const lawName =
     lawMetadata?.short_name || lawMetadata?.display_name || staticLaw?.shortName || law;
 
+  // 削除された条文の場合
+  if (articleRow.is_deleted === 1) {
+    return (
+      <div className="min-h-screen bg-cream">
+        <div className="container mx-auto px-4 py-8">
+          <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.08)] p-8 text-center">
+            <div className="text-gray-400 text-5xl mb-6">§</div>
+            <h1 className="text-2xl font-bold text-gray-400 mb-4">
+              {formatArticleNumber(article)}
+            </h1>
+            <p className="text-gray-500 text-lg mb-8">この条文は削除されています</p>
+            <a
+              href={`/law/${law_category}/${law}`}
+              className="inline-block bg-[#E94E77] hover:bg-opacity-80 text-white rounded-lg font-bold px-6 py-3 transition-colors"
+            >
+              {lawName} の条文一覧に戻る
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   // D1のカラムからArticleData形式に変換
   const articleData = {
     article: articleRow.article,
