@@ -13,8 +13,8 @@ interface LawCardWithEeyanProps {
 }
 
 export function LawCardWithEeyan({ law }: LawCardWithEeyanProps) {
-  const [totalLikes, setTotalLikes] = useState<number | null>(null);
-  const [totalViews, setTotalViews] = useState<number | null>(null);
+  const [totalLikes, setTotalLikes] = useState<number>(0);
+  const [totalViews, setTotalViews] = useState<number>(0);
   const eeyanRevision = useEeyanRevision();
 
   const fetchTotalLikes = useCallback(() => {
@@ -165,21 +165,15 @@ export function LawCardWithEeyan({ law }: LawCardWithEeyanProps) {
             {law.badge}
           </span>
         )}
-        {(totalLikes !== null || totalViews !== null) && (
-          <span className="absolute bottom-2 right-2 text-xs font-normal text-[#FFB6C1] flex items-center gap-3">
-            {totalViews !== null && (
-              <span className="flex items-center gap-1">
-                <EyeIcon />
-                <span>{totalViews.toLocaleString()}</span>
-              </span>
-            )}
-            {totalLikes !== null && (
-              <span className="flex items-center gap-1">
-                <span>{totalLikes.toLocaleString()} ええやん</span>
-              </span>
-            )}
+        <span className="absolute bottom-2 right-2 text-xs font-normal text-[#FFB6C1] flex items-center gap-3">
+          <span className="flex items-center gap-1">
+            <EyeIcon />
+            <span>{totalViews.toLocaleString()}</span>
           </span>
-        )}
+          <span className="flex items-center gap-1">
+            <span>{totalLikes.toLocaleString()} ええやん</span>
+          </span>
+        </span>
       </div>
     </Link>
   );
