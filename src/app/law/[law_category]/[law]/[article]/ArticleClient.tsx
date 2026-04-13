@@ -62,7 +62,7 @@ export function ArticleClient({
   });
 
   return (
-    <main className="min-h-screen bg-cream relative">
+    <div className="bg-cream relative">
       {/* 左上に戻るリンク */}
       <div className="fixed top-20 left-4 z-10">
         <ScrollAwareBackLink href={`/law/${lawCategory}/${law}`}>条文一覧へ</ScrollAwareBackLink>
@@ -116,6 +116,6 @@ export function ArticleClient({
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
