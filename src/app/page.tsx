@@ -1,5 +1,5 @@
 import { ShareButton } from '@/app/components/ShareButton';
-import NostalgicCounter from '@/components/NostalgicCounter';
+import { TotalViewCounter } from '@/app/components/TotalViewCounter';
 import { LawCardWithEeyan } from '@/app/components/LawCardWithEeyan';
 import { lawsMetadata } from '@/data/lawsMetadata';
 
@@ -31,8 +31,8 @@ export default function Home() {
       <div className="flex justify-center mb-8">
         <div className="text-center text-gray-500 text-sm flex items-center justify-center gap-1">
           <span>これまで</span>
-          <NostalgicCounter counterId="osaka-kenpo-49a3907a" type="total" digits="4" />
-          <span>人も見てくれてありがとなー</span>
+          <TotalViewCounter />
+          <span>回も読んでくれてありがとなー</span>
         </div>
       </div>
 
