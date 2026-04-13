@@ -82,7 +82,7 @@ export default async function ArticlePage({
   } catch (error) {
     console.error('DB Error:', error);
     return (
-      <div className="min-h-screen bg-cream">
+      <div className="bg-cream">
         <div className="container mx-auto px-4 py-8">
           <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-6 text-center">
             <h1 className="text-2xl font-bold text-primary mb-4">データ取得エラー</h1>
@@ -98,7 +98,7 @@ export default async function ArticlePage({
 
   if (!articleRow) {
     return (
-      <div className="min-h-screen bg-cream">
+      <div className="bg-cream">
         <div className="container mx-auto px-4 py-8">
           <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-6 text-center">
             <h1 className="text-2xl font-bold text-primary mb-4">条文が見つかりません</h1>
@@ -118,7 +118,7 @@ export default async function ArticlePage({
   // 削除された条文の場合
   if (articleRow.is_deleted === 1) {
     return (
-      <div className="min-h-screen bg-cream">
+      <div className="bg-cream">
         <div className="container mx-auto px-4 py-8">
           <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.08)] p-8 text-center">
             <div className="text-gray-400 text-5xl mb-6">§</div>
