@@ -1,4 +1,5 @@
 import { ArticleData } from '@/lib/types';
+import { formatArticleNumber } from '@/lib/utils';
 
 interface WebsiteStructuredDataProps {
   name?: string;
@@ -60,12 +61,7 @@ export function ArticleStructuredData({
   lawCategory,
   lawId,
 }: ArticleStructuredDataProps) {
-  const articleNumber =
-    typeof article.article === 'number'
-      ? `第${article.article}条`
-      : article.article.startsWith('suppl-')
-        ? `附則第${article.article.replace('suppl-', '')}条`
-        : `第${article.article}条`;
+  const articleNumber = formatArticleNumber(article.article);
 
   const title = `${lawName} ${articleNumber}`;
   const url = `https://osaka-kenpo.llll-ll.com/law/${lawCategory}/${lawId}/${article.article}`;
