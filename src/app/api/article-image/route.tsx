@@ -1,5 +1,6 @@
 import { ImageResponse } from 'next/og';
 import { getArticle, getLawMetadata } from '@/lib/db';
+import { formatArticleNumber } from '@/lib/utils';
 
 export const runtime = 'edge';
 
@@ -51,7 +52,7 @@ export async function GET(request: Request) {
   const displayCommentary = commentaryOsaka.map(stripHtml);
 
   const titleOsaka = articleRow.title_osaka || articleRow.title || '';
-  const articleLabel = `第${article}条`;
+  const articleLabel = formatArticleNumber(article);
 
   // Klee One フォントを Google Fonts から取得
   let fontData: ArrayBuffer;
