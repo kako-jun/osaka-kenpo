@@ -30,6 +30,8 @@ export function formatArticleNumber(article: number | string): string {
   if (supplMatch) return `附則第${supplMatch[1]}条`;
   const amendMatch = s.match(/^(?:amend|amendment)[_-](.+)$/);
   if (amendMatch) return `修正第${amendMatch[1]}条`;
+  const branchMatch = s.match(/^(\d+)-(\d+)$/);
+  if (branchMatch) return `第${branchMatch[1]}条の${branchMatch[2]}`;
   return `第${article}条`;
 }
 
@@ -95,9 +97,9 @@ export function getExcerpt(text: string, maxLength: number = 50): string {
  */
 export function getArticleSortKey(article: string): number {
   const supplMatch = article.match(/^(?:suppl|fusoku)[_-](.+)$/);
-  if (supplMatch) return 100000 + parseInt(supplMatch[1], 10);
+  if (supplMatch) return 100000 + (parseInt(supplMatch[1], 10) || 0);
   const amendMatch = article.match(/^(?:amend|amendment)[_-](.+)$/);
-  if (amendMatch) return 200000 + parseInt(amendMatch[1], 10);
+  if (amendMatch) return 200000 + (parseInt(amendMatch[1], 10) || 0);
   const match = article.match(/^(\d+)-(\d+)$/);
   if (match) return parseInt(match[1], 10) + parseInt(match[2], 10) * 0.001;
   const num = parseInt(article, 10);
