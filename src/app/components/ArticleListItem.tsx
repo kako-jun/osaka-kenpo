@@ -33,6 +33,9 @@ export function ArticleListItem({
           ? 'bg-gray-100 border-gray-400 cursor-default shadow-[0_0_15px_rgba(0,0,0,0.05)]'
           : 'bg-white border-[#E94E77] cursor-pointer shadow-[0_0_15px_rgba(0,0,0,0.05)] hover:shadow-[0_0_20px_rgba(0,0,0,0.1)]'
       }`}
+      {...(isDeleted
+        ? { 'aria-disabled': true, 'aria-label': `${formatArticleNumber(article)} 削除済み` }
+        : {})}
     >
       <div className="flex flex-col sm:flex-row sm:items-center pb-4">
         <span

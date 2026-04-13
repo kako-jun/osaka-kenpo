@@ -17,6 +17,14 @@ export async function generateMetadata({
 
   const articleRow = await getArticle(law_category, law, article);
   const articleLabel = formatArticleNumber(article);
+
+  if (articleRow?.is_deleted === 1) {
+    return {
+      title: `${articleLabel}（削除） - ${lawName} - おおさかけんぽう`,
+      robots: { index: false },
+    };
+  }
+
   const articleTitle = articleRow?.title ? `${articleLabel}（${articleRow.title}）` : articleLabel;
   const title = `${articleTitle} - ${lawName} - おおさかけんぽう`;
 
