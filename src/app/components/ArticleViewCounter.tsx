@@ -20,7 +20,7 @@ const CACHE_DURATION = 5 * 60 * 1000; // 5分
  * - 閲覧数を控えめに表示
  */
 export function ArticleViewCounter({ articleId, lawCategory, law }: ArticleViewCounterProps) {
-  const [count, setCount] = useState<number | null>(null);
+  const [count, setCount] = useState<number>(0);
   const hasIncremented = useRef(false);
 
   const counterId = getNostalgicId(lawCategory, law, articleId);
@@ -67,16 +67,11 @@ export function ArticleViewCounter({ articleId, lawCategory, law }: ArticleViewC
         }
       } catch (error) {
         logger.error('Failed to fetch view counter', error, { counterId });
-        // エラー時は表示しない（null のまま）
       }
     };
 
     fetchAndIncrement();
   }, [counterId]);
-
-  if (count === null) {
-    return null;
-  }
 
   return (
     <span className="flex items-center gap-1 text-xs text-gray-400" title={`${count} 閲覧`}>
