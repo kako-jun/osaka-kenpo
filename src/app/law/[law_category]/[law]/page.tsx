@@ -179,7 +179,7 @@ export default async function LawArticlesPage({
 
   if (!articles || articles.length === 0) {
     return (
-      <div className="min-h-screen bg-cream flex items-center justify-center">
+      <div className="bg-cream flex items-center justify-center">
         <div className="text-center">
           <div className="text-gray-600 text-xl mb-4">条文が見つかりませんでした。</div>
           <a href="/" className="text-blue-600 hover:underline">
@@ -229,7 +229,7 @@ export default async function LawArticlesPage({
   const isSupplPage = pageParam === 'suppl';
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="bg-cream">
       {/* 左上に戻るリンク */}
       <div className="fixed top-20 left-4 z-10">
         <ScrollAwareBackLink href="/">法律一覧へ</ScrollAwareBackLink>
