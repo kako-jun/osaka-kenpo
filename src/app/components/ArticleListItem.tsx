@@ -26,65 +26,71 @@ export function ArticleListItem({
   const hasTitle = title && title.trim() !== '';
   const excerpt = !hasTitle && originalText ? getExcerpt(originalText) : '';
 
-  return (
-    <Link href={href}>
-      <div
-        className={`block p-6 rounded-lg shadow-[0_0_15px_rgba(0,0,0,0.05)] hover:shadow-[0_0_20px_rgba(0,0,0,0.1)] transition-shadow cursor-pointer border-l-4 mb-4 relative ${
-          isDeleted ? 'bg-gray-100 border-gray-400' : 'bg-white border-[#E94E77]'
-        }`}
-      >
-        <div className="flex flex-col sm:flex-row sm:items-center pb-4">
-          <span
-            className={`font-bold text-lg mb-2 sm:mb-0 sm:mr-4 shrink-0 ${
-              isDeleted ? 'text-gray-400' : 'text-[#E94E77]'
-            }`}
-          >
-            {formatArticleNumber(article)}
-          </span>
-          {isDeleted ? (
-            <div className="text-gray-400 text-base">（削除）</div>
-          ) : hasTitle ? (
-            <div className="text-gray-800 text-base leading-relaxed">
-              <span dangerouslySetInnerHTML={{ __html: sanitizeHtml(title) }} />
-            </div>
-          ) : excerpt ? (
-            <div className="text-gray-400 text-sm leading-relaxed truncate italic">{excerpt}</div>
-          ) : null}
-        </div>
-
-        {isDeleted && (
-          <div className="absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-bold text-white shadow-md bg-gray-400">
-            削除
+  const innerContent = (
+    <div
+      className={`block p-6 rounded-lg transition-shadow border-l-4 mb-4 relative ${
+        isDeleted
+          ? 'bg-gray-100 border-gray-400 cursor-default shadow-[0_0_15px_rgba(0,0,0,0.05)]'
+          : 'bg-white border-[#E94E77] cursor-pointer shadow-[0_0_15px_rgba(0,0,0,0.05)] hover:shadow-[0_0_20px_rgba(0,0,0,0.1)]'
+      }`}
+    >
+      <div className="flex flex-col sm:flex-row sm:items-center pb-4">
+        <span
+          className={`font-bold text-lg mb-2 sm:mb-0 sm:mr-4 shrink-0 ${
+            isDeleted ? 'text-gray-400' : 'text-[#E94E77]'
+          }`}
+        >
+          {formatArticleNumber(article)}
+        </span>
+        {isDeleted ? (
+          <div className="text-gray-400 text-base">（削除）</div>
+        ) : hasTitle ? (
+          <div className="text-gray-800 text-base leading-relaxed">
+            <span dangerouslySetInnerHTML={{ __html: sanitizeHtml(title) }} />
           </div>
-        )}
-        {!isDeleted && famousArticleBadge && (
-          <div className="absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-bold text-white shadow-md bg-slate-500">
-            {famousArticleBadge}
-          </div>
-        )}
-        {!isDeleted && (
-          <div
-            className={`absolute bottom-3 right-4 flex items-center gap-1 text-xs ${
-              isLiked ? 'text-[#E94E77]' : 'text-gray-400'
-            }`}
-          >
-            <svg
-              className="w-3.5 h-3.5"
-              fill={isLiked ? 'currentColor' : 'none'}
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-              />
-            </svg>
-            <span>{likeCount} ええやん</span>
-          </div>
-        )}
+        ) : excerpt ? (
+          <div className="text-gray-400 text-sm leading-relaxed truncate italic">{excerpt}</div>
+        ) : null}
       </div>
-    </Link>
+
+      {isDeleted && (
+        <div className="absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-bold text-white shadow-md bg-gray-400">
+          削除
+        </div>
+      )}
+      {!isDeleted && famousArticleBadge && (
+        <div className="absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-bold text-white shadow-md bg-slate-500">
+          {famousArticleBadge}
+        </div>
+      )}
+      {!isDeleted && (
+        <div
+          className={`absolute bottom-3 right-4 flex items-center gap-1 text-xs ${
+            isLiked ? 'text-[#E94E77]' : 'text-gray-400'
+          }`}
+        >
+          <svg
+            className="w-3.5 h-3.5"
+            fill={isLiked ? 'currentColor' : 'none'}
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+            />
+          </svg>
+          <span>{likeCount} ええやん</span>
+        </div>
+      )}
+    </div>
   );
+
+  if (isDeleted) {
+    return innerContent;
+  }
+
+  return <Link href={href}>{innerContent}</Link>;
 }
