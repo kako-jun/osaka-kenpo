@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { ArticleListItem } from '@/app/components/ArticleListItem';
 import {
   NOSTALGIC_API_BASE,
+  NOSTALGIC_COUNTER_API_BASE,
   NOSTALGIC_BATCH_LIMIT,
   getEeyanUserId,
   getNostalgicId,
@@ -27,6 +28,7 @@ interface ArticleListWithEeyanProps {
 
 export function ArticleListWithEeyan({ articles, lawCategory, law }: ArticleListWithEeyanProps) {
   const [likeCounts, setLikeCounts] = useState<Record<string, number>>({});
+  const [viewCounts, setViewCounts] = useState<Record<string, number>>({});
   const [userLikes, setUserLikes] = useState<Set<string>>(new Set());
   const eeyanRevision = useEeyanRevision();
 
@@ -35,10 +37,13 @@ export function ArticleListWithEeyan({ articles, lawCategory, law }: ArticleList
 
     // nostalgic batchGet で全体カウント取得
     const nostalgicIds = articles.map((a) => getNostalgicId(lawCategory, law, a.article));
+    const prefix = `osaka-kenpo-${lawCategory}-${law}-`;
 
     // Nostalgic APIの上限に合わせて分割
     for (let i = 0; i < nostalgicIds.length; i += NOSTALGIC_BATCH_LIMIT) {
       const batchIds = nostalgicIds.slice(i, i + NOSTALGIC_BATCH_LIMIT);
+
+      // Like batchGet
       promises.push(
         fetch(`${NOSTALGIC_API_BASE}?action=batchGet`, {
           method: 'POST',
@@ -56,14 +61,41 @@ export function ArticleListWithEeyan({ articles, lawCategory, law }: ArticleList
             if (data.success && data.data) {
               const counts: Record<string, number> = {};
               for (const [nostalgicId, info] of Object.entries(data.data)) {
-                // osaka-kenpo-{category}-{law}- を取り除いて article ID に変換
-                const prefix = `osaka-kenpo-${lawCategory}-${law}-`;
                 if (nostalgicId.startsWith(prefix)) {
                   const articleId = nostalgicId.slice(prefix.length);
                   counts[articleId] = info.total;
                 }
               }
               setLikeCounts((prev) => ({ ...prev, ...counts }));
+            }
+          })
+          .catch(() => {})
+      );
+
+      // Counter batchGet（閲覧数）
+      promises.push(
+        fetch(`${NOSTALGIC_COUNTER_API_BASE}?action=batchGet`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ids: batchIds }),
+        })
+          .then((res) => {
+            if (!res.ok) throw new Error(`counter batchGet failed: ${res.status}`);
+            return res.json() as Promise<{
+              success: boolean;
+              data: Record<string, { total: number }>;
+            }>;
+          })
+          .then((data) => {
+            if (data.success && data.data) {
+              const counts: Record<string, number> = {};
+              for (const [nostalgicId, info] of Object.entries(data.data)) {
+                if (nostalgicId.startsWith(prefix)) {
+                  const articleId = nostalgicId.slice(prefix.length);
+                  counts[articleId] = info.total;
+                }
+              }
+              setViewCounts((prev) => ({ ...prev, ...counts }));
             }
           })
           .catch(() => {})
@@ -128,6 +160,7 @@ export function ArticleListWithEeyan({ articles, lawCategory, law }: ArticleList
           isDeleted={a.isDeleted}
           originalText={a.originalText}
           likeCount={likeCounts[a.article]}
+          viewCount={viewCounts[a.article]}
           isLiked={userLikes.has(a.article)}
         />
       ))}
