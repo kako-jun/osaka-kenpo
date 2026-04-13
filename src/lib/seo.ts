@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { ArticleData } from './types';
+import { formatArticleNumber } from './utils';
 
 /**
  * 条文ページ用のメタデータを生成
@@ -11,12 +12,7 @@ export function generateArticleMetadata(
   lawCategory: string,
   lawId: string
 ): Metadata {
-  const articleNumber =
-    typeof articleData.article === 'number'
-      ? `第${articleData.article}条`
-      : articleData.article.startsWith('suppl-')
-        ? `附則第${articleData.article.replace('suppl-', '')}条`
-        : `第${articleData.article}条`;
+  const articleNumber = formatArticleNumber(articleData.article);
 
   const title = `${lawName} ${articleNumber} - おおさかけんぽう`;
   const description = articleData.osakaText?.[0]
