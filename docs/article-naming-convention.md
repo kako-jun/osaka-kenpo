@@ -238,31 +238,16 @@ src/data/laws/
 **utils.ts** - 条文番号のフォーマット処理:
 
 ```typescript
-export function formatArticleNumber(article: string | number): string {
-  const articleStr = String(article);
-
-  // 附則
-  if (articleStr.startsWith('suppl-')) {
-    return `附則第${articleStr.replace('suppl-', '')}条`;
-  }
-
-  // 修正条項
-  if (articleStr.startsWith('amend-')) {
-    return `修正第${articleStr.replace('amend-', '')}条`;
-  }
-
-  // 枝番
-  if (articleStr.includes('-')) {
-    return `第${articleStr.replace('-', '条の')}条`;
-  }
-
-  // アルファ条文（ドイツ等）
-  if (/^\d+[a-z]$/.test(articleStr)) {
-    return `第${articleStr}条`;
-  }
-
-  // 通常条文
-  return `第${articleStr}条`;
+export function formatArticleNumber(article: number | string): string {
+  if (typeof article === 'number') return `第${article}条`;
+  const s = String(article);
+  // 附則（suppl / fusoku、ハイフン・アンダースコア両対応）
+  const supplMatch = s.match(/^(?:suppl|fusoku)[_-](.+)$/);
+  if (supplMatch) return `附則第${supplMatch[1]}条`;
+  // 修正条項（amend / amendment、同上）
+  const amendMatch = s.match(/^(?:amend|amendment)[_-](.+)$/);
+  if (amendMatch) return `修正第${amendMatch[1]}条`;
+  return `第${article}条`;
 }
 ```
 
