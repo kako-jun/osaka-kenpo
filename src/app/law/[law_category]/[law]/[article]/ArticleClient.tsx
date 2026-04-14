@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { useViewMode } from '@/app/context/ViewModeContext';
 import { ArticleNavigation } from '@/app/components/ArticleNavigation';
 import { ScrollAwareBackLink } from '@/app/components/navigation/ScrollAwareBackLink';
@@ -37,6 +38,16 @@ export function ArticleClient({
 }: ArticleClientProps) {
   const { viewMode, setViewMode } = useViewMode();
 
+  // sessionStorage からページ番号を読み取り、戻りリンクに反映
+  const basePath = `/law/${lawCategory}/${law}`;
+  const [backHref, setBackHref] = useState(basePath);
+  useEffect(() => {
+    const savedPage = sessionStorage.getItem(`osaka-kenpo-page-${lawCategory}-${law}`);
+    if (savedPage && parseInt(savedPage, 10) > 1) {
+      setBackHref(`${basePath}?page=${savedPage}`);
+    }
+  }, [basePath, lawCategory, law]);
+
   const showOsaka = viewMode === 'osaka';
 
   const toggleViewMode = () => {
@@ -65,7 +76,7 @@ export function ArticleClient({
     <div className="bg-cream relative">
       {/* 左上に戻るリンク */}
       <div className="fixed top-20 left-4 z-10">
-        <ScrollAwareBackLink href={`/law/${lawCategory}/${law}`}>条文一覧へ</ScrollAwareBackLink>
+        <ScrollAwareBackLink href={backHref}>条文一覧へ</ScrollAwareBackLink>
       </div>
 
       <ArticleNavigationButtons

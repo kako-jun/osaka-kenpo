@@ -284,6 +284,7 @@ export default async function LawArticlesPage({
                 articles={toArticleData(supplementary, law_category, law, famousArticles, true)}
                 lawCategory={law_category}
                 law={law}
+                currentPage={currentPage}
               />
             </div>
           ) : hasChapters && !needsPagination ? (
@@ -305,6 +306,7 @@ export default async function LawArticlesPage({
                     articles={toArticleData(chapterArticles, law_category, law, famousArticles)}
                     lawCategory={law_category}
                     law={law}
+                    currentPage={currentPage}
                   />
                 </div>
               ))
@@ -314,6 +316,7 @@ export default async function LawArticlesPage({
               articles={toArticleData(currentArticles, law_category, law, famousArticles, true)}
               lawCategory={law_category}
               law={law}
+              currentPage={currentPage}
             />
           )}
 
@@ -327,6 +330,7 @@ export default async function LawArticlesPage({
                 articles={toArticleData(supplementary, law_category, law, famousArticles, true)}
                 lawCategory={law_category}
                 law={law}
+                currentPage={currentPage}
               />
             </div>
           )}
