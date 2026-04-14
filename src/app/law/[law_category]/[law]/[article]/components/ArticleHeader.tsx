@@ -16,7 +16,7 @@ export function ArticleHeader({ article, title, titleOsaka, showOsaka }: Article
         showOsaka={showOsaka}
         originalContent={
           <h1 className="text-2xl font-bold mb-6">
-            <span className="text-[#E94E77]">{formatArticleNumber(article)} </span>
+            <span className="text-[#E94E77] mr-3">{formatArticleNumber(article)}</span>
             <span
               className="text-gray-800"
               dangerouslySetInnerHTML={{ __html: sanitizeHtml(title) }}
@@ -25,7 +25,7 @@ export function ArticleHeader({ article, title, titleOsaka, showOsaka }: Article
         }
         osakaContent={
           <h1 className="text-2xl font-bold mb-6">
-            <span className="text-[#E94E77]">{formatArticleNumber(article)} </span>
+            <span className="text-[#E94E77] mr-3">{formatArticleNumber(article)}</span>
             <span className="text-gray-800">{titleOsaka || title}</span>
           </h1>
         }
