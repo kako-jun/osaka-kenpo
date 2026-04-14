@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useViewMode } from '@/app/context/ViewModeContext';
-import { safeSessionGet } from '@/lib/storage';
+import { safeSessionGet, getPageStorageKey } from '@/lib/storage';
 import { ArticleNavigation } from '@/app/components/ArticleNavigation';
 import { ScrollAwareBackLink } from '@/app/components/navigation/ScrollAwareBackLink';
 import { useArticleNavigation } from '@/hooks/useArticleNavigation';
@@ -43,7 +43,7 @@ export function ArticleClient({
   const basePath = `/law/${lawCategory}/${law}`;
   const [backHref, setBackHref] = useState(basePath);
   useEffect(() => {
-    const savedPage = safeSessionGet(`osaka-kenpo-page-${lawCategory}-${law}`);
+    const savedPage = safeSessionGet(getPageStorageKey(lawCategory, law));
     const parsed = parseInt(savedPage ?? '', 10);
     if (parsed > 1) {
       setBackHref(`${basePath}?page=${parsed}`);

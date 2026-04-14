@@ -9,12 +9,8 @@ import {
   getEeyanUserId,
   getNostalgicId,
 } from '@/lib/eeyan';
-import { safeSessionSet, safeSessionRemove } from '@/lib/storage';
+import { safeSessionSet, safeSessionRemove, getPageStorageKey } from '@/lib/storage';
 import { useEeyanRevision } from '@/app/context/EeyanContext';
-
-function getPageStorageKey(lawCategory: string, law: string): string {
-  return `osaka-kenpo-page-${lawCategory}-${law}`;
-}
 
 interface ArticleData {
   article: string;
