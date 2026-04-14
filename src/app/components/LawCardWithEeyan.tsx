@@ -32,14 +32,17 @@ export function LawCardWithEeyan({ law }: LawCardWithEeyanProps) {
     // Check sessionStorage cache (5 min)
     const cached = safeSessionGet(cacheKey);
     const cachedTime = safeSessionGet(cacheTimeKey);
-    if (cached && cachedTime && Date.now() - Number(cachedTime) < 5 * 60 * 1000) {
+    if (cached && cachedTime && Date.now() - Number(cachedTime) < 30 * 1000) {
       setTotalLikes(Number(cached));
       return;
     }
 
     const prefix = `osaka-kenpo-${category}-${lawName}-`;
     fetch(`${NOSTALGIC_API_BASE}?action=sumByPrefix&prefix=${prefix}`)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
       .then((data) => {
         const d = data as { success: boolean; total: number };
         if (d.success) {
@@ -64,14 +67,17 @@ export function LawCardWithEeyan({ law }: LawCardWithEeyanProps) {
 
     const cached = safeSessionGet(cacheKey);
     const cachedTime = safeSessionGet(cacheTimeKey);
-    if (cached && cachedTime && Date.now() - Number(cachedTime) < 5 * 60 * 1000) {
+    if (cached && cachedTime && Date.now() - Number(cachedTime) < 30 * 1000) {
       setTotalViews(Number(cached));
       return;
     }
 
     const prefix = `osaka-kenpo-${category}-${lawName}-`;
     fetch(`${NOSTALGIC_COUNTER_API_BASE}?action=sumByPrefix&prefix=${prefix}`)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
       .then((data) => {
         const d = data as { success: boolean; total: number };
         if (d.success) {

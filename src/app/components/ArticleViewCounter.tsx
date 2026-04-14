@@ -13,7 +13,7 @@ interface ArticleViewCounterProps {
   law: string;
 }
 
-const CACHE_DURATION = 5 * 60 * 1000; // 5分
+const CACHE_DURATION = 30 * 1000; // 30秒
 
 /**
  * 条文ページの閲覧数カウンター
@@ -40,11 +40,13 @@ export function ArticleViewCounter({ articleId, lawCategory, law }: ArticleViewC
 
         if (!alreadyIncremented && !hasIncremented.current) {
           const incrementUrl = `${NOSTALGIC_COUNTER_API_BASE}?action=increment&id=${encodeURIComponent(counterId)}`;
-          await fetch(incrementUrl);
-          safeSessionSet(sessionKey, 'true');
-          hasIncremented.current = true;
-          didIncrement = true;
-          notifyChanged();
+          const incrementRes = await fetch(incrementUrl);
+          if (incrementRes.ok) {
+            safeSessionSet(sessionKey, 'true');
+            hasIncremented.current = true;
+            didIncrement = true;
+          }
+          // 失敗時はマークしない（次回再試行可能）
         }
 
         // increment 直後はキャッシュを無視して最新値を取得
@@ -59,13 +61,21 @@ export function ArticleViewCounter({ articleId, lawCategory, law }: ArticleViewC
         ) {
           setCount(parseInt(cached));
         } else {
+          // increment直後はサーバー側の反映を待つ
+          if (didIncrement) {
+            await new Promise((resolve) => setTimeout(resolve, 200));
+          }
           const displayUrl = `${NOSTALGIC_COUNTER_API_BASE}?action=get&id=${encodeURIComponent(counterId)}&format=json`;
           const response = await fetch(displayUrl);
+          if (!response.ok) return;
           const data = (await response.json()) as { success: boolean; data: { total: number } };
           if (data.success) {
             setCount(data.data.total);
             safeSessionSet(cacheKey, String(data.data.total));
             safeSessionSet(cacheTimeKey, String(Date.now()));
+            if (didIncrement) {
+              notifyChanged();
+            }
           }
         }
       } catch (error) {

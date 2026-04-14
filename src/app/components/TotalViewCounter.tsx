@@ -8,7 +8,7 @@ import { useEeyanRevision } from '@/app/context/EeyanContext';
 
 const CACHE_KEY = 'counter_total_all';
 const CACHE_TIME_KEY = 'counter_total_all_time';
-const CACHE_DURATION = 5 * 60 * 1000; // 5分
+const CACHE_DURATION = 30 * 1000; // 30秒
 
 /**
  * 全条文の閲覧数合計を表示するコンポーネント
@@ -30,6 +30,7 @@ export function TotalViewCounter() {
       const res = await fetch(
         `${NOSTALGIC_COUNTER_API_BASE}?action=sumByPrefix&prefix=osaka-kenpo-`
       );
+      if (!res.ok) return;
       const data = (await res.json()) as { success: boolean; total: number };
       if (data.success) {
         setTotal(data.total);
