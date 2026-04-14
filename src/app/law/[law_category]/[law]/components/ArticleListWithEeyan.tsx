@@ -9,6 +9,7 @@ import {
   getEeyanUserId,
   getNostalgicId,
 } from '@/lib/eeyan';
+import { safeSessionSet, safeSessionRemove, getPageStorageKey } from '@/lib/storage';
 import { useEeyanRevision } from '@/app/context/EeyanContext';
 
 interface ArticleData {
@@ -24,9 +25,15 @@ interface ArticleListWithEeyanProps {
   articles: ArticleData[];
   lawCategory: string;
   law: string;
+  currentPage?: number;
 }
 
-export function ArticleListWithEeyan({ articles, lawCategory, law }: ArticleListWithEeyanProps) {
+export function ArticleListWithEeyan({
+  articles,
+  lawCategory,
+  law,
+  currentPage,
+}: ArticleListWithEeyanProps) {
   const [likeCounts, setLikeCounts] = useState<Record<string, number>>({});
   const [viewCounts, setViewCounts] = useState<Record<string, number>>({});
   const [userLikes, setUserLikes] = useState<Set<string>>(new Set());
@@ -147,6 +154,15 @@ export function ArticleListWithEeyan({ articles, lawCategory, law }: ArticleList
       clearTimeout(visibilityTimerRef.current);
     };
   }, [fetchEeyanData]);
+
+  // ページ番号を sessionStorage に保存（条文詳細から戻る時に復元するため）
+  useEffect(() => {
+    if (currentPage != null && currentPage > 1) {
+      safeSessionSet(getPageStorageKey(lawCategory, law), String(currentPage));
+    } else if (currentPage != null) {
+      safeSessionRemove(getPageStorageKey(lawCategory, law));
+    }
+  }, [currentPage, lawCategory, law]);
 
   return (
     <>
