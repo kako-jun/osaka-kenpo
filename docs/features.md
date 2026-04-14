@@ -108,7 +108,7 @@ interface EeyanContextType {
 
 **動作フロー**:
 
-1. `sessionStorage` のキャッシュをチェック（TTL: 5分）
+1. `sessionStorage` のキャッシュをチェック（TTL: 30秒）
 2. キャッシュがあればそれを表示
 3. なければ Nostalgic Counter API の `sumByPrefix`（prefix: `osaka-kenpo-`）で全条文の合計を取得
 4. 結果を `sessionStorage` にキャッシュ
@@ -137,7 +137,7 @@ interface ArticleViewCounterProps {
    - `sessionStorage` にフラグを記録
 2. **表示値取得**:
    - インクリメント直後はキャッシュを無視して最新値を取得
-   - それ以外は `sessionStorage` のキャッシュをチェック（TTL: 5分）
+   - それ以外は `sessionStorage` のキャッシュをチェック（TTL: 30秒）
    - Nostalgic Counter API の `get`（format: json）で取得
    - 結果を `sessionStorage` にキャッシュ
 

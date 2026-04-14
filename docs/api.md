@@ -341,7 +341,7 @@ GET {BASE}?action=get&id={counterId}&format=json
 ```
 
 **使用箇所**: `ArticleViewCounter`（条文詳細ページ）
-**キャッシュ**: `sessionStorage` で5分間キャッシュ
+**キャッシュ**: `sessionStorage` で30秒間キャッシュ
 
 #### 3.2.3 sumByPrefix — プレフィックスで合計取得
 
@@ -415,9 +415,9 @@ Content-Type: application/json
 
 | コンポーネント                         | キャッシュ先        | TTL            | 無効化                             |
 | -------------------------------------- | ------------------- | -------------- | ---------------------------------- |
-| `LawCardWithEeyan`                     | sessionStorage      | 5分            | `visibilitychange` で削除 + 再取得 |
-| `TotalViewCounter`（合計値）           | sessionStorage      | 5分            | なし                               |
-| `ArticleViewCounter`（値）             | sessionStorage      | 5分            | increment 直後はキャッシュ無視     |
+| `LawCardWithEeyan`                     | sessionStorage      | 30秒           | `visibilitychange` で削除 + 再取得 |
+| `TotalViewCounter`（合計値）           | sessionStorage      | 30秒           | なし                               |
+| `ArticleViewCounter`（値）             | sessionStorage      | 30秒           | increment 直後はキャッシュ無視     |
 | `ArticleViewCounter`（インクリメント） | sessionStorage      | セッション中   | なし                               |
 | `LikeButton`                           | なし                | -              | マウント時に毎回取得               |
 | `ArticleListWithEeyan`                 | なし                | -              | `visibilitychange` で再取得        |

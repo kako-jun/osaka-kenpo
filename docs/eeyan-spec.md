@@ -365,7 +365,7 @@ interface OsakaKenpoStorage {
 | `eeyan_total_{category}_{lawName}`      | 数値（文字列）           | 合計いいね数      |
 | `eeyan_total_{category}_{lawName}_time` | タイムスタンプ（文字列） | `Date.now()` の値 |
 
-**TTL**: 5分（`5 * 60 * 1000` ミリ秒）。TTL 内はキャッシュから `setTotalLikes()` して API リクエストしない。
+**TTL**: 30秒（`30 * 1000` ミリ秒）。TTL 内はキャッシュから `setTotalLikes()` して API リクエストしない。
 
 **キャッシュ無効化**: `visibilitychange` イベントで `visible` になったとき、sessionStorage の該当キー2つを `removeItem()` してから `fetchTotalLikes()` を再呼び出しする。
 
@@ -524,7 +524,7 @@ sequenceDiagram
     LCE->>SS: getItem(eeyan_total_{cat}_{law})
     LCE->>SS: getItem(eeyan_total_{cat}_{law}_time)
 
-    alt キャッシュあり & 5分以内
+    alt キャッシュあり & 30秒以内
         SS-->>LCE: cached value
         LCE->>LCE: setTotalLikes(Number(cached))
     else キャッシュなし or 期限切れ
@@ -754,7 +754,7 @@ QRコードに加え、ユーザーIDを直接コピーする手段も提供:
 | 項目   | 値                                                              |
 | ------ | --------------------------------------------------------------- |
 | 対象   | トップページの法律カード合計いいね数                            |
-| TTL    | 5分（`5 * 60 * 1000` ms）                                       |
+| TTL    | 30秒（`30 * 1000` ms）                                          |
 | キー   | `eeyan_total_{category}_{lawName}` + `_time`                    |
 | 無効化 | `visibilitychange` で `visible` になったとき: キー削除 → 再取得 |
 
