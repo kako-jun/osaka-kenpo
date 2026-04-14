@@ -6,6 +6,19 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  async rewrites() {
+    return {
+      beforeFiles: [
+        { source: '/landing', destination: 'https://arrivals.llll-ll.com/osaka-kenpo/ja/' },
+        { source: '/landing/:path*', destination: 'https://arrivals.llll-ll.com/:path*' },
+        { source: '/_assets/:path*', destination: 'https://arrivals.llll-ll.com/_assets/:path*' },
+        {
+          source: '/content/:path(osaka-kenpo.+)',
+          destination: 'https://arrivals.llll-ll.com/content/:path*',
+        },
+      ],
+    };
+  },
 };
 
 // ローカル開発時のみCloudflare Platformをセットアップ
