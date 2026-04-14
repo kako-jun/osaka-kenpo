@@ -9,7 +9,12 @@ import {
   getEeyanUserId,
   getNostalgicId,
 } from '@/lib/eeyan';
+import { safeSessionSet, safeSessionRemove } from '@/lib/storage';
 import { useEeyanRevision } from '@/app/context/EeyanContext';
+
+function getPageStorageKey(lawCategory: string, law: string): string {
+  return `osaka-kenpo-page-${lawCategory}-${law}`;
+}
 
 interface ArticleData {
   article: string;
@@ -157,9 +162,9 @@ export function ArticleListWithEeyan({
   // ページ番号を sessionStorage に保存（条文詳細から戻る時に復元するため）
   useEffect(() => {
     if (currentPage != null && currentPage > 1) {
-      sessionStorage.setItem(`osaka-kenpo-page-${lawCategory}-${law}`, String(currentPage));
+      safeSessionSet(getPageStorageKey(lawCategory, law), String(currentPage));
     } else if (currentPage != null) {
-      sessionStorage.removeItem(`osaka-kenpo-page-${lawCategory}-${law}`);
+      safeSessionRemove(getPageStorageKey(lawCategory, law));
     }
   }, [currentPage, lawCategory, law]);
 
