@@ -30,7 +30,10 @@ export function TotalViewCounter() {
       const res = await fetch(
         `${NOSTALGIC_COUNTER_API_BASE}?action=sumByPrefix&prefix=osaka-kenpo-`
       );
-      if (!res.ok) return;
+      if (!res.ok) {
+        logger.warn('Total view counter API failed', { status: res.status });
+        return;
+      }
       const data = (await res.json()) as { success: boolean; total: number };
       if (data.success) {
         setTotal(data.total);

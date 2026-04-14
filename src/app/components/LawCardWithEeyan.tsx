@@ -12,6 +12,8 @@ interface LawCardWithEeyanProps {
   law: LawEntry;
 }
 
+const CACHE_DURATION = 30 * 1000; // 30秒
+
 export function LawCardWithEeyan({ law }: LawCardWithEeyanProps) {
   const [totalLikes, setTotalLikes] = useState<number>(0);
   const [totalViews, setTotalViews] = useState<number>(0);
@@ -29,10 +31,9 @@ export function LawCardWithEeyan({ law }: LawCardWithEeyanProps) {
     const cacheKey = `eeyan_total_${category}_${lawName}`;
     const cacheTimeKey = `${cacheKey}_time`;
 
-    // Check sessionStorage cache (5 min)
     const cached = safeSessionGet(cacheKey);
     const cachedTime = safeSessionGet(cacheTimeKey);
-    if (cached && cachedTime && Date.now() - Number(cachedTime) < 30 * 1000) {
+    if (cached && cachedTime && Date.now() - Number(cachedTime) < CACHE_DURATION) {
       setTotalLikes(Number(cached));
       return;
     }
@@ -67,7 +68,7 @@ export function LawCardWithEeyan({ law }: LawCardWithEeyanProps) {
 
     const cached = safeSessionGet(cacheKey);
     const cachedTime = safeSessionGet(cacheTimeKey);
-    if (cached && cachedTime && Date.now() - Number(cachedTime) < 30 * 1000) {
+    if (cached && cachedTime && Date.now() - Number(cachedTime) < CACHE_DURATION) {
       setTotalViews(Number(cached));
       return;
     }

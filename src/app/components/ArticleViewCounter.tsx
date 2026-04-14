@@ -67,7 +67,10 @@ export function ArticleViewCounter({ articleId, lawCategory, law }: ArticleViewC
           }
           const displayUrl = `${NOSTALGIC_COUNTER_API_BASE}?action=get&id=${encodeURIComponent(counterId)}&format=json`;
           const response = await fetch(displayUrl);
-          if (!response.ok) return;
+          if (!response.ok) {
+            logger.warn('Counter get API failed', { status: response.status, counterId });
+            return;
+          }
           const data = (await response.json()) as { success: boolean; data: { total: number } };
           if (data.success) {
             setCount(data.data.total);
