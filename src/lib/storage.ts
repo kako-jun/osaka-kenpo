@@ -106,3 +106,9 @@ export function safeSessionRemove(key: string): void {
     // ストレージ制限環境では無視
   }
 }
+
+// ============ Page Position ============
+
+export function getPageStorageKey(lawCategory: string, law: string): string {
+  return `osaka-kenpo-page-${lawCategory}-${law}`;
+}
