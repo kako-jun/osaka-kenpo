@@ -1,5 +1,10 @@
 # おおさかけんぽう - ユーザーガイド
 
+<p align="center">
+  <a href="https://nostalgic.llll-ll.com"><img src="https://api.nostalgic.llll-ll.com/visit?action=get&id=github-4114d975&format=image" alt="Visitors"></a>
+  <a href="https://nostalgic.llll-ll.com/yokoso"><img src="https://api.nostalgic.llll-ll.com/yokoso?action=get&id=github-4114d975&format=image" alt="Welcome"></a>
+</p>
+
 ## 概要
 
 「おおさかけんぽう」は、難解な法律条文を親しみやすい大阪弁に翻訳して解説するWebサイトです。法律への心理的なハードルを下げ、多くの人が法律に気軽に親しめることを目的としています。
