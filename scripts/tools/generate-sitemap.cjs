@@ -35,6 +35,7 @@ const ROOT = path.join(__dirname, '../..');
 const LAWS_METADATA_YAML = path.join(ROOT, 'src/data/laws_metadata.yaml');
 const LAWS_DIR = path.join(ROOT, 'src/data/laws');
 const OUTPUT_FILE = path.join(ROOT, 'public/sitemap.xml');
+const BUILD_DATE_FILE = path.join(ROOT, 'src/data/build-date.json');
 
 /** osakaText が実質的に空でないか判定する */
 function hasOsakaText(article) {
@@ -130,6 +131,9 @@ function main() {
     '\n</urlset>\n';
 
   fs.writeFileSync(OUTPUT_FILE, xml, 'utf8');
+
+  // JSON-LD の dateModified 用にビルド日時を src/data/build-date.json に書き出す
+  fs.writeFileSync(BUILD_DATE_FILE, JSON.stringify({ buildDate: lastmod }), 'utf8');
 
   console.log(`✅ ${OUTPUT_FILE}`);
   console.log(`   法律ページ: ${lawCount}`);

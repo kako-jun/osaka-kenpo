@@ -3,6 +3,7 @@ import { getArticle, getArticles, getLawMetadata, type ArticleRow } from '@/lib/
 import { ArticleClient } from './ArticleClient';
 import { lawsMetadata } from '@/data/lawsMetadata';
 import { formatArticleNumber } from '@/lib/utils';
+import buildDateJson from '@/data/build-date.json';
 
 export const runtime = 'edge';
 
@@ -193,6 +194,8 @@ export default async function ArticlePage({
     isAccessibleForFree: true,
     articleSection: lawName,
     articleBody: osakaBody,
+    datePublished: '2025-07-04',
+    dateModified: buildDateJson.buildDate,
     author: { '@type': 'Person', name: 'kako-jun' },
     publisher: {
       '@type': 'Organization',
