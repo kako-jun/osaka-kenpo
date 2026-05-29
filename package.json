@@ -30,7 +30,7 @@
     "prebuild": "node scripts/tools/generate-laws-metadata.cjs && node scripts/tools/generate-sitemap.cjs",
     "generate:sitemap": "node scripts/tools/generate-sitemap.cjs",
     "build": "next build",
-    "pages:build": "npx @cloudflare/next-on-pages",
+    "pages:build": "node scripts/tools/generate-sitemap.cjs && npx @cloudflare/next-on-pages",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
