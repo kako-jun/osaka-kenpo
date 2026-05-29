@@ -39,7 +39,7 @@ export function LawCardWithEeyan({ law }: LawCardWithEeyanProps) {
     }
 
     const prefix = `osaka-kenpo-${category}-${lawName}-`;
-    fetch(`${NOSTALGIC_API_BASE}?action=sumByPrefix&prefix=${prefix}`)
+    fetch(`${NOSTALGIC_API_BASE}?action=sumByPrefix&prefix=${prefix}&format=json`)
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();
@@ -74,7 +74,7 @@ export function LawCardWithEeyan({ law }: LawCardWithEeyanProps) {
     }
 
     const prefix = `osaka-kenpo-${category}-${lawName}-`;
-    fetch(`${NOSTALGIC_COUNTER_API_BASE}?action=sumByPrefix&prefix=${prefix}`)
+    fetch(`${NOSTALGIC_COUNTER_API_BASE}?action=sumByPrefix&prefix=${prefix}&format=json`)
       .then((res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();
