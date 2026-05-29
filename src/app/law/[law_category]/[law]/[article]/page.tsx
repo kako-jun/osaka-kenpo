@@ -49,6 +49,9 @@ export async function generateMetadata({
   return {
     title,
     description,
+    alternates: {
+      canonical: url,
+    },
     openGraph: {
       title,
       description,
@@ -173,14 +176,52 @@ export default async function ArticlePage({
     };
   });
 
+  // JSON-LD: このサイトの独自価値は「大阪弁での解説」。原文(e-Gov重複)ではなく
+  // 大阪弁訳・大阪弁解説を articleBody に据えて、独自コンテンツとして宣言する。
+  const articleLabel = formatArticleNumber(article);
+  const osakaBody = [
+    ...(articleData.osakaText || []),
+    ...((articleData.commentaryOsaka || []) as string[]),
+  ]
+    .join('\n')
+    .trim();
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: `${lawName} ${articleLabel} をおおさか弁で`,
+    inLanguage: 'ja',
+    isAccessibleForFree: true,
+    articleSection: lawName,
+    articleBody: osakaBody,
+    author: { '@type': 'Person', name: 'kako-jun' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'おおさかけんぽう',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://osaka-kenpo.llll-ll.com/osaka-kenpo-logo.webp',
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://osaka-kenpo.llll-ll.com/law/${law_category}/${law}/${article}`,
+    },
+  };
+
   return (
-    <ArticleClient
-      lawCategory={law_category}
-      law={law}
-      articleId={article}
-      articleData={articleData}
-      lawName={lawName}
-      allArticles={allArticles}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ArticleClient
+        lawCategory={law_category}
+        law={law}
+        articleId={article}
+        articleData={articleData}
+        lawName={lawName}
+        allArticles={allArticles}
+      />
+    </>
   );
 }

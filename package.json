@@ -27,7 +27,8 @@
   ],
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/tools/generate-laws-metadata.cjs",
+    "prebuild": "node scripts/tools/generate-laws-metadata.cjs && node scripts/tools/generate-sitemap.cjs",
+    "generate:sitemap": "node scripts/tools/generate-sitemap.cjs",
     "build": "next build",
     "pages:build": "npx @cloudflare/next-on-pages",
     "start": "next start",
