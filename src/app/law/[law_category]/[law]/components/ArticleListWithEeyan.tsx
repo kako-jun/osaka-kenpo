@@ -9,6 +9,7 @@ import {
   getEeyanUserId,
   getNostalgicId,
 } from '@/lib/eeyan';
+import { batchGetNostalgicCounts } from '@/lib/nostalgicBatch';
 import { safeSessionSet, safeSessionRemove, getPageStorageKey } from '@/lib/storage';
 import { useEeyanRevision } from '@/app/context/EeyanContext';
 
@@ -46,68 +47,35 @@ export function ArticleListWithEeyan({
     const nostalgicIds = articles.map((a) => getNostalgicId(lawCategory, law, a.article));
     const prefix = `osaka-kenpo-${lawCategory}-${law}-`;
 
-    // Nostalgic APIの上限に合わせて分割
-    for (let i = 0; i < nostalgicIds.length; i += NOSTALGIC_BATCH_LIMIT) {
-      const batchIds = nostalgicIds.slice(i, i + NOSTALGIC_BATCH_LIMIT);
-
-      // Like batchGet
-      promises.push(
-        fetch(`${NOSTALGIC_API_BASE}?action=batchGet`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ ids: batchIds }),
-        })
-          .then((res) => {
-            if (!res.ok) throw new Error(`batchGet failed: ${res.status}`);
-            return res.json() as Promise<{
-              success: boolean;
-              data: Record<string, { total: number }>;
-            }>;
-          })
-          .then((data) => {
-            if (data.success && data.data) {
-              const counts: Record<string, number> = {};
-              for (const [nostalgicId, info] of Object.entries(data.data)) {
-                if (nostalgicId.startsWith(prefix)) {
-                  const articleId = nostalgicId.slice(prefix.length);
-                  counts[articleId] = info.total;
-                }
-              }
-              setLikeCounts((prev) => ({ ...prev, ...counts }));
+    promises.push(
+      batchGetNostalgicCounts(NOSTALGIC_API_BASE, nostalgicIds, NOSTALGIC_BATCH_LIMIT)
+        .then((data) => {
+          const counts: Record<string, number> = {};
+          for (const [nostalgicId, info] of Object.entries(data)) {
+            if (nostalgicId.startsWith(prefix)) {
+              const articleId = nostalgicId.slice(prefix.length);
+              counts[articleId] = info.total;
             }
-          })
-          .catch(() => {})
-      );
-
-      // Counter batchGet（閲覧数）
-      promises.push(
-        fetch(`${NOSTALGIC_COUNTER_API_BASE}?action=batchGet`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ ids: batchIds }),
+          }
+          setLikeCounts((prev) => ({ ...prev, ...counts }));
         })
-          .then((res) => {
-            if (!res.ok) throw new Error(`counter batchGet failed: ${res.status}`);
-            return res.json() as Promise<{
-              success: boolean;
-              data: Record<string, { total: number }>;
-            }>;
-          })
-          .then((data) => {
-            if (data.success && data.data) {
-              const counts: Record<string, number> = {};
-              for (const [nostalgicId, info] of Object.entries(data.data)) {
-                if (nostalgicId.startsWith(prefix)) {
-                  const articleId = nostalgicId.slice(prefix.length);
-                  counts[articleId] = info.total;
-                }
-              }
-              setViewCounts((prev) => ({ ...prev, ...counts }));
+        .catch(() => {})
+    );
+
+    promises.push(
+      batchGetNostalgicCounts(NOSTALGIC_COUNTER_API_BASE, nostalgicIds, NOSTALGIC_BATCH_LIMIT)
+        .then((data) => {
+          const counts: Record<string, number> = {};
+          for (const [nostalgicId, info] of Object.entries(data)) {
+            if (nostalgicId.startsWith(prefix)) {
+              const articleId = nostalgicId.slice(prefix.length);
+              counts[articleId] = info.total;
             }
-          })
-          .catch(() => {})
-      );
-    }
+          }
+          setViewCounts((prev) => ({ ...prev, ...counts }));
+        })
+        .catch(() => {})
+    );
 
     // osaka-kenpo: 個人状態取得
     const userId = getEeyanUserId();

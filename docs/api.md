@@ -259,7 +259,7 @@ Content-Type: application/json
 }
 ```
 
-**制限**: 1回あたり最大 100 件（`NOSTALGIC_BATCH_LIMIT = 100`）。超過で 500 エラー。
+**制限**: 1回あたり最大 100 件（`NOSTALGIC_BATCH_LIMIT = 100`）。大阪憲法側では `batchGetNostalgicCounts()` が自動で分割する。
 
 **レスポンス**:
 
@@ -267,14 +267,22 @@ Content-Type: application/json
 {
   "success": true,
   "data": {
-    "osaka-kenpo-jp-minpou-1": { "total": 5 },
-    "osaka-kenpo-jp-minpou-2": { "total": 12 }
+    "osaka-kenpo-jp-minpou-1": {
+      "id": "osaka-kenpo-jp-minpou-1",
+      "total": 5,
+      "liked": false
+    },
+    "osaka-kenpo-jp-minpou-2": {
+      "id": "osaka-kenpo-jp-minpou-2",
+      "total": 12,
+      "liked": true
+    }
   }
 }
 ```
 
 **使用箇所**: `ArticleListWithEeyan`（法律ページの条文一覧）
-**分割**: 100件超の法律は自動的に100件ずつ分割リクエスト
+**分割**: `batchGetNostalgicCounts()` がページ全体で ID をまとめ、100件ずつ分割リクエスト
 
 #### 3.1.4 sumByPrefix — プレフィックスで合計取得
 
@@ -386,13 +394,27 @@ Content-Type: application/json
 {
   "success": true,
   "data": {
-    "osaka-kenpo-jp-minpou-1": { "total": 5 },
-    "osaka-kenpo-jp-minpou-2": { "total": 12 }
+    "osaka-kenpo-jp-minpou-1": {
+      "id": "osaka-kenpo-jp-minpou-1",
+      "total": 5,
+      "today": 1,
+      "yesterday": 0,
+      "week": 3,
+      "month": 5
+    },
+    "osaka-kenpo-jp-minpou-2": {
+      "id": "osaka-kenpo-jp-minpou-2",
+      "total": 12,
+      "today": 0,
+      "yesterday": 1,
+      "week": 4,
+      "month": 12
+    }
   }
 }
 ```
 
-**使用箇所**: 法律ページの条文一覧（各条文の閲覧数を一括表示）
+**使用箇所**: 法律ページの条文一覧（各条文の閲覧数を一括表示）。一覧では `increment` しない。
 
 ## 4. API 呼び出しパターン
 
@@ -407,7 +429,7 @@ Content-Type: application/json
 | ----------------------------- | --------------------------------------------------------------------------------------- |
 | LikeButton トグル             | Nostalgic toggle + D1 POST（`Promise.all`）                                             |
 | LikeButton マウント           | Nostalgic get + D1 GET（`Promise.all`）                                                 |
-| ArticleListWithEeyan マウント | Nostalgic batchGet (N回) + D1 GET（`Promise.all`）                                      |
+| ArticleListWithEeyan マウント | `batchGetNostalgicCounts()` 経由の Nostalgic batchGet + D1 GET（`Promise.all`）         |
 | 法律ページ サーバー           | `getArticles` + `getLawMetadata` + `getChapters` + `getFamousArticles`（`Promise.all`） |
 | 条文ページ サーバー           | `getArticle` + `getArticles` + `getLawMetadata`（`Promise.all`）                        |
 
