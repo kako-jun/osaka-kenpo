@@ -121,7 +121,7 @@ Content-Type: application/json
 }
 ```
 
-**制限**: 1回あたり最大100件。定数 `NOSTALGIC_BATCH_LIMIT = 100`（`src/lib/eeyan.ts`）。101件以上で500エラー。
+**制限**: 定数 `NOSTALGIC_BATCH_LIMIT = 100`（`src/lib/eeyan.ts`）ごとに `batchGetNostalgicCounts()` が安全に分割する。
 
 **レスポンス**:
 
@@ -129,8 +129,16 @@ Content-Type: application/json
 {
   "success": true,
   "data": {
-    "osaka-kenpo-jp-minpou-1": { "total": 5 },
-    "osaka-kenpo-jp-minpou-2": { "total": 12 }
+    "osaka-kenpo-jp-minpou-1": {
+      "id": "osaka-kenpo-jp-minpou-1",
+      "total": 5,
+      "liked": false
+    },
+    "osaka-kenpo-jp-minpou-2": {
+      "id": "osaka-kenpo-jp-minpou-2",
+      "total": 12,
+      "liked": true
+    }
   }
 }
 ```
@@ -553,7 +561,7 @@ sequenceDiagram
 
 **コンポーネント**: `ArticleListWithEeyan`（`src/app/law/[law_category]/[law]/components/ArticleListWithEeyan.tsx`）→ `ArticleListItem`（`src/app/components/ArticleListItem.tsx`）
 
-- Nostalgic API の `batchGet` で全条文のグローバルカウントを一括取得（100件ずつ分割）
+- Nostalgic API の `batchGet` で全条文のグローバルカウントを一括取得（`batchGetNostalgicCounts()` が分割）
 - D1 API の GET（モード1）で自分がいいねした条文IDセットを取得
 - 各条文カードの右下に `{likeCount} ええやん` をハートアイコン付きで表示
 
