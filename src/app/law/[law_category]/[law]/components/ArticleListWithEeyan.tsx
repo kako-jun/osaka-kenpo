@@ -40,70 +40,81 @@ export function ArticleListWithEeyan({
   const [userLikes, setUserLikes] = useState<Set<string>>(new Set());
   const eeyanRevision = useEeyanRevision();
 
-  const fetchEeyanData = useCallback(async () => {
-    const promises: Promise<void>[] = [];
+  const fetchEeyanData = useCallback(
+    async (force = false) => {
+      const promises: Promise<void>[] = [];
 
-    // nostalgic batchGet で全体カウント取得
-    const nostalgicIds = articles.map((a) => getNostalgicId(lawCategory, law, a.article));
-    const prefix = `osaka-kenpo-${lawCategory}-${law}-`;
+      // nostalgic batchGet で全体カウント取得
+      const nostalgicIds = articles.map((a) => getNostalgicId(lawCategory, law, a.article));
+      // batchGet は渡した id しか返さないため startsWith(prefix) は通常常に真。
+      // 想定外の id を取り違えない防御 + articleId 復元（slice）を兼ねる。
+      const prefix = `osaka-kenpo-${lawCategory}-${law}-`;
 
-    promises.push(
-      batchGetNostalgicCounts(NOSTALGIC_API_BASE, nostalgicIds, NOSTALGIC_BATCH_LIMIT)
-        .then((data) => {
-          const counts: Record<string, number> = {};
-          for (const [nostalgicId, info] of Object.entries(data)) {
-            if (nostalgicId.startsWith(prefix)) {
-              const articleId = nostalgicId.slice(prefix.length);
-              counts[articleId] = info.total;
-            }
-          }
-          setLikeCounts((prev) => ({ ...prev, ...counts }));
-        })
-        .catch(() => {})
-    );
-
-    promises.push(
-      batchGetNostalgicCounts(NOSTALGIC_COUNTER_API_BASE, nostalgicIds, NOSTALGIC_BATCH_LIMIT)
-        .then((data) => {
-          const counts: Record<string, number> = {};
-          for (const [nostalgicId, info] of Object.entries(data)) {
-            if (nostalgicId.startsWith(prefix)) {
-              const articleId = nostalgicId.slice(prefix.length);
-              counts[articleId] = info.total;
-            }
-          }
-          setViewCounts((prev) => ({ ...prev, ...counts }));
-        })
-        .catch(() => {})
-    );
-
-    // osaka-kenpo: 個人状態取得
-    const userId = getEeyanUserId();
-    if (userId) {
       promises.push(
-        fetch(`/api/eeyan?userId=${userId}&category=${lawCategory}&lawName=${law}`)
-          .then((res) => res.json() as Promise<{ success: boolean; likes: string[] }>)
+        batchGetNostalgicCounts(NOSTALGIC_API_BASE, nostalgicIds, NOSTALGIC_BATCH_LIMIT, force)
           .then((data) => {
-            if (data.success) {
-              setUserLikes(new Set(data.likes));
+            const counts: Record<string, number> = {};
+            for (const [nostalgicId, info] of Object.entries(data)) {
+              if (nostalgicId.startsWith(prefix)) {
+                const articleId = nostalgicId.slice(prefix.length);
+                counts[articleId] = info.total;
+              }
             }
+            setLikeCounts((prev) => ({ ...prev, ...counts }));
           })
           .catch(() => {})
       );
-    }
 
-    await Promise.all(promises);
-  }, [articles, lawCategory, law]);
+      promises.push(
+        batchGetNostalgicCounts(
+          NOSTALGIC_COUNTER_API_BASE,
+          nostalgicIds,
+          NOSTALGIC_BATCH_LIMIT,
+          force
+        )
+          .then((data) => {
+            const counts: Record<string, number> = {};
+            for (const [nostalgicId, info] of Object.entries(data)) {
+              if (nostalgicId.startsWith(prefix)) {
+                const articleId = nostalgicId.slice(prefix.length);
+                counts[articleId] = info.total;
+              }
+            }
+            setViewCounts((prev) => ({ ...prev, ...counts }));
+          })
+          .catch(() => {})
+      );
 
-  // 初回マウント時 + props変更時に取得
+      // osaka-kenpo: 個人状態取得
+      const userId = getEeyanUserId();
+      if (userId) {
+        promises.push(
+          fetch(`/api/eeyan?userId=${userId}&category=${lawCategory}&lawName=${law}`)
+            .then((res) => res.json() as Promise<{ success: boolean; likes: string[] }>)
+            .then((data) => {
+              if (data.success) {
+                setUserLikes(new Set(data.likes));
+              }
+            })
+            .catch(() => {})
+        );
+      }
+
+      await Promise.all(promises);
+    },
+    [articles, lawCategory, law]
+  );
+
+  // 初回マウント時 + props変更時に取得（キャッシュ可）
   useEffect(() => {
     fetchEeyanData();
   }, [fetchEeyanData]);
 
-  // ええやん操作後に再取得（別ページの LikeButton からの通知）
+  // ええやん操作後に再取得（別ページの LikeButton からの通知）。
+  // 直後の最新カウントが要るのでキャッシュをバイパス（force=true）する。
   useEffect(() => {
     if (eeyanRevision === 0) return; // 初回マウント時はスキップ
-    fetchEeyanData();
+    fetchEeyanData(true);
   }, [eeyanRevision, fetchEeyanData]);
 
   // ページが再表示された時にデータを再取得（デバウンス付き）

@@ -123,6 +123,8 @@ Content-Type: application/json
 
 **制限**: 定数 `NOSTALGIC_BATCH_LIMIT = 100`（`src/lib/eeyan.ts`）ごとに `batchGetNostalgicCounts()` が安全に分割する。
 
+**集約とキャッシュ**: `batchGetNostalgicCounts()`（`src/lib/nostalgicBatch.ts`）はページ全体の id を 16ms デバウンスで束ね dedupe し、結果を baseUrl+id 単位で 5 秒メモリキャッシュする。第4引数 `force=true` でキャッシュをバイパスでき、**ええやん操作直後の再取得（`eeyanRevision` 経路）は force 指定で最新カウントを必ず取得する**（初回マウント・`visibilitychange` 経路はキャッシュ可）。
+
 **レスポンス**:
 
 ```json

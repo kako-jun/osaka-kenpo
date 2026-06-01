@@ -1,3 +1,6 @@
+// Nostalgic API の batchGet 正規レスポンス（visit/like 共通の上位集合）。
+// 現状 osaka-kenpo は `total` のみ消費する（liked は /api/eeyan の D1 経路で別取得、
+// today/yesterday/week/month は条文詳細ページ用に予約）。API 形と一致させるため全フィールド保持。
 export interface NostalgicCountData {
   total: number;
   liked?: boolean;
@@ -19,6 +22,8 @@ interface QueueEntry {
   timer: ReturnType<typeof setTimeout> | null;
 }
 
+// 呼び出し側（osaka-kenpo は eeyan.ts の NOSTALGIC_BATCH_LIMIT）が batchLimit を渡すのが正。
+// この定数は引数省略時の汎用フォールバック。Nostalgic API は 101 件以上で 500 を返す。
 const DEFAULT_BATCH_LIMIT = 100;
 const BATCH_DELAY_MS = 16;
 const CACHE_TTL_MS = 5000;
@@ -83,6 +88,7 @@ async function flushQueue(baseUrl: string, batchLimit: number): Promise<void> {
         }
       }
     } catch (error) {
+      // 失敗分はキャッシュしない（負のキャッシュは持たない）。呼び出し側が次回再取得できるようにする。
       for (const id of chunk) {
         for (const resolver of queue.resolvers.get(id) || []) {
           resolver.reject(error);
@@ -95,11 +101,16 @@ async function flushQueue(baseUrl: string, batchLimit: number): Promise<void> {
 function requestNostalgicCount(
   baseUrl: string,
   id: string,
-  batchLimit: number
+  batchLimit: number,
+  force: boolean
 ): Promise<NostalgicCountData> {
-  const cached = getCached(baseUrl, id);
-  if (cached) {
-    return Promise.resolve(cached);
+  // force=false のときだけ 5 秒キャッシュを使う。ええやん操作直後の再取得は
+  // force=true で必ずネットワークから最新カウントを取り、stale 表示を防ぐ。
+  if (!force) {
+    const cached = getCached(baseUrl, id);
+    if (cached) {
+      return Promise.resolve(cached);
+    }
   }
 
   return new Promise((resolve, reject) => {
@@ -126,11 +137,14 @@ function requestNostalgicCount(
 export async function batchGetNostalgicCounts(
   baseUrl: string,
   ids: string[],
-  batchLimit = DEFAULT_BATCH_LIMIT
+  batchLimit = DEFAULT_BATCH_LIMIT,
+  force = false
 ): Promise<Record<string, NostalgicCountData>> {
   const uniqueIds = [...new Set(ids)];
   const entries = await Promise.all(
-    uniqueIds.map(async (id) => [id, await requestNostalgicCount(baseUrl, id, batchLimit)] as const)
+    uniqueIds.map(
+      async (id) => [id, await requestNostalgicCount(baseUrl, id, batchLimit, force)] as const
+    )
   );
   return Object.fromEntries(entries);
 }
