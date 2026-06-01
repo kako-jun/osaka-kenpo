@@ -5,14 +5,14 @@ export function middleware(request: NextRequest) {
   const response = NextResponse.next();
 
   // Content-Security-Policy
-  // Allow self, Google Fonts (stylesheets + font files), nostalgic API, and inline styles for Tailwind
+  // Allow self, Google Fonts (stylesheets + font files), nostalgic API, Cloudflare Web Analytics, and inline styles for Tailwind
   const csp = [
     "default-src 'self'",
-    "script-src 'self' 'unsafe-inline'",
+    "script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com",
     "img-src 'self' data: blob:",
-    "connect-src 'self' https://api.nostalgic.llll-ll.com",
+    "connect-src 'self' https://api.nostalgic.llll-ll.com https://cloudflareinsights.com",
     "frame-ancestors 'none'",
     "base-uri 'self'",
     "form-action 'self'",
