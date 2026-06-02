@@ -14,8 +14,8 @@ const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 
-const SHOUHOU_DIR = '~/repos/2025/osaka-kenpo/src/data/laws/jp/shouhou';
-const OUTPUT_FILE = '~/repos/2025/osaka-kenpo/reports/result-shouhou.json';
+const SHOUHOU_DIR = path.join(__dirname, '../../src/data/laws/jp/shouhou');
+const OUTPUT_FILE = path.join(__dirname, '../../reports/result-shouhou.json');
 
 // チェック結果
 const results = {
