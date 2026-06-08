@@ -308,7 +308,11 @@ D1 からデータを取得し、HTML をレンダリングする。
 | `TotalViewCounter.tsx`     | Nostalgic Counter sumByPrefix     |
 | `ArticleViewCounter.tsx`   | Nostalgic Counter increment/get   |
 | `ShareButton.tsx`          | なし（URL 生成のみ）              |
+| `AffiliateGrid.tsx`        | Amazon 商品画像の読み込み         |
 | `ViewModeContext.tsx`      | localStorage のみ                 |
+
+Amazon アソシエイトの商品画像を表示するため、CSP の `img-src` は
+`https://m.media-amazon.com` を許可している。
 
 ## 9. Next.js 設定
 

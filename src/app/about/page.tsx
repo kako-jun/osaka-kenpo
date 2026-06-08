@@ -1,6 +1,7 @@
 import { ShareButton } from '../components/ShareButton';
 import { ContentSection } from '../components/ContentSection';
 import { Button } from '@/components/Button';
+import { AffiliateGrid } from './components/AffiliateGrid';
 import { SponsorSection } from './components/SponsorSection';
 import { FeatureItem } from './components/FeatureItem';
 import { LawList } from './components/LawList';
@@ -153,13 +154,25 @@ export default function About() {
               buttonUrl="https://github.com/sponsors/kako-jun"
               variant="primary"
             />
-            <SponsorSection
-              description="英語やGitHubはようわからん、っちゅう人向けに<br />Amazonアソシエイトでの支援もできるで。"
-              buttonText="よう使う電池でも買うてや"
-              buttonUrl="https://amzn.to/41dkZF1"
-              variant="amazon"
-              note="電池ついでになんぼでも買うてくれてええんやけどな。<br />猫のエサ代に化けるわ。"
-            />
+            <div className="mt-4 rounded-lg bg-[#FFF8DC] p-4 text-center">
+              <p className="text-sm">
+                英語やGitHubはようわからん、っちゅう人向けに
+                <br />
+                Amazonアソシエイトでの支援もできるで。
+              </p>
+              <AffiliateGrid />
+              <a
+                href="https://amzn.to/4vcZqRx"
+                target="_blank"
+                rel="noopener noreferrer sponsored nofollow"
+                className="mt-4 inline-block rounded-lg bg-[#FF9900] px-6 py-2 font-bold text-white transition-colors hover:bg-opacity-80"
+              >
+                Amazonで応援するわ
+              </a>
+              <p className="mt-2 text-xs text-gray-600">
+                上の3つ以外の買い物でも応援になるんやで。
+              </p>
+            </div>
           </ContentSection>
 
           <div className="text-center">
