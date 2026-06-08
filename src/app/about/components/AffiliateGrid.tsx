@@ -22,8 +22,8 @@ export function AffiliateGrid() {
                   alt={product.title}
                   loading="lazy"
                   decoding="async"
-                  width={160}
-                  height={160}
+                  width={320}
+                  height={320}
                   className="absolute inset-0 h-full w-full scale-110 object-cover transition-transform duration-200 ease-out group-hover:scale-[1.18]"
                   onError={(event) => {
                     event.currentTarget.style.visibility = 'hidden';
@@ -39,7 +39,7 @@ export function AffiliateGrid() {
         ))}
       </ul>
       <p className="mt-3 text-center text-xs text-gray-600">
-        Amazonアソシエイトリンクです。買ってもろたら、このサイトの運営費になります。
+        Amazonアソシエイトリンクです。買ってもろたら、猫のエサになります。
       </p>
     </section>
   );
