@@ -80,26 +80,31 @@ export default function About() {
               title="全部入り（全条文収録済み）"
               emoji="✅"
               items={[
-                { name: '日本国憲法', articles: '103条文' },
-                { name: 'AI推進法', articles: '28条文（附則含む）' },
-                { name: '十七条の憲法', articles: '17条文' },
-                { name: 'マグナ・カルタ', articles: '46条文' },
-                { name: '南極条約', articles: '14条文' },
-              ]}
-            />
-
-            <LawList
-              title="ちょっとだけ（第1条のみ）"
-              emoji="🚧"
-              items={[
-                { name: '日本の法律：', articles: '民法、商法、刑法、民事訴訟法、刑事訴訟法ほか' },
-                { name: '日本の歴史法：', articles: '御成敗式目、武家諸法度、明治憲法ほか' },
+                {
+                  name: '日本の現行法：',
+                  articles:
+                    '日本国憲法、民法、商法、会社法、刑法、民事訴訟法、刑事訴訟法、AI推進法',
+                },
                 {
                   name: '外国の憲法：',
                   articles: 'ドイツ基本法、アメリカ合衆国憲法、中華人民共和国憲法',
                 },
-                { name: '外国の歴史法：', articles: 'ハンムラビ法典、ナポレオン法典' },
-                { name: '国際条約：', articles: '国連憲章、核兵器不拡散条約、宇宙条約ほか' },
+                { name: '日本の歴史法：', articles: '十七条の憲法' },
+                { name: '外国の歴史法：', articles: 'マグナ・カルタ' },
+                { name: '国際条約：', articles: '南極条約、国連憲章、核兵器不拡散条約、WHO憲章' },
+              ]}
+            />
+
+            <LawList
+              title="準備中・一部収録中"
+              emoji="🚧"
+              items={[
+                { name: '日本の歴史法：', articles: '御成敗式目、武家諸法度、明治憲法ほか' },
+                {
+                  name: '外国の歴史法：',
+                  articles: 'ハンムラビ法典、ナポレオン法典、ローマ法大全ほか',
+                },
+                { name: '国際条約：', articles: '宇宙条約、国連海洋法条約、メートル条約ほか' },
               ]}
             />
 
