@@ -1,8 +1,38 @@
 import Link from 'next/link';
 import { lawsMetadata } from '@/data/lawsMetadata';
 import { LAW_CATEGORIES } from '@/lib/types';
+import type { Metadata } from 'next';
 
 export const runtime = 'edge';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ law_category: string }>;
+}): Promise<Metadata> {
+  const { law_category } = await params;
+  const categoryTitle =
+    LAW_CATEGORIES[law_category as keyof typeof LAW_CATEGORIES] || '法律カテゴリ';
+  const title = `${categoryTitle} - おおさかけんぽう`;
+  const description = `${categoryTitle}の法律一覧。おおさかけんぽうで条文を大阪弁で親しみやすく読めます。`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `/law/${law_category}`,
+    },
+    openGraph: {
+      title,
+      description,
+      url: `/law/${law_category}`,
+    },
+    twitter: {
+      title,
+      description,
+    },
+  };
+}
 
 export default async function LawCategoryPage({
   params,

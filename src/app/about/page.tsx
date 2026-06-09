@@ -9,6 +9,9 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'このサイトのこと - おおさかけんぽう',
+  alternates: {
+    canonical: '/about',
+  },
 };
 
 export default function About() {

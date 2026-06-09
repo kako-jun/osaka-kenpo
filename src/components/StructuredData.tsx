@@ -24,24 +24,27 @@ export function WebsiteStructuredData({
 }: WebsiteStructuredDataProps) {
   const structuredData = {
     '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name,
-    description,
-    url,
-    inLanguage: 'ja',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${url}/search?q={search_term_string}`,
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': `${url}/#website`,
+        name,
+        alternateName: ['Osaka Kenpo', '大阪憲法'],
+        description,
+        url,
+        inLanguage: 'ja',
+        publisher: {
+          '@id': `${url}/#organization`,
+        },
       },
-      'query-input': 'required name=search_term_string',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: 'おおさかけんぽう',
-      url,
-    },
+      {
+        '@type': 'Organization',
+        '@id': `${url}/#organization`,
+        name: 'おおさかけんぽう',
+        url,
+        logo: `${url}/osaka-kenpo-logo.webp`,
+      },
+    ],
   };
 
   return (

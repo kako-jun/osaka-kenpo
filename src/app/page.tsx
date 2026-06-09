@@ -2,6 +2,17 @@ import { ShareButton } from '@/app/components/ShareButton';
 import { TotalViewCounter } from '@/app/components/TotalViewCounter';
 import { LawCardWithEeyan } from '@/app/components/LawCardWithEeyan';
 import { lawsMetadata } from '@/data/lawsMetadata';
+import { WebsiteStructuredData } from '@/components/StructuredData';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'おおさかけんぽう - 法律をおおさか弁で知ろう。知らんけど',
+  description:
+    'おおさかけんぽうは、法律の条文をおおさか弁で親しみやすく解説するサイト。六法、AI推進法、外国憲法、条約まで収録しています。',
+  alternates: {
+    canonical: '/',
+  },
+};
 
 // カテゴリ別絵文字アイコンコンポーネント
 const CategoryIcon = ({ icon }: { icon: string }) => {
@@ -14,6 +25,8 @@ export default function Home() {
 
   return (
     <div className="relative">
+      <WebsiteStructuredData description="法律の条文をおおさか弁で親しみやすく解説するサイト。六法、AI推進法、外国憲法、条約まで収録しています。" />
+
       {/* 右上にシェアボタン */}
       <div className="fixed top-20 right-4 z-10">
         <ShareButton />
@@ -26,6 +39,10 @@ export default function Home() {
           className="w-[370px] h-[169px] object-contain"
         />
       </div>
+      <div className="mb-6 text-center">
+        <h1 className="text-3xl font-bold text-[#E94E77]">おおさかけんぽう</h1>
+        <p className="mt-2 text-base text-gray-700">法律をおおさか弁で知ろう。知らんけど</p>
+      </div>
 
       {/* カウンタエリア */}
       <div className="flex justify-center mb-8">
@@ -36,7 +53,7 @@ export default function Home() {
         </div>
       </div>
 
-      <h1 className="text-2xl font-bold mb-6 text-center text-[#E94E77]">知りたい法律を選んでや</h1>
+      <h2 className="text-2xl font-bold mb-6 text-center text-[#E94E77]">知りたい法律を選んでや</h2>
       <div className="space-y-8 mb-16">
         {categoriesWithMetadata.map((category) => (
           <div key={category.title}>
