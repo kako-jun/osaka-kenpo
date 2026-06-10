@@ -425,13 +425,13 @@ Content-Type: application/json
 
 ### 4.2 並行呼び出し
 
-| 場面                          | 並行呼び出し内容                                                                        |
-| ----------------------------- | --------------------------------------------------------------------------------------- |
-| LikeButton トグル             | Nostalgic toggle + D1 POST（`Promise.all`）                                             |
-| LikeButton マウント           | Nostalgic get + D1 GET（`Promise.all`）                                                 |
-| ArticleListWithEeyan マウント | `batchGetNostalgicCounts()` 経由の Nostalgic batchGet + D1 GET（`Promise.all`）         |
-| 法律ページ サーバー           | `getArticles` + `getLawMetadata` + `getChapters` + `getFamousArticles`（`Promise.all`） |
-| 条文ページ サーバー           | `getArticle` + `getArticles` + `getLawMetadata`（`Promise.all`）                        |
+| 場面                          | 並行呼び出し内容                                                                              |
+| ----------------------------- | --------------------------------------------------------------------------------------------- |
+| LikeButton トグル             | Nostalgic toggle + D1 POST（`Promise.all`）                                                   |
+| LikeButton マウント           | Nostalgic get + D1 GET（`Promise.all`）                                                       |
+| ArticleListWithEeyan マウント | `batchGetNostalgicCounts()` 経由の Nostalgic batchGet + D1 GET（`Promise.all`）               |
+| 法律ページ サーバー           | `getArticleNavList` + `getLawMetadata` + `getChapters` + `getFamousArticles`（`Promise.all`） |
+| 条文ページ サーバー           | `getArticle` + `getArticleNavList` + `getLawMetadata`（`Promise.all`）                        |
 
 ### 4.3 キャッシュ戦略まとめ
 

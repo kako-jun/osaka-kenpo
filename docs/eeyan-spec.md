@@ -277,7 +277,7 @@ GET /api/eeyan?userId={uuid}
 
 ```sql
 SELECT ul.category, ul.law_name as lawName, ul.article, ul.created_at as createdAt,
-       a.title, a.original_text as originalText
+       a.title, substr(a.original_text, 1, 100) AS originalText
 FROM user_likes ul
 LEFT JOIN articles a ON ul.category = a.category AND ul.law_name = a.law_name AND ul.article = a.article
 WHERE ul.user_id = ?
@@ -302,7 +302,7 @@ ORDER BY ul.created_at DESC
 }
 ```
 
-`originalText` は DB上 JSON 配列として格納されているため、API側で `JSON.parse()` して最初の要素のみ文字列として返す。パース失敗時は空文字。
+`originalText` は DB上 JSON 配列として格納されているため、SQL では `substr(a.original_text, 1, 100)` で先頭100文字（head）だけを取得し、API側で `extractFirstParagraphFromHead()` により先頭段落（JSON 配列の最初の要素）を文字列として抽出して返す。プレビュー用途のためフル取得はしない。パース失敗時は空文字。
 
 **使用箇所**: `EeyanPage`（/eeyan ページ）
 
