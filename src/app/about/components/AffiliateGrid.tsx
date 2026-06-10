@@ -24,7 +24,7 @@ export function AffiliateGrid() {
                   decoding="async"
                   width={320}
                   height={320}
-                  className="absolute inset-0 h-full w-full scale-110 object-cover transition-transform duration-200 ease-out group-hover:scale-[1.18]"
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-200 ease-out group-hover:scale-105"
                   onError={(event) => {
                     event.currentTarget.style.visibility = 'hidden';
                   }}
