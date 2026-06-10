@@ -285,14 +285,14 @@ graph TB
 
 D1 からデータを取得し、HTML をレンダリングする。
 
-| コンポーネント                | D1 クエリ                                                           |
-| ----------------------------- | ------------------------------------------------------------------- |
-| `page.tsx`（トップ）          | なし（lawsMetadata.ts から静的取得）                                |
-| `[law_category]/page.tsx`     | なし（lawsMetadata.ts から静的取得）                                |
-| `[law]/page.tsx`              | `getArticles`, `getLawMetadata`, `getChapters`, `getFamousArticles` |
-| `[article]/page.tsx`          | `getArticle`, `getArticles`, `getLawMetadata`                       |
-| `api/eeyan/route.ts`          | `user_likes` テーブルの CRUD                                        |
-| `api/article-image/route.tsx` | `getArticle`, `getLawMetadata`                                      |
+| コンポーネント                | D1 クエリ                                                                 |
+| ----------------------------- | ------------------------------------------------------------------------- |
+| `page.tsx`（トップ）          | なし（lawsMetadata.ts から静的取得）                                      |
+| `[law_category]/page.tsx`     | なし（lawsMetadata.ts から静的取得）                                      |
+| `[law]/page.tsx`              | `getArticleNavList`, `getLawMetadata`, `getChapters`, `getFamousArticles` |
+| `[article]/page.tsx`          | `getArticle`, `getArticleNavList`, `getLawMetadata`                       |
+| `api/eeyan/route.ts`          | `user_likes` テーブルの CRUD                                              |
+| `api/article-image/route.tsx` | `getArticle`, `getLawMetadata`                                            |
 
 ### クライアントコンポーネント（'use client'）
 
