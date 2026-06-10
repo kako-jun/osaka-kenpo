@@ -158,11 +158,12 @@ export function extractFirstParagraphFromHead(head: string | null | undefined): 
   return out;
 }
 
-/** ナビ用: 原文headから見出し無し条文のフォールバック抜粋（先頭段落をN字に切る） */
+/** ナビ用: 原文headから見出し無し条文のフォールバック抜粋（先頭段落をHTML除去・空白正規化してN字に切る） */
 export function navExcerptFromHead(head: string | null | undefined, maxLength = 12): string {
   const parsed = extractFirstParagraphFromHead(head);
   if (!parsed) return '';
-  const firstLine = parsed.replace(/\s+/g, ' ').trim();
+  // 一覧(getExcerpt)・eeyan と同様に HTML を除去して3面の抜粋整形を揃える
+  const firstLine = stripHtml(parsed).replace(/\s+/g, ' ').trim();
   return firstLine.length > maxLength ? firstLine.slice(0, maxLength) + '...' : firstLine;
 }
 

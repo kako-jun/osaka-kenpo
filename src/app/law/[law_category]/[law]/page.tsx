@@ -48,11 +48,6 @@ export async function generateMetadata({
 
 const ARTICLES_PER_PAGE = 100;
 
-// 原文JSON断片（先頭100文字）から最初の段落を取得
-function getFirstParagraph(originalTextHead: string | null | undefined): string {
-  return extractFirstParagraphFromHead(originalTextHead);
-}
-
 // 条文番号から基本番号を抽出（1-2 → 1, 876-5 → 876）
 function getBaseArticleNumber(article: string): number {
   // suppl-1 や amend-1 は特別扱い
@@ -147,7 +142,9 @@ function toArticleData(
     href: `/law/${law_category}/${law}/${article.article}`,
     famousArticleBadge: famousArticles?.[article.article.toString()] || null,
     isDeleted: article.is_deleted === 1,
-    originalText: includeOriginalText ? getFirstParagraph(article.original_text_head) : undefined,
+    originalText: includeOriginalText
+      ? extractFirstParagraphFromHead(article.original_text_head)
+      : undefined,
   }));
 }
 

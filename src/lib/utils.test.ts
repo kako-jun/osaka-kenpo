@@ -213,6 +213,14 @@ describe('navExcerptFromHead', () => {
     expect(navExcerptFromHead('["\\n\\t "]')).toBe('');
   });
 
+  it('HTMLタグを除去してから抜粋する（一覧・eeyanと整合）', () => {
+    expect(navExcerptFromHead('["<b>太字</b>条文の本文"]')).toBe('太字条文の本文');
+    // タグ除去後に12字超なら切り詰め
+    expect(navExcerptFromHead('["<span>あいうえおかきくけこさしすせそ</span>"]')).toBe(
+      'あいうえおかきくけこさし...'
+    );
+  });
+
   it('substr で切断された断片（閉じ " に届かない長い head）でも例外なく抜粋を返す', () => {
     const full = JSON.stringify([
       'とても長い第一段落のテキストがここに続いていきます、まだまだ終わりません',
