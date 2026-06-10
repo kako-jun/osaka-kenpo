@@ -208,6 +208,11 @@ describe('navExcerptFromHead', () => {
     expect(navExcerptFromHead('foo')).toBe('');
   });
 
+  it('空白のみの先頭段落は空文字を返す（trim後に空）', () => {
+    expect(navExcerptFromHead('["   "]')).toBe('');
+    expect(navExcerptFromHead('["\\n\\t "]')).toBe('');
+  });
+
   it('substr で切断された断片（閉じ " に届かない長い head）でも例外なく抜粋を返す', () => {
     const full = JSON.stringify([
       'とても長い第一段落のテキストがここに続いていきます、まだまだ終わりません',
