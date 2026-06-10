@@ -93,6 +93,30 @@ export function getExcerpt(text: string, maxLength: number = 50): string {
 }
 
 /**
+ * JSON配列文字列の先頭断片（substr で切れている可能性あり）から
+ * 最初の要素（先頭段落）の文字列を復元する。切断されていても壊れない。
+ * 後処理（whitespace正規化・trim・切り詰め）は呼び出し側に委ねる。
+ */
+export function extractFirstParagraphFromHead(head: string | null | undefined): string {
+  if (!head) return '';
+  // 先頭の `[`・空白・開き `"` を剥がす
+  const m = /^\s*\[\s*"/.exec(head);
+  if (!m) return '';
+  let body = head.slice(m[0].length);
+  // 最初の「未エスケープの "」で切る（無ければ末尾まで＝断片のまま）
+  const q = /(?<!\\)"/.exec(body);
+  if (q) body = body.slice(0, q.index);
+  // JSON文字列エスケープの最小復元
+  body = body
+    .replace(/\\u([0-9a-fA-F]{4})/g, (_, h) => String.fromCharCode(parseInt(h, 16)))
+    .replace(/\\n/g, ' ')
+    .replace(/\\t/g, ' ')
+    .replace(/\\"/g, '"')
+    .replace(/\\\\/g, '\\');
+  return body;
+}
+
+/**
  * 条文番号のソートキーを返す（枝番・附則・改正対応）
  */
 export function getArticleSortKey(article: string): number {
