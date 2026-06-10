@@ -1,4 +1,5 @@
 import { getRequestContext } from '@cloudflare/next-on-pages';
+import { extractFirstParagraphFromHead } from '@/lib/utils';
 
 export const runtime = 'edge';
 
@@ -212,7 +213,7 @@ export async function GET(request: Request) {
       const result = await db
         .prepare(
           `SELECT ul.category, ul.law_name as lawName, ul.article, ul.created_at as createdAt,
-                  a.title, a.original_text as originalText
+                  a.title, substr(a.original_text, 1, 100) AS originalText
            FROM user_likes ul
            LEFT JOIN articles a ON ul.category = a.category AND ul.law_name = a.law_name AND ul.article = a.article
            WHERE ul.user_id = ?
@@ -228,28 +229,15 @@ export async function GET(request: Request) {
           originalText: string | null;
         }>();
 
-      // originalText はJSONなので最初の段落を抽出
-      const likes = result.results.map((r) => {
-        let firstParagraph = '';
-        if (r.originalText) {
-          try {
-            const parsed = JSON.parse(r.originalText);
-            if (Array.isArray(parsed) && parsed.length > 0) {
-              firstParagraph = String(parsed[0]);
-            }
-          } catch {
-            // ignore
-          }
-        }
-        return {
-          category: r.category,
-          lawName: r.lawName,
-          article: r.article,
-          createdAt: r.createdAt,
-          title: r.title || '',
-          originalText: firstParagraph,
-        };
-      });
+      // originalText はJSON配列の先頭断片（先頭100文字）なので最初の段落を抽出
+      const likes = result.results.map((r) => ({
+        category: r.category,
+        lawName: r.lawName,
+        article: r.article,
+        createdAt: r.createdAt,
+        title: r.title || '',
+        originalText: extractFirstParagraphFromHead(r.originalText),
+      }));
 
       return Response.json({
         success: true,
