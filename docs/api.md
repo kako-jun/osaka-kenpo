@@ -323,11 +323,12 @@ osaka-kenpo-{category}-{lawName}-{article}
 **リクエスト**:
 
 ```
-GET {BASE}?action=increment&id={counterId}
+GET {BASE}?action=increment&id={counterId}&format=json
 ```
 
+**レスポンス**: `{ success: true, data: { total, today, ... } }`（更新後の値を返す）
 **使用箇所**: `ArticleViewCounter`（条文詳細ページ）
-**備考**: セッション内で1回のみ実行（`sessionStorage` でフラグ管理）
+**備考**: セッション内で1回のみ実行（`sessionStorage` でフラグ管理）。レスポンスの `total` をそのまま表示・キャッシュに使うため、初回表示で別途 get は呼ばない。
 
 #### 3.2.2 get — 閲覧カウントの取得
 
@@ -348,7 +349,7 @@ GET {BASE}?action=get&id={counterId}&format=json
 }
 ```
 
-**使用箇所**: `ArticleViewCounter`（条文詳細ページ）
+**使用箇所**: `ArticleViewCounter`（条文詳細ページ、**再訪でキャッシュ切れ時のみ**）
 **キャッシュ**: `sessionStorage` で30秒間キャッシュ
 
 #### 3.2.3 sumByPrefix — プレフィックスで合計取得
