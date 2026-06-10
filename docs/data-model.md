@@ -317,16 +317,14 @@ export interface LawsMetadata {
 
 `src/lib/db.ts` に定義。全て Edge Runtime で動作。
 
-| 関数                                       | SQL                                                         | 戻り値                   | 使用箇所                            |
-| ------------------------------------------ | ----------------------------------------------------------- | ------------------------ | ----------------------------------- |
-| `getDB()`                                  | -                                                           | D1 バインディング        | 全関数の基盤                        |
-| `getLaws()`                                | `SELECT ... FROM laws ORDER BY category, name`              | `LawRow[]`               | 未使用（lawsMetadata.ts で代替）    |
-| `getLawsByCategory(category)`              | `SELECT DISTINCT law_name FROM articles WHERE category = ?` | `{ name }[]`             | 推測: 未使用                        |
-| `getArticles(category, lawName)`           | `SELECT ... FROM articles WHERE ... ORDER BY ...`           | `ArticleRow[]`           | 法律ページ、条文ページ              |
-| `getArticle(category, lawName, articleId)` | `SELECT * FROM articles WHERE ...`                          | `ArticleRow \| null`     | 条文ページ、OG 画像生成             |
-| `getLawMetadata(category, lawName)`        | `SELECT * FROM laws WHERE ...`                              | `LawRow \| null`         | 法律ページ、条文ページ、OG 画像生成 |
-| `getChapters(category, lawName)`           | `SELECT * FROM chapters WHERE ... ORDER BY chapter`         | `ChapterRow[]`           | 法律ページ                          |
-| `getFamousArticles(category, lawName)`     | `SELECT article, badge FROM famous_articles WHERE ...`      | `Record<string, string>` | 法律ページ                          |
+| 関数                                       | SQL                                                    | 戻り値                   | 使用箇所                            |
+| ------------------------------------------ | ------------------------------------------------------ | ------------------------ | ----------------------------------- |
+| `getDB()`                                  | -                                                      | D1 バインディング        | 全関数の基盤                        |
+| `getArticles(category, lawName)`           | `SELECT ... FROM articles WHERE ... ORDER BY ...`      | `ArticleRow[]`           | 法律ページ、条文ページ              |
+| `getArticle(category, lawName, articleId)` | `SELECT * FROM articles WHERE ...`                     | `ArticleRow \| null`     | 条文ページ、OG 画像生成             |
+| `getLawMetadata(category, lawName)`        | `SELECT * FROM laws WHERE ...`                         | `LawRow \| null`         | 法律ページ、条文ページ、OG 画像生成 |
+| `getChapters(category, lawName)`           | `SELECT * FROM chapters WHERE ... ORDER BY chapter`    | `ChapterRow[]`           | 法律ページ                          |
+| `getFamousArticles(category, lawName)`     | `SELECT article, badge FROM famous_articles WHERE ...` | `Record<string, string>` | 法律ページ                          |
 
 ### 条文のソート順
 
