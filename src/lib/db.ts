@@ -53,34 +53,6 @@ export function getDB() {
   return env.DB;
 }
 
-// 法律一覧を取得
-export async function getLaws(): Promise<LawRow[]> {
-  const db = getDB();
-  const result = await db
-    .prepare(
-      `SELECT category, name, display_name, short_name, badge, year
-       FROM laws
-       ORDER BY category, name`
-    )
-    .all<LawRow>();
-  return result.results;
-}
-
-// 特定カテゴリの法律一覧を取得
-export async function getLawsByCategory(category: string) {
-  const db = getDB();
-  const result = await db
-    .prepare(
-      `SELECT DISTINCT law_name as name
-       FROM articles
-       WHERE category = ?
-       ORDER BY law_name`
-    )
-    .bind(category)
-    .all();
-  return result.results;
-}
-
 // ナビ/一覧用の軽量取得（原文はフルではなく先頭100文字だけ）
 export async function getArticleNavList(
   category: string,
