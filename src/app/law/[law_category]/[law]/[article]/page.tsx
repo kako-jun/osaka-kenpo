@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
-import { getArticle, getArticles, getLawMetadata, type ArticleRow } from '@/lib/db';
+import { getArticle, getArticleNavList, getLawMetadata, type ArticleNavRow } from '@/lib/db';
 import { ArticleClient } from './ArticleClient';
 import { lawsMetadata } from '@/data/lawsMetadata';
-import { formatArticleNumber } from '@/lib/utils';
+import { extractFirstParagraphFromHead, formatArticleNumber } from '@/lib/utils';
 import buildDateJson from '@/data/build-date.json';
 
 export const runtime = 'edge';
@@ -80,7 +80,7 @@ export default async function ArticlePage({
     // D1から並行でデータ取得
     [articleRow, allArticlesRows, lawMetadata] = await Promise.all([
       getArticle(law_category, law, article),
-      getArticles(law_category, law),
+      getArticleNavList(law_category, law),
       getLawMetadata(law_category, law),
     ]);
   } catch (error) {
@@ -156,17 +156,13 @@ export default async function ArticlePage({
   };
 
   // 全条文リストをクライアント用に変換
-  const allArticles = allArticlesRows.map((a: ArticleRow) => {
+  const allArticles = allArticlesRows.map((a: ArticleNavRow) => {
     let originalTextExcerpt: string | undefined;
-    if (!a.title && a.original_text) {
-      try {
-        const parsed = JSON.parse(a.original_text);
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          const firstLine = parsed[0].replace(/\s+/g, ' ').trim();
-          originalTextExcerpt = firstLine.length > 12 ? firstLine.slice(0, 12) + '...' : firstLine;
-        }
-      } catch {
-        // ignore parse errors
+    if (!a.title && a.original_text_head) {
+      const parsed = extractFirstParagraphFromHead(a.original_text_head);
+      if (parsed) {
+        const firstLine = parsed.replace(/\s+/g, ' ').trim();
+        originalTextExcerpt = firstLine.length > 12 ? firstLine.slice(0, 12) + '...' : firstLine;
       }
     }
     return {

@@ -25,6 +25,14 @@ export interface ArticleRow {
   commentary_osaka?: string | null;
 }
 
+export interface ArticleNavRow {
+  article: string;
+  title: string | null;
+  title_osaka: string | null;
+  is_deleted: number;
+  original_text_head: string | null;
+}
+
 export interface ChapterRow {
   chapter: string;
   title: string;
@@ -73,12 +81,16 @@ export async function getLawsByCategory(category: string) {
   return result.results;
 }
 
-// 法律の条文一覧を取得
-export async function getArticles(category: string, lawName: string): Promise<ArticleRow[]> {
+// ナビ/一覧用の軽量取得（原文はフルではなく先頭100文字だけ）
+export async function getArticleNavList(
+  category: string,
+  lawName: string
+): Promise<ArticleNavRow[]> {
   const db = getDB();
   const result = await db
     .prepare(
-      `SELECT article, title, title_osaka, is_deleted, original_text
+      `SELECT article, title, title_osaka, is_deleted,
+              substr(original_text, 1, 100) AS original_text_head
        FROM articles
        WHERE category = ? AND law_name = ?
        ORDER BY
@@ -86,7 +98,7 @@ export async function getArticles(category: string, lawName: string): Promise<Ar
          article`
     )
     .bind(category, lawName)
-    .all<ArticleRow>();
+    .all<ArticleNavRow>();
   return result.results;
 }
 

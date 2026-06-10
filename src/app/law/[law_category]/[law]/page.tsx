@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import {
-  getArticles,
+  getArticleNavList,
   getLawMetadata,
   getChapters,
   getFamousArticles,
-  type ArticleRow,
+  type ArticleNavRow,
   type ChapterRow,
 } from '@/lib/db';
 import { ShareButton } from '@/app/components/ShareButton';
@@ -12,7 +12,7 @@ import { ScrollAwareBackLink } from '@/app/components/navigation/ScrollAwareBack
 import { ArticleListWithEeyan } from './components/ArticleListWithEeyan';
 import { Pagination } from '@/app/components/Pagination';
 import { lawsMetadata } from '@/data/lawsMetadata';
-import { getArticleSortKey } from '@/lib/utils';
+import { extractFirstParagraphFromHead, getArticleSortKey } from '@/lib/utils';
 
 export const runtime = 'edge';
 
@@ -48,18 +48,9 @@ export async function generateMetadata({
 
 const ARTICLES_PER_PAGE = 100;
 
-// 原文JSONから最初の段落を取得
-function getFirstParagraph(originalTextJson: string | null | undefined): string {
-  if (!originalTextJson) return '';
-  try {
-    const parsed = JSON.parse(originalTextJson);
-    if (Array.isArray(parsed) && parsed.length > 0) {
-      return String(parsed[0]);
-    }
-  } catch {
-    // パース失敗時は空文字
-  }
-  return '';
+// 原文JSON断片（先頭100文字）から最初の段落を取得
+function getFirstParagraph(originalTextHead: string | null | undefined): string {
+  return extractFirstParagraphFromHead(originalTextHead);
 }
 
 // 条文番号から基本番号を抽出（1-2 → 1, 876-5 → 876）
@@ -77,9 +68,9 @@ function getBaseArticleNumber(article: string): number {
 }
 
 // 条文を分類
-function classifyArticles(articles: ArticleRow[]) {
-  const normal: ArticleRow[] = [];
-  const supplementary: ArticleRow[] = [];
+function classifyArticles(articles: ArticleNavRow[]) {
+  const normal: ArticleNavRow[] = [];
+  const supplementary: ArticleNavRow[] = [];
 
   for (const article of articles) {
     const articleStr = String(article.article);
@@ -103,7 +94,7 @@ function classifyArticles(articles: ArticleRow[]) {
 
 // 条文番号の範囲でページを計算
 function getArticlePageRanges(
-  articles: ArticleRow[]
+  articles: ArticleNavRow[]
 ): { start: number; end: number; label: string }[] {
   if (articles.length === 0) return [];
 
@@ -131,16 +122,20 @@ function getArticlePageRanges(
 }
 
 // 指定された条文番号範囲の条文をフィルタ
-function filterArticlesByRange(articles: ArticleRow[], start: number, end: number): ArticleRow[] {
+function filterArticlesByRange(
+  articles: ArticleNavRow[],
+  start: number,
+  end: number
+): ArticleNavRow[] {
   return articles.filter((article) => {
     const baseNum = getBaseArticleNumber(String(article.article));
     return baseNum >= start && baseNum <= end;
   });
 }
 
-// ArticleRow[] を ArticleListWithEeyan 用のデータに変換
+// ArticleNavRow[] を ArticleListWithEeyan 用のデータに変換
 function toArticleData(
-  articles: ArticleRow[],
+  articles: ArticleNavRow[],
   law_category: string,
   law: string,
   famousArticles: Record<string, string>,
@@ -152,7 +147,7 @@ function toArticleData(
     href: `/law/${law_category}/${law}/${article.article}`,
     famousArticleBadge: famousArticles?.[article.article.toString()] || null,
     isDeleted: article.is_deleted === 1,
-    originalText: includeOriginalText ? getFirstParagraph(article.original_text) : undefined,
+    originalText: includeOriginalText ? getFirstParagraph(article.original_text_head) : undefined,
   }));
 }
 
@@ -170,7 +165,7 @@ export default async function LawArticlesPage({
 
   // D1から並行でデータ取得
   const [articles, lawMetadata, chapters, famousArticles] = await Promise.all([
-    getArticles(law_category, law),
+    getArticleNavList(law_category, law),
     getLawMetadata(law_category, law),
     getChapters(law_category, law),
     getFamousArticles(law_category, law),
@@ -195,8 +190,9 @@ export default async function LawArticlesPage({
 
   // 章でグループ化（章構成がある法律用）
   const hasChapters = chapters && chapters.length > 0;
-  const groupedArticles: { [chapterKey: string]: { chapter: ChapterRow; articles: ArticleRow[] } } =
-    {};
+  const groupedArticles: {
+    [chapterKey: string]: { chapter: ChapterRow; articles: ArticleNavRow[] };
+  } = {};
 
   if (hasChapters) {
     for (const chapter of chapters) {

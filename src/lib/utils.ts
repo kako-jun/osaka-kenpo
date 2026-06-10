@@ -93,6 +93,72 @@ export function getExcerpt(text: string, maxLength: number = 50): string {
 }
 
 /**
+ * JSON配列文字列の先頭断片（substr で切れている可能性あり）から
+ * 最初の要素（先頭段落）の文字列を復元する。切断されていても壊れない。
+ * 後処理（whitespace正規化・trim・切り詰め）は呼び出し側に委ねる。
+ */
+export function extractFirstParagraphFromHead(head: string | null | undefined): string {
+  if (!head) return '';
+  // 先頭の `[`・空白・開き `"` を剥がして第一要素の本文開始位置へ
+  const m = /^\s*\[\s*"/.exec(head);
+  if (!m) return '';
+  let i = m[0].length;
+  let out = '';
+  while (i < head.length) {
+    const ch = head[i];
+    if (ch === '"') break; // 未エスケープの閉じ引用 = 第一要素の終端
+    if (ch === '\\') {
+      const next = head[i + 1];
+      if (next === undefined) break; // 断片末尾でエスケープが切れている
+      switch (next) {
+        case 'n':
+          out += '\n';
+          break;
+        case 't':
+          out += '\t';
+          break;
+        case 'r':
+          out += '\r';
+          break;
+        case 'b':
+          out += '\b';
+          break;
+        case 'f':
+          out += '\f';
+          break;
+        case '"':
+          out += '"';
+          break;
+        case '\\':
+          out += '\\';
+          break;
+        case '/':
+          out += '/';
+          break;
+        case 'u': {
+          const hex = head.slice(i + 2, i + 6);
+          if (/^[0-9a-fA-F]{4}$/.test(hex)) {
+            out += String.fromCharCode(parseInt(hex, 16));
+            i += 6;
+            continue;
+          }
+          out += next; // 不完全な \u はそのまま
+          break;
+        }
+        default:
+          out += next;
+          break;
+      }
+      i += 2;
+      continue;
+    }
+    out += ch;
+    i += 1;
+  }
+  return out;
+}
+
+/**
  * 条文番号のソートキーを返す（枝番・附則・改正対応）
  */
 export function getArticleSortKey(article: string): number {
