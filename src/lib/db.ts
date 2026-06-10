@@ -1,3 +1,4 @@
+import { cache } from 'react';
 import { getRequestContext } from '@cloudflare/next-on-pages';
 
 // Type definitions for D1 database results
@@ -53,117 +54,89 @@ export function getDB() {
   return env.DB;
 }
 
-// 法律一覧を取得
-export async function getLaws(): Promise<LawRow[]> {
-  const db = getDB();
-  const result = await db
-    .prepare(
-      `SELECT category, name, display_name, short_name, badge, year
-       FROM laws
-       ORDER BY category, name`
-    )
-    .all<LawRow>();
-  return result.results;
-}
-
-// 特定カテゴリの法律一覧を取得
-export async function getLawsByCategory(category: string) {
-  const db = getDB();
-  const result = await db
-    .prepare(
-      `SELECT DISTINCT law_name as name
-       FROM articles
-       WHERE category = ?
-       ORDER BY law_name`
-    )
-    .bind(category)
-    .all();
-  return result.results;
-}
-
 // ナビ/一覧用の軽量取得（原文はフルではなく先頭100文字だけ）
-export async function getArticleNavList(
-  category: string,
-  lawName: string
-): Promise<ArticleNavRow[]> {
-  const db = getDB();
-  const result = await db
-    .prepare(
-      `SELECT article, title, title_osaka, is_deleted,
+export const getArticleNavList = cache(
+  async (category: string, lawName: string): Promise<ArticleNavRow[]> => {
+    const db = getDB();
+    const result = await db
+      .prepare(
+        `SELECT article, title, title_osaka, is_deleted,
               substr(original_text, 1, 100) AS original_text_head
        FROM articles
        WHERE category = ? AND law_name = ?
        ORDER BY
          CASE WHEN article GLOB '[0-9]*' THEN CAST(article AS INTEGER) ELSE 9999 END,
          article`
-    )
-    .bind(category, lawName)
-    .all<ArticleNavRow>();
-  return result.results;
-}
+      )
+      .bind(category, lawName)
+      .all<ArticleNavRow>();
+    return result.results;
+  }
+);
 
 // 特定の条文を取得
-export async function getArticle(
-  category: string,
-  lawName: string,
-  articleId: string
-): Promise<ArticleRow | null> {
-  const db = getDB();
-  const result = await db
-    .prepare(
-      `SELECT * FROM articles
+export const getArticle = cache(
+  async (category: string, lawName: string, articleId: string): Promise<ArticleRow | null> => {
+    const db = getDB();
+    const result = await db
+      .prepare(
+        `SELECT * FROM articles
        WHERE category = ? AND law_name = ? AND article = ?`
-    )
-    .bind(category, lawName, articleId)
-    .first<ArticleRow>();
-  return result;
-}
+      )
+      .bind(category, lawName, articleId)
+      .first<ArticleRow>();
+    return result;
+  }
+);
 
 // 法律メタデータを取得
-export async function getLawMetadata(category: string, lawName: string): Promise<LawRow | null> {
-  const db = getDB();
-  const result = await db
-    .prepare(
-      `SELECT * FROM laws
+export const getLawMetadata = cache(
+  async (category: string, lawName: string): Promise<LawRow | null> => {
+    const db = getDB();
+    const result = await db
+      .prepare(
+        `SELECT * FROM laws
        WHERE category = ? AND name = ?`
-    )
-    .bind(category, lawName)
-    .first<LawRow>();
-  return result;
-}
+      )
+      .bind(category, lawName)
+      .first<LawRow>();
+    return result;
+  }
+);
 
 // 章データを取得
-export async function getChapters(category: string, lawName: string): Promise<ChapterRow[]> {
-  const db = getDB();
-  const result = await db
-    .prepare(
-      `SELECT * FROM chapters
+export const getChapters = cache(
+  async (category: string, lawName: string): Promise<ChapterRow[]> => {
+    const db = getDB();
+    const result = await db
+      .prepare(
+        `SELECT * FROM chapters
        WHERE category = ? AND law_name = ?
        ORDER BY chapter`
-    )
-    .bind(category, lawName)
-    .all<ChapterRow>();
-  return result.results;
-}
+      )
+      .bind(category, lawName)
+      .all<ChapterRow>();
+    return result.results;
+  }
+);
 
 // 有名条文バッジを取得
-export async function getFamousArticles(
-  category: string,
-  lawName: string
-): Promise<Record<string, string>> {
-  const db = getDB();
-  const result = await db
-    .prepare(
-      `SELECT article, badge FROM famous_articles
+export const getFamousArticles = cache(
+  async (category: string, lawName: string): Promise<Record<string, string>> => {
+    const db = getDB();
+    const result = await db
+      .prepare(
+        `SELECT article, badge FROM famous_articles
        WHERE category = ? AND law_name = ?`
-    )
-    .bind(category, lawName)
-    .all<FamousArticleRow>();
+      )
+      .bind(category, lawName)
+      .all<FamousArticleRow>();
 
-  // { article: badge } 形式に変換
-  const badges: Record<string, string> = {};
-  for (const row of result.results) {
-    badges[row.article] = row.badge;
+    // { article: badge } 形式に変換
+    const badges: Record<string, string> = {};
+    for (const row of result.results) {
+      badges[row.article] = row.badge;
+    }
+    return badges;
   }
-  return badges;
-}
+);
