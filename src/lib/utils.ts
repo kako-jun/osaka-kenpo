@@ -158,6 +158,14 @@ export function extractFirstParagraphFromHead(head: string | null | undefined): 
   return out;
 }
 
+/** ナビ用: 原文headから見出し無し条文のフォールバック抜粋（先頭段落をN字に切る） */
+export function navExcerptFromHead(head: string | null | undefined, maxLength = 12): string {
+  const parsed = extractFirstParagraphFromHead(head);
+  if (!parsed) return '';
+  const firstLine = parsed.replace(/\s+/g, ' ').trim();
+  return firstLine.length > maxLength ? firstLine.slice(0, maxLength) + '...' : firstLine;
+}
+
 /**
  * 条文番号のソートキーを返す（枝番・附則・改正対応）
  */

@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   extractFirstParagraphFromHead,
+  navExcerptFromHead,
   getArticleSortKey,
   getExcerpt,
   formatArticleNumber,
@@ -164,6 +165,69 @@ describe('getExcerpt', () => {
 
   it('空文字入力は空文字を返す', () => {
     expect(getExcerpt('')).toBe('');
+  });
+});
+
+describe('navExcerptFromHead', () => {
+  it('12文字以内の先頭段落はそのまま返す', () => {
+    const head = JSON.stringify(['短い条文']);
+    expect(navExcerptFromHead(head)).toBe('短い条文');
+  });
+
+  it('ちょうど12文字の先頭段落は切らずにそのまま返す', () => {
+    const text = 'あいうえおかきくけこさし'; // 12文字
+    expect(text.length).toBe(12);
+    expect(navExcerptFromHead(JSON.stringify([text]))).toBe(text);
+  });
+
+  it('12文字超は slice(0,12) + "..." に切る（13文字→末尾..., 長さ15）', () => {
+    const text = 'あいうえおかきくけこさしす'; // 13文字
+    expect(text.length).toBe(13);
+    const result = navExcerptFromHead(JSON.stringify([text]));
+    expect(result).toBe('あいうえおかきくけこさし' + '...');
+    expect(result.endsWith('...')).toBe(true);
+    expect(result.length).toBe(15);
+  });
+
+  it('明示した maxLength を尊重する（maxLength=5）', () => {
+    const head = JSON.stringify(['abcdefgh']);
+    expect(navExcerptFromHead(head, 5)).toBe('abcde...');
+  });
+
+  it('段落内の改行・タブ・連続空白は単一スペースに正規化してから切る', () => {
+    const head = JSON.stringify(['あ\nい\tう  え']);
+    expect(navExcerptFromHead(head)).toBe('あ い う え');
+  });
+
+  it('null / undefined / 空文字 / [] / [ ] / 非配列文字列はすべて空文字を返す', () => {
+    expect(navExcerptFromHead(null)).toBe('');
+    expect(navExcerptFromHead(undefined)).toBe('');
+    expect(navExcerptFromHead('')).toBe('');
+    expect(navExcerptFromHead('[]')).toBe('');
+    expect(navExcerptFromHead('[ ]')).toBe('');
+    expect(navExcerptFromHead('foo')).toBe('');
+  });
+
+  it('空白のみの先頭段落は空文字を返す（trim後に空）', () => {
+    expect(navExcerptFromHead('["   "]')).toBe('');
+    expect(navExcerptFromHead('["\\n\\t "]')).toBe('');
+  });
+
+  it('substr で切断された断片（閉じ " に届かない長い head）でも例外なく抜粋を返す', () => {
+    const full = JSON.stringify([
+      'とても長い第一段落のテキストがここに続いていきます、まだまだ終わりません',
+    ]);
+    const head = full.slice(0, 20); // 閉じ引用まで到達しない長さで切る
+    let result: string;
+    expect(() => {
+      result = navExcerptFromHead(head);
+    }).not.toThrow();
+    result = navExcerptFromHead(head);
+    expect(result).toBe('とても長い第一段落のテキ...');
+    expect(result.length).toBe(15);
+    // 切断していない完全版と接頭辞関係になっている
+    const complete = extractFirstParagraphFromHead(full).replace(/\s+/g, ' ').trim();
+    expect(complete.startsWith(result.slice(0, 12))).toBe(true);
   });
 });
 

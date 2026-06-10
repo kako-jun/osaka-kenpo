@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { getArticle, getArticleNavList, getLawMetadata, type ArticleNavRow } from '@/lib/db';
 import { ArticleClient } from './ArticleClient';
 import { lawsMetadata } from '@/data/lawsMetadata';
-import { extractFirstParagraphFromHead, formatArticleNumber } from '@/lib/utils';
+import { navExcerptFromHead, formatArticleNumber } from '@/lib/utils';
 import buildDateJson from '@/data/build-date.json';
 
 export const runtime = 'edge';
@@ -156,22 +156,12 @@ export default async function ArticlePage({
   };
 
   // 全条文リストをクライアント用に変換
-  const allArticles = allArticlesRows.map((a: ArticleNavRow) => {
-    let originalTextExcerpt: string | undefined;
-    if (!a.title && a.original_text_head) {
-      const parsed = extractFirstParagraphFromHead(a.original_text_head);
-      if (parsed) {
-        const firstLine = parsed.replace(/\s+/g, ' ').trim();
-        originalTextExcerpt = firstLine.length > 12 ? firstLine.slice(0, 12) + '...' : firstLine;
-      }
-    }
-    return {
-      article: a.article,
-      title: a.title || '',
-      titleOsaka: a.title_osaka || undefined,
-      originalText: originalTextExcerpt,
-    };
-  });
+  const allArticles = allArticlesRows.map((a: ArticleNavRow) => ({
+    article: a.article,
+    title: a.title || '',
+    titleOsaka: a.title_osaka || undefined,
+    originalText: (!a.title ? navExcerptFromHead(a.original_text_head) : '') || undefined,
+  }));
 
   // JSON-LD: このサイトの独自価値は「大阪弁での解説」。原文(e-Gov重複)ではなく
   // 大阪弁訳・大阪弁解説を articleBody に据えて、独自コンテンツとして宣言する。
