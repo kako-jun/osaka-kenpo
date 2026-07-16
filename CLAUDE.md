@@ -314,11 +314,7 @@ uv run --with pyyaml python3 scripts/tools/check-all-laws-real-status.py
 
 ### ステップ2: 対象条文の選択
 
-現在の状況:
-
-1. **日本現行法（六法）**: ほぼ完全翻訳達成（99.9%完成）
-2. **歴史法**: 原文は完成、解説（commentary/commentaryOsaka）が不足
-3. **外国歴史法**: 原文は完成、解説が不足
+`node scripts/tools/phase-status.js` の全体サマリから、Phase 4 未完了の法律と残条文リストを確認して対象を選ぶ（このファイルに固定の状況説明を書かない）。
 
 ### ステップ3: 翻訳作業
 
