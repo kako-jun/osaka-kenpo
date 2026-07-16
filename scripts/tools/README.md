@@ -58,6 +58,29 @@ node scripts/tools/fetch-all-roppou.js
 
 ## 品質チェック系
 
+### phase-status.js
+
+**翻訳フェーズ（Phase 1-4）の診断ツール**
+
+ファイルシステムを走査して、法律ごとのフェーズ別条文数と残条文リストを表示。
+メタデータファイルと `isDeleted` 条文は除外して正確にカウントする。
+
+**使い方:**
+
+```bash
+node scripts/tools/phase-status.js              # 全法律のサマリ
+node scripts/tools/phase-status.js keihou       # 法律slugで指定
+node scripts/tools/phase-status.js jp/keihou    # category/law 形式
+```
+
+**出力:**
+
+- 有効条文数・削除条文数
+- Phase 1-4 それぞれの条文数
+- commentary / osakaText / commentaryOsaka の残条文リスト（法律指定時）
+
+**重要度**: ★★★★★（フェーズ診断の正本）
+
 ### check-all-laws-real-status.py
 
 **全法律の実際の進捗状況をチェック**
@@ -67,14 +90,14 @@ node scripts/tools/fetch-all-roppou.js
 **使い方:**
 
 ```bash
-python3 scripts/tools/check-all-laws-real-status.py
+uv run --with pyyaml python3 scripts/tools/check-all-laws-real-status.py
 ```
 
 **出力:**
 
-- Stage1（原文）の完成率
-- Stage3（大阪弁訳）の完成率
-- Stage4（大阪弁解説）の完成率
+- Phase 1（原文）の完成率
+- Phase 3（大阪弁訳）の完成率
+- Phase 4（大阪弁解説）の完成率
 - カテゴリ別サマリー
 
 **重要度**: ★★★★★（進捗確認の唯一の真実の源）

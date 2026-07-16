@@ -46,8 +46,17 @@
 **原則：単一の真実の源（Single Source of Truth）**
 
 - **ファイルシステム = 唯一の真実**: 実際のYAMLファイルが全て
-- **スクリプトで確認**: `python3 scripts/tools/check-all-laws-real-status.py`
+- **スクリプトで確認**: `uv run --with pyyaml python3 scripts/tools/check-all-laws-real-status.py` および `node scripts/tools/phase-status.js`
 - **統合ドキュメント**: [.claude/PROGRESS.md](.claude/PROGRESS.md) に全て集約
+
+**翻訳フェーズ定義（用語は「Phase 1-4」で統一。旧称「Stage」は使わない）:**
+
+| フェーズ | 完了条件                           |
+| -------- | ---------------------------------- |
+| Phase 1  | `originalText` がある              |
+| Phase 2  | + `commentary`（標準日本語の解説） |
+| Phase 3  | + `osakaText`（大阪弁訳）          |
+| Phase 4  | + `commentaryOsaka`（大阪弁解説）  |
 
 **禁止事項：**
 
@@ -57,7 +66,7 @@
 
 **更新手順：**
 
-1. スクリプトを実行: `python3 scripts/tools/check-all-laws-real-status.py`
+1. スクリプトを実行: `uv run --with pyyaml python3 scripts/tools/check-all-laws-real-status.py`
 2. 結果を `.claude/PROGRESS.md` にコピー
 3. 更新日時を明記
 
@@ -97,72 +106,58 @@
 
 ## 📊 進捗管理
 
-**最新の進捗情報**: [.claude/PROGRESS.md](.claude/PROGRESS.md)
+**進捗の真実はスクリプト実行結果のみ。** このファイルに固定の進捗表を書かない（過去に陳腐化して誤情報源になったため削除済み）。
 
 ```bash
-# 実際の進捗を確認
-python3 scripts/tools/check-all-laws-real-status.py
+# 実際の進捗を確認（唯一の真実）
+uv run --with pyyaml python3 scripts/tools/check-all-laws-real-status.py
+
+# フェーズ別の内訳・残条文リスト（法律別 / 全体サマリ）
+node scripts/tools/phase-status.js [category/law_slug]
 ```
 
-**重要**: 進捗数字は手動で更新しないでください。上記スクリプトの実行結果が唯一の真実です。
+## 🚨 既知の罠（known traps）
 
-### 📊 現在の進捗（2026-02-06時点）
+過去に実際に踏んだ問題。作業前に必ず目を通すこと。
 
-#### 日本現行法（六法＋AI基本法）
+### 枝番条文の欠落（解決済み・再発注意）
 
-| 法律名     | 総条文数    | Stage4完成度            | 状態            |
-| ---------- | ----------- | ----------------------- | --------------- |
-| 民法       | 1,273条     | 1,195/1,195 (100%)      | ✅ 完全翻訳済み |
-| 刑事訴訟法 | 744条       | 740/740 (100%)          | ✅ 完全翻訳済み |
-| 民事訴訟法 | 495条       | 495/495 (100%)          | ✅ 完成         |
-| 会社法     | 1,116条     | 1,113/1,113 (100%)      | ✅ 完成         |
-| 商法       | 889条       | 291/291 (100%)          | ✅ 完成         |
-| 刑法       | 327条       | 309/309 (100%)          | ✅ 完成         |
-| 日本国憲法 | 103条       | 103/105 (98.1%)         | 🔄 ほぼ完成     |
-| AI基本法   | 32条        | 30/32 (93.8%)           | 🔄 ほぼ完成     |
-| **合計**   | **4,981条** | **4,276/4,280 (99.9%)** | 🎉 ほぼ完成     |
+- fetch-egov-law.js が枝番条文（第132条の2 など）を落とす問題があった（2025-11-20発見 → 2026年1-2月修正完了）。枝番は `132-2.yaml` として保存する
+- 条文追加後は `node scripts/tools/check-subdivided-articles-all-laws.js` で欠落チェックする
 
-※削除条文（701条）を除く実質4,280条に対する完成度
+### Cloudflare Error 1102（Worker リソース超過）
 
-#### 条約・外国法・歴史法
+- 巨大法ページで「全条文を原文フル込み・LIMITなし」で取得する富豪的クエリが原因で 1102（ユーザーには503）が頻発した。根治済み（`getArticleNavList` + `substr` 化）
+- 新しいクエリを書くときは「毎ページで法律まるごとを読む」設計を避ける。原文フルが必要なのはフォールバック抜粋だけ
 
-- **外国現行法**: ドイツ基本法・アメリカ憲法・中国憲法（375条、100%完成）
-- **国際条約**: 国連憲章・WHO憲章・NPT等（266条、99.6%完成）
-- **日本歴史法**: 十七条憲法・五箇条の御誓文等（216条、99.5%完成）
-- **外国歴史法**: マグナ・カルタ・ナポレオン法典等（2,610条、100%完成）
+### デプロイ伝播窓
 
-**全体合計**: 8,448条（実質7,747条）のうち、Stage1完成度99.9%、Stage4完成度63.7%
+- push 後、新デプロイが Active になった直後の数分間は**旧コードの isolate が残存**し、503や旧挙動が混在する。デプロイ検証は一拍（〜8分）おいて再測定する
 
-### 🎯 残りの作業
+### `pages:build` は npm の prebuild フックをバイパスする
 
-#### 優先度高
+- CF Pages のビルドコマンド `npm run pages:build`（= `npx @cloudflare/next-on-pages`）は `prebuild` を実行しない
+- ビルド時に必ず走らせたい生成処理（sitemap 等）は `pages:build` スクリプト自体に前置する
 
-1. **歴史法の解説追加**: 大宝律令29条、御成敗式目50条、明治憲法75条など
-2. **外国歴史法の解説追加**: ナポレオン法典2,280条、ハンムラビ法典281条など
+### D1 seed 投入の UNIQUE 制約違反
 
-#### 将来的な拡張
+- `db:seed:push` だけを再実行すると UNIQUE 制約違反で全件失敗する。**途中失敗時は必ず `db:schema:push`（スキーマ再適用＝全消し）から再実行する**
 
-- 条約・歴史法の翻訳完成により、現行法は**ほぼ完全翻訳達成**
-- 今後は品質維持とユーザー体験向上に注力
+### wrangler 実行時は `NODE_OPTIONS=""`
 
-詳細は [.claude/PROGRESS.md](.claude/PROGRESS.md) を参照。
+- NODE_OPTIONS のプロキシ設定が wrangler と干渉する。D1 操作時は `NODE_OPTIONS=""` を付けて実行する
 
-## 🚨 既知の技術的問題
+### slug の綴り
 
-### ✅ 解決済み: 枝番条文問題（2025-11-20発見 → 2026年1-2月修正完了）
+- 会社法は **`kaisya_hou`**（`kaisha_hou` ではない）。既存slugは変更しない
 
-**以前の問題**:
+### `db/seed.sql` を git add しない
 
-- fetch-egov-law.jsスクリプトが枝番条文（132_2, 132_3など）を正しく処理できず
-- 民法・商法・会社法・刑法・民訴・刑訴で大量の条文が欠落
+- 自動生成物であり .gitignore 対象。コミットに含めない
 
-**修正内容**:
+### 既存の翻訳データを上書きしない
 
-- スクリプトを修正し、枝番条文を正しく `132-2.yaml` として保存
-- 全六法のデータを再取得し、大阪弁訳を内容ベースで100%復元
-- 民法1,273条、刑訴744条など全て正しい条文数を取得完了
-
-**現状**: 全て修正済み。六法の条文数は正確になりました。
+- 条文追加・再取得の際、既存の osakaText / commentaryOsaka を消さない。e-Gov 再取得時は `restore-osaka-by-content.js` で内容ベース復元する
 
 ## 🔗 e-Gov法令番号一覧（参考）
 
@@ -314,7 +309,7 @@ npm run typecheck
 
 ```bash
 # 実際の進捗を確認
-python3 scripts/tools/check-all-laws-real-status.py
+uv run --with pyyaml python3 scripts/tools/check-all-laws-real-status.py
 ```
 
 ### ステップ2: 対象条文の選択
@@ -336,7 +331,7 @@ python3 scripts/tools/check-all-laws-real-status.py
 
 ```bash
 # 再度進捗を確認
-python3 scripts/tools/check-all-laws-real-status.py
+uv run --with pyyaml python3 scripts/tools/check-all-laws-real-status.py
 ```
 
 ### 重要な注意事項
