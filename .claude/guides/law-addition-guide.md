@@ -155,11 +155,12 @@ chapters:
 
 ## 2. 標準日本語解説（Phase 2: commentary）の品質基準
 
+- **文体は「です・ます」調（敬体）**。「だ・である」調（常体）は禁止。2025-11に民事訴訟法447条を一括変換した経緯があり（`scripts/convert-commentary-style.js`）、これが正準。文体見本は `jp/keihou/1.yaml` を使う（条約系の一部に常体の変換漏れが残っているため、treaty/world のデータを文体見本にしないこと）
 - 条文の意味を分かりやすく解説する
 - **3段落以上、300文字以上**
 - 具体例を含める（「例えば」で始まる段落）
 - 歴史的背景や他の条文との関係にも言及する
-- 大阪弁解説（commentaryOsaka）の品質基準は [translation-style-guide.md](./translation-style-guide.md) を参照
+- 大阪弁解説（commentaryOsaka）の品質基準は [translation-style-guide.md](./translation-style-guide.md) を参照。**commentaryOsaka は commentary の大阪弁化ではない**。大阪らしい観点・たとえ話を軸に、一から独自に解説し直したもの（構成・切り口も commentary と揃えない）
 
 ## 3. バッチ分割戦略（大量条文の場合）
 
