@@ -106,7 +106,7 @@ categories:
         status: available
       - id: ramsar_convention
         path: /law/treaty/ramsar_convention
-        status: preparing
+        status: available
       - id: un_charter
         path: /law/treaty/un_charter
         status: available

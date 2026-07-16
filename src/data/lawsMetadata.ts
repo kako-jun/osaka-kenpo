@@ -284,7 +284,7 @@ export const lawsMetadata: LawsMetadata = {
           id: 'ramsar_convention',
           shortName: 'ラムサール条約',
           path: '/law/treaty/ramsar_convention',
-          status: 'preparing',
+          status: 'available',
           year: 1971,
           badge: '鳥さん守る！',
         },
