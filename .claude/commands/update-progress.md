@@ -4,7 +4,7 @@
 
 ## 手順
 
-1. `python3 scripts/tools/check-all-laws-real-status.py` を実行して最新データを取得
+1. `uv run --with pyyaml python3 scripts/tools/check-all-laws-real-status.py` を実行して最新データを取得
 2. `.claude/PROGRESS.md` の該当テーブルを最新データで更新
 3. 更新日時を記載（`最終更新: YYYY-MM-DD HH:MM`）
 4. 状態の判定を更新（100% → ✅ 完成、99%以上 → 🔄 ほぼ完成、等）

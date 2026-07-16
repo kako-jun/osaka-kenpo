@@ -1,10 +1,40 @@
-# 法律追加手順書
+# 法律追加手順書（フィールド記入規約の正本）
 
 ## 概要
 
-新しい法律をおおさかけんぽうに追加する際の手順書です。2025年8月時点で**YAML + Zod**形式に移行完了。
+新しい法律をおおさかけんぽうに追加する際の手順書です。**YAML + Zod**形式（2025年8月移行完了）。
+
+このドキュメントは「ソースURLを1つ渡せば法律を追加できる」状態を目指した、**各ファイル・各フィールドの記入規約の正本**です。ファイル名・フィールド名は実データ（`src/data/laws/` 配下）と一致させてあります。
+
+## 翻訳フェーズ定義
+
+| フェーズ | 完了条件                           |
+| -------- | ---------------------------------- |
+| Phase 1  | `originalText` がある              |
+| Phase 2  | + `commentary`（標準日本語の解説） |
+| Phase 3  | + `osakaText`（大阪弁訳）          |
+| Phase 4  | + `commentaryOsaka`（大阪弁解説）  |
+
+進捗の確認: `node scripts/tools/phase-status.js [category/law_slug]`
+
+## 0. データソースの選択
+
+| ソース           | 対象                 | 手順                                                             |
+| ---------------- | -------------------- | ---------------------------------------------------------------- |
+| e-Gov法令API     | 日本の現行法         | `node scripts/tools/fetch-egov-law.js <law_id> <egov_law_num>`   |
+| 任意のURL        | 歴史法・外国法・条約 | URLから原文を取得してパース（**残りの preparing 法律の主経路**） |
+| テキスト貼り付け | 上記で取れないもの   | 貼り付けテキストをパース                                         |
+
+- e-Gov再取得で既存の大阪弁訳を復元する場合: `node scripts/tools/restore-osaka-by-content.js <law_id>`（jp カテゴリのみ）
+- e-Gov法令番号の一覧は [CLAUDE.md](../../CLAUDE.md) を参照
 
 ## 1. データファイルの準備
+
+### 1.0. slug（法律ID）の命名
+
+- ローマ字 + アンダースコア区切り（例: `keihou`, `minji_soshou_hou`, `jushichijo_kenpo`）
+- **注意: 会社法は `kaisya_hou`（`kaisha_hou` ではない）**。既存slugは変更しない
+- カテゴリ: `jp`（現行日本法）/ `jp_hist`（歴史的日本法）/ `world`（外国現行法）/ `world_hist`（歴史的外国法）/ `treaty`（条約・国際法）
 
 ### 1.1. 条文データの作成
 
@@ -16,44 +46,59 @@
 src/data/laws/[category]/[law_name]/[article_number].yaml
 ```
 
-**YAMLフォーマット（配列形式・Zod検証）:**
+**ファイル命名規則（実データ準拠）:**
+
+| 種類             | ファイル名例   | 備考                                                      |
+| ---------------- | -------------- | --------------------------------------------------------- |
+| 通常条文         | `1.yaml`       | 条文番号のみ                                              |
+| 枝番条文         | `132-2.yaml`   | 「第132条の2」。区切りは `-`（`132_2` ではない）          |
+| 附則             | `suppl-1.yaml` | `isSuppl: true` を付ける                                  |
+| 削除条文         | `200.yaml`     | 通常の番号ファイルのまま `isDeleted: true` + 各配列を空に |
+| 修正条項（米国） | `amend-1.yaml` | us_constitution 等                                        |
+| 文字枝番（独国） | `45a.yaml`     | german_basic_law 等、原文の条番号表記に従う               |
+
+詳細は [docs/article-naming-convention.md](../../docs/article-naming-convention.md) を参照。
+
+**YAMLフォーマット（通常条文・配列形式・Zod検証）:**
 
 ```yaml
 article: 1
 title: '原文のタイトル'
-titleOsaka: '大阪弁のタイトル（任意）'
+titleOsaka: '大阪弁のタイトル（未定なら空文字）'
 originalText:
   - '原文の段落1'
   - '原文の段落2'
-osakaText:
-  - '大阪弁翻訳の段落1'
-  - '大阪弁翻訳の段落2'
-commentary:
-  - '解説の段落1'
-  - '解説の段落2'
-commentaryOsaka: # 任意
-  - '大阪弁解説の段落1'
-  - '大阪弁解説の段落2'
+osakaText: [] # Phase 3 で埋める
+commentary: [] # Phase 2 で埋める
+commentaryOsaka: [] # Phase 4 で埋める
 ```
 
-**重要**: 全てのテキストフィールドは配列で段落分割
+**フィールド記入規約:**
 
-**カテゴリ例:**
+- 全てのテキストフィールドは**配列で段落分割**（Zodバリデーションの前提）
+- **通常条文には `isSuppl` / `isDeleted` を入れない**。附則は `isSuppl: true`、削除済みは `isDeleted: true` を追加する
+- 削除条文は `originalText: []` のまま `isDeleted: true` を付ける（進捗集計から除外される）
+- `title` は原文の公式表記に従う。ただし**1つの法律内では形式を統一する**
+- 号を含む長い項は `|-`（ブロックスカラー）で改行を保持してよい（例: `treaty/un_charter/1.yaml`）
 
-- `jp`: 現行日本法
-- `jp_hist`: 歴史的日本法
-- `world`: 外国現行法
-- `world_hist`: 歴史的外国法
-- `treaty`: 条約・国際法
+**カテゴリ別の追加規約:**
+
+- **world（外国現行法）**: `originalText` に**原語の原文**、`originalTextJapanese` に日本語訳を入れる（例: `world/german_basic_law/1.yaml`）。`osakaText` は日本語訳ベース
+- **jp_hist（歴史的日本法）**: 古文は `<ruby>漢字<rt>よみ</rt></ruby>` 形式でルビを付けてよい（例: `jp_hist/jushichijo_kenpo/1.yaml`）
+- **world_hist / treaty**: 日本語訳が公定訳・定訳として存在する場合はそれを `originalText` に使う
 
 ### 1.2. 法律メタデータの追加
 
-#### グローバル法律一覧 (`src/data/laws-metadata.yaml`)
+**注意: メタデータのファイル名はアンダースコア区切り**（`law_metadata.yaml`, `laws_metadata.yaml`, `famous_articles.yaml`）。ハイフン区切りは誤り。
+
+#### グローバル法律一覧 (`src/data/laws_metadata.yaml`)
+
+該当カテゴリの `laws:` に追記:
 
 ```yaml
 categories:
   - id: 'jp'
-    title: 'ろっぽう'
+    title: 'ろっぽう（＋会社法）'
     icon: '⚖️'
     laws:
       - id: 'new_law'
@@ -61,48 +106,76 @@ categories:
         status: 'available' # または "preparing"
 ```
 
-#### 個別法律メタデータ (`src/data/laws/[category]/[law]/law-metadata.yaml`)
+- `status: preparing` のうちは一覧に「準備中」で表示され、sitemap からも除外される
+- 訳が揃ったら `available` に変えるだけで公開・sitemap 掲載される
+
+#### 個別法律メタデータ (`src/data/laws/[category]/[law]/law_metadata.yaml`)
 
 ```yaml
-name: '新しい法律'
-year: 2024
-source: '官報第xxxx号'
-description: '法律の詳細説明'
+name: '刑法' # 正式名称
+shortName: '刑法' # 短い表示名（任意）
+badge: '悪いことしたらアカンで？' # カードに出る大阪弁の一言（任意）
+year: 1907 # 成立年
+source: 'e-Gov法令検索' # 出典の名称
+description: '明治40年制定の刑法。犯罪と刑罰を定める基本刑法典。'
 links: # 任意
   - text: 'e-Gov法令検索'
-    url: 'https://elaws.e-gov.go.jp/...'
-  - text: '参考資料'
-    url: 'https://example.com'
+    url: 'https://elaws.e-gov.go.jp/document?lawid=140AC0000000045'
 ```
 
-#### 有名条文データ (`famous-articles.yaml`) - 任意
+**links の規約:**
+
+- 古い法律にはe-Gov法令検索のリンクは含めない
+- 国立国会図書館デジタルコレクションのリンクは正確なPIDを確認する
+- 外国法の場合は原文の公式サイトへのリンクを含める（例: gesetze-im-internet.de）
+
+#### 有名条文データ (`famous_articles.yaml`) - 任意
+
+キー = 条文番号（文字列）、値 = 大阪弁の一言。`#` コメントで章分けしてよい:
 
 ```yaml
-'1': '第一条の要点！'
-'5': '重要な第五条！'
+# 総則
+'1': '法律にないと罰せられへん'
+'36': 'やられたらやり返してええ？'
 ```
 
 #### 章構成データ (`chapters.yaml`) - 任意
 
+章構造を持つ法律の場合のみ作成。条文を `articles` 配列で章に割り当てる:
+
 ```yaml
 chapters:
   - chapter: 1
-    title: '第一章'
-    titleOsaka: '第一章やで'
-    articles: [1, 2, 3]
-    description: '章の説明'
-    descriptionOsaka: '章の大阪弁説明'
+    title: '天皇'
+    titleOsaka: '天皇はん'
+    articles: [1, 2, 3, 4, 5, 6, 7, 8]
+    description: '天皇の地位と役割について定めた章'
+    descriptionOsaka: '天皇はんの立場とお仕事について決めた章やで'
 ```
 
-**注意点:**
+## 2. 標準日本語解説（Phase 2: commentary）の品質基準
 
-- 古い法律にはe-Gov法令検索のリンクは含めない
-- 国立国会図書館デジタルコレクションのリンクは正確なPIDを確認する
-- 外国法の場合は原文の公式サイトへのリンクを含める
+- 条文の意味を分かりやすく解説する
+- **3段落以上、300文字以上**
+- 具体例を含める（「例えば」で始まる段落）
+- 歴史的背景や他の条文との関係にも言及する
+- 大阪弁解説（commentaryOsaka）の品質基準は [translation-style-guide.md](./translation-style-guide.md) を参照
 
-## 2. データ検証とローディング
+## 3. バッチ分割戦略（大量条文の場合）
 
-### 2.1. 自動データ検証
+条文追加（Phase 1-2）のバッチサイズ:
+
+| 条文数   | 方式                     |
+| -------- | ------------------------ |
+| 1-10条   | メインコンテキストで直接 |
+| 11-20条  | サブエージェント1つ      |
+| 21条以上 | 10-15条ずつバッチ分割    |
+
+翻訳（Phase 3-4）はより小さいバッチで行う（[translation-prompt-template.md](../prompts/translation-prompt-template.md) 参照）。
+
+## 4. データ検証とローディング
+
+### 4.1. 自動データ検証
 
 全データはZodスキーマで実行時に検証されます：
 
@@ -110,50 +183,29 @@ chapters:
 - メタデータ: `LawMetadataSchema` (`src/lib/schemas/law-metadata.ts`)
 - APIで自動検証され、不正なデータは500エラー
 
-### 2.2. データローディング
+### 4.2. データローディング
 
 - ブラウザ → `metadata-loader.ts` → fetch → API Routes
 - YAMLファイル読み込み → Zod検証 → 型安全データ
 - エラー時は適切なフォールバック
 
-## 3. APIルートの確認
+## 5. APIルート・ルーティングの確認
 
-以下のAPIルートが自動で動作することを確認:
+以下が自動で動作することを確認（YAMLが正しく配置されていれば追加実装は不要）:
 
 - `/api/[law_category]/[law]` - 条文一覧
 - `/api/[law_category]/[law]/[article]` - 個別条文
 - `/api/metadata/[law_category]/[law]/[metadata_type]` - メタデータ
-- `/api/metadata/laws-metadata` - 全法律一覧
+- `/law/[law_category]` / `/law/[law_category]/[law]` / `/law/[law_category]/[law]/[article]` - ページ
 
-YAMLファイルが正しく配置されていれば自動で動作します。
+## 6. 翻訳作業のポイント
 
-## 4. 動的ルーティングの確認
+### 6.1. 大阪弁翻訳のトーン
 
-以下のページが自動生成されることを確認:
+- 「春日歩（大阪さん）」風の親しみやすい口調（キャラクター名は本文に出さない）
+- 詳細は [translation-style-guide.md](./translation-style-guide.md) が正本
 
-- `/law/[law_category]` - カテゴリページ
-- `/law/[law_category]/[law]` - 法律の条文一覧
-- `/law/[law_category]/[law]/[article]` - 個別条文ページ
-
-## 5. 翻訳作業のポイント
-
-### 5.1. 大阪弁翻訳のトーン
-
-- 「春日歩（大阪さん）」風の親しみやすい口調
-- 関西弁の特徴：「〜やで」「〜しなはれ」「知らんけど」等
-- 法律用語も分かりやすく言い換える
-
-### 5.2. 翻訳例
-
-```
-原文: 「和をもって貴しとなす」
-大阪弁: 「和を大切にしなはれ」
-
-原文: 「篤く三宝を敬え」
-大阪弁: 「仏法僧をちゃんと敬いなはれや」
-```
-
-### 5.3. 大阪弁翻訳の読みやすさ向上
+### 6.2. 大阪弁翻訳の読みやすさ向上
 
 長い複文の場合は、原文は変更せずに大阪弁のみ適切に分割して読みやすくする：
 
@@ -169,12 +221,12 @@ YAMLファイルが正しく配置されていれば自動で動作します。
 ```yaml
 # 修正前（読みにくい長文）
 osakaText:
-  - "AI関連技術がちゃんと効果的に活用されることで行政の仕事と民間の事業活動をめっちゃ効率化して高度化させて新しい産業を作る技術やっちゅうことや。"
+  - 'AI関連技術がちゃんと効果的に活用されることで行政の仕事と民間の事業活動をめっちゃ効率化して高度化させて新しい産業を作る技術やっちゅうことや。'
 
 # 修正後（読みやすく分割）
 osakaText:
-  - "AI関連技術がちゃんと効果的に活用されることで、行政の仕事と民間の事業活動をめっちゃ効率化して高度化させるんや。"
-  - "新しい産業も作れる技術やから、経済社会の発展の基盤になるんやで。"
+  - 'AI関連技術がちゃんと効果的に活用されることで、行政の仕事と民間の事業活動をめっちゃ効率化して高度化させるんや。'
+  - '新しい産業も作れる技術やから、経済社会の発展の基盤になるんやで。'
 ```
 
 **カッコ内の定義も大阪弁化:**
@@ -187,24 +239,24 @@ osakaText:
 - 'データセット（特定の目的で集めた情報の集まりのことやな。）'
 ```
 
-## 6. テスト項目
+## 7. テスト項目
 
 新しい法律を追加したら以下を確認:
 
-### 6.1. 表示確認
+### 7.1. 表示確認
 
 - [ ] カテゴリページで法律が表示される
 - [ ] 法律一覧ページで全条文が表示される
 - [ ] 個別条文ページが正常に表示される
 - [ ] 原文・大阪弁の切り替えが動作する
 
-### 6.2. アニメーション確認
+### 7.2. アニメーション確認
 
 - [ ] 言語切り替え時にスムーズなフェードアニメーションが動作する
 - [ ] スペースキーで切り替えできる
 - [ ] ダブルクリック/タップで切り替えできる
 
-### 6.3. UI確認
+### 7.3. UI確認
 
 - [ ] タイトルが正しく表示される（HTMLタグが見えない）
 - [ ] ナビゲーション（前の条文・次の条文）が動作する
@@ -212,15 +264,16 @@ osakaText:
 - [ ] 出典情報が正しく表示される
 - [ ] モバイルでの表示が正常
 
-### 6.4. 全体動作確認
+### 7.4. 全体動作確認
 
 - [ ] npm run dev で開発サーバーが正常起動する
 - [ ] ビルドエラーが発生しない
 - [ ] TypeScriptエラーが発生しない
+- [ ] `node scripts/tools/phase-status.js <category>/<law>` で条文数・フェーズが期待通り
 
-## 7. よくある問題と対処法
+## 8. よくある問題と対処法
 
-### 7.1. アニメーション関連
+### 8.1. アニメーション関連
 
 **問題:** 切り替え時にHTMLタグが見える
 **対処:** AnimatedContentのpropsを正しく分離する（originalContent/osakaContent）
@@ -228,42 +281,33 @@ osakaText:
 **問題:** アニメーションが一瞬で切り替わる
 **対処:** AnimatedContentコンポーネントのopacityとpositionの設定を確認
 
-### 7.2. データ関連
+### 8.2. データ関連
 
 **問題:** 条文が表示されない
 **対処:** YAMLファイルの形式とZodスキーマ準拠を確認
 
 **問題:** 法律名が表示されない
-**対処:** `law-metadata.yaml`の`name`フィールドを確認
+**対処:** `law_metadata.yaml`の`name`フィールドを確認
 
 **問題:** Zodバリデーションエラー
 **対処:** 全テキストフィールドが配列形式になっているか確認
 
-### 7.3. リンク関連
+**問題:** 枝番条文が欠落する
+**対処:** 過去に fetch-egov-law.js が枝番を落とす問題があった（修正済み）。追加後に `node scripts/tools/check-subdivided-articles-all-laws.js` で確認
+
+### 8.3. リンク関連
 
 **問題:** 参考リンクが不適切
 **対処:** 古い法律はe-Govを除外、図書館リンクは正確なPIDを使用
 
-## 8. 追加後のコミット
+## 9. 追加後のコミット
 
-全ての確認が完了したら、以下のようなコミットメッセージでコミット:
+- 既存の翻訳データを上書きしない
+- `db/seed.sql` を git add しない（.gitignore対象）
+- コミットメッセージ例:
 
 ```
-feat: [法律名]の追加と大阪弁翻訳
-
-- [法律名]の全[n]条を追加
-- 各条文の大阪弁翻訳を実装
-- 出典情報と参考リンクを追加
-- 動的ルーティングとアニメーション対応
-
-🤖 Generated with Claude Code
-
-Co-Authored-By: Claude <noreply@anthropic.com>
+feat(new_law): 原文と解説を追加（n条、Phase 2完了）
 ```
 
-## 9. 今後の改善点
-
-- 翻訳の自動化スクリプトの作成
-- バッチ処理での条文データ生成
-- 翻訳品質の統一化
-- テスト自動化の導入
+D1への反映（データ変更時のみ必要）は [CLAUDE.md](../../CLAUDE.md) のデプロイ手順を参照。

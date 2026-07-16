@@ -12,7 +12,7 @@ $ARGUMENTS
 ## 実行するスクリプト
 
 ```bash
-python3 scripts/tools/check-all-laws-real-status.py
+uv run --with pyyaml python3 scripts/tools/check-all-laws-real-status.py
 ```
 
 ## 報告内容
@@ -20,17 +20,17 @@ python3 scripts/tools/check-all-laws-real-status.py
 ### 全体サマリ
 
 - 総条文数（削除条文を除く）
-- Stage1（原文あり）の完成度
-- Stage4（commentaryOsakaあり）の完成度
+- Phase 1（原文あり）の完成度
+- Phase 4（commentaryOsakaあり）の完成度
 
 ### 法律別の進捗テーブル
 
-| 法律名 | 総条文数 | Stage1 | Stage4 | 状態 |
-| ------ | -------- | ------ | ------ | ---- |
+| 法律名 | 総条文数 | Phase 1 | Phase 4 | 状態 |
+| ------ | -------- | ------- | ------- | ---- |
 
 ### 未完了の法律
 
-- Stage4が100%でない法律をリスト化
+- Phase 4が100%でない法律をリスト化
 - 残りの条文数と推定作業量
 
 ## 対になるスキル

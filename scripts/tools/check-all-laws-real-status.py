@@ -168,12 +168,12 @@ def main():
             print(f"  ✅ {law_name}: {result['total']}条（削除{result['deleted']}条、実質{result['non_deleted']}条）")
 
             if result['non_deleted'] > 0:
-                print(f"     Stage1: {result['stage1']}/{result['non_deleted']} ({result['stage1']/result['non_deleted']*100:.1f}%)")
+                print(f"     Phase1: {result['stage1']}/{result['non_deleted']} ({result['stage1']/result['non_deleted']*100:.1f}%)")
 
                 if result['stage3'] > 0:
-                    print(f"     Stage3: {result['stage3']}/{result['non_deleted']} ({result['stage3']/result['non_deleted']*100:.1f}%)")
+                    print(f"     Phase3: {result['stage3']}/{result['non_deleted']} ({result['stage3']/result['non_deleted']*100:.1f}%)")
                 if result['stage4'] > 0:
-                    print(f"     Stage4: {result['stage4']}/{result['non_deleted']} ({result['stage4']/result['non_deleted']*100:.1f}%)")
+                    print(f"     Phase4: {result['stage4']}/{result['non_deleted']} ({result['stage4']/result['non_deleted']*100:.1f}%)")
 
             for key in ['total', 'deleted', 'non_deleted', 'stage1', 'stage2', 'stage3', 'stage4']:
                 category_total[key] += result[key]
@@ -182,11 +182,11 @@ def main():
         print(f"\n  📊 {category_name}合計:")
         print(f"     総条文数: {category_total['total']}条（削除{category_total['deleted']}条、実質{category_total['non_deleted']}条）")
         if category_total['non_deleted'] > 0:
-            print(f"     Stage1: {category_total['stage1']}条 ({category_total['stage1']/category_total['non_deleted']*100:.1f}%)")
+            print(f"     Phase1: {category_total['stage1']}条 ({category_total['stage1']/category_total['non_deleted']*100:.1f}%)")
             if category_total['stage3'] > 0:
-                print(f"     Stage3: {category_total['stage3']}条 ({category_total['stage3']/category_total['non_deleted']*100:.1f}%)")
+                print(f"     Phase3: {category_total['stage3']}条 ({category_total['stage3']/category_total['non_deleted']*100:.1f}%)")
             if category_total['stage4'] > 0:
-                print(f"     Stage4: {category_total['stage4']}条 ({category_total['stage4']/category_total['non_deleted']*100:.1f}%)")
+                print(f"     Phase4: {category_total['stage4']}条 ({category_total['stage4']/category_total['non_deleted']*100:.1f}%)")
 
     print(f"\n{'='*80}")
     print(f"📊 全体合計")
@@ -196,10 +196,10 @@ def main():
     print(f"実質条文数: {grand_total['non_deleted']}条")
     print()
     if grand_total['non_deleted'] > 0:
-        print(f"Stage1完成: {grand_total['stage1']}条 ({grand_total['stage1']/grand_total['non_deleted']*100:.1f}%)")
+        print(f"Phase1完成: {grand_total['stage1']}条 ({grand_total['stage1']/grand_total['non_deleted']*100:.1f}%)")
         print(f"Stage2完成: {grand_total['stage2']}条 ({grand_total['stage2']/grand_total['non_deleted']*100:.1f}%)")
-        print(f"Stage3完成: {grand_total['stage3']}条 ({grand_total['stage3']/grand_total['non_deleted']*100:.1f}%)")
-        print(f"Stage4完成: {grand_total['stage4']}条 ({grand_total['stage4']/grand_total['non_deleted']*100:.1f}%)")
+        print(f"Phase3完成: {grand_total['stage3']}条 ({grand_total['stage3']/grand_total['non_deleted']*100:.1f}%)")
+        print(f"Phase4完成: {grand_total['stage4']}条 ({grand_total['stage4']/grand_total['non_deleted']*100:.1f}%)")
     print()
 
 if __name__ == '__main__':
