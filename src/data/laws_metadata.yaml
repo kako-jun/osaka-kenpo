@@ -9,13 +9,6 @@ categories:
       - id: ai_suishin_hou
         path: /law/jp/ai_suishin_hou
         status: available
-  - id: jp_current
-    title: いまの法律
-    icon: 🗾
-    laws:
-      - id: ai_suishin_hou
-        path: /law/jp/ai_suishin_hou
-        status: available
   - id: roppou
     title: ろっぽう（＋会社法）
     icon: ⚖️
@@ -40,6 +33,13 @@ categories:
         status: available
       - id: keiji_soshou_hou
         path: /law/jp/keiji_soshou_hou
+        status: available
+  - id: jp_current
+    title: いまの法律
+    icon: 🗾
+    laws:
+      - id: ai_suishin_hou
+        path: /law/jp/ai_suishin_hou
         status: available
   - id: mukashi
     title: むかしの法律

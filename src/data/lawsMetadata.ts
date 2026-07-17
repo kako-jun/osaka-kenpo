@@ -48,21 +48,6 @@ export const lawsMetadata: LawsMetadata = {
       ],
     },
     {
-      id: 'jp_current',
-      title: 'いまの法律',
-      icon: '🗾',
-      laws: [
-        {
-          id: 'ai_suishin_hou',
-          shortName: 'AI推進法',
-          path: '/law/jp/ai_suishin_hou',
-          status: 'available',
-          year: 2025,
-          badge: 'AIとなかよし！',
-        },
-      ],
-    },
-    {
       id: 'roppou',
       title: 'ろっぽう（＋会社法）',
       icon: '⚖️',
@@ -122,6 +107,21 @@ export const lawsMetadata: LawsMetadata = {
           status: 'available',
           year: 1948,
           badge: '刑事の流れはここやで！',
+        },
+      ],
+    },
+    {
+      id: 'jp_current',
+      title: 'いまの法律',
+      icon: '🗾',
+      laws: [
+        {
+          id: 'ai_suishin_hou',
+          shortName: 'AI推進法',
+          path: '/law/jp/ai_suishin_hou',
+          status: 'available',
+          year: 2025,
+          badge: 'AIとなかよし！',
         },
       ],
     },
