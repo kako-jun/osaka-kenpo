@@ -45,6 +45,21 @@ describe('getArticles', () => {
     });
   });
 
+  describe('text フィールド（originalTextからの導出）', () => {
+    it('originalText配列がある条文で、text フィールドに originalText の内容が正しく反映される', () => {
+      writeYaml('1.yaml', {
+        articleNumber: '1',
+        originalText: ['文武弓馬の道、専らこれ嗜むべし。', '文武上下の礼儀を正しくすべき事。'],
+      });
+
+      const articles = getArticles(tmpDir);
+
+      expect(articles[0].text).toBe(
+        '文武弓馬の道、専らこれ嗜むべし。 文武上下の礼儀を正しくすべき事。'
+      );
+    });
+  });
+
   describe('メタデータYAMLの除外（過去の事故パターン回帰防止）', () => {
     it('law_metadata.yaml が条文としてカウントされない（本バグの直接再現テスト）', () => {
       writeYaml('1.yaml', { articleNumber: '1', text: '本文' });

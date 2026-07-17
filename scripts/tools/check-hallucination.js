@@ -111,7 +111,7 @@ export function getArticles(lawDir) {
       articles.push({
         file,
         articleNumber: data.articleNumber || file.replace('.yaml', ''),
-        text: data.text || '',
+        text: (data.originalText || []).join(' '),
         osakaText: data.osakaText || '',
         commentary: data.commentary || [],
         commentaryOsaka: data.commentaryOsaka || [],
