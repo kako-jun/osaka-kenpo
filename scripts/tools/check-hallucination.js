@@ -82,6 +82,9 @@ function getAllLaws() {
   return allLaws;
 }
 
+// 条文ファイルではないメタデータYAML（法律ごとに1つずつ存在し、条文として数えてはいけない）
+const NON_ARTICLE_YAML_FILES = ['law_metadata.yaml', 'chapters.yaml', 'famous_articles.yaml'];
+
 /**
  * 指定された法律の全条文を取得
  */
@@ -91,6 +94,7 @@ function getArticles(lawDir) {
 
   for (const file of files) {
     if (!file.endsWith('.yaml')) continue;
+    if (NON_ARTICLE_YAML_FILES.includes(file)) continue;
 
     const filePath = path.join(lawDir, file);
     try {
