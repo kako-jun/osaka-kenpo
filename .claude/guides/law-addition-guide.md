@@ -37,6 +37,28 @@
 - 既存slugに条文数の先例がある場合（backfillモード）は、その条数と一致する版を優先候補として提示する
 - 複数版が存在する法律を追加した場合、`law_metadata.yaml` の `description` にどの版を採用したか・他にどんな版があるかを明記する（読者が「これは何年のどの版か」を本文だけで把握できるようにする。例: buke_shohatto の description 末尾を参照）
 
+### 0.2. 歴史法の原文取得はWebFetchでなくcurl+パース推奨（重要）
+
+WebFetchツールは取得したHTMLを要約モデルが要約してから返す。漢文・返り点付き原文のような一字一句の忠実性が重要な古典文には不向き（要約の過程で表記が変質するリスクがある）。歴史法の原文取得は以下の手順を推奨する:
+
+```bash
+curl -s "<Wikisource等のURL>" -o /tmp/raw.html
+uv run python3 -c "
+import re, html as htmlmod
+h = open('/tmp/raw.html', encoding='utf-8').read()
+m = re.search(r'<div class=\"mw-parser-output\">(.*?)<div class=\"printfooter\"', h, re.S)
+body = m.group(1) if m else h
+body = re.sub(r'<(script|style)[^>]*>.*?</\1>', '', body, flags=re.S)
+text = re.sub(r'<[^>]+>', '\n', body)
+text = htmlmod.unescape(text)
+print('\n'.join(l.strip() for l in text.split('\n') if l.strip()))
+"
+```
+
+- 古いサイト（Shift_JIS等）は `raw.decode('shift_jis')` 等でデコードを試す必要がある場合がある
+- 一次資料（原文）に加えて、可能なら出典付きの読み下し文・現代語訳（Wikipediaの脚注引用等）を別途取得し、意味の面でクロスチェックしてから書き下し文を作成する（版違いの二次資料を誤って使わないよう §0.1 とあわせて注意）
+- 複数版が存在する法律を追加した場合、`law_metadata.yaml` の `description` にどの版を採用したか・他にどんな版があるかを明記する（読者が「これは何年のどの版か」を本文だけで把握できるようにする。例: buke_shohatto の description 末尾を参照）
+
 ## 1. データファイルの準備
 
 ### 1.0. slug（法律ID）の命名
