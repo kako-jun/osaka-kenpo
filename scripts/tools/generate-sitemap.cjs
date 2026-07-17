@@ -86,17 +86,37 @@ function urlEntry(loc, changefreq, priority, lastmod) {
   ].join('\n');
 }
 
+function readExistingLastmods() {
+  if (!fs.existsSync(OUTPUT_FILE)) return new Map();
+  const xml = fs.readFileSync(OUTPUT_FILE, 'utf8');
+  const lastmods = new Map();
+  const re = /<url>\s*<loc>([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>/g;
+  let match;
+  while ((match = re.exec(xml)) !== null) {
+    lastmods.set(match[1], match[2]);
+  }
+  return lastmods;
+}
+
 function main() {
   console.log('🗺️  public/sitemap.xml を生成中...\n');
 
   const lastmod = new Date().toISOString();
+  const existingLastmods = readExistingLastmods();
   const meta = yaml.load(fs.readFileSync(LAWS_METADATA_YAML, 'utf8'));
 
   const entries = [];
+  const seenUrls = new Set();
+  const addEntry = (loc, changefreq, priority) => {
+    if (seenUrls.has(loc)) return false;
+    seenUrls.add(loc);
+    entries.push(urlEntry(loc, changefreq, priority, existingLastmods.get(loc) || lastmod));
+    return true;
+  };
 
   // 基本ページ
-  entries.push(urlEntry(BASE_URL, 'weekly', '1.0', lastmod));
-  entries.push(urlEntry(`${BASE_URL}/about`, 'monthly', '0.8', lastmod));
+  addEntry(BASE_URL, 'weekly', '1.0');
+  addEntry(`${BASE_URL}/about`, 'monthly', '0.8');
 
   let lawCount = 0;
   let articleCount = 0;
@@ -106,8 +126,9 @@ function main() {
       if (law.status !== 'available') continue;
 
       // 法律ページ（条文一覧）
-      entries.push(urlEntry(`${BASE_URL}${law.path}`, 'monthly', '0.8', lastmod));
-      lawCount++;
+      if (addEntry(`${BASE_URL}${law.path}`, 'monthly', '0.8')) {
+        lawCount++;
+      }
 
       // path: "/law/jp/minpou" -> category="jp", lawId="minpou"
       const parts = law.path.split('/').filter(Boolean);
@@ -116,10 +137,9 @@ function main() {
       if (!categoryId || !lawId) continue;
 
       for (const article of collectArticles(categoryId, lawId)) {
-        entries.push(
-          urlEntry(`${BASE_URL}/law/${categoryId}/${lawId}/${article}`, 'monthly', '0.6', lastmod)
-        );
-        articleCount++;
+        if (addEntry(`${BASE_URL}/law/${categoryId}/${lawId}/${article}`, 'monthly', '0.6')) {
+          articleCount++;
+        }
       }
     }
   }

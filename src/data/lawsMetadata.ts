@@ -30,6 +30,29 @@ export const lawsMetadata: LawsMetadata = {
       icon: '🍚',
       laws: [
         {
+          id: 'ramsar_convention',
+          shortName: 'ラムサール条約',
+          path: '/law/treaty/ramsar_convention',
+          status: 'available',
+          year: 1971,
+          badge: '鳥さん守る！',
+        },
+        {
+          id: 'ai_suishin_hou',
+          shortName: 'AI推進法',
+          path: '/law/jp/ai_suishin_hou',
+          status: 'available',
+          year: 2025,
+          badge: 'AIとなかよし！',
+        },
+      ],
+    },
+    {
+      id: 'jp_current',
+      title: 'いまの法律',
+      icon: '🗾',
+      laws: [
+        {
           id: 'ai_suishin_hou',
           shortName: 'AI推進法',
           path: '/law/jp/ai_suishin_hou',

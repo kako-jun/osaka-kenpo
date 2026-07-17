@@ -26,6 +26,7 @@ export default function Home() {
   return (
     <div className="relative">
       <WebsiteStructuredData description="法律の条文をおおさか弁で親しみやすく解説するサイト。六法、AI推進法、外国憲法、条約まで収録しています。" />
+      <h1 className="sr-only">おおさかけんぽう</h1>
 
       {/* 右上にシェアボタン */}
       <div className="fixed top-20 right-4 z-10">
@@ -40,8 +41,7 @@ export default function Home() {
         />
       </div>
       <div className="mb-6 text-center">
-        <h1 className="text-3xl font-bold text-[#E94E77]">おおさかけんぽう</h1>
-        <p className="mt-2 text-base text-gray-700">法律をおおさか弁で知ろう。知らんけど</p>
+        <p className="text-base text-gray-700">法律をおおさか弁で知ろう。知らんけど</p>
       </div>
 
       {/* カウンタエリア */}

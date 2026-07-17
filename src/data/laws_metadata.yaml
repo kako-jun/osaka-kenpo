@@ -3,6 +3,16 @@ categories:
     title: できたてホカホカやで
     icon: 🍚
     laws:
+      - id: ramsar_convention
+        path: /law/treaty/ramsar_convention
+        status: available
+      - id: ai_suishin_hou
+        path: /law/jp/ai_suishin_hou
+        status: available
+  - id: jp_current
+    title: いまの法律
+    icon: 🗾
+    laws:
       - id: ai_suishin_hou
         path: /law/jp/ai_suishin_hou
         status: available
