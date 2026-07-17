@@ -26,10 +26,13 @@ export async function generateMetadata({
       title,
       description,
       url: `/law/${law_category}`,
+      images: ['/osaka-kenpo-logo.webp'],
     },
     twitter: {
+      card: 'summary_large_image',
       title,
       description,
+      images: ['/osaka-kenpo-logo.webp'],
     },
   };
 }
