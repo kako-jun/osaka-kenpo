@@ -38,10 +38,13 @@ export async function generateMetadata({
       title,
       description,
       url,
+      images: ['/osaka-kenpo-logo.webp'],
     },
     twitter: {
+      card: 'summary_large_image',
       title,
       description,
+      images: ['/osaka-kenpo-logo.webp'],
     },
   };
 }
