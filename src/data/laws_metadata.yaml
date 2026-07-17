@@ -9,6 +9,12 @@ categories:
       - id: ai_suishin_hou
         path: /law/jp/ai_suishin_hou
         status: available
+      - id: buke_shohatto
+        path: /law/jp_hist/buke_shohatto
+        status: available
+      - id: kinchu_kuge_shohatto
+        path: /law/jp_hist/kinchu_kuge_shohatto
+        status: available
   - id: roppou
     title: ろっぽう（＋会社法）
     icon: ⚖️
@@ -59,13 +65,13 @@ categories:
         status: preparing
       - id: buke_shohatto
         path: /law/jp_hist/buke_shohatto
-        status: preparing
+        status: available
       - id: shourui_awaremi_no_rei
         path: /law/jp_hist/shourui_awaremi_no_rei
         status: preparing
       - id: kinchu_kuge_shohatto
         path: /law/jp_hist/kinchu_kuge_shohatto
-        status: preparing
+        status: available
       - id: gokajou_no_goseimon
         path: /law/jp_hist/gokajou_no_goseimon
         status: preparing
