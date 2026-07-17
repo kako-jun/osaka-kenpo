@@ -82,15 +82,23 @@ function getAllLaws() {
   return allLaws;
 }
 
+// 条文ファイルではないメタデータYAML（法律ごとに1つずつ存在し、条文として数えてはいけない）
+export const NON_ARTICLE_YAML_FILES = [
+  'law_metadata.yaml',
+  'chapters.yaml',
+  'famous_articles.yaml',
+];
+
 /**
  * 指定された法律の全条文を取得
  */
-function getArticles(lawDir) {
+export function getArticles(lawDir) {
   const articles = [];
   const files = fs.readdirSync(lawDir);
 
   for (const file of files) {
     if (!file.endsWith('.yaml')) continue;
+    if (NON_ARTICLE_YAML_FILES.includes(file)) continue;
 
     const filePath = path.join(lawDir, file);
     try {
@@ -102,8 +110,9 @@ function getArticles(lawDir) {
 
       articles.push({
         file,
-        articleNumber: data.articleNumber || file.replace('.yaml', ''),
-        text: data.text || '',
+        articleNumber:
+          data.article !== undefined ? String(data.article) : file.replace('.yaml', ''),
+        text: (data.originalText || []).join(' '),
         osakaText: data.osakaText || '',
         commentary: data.commentary || [],
         commentaryOsaka: data.commentaryOsaka || [],
@@ -360,7 +369,11 @@ async function main() {
   console.log(`  3. GitHub Issue #31 を更新\n`);
 }
 
-main().catch((error) => {
-  console.error('❌ エラー:', error);
-  process.exit(1);
-});
+// CLIとして直接実行された場合のみmain()を起動する
+// （テストからexport importする際にCLI本体が副作用として走らないようにするためのガード）
+if (process.argv[1] === __filename) {
+  main().catch((error) => {
+    console.error('❌ エラー:', error);
+    process.exit(1);
+  });
+}
