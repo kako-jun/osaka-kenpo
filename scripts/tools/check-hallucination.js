@@ -110,7 +110,8 @@ export function getArticles(lawDir) {
 
       articles.push({
         file,
-        articleNumber: data.articleNumber || file.replace('.yaml', ''),
+        articleNumber:
+          data.article !== undefined ? String(data.article) : file.replace('.yaml', ''),
         text: (data.originalText || []).join(' '),
         osakaText: data.osakaText || '',
         commentary: data.commentary || [],

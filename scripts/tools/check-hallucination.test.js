@@ -9,6 +9,10 @@ import { getArticles, NON_ARTICLE_YAML_FILES } from './check-hallucination.js';
 // 条文としてカウントしてしまうバグ（Issue #70）の再発防止テスト。
 // 実データ（src/data/laws/**）には依存させず、使い捨ての一時ディレクトリに
 // フィクスチャYAMLを作って検証する。
+//
+// フィクスチャのフィールド名は実データのスキーマ（article: 数値または枝番文字列,
+// originalText: 配列, commentary/commentaryOsaka: 配列）に合わせている。
+// articleNumber/text は実データに存在しないフィールド名のため使用しない。
 
 let tmpDir;
 
@@ -20,22 +24,22 @@ afterEach(() => {
   fs.rmSync(tmpDir, { recursive: true, force: true });
 });
 
-/** フィクスチャの条文/メタデータYAMLを書き出す */
-function writeYaml(fileName, data) {
-  fs.writeFileSync(path.join(tmpDir, fileName), yaml.dump(data), 'utf8');
-}
-
 /** 加工なしの生テキストを書き出す（不正YAML・非YAML拡張子の検証用） */
 function writeRaw(fileName, content) {
   fs.writeFileSync(path.join(tmpDir, fileName), content, 'utf8');
 }
 
+/** フィクスチャの条文/メタデータYAMLを書き出す */
+function writeYaml(fileName, data) {
+  fs.writeFileSync(path.join(tmpDir, fileName), yaml.dump(data), 'utf8');
+}
+
 describe('getArticles', () => {
   describe('正常系', () => {
     it('通常条文のみのディレクトリでは全件が返り、file/articleNumberが正しい', () => {
-      writeYaml('1.yaml', { articleNumber: '1', text: '第一条の本文' });
-      writeYaml('2.yaml', { articleNumber: '2', text: '第二条の本文' });
-      writeYaml('3.yaml', { articleNumber: '3', text: '第三条の本文' });
+      writeYaml('1.yaml', { article: 1, originalText: ['第一条の本文'] });
+      writeYaml('2.yaml', { article: 2, originalText: ['第二条の本文'] });
+      writeYaml('3.yaml', { article: 3, originalText: ['第三条の本文'] });
 
       const articles = getArticles(tmpDir);
 
@@ -48,7 +52,7 @@ describe('getArticles', () => {
   describe('text フィールド（originalTextからの導出）', () => {
     it('originalText配列がある条文で、text フィールドに originalText の内容が正しく反映される', () => {
       writeYaml('1.yaml', {
-        articleNumber: '1',
+        article: 1,
         originalText: ['文武弓馬の道、専らこれ嗜むべし。', '文武上下の礼儀を正しくすべき事。'],
       });
 
@@ -60,9 +64,41 @@ describe('getArticles', () => {
     });
   });
 
+  describe('articleNumber フィールド（articleからの導出）', () => {
+    it('article が数値の条文で、articleNumber に文字列化された値が反映される', () => {
+      writeYaml('1.yaml', { article: 1, originalText: ['本文'] });
+
+      const articles = getArticles(tmpDir);
+
+      expect(articles[0].articleNumber).toBe('1');
+    });
+
+    it('article が枝番文字列（例: 18-2）の条文で、articleNumber がそのまま反映される', () => {
+      writeYaml('18-2.yaml', { article: '18-2', originalText: ['枝番条文18-2'] });
+
+      const articles = getArticles(tmpDir);
+
+      expect(articles[0].articleNumber).toBe('18-2');
+    });
+
+    it('commentary/commentaryOsakaがある条文で、両フィールドがそのまま反映される', () => {
+      writeYaml('1.yaml', {
+        article: 1,
+        originalText: ['本文'],
+        commentary: ['標準語解説の段落1'],
+        commentaryOsaka: ['大阪弁解説の段落1'],
+      });
+
+      const articles = getArticles(tmpDir);
+
+      expect(articles[0].commentary).toEqual(['標準語解説の段落1']);
+      expect(articles[0].commentaryOsaka).toEqual(['大阪弁解説の段落1']);
+    });
+  });
+
   describe('メタデータYAMLの除外（過去の事故パターン回帰防止）', () => {
     it('law_metadata.yaml が条文としてカウントされない（本バグの直接再現テスト）', () => {
-      writeYaml('1.yaml', { articleNumber: '1', text: '本文' });
+      writeYaml('1.yaml', { article: 1, originalText: ['本文'] });
       writeYaml('law_metadata.yaml', { title: 'テスト法', articleCount: 1 });
 
       const articles = getArticles(tmpDir);
@@ -72,7 +108,7 @@ describe('getArticles', () => {
     });
 
     it('chapters.yaml が条文としてカウントされない', () => {
-      writeYaml('1.yaml', { articleNumber: '1', text: '本文' });
+      writeYaml('1.yaml', { article: 1, originalText: ['本文'] });
       writeYaml('chapters.yaml', { chapters: [{ title: '第一章' }] });
 
       const articles = getArticles(tmpDir);
@@ -82,7 +118,7 @@ describe('getArticles', () => {
     });
 
     it('famous_articles.yaml が条文としてカウントされない', () => {
-      writeYaml('1.yaml', { articleNumber: '1', text: '本文' });
+      writeYaml('1.yaml', { article: 1, originalText: ['本文'] });
       writeYaml('famous_articles.yaml', { famous: ['1'] });
 
       const articles = getArticles(tmpDir);
@@ -92,8 +128,8 @@ describe('getArticles', () => {
     });
 
     it('枝番条文ファイル（132-2.yaml, 18-2.yaml等）が誤って除外されない', () => {
-      writeYaml('132-2.yaml', { articleNumber: '132-2', text: '枝番条文132-2' });
-      writeYaml('18-2.yaml', { articleNumber: '18-2', text: '枝番条文18-2' });
+      writeYaml('132-2.yaml', { article: '132-2', originalText: ['枝番条文132-2'] });
+      writeYaml('18-2.yaml', { article: '18-2', originalText: ['枝番条文18-2'] });
 
       const articles = getArticles(tmpDir);
 
@@ -101,7 +137,7 @@ describe('getArticles', () => {
     });
 
     it('suppl-19.yaml のような補則条文ファイル名は除外リストと部分一致せず除外されない', () => {
-      writeYaml('suppl-19.yaml', { articleNumber: 'suppl-19', text: '附則条文' });
+      writeYaml('suppl-19.yaml', { article: 'suppl-19', originalText: ['附則条文'] });
 
       const articles = getArticles(tmpDir);
 
@@ -111,9 +147,9 @@ describe('getArticles', () => {
 
   describe('同値分割', () => {
     it('.yaml で終わらないファイルは無条件除外される（.yml/.json/.md/拡張子なし）', () => {
-      writeYaml('1.yaml', { articleNumber: '1', text: '本文' });
-      writeRaw('2.yml', 'articleNumber: "2"\ntext: 本文2\n');
-      writeRaw('3.json', '{"articleNumber":"3"}');
+      writeYaml('1.yaml', { article: 1, originalText: ['本文'] });
+      writeRaw('2.yml', 'article: 2\noriginalText:\n  - 本文2\n');
+      writeRaw('3.json', '{"article":3}');
       writeRaw('4.md', '# note');
       writeRaw('README', 'no extension');
 
@@ -124,7 +160,7 @@ describe('getArticles', () => {
     });
 
     it('除外リストに載っていない.yamlは通常どおり条文として処理される', () => {
-      writeYaml('unusual_name.yaml', { articleNumber: '99', text: '本文' });
+      writeYaml('unusual_name.yaml', { article: 99, originalText: ['本文'] });
 
       const articles = getArticles(tmpDir);
 
@@ -135,7 +171,7 @@ describe('getArticles', () => {
 
   describe('境界値（完全一致マッチの仕様固定）', () => {
     it('大文字小文字違い（LAW_METADATA.yaml）は除外されない', () => {
-      writeYaml('LAW_METADATA.yaml', { articleNumber: 'x', text: '本文' });
+      writeYaml('LAW_METADATA.yaml', { article: 'x', originalText: ['本文'] });
 
       const articles = getArticles(tmpDir);
 
@@ -143,8 +179,8 @@ describe('getArticles', () => {
     });
 
     it('類似だが異なるファイル名（law_metadata2.yaml, law_metadata_backup.yaml）は除外されない', () => {
-      writeYaml('law_metadata2.yaml', { articleNumber: 'a', text: '本文' });
-      writeYaml('law_metadata_backup.yaml', { articleNumber: 'b', text: '本文' });
+      writeYaml('law_metadata2.yaml', { article: 'a', originalText: ['本文'] });
+      writeYaml('law_metadata_backup.yaml', { article: 'b', originalText: ['本文'] });
 
       const articles = getArticles(tmpDir);
 
@@ -171,7 +207,7 @@ describe('getArticles', () => {
       writeRaw('law_metadata.yaml', '{{{ invalid yaml [[[');
       writeRaw('chapters.yaml', ': : : broken yaml ::: [');
       writeRaw('famous_articles.yaml', '[unclosed');
-      writeYaml('1.yaml', { articleNumber: '1', text: '本文' });
+      writeYaml('1.yaml', { article: 1, originalText: ['本文'] });
 
       let articles;
       expect(() => {
@@ -183,8 +219,8 @@ describe('getArticles', () => {
 
   describe('条件分岐の組み合わせ', () => {
     it('除外対象3ファイルすべてが条文と混在しても条文のみ返る', () => {
-      writeYaml('1.yaml', { articleNumber: '1', text: '本文1' });
-      writeYaml('2.yaml', { articleNumber: '2', text: '本文2' });
+      writeYaml('1.yaml', { article: 1, originalText: ['本文1'] });
+      writeYaml('2.yaml', { article: 2, originalText: ['本文2'] });
       writeYaml('law_metadata.yaml', { title: 'テスト法' });
       writeYaml('chapters.yaml', { chapters: [] });
       writeYaml('famous_articles.yaml', { famous: [] });
@@ -195,7 +231,7 @@ describe('getArticles', () => {
     });
 
     it('除外対象ファイルが1〜2個だけ存在する部分ケースでも正しく除外される', () => {
-      writeYaml('1.yaml', { articleNumber: '1', text: '本文1' });
+      writeYaml('1.yaml', { article: 1, originalText: ['本文1'] });
       writeYaml('law_metadata.yaml', { title: 'テスト法' });
       writeYaml('chapters.yaml', { chapters: [] });
       // famous_articles.yaml は存在しない
@@ -206,8 +242,8 @@ describe('getArticles', () => {
     });
 
     it('除外対象ファイルが1件も存在しないディレクトリでは全.yamlが条文として処理される', () => {
-      writeYaml('1.yaml', { articleNumber: '1', text: '本文1' });
-      writeYaml('2.yaml', { articleNumber: '2', text: '本文2' });
+      writeYaml('1.yaml', { article: 1, originalText: ['本文1'] });
+      writeYaml('2.yaml', { article: 2, originalText: ['本文2'] });
 
       const articles = getArticles(tmpDir);
 
@@ -215,8 +251,8 @@ describe('getArticles', () => {
     });
 
     it('除外ファイルと deleted: true 条文が同一ディレクトリに混在しても互いに影響しない', () => {
-      writeYaml('1.yaml', { articleNumber: '1', text: '本文1' });
-      writeYaml('2.yaml', { articleNumber: '2', text: '削除済み条文', deleted: true });
+      writeYaml('1.yaml', { article: 1, originalText: ['本文1'] });
+      writeYaml('2.yaml', { article: 2, originalText: ['削除済み条文'], deleted: true });
       writeYaml('law_metadata.yaml', { title: 'テスト法' });
 
       const articles = getArticles(tmpDir);
@@ -230,7 +266,7 @@ describe('getArticles', () => {
       const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
       try {
         writeRaw('law_metadata.yaml', '{{{ invalid yaml [[[');
-        writeYaml('1.yaml', { articleNumber: '1', text: '本文' });
+        writeYaml('1.yaml', { article: 1, originalText: ['本文'] });
 
         getArticles(tmpDir);
 
