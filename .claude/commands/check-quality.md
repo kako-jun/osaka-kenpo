@@ -50,6 +50,8 @@ node scripts/tools/check-combined-quality.cjs
 node scripts/tools/check-hallucination.js
 ```
 
+**注意**: このコマンドはチェック用プロンプトファイル（`reports/prompt-*.txt`）を生成するだけで、実行してもその場で結果は出ない。生成されたプロンプトファイルを Agent ツールでサブエージェントに渡して実行し、返ってきた結果 JSON の `issuesFound` を確認すること。詳細は [law-addition-guide.md](../guides/law-addition-guide.md) の「2.1. check-law-quality.js / check-hallucination.js の運用実態」を参照。
+
 ## 報告フォーマット
 
 法律ごとに以下を報告：

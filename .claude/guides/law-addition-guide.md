@@ -170,6 +170,18 @@ chapters:
 - 歴史的背景や他の条文との関係にも言及する
 - 大阪弁解説（commentaryOsaka）の品質基準は [translation-style-guide.md](./translation-style-guide.md) を参照。**commentaryOsaka は commentary の大阪弁化ではない**。大阪らしい観点・たとえ話を軸に、一から独自に解説し直したもの（構成・切り口も commentary と揃えない）
 
+### 2.1. check-law-quality.js / check-hallucination.js の運用実態（重要）
+
+`scripts/tools/check-law-quality.js <category> <law-id>` と `scripts/tools/check-hallucination.js [category] [law]` は、**実行しても PASS/FAIL がその場で出るコマンドではない**。この2つはチェック用プロンプト（`reports/quality-check-prompt-*.txt` / `reports/prompt-*.txt`）を生成するだけで終わる。
+
+実際のチェックは以下の手順が必須:
+
+1. 上記コマンドを実行し、生成されたプロンプトファイルのパスを確認する
+2. そのプロンプトファイルの内容を Agent ツール（サブエージェント）に渡して実行する
+3. サブエージェントが返す結果 JSON（`issuesFound` / `issues` 配列）を確認し、問題があれば修正する
+
+（`check-osaka-text-quality.cjs` / `check-commentary-quality.cjs` / `check-combined-quality.cjs` はこれとは異なり、実行するとその場でパターンマッチ結果が出力される直接チェックスクリプト）
+
 ## 3. バッチ分割戦略（大量条文の場合）
 
 条文追加（Phase 1-2）のバッチサイズ:
