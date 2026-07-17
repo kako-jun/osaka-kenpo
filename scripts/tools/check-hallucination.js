@@ -370,7 +370,7 @@ async function main() {
 
 // CLIとして直接実行された場合のみmain()を起動する
 // （テストからexport importする際にCLI本体が副作用として走らないようにするためのガード）
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] === __filename) {
   main().catch((error) => {
     console.error('❌ エラー:', error);
     process.exit(1);
