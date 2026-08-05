@@ -3,12 +3,16 @@ title: 第6条
 titleOsaka: ''
 originalText:
   - 'The international bureau of weights and measures shall be charged with the following duties:'
-  - '1st. All comparisons and verifications of the new prototypes of the meter and kilogram.'
+  - 1st. All comparisons and verifications of the new prototypes of the meter and kilogram.
   - 2d. The custody of the international prototypes.
   - 3d. The periodical comparison of the national standards with the international prototypes and with their test copies, as well as comparisons of the standard thermometers.
   - 4th. The comparison of the prototypes with the fundamental standards of non-metrical weights and measures used in different countries for scientific purposes.
   - 5th. The sealing and comparison of geodesic measuring-bars.
   - 6th. The comparison of standards and scales of precision, the verification of which may be requested by governments or by scientific societies, or even by constructors or men of science.
 osakaText: []
-commentary: []
+commentary:
+  - この条文は、国際度量衡局が担うべき具体的な業務を6項目にわたって列挙したものです。新しいメートル原器・キログラム原器の比較と検定、国際原器の保管、各国の国家標準と国際原器との定期的な比較、非メートル系の基準との科学的比較、測地用計量桿の封印と比較、そして政府・学術団体・技術者などから依頼された標準器の比較検定が、それぞれ局の任務として明記されています。
+  - これらの業務のうち、特に重要だったのが最初の項目、すなわち新しい原器の比較検定です。メートル条約締結後、国際度量衡局では白金イリジウム合金による新しい国際メートル原器と国際キログラム原器が製作され、既存の基準との厳密な比較検証が行われました。この作業の成果として、1889年に開催された第1回国際度量衡総会において、各締約国に国際原器の複製(国家原器)を配布することが決定されます。
+  - 例えば、日本も1885年にこの条約に加盟しており、1889年の配布決定を受けて、翌1890年にフランスから「日本国メートル原器」(No.22)と「日本国キログラム原器」(No.6)が到着しました。これらは中央度量衡器検定所(現・産業技術総合研究所)で保管され、日本国内における長さと質量の基準として、以後長らく用いられました。局はこうした国家原器についても、定期的に国際原器と比較する任務を負っており、経年変化がないかを継続的に監視しています。
+  - なお、こうした比較検定の作業に必要な人員体制については第7条で、国際原器そのものの保管・アクセス制限については第8条で、それぞれ具体的に定められています。
 commentaryOsaka: []

@@ -4,5 +4,9 @@ titleOsaka: ''
 originalText:
   - The entire expense of the construction and outfit of the international bureau of weights and measures, together with the annual cost of its maintenance and the expenses of the committee, shall be defrayed by contributions from the contracting states, the amount of which shall be computed in proportion to the actual population of each.
 osakaText: []
-commentary: []
+commentary:
+  - この条文は、国際度量衡局の建設・設備にかかる全費用、および局の年間維持費と委員会の経費を、締約国からの分担金でまかなうことを定めたものです。分担金の額は、各国の実際の人口に比例して算出されるという、当時としては合理的かつ公平性を重視した基準が採用されています。
+  - 人口比例という分担方式は、国力や経済規模ではなく人口という客観的で測定しやすい指標を用いる点で、19世紀の国際条約における分担金制度としては先進的な設計でした。国によって経済発展の度合いに大きな差があった当時、国内総生産のような経済指標を基準にすると算定や合意が難しかったであろうことを考えると、人口という指標は各国が比較的納得しやすい落とし所だったと考えられます。
+  - 例えば、原署名国のうちフランスやドイツ、ロシアのように人口の多い国は相応に大きな分担金を負担し、逆に人口の少ない国は少ない負担で条約に参加できました。この仕組みによって、大国だけが局を独占的に運営するのではなく、参加国すべてが応分の負担のもとで対等に関与できる国際機関としての性格が保たれたのです。
+  - 分担金の具体的な納付方法については第10条で、新たに条約に加盟する国の分担金については第11条で、それぞれ続けて定められています。
 commentaryOsaka: []

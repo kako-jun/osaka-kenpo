@@ -4,5 +4,9 @@ titleOsaka: ''
 originalText:
   - The amounts representing the contributions of each of the contracting states shall be paid at the beginning of each year, through the ministry of foreign affairs of France, into the Caisse des dépôts et consignations at Paris, whence they may be drawn as occasion may require, upon the order of the director of the bureau.
 osakaText: []
-commentary: []
+commentary:
+  - この条文は、各締約国が負担する分担金の具体的な納付方法を定めたもので、各国は毎年の年初に、フランス外務省を経由して、パリの供託金庫(Caisse des dépôts et consignations)へ分担金を払い込むこと、そしてその資金は局長の指図に応じて必要な都度引き出されることを規定しています。
+  - 供託金庫は、フランス国内の公的な資金管理機関であり、国庫に準じる高い信頼性を持つ機関として19世紀から機能してきました。国際度量衡局という多国籍の資金を扱う機関の会計処理を、特定の一国だけの裁量に委ねてしまうと不透明さが生じかねませんが、フランスの公的な供託機関を経由させることで、資金の流れを可視化し、不正の入り込む余地を減らす仕組みになっています。
+  - 例えば、ある年にドイツが自国の分担金をフランス外務省経由で供託金庫に払い込んだとすると、その資金は国際度量衡局の帳簿上では他国からの拠出金とあわせて一括管理され、局長が新しい測定機器を購入する必要が生じた際などに、必要な分だけ引き出されて使われることになります。
+  - この納付の仕組みは、第9条で定められた人口比例による分担金の算定方法と一体で機能するものであり、算定方式と納付方式をそれぞれ別の条文に分けて規定している点に、条約起草者の実務的な配慮がうかがえます。
 commentaryOsaka: []

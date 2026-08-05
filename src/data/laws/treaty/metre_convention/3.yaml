@@ -4,5 +4,9 @@ titleOsaka: ''
 originalText:
   - The operation of the international bureau shall be under the exclusive direction and supervision of an international committee of weights and measures, which latter shall be under the control of a general conference for weights and measures, to be composed of the delegates of all the contracting governments.
 osakaText: []
-commentary: []
+commentary:
+  - この条文は、国際度量衡局の運営体制を定めるもので、局の業務は国際度量衡委員会(CIPM)による専属の指揮・監督のもとに置かれ、さらにその委員会は締約国すべての代表者で構成される国際度量衡総会(CGPM)の統制を受けるという、三層構造の統治システムを規定しています。
+  - この仕組みは、1875年の条約締結時に設計されたものですが、150年近く経った現在でも国際単位系(SI)を運営する基本骨格としてそのまま維持されています。総会が最上位の意思決定機関、委員会が日常的な監督機関、局が実務を担う事務局という役割分担は、国際機関の統治モデルとしても先駆的なものでした。19世紀の国際条約としては珍しく、専門的な実務を担う常設機関を国家間条約で設立した先駆例として位置づけられています。
+  - 例えば、局の職員が新しい原器の比較作業を行うといった日々の実務は、委員会の監督のもとで進められますが、単位の定義そのものを変更するような重要な決定は、全締約国の代表が集まる総会でなければ行えません。このように、専門的な実務と政治的な最終決定を分離する仕組みによって、科学的な中立性を保ちながらも、加盟国全体の合意を確保するという二つの要請を両立させています。
+  - なお、総会を主宰する人物については第4条で、局・委員会・総会それぞれの具体的な組織構成や権限については第5条で、それぞれ補足的に定められています。
 commentaryOsaka: []

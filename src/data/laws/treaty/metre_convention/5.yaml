@@ -4,5 +4,9 @@ titleOsaka: ''
 originalText:
   - The organization of the bureau, as well as the formation and the powers of the international committee, and of the general conference for weights and measures, are established by the regulations subjoined to this convention.
 osakaText: []
-commentary: []
+commentary:
+  - この条文は、国際度量衡局の組織のあり方や、国際度量衡委員会(CIPM)および国際度量衡総会(CGPM)の構成・権限について、条約本文ではなく条約に付属する規則(règlement annexé)で定めることを規定したものです。
+  - 条約という国家間の正式な合意文書は、本来であれば頻繁に改正することが難しい性質を持っています。しかし、国際機関の実務的な組織運営に関する細部は、時代の変化や運営上の必要に応じて柔軟に見直せるようにしておく必要があります。そこでメートル条約では、根幹となる原則は条約本文に、具体的な組織運営のルールは付属規則に、という形で書き分ける立法技術が採用されました。これは19世紀の国際条約としては先進的な工夫でした。
+  - 例えば、委員会の委員定数を何名にするか、総会の開催頻度をどう定めるかといった事項は、条約本体を各国が改めて批准し直さなくても、規則の改正という比較的簡便な手続きで対応できるようになっています。これにより、国際度量衡局は150年近くにわたって存続しながら、時代に応じて柔軟に組織を調整することができました。
+  - 第3条で示された総会・委員会・局の三層構造、第4条で定められた総会議長の選出方法は、いずれもこの第5条が指し示す付属規則によって、より詳細な運用ルールへと落とし込まれる関係にあります。
 commentaryOsaka: []
