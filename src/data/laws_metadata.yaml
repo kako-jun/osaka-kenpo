@@ -146,7 +146,7 @@ categories:
         status: preparing
       - id: metre_convention
         path: /law/treaty/metre_convention
-        status: preparing
+        status: available
       - id: itu_constitution
         path: /law/treaty/itu_constitution
         status: preparing
