@@ -3,4 +3,7 @@ shortName: 権利章典
 badge: 議会が一番！
 year: 1689
 source: An Act Declaring the Rights and Liberties of the Subject and Settling the Succession of the Crown (1689年12月16日制定)
-description: 名誉革命後にイングランド議会が制定した基本法。議会主権の確立、国王の専制権力を制限し、臣民の権利と自由を宣言。立憲君主制の基礎を築き、アメリカ権利章典やフランス人権宣言に影響を与えた。
+description: 名誉革命後にイングランド議会が制定した基本法。議会主権の確立、国王の専制権力を制限し、臣民の権利と自由を宣言。立憲君主制の基礎を築き、アメリカ権利章典やフランス人権宣言に影響を与えた。原文は英語で日本語の公定訳が存在しないため、原文（English Bill of Rights 1689）をoriginalTextに採用。
+links:
+  - text: Wikisource - Bill of Rights 1689
+    url: https://en.wikisource.org/wiki/Bill_of_Rights_1689
