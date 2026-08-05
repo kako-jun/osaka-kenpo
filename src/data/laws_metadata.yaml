@@ -74,7 +74,7 @@ categories:
         status: available
       - id: gokajou_no_goseimon
         path: /law/jp_hist/gokajou_no_goseimon
-        status: preparing
+        status: available
       - id: meiji_kenpo
         path: /law/jp_hist/meiji_kenpo
         status: preparing
