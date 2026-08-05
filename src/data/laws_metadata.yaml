@@ -131,7 +131,7 @@ categories:
         status: available
       - id: outer_space_treaty
         path: /law/treaty/outer_space_treaty
-        status: preparing
+        status: available
       - id: universal_postal_convention
         path: /law/treaty/universal_postal_convention
         status: preparing
