@@ -56,7 +56,7 @@ categories:
         status: available
       - id: konden_einen_shizai_hou
         path: /law/jp_hist/konden_einen_shizai_hou
-        status: preparing
+        status: available
       - id: taiho_ritsuryo
         path: /law/jp_hist/taiho_ritsuryo
         status: preparing
