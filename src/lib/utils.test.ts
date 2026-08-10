@@ -131,6 +131,15 @@ describe('getArticleSortKey', () => {
     expect(amend).toBe(200001);
   });
 
+  it('規則 kisoku-1 は通常条文より大きく、附則 suppl-1 より小さいキー（本文の直後・附則の手前）', () => {
+    const normal = getArticleSortKey('999');
+    const kisoku = getArticleSortKey('kisoku-1');
+    const suppl = getArticleSortKey('suppl-1');
+    expect(kisoku).toBeGreaterThan(normal);
+    expect(kisoku).toBeLessThan(suppl);
+    expect(kisoku).toBe(50001);
+  });
+
   it('非数値・不正入力で NaN を返さない', () => {
     const k = getArticleSortKey('foo');
     expect(Number.isNaN(k)).toBe(false);
@@ -258,5 +267,9 @@ describe('formatArticleNumber', () => {
 
   it('改正は 修正第N条', () => {
     expect(formatArticleNumber('amend-1')).toBe('修正第1条');
+  });
+
+  it('規則は 規則第N条', () => {
+    expect(formatArticleNumber('kisoku-1')).toBe('規則第1条');
   });
 });
