@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { getArticle, getArticleNavList, getLawMetadata, type ArticleNavRow } from '@/lib/db';
 import { ArticleClient } from './ArticleClient';
 import { lawsMetadata } from '@/data/lawsMetadata';
-import { navExcerptFromHead, formatArticleNumber } from '@/lib/utils';
+import { navExcerptFromHead, formatArticleNumber, getArticleSortKey } from '@/lib/utils';
 import buildDateJson from '@/data/build-date.json';
 
 export const runtime = 'edge';
@@ -156,12 +156,17 @@ export default async function ArticlePage({
   };
 
   // 全条文リストをクライアント用に変換
-  const allArticles = allArticlesRows.map((a: ArticleNavRow) => ({
-    article: a.article,
-    title: a.title || '',
-    titleOsaka: a.title_osaka || undefined,
-    originalText: (!a.title ? navExcerptFromHead(a.original_text_head) : '') || undefined,
-  }));
+  // D1のORDER BYは非数値プレフィックス（kisoku-/suppl-/amend-）を文字列比較するため
+  // 2桁以降で誤順（kisoku-10 が kisoku-2 より前）になる。前後条文ナビ用に
+  // getArticleSortKey で正しい条文順に並び直す。
+  const allArticles = [...allArticlesRows]
+    .sort((a, b) => getArticleSortKey(String(a.article)) - getArticleSortKey(String(b.article)))
+    .map((a: ArticleNavRow) => ({
+      article: a.article,
+      title: a.title || '',
+      titleOsaka: a.title_osaka || undefined,
+      originalText: (!a.title ? navExcerptFromHead(a.original_text_head) : '') || undefined,
+    }));
 
   // JSON-LD: このサイトの独自価値は「大阪弁での解説」。原文(e-Gov重複)ではなく
   // 大阪弁訳・大阪弁解説を articleBody に据えて、独自コンテンツとして宣言する。
