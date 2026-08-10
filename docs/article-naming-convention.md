@@ -10,13 +10,14 @@
 
 ## 🎯 統一命名規則
 
-| 種類               | 形式              | 例             | URL例                                | 根拠                                                             |
-| ------------------ | ----------------- | -------------- | ------------------------------------ | ---------------------------------------------------------------- |
-| **通常条文**       | `数字.yaml`       | `123.yaml`     | `/law/jp/minpou/123`                 | 全法律共通                                                       |
-| **日本枝番**       | `数字-数字.yaml`  | `121-2.yaml`   | `/law/jp/minpou/121-2`               | [e-Gov法令検索](https://elaws.e-gov.go.jp/)                      |
-| **附則**           | `suppl-数字.yaml` | `suppl-1.yaml` | `/law/jp/minpou/suppl-1`             | supplementary（略称）                                            |
-| **米修正条項**     | `amend-数字.yaml` | `amend-1.yaml` | `/law/world/us_constitution/amend-1` | amendment（略称）                                                |
-| **独アルファ条文** | `数字英字.yaml`   | `12a.yaml`     | `/law/world/german_basic_law/12a`    | [gesetze-im-internet.de](https://www.gesetze-im-internet.de/gg/) |
+| 種類               | 形式               | 例              | URL例                                   | 根拠                                                                              |
+| ------------------ | ------------------ | --------------- | --------------------------------------- | --------------------------------------------------------------------------------- |
+| **通常条文**       | `数字.yaml`        | `123.yaml`      | `/law/jp/minpou/123`                    | 全法律共通                                                                        |
+| **日本枝番**       | `数字-数字.yaml`   | `121-2.yaml`    | `/law/jp/minpou/121-2`                  | [e-Gov法令検索](https://elaws.e-gov.go.jp/)                                       |
+| **附則**           | `suppl-数字.yaml`  | `suppl-1.yaml`  | `/law/jp/minpou/suppl-1`                | supplementary（略称）                                                             |
+| **米修正条項**     | `amend-数字.yaml`  | `amend-1.yaml`  | `/law/world/us_constitution/amend-1`    | amendment（略称）                                                                 |
+| **独アルファ条文** | `数字英字.yaml`    | `12a.yaml`      | `/law/world/german_basic_law/12a`       | [gesetze-im-internet.de](https://www.gesetze-im-internet.de/gg/)                  |
+| **条約付属規則**   | `kisoku-数字.yaml` | `kisoku-1.yaml` | `/law/treaty/metre_convention/kisoku-1` | 規則（ローマ字表記。suppl/amendが英語略称のため対応する英訳語がなく例外的に採用） |
 
 ---
 
@@ -108,6 +109,28 @@ Art 13   (第13条 - 住居の不可侵)
 
 ---
 
+### 5. 条約の付属規則（メートル条約）
+
+**表記**: 規則第1条（条約本文とは別立ての Règlement annexé）  
+**ファイル名**: `kisoku-1.yaml`  
+**意味**: 条約本文（14条）に付属する規則（22条）
+
+**背景**:
+メートル条約は「条約本文14条＋付属規則22条＋経過規定6条」の3部構成（全42条）。
+本文は通常条文（`数字.yaml`）、経過規定は既存の附則パターン（`suppl-数字.yaml`）を
+流用したが、「付属規則」に対応する定訳の英語略称が無いため、日本語のローマ字表記
+`kisoku-` を採用した（例外的な命名）。
+
+**例**:
+
+- メートル条約 規則第1条 → `src/data/laws/treaty/metre_convention/kisoku-1.yaml`
+- メートル条約 規則第22条 → `src/data/laws/treaty/metre_convention/kisoku-22.yaml`
+- メートル条約 附則第1条（経過規定） → `src/data/laws/treaty/metre_convention/suppl-1.yaml`
+
+**条文順序**: 本文（1〜14）→ 規則（kisoku-1〜kisoku-22）→ 附則（suppl-1〜suppl-6）
+
+---
+
 ## 🔄 統一作業の履歴
 
 ### 第1回統一（2026-02-09）: ハイブリッド統一
@@ -160,13 +183,14 @@ Art 13   (第13条 - 住居の不可侵)
 
 ### 3. 略称の一貫性
 
-| 種類   | フルスペル    | 略称     | 文字数 |
-| ------ | ------------- | -------- | ------ |
-| 附則   | supplementary | suppl    | 5文字  |
-| 修正   | amendment     | amend    | 5文字  |
-| 副条項 | sub-article   | （なし） | -      |
+| 種類     | フルスペル                   | 略称     | 文字数 |
+| -------- | ---------------------------- | -------- | ------ |
+| 附則     | supplementary                | suppl    | 5文字  |
+| 修正     | amendment                    | amend    | 5文字  |
+| 副条項   | sub-article                  | （なし） | -      |
+| 付属規則 | 規則（対応する英語略称なし） | kisoku   | 6文字  |
 
-**統一理由**: 3-5文字の略称で短く、意味も推測可能
+**統一理由**: 3-5文字の略称で短く、意味も推測可能（`kisoku` のみ対応する定訳の英語略称が無いためローマ字表記の例外）
 
 ---
 
@@ -182,13 +206,14 @@ osaka-kenpo-{category}-{law}-{article}
 
 ### 実例
 
-| 条文           | Nostalgic ID                                |
-| -------------- | ------------------------------------------- |
-| 民法第123条    | `osaka-kenpo-jp-minpou-123`                 |
-| 民法第121条の2 | `osaka-kenpo-jp-minpou-121-2`               |
-| 民法附則第1条  | `osaka-kenpo-jp-minpou-suppl-1`             |
-| 米修正第1条    | `osaka-kenpo-world-us_constitution-amend-1` |
-| 独第12a条      | `osaka-kenpo-world-german_basic_law-12a`    |
+| 条文                   | Nostalgic ID                                   |
+| ---------------------- | ---------------------------------------------- |
+| 民法第123条            | `osaka-kenpo-jp-minpou-123`                    |
+| 民法第121条の2         | `osaka-kenpo-jp-minpou-121-2`                  |
+| 民法附則第1条          | `osaka-kenpo-jp-minpou-suppl-1`                |
+| 米修正第1条            | `osaka-kenpo-world-us_constitution-amend-1`    |
+| 独第12a条              | `osaka-kenpo-world-german_basic_law-12a`       |
+| メートル条約 規則第1条 | `osaka-kenpo-treaty-metre_convention-kisoku-1` |
 
 ### 生成スクリプト
 
@@ -230,6 +255,11 @@ src/data/laws/
 │   └── german_basic_law/
 │       ├── 12.yaml
 │       └── 12a.yaml     # アルファ条文
+├── treaty/              # 国際条約
+│   └── metre_convention/
+│       ├── 1.yaml        # 条約本文
+│       ├── kisoku-1.yaml # 付属規則
+│       └── suppl-1.yaml  # 経過規定（附則）
 └── ...
 ```
 
@@ -247,6 +277,9 @@ export function formatArticleNumber(article: number | string): string {
   // 修正条項（正規形式: amend-N のみ）
   const amendMatch = s.match(/^amend-(.+)$/);
   if (amendMatch) return `修正第${amendMatch[1]}条`;
+  // 条約付属規則（正規形式: kisoku-N のみ）
+  const kisokuMatch = s.match(/^kisoku-(.+)$/);
+  if (kisokuMatch) return `規則第${kisokuMatch[1]}条`;
   // 枝番（121-2 等）
   const branchMatch = s.match(/^(\d+)-(\d+)$/);
   if (branchMatch) return `第${branchMatch[1]}条の${branchMatch[2]}`;

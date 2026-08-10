@@ -339,7 +339,7 @@ ORDER BY
   article
 ```
 
-数値で始まる条文は数値順、それ以外（`suppl-`, `amend-`）は末尾に配置される。
+数値で始まる条文は数値順、それ以外（`kisoku-`, `suppl-`, `amend-`）は末尾に配置される。ただしこのSQLの `article` 文字列比較は非数値プレフィックスの2桁以降を正しく数値順にできない（例: `kisoku-10` が `kisoku-2` より前に来る）。そのため前後条文ナビゲーションを持つ条文ページ（`[article]/page.tsx`）では、`getArticleNavList()` の結果を `getArticleSortKey()`（`src/lib/utils.ts`）で並び替え直してから使用している。法律一覧ページ（`[law]/page.tsx`）も同様に `getArticleSortKey()` で再ソートしている。
 
 ## 7. D1 Seed SQL 生成
 

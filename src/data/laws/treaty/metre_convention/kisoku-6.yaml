@@ -1,0 +1,23 @@
+article: kisoku-6
+title: 規則第6条
+titleOsaka: ''
+originalText:
+  - 'The estimate of annual expenditures is as follows: A. For the first period — during the construction and comparison of the new prototypes: salary of the director, 15,000 fr.; salary of two adjuncts, at 6,000 fr. each, 12,000 fr.; salary of four assistants, at 3,000 fr. each, 12,000 fr.; pay of door-keeper (mechanic), 3,000 fr.; wages of two office-boys, at 1,500 fr. each, 3,000 fr. Total for salaries: 45,000 fr.'
+  - 'Compensation to men of science and artists who, by direction of the committee, may be employed to perform special duties, keeping of the building in proper order, purchase and repair of apparatus, fuel, light, and office-expenses: 24,000 fr. Compensation of the secretary of the international committee of weights and measures: 6,000 fr. Total: 75,000 fr.'
+  - 'The annual budget of the bureau may be modified by the international committee as necessity may require at the suggestion of the director, but it shall in no case exceed the sum of 100,000 francs. The contracting governments shall be notified of any modifications that the committee may think proper to make within these limits, in the annual budget fixed by the present regulations. The committee may authorize the director, at his request, to make transfers from one subdivision of the allotted budget to another.'
+  - 'B. For the period subsequent to the distribution of the prototypes: salary of the director, 15,000 fr.; salary of one adjunct, 6,000 fr.; pay of a door-keeper (mechanic), 3,000 fr.; wages of an office-boy, 1,500 fr. Total: 25,500 fr. Office-expenses: 18,500 fr. Compensation of secretary, international committee: 6,000 fr. Total: 50,000 fr.'
+osakaText:
+  - この条文はな、局の年間の運営費がどれくらいかかるかを、時期を分けて細こう見積もっとるんやで。まず、新しい原器を作って比べとる最初の時期の話でな、局長の給料が1万5千フラン、次長二人分の給料が合わせて1万2千フラン、助手四人分の給料が合わせて1万2千フラン、門番(機械係)の給料が3千フラン、事務の使い走り二人分の給料が合わせて3千フラン、給料だけで合計4万5千フランになるんや。
+  - そこに、委員会の指示で特別な仕事をする科学者や技術者への謝礼、建物の維持管理、器具の購入や修理、燃料や照明、事務経費なんかで2万4千フラン、国際委員会の書記への謝礼が6千フラン加わって、合計7万5千フランになるんやで。
+  - この年間予算は、局長の提案があれば国際委員会が必要に応じて見直してもええことになっとるけど、どんな場合でも10万フランを超えたらあかんのや。この範囲内で予算を見直したときは、締約国の政府にちゃんと知らせなあかんし、局長が申し出れば、委員会は予算の中の項目間でお金を融通することも認められとるんやで。
+  - そんで、原器が各国に配られた後の時期になったらな、局長の給料1万5千フラン、次長一人分の給料6千フラン、門番の給料3千フラン、事務の使い走り一人分の給料1500フランで、合計2万5500フラン。事務経費が1万8500フラン、国際委員会の書記への謝礼が6千フランで、合計5万フランに規模が縮小されることになっとるんや。
+commentary:
+  - この条文は、国際度量衡局の年間運営費の見積もりを、新原器の製作・比較作業中の時期(A)と、原器が各国に配布された後の時期(B)とに分けて、それぞれ職員の給与・経費の内訳と総額を細かく定めたものです。あわせて、年間予算は局長の提案により委員会が見直せるが上限は10万フランとすること、締約国政府への通知義務、局長による予算項目間の流用の仕組みも定めています。
+  - 第一期は局長・次長二名・助手四名という比較的大きな体制で75,000フランの予算が組まれているのに対し、第二期は局長・次長一名という縮小体制で50,000フランに抑えられています。これは、新原器の製作・比較検定という一時的に人手を要する作業が終われば、恒常的な運営に必要な人員は少なくて済むという、業務量の変化を見越した合理的な予算設計です。
+  - 例えば、原器の製作・比較作業が本格化する第一期には、助手四名を動員して並行して検定作業を進める必要がありましたが、原器が各国に配布された後の第二期には、日常的な比較検定業務が中心となるため、次長一名体制でも運営が可能と見積もられていました。また、10万フランという上限を設けつつも、局長の提案に基づく項目間の予算流用を認めることで、硬直的になりすぎない柔軟な運営が可能になっています。
+  - この予算規定は、規則第5条で定められた初期投資(建物・機器)の上限40万フランとは別枠であり、条約は一時的な設備投資と、継続的な運営経費とを、明確に分けて規律していることがわかります。
+commentaryOsaka:
+  - 家計簿でも、最初にお金がかかる時期と、落ち着いてからの時期って、使うお金がだいぶ違うことあるやろ。この条文は、まさにそういう「時期による予算の違い」を先読みして決めとるんやで。
+  - この条文はな、局の年間運営費を、新しい原器を作って比べとる忙しい時期と、原器を各国に配り終えて落ち着いた時期とに分けて、細かく見積もっとるんや。忙しい時期は局長・次長二人・助手四人の体制で合計7万5千フラン、落ち着いた時期は局長・次長一人の体制に縮小されて合計5万フランになる、いう具合やで。そんで、この予算は局長の提案があれば委員会が見直せるけど、どんな場合でも10万フランを超えたらあかん、いう上限も決まっとるんや。
+  - 例えばな、Aさんの家で、リフォーム工事をすることになってん。工事が始まってから終わるまでの間は、大工さんや職人さんがぎょうさん出入りするから、お弁当代や現場の光熱費なんかで、月々の出費が普段より大きくなるやろ。でも工事が終わったら、そういう臨時の出費はなくなって、普段どおりの生活費に戻っていくもんやんな。Aさんの家族は、工事中とその後とで、あらかじめ月々の予算を分けて計画を立てとったんやって。この条文の局の予算も、それとよう似とってな、原器製作という「工事中」の時期と、その後の落ち着いた「日常」の時期とで、予算の規模をあらかじめ分けて見積もっとるんやで。
+  - 忙しい時期用の予算と落ち着いた時期用の予算、両方をあらかじめきっちり見積もっとくいうんは、締約国側からしても、いつまでどれくらいの負担が続くんかが見通せて、ありがたい仕組みやったと思うわ。
