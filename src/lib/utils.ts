@@ -21,7 +21,7 @@ export function sortArticleNumbers(articles: string[]): string[] {
 
 /**
  * 条文番号を整形する（例: "1" -> "第1条", "suppl-1" -> "附則第1条", "kisoku-1" -> "規則第1条"）
- * 正規形式のみ受け付ける（suppl-N, amend-N, kisoku-N）。旧形式（fusoku_, amendment_, アンダースコア）は不正データ
+ * 正規形式のみ受け付ける（suppl-N, amend-N, kisoku-N, keika-N）。旧形式（fusoku_, amendment_, アンダースコア）は不正データ
  */
 export function formatArticleNumber(article: number | string): string {
   if (typeof article === 'number') return `第${article}条`;
@@ -32,6 +32,8 @@ export function formatArticleNumber(article: number | string): string {
   if (amendMatch) return `修正第${amendMatch[1]}条`;
   const kisokuMatch = s.match(/^kisoku-(.+)$/);
   if (kisokuMatch) return `規則第${kisokuMatch[1]}条`;
+  const keikaMatch = s.match(/^keika-(.+)$/);
+  if (keikaMatch) return `経過規定第${keikaMatch[1]}条`;
   const branchMatch = s.match(/^(\d+)-(\d+)$/);
   if (branchMatch) return `第${branchMatch[1]}条の${branchMatch[2]}`;
   return `第${article}条`;
@@ -175,6 +177,8 @@ export function navExcerptFromHead(head: string | null | undefined, maxLength = 
 export function getArticleSortKey(article: string): number {
   const kisokuMatch = article.match(/^kisoku-(.+)$/);
   if (kisokuMatch) return 50000 + (parseInt(kisokuMatch[1], 10) || 0);
+  const keikaMatch = article.match(/^keika-(.+)$/);
+  if (keikaMatch) return 75000 + (parseInt(keikaMatch[1], 10) || 0);
   const supplMatch = article.match(/^suppl-(.+)$/);
   if (supplMatch) return 100000 + (parseInt(supplMatch[1], 10) || 0);
   const amendMatch = article.match(/^amend-(.+)$/);

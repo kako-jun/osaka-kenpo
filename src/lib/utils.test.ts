@@ -140,6 +140,17 @@ describe('getArticleSortKey', () => {
     expect(kisoku).toBe(50001);
   });
 
+  it('経過規定 keika-1 は通常条文・規則 kisoku-1 より大きく、附則 suppl-1 より小さいキー（規則の直後・附則の手前）', () => {
+    const normal = getArticleSortKey('999');
+    const kisoku = getArticleSortKey('kisoku-1');
+    const keika = getArticleSortKey('keika-1');
+    const suppl = getArticleSortKey('suppl-1');
+    expect(keika).toBeGreaterThan(normal);
+    expect(keika).toBeGreaterThan(kisoku);
+    expect(keika).toBeLessThan(suppl);
+    expect(keika).toBe(75001);
+  });
+
   it('非数値・不正入力で NaN を返さない', () => {
     const k = getArticleSortKey('foo');
     expect(Number.isNaN(k)).toBe(false);
@@ -271,5 +282,9 @@ describe('formatArticleNumber', () => {
 
   it('規則は 規則第N条', () => {
     expect(formatArticleNumber('kisoku-1')).toBe('規則第1条');
+  });
+
+  it('経過規定は 経過規定第N条', () => {
+    expect(formatArticleNumber('keika-1')).toBe('経過規定第1条');
   });
 });

@@ -52,11 +52,11 @@ export async function generateMetadata({
 const ARTICLES_PER_PAGE = 100;
 
 // 条文番号から基本番号を抽出（1-2 → 1, 876-5 → 876）
-// suppl-/amend- は classifyArticles() の時点で別配列(supplementary)に振り分け済みのため
-// ここには来ない。kisoku-（規則）は normal 配列に残るため、-1（数値プレフィックスなし）
-// を返し、filterArticlesByRange() 側で最終ページに含める
+// suppl-/amend-/kisoku-/keika- は classifyArticles() の時点でそれぞれ別配列に
+// 振り分け済みのため、normal 配列を対象とするこの関数には本来来ない。
+// 万一渡された場合も非数値プレフィックスとして -1 を返す
 function getBaseArticleNumber(article: string): number {
-  if (/^(?:suppl|amend)-/.test(article)) {
+  if (/^(?:suppl|amend|kisoku|keika)-/.test(article)) {
     return -1;
   }
   // 枝番（1-2など）は基本番号を返す
@@ -68,13 +68,21 @@ function getBaseArticleNumber(article: string): number {
 }
 
 // 条文を分類
+// 既知の制約: 現状 kisoku-/keika- を持つ法律は本文100条未満のため未対応。
+// 本文が100条を超える法律に kisoku-/keika- を追加する場合は要ページング対応
 function classifyArticles(articles: ArticleNavRow[]) {
   const normal: ArticleNavRow[] = [];
+  const kisoku: ArticleNavRow[] = [];
+  const keika: ArticleNavRow[] = [];
   const supplementary: ArticleNavRow[] = [];
 
   for (const article of articles) {
     const articleStr = String(article.article);
-    if (/^(?:suppl|amend)-/.test(articleStr)) {
+    if (/^kisoku-/.test(articleStr)) {
+      kisoku.push(article);
+    } else if (/^keika-/.test(articleStr)) {
+      keika.push(article);
+    } else if (/^(?:suppl|amend)-/.test(articleStr)) {
       supplementary.push(article);
     } else {
       normal.push(article);
@@ -85,11 +93,15 @@ function classifyArticles(articles: ArticleNavRow[]) {
   normal.sort(
     (a, b) => getArticleSortKey(String(a.article)) - getArticleSortKey(String(b.article))
   );
+  kisoku.sort(
+    (a, b) => getArticleSortKey(String(a.article)) - getArticleSortKey(String(b.article))
+  );
+  keika.sort((a, b) => getArticleSortKey(String(a.article)) - getArticleSortKey(String(b.article)));
   supplementary.sort(
     (a, b) => getArticleSortKey(String(a.article)) - getArticleSortKey(String(b.article))
   );
 
-  return { normal, supplementary };
+  return { normal, kisoku, keika, supplementary };
 }
 
 // 条文番号の範囲でページを計算
@@ -122,9 +134,10 @@ function getArticlePageRanges(
 }
 
 // 指定された条文番号範囲の条文をフィルタ
-// kisoku-（規則）のような数値プレフィックスを持たない条文（baseNum === -1）は
-// どの数値範囲にも属さないため、そのままだとページング発生時に全ページから
-// 消えてしまう。本文の直後に位置づけられる条文なので、最終ページに含める
+// kisoku-/keika-/suppl-/amend- は classifyArticles() の時点でそれぞれ別配列に
+// 振り分け済みのため、この関数が実際に受け取るのは通常条文・枝番のみの normal 配列。
+// baseNum === -1（数値プレフィックスなし）の分岐は、現行データでは到達しない
+// 防御的フォールバックとして残している
 function filterArticlesByRange(
   articles: ArticleNavRow[],
   start: number,
@@ -219,7 +232,7 @@ export default async function LawArticlesPage({
   }
 
   // 条文を分類
-  const { normal, supplementary } = classifyArticles(articles);
+  const { normal, kisoku, keika, supplementary } = classifyArticles(articles);
 
   // 条文番号ベースでページ範囲を計算
   const pageRanges = getArticlePageRanges(normal);
@@ -326,6 +339,34 @@ export default async function LawArticlesPage({
               law={law}
               currentPage={currentPage}
             />
+          )}
+
+          {/* 付属規則セクション（ページングがなく、通常条文と一緒に表示する場合） */}
+          {!needsPagination && kisoku.length > 0 && !isSupplPage && (
+            <div className="mt-8">
+              <h2 className="text-xl font-bold text-[#E94E77] border-b-2 border-[#E94E77] pb-2 mb-4">
+                付属規則
+              </h2>
+              <ArticleListWithEeyan
+                articles={toArticleData(kisoku, law_category, law, famousArticles, true)}
+                lawCategory={law_category}
+                law={law}
+              />
+            </div>
+          )}
+
+          {/* 経過規定セクション（ページングがなく、通常条文と一緒に表示する場合） */}
+          {!needsPagination && keika.length > 0 && !isSupplPage && (
+            <div className="mt-8">
+              <h2 className="text-xl font-bold text-[#E94E77] border-b-2 border-[#E94E77] pb-2 mb-4">
+                経過規定
+              </h2>
+              <ArticleListWithEeyan
+                articles={toArticleData(keika, law_category, law, famousArticles, true)}
+                lawCategory={law_category}
+                law={law}
+              />
+            </div>
           )}
 
           {/* 附則セクション（ページングがなく、通常条文と一緒に表示する場合） */}
