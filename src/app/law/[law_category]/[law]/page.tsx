@@ -52,10 +52,12 @@ export async function generateMetadata({
 const ARTICLES_PER_PAGE = 100;
 
 // 条文番号から基本番号を抽出（1-2 → 1, 876-5 → 876）
+// suppl-/amend- は classifyArticles() の時点で別配列(supplementary)に振り分け済みのため
+// ここには来ない。kisoku-（規則）は normal 配列に残るため、-1（数値プレフィックスなし）
+// を返し、filterArticlesByRange() 側で最終ページに含める
 function getBaseArticleNumber(article: string): number {
-  // suppl-1 や amend-1 は特別扱い
   if (/^(?:suppl|amend)-/.test(article)) {
-    return -1; // 附則は別扱い
+    return -1;
   }
   // 枝番（1-2など）は基本番号を返す
   const match = article.match(/^(\d+)/);
@@ -120,13 +122,20 @@ function getArticlePageRanges(
 }
 
 // 指定された条文番号範囲の条文をフィルタ
+// kisoku-（規則）のような数値プレフィックスを持たない条文（baseNum === -1）は
+// どの数値範囲にも属さないため、そのままだとページング発生時に全ページから
+// 消えてしまう。本文の直後に位置づけられる条文なので、最終ページに含める
 function filterArticlesByRange(
   articles: ArticleNavRow[],
   start: number,
-  end: number
+  end: number,
+  isLastRange: boolean
 ): ArticleNavRow[] {
   return articles.filter((article) => {
     const baseNum = getBaseArticleNumber(String(article.article));
+    if (baseNum === -1) {
+      return isLastRange;
+    }
     return baseNum >= start && baseNum <= end;
   });
 }
@@ -218,8 +227,9 @@ export default async function LawArticlesPage({
 
   // 現在のページの条文番号範囲
   const currentRange = pageRanges[currentPage - 1] || pageRanges[0];
+  const isLastRange = currentPage >= pageRanges.length;
   const currentArticles = needsPagination
-    ? filterArticlesByRange(normal, currentRange.start, currentRange.end)
+    ? filterArticlesByRange(normal, currentRange.start, currentRange.end, isLastRange)
     : normal;
 
   const basePath = `/law/${law_category}/${law}`;
