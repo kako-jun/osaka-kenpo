@@ -15,6 +15,21 @@ categories:
       - id: kinchu_kuge_shohatto
         path: /law/jp_hist/kinchu_kuge_shohatto
         status: available
+      - id: bill_of_rights
+        path: /law/world_hist/bill_of_rights
+        status: available
+      - id: gokajou_no_goseimon
+        path: /law/jp_hist/gokajou_no_goseimon
+        status: available
+      - id: outer_space_treaty
+        path: /law/treaty/outer_space_treaty
+        status: available
+      - id: konden_einen_shizai_hou
+        path: /law/jp_hist/konden_einen_shizai_hou
+        status: available
+      - id: metre_convention
+        path: /law/treaty/metre_convention
+        status: available
   - id: roppou
     title: ろっぽう（＋会社法）
     icon: ⚖️
